@@ -1,0 +1,933 @@
+import React, { useState, useEffect } from 'react';
+const StoryWithHighlights = ({ storyText, vocabList }) => {
+  if (!storyText || !vocabList) return null;
+
+  // 1. Lấy danh sách các từ tiếng Anh
+  const wordsToHighlight = vocabList.map((w) => w.en);
+
+  // 2. Tạo bộ lọc tìm kiếm chính xác từng từ (không bị dính vào code HTML)
+  // Ký tự \b giúp chỉ tìm từ đứng độc lập
+  const regex = new RegExp(`\\b(${wordsToHighlight.join('|')})\\b`, 'gi');
+
+  // 3. Cắt đoạn văn thành các phần nhỏ
+  const textParts = storyText.split(regex);
+
+  return (
+    <div className="whitespace-pre-wrap leading-relaxed">
+      {textParts.map((part, index) => {
+        // Tìm xem đoạn chữ này có nằm trong danh sách từ vựng không
+        const matchedWord = vocabList.find(
+          (vocab) => vocab.en.toLowerCase() === part.toLowerCase()
+        );
+
+        if (matchedWord) {
+          // Nếu ĐÚNG là từ vựng -> Bôi vàng và thêm hiệu ứng
+          return (
+             <span
+              key={index}
+              className="text-black inline-block bg-yellow-300 font-bold px-1 rounded cursor-pointer transform hover:-translate-y-1 hover:rotate-2 transition-transform duration-200"
+              title={`Nghĩa: ${matchedWord.vi} | Phát âm: ${matchedWord.ipa}`}
+            >
+              {part}
+            </span>
+          );
+        }
+
+        // Nếu KHÔNG PHẢI từ vựng -> In ra chữ bình thường
+        return <span key={index}>{part}</span>;
+      })}
+    </div>
+  );
+};
+// ==========================================
+// 1. DỮ LIỆU TỪ VỰNG CHUẨN VSTEP / IELTS (Học qua ngữ cảnh)
+// ==========================================
+const vocabData = [
+  {
+    id: 'tech-modern-life',
+    title: '💻 Công Nghệ & Đời Sống',
+    description: 'Từ vựng VSTEP về kỷ nguyên số, thiết bị, mạng internet',
+    words: [
+      { en: 'Innovative', type: '(adj)', vi: 'Sáng tạo, đột phá', ipa: '/ˈɪnəvətɪv/', example: 'The company has developed an innovative software.', viExample: 'Công ty đã phát triển một phần mềm mang tính đột phá.' },
+      { en: 'Gadget', type: '(n)', vi: 'Thiết bị điện tử (nhỏ)', ipa: '/ˈɡædʒɪt/', example: 'Smartphones are essential gadgets today.', viExample: 'Điện thoại thông minh là thiết bị thiết yếu ngày nay.' },
+      { en: 'Addiction', type: '(n)', vi: 'Sự nghiện ngập', ipa: '/əˈdɪkʃn/', example: 'Internet addiction is a serious problem for teenagers.', viExample: 'Nghiện internet là một vấn đề nghiêm trọng đối với thanh thiếu niên.' },
+      { en: 'Virtual', type: '(adj)', vi: 'Ảo (trên mạng)', ipa: '/ˈvɜːtʃuəl/', example: 'They held a virtual meeting via Zoom.', viExample: 'Họ đã tổ chức một cuộc họp ảo qua Zoom.' },
+      { en: 'Cybercrime', type: '(n)', vi: 'Tội phạm mạng', ipa: '/ˈsaɪbəkraɪm/', example: 'We must protect our data from cybercrime.', viExample: 'Chúng ta phải bảo vệ dữ liệu khỏi tội phạm mạng.' },
+    ],
+    storyEn: "In the 21st century, many Innovative companies have created smart Gadgets that make our lives easier. However, spending too much time in the Virtual world can lead to screen Addiction. Furthermore, as we share more personal data online, the risk of Cybercrime is increasing rapidly. We must be careful while using the internet.",
+    storyVi: "Trong thế kỷ 21, nhiều công ty mang tính Đột phá đã tạo ra các Thiết bị điện tử thông minh giúp cuộc sống chúng ta dễ dàng hơn. Tuy nhiên, dành quá nhiều thời gian trong thế giới Ảo có thể dẫn đến Sự nghiện màn hình. Hơn nữa, khi chúng ta chia sẻ nhiều dữ liệu cá nhân trực tuyến, rủi ro Tội phạm mạng đang tăng lên nhanh chóng. Chúng ta phải cẩn thận khi sử dụng internet."
+  },
+  {
+    id: 'work-career',
+    title: '🏢 Công Việc & Sự Nghiệp',
+    description: 'Từ vựng giao tiếp công sở, phỏng vấn, thăng tiến',
+    words: [
+      { en: 'Productivity', type: '(n)', vi: 'Năng suất', ipa: '/ˌprɒdʌkˈtɪvəti/', example: 'Listening to music can increase your productivity.', viExample: 'Nghe nhạc có thể tăng năng suất của bạn.' },
+      { en: 'Collaborate', type: '(v)', vi: 'Hợp tác, phối hợp', ipa: '/kəˈlæbəreɪt/', example: 'We need to collaborate to finish this project.', viExample: 'Chúng ta cần hợp tác để hoàn thành dự án này.' },
+      { en: 'Promotion', type: '(n)', vi: 'Sự thăng tiến, thăng chức', ipa: '/prəˈməʊʃn/', example: 'He worked hard to get a promotion.', viExample: 'Anh ấy làm việc chăm chỉ để được thăng chức.' },
+      { en: 'Overcome', type: '(v)', vi: 'Vượt qua (khó khăn)', ipa: '/ˌəʊvəˈkʌm/', example: 'She managed to overcome all obstacles.', viExample: 'Cô ấy đã xoay xở để vượt qua mọi trở ngại.' },
+      { en: 'Commute', type: '(v/n)', vi: 'Đi làm (từ nhà đến nơi làm)', ipa: '/kəˈmjuːt/', example: 'I commute to work by bus every day.', viExample: 'Tôi đi làm bằng xe buýt mỗi ngày.' },
+    ],
+    storyEn: "To get a Promotion at work, you must show high Productivity. It is also important to Collaborate well with your team members. Every day, I Commute to the office by train. Even when there are difficult tasks, we always try to Overcome the challenges together to achieve our goals.",
+    storyVi: "Để có được Sự thăng chức trong công việc, bạn phải thể hiện Năng suất cao. Việc Hợp tác tốt với các thành viên trong nhóm cũng rất quan trọng. Mỗi ngày, tôi Đi làm đến văn phòng bằng tàu hỏa. Thậm chí khi có những nhiệm vụ khó khăn, chúng tôi luôn cố gắng Vượt qua những thử thách cùng nhau để đạt được mục tiêu."
+  },
+  {
+    id: 'education-learning',
+    title: '🎓 Giáo Dục & Học Tập',
+    description: 'Từ vựng VSTEP chủ đề thi cử, trường học',
+    words: [
+      { en: 'Curriculum', type: '(n)', vi: 'Chương trình giảng dạy', ipa: '/kəˈrɪkjələm/', example: 'The school has updated its math curriculum.', viExample: 'Trường đã cập nhật chương trình dạy toán.' },
+      { en: 'Scholarship', type: '(n)', vi: 'Học bổng', ipa: '/ˈskɒləʃɪp/', example: 'She won a scholarship to study abroad.', viExample: 'Cô ấy đã giành được học bổng để đi du học.' },
+      { en: 'Plagiarism', type: '(n)', vi: 'Sự đạo văn', ipa: '/ˈpleɪdʒərɪzəm/', example: 'Plagiarism is strictly forbidden in universities.', viExample: 'Đạo văn bị nghiêm cấm ở các trường đại học.' },
+      { en: 'Extracurricular', type: '(adj)', vi: 'Ngoại khóa', ipa: '/ˌekstrəkəˈrɪkjələ(r)/', example: 'Students should join extracurricular activities.', viExample: 'Học sinh nên tham gia các hoạt động ngoại khóa.' },
+      { en: 'Evaluate', type: '(v)', vi: 'Đánh giá', ipa: '/ɪˈvæljueɪt/', example: 'Teachers evaluate students based on their test scores.', viExample: 'Giáo viên đánh giá học sinh dựa trên điểm bài kiểm tra của họ.' },
+    ],
+    storyEn: "To get a good Scholarship, students must study hard according to the school Curriculum. However, they should never commit Plagiarism in their essays. Teachers will Evaluate not only academic scores but also participation in Extracurricular activities like sports or volunteer work.",
+    storyVi: "Để nhận được Học bổng tốt, sinh viên phải học chăm chỉ theo Chương trình giảng dạy của trường. Tuy nhiên, họ không bao giờ được phép Đạo văn trong các bài luận. Giáo viên sẽ Đánh giá không chỉ điểm số học thuật mà còn cả sự tham gia vào các hoạt động Ngoại khóa như thể thao hoặc công việc tình nguyện."
+  },
+  {
+    id: 'environment-nature',
+    title: '🌳 Môi Trường & Thiên Nhiên',
+    description: 'Từ vựng viết Essay VSTEP/IELTS về Trái Đất',
+    words: [
+      { en: 'Pollution', type: '(n)', vi: 'Sự ô nhiễm', ipa: '/pəˈluːʃn/', example: 'Air pollution is a major problem in big cities.', viExample: 'Ô nhiễm không khí là một vấn đề lớn ở các thành phố lớn.' },
+      { en: 'Deforestation', type: '(n)', vi: 'Sự tàn phá rừng', ipa: '/ˌdiːˌfɒrɪˈsteɪʃn/', example: 'Deforestation leads to the loss of animal habitats.', viExample: 'Sự tàn phá rừng dẫn đến mất môi trường sống của động vật.' },
+      { en: 'Sustainable', type: '(adj)', vi: 'Bền vững', ipa: '/səˈsteɪnəbl/', example: 'We need to find sustainable energy sources.', viExample: 'Chúng ta cần tìm các nguồn năng lượng bền vững.' },
+      { en: 'Endangered', type: '(adj)', vi: 'Có nguy cơ tuyệt chủng', ipa: '/ɪnˈdeɪndʒəd/', example: 'Tigers are an endangered species.', viExample: 'Hổ là một loài có nguy cơ tuyệt chủng.' },
+      { en: 'Emission', type: '(n)', vi: 'Sự thải ra, khí thải', ipa: '/ɪˈmɪʃn/', example: 'The government aims to reduce carbon emissions.', viExample: 'Chính phủ đặt mục tiêu giảm lượng khí thải carbon.' },
+    ],
+    storyEn: "Global Pollution is increasing due to high carbon Emission from factories. Another big issue is Deforestation, which destroys the homes of many Endangered animals. To protect our planet, we must switch to Sustainable lifestyles and renewable energy.",
+    storyVi: "Sự ô nhiễm toàn cầu đang gia tăng do Lượng khí thải carbon cao từ các nhà máy. Một vấn đề lớn khác là Sự tàn phá rừng, điều này phá hủy ngôi nhà của nhiều loài động vật Có nguy cơ tuyệt chủng. Để bảo vệ hành tinh, chúng ta phải chuyển sang lối sống Bền vững và năng lượng tái tạo."
+  },
+  {
+    id: 'health-medicine',
+    title: '🏥 Sức Khỏe & Y Tế',
+    description: 'Từ vựng VSTEP về bệnh tật, điều trị, lối sống lành mạnh',
+    words: [
+      { en: 'Symptom', type: '(n)', vi: 'Triệu chứng', ipa: '/ˈsɪmptəm/', example: 'Fever and cough are common symptoms of the flu.', viExample: 'Sốt và ho là những triệu chứng phổ biến của cúm.' },
+      { en: 'Prescription', type: '(n)', vi: 'Đơn thuốc', ipa: '/prɪˈskrɪpʃn/', example: 'You can only buy this medicine with a prescription.', viExample: 'Bạn chỉ có thể mua loại thuốc này nếu có đơn thuốc.' },
+      { en: 'Diagnose', type: '(v)', vi: 'Chẩn đoán', ipa: '/ˈdaɪəɡnəʊz/', example: 'The doctor diagnosed him with diabetes.', viExample: 'Bác sĩ chẩn đoán anh ấy mắc bệnh tiểu đường.' },
+      { en: 'Epidemic', type: '(n)', vi: 'Dịch bệnh', ipa: '/ˌepɪˈdemɪk/', example: 'The government took steps to prevent the epidemic.', viExample: 'Chính phủ đã thực hiện các bước để ngăn chặn dịch bệnh.' },
+      { en: 'Nutritious', type: '(adj)', vi: 'Bổ dưỡng', ipa: '/njuˈtrɪʃəs/', example: 'Vegetables and fruits are very nutritious.', viExample: 'Rau và trái cây rất bổ dưỡng.' },
+    ],
+    storyEn: "When you have a strange Symptom like a high fever, you should see a doctor immediately. The doctor will Diagnose your condition and give you a Prescription to buy medicine. To avoid catching diseases during an Epidemic, it is important to eat Nutritious food and exercise regularly.",
+    storyVi: "Khi bạn có một Triệu chứng lạ như sốt cao, bạn nên đi khám bác sĩ ngay lập tức. Bác sĩ sẽ Chẩn đoán tình trạng của bạn và cung cấp cho một Đơn thuốc để mua thuốc. Để tránh mắc bệnh trong một Dịch bệnh, điều quan trọng là phải ăn thực phẩm Bổ dưỡng và tập thể dục thường xuyên."
+  },
+  {
+    id: 'travel-tourism',
+    title: '✈️ Du Lịch & Dịch Vụ',
+    description: 'Từ vựng đặt phòng, lịch trình, khám phá',
+    words: [
+      { en: 'Itinerary', type: '(n)', vi: 'Lịch trình', ipa: '/aɪˈtɪnərəri/', example: 'We have a very busy itinerary for our trip.', viExample: 'Chúng tôi có một lịch trình rất bận rộn cho chuyến đi.' },
+      { en: 'Accommodation', type: '(n)', vi: 'Chỗ ở', ipa: '/əˌkɒməˈdeɪʃn/', example: 'Finding cheap accommodation in the city center is hard.', viExample: 'Tìm chỗ ở rẻ ở trung tâm thành phố rất khó.' },
+      { en: 'Souvenir', type: '(n)', vi: 'Quà lưu niệm', ipa: '/ˌsuːvəˈnɪə(r)/', example: 'I bought a wooden hat as a souvenir.', viExample: 'Tôi đã mua một chiếc mũ gỗ làm quà lưu niệm.' },
+      { en: 'Destination', type: '(n)', vi: 'Điểm đến', ipa: '/ˌdestɪˈneɪʃn/', example: 'Paris is a popular tourist destination.', viExample: 'Paris là một điểm đến du lịch nổi tiếng.' },
+      { en: 'Sightseeing', type: '(n)', vi: 'Sự ngắm cảnh', ipa: '/ˈsaɪtsiːɪŋ/', example: 'We spent the whole day sightseeing in London.', viExample: 'Chúng tôi dành cả ngày ngắm cảnh ở London.' },
+    ],
+    storyEn: "Before traveling to a new Destination, you should plan your Itinerary carefully. First, book your Accommodation early to get a good price. During the trip, you can go Sightseeing to explore famous landmarks. Finally, don't forget to buy a Souvenir for your friends.",
+    storyVi: "Trước khi đi du lịch đến một Điểm đến mới, bạn nên lên Lịch trình cẩn thận. Đầu tiên, hãy đặt Chỗ ở sớm để có giá tốt. Trong chuyến đi, bạn có thể đi Ngắm cảnh để khám phá các địa danh nổi tiếng. Cuối cùng, đừng quên mua một Quà lưu niệm cho bạn bè của bạn."
+  },
+  {
+    id: 'daily-routine-time-management',
+    title: '⏰ Thói Quen & Quản Lý Thời Gian (daily-routine-time-management)',
+    description: 'Từ vựng tiếng Anh về thói quen sinh hoạt, sắp xếp công việc và tối ưu hóa thời gian.',
+    words: [
+      { en: 'Efficient', type: '(adj)', vi: 'hiệu quả', ipa: '/ɪˈfɪʃnt/', example: 'We need a more efficient way to manage our time.', viExample: 'Chúng ta cần một cách hiệu quả hơn để quản lý thời gian.' },
+      { en: 'Slot', type: '(n)', vi: 'khoảng thời gian', ipa: '/slɒt/', example: 'I have a free slot in my schedule at 3 PM.', viExample: 'Tôi có một khoảng thời gian trống trong lịch trình lúc 3 giờ chiều.' },
+      { en: 'Log', type: '(v)', vi: 'ghi chép lại', ipa: '/lɒɡ/', example: 'You should log your daily activities to see where your time goes.', viExample: 'Bạn nên ghi chép lại các hoạt động hằng ngày để xem thời gian của mình trôi đi đâu.' },
+      { en: 'Concentration', type: '(n)', vi: 'sự tập trung', ipa: '/ˌkɒnsnˈtreɪʃn/', example: 'Loud noise can break your concentration during study hours.', viExample: 'Tiếng ồn lớn có thể làm hỏng sự tập trung của bạn trong giờ học.' },
+      { en: 'Eliminate', type: '(v)', vi: 'loại bỏ', ipa: '/ɪˈlɪmɪneɪt/', example: 'You should try to eliminate unnecessary tasks from your schedule.', viExample: 'Bạn nên cố gắng loại bỏ các nhiệm vụ không cần thiết khỏi lịch trình của mình.' },
+      { en: 'Sequence', type: '(n)', vi: 'thứ tự', ipa: '/ˈsiːkwəns/', example: 'The sequence of tasks is important for the project\'s success.', viExample: 'Thứ tự các nhiệm vụ rất quan trọng đối với sự thành công của dự án.' },
+      { en: 'Peak', type: '(n)', vi: 'cao điểm', ipa: '/piːk/', example: 'I do my most important work during my peak energy hours.', viExample: 'Tôi làm những công việc quan trọng nhất vào những giờ năng lượng cao điểm của mình.' },
+      { en: 'Avoid', type: '(v)', vi: 'tránh', ipa: '/əˈvɔɪd/', example: 'You should avoid staying up late every night.', viExample: 'Bạn nên tránh thức khuya mỗi đêm.' },
+      { en: 'Incorporate', type: '(v)', vi: 'kết hợp', ipa: '/ɪnˈkɔːpəreɪt/', example: 'You should incorporate physical activity into your daily life.', viExample: 'Bạn nên kết hợp hoạt động thể chất vào cuộc sống hằng ngày của mình.' },
+      { en: 'Overwhelmed', type: '(adj)', vi: 'bị choáng ngợp', ipa: '/ˌəʊvəˈwelmd/', example: 'I felt overwhelmed by the amount of work I had to do.', viExample: 'Tôi cảm thấy bị choáng ngợp bởi lượng công việc mà tôi phải làm.' },
+      { en: 'Slot in', type: '(v)', vi: 'xếp vào', ipa: '/slɒt ɪn/', example: 'I\'ll try to slot in a meeting with you on Friday afternoon.', viExample: 'Tôi sẽ cố gắng xếp vào một cuộc họp với bạn vào chiều thứ Sáu.' },
+      { en: 'Productive habit', type: '(phrase)', vi: 'thói quen hiệu quả', ipa: '/prəˈdʌktɪv ˈhæbɪt/', example: 'Waking up early is a productive habit that many successful people share.', viExample: 'Dậy sớm là một thói quen hiệu quả mà nhiều người thành công chia sẻ.' },
+      { en: 'Productivity', type: '(n)', vi: 'năng suất lao động', ipa: '/ˌprɒdʌkˈtɪvəti/', example: 'Taking short breaks can actually increase your productivity.', viExample: 'Nghỉ giải lao ngắn thực tế có thể làm tăng năng suất lao động của bạn.' },
+      { en: 'Routine task', type: '(phrase)', vi: 'công việc hằng ngày', ipa: '/ruːˈtiːn tɑːsk/', example: 'Checking emails is a routine task that I do every morning.', viExample: 'Kiểm tra email là một công việc hằng ngày mà tôi làm mỗi sáng.' },
+      { en: 'Workload', type: '(n)', vi: 'khối lượng công việc', ipa: '/ˈwɜːkləʊd/', example: 'She is struggling with a heavy workload.', viExample: 'Cô ấy đang gặp khó khăn với khối lượng công việc nặng nề.' },
+      { en: 'Workplace', type: '(n)', vi: 'nơi làm việc', ipa: '/ˈwɜːkpleɪs/', example: 'Time management is a very important skill in the workplace.', viExample: 'Quản lý thời gian là một kỹ năng rất quan trọng tại nơi làm việc.' },
+      { en: 'Alarm clock', type: '(n)', vi: 'đồng hồ báo thức', ipa: '/əˈlɑːm klɒk/', example: 'My alarm clock goes off at 6:00 AM every morning.', viExample: 'Đồng hồ báo thức của tôi reo vào lúc 6 giờ sáng mỗi ngày.' },
+      { en: 'Balance', type: '(v)', vi: 'cân bằng', ipa: '/ˈbæləns/', example: 'It\'s hard to balance work and family life.', viExample: 'Thật khó để cân bằng giữa công việc và cuộc sống gia đình.' },
+      { en: 'Urgent', type: '(adj)', vi: 'khẩn cấp', ipa: '/ˈɜːdʒənt/', example: 'I have an urgent message for the manager.', viExample: 'Tôi có một tin nhắn khẩn cấp cho người quản lý.' },
+      { en: 'Effective', type: '(adj)', vi: 'có hiệu quả', ipa: '/ɪˈfektɪv/', example: 'Creating a list is an effective way to remember what to buy.', viExample: 'Tạo một danh sách là một cách có hiệu quả để nhớ những gì cần mua.' },
+      { en: 'Urgency', type: '(n)', vi: 'sự khẩn cấp', ipa: '/ˈɜːdʒənsi/', example: 'There is a sense of urgency to finish the report before the weekend.', viExample: 'Có một cảm giác khẩn cấp phải hoàn thành bản báo cáo trước cuối tuần.' },
+      { en: 'Strict', type: '(adj)', vi: 'nghiêm ngặt', ipa: '/strɪkt/', example: 'My father is very strict about my bedtime.', viExample: 'Bố tôi rất nghiêm ngặt về giờ đi ngủ của tôi.' },
+      { en: 'Leisure time', type: '(n)', vi: 'thời gian rảnh rỗi', ipa: '/ˈleʒə(r) taɪm/', example: 'I like to go swimming in my leisure time.', viExample: 'Tôi thích đi bơi vào thời gian rảnh rỗi của mình.' },
+      { en: 'Distraction', type: '(n)', vi: 'sự xao nhãng', ipa: '/dɪˈstrækʃn/', example: 'I need a quiet place to study without any distraction.', viExample: 'Tôi cần một nơi yên tĩnh để học mà không có bất kỳ sự xao nhãng nào.' },
+      { en: 'Work-life balance', type: '(n)', vi: 'cân bằng công việc và cuộc sống', ipa: '/wɜːk laɪf ˈbæləns/', example: 'Maintaining a good work-life balance is essential for health.', viExample: 'Duy trì sự cân bằng công việc và cuộc sống tốt là điều cần thiết cho sức khỏe.' },
+      { en: 'Adjust', type: '(v)', vi: 'điều chỉnh', ipa: '/əˈdʒʌst/', example: 'You may need to adjust your schedule if something unexpected happens.', viExample: 'Bạn có thể cần điều chỉnh lịch trình của mình nếu có điều gì đó bất ngờ xảy ra.' },
+      { en: 'Establish', type: '(v)', vi: 'thiết lập', ipa: '/ɪˈstæblɪʃ/', example: 'It is helpful to establish a fixed time for morning exercise.', viExample: 'Việc thiết lập một thời gian cố định cho việc tập thể dục buổi sáng là rất hữu ích.' },
+      { en: 'Estimate', type: '(v)', vi: 'ước tính', ipa: '/ˈestɪmeɪt/', example: 'Try to estimate how long each task will take.', viExample: 'Hãy cố gắng ước tính mỗi nhiệm vụ sẽ mất bao lâu.' },
+      { en: 'Inflexible', type: '(adj)', vi: 'cứng nhắc', ipa: '/ɪnˈfleksəbl/', example: 'His routine is quite inflexible and he hates changes.', viExample: 'Thói quen của anh ấy khá cứng nhắc và anh ấy ghét những sự thay đổi.' },
+      { en: 'Time limit', type: '(n)', vi: 'giới hạn thời gian', ipa: '/ˈtaɪm lɪmɪt/', example: 'There is a 30-minute time limit for the test.', viExample: 'Có một giới hạn thời gian là 30 phút cho bài kiểm tra.' },
+      { en: 'Organize', type: '(v)', vi: 'sắp xếp', ipa: '/ˈɔːɡənaɪz/', example: 'She needs to organize her desk to work more efficiently.', viExample: 'Cô ấy cần sắp xếp bàn làm việc để làm việc hiệu quả hơn.' },
+      { en: 'Allocate resources', type: '(phrase)', vi: 'phân bổ nguồn lực', ipa: '/ˈæləkeɪt rɪˈsɔːsɪz/', example: 'The company needs to allocate resources wisely to save money.', viExample: 'Công ty cần phân bổ nguồn lực một cách khôn ngoan để tiết kiệm tiền.' },
+      { en: 'Schedule', type: '(n)', vi: 'lịch trình', ipa: '/ˈʃedjuːl/', example: 'I have a very busy schedule this week.', viExample: 'Tôi có một lịch trình rất bận rộn trong tuần này.' },
+      { en: 'Time-consuming', type: '(adj)', vi: 'tốn thời gian', ipa: '/ˈtaɪm kənsuːmɪŋ/', example: 'Writing reports can be very time-consuming.', viExample: 'Viết báo cáo có thể rất tốn thời gian.' },
+      { en: 'Fulfill', type: '(v)', vi: 'hoàn thành', ipa: '/fʊlˈfɪl/', example: 'He managed to fulfill all his responsibilities by the end of the day.', viExample: 'Anh ấy đã xoay xở để hoàn thành tất cả trách nhiệm của mình vào cuối ngày.' },
+      { en: 'Nap', type: '(n)', vi: 'giấc ngủ ngắn', ipa: '/næp/', example: 'I usually take a short nap after lunch.', viExample: 'Tôi thường có một giấc ngủ ngắn sau bữa trưa.' },
+      { en: 'Burnout', type: '(n)', vi: 'sự kiệt sức', ipa: '/ˈbɜːnaʊt/', example: 'Working too many hours without a break can lead to burnout.', viExample: 'Làm việc quá nhiều giờ mà không nghỉ ngơi có thể dẫn đến sự kiệt sức.' },
+      { en: 'Keep track of', type: '(phrase)', vi: 'theo dõi', ipa: '/kiːp træk əv/', example: 'It is difficult to keep track of all the changes in the schedule.', viExample: 'Thật khó để theo dõi tất cả những thay đổi trong lịch trình.' },
+      { en: 'Productive day', type: '(phrase)', vi: 'ngày làm việc hiệu quả', ipa: '/prəˈdʌktɪv deɪ/', example: 'I hope to have a very productive day tomorrow.', viExample: 'Tôi hy vọng sẽ có một ngày làm việc hiệu quả vào ngày mai.' },
+      { en: 'Take a nap', type: '(phrase)', vi: 'ngủ trưa', ipa: '/teɪk ə næp/', example: 'I feel much more energetic after I take a nap.', viExample: 'Tôi cảm thấy tràn đầy năng lượng hơn sau khi ngủ trưa.' },
+      { en: 'Stressful', type: '(adj)', vi: 'căng thẳng', ipa: '/ˈstresfl/', example: 'Moving to a new house can be very stressful.', viExample: 'Chuyển đến một ngôi nhà mới có thể rất căng thẳng.' },
+      { en: 'Priority', type: '(n)', vi: 'sự ưu tiên', ipa: '/praɪˈɒrəti/', example: 'Safety is our first priority.', viExample: 'An toàn là sự ưu tiên hàng đầu của chúng tôi.' },
+      { en: 'Track', type: '(v)', vi: 'theo dõi', ipa: '/træk/', example: 'I use an app to track how much time I spend on social media.', viExample: 'Tôi sử dụng một ứng dụng để theo dõi tôi dành bao nhiêu thời gian cho mạng xã hội.' },
+      { en: 'Procrastinate', type: '(v)', vi: 'trì hoãn', ipa: '/prəˈkræstɪneɪt/', example: 'Stop procrastinating and do your homework now.', viExample: 'Đừng trì hoãn nữa và hãy làm bài tập về nhà ngay đi.' },
+      { en: 'Regularly', type: '(adv)', vi: 'thường xuyên', ipa: '/ˈreɡjələli/', example: 'She regularly updates her to-do list throughout the day.', viExample: 'Cô ấy thường xuyên cập nhật danh sách việc cần làm của mình trong suốt cả ngày.' },
+      { en: 'Punctual', type: '(adj)', vi: 'đúng giờ', ipa: '/ˈpʌŋktʃuəl/', example: 'It is important to be punctual for a job interview.', viExample: 'Việc đúng giờ cho một buổi phỏng vấn xin việc là rất quan trọng.' },
+      { en: 'Consistently', type: '(adv)', vi: 'một cách kiên trì', ipa: '/kənˈsɪstəntli/', example: 'You need to practice consistently to improve your English.', viExample: 'Bạn cần luyện tập một cách kiên trì để cải thiện tiếng Anh của mình.' },
+      { en: 'Peak performance', type: '(phrase)', vi: 'hiệu suất tối đa', ipa: '/piːk pəˈfɔːməns/', example: 'Getting enough sleep is necessary for peak performance.', viExample: 'Ngủ đủ giấc là cần thiết để đạt được hiệu suất tối đa.' },
+      { en: 'Delegate', type: '(v)', vi: 'giao phó', ipa: '/ˈdelɪɡeɪt/', example: 'A good manager knows how to delegate tasks to others.', viExample: 'Một người quản lý giỏi biết cách giao phó nhiệm vụ cho người khác.' },
+      { en: 'Simultaneously', type: '(adv)', vi: 'đồng thời', ipa: '/ˌsɪməlˈteɪniəsli/', example: 'It\'s hard to listen to a podcast and write an essay simultaneously.', viExample: 'Thật khó để vừa nghe podcast vừa viết tiểu luận cùng một lúc.' },
+      { en: 'Take a break', type: '(phrase)', vi: 'nghỉ giải lao', ipa: '/teɪk ə breɪk/', example: 'Let\'s take a break for ten minutes.', viExample: 'Hãy nghỉ giải lao trong mười phút.' },
+      { en: 'Minimize', type: '(v)', vi: 'giảm thiểu', ipa: '/ˈmɪnɪmaɪz/', example: 'You should minimize distractions by turning off your phone notifications.', viExample: 'Bạn nên giảm thiểu sự xao nhãng bằng cách tắt thông báo điện thoại.' },
+      { en: 'Allocate', type: '(v)', vi: 'phân bổ', ipa: '/ˈæləkeɪt/', example: 'You should allocate more time for self-study.', viExample: 'Bạn nên phân bổ nhiều thời gian hơn cho việc tự học.' },
+      { en: 'Flexible', type: '(adj)', vi: 'linh hoạt', ipa: '/ˈfleksəbl/', example: 'I have a flexible working schedule.', viExample: 'Tôi có một lịch trình làm việc linh hoạt.' },
+      { en: 'Unproductive', type: '(adj)', vi: 'không hiệu quả', ipa: '/ˌʌnprəˈdʌktɪv/', example: 'Meetings without a clear agenda are often unproductive.', viExample: 'Các cuộc họp mà không có chương trình nghị sự rõ ràng thường không hiệu quả.' },
+      { en: 'Commute', type: '(v)', vi: 'đi lại (đi làm)', ipa: '/kəˈmjuːt/', example: 'He commutes to work by train every day.', viExample: 'Anh ấy đi làm bằng tàu hỏa mỗi ngày.' },
+      { en: 'Multitask', type: '(v)', vi: 'làm nhiều việc cùng lúc', ipa: '/ˌmʌltiˈtɑːsk/', example: 'It is often difficult to multitask effectively without losing focus.', viExample: 'Thường rất khó để làm nhiều việc cùng lúc một cách hiệu quả mà không bị mất tập trung.' },
+      { en: 'Allocate time', type: '(phrase)', vi: 'dành thời gian', ipa: '/ˈæləkeɪt taɪm/', example: 'It is wise to allocate time for unexpected events.', viExample: 'Thật khôn ngoan khi dành thời gian cho những sự kiện bất ngờ.' },
+      { en: 'Tackle', type: '(v)', vi: 'giải quyết', ipa: '/ˈtækl/', example: 'I always tackle the most difficult tasks first in the morning.', viExample: 'Tôi luôn giải quyết những nhiệm vụ khó khăn nhất đầu tiên vào buổi sáng.' },
+      { en: 'Efficiency', type: '(n)', vi: 'hiệu suất', ipa: '/ɪˈfɪʃnsi/', example: 'The new system was designed to improve efficiency in the office.', viExample: 'Hệ thống mới được thiết kế để cải thiện hiệu suất trong văn phòng.' },
+      { en: 'Concentrate', type: '(v)', vi: 'tập trung', ipa: '/ˈkɒnsntreɪt/', example: 'I find it hard to concentrate when the music is too loud.', viExample: 'Tôi thấy khó tập trung khi nhạc quá lớn.' },
+      { en: 'Set a goal', type: '(phrase)', vi: 'đặt mục tiêu', ipa: '/set ə ɡəʊl/', example: 'It\'s helpful to set a goal for each day.', viExample: 'Việc đặt mục tiêu cho mỗi ngày là rất hữu ích.' },
+      { en: 'Efficiently', type: '(adv)', vi: 'một cách hiệu quả', ipa: '/ɪˈfɪʃntli/', example: 'She handles her tasks efficiently every day.', viExample: 'Cô ấy xử lý các nhiệm vụ của mình một cách hiệu quả mỗi ngày.' },
+      { en: 'Habit', type: '(n)', vi: 'thói quen', ipa: '/ˈhæbɪt/', example: 'Reading books before bed is a good habit.', viExample: 'Đọc sách trước khi ngủ là một thói quen tốt.' },
+      { en: 'Sticking to', type: '(phrase)', vi: 'tuân thủ theo', ipa: '/ˈstɪkɪŋ tuː/', example: 'Sticking to a schedule helps you stay organized.', viExample: 'Tuân thủ theo một lịch trình giúp bạn luôn ngăn nắp.' },
+      { en: 'Overtime', type: '(adv)', vi: 'làm thêm giờ', ipa: '/ˈəʊvətaɪm/', example: 'He had to work overtime to finish the project on time.', viExample: 'Anh ấy đã phải làm thêm giờ để hoàn thành dự án đúng hạn.' },
+      { en: 'Time frame', type: '(n)', vi: 'khung thời gian', ipa: '/ˈtaɪm freɪm/', example: 'We need to complete the project within a specific time frame.', viExample: 'Chúng ta cần hoàn thành dự án trong một khung thời gian cụ thể.' },
+      { en: 'Commit', type: '(v)', vi: 'cam kết', ipa: '/kəˈmɪt/', example: 'You need to commit at least thirty minutes a day to learning English.', viExample: 'Bạn cần cam kết dành ít nhất ba mươi phút mỗi ngày để học tiếng Anh.' },
+      { en: 'On time', type: '(phrase)', vi: 'đúng giờ', ipa: '/ɒn taɪm/', example: 'The train arrived exactly on time.', viExample: 'Chuyến tàu đã đến chính xác đúng giờ.' },
+      { en: 'Proactive', type: '(adj)', vi: 'chủ động', ipa: '/ˌprəʊˈæktɪv/', example: 'Being proactive can help you avoid many time-related problems.', viExample: 'Chủ động có thể giúp bạn tránh được nhiều vấn đề liên quan đến thời gian.' },
+      { en: 'Reminder', type: '(n)', vi: 'lời nhắc nhở', ipa: '/rɪˈmaɪndə(r)/', example: 'I set a reminder on my phone for the meeting at 2 PM.', viExample: 'Tôi đặt một lời nhắc nhở trên điện thoại cho cuộc họp lúc 2 giờ chiều.' },
+      { en: 'Postpone', type: '(v)', vi: 'hoãn lại', ipa: '/pəˈspəʊn/', example: 'They had to postpone the meeting until next week.', viExample: 'Họ đã phải hoãn lại cuộc họp cho đến tuần sau.' },
+      { en: 'Deadline-driven', type: '(adj)', vi: 'bị thúc ép bởi hạn chót', ipa: '/ˈdedlaɪn drɪvn/', example: 'Some people are very deadline-driven and work best under pressure.', viExample: 'Một số người rất bị thúc ép bởi hạn chót và làm việc tốt nhất dưới áp lực.' },
+      { en: 'To-do list', type: '(n)', vi: 'danh sách việc cần làm', ipa: '/tə ˈduː lɪst/', example: 'I write a to-do list every morning.', viExample: 'Tôi viết một danh sách việc cần làm mỗi sáng.' },
+      { en: 'Manage', type: '(v)', vi: 'quản lý', ipa: '/ˈmænɪdʒ/', example: 'He finds it hard to manage his workload.', viExample: 'Anh ấy thấy khó khăn trong việc quản lý khối lượng công việc của mình.' },
+      { en: 'In advance', type: '(phrase)', vi: 'trước', ipa: '/ɪn ədˈvɑːns/', example: 'Please let me know in advance if you cannot come.', viExample: 'Vui lòng cho tôi biết trước nếu bạn không thể đến.' },
+      { en: 'Deadline', type: '(n)', vi: 'hạn chót', ipa: '/ˈdedlaɪn/', example: 'We are working hard to meet the deadline.', viExample: 'Chúng tôi đang làm việc chăm chỉ để kịp hạn chót.' },
+      { en: 'Routine', type: '(n)', vi: 'thói quen hằng ngày', ipa: '/ruːˈtiːn/', example: 'Exercise is an important part of my daily routine.', viExample: 'Tập thể dục là một phần quan trọng trong thói quen hằng ngày của tôi.' },
+      { en: 'Prior', type: '(adj)', vi: 'trước', ipa: '/ˈpraɪə(r)/', example: 'I had no prior experience in managing large teams.', viExample: 'Tôi không có kinh nghiệm trước đó trong việc quản lý các nhóm lớn.' },
+      { en: 'Productive', type: '(adj)', vi: 'năng suất', ipa: '/prəˈdʌktɪv/', example: 'I am most productive in the early morning.', viExample: 'Tôi làm việc năng suất nhất vào sáng sớm.' },
+      { en: 'Household chore', type: '(n)', vi: 'việc nhà', ipa: '/ˈhaʊshəʊld tʃɔː(r)/', example: 'Washing the dishes is my least favorite household chore.', viExample: 'Rửa bát là việc nhà mà tôi ít thích nhất.' },
+      { en: 'Disorganized', type: '(adj)', vi: 'vô tổ chức', ipa: '/dɪsˈɔːɡənaɪzd/', example: 'She was so disorganized that she missed the flight.', viExample: 'Cô ấy vô tổ chức đến mức cô ấy đã lỡ chuyến bay.' },
+      { en: 'Pace', type: '(n)', vi: 'nhịp độ', ipa: '/peɪs/', example: 'He works at a very fast pace.', viExample: 'Anh ấy làm việc với một nhịp độ rất nhanh.' },
+      { en: 'Tight', type: '(adj)', vi: 'dày đặc', ipa: '/taɪt/', example: 'I have a very tight schedule today, so I can\'t meet you.', viExample: 'Hôm nay tôi có một lịch trình rất dày đặc, nên tôi không thể gặp bạn.' },
+      { en: 'Daily basis', type: '(phrase)', vi: 'hằng ngày', ipa: '/ˈdeɪli ˈbeɪsɪs/', example: 'You should practice your speaking skills on a daily basis.', viExample: 'Bạn nên luyện tập kỹ năng nói của mình hằng ngày.' },
+      { en: 'Strenuous', type: '(adj)', vi: 'vất vả', ipa: '/ˈstrenjuəs/', example: 'Avoid strenuous exercise immediately after eating.', viExample: 'Tránh tập thể dục vất vả ngay sau khi ăn.' },
+      { en: 'Commitment', type: '(n)', vi: 'sự cam kết', ipa: '/kəˈmɪtmənt/', example: 'Meeting the deadline requires a strong commitment from everyone.', viExample: 'Việc kịp hạn chót đòi hỏi một sự cam kết mạnh mẽ từ mọi người.' },
+      { en: 'Waste time', type: '(phrase)', vi: 'lãng phí thời gian', ipa: '/weɪst taɪm/', example: 'Don\'t waste time scrolling through social media.', viExample: 'Đừng lãng phí thời gian lướt mạng xã hội.' },
+      { en: 'Prioritize', type: '(v)', vi: 'ưu tiên', ipa: '/praɪˈɒrətaɪz/', example: 'You need to prioritize your tasks to finish on time.', viExample: 'Bạn cần ưu tiên các nhiệm vụ của mình để hoàn thành đúng hạn.' }
+    ],
+    storyEn: `📖 PHẦN 1: BUỔI SÁNG HỖN ĐỘN (THE MORNING CHAOS)
+Bob is totally Disorganized. Every morning, his Alarm clock rings, but he decides to Procrastinate. His morning Routine is basically a joke. He has to do a Household chore on a Daily basis, which is just a Routine task like feeding his dog. He tries to Set a goal to be Punctual and arrive On time, but his Schedule is always too Tight. His walking Pace is slow. He realizes he needs a new Habit, specifically a Productive habit. However, Sticking to it is hard. He is very Inflexible and hates to Adjust the Sequence of his morning. His boss is very Strict about time, telling him to stop being late for his Commute.
+
+📖 PHẦN 2: ÁP LỰC VĂN PHÒNG (THE OFFICE STRUGGLE)
+At the Workplace, Bob's Workload is huge. Everything feels Urgent, creating a fake sense of Urgency. He feels Overwhelmed and finds the environment very Stressful. He tries to Multitask and type reports Simultaneously, but it's completely Unproductive. A loud Distraction breaks his Concentration, making it impossible to Concentrate. He tends to Waste time on Time-consuming gossip. His manager yells, "Where is your Productivity? You need to Manage your tasks Efficiently!" Bob writes a To-do list to Tackle his jobs with better Efficiency. He learns to Prioritize the top Priority and be more Efficient.
+
+📖 PHẦN 3: CHẠY DEADLINE (THE PROJECT PANIC)
+Bob faces a terrifying Deadline. Since he is not Deadline-driven, he didn't do anything In advance. He had no Prior plan. Now, he must be Proactive. He sets a Reminder so he doesn't Postpone the work again. The project has a short Time limit and a strict Time frame. Bob decides to Organize his desk and Establish a system. He uses an app to Log and Track his hours, trying to Keep track of everything. He has to Estimate the costs and Allocate resources. He learns to Allocate time properly and Allocate budget. To Avoid mistakes and Eliminate errors, he decides to Delegate some work to his team, making him finally feel Productive.
+
+📖 PHẦN 4: CÂN BẰNG VÀ NGHỈ NGƠI (EXHAUSTION AND BALANCE)
+Working Overtime doing Strenuous tasks led Bob to Burnout. He realized he couldn't maintain Peak performance without rest. During his Peak hours, he tries to Fulfill his Commitment and Commit to his work Consistently and Regularly. But he needs a Flexible approach to Balance his Work-life balance. He decides to Incorporate more Leisure time into his life. He finds a free Slot in his calendar to Slot in a Yoga class. To Minimize stress, he will Take a break, enjoy a short Nap, or just Take a nap under his desk. Now, he has an Effective way to guarantee a Productive day.`,
+    
+    storyVi: `📖 PHẦN 1: BUỔI SÁNG HỖN ĐỘN (THE MORNING CHAOS)
+Bob hoàn toàn Vô tổ chức (Disorganized). Mỗi sáng, Đồng hồ báo thức (Alarm clock) của anh ấy reo, nhưng anh quyết định Trì hoãn (Procrastinate). Thói quen hằng ngày (Routine) buổi sáng của anh cơ bản là một trò đùa. Anh phải làm một Việc nhà (Household chore) Hằng ngày (Daily basis), đó chỉ là một Công việc hằng ngày (Routine task) như cho chó ăn. Anh cố gắng Đặt mục tiêu (Set a goal) để Đúng giờ (Punctual) và đến Đúng giờ (On time), nhưng Lịch trình (Schedule) của anh luôn quá Dày đặc (Tight). Nhịp độ (Pace) đi bộ của anh rất chậm. Anh nhận ra mình cần một Thói quen (Habit) mới, cụ thể là một Thói quen hiệu quả (Productive habit). Tuy nhiên, việc Tuân thủ theo (Sticking to) nó rất khó. Anh ấy rất Cứng nhắc (Inflexible) và ghét phải Điều chỉnh (Adjust) Thứ tự (Sequence) của buổi sáng. Sếp anh rất Nghiêm ngặt (Strict) về thời gian, bảo anh ngừng đi trễ trong lúc Đi lại (đi làm) (Commute).
+
+📖 PHẦN 2: ÁP LỰC VĂN PHÒNG (THE OFFICE STRUGGLE)
+Tại Nơi làm việc (Workplace), Khối lượng công việc (Workload) của Bob khổng lồ. Mọi thứ đều có vẻ Khẩn cấp (Urgent), tạo ra một cảm giác Sự khẩn cấp (Urgency) giả tạo. Anh cảm thấy Bị choáng ngợp (Overwhelmed) và thấy môi trường thật Căng thẳng (Stressful). Anh cố gắng Làm nhiều việc cùng lúc (Multitask) và gõ báo cáo Đồng thời (Simultaneously), nhưng nó hoàn toàn Không hiệu quả (Unproductive). Một Sự xao nhãng (Distraction) ồn ào phá vỡ Sự tập trung (Concentration) của anh, khiến anh không thể Tập trung (Concentrate). Anh có xu hướng Lãng phí thời gian (Waste time) vào những chuyện lê la Tốn thời gian (Time-consuming). Quản lý của anh hét lên: "Năng suất lao động (Productivity) của cậu đâu? Cậu cần Quản lý (Manage) công việc Một cách hiệu quả (Efficiently)!" Bob viết một Danh sách việc cần làm (To-do list) để Giải quyết (Tackle) công việc với Hiệu suất (Efficiency) tốt hơn. Anh học cách Ưu tiên (Prioritize) Sự ưu tiên (Priority) hàng đầu và trở nên Hiệu quả (Efficient) hơn.
+
+📖 PHẦN 3: CHẠY DEADLINE (THE PROJECT PANIC)
+Bob đối mặt với một Hạn chót (Deadline) đáng sợ. Vì anh không phải người Bị thúc ép bởi hạn chót (Deadline-driven), anh đã không làm gì Trước (In advance). Anh không có kế hoạch Trước (Prior) nào. Bây giờ, anh phải Chủ động (Proactive). Anh đặt một Lời nhắc nhở (Reminder) để không Hoãn lại (Postpone) công việc nữa. Dự án có một Giới hạn thời gian (Time limit) ngắn và một Khung thời gian (Time frame) nghiêm ngặt. Bob quyết định Sắp xếp (Organize) bàn làm việc và Thiết lập (Establish) một hệ thống. Anh dùng một ứng dụng để Ghi chép lại (Log) và Theo dõi (Track) giờ giấc, cố gắng Theo dõi (Keep track of) mọi thứ. Anh phải Ước tính (Estimate) chi phí và Phân bổ nguồn lực (Allocate resources). Anh học cách Dành thời gian (Allocate time) hợp lý và Phân bổ (Allocate) ngân sách. Để Tránh (Avoid) sai lầm và Loại bỏ (Eliminate) lỗi, anh quyết định Giao phó (Delegate) bớt việc cho nhóm, khiến anh cuối cùng cũng cảm thấy Năng suất (Productive).
+
+📖 PHẦN 4: CÂN BẰNG VÀ NGHỈ NGƠI (EXHAUSTION AND BALANCE)
+Việc Làm thêm giờ (Overtime) với những nhiệm vụ Vất vả (Strenuous) khiến Bob rơi vào Sự kiệt sức (Burnout). Anh nhận ra mình không thể duy trì Hiệu suất tối đa (Peak performance) nếu không nghỉ ngơi. Trong những giờ Cao điểm (Peak), anh cố gắng Hoàn thành (Fulfill) Sự cam kết (Commitment) của mình và Cam kết (Commit) với công việc Một cách kiên trì (Consistently) và Thường xuyên (Regularly). Nhưng anh cần một cách tiếp cận Linh hoạt (Flexible) để Cân bằng (Balance) sự Cân bằng công việc và cuộc sống (Work-life balance) của mình. Anh quyết định Kết hợp (Incorporate) nhiều Thời gian rảnh rỗi (Leisure time) hơn vào cuộc sống. Anh tìm một Khoảng thời gian (Slot) trống trong lịch để Xếp vào (Slot in) một lớp Yoga. Để Giảm thiểu (Minimize) căng thẳng, anh sẽ Nghỉ giải lao (Take a break), tận hưởng một Giấc ngủ ngắn (Nap), hoặc đơn giản là Ngủ trưa (Take a nap) dưới gầm bàn. Giờ đây, anh đã có một cách Có hiệu quả (Effective) để đảm bảo một Ngày làm việc hiệu quả (Productive day).`
+  },
+  {
+    id: 'nature-countryside',
+    title: '🌳 Nông Thôn & Thiên Nhiên (nature-countryside)',
+    description: 'Từ vựng tiếng Anh chủ đề phong cảnh, làng quê, trang trại và thiên nhiên hoang dã.',
+    words: [
+      { en: 'Natural landscape', type: '(n)', vi: 'Cảnh quan thiên nhiên', ipa: '/ˈnætʃrəl ˈlændskeɪp/', example: 'Tourists love the natural landscape here.', viExample: 'Du khách yêu thích cảnh quan thiên nhiên ở đây.' },
+      { en: 'Path', type: '(n)', vi: 'Lối đi/Đường mòn', ipa: '/pɑːθ/', example: 'Follow the narrow path through the woods.', viExample: 'Hãy đi theo lối đi hẹp xuyên qua rừng.' },
+      { en: 'Hill', type: '(n)', vi: 'Ngọn đồi', ipa: '/hɪl/', example: 'The church stands on top of the hill.', viExample: 'Nhà thờ nằm trên đỉnh đồi.' },
+      { en: 'Fresh produce', type: '(n)', vi: 'Nông sản tươi', ipa: '/freʃ ˈproʊduːs/', example: 'People buy fresh produce from local farms.', viExample: 'Mọi người mua nông sản tươi từ các trang trại địa phương.' },
+      { en: 'Land', type: '(n)', vi: 'Đất đai', ipa: '/lænd/', example: 'He bought some land to build a house.', viExample: 'Anh ấy đã mua một ít đất để xây nhà.' },
+      { en: 'Crop rotation', type: '(n)', vi: 'Luân canh cây trồng', ipa: '/krɑːp roʊˈteɪʃn/', example: 'Crop rotation helps keep the soil healthy.', viExample: 'Luân canh cây trồng giúp giữ đất khỏe mạnh.' },
+      { en: 'Canal', type: '(n)', vi: 'Kênh đào', ipa: '/kəˈnæl/', example: 'The canal provides water for farming.', viExample: 'Kênh đào cung cấp nước cho nông nghiệp.' },
+      { en: 'Vineyard', type: '(n)', vi: 'Vườn nho', ipa: '/ˈvɪnjɑːd/', example: 'The vineyard produces grapes for wine.', viExample: 'Vườn nho sản xuất nho để làm rượu vang.' },
+      { en: 'Windmill', type: '(n)', vi: 'Cối xay gió', ipa: '/ˈwɪndmɪl/', example: 'The old windmill is a local landmark.', viExample: 'Cối xay gió cũ là địa danh địa phương.' },
+      { en: 'Dusty', type: '(adj)', vi: 'Bụi bặm', ipa: '/ˈdʌsti/', example: 'The road to the farm was very dusty.', viExample: 'Con đường dẫn đến trang trại rất bụi bặm.' },
+      { en: 'Herd', type: '(n)', vi: 'Đàn (gia súc)', ipa: '/hɜːd/', example: 'A large herd of cows blocked the road.', viExample: 'Một đàn bò lớn đã chặn đường.' },
+      { en: 'Sunshine', type: '(n)', vi: 'Ánh nắng', ipa: '/ˈsʌnʃaɪn/', example: 'They spent the whole afternoon in the sunshine.', viExample: 'Họ đã dành cả buổi chiều dưới ánh nắng mặt trời.' },
+      { en: 'Plough', type: '(v)', vi: 'Cày', ipa: '/plaʊ/', example: 'The farmer needs to plough the field before sowing.', viExample: 'Bác nông dân cần cày ruộng trước khi gieo hạt.' },
+      { en: 'Seed', type: '(n)', vi: 'Hạt giống', ipa: '/siːd/', example: 'Birds like to eat sunflower seeds.', viExample: 'Chim thích ăn hạt hướng dương.' },
+      { en: 'Well', type: '(n)', vi: 'Giếng nước', ipa: '/wel/', example: 'They get water from the well.', viExample: 'Họ lấy nước từ giếng.' },
+      { en: 'Isolated', type: '(adj)', vi: 'Biệt lập/Hẻo lánh', ipa: '/ˈaɪsəleɪtɪd/', example: 'The farm is located in an isolated area.', viExample: 'Trang trại nằm ở một khu vực biệt lập.' },
+      { en: 'Overlook', type: '(v)', vi: 'Nhìn ra', ipa: '/ˌəʊvəˈlʊk/', example: 'The cottage overlooks a beautiful valley.', viExample: 'Ngôi nhà nhỏ nhìn ra một thung lũng tuyệt đẹp.' },
+      { en: 'Livestock', type: '(n)', vi: 'Gia súc', ipa: '/ˈlaɪvstɒk/', example: 'Farmers raise livestock for food.', viExample: 'Nông dân nuôi gia súc để lấy thực phẩm.' },
+      { en: 'Scenic', type: '(adj)', vi: 'Phong cảnh đẹp', ipa: '/ˈsiːnɪk/', example: 'The countryside is very scenic in spring.', viExample: 'Vùng nông thôn rất đẹp vào mùa xuân.' },
+      { en: 'Bridge', type: '(n)', vi: 'Cây cầu', ipa: '/brɪdʒ/', example: 'There is a small wooden bridge over the stream.', viExample: 'Có một cây cầu gỗ nhỏ bắc qua con suối.' },
+      { en: 'Crop', type: '(n)', vi: 'Cây trồng', ipa: '/krɒp/', example: 'Rice is the main crop here.', viExample: 'Lúa là cây trồng chính ở đây.' },
+      { en: 'Fence', type: '(n)', vi: 'Hàng rào', ipa: '/fens/', example: 'The garden is surrounded by a wooden fence.', viExample: 'Khu vườn được bao quanh bởi một hàng rào gỗ.' },
+      { en: 'Remote', type: '(adj)', vi: 'Xa xôi', ipa: '/rɪˈməʊt/', example: 'They live in a remote village in the mountains.', viExample: 'Họ sống ở một ngôi làng xa xôi trên núi.' },
+      { en: 'Meadow', type: '(n)', vi: 'Đồng cỏ', ipa: '/ˈmedəʊ/', example: 'The meadow is full of wild flowers.', viExample: 'Đồng cỏ đầy những bông hoa dại.' },
+      { en: 'Thick', type: '(adj)', vi: 'Dày/Rậm rạp', ipa: '/θɪk/', example: 'The forest is too thick to walk through easily.', viExample: 'Khu rừng quá rậm rạp để có thể đi xuyên qua dễ dàng.' },
+      { en: 'Pasture', type: '(n)', vi: 'Đồng cỏ', ipa: '/ˈpæstʃər/', example: 'The cows are eating grass in the pasture.', viExample: 'Những con bò đang ăn cỏ trên đồng cỏ.' },
+      { en: 'Wildlife', type: '(n)', vi: 'Động vật hoang dã', ipa: '/ˈwaɪldlaɪf/', example: 'The countryside is home to various wildlife.', viExample: 'Vùng nông thôn là nơi ở của nhiều loài động vật hoang dã.' },
+      { en: 'Irrigation', type: '(n)', vi: 'Tưới tiêu', ipa: '/ˌɪrɪˈɡeɪʃən/', example: 'Irrigation systems help crops grow.', viExample: 'Hệ thống tưới tiêu giúp cây trồng phát triển.' },
+      { en: 'Local resident', type: '(n)', vi: 'Người dân địa phương', ipa: '/ˈloʊkl ˈrezɪdənt/', example: 'Local residents know the area very well.', viExample: 'Người dân địa phương biết khu vực này rất rõ.' },
+      { en: 'Valley', type: '(n)', vi: 'Thung lũng', ipa: '/ˈvæli/', example: 'The village lies in a beautiful valley.', viExample: 'Ngôi làng nằm trong một thung lũng đẹp.' },
+      { en: 'Agriculture', type: '(n)', vi: 'Nông nghiệp', ipa: '/ˈæɡrɪkʌltʃə(r)/', example: 'Most people in this village work in agriculture.', viExample: 'Hầu hết người dân trong làng này làm việc trong ngành nông nghiệp.' },
+      { en: 'Timber', type: '(n)', vi: 'Gỗ xây dựng', ipa: '/ˈtɪmbə(r)/', example: 'The houses are built with local timber.', viExample: 'Những ngôi nhà được xây bằng gỗ địa phương.' },
+      { en: 'River', type: '(n)', vi: 'Con sông', ipa: '/ˈrɪvə(r)/', example: 'The river flows through the valley.', viExample: 'Con sông chảy qua thung lũng.' },
+      { en: 'Organic', type: '(adj)', vi: 'Hữu cơ', ipa: '/ɔːˈɡænɪk/', example: 'They sell organic eggs at the farm shop.', viExample: 'Họ bán trứng hữu cơ tại cửa hàng trang trại.' },
+      { en: 'Hay', type: '(n)', vi: 'Cỏ khô', ipa: '/heɪ/', example: 'The horses eat hay during the winter.', viExample: 'Ngựa ăn cỏ khô vào mùa đông.' },
+      { en: 'Log', type: '(n)', vi: 'Khúc gỗ', ipa: '/lɒɡ/', example: 'They sat on a fallen log to rest.', viExample: 'Họ ngồi trên một khúc gỗ đổ để nghỉ ngơi.' },
+      { en: 'Nature', type: '(n)', vi: 'Thiên nhiên', ipa: '/ˈneɪtʃə(r)/', example: 'I love being close to nature.', viExample: 'Tôi thích được ở gần gũi với thiên nhiên.' },
+      { en: 'Wild', type: '(adj)', vi: 'Hoang dã', ipa: '/waɪld/', example: 'There are many wild animals in this forest.', viExample: 'Có nhiều động vật hoang dã trong khu rừng này.' },
+      { en: 'Village market', type: '(n)', vi: 'Chợ làng', ipa: '/ˈvɪlɪdʒ ˈmɑːrkɪt/', example: 'Fresh vegetables are sold at the village market.', viExample: 'Rau tươi được bán ở chợ làng.' },
+      { en: 'Stream', type: '(n)', vi: 'Dòng suối', ipa: '/striːm/', example: 'We sat by a small stream and had lunch.', viExample: 'Chúng tôi ngồi bên một dòng suối nhỏ và ăn trưa.' },
+      { en: 'Harvest', type: '(n)', vi: 'Mùa thu hoạch', ipa: '/ˈhɑːrvɪst/', example: 'The harvest season starts in September.', viExample: 'Mùa thu hoạch bắt đầu vào tháng 9.' },
+      { en: 'Gate', type: '(n)', vi: 'Cổng', ipa: '/ɡeɪt/', example: 'Please close the gate so the sheep don\'t escape.', viExample: 'Làm ơn đóng cổng để cừu không chạy mất.' },
+      { en: 'Farmland', type: '(n)', vi: 'Đất canh tác', ipa: '/ˈfɑːmlænd/', example: 'This area consists mostly of rich farmland.', viExample: 'Khu vực này chủ yếu bao gồm đất canh tác màu mỡ.' },
+      { en: 'Landscape', type: '(n)', vi: 'Phong cảnh', ipa: '/ˈlændskeɪp/', example: 'The mountain landscape is breathtaking.', viExample: 'Phong cảnh miền núi thật ngoạn mục.' },
+      { en: 'Rural', type: '(adj)', vi: 'Thuộc nông thôn', ipa: '/ˈrʊrəl/', example: 'She grew up in a rural area.', viExample: 'Cô ấy lớn lên ở vùng nông thôn.' },
+      { en: 'Buffalo', type: '(n)', vi: 'Trâu', ipa: '/ˈbʌfəloʊ/', example: 'The buffalo is helping plow the field.', viExample: 'Con trâu đang giúp cày ruộng.' },
+      { en: 'Scenery', type: '(n)', vi: 'Cảnh đẹp', ipa: '/ˈsiːnəri/', example: 'The train journey offers beautiful scenery.', viExample: 'Chuyến tàu mang lại những cảnh đẹp tuyệt vời.' },
+      { en: 'Cottage', type: '(n)', vi: 'Nhà tranh', ipa: '/ˈkɒtɪdʒ/', example: 'They stayed in a countryside cottage.', viExample: 'Họ ở trong một ngôi nhà tranh ở nông thôn.' },
+      { en: 'Rice field', type: '(n)', vi: 'Ruộng lúa', ipa: '/raɪs fiːld/', example: 'Farmers are working in the rice field.', viExample: 'Nông dân đang làm việc trên ruộng lúa.' },
+      { en: 'Calm', type: '(adj)', vi: 'Yên tĩnh/êm đềm', ipa: '/kɑːm/', example: 'The lake was very calm this morning.', viExample: 'Hồ nước rất êm đềm sáng nay.' },
+      { en: 'Grain', type: '(n)', vi: 'Ngũ cốc/Hạt', ipa: '/ɡreɪn/', example: 'Birds eat grain scattered on the ground.', viExample: 'Chim ăn ngũ cốc rải trên mặt đất.' },
+      { en: 'Wood', type: '(n)', vi: 'Rừng cây/Gỗ', ipa: '/wʊd/', example: 'They gathered dry wood to start a fire.', viExample: 'Họ thu thập gỗ khô để nhóm lửa.' },
+      { en: 'Swamp', type: '(n)', vi: 'Đầm lầy', ipa: '/swɒmp/', example: 'The swamp is a habitat for many crocodiles.', viExample: 'Đầm lầy là môi trường sống của nhiều loài cá sấu.' },
+      { en: 'Outdoor', type: '(adj)', vi: 'Ngoài trời', ipa: '/ˈaʊtdɔː(r)/', example: 'Country life is full of outdoor activities.', viExample: 'Cuộc sống nông thôn đầy rẫy các hoạt động ngoài trời.' },
+      { en: 'Country', type: '(n)', vi: 'Nông thôn/vùng quê', ipa: '/ˈkʌntri/', example: 'I love living in the country.', viExample: 'Tôi yêu việc sống ở vùng quê.' },
+      { en: 'Plain', type: '(n)', vi: 'Đồng bằng', ipa: '/pleɪn/', example: 'The great plain stretches for miles.', viExample: 'Đồng bằng lớn trải dài hàng dặm.' },
+      { en: 'Steep', type: '(adj)', vi: 'Dốc', ipa: '/stiːp/', example: 'The path up the hill is very steep.', viExample: 'Con đường lên đồi rất dốc.' },
+      { en: 'Breeze', type: '(n)', vi: 'Gió nhẹ', ipa: '/briːz/', example: 'A cool breeze blew across the fields.', viExample: 'Một làn gió mát thổi qua những cánh đồng.' },
+      { en: 'Rocky', type: '(adj)', vi: 'Nhiều đá', ipa: '/ˈrɒki/', example: 'The path becomes rocky as you go higher.', viExample: 'Con đường trở nên nhiều đá hơn khi bạn đi lên cao.' },
+      { en: 'Village festival', type: '(n)', vi: 'Lễ hội làng', ipa: '/ˈvɪlɪdʒ ˈfestɪvl/', example: 'Everyone joins the village festival every year.', viExample: 'Mọi người tham gia lễ hội làng mỗi năm.' },
+      { en: 'Woodland', type: '(n)', vi: 'Vùng rừng', ipa: '/ˈwʊdlənd/', example: 'The birds live in the protected woodland.', viExample: 'Những con chim sống trong vùng rừng được bảo vệ.' },
+      { en: 'Organic farming', type: '(n)', vi: 'Nông nghiệp hữu cơ', ipa: '/ɔːrˈɡænɪk ˈfɑːrmɪŋ/', example: 'Organic farming avoids chemical fertilizers.', viExample: 'Nông nghiệp hữu cơ tránh sử dụng phân bón hóa học.' },
+      { en: 'Dam', type: '(n)', vi: 'Đập nước', ipa: '/dæm/', example: 'The dam controls the water level in the river.', viExample: 'Đập nước kiểm soát mực nước trong sông.' },
+      { en: 'Seasonal crop', type: '(n)', vi: 'Cây trồng theo mùa', ipa: '/ˈsiːzənl krɑːp/', example: 'Rice is a seasonal crop in this area.', viExample: 'Lúa là cây trồng theo mùa ở khu vực này.' },
+      { en: 'Field', type: '(n)', vi: 'Cánh đồng', ipa: '/fiːld/', example: 'Farmers are working in the field.', viExample: 'Nông dân đang làm việc trên cánh đồng.' },
+      { en: 'Rural area', type: '(n)', vi: 'Vùng nông thôn', ipa: '/ˈrʊrəl ˈeriə/', example: 'Many people prefer living in rural areas.', viExample: 'Nhiều người thích sống ở vùng nông thôn.' },
+      { en: 'Peaceful', type: '(adj)', vi: 'Yên bình', ipa: '/ˈpiːsfl/', example: 'The village is very quiet and peaceful.', viExample: 'Ngôi làng rất yên tĩnh và yên bình.' },
+      { en: 'Trail', type: '(n)', vi: 'Đường mòn', ipa: '/treɪl/', example: 'We followed the nature trail through the forest.', viExample: 'Chúng tôi đi theo đường mòn thiên nhiên xuyên qua rừng.' },
+      { en: 'Fresh', type: '(adj)', vi: 'Trong lành/Tươi', ipa: '/freʃ/', example: 'The air in the countryside is very fresh.', viExample: 'Không khí ở nông thôn rất trong lành.' },
+      { en: 'Wheat', type: '(n)', vi: 'Lúa mì', ipa: '/wiːt/', example: 'Wheat is used to make flour and bread.', viExample: 'Lúa mì được dùng để làm bột mì và bánh mì.' },
+      { en: 'Soil', type: '(n)', vi: 'Đất trồng', ipa: '/sɔɪl/', example: 'This soil is perfect for growing vegetables.', viExample: 'Loại đất này hoàn hảo để trồng rau.' },
+      { en: 'Farm', type: '(n)', vi: 'Trang trại', ipa: '/fɑːm/', example: 'My grandparents own a dairy farm.', viExample: 'Ông bà tôi sở hữu một trang trại bò sữa.' },
+      { en: 'Lake', type: '(n)', vi: 'Hồ nước', ipa: '/leɪk/', example: 'We often go fishing at the local lake.', viExample: 'Chúng tôi thường đi câu cá ở hồ nước địa phương.' },
+      { en: 'Canyon', type: '(n)', vi: 'Hẻm núi', ipa: '/ˈkænjən/', example: 'The grand canyon is famous for its depth.', viExample: 'Hẻm núi lớn nổi tiếng vì độ sâu của nó.' },
+      { en: 'Mountain', type: '(n)', vi: 'Núi', ipa: '/ˈmaʊntən/', example: 'It is very cold at the top of the mountain.', viExample: 'Rất lạnh ở trên đỉnh núi.' },
+      { en: 'Fertilizer', type: '(n)', vi: 'Phân bón', ipa: '/ˈfɜːrtəlaɪzər/', example: 'Farmers use fertilizer to improve soil quality.', viExample: 'Nông dân dùng phân bón để cải thiện chất lượng đất.' },
+      { en: 'Twilight', type: '(n)', vi: 'Chạng vạng', ipa: '/ˈtwaɪlaɪt/', example: 'The hills looked purple in the twilight.', viExample: 'Những ngọn đồi trông như màu tím trong lúc chạng vạng.' },
+      { en: 'Dirt road', type: '(n)', vi: 'Đường đất', ipa: '/dɜːrt roʊd/', example: 'The dirt road becomes muddy after heavy rain.', viExample: 'Con đường đất trở nên lầy lội sau mưa lớn.' },
+      { en: 'Farmer', type: '(n)', vi: 'Nông dân', ipa: '/ˈfɑːmə(r)/', example: 'The farmer is driving his tractor in the field.', viExample: 'Bác nông dân đang lái máy cày trên cánh đồng.' },
+      { en: 'Pond', type: '(n)', vi: 'Cái ao', ipa: '/pɒnd/', example: 'There are ducks swimming in the pond.', viExample: 'Có những con vịt đang bơi trong ao.' },
+      { en: 'Countryside', type: '(n)', vi: 'Vùng nông thôn', ipa: '/ˈkʌntrisaɪd/', example: 'Many tourists visit the countryside for relaxation.', viExample: 'Nhiều khách du lịch đến vùng nông thôn để nghỉ ngơi.' },
+      { en: 'National park', type: '(n)', vi: 'Công viên quốc gia', ipa: '/ˌnæʃnəl ˈpɑːk/', example: 'They went hiking in the national park.', viExample: 'Họ đã đi bộ đường dài trong công viên quốc gia.' },
+      { en: 'Inland', type: '(adj)', vi: 'Nội địa/Trong đất liền', ipa: '/ˈɪnlənd/', example: 'The village is ten miles inland from the coast.', viExample: 'Ngôi làng nằm sâu mười dặm trong đất liền tính từ bờ biển.' },
+      { en: 'Turf', type: '(n)', vi: 'Lớp đất cỏ', ipa: '/tɜːf/', example: 'He laid new turf in the garden.', viExample: 'Anh ấy đã trải lớp đất cỏ mới trong vườn.' },
+      { en: 'Nest', type: '(n)', vi: 'Cái tổ', ipa: '/nest/', example: 'There are four small eggs in the bird\'s nest.', viExample: 'Có bốn quả trứng nhỏ trong tổ chim.' },
+      { en: 'Greenery', type: '(n)', vi: 'Cây xanh', ipa: '/ˈɡriːnəri/', example: 'I miss the greenery of the countryside.', viExample: 'Tôi nhớ màu xanh cây cỏ của vùng nông thôn.' },
+      { en: 'Sow', type: '(v)', vi: 'Gieo hạt', ipa: '/səʊ/', example: 'Early spring is the best time to sow seeds.', viExample: 'Đầu mùa xuân là thời điểm tốt nhất để gieo hạt.' },
+      { en: 'Orchard', type: '(n)', vi: 'Vườn cây ăn quả', ipa: '/ˈɔːrtʃərd/', example: 'The orchard produces a lot of apples.', viExample: 'Vườn cây ăn quả sản xuất nhiều táo.' },
+      { en: 'Plow', type: '(v)', vi: 'Cày đất', ipa: '/plaʊ/', example: 'Farmers plow the land before planting.', viExample: 'Nông dân cày đất trước khi trồng.' },
+      { en: 'Water pump', type: '(n)', vi: 'Máy bơm nước', ipa: '/ˈwɔːtər pʌmp/', example: 'The water pump supplies water to the fields.', viExample: 'Máy bơm nước cung cấp nước cho ruộng.' },
+      { en: 'Quiet', type: '(adj)', vi: 'Yên tĩnh', ipa: '/ˈkwaɪət/', example: 'It\'s so quiet here you can hear the birds sing.', viExample: 'Ở đây yên tĩnh đến mức bạn có thể nghe tiếng chim hót.' },
+      { en: 'Stable', type: '(n)', vi: 'Chuồng ngựa', ipa: '/ˈsteɪbl/', example: 'The horses are kept in the stable at night.', viExample: 'Những con ngựa được nhốt trong chuồng vào ban đêm.' },
+      { en: 'Environment', type: '(n)', vi: 'Môi trường', ipa: '/ɪnˈvaɪrənmənt/', example: 'The countryside provides a healthy environment.', viExample: 'Nông thôn mang lại một môi trường lành mạnh.' },
+      { en: 'Fishing pond', type: '(n)', vi: 'Ao cá', ipa: '/ˈfɪʃɪŋ pɑːnd/', example: 'They raise fish in the fishing pond.', viExample: 'Họ nuôi cá trong ao cá.' },
+      { en: 'Pesticide', type: '(n)', vi: 'Thuốc trừ sâu', ipa: '/ˈpestɪsaɪd/', example: 'Farmers use pesticide to protect crops.', viExample: 'Nông dân dùng thuốc trừ sâu để bảo vệ cây trồng.' },
+      { en: 'Tractor', type: '(n)', vi: 'Máy kéo', ipa: '/ˈtræktər/', example: 'The tractor is used to plow the field.', viExample: 'Máy kéo được dùng để cày ruộng.' },
+      { en: 'Hillside', type: '(n)', vi: 'Sườn đồi', ipa: '/ˈhɪlsaɪd/', example: 'They built a house on the hillside.', viExample: 'Họ xây một ngôi nhà trên sườn đồi.' },
+      { en: 'Handicraft', type: '(n)', vi: 'Đồ thủ công', ipa: '/ˈhændikrɑːft/', example: 'The village is famous for handicrafts.', viExample: 'Ngôi làng nổi tiếng với đồ thủ công.' },
+      { en: 'Forest', type: '(n)', vi: 'Khu rừng', ipa: '/ˈfɒrɪst/', example: 'We went for a walk in the pine forest.', viExample: 'Chúng tôi đã đi dạo trong rừng thông.' },
+      { en: 'Sheep', type: '(n)', vi: 'Con cừu', ipa: '/ʃiːp/', example: 'The farmer is shearing the sheep.', viExample: 'Bác nông dân đang xén lông cừu.' },
+      { en: 'Village', type: '(n)', vi: 'Làng', ipa: '/ˈvɪlɪdʒ/', example: 'My grandparents live in a small village.', viExample: 'Ông bà tôi sống ở một ngôi làng nhỏ.' },
+      { en: 'Feed', type: '(v)', vi: 'Cho ăn', ipa: '/fiːd/', example: 'It’s time to feed the chickens.', viExample: 'Đến lúc cho gà ăn rồi.' },
+      { en: 'Footpath', type: '(n)', vi: 'Lối đi bộ', ipa: '/ˈfʊtpæθ/', example: 'There is a small footpath through the field.', viExample: 'Có một lối đi bộ nhỏ xuyên qua cánh đồng.' },
+      { en: 'Poultry', type: '(n)', vi: 'Gia cầm', ipa: '/ˈpəʊltri/', example: 'The farm raises poultry for eggs and meat.', viExample: 'Trang trại nuôi gia cầm để lấy trứng và thịt.' },
+      { en: 'Bamboo grove', type: '(n)', vi: 'Lũy tre', ipa: '/bæmˈbuː ɡroʊv/', example: 'Children often play near the bamboo grove.', viExample: 'Trẻ em thường chơi gần lũy tre.' },
+      { en: 'Grass', type: '(n)', vi: 'Cỏ', ipa: '/ɡrɑːs/', example: 'The grass is still wet from the morning dew.', viExample: 'Cỏ vẫn còn ướt vì sương sớm.' },
+      { en: 'Plant', type: '(v)', vi: 'Trồng', ipa: '/plɑːnt/', example: 'They plant seeds in early spring.', viExample: 'Họ trồng hạt giống vào đầu mùa xuân.' },
+      { en: 'Mud', type: '(n)', vi: 'Bùn', ipa: '/mʌd/', example: 'The path was covered in thick mud.', viExample: 'Con đường bị bao phủ bởi lớp bùn dày.' },
+      { en: 'Bush', type: '(n)', vi: 'Bụi cây', ipa: '/bʊʃ/', example: 'There is a small bird hiding in the bush.', viExample: 'Có một con chim nhỏ đang trốn trong bụi cây.' },
+      { en: 'Hedge', type: '(n)', vi: 'Hàng rào cây', ipa: '/hedʒ/', example: 'The birds built a nest in the garden hedge.', viExample: 'Những con chim đã xây tổ trong hàng rào cây ở vườn.' },
+      { en: 'Cattle', type: '(n)', vi: 'Gia súc', ipa: '/ˈkætl/', example: 'The cattle are grazing in the meadow.', viExample: 'Đàn gia súc đang gặm cỏ trên đồng cỏ.' },
+      { en: 'Waterfall', type: '(n)', vi: 'Thác nước', ipa: '/ˈwɔːtəfɔːl/', example: 'The waterfall is a popular spot for tourists.', viExample: 'Thác nước là một địa điểm thu hút khách du lịch.' },
+      { en: 'Cliff', type: '(n)', vi: 'Vách đá', ipa: '/klɪf/', example: 'Don\'t go too near the edge of the cliff.', viExample: 'Đừng đi quá gần rìa vách đá.' },
+      { en: 'Farmhouse', type: '(n)', vi: 'Nhà nông trại', ipa: '/ˈfɑːrmhaʊs/', example: 'They live in a small farmhouse.', viExample: 'Họ sống trong một ngôi nhà nông trại nhỏ.' },
+      { en: 'Barn', type: '(n)', vi: 'Nhà kho nông trại', ipa: '/bɑːrn/', example: 'The cows stay in the barn at night.', viExample: 'Bò ở trong nhà kho nông trại vào ban đêm.' }
+    ],
+    storyEn: `📖 PHẦN 1: NÔNG DÂN TẬP SỰ (THE ROOKIE FARMER)
+Bob bought a Farm and a small Farmhouse. He wanted to be a real Farmer. He walked past the Barn and the Stable to look at his Livestock. There was a Herd of Cattle, some Sheep, and a big Buffalo. He tried to Feed the Poultry, but they chased him into the Pasture! He ran across the Meadow, slipping on the wet Grass and Turf, and fell face-first into the Mud. He tried to wash his face at the Well, but the Water pump was broken. He jumped over the Gate and the wooden Fence, hid behind a Hedge, and finally rested near a Fishing pond and a small Pond. He thought about eating Hay, but decided to drive his Tractor instead.
+
+📖 PHẦN 2: THẢM HỌA TRỒNG TRỌT (THE FARMING DISASTER)
+Living in the Countryside, or the Country, Bob wanted to master Agriculture. In this Rural and Rural area, he bought more Land and Farmland. He analyzed the Soil in his Field. Instead of using Pesticide and Fertilizer, he chose Organic farming to grow Organic crops. He practiced Crop rotation with a Seasonal crop. He used a Plough (or Plow) to prepare the ground, then decided to Sow and Plant a Seed of Wheat, some Grain, and a whole Rice field! To get water, he built a Dam, a Canal, and a weird Irrigation system. He hoped for a great Harvest of Fresh produce from his Orchard and Vineyard.
+
+📖 PHẦN 3: CHUYẾN ĐI DÃ NGOẠI KINH HOÀNG (A TERRIFYING HIKE)
+To escape the farm, Bob went Inland to explore the Environment and Nature in an Isolated and Remote location. The Natural landscape and Landscape were breathtaking. The Scenery was so Scenic! However, his hike up the Mountain and Hill was tough. The Hillside and Cliff were Steep and Rocky. He walked through a Valley, a Canyon, and a vast Plain. He tried to swim in a River, a Stream, and a Lake, but almost fell down a Waterfall and got stuck in a Swamp!
+
+📖 PHẦN 4: LỄ HỘI LÀNG VÀ CHUYẾN ĐI LẠC (THE VILLAGE FESTIVAL & GETTING LOST)
+Bob visited the local Village. A Local resident invited him to the Village market and the Village festival to buy a Handicraft. He walked on a Dirt road, a Trail, a Footpath, and a Path that were very Dusty. He crossed a Bridge near a Windmill and a Cottage that Overlook the town. The atmosphere was Calm, Quiet, and Peaceful, with Fresh air, warm Sunshine, and a gentle Breeze. At Twilight, he went Outdoor to a National park. He got lost in the Wild, surrounded by Wildlife. He wandered into a Forest and Woodland full of Wood and Timber. The trees were so Thick! He tripped over a Log, fell into a Bamboo grove, ruined the Greenery, scared a bird out of its Nest in a Bush, and finally slept there.`,
+    
+    storyVi: `📖 PHẦN 1: NÔNG DÂN TẬP SỰ (THE ROOKIE FARMER)
+Bob đã mua một Trang trại (Farm) và một Nhà nông trại (Farmhouse) nhỏ. Anh ấy muốn trở thành một Nông dân (Farmer) thực thụ. Anh đi ngang qua Nhà kho nông trại (Barn) và Chuồng ngựa (Stable) để xem Gia súc (Livestock) của mình. Có một Đàn (gia súc) (Herd) Gia súc (Cattle), vài Con cừu (Sheep), và một con Trâu (Buffalo) lớn. Anh cố gắng Cho ăn (Feed) đàn Gia cầm (Poultry), nhưng chúng lại đuổi anh chạy vào Đồng cỏ (Pasture)! Anh chạy ngang qua Đồng cỏ (Meadow), trượt chân trên Cỏ (Grass) ướt và Lớp đất cỏ (Turf), rồi ngã sấp mặt xuống Bùn (Mud). Anh cố rửa mặt ở Giếng nước (Well), nhưng Máy bơm nước (Water pump) đã hỏng. Anh nhảy qua Cổng (Gate) và Hàng rào (Fence) gỗ, trốn sau Hàng rào cây (Hedge), và cuối cùng nghỉ ngơi cạnh một Ao cá (Fishing pond) và một Cái ao (Pond) nhỏ. Anh đã nghĩ đến việc ăn Cỏ khô (Hay), nhưng lại quyết định đi lái Máy kéo (Tractor) của mình.
+
+📖 PHẦN 2: THẢM HỌA TRỒNG TRỌT (THE FARMING DISASTER)
+Sống ở Vùng nông thôn (Countryside), hay Nông thôn/vùng quê (Country), Bob muốn thành thạo Nông nghiệp (Agriculture). Ở khu Thuộc nông thôn (Rural) và Vùng nông thôn (Rural area) này, anh mua thêm Đất đai (Land) và Đất canh tác (Farmland). Anh phân tích Đất trồng (Soil) trên Cánh đồng (Field) của mình. Thay vì dùng Thuốc trừ sâu (Pesticide) và Phân bón (Fertilizer), anh chọn Nông nghiệp hữu cơ (Organic farming) để trồng cây Hữu cơ (Organic) và Cây trồng (Crop). Anh thực hành Luân canh cây trồng (Crop rotation) với Cây trồng theo mùa (Seasonal crop). Anh dùng cái cày để Cày (Plough) (hay Cày đất (Plow)) chuẩn bị đất, rồi quyết định Gieo hạt (Sow) và Trồng (Plant) một Hạt giống (Seed) Lúa mì (Wheat), vài Ngũ cốc/Hạt (Grain), và cả một Ruộng lúa (Rice field)! Để có nước, anh xây một Đập nước (Dam), một Kênh đào (Canal), và một hệ thống Tưới tiêu (Irrigation) kỳ lạ. Anh hy vọng có một Mùa thu hoạch (Harvest) Nông sản tươi (Fresh produce) tuyệt vời từ Vườn cây ăn quả (Orchard) và Vườn nho (Vineyard) của mình.
+
+📖 PHẦN 3: CHUYẾN ĐI DÃ NGOẠI KINH HOÀNG (A TERRIFYING HIKE)
+Để thoát khỏi trang trại, Bob đi vào Nội địa/Trong đất liền (Inland) để khám phá Môi trường (Environment) và Thiên nhiên (Nature) ở một nơi Biệt lập/Hẻo lánh (Isolated) và Xa xôi (Remote). Cảnh quan thiên nhiên (Natural landscape) và Phong cảnh (Landscape) đẹp nghẹt thở. Cảnh đẹp (Scenery) thật sự Phong cảnh đẹp (Scenic)! Tuy nhiên, chuyến leo Núi (Mountain) và Ngọn đồi (Hill) của anh rất vất vả. Sườn đồi (Hillside) và Vách đá (Cliff) rất Dốc (Steep) và Nhiều đá (Rocky). Anh đi qua một Thung lũng (Valley), một Hẻm núi (Canyon), và một Đồng bằng (Plain) rộng lớn. Anh thử bơi ở một Con sông (River), một Dòng suối (Stream), và một Hồ nước (Lake), nhưng suýt rơi xuống Thác nước (Waterfall) và mắc kẹt trong Đầm lầy (Swamp)!
+
+📖 PHẦN 4: LỄ HỘI LÀNG VÀ CHUYẾN ĐI LẠC (THE VILLAGE FESTIVAL & GETTING LOST)
+Bob đến thăm Làng (Village) địa phương. Một Người dân địa phương (Local resident) mời anh đến Chợ làng (Village market) và Lễ hội làng (Village festival) để mua Đồ thủ công (Handicraft). Anh đi trên một Đường đất (Dirt road), Đường mòn (Trail), Lối đi bộ (Footpath), và Lối đi/Đường mòn (Path) rất Bụi bặm (Dusty). Anh qua một Cây cầu (Bridge) gần Cối xay gió (Windmill) và Nhà tranh (Cottage) Nhìn ra (Overlook) thị trấn. Không khí rất Yên tĩnh/êm đềm (Calm), Yên tĩnh (Quiet), và Yên bình (Peaceful), với không khí Trong lành/Tươi (Fresh), Ánh nắng (Sunshine) ấm áp, và Gió nhẹ (Breeze). Lúc Chạng vạng (Twilight), anh ra Ngoài trời (Outdoor) đến một Công viên quốc gia (National park). Anh bị lạc trong nơi Hoang dã (Wild), bao quanh bởi Động vật hoang dã (Wildlife). Anh lang thang vào Khu rừng (Forest) và Vùng rừng (Woodland) đầy Rừng cây/Gỗ (Wood) và Gỗ xây dựng (Timber). Cây cối quá Dày/Rậm rạp (Thick)! Anh vấp phải một Khúc gỗ (Log), ngã vào Lũy tre (Bamboo grove), làm hỏng Cây xanh (Greenery), dọa một con chim bay khỏi Cái tổ (Nest) trong Bụi cây (Bush), và cuối cùng ngủ luôn ở đó.`
+  },
+  {
+    id: 'city-urban-life',
+    title: '🏙️ Thành Phố & Đô Thị (city-urban)',
+    description: 'Từ vựng tiếng Anh chủ đề thành phố, giao thông và đời sống đô thị.',
+    words: [
+      { en: 'Resident', type: '(n)', vi: 'Cư dân', ipa: '/ˈrezɪdənt/', example: 'The residents are friendly in this area.', viExample: 'Cư dân ở khu vực này rất thân thiện.' },
+      { en: 'Heritage', type: '(n)', vi: 'Di sản', ipa: '/ˈherɪtɪdʒ/', example: 'The city protects its cultural heritage.', viExample: 'Thành phố bảo vệ di sản văn hóa của mình.' },
+      { en: 'Neighborhood', type: '(n)', vi: 'Khu dân cư', ipa: '/ˈneɪbərhʊd/', example: 'This neighborhood is very safe.', viExample: 'Khu dân cư này rất an toàn.' },
+      { en: 'Cathedral', type: '(n)', vi: 'Nhà thờ lớn', ipa: '/kəˈθiːdrəl/', example: 'The cathedral is located in the main square.', viExample: 'Nhà thờ lớn nằm ở quảng trường chính.' },
+      { en: 'City hall', type: '(n)', vi: 'Tòa thị chính', ipa: '/ˈsɪti hɔːl/', example: 'The meeting will be held at city hall.', viExample: 'Cuộc họp sẽ được tổ chức tại tòa thị chính.' },
+      { en: 'Urban', type: '(adj)', vi: 'Thuộc đô thị', ipa: '/ˈɜːrbən/', example: 'Urban areas are usually crowded.', viExample: 'Các khu đô thị thường đông đúc.' },
+      { en: 'Shopping mall', type: '(n)', vi: 'Trung tâm thương mại', ipa: '/ˈʃɒpɪŋ mɔːl/', example: 'Let\'s meet at the shopping mall at 5 PM.', viExample: 'Hãy gặp nhau ở trung tâm thương mại lúc 5 giờ chiều.' },
+      { en: 'Gridlock', type: '(n)', vi: 'Tắc nghẽn hoàn toàn', ipa: '/ˈɡrɪdlɒk/', example: 'The accident caused traffic gridlock.', viExample: 'Tai nạn gây ra tình trạng tắc nghẽn hoàn toàn.' },
+      { en: 'Cinema', type: '(n)', vi: 'Rạp chiếu phim', ipa: '/ˈsɪnəmə/', example: 'Let\'s go to the cinema to see the new movie.', viExample: 'Hãy đến rạp chiếu phim để xem bộ phim mới đi.' },
+      { en: 'Harbor', type: '(n)', vi: 'Cảng', ipa: '/ˈhɑːbə(r)/', example: 'Many fishing boats are kept in the harbor.', viExample: 'Nhiều thuyền đánh cá được giữ trong cảng.' },
+      { en: 'Monument', type: '(n)', vi: 'Đài tưởng niệm', ipa: '/ˈmɒnjumənt/', example: 'A monument was built to honor the heroes.', viExample: 'Một đài tưởng niệm được xây dựng để vinh danh các anh hùng.' },
+      { en: 'Safe', type: '(adj)', vi: 'An toàn', ipa: '/seɪf/', example: 'Is it safe to walk alone at night here?', viExample: 'Đi bộ một mình vào ban đêm ở đây có an toàn không?' },
+      { en: 'Noisy', type: '(adj)', vi: 'Ồn ào', ipa: '/ˈnɔɪzi/', example: 'City life can be very noisy sometimes.', viExample: 'Cuộc sống thành phố đôi khi có thể rất ồn ào.' },
+      { en: 'Relocate', type: '(v)', vi: 'Di dời / chuyển nơi ở', ipa: '/ˌriːˈloʊkeɪt/', example: 'They decided to relocate to the city center.', viExample: 'Họ quyết định chuyển đến trung tâm thành phố.' },
+      { en: 'Infrastructure', type: '(n)', vi: 'Cơ sở hạ tầng', ipa: '/ˈɪnfrəstrʌktʃər/', example: 'The city is improving its infrastructure.', viExample: 'Thành phố đang cải thiện cơ sở hạ tầng của mình.' },
+      { en: 'Tourist attraction', type: '(n)', vi: 'Điểm thu hút du khách', ipa: '/ˈtʊərɪst əˈtrækʃn/', example: 'The Eiffel Tower is a famous tourist attraction.', viExample: 'Tháp Eiffel là một điểm thu hút du khách nổi tiếng.' },
+      { en: 'Industrial', type: '(adj)', vi: 'Thuộc công nghiệp', ipa: '/ɪnˈdʌstriəl/', example: 'They live in an industrial part of the city.', viExample: 'Họ sống ở một phần khu công nghiệp của thành phố.' },
+      { en: 'District', type: '(n)', vi: 'Quận / Khu vực', ipa: '/ˈdɪstrɪkt/', example: 'This district is known for street food.', viExample: 'Khu vực này nổi tiếng về đồ ăn đường phố.' },
+      { en: 'Pollution', type: '(n)', vi: 'Ô nhiễm', ipa: '/pəˈluːʃən/', example: 'Air pollution is a big problem in big cities.', viExample: 'Ô nhiễm không khí là vấn đề lớn ở các thành phố lớn.' },
+      { en: 'Demolition', type: '(n)', vi: 'Sự phá dỡ', ipa: '/ˌdeməˈlɪʃən/', example: 'The demolition of old houses began last week.', viExample: 'Việc phá dỡ các ngôi nhà cũ bắt đầu từ tuần trước.' },
+      { en: 'Center', type: '(n)', vi: 'Trung tâm', ipa: '/ˈsentə(r)/', example: 'The shopping center is always busy on weekends.', viExample: 'Trung tâm mua sắm luôn bận rộn vào cuối tuần.' },
+      { en: 'Fountain', type: '(n)', vi: 'Đài phun nước', ipa: '/ˈfaʊntən/', example: 'Children like playing near the fountain.', viExample: 'Trẻ em thích chơi gần đài phun nước.' },
+      { en: 'Post office', type: '(n)', vi: 'Bưu điện', ipa: '/ˈpəʊst ɒfɪs/', example: 'I need to go to the post office to mail a parcel.', viExample: 'Tôi cần đến bưu điện để gửi một bưu kiện.' },
+      { en: 'Megacity', type: '(n)', vi: 'Siêu đô thị', ipa: '/ˈmeɡəsɪti/', example: 'Tokyo is considered a megacity.', viExample: 'Tokyo được xem là một siêu đô thị.' },
+      { en: 'Sidewalk', type: '(n)', vi: 'Vỉa hè', ipa: '/ˈsaɪdwɔːk/', example: 'People are walking on the sidewalk.', viExample: 'Mọi người đang đi bộ trên vỉa hè.' },
+      { en: 'Facility', type: '(n)', vi: 'Cơ sở vật chất', ipa: '/fəˈsɪləti/', example: 'The sports facility is open to the public.', viExample: 'Cơ sở thể thao mở cửa cho công chúng.' },
+      { en: 'Metropolis', type: '(n)', vi: 'Đô thị lớn', ipa: '/məˈtrɒpəlɪs/', example: 'Tokyo is a huge metropolis.', viExample: 'Tokyo là một đô thị lớn khổng lồ.' },
+      { en: 'Stadium', type: '(n)', vi: 'Sân vận động', ipa: '/ˈsteɪdiəm/', example: 'The football match is held at the national stadium.', viExample: 'Trận bóng đá được tổ chức tại sân vận động quốc gia.' },
+      { en: 'Exhibition', type: '(n)', vi: 'Triển lãm', ipa: '/ˌeksɪˈbɪʃn/', example: 'There is an art exhibition at the gallery.', viExample: 'Có một buổi triển lãm nghệ thuật tại phòng trưng bày.' },
+      { en: 'Capital', type: '(n)', vi: 'Thủ đô', ipa: '/ˈkæpɪtl/', example: 'Hanoi is the capital city of Vietnam.', viExample: 'Hà Nội là thủ đô của Việt Nam.' },
+      { en: 'Suburb', type: '(n)', vi: 'Ngoại ô', ipa: '/ˈsʌbɜːrb/', example: 'My family lives in a quiet suburb.', viExample: 'Gia đình tôi sống ở một vùng ngoại ô yên tĩnh.' },
+      { en: 'Population', type: '(n)', vi: 'Dân số', ipa: '/ˌpɒpjuˈleɪʃn/', example: 'The population of the city is growing fast.', viExample: 'Dân số của thành phố đang tăng trưởng nhanh chóng.' },
+      { en: 'Citizen', type: '(n)', vi: 'Công dân', ipa: '/ˈsɪtɪzn/', example: 'The citizens are happy with the new park.', viExample: 'Các công dân hài lòng với công viên mới.' },
+      { en: 'Castle', type: '(n)', vi: 'Lâu đài', ipa: '/ˈkɑːsl/', example: 'We visited an ancient castle on the hill.', viExample: 'Chúng tôi đã đến thăm một lâu đài cổ trên đồi.' },
+      { en: 'Historic', type: '(adj)', vi: 'Có tính lịch sử', ipa: '/hɪˈstɒrɪk/', example: 'The city is famous for its historic buildings.', viExample: 'Thành phố nổi tiếng với những tòa nhà có tính lịch sử.' },
+      { en: 'Zoning', type: '(n)', vi: 'Phân khu quy hoạch', ipa: '/ˈzoʊnɪŋ/', example: 'Zoning laws control land use in the city.', viExample: 'Luật phân khu kiểm soát việc sử dụng đất trong thành phố.' },
+      { en: 'Parking lot', type: '(n)', vi: 'Bãi đỗ xe', ipa: '/ˈpɑːrkɪŋ lɒt/', example: 'You can leave your car in the parking lot.', viExample: 'Bạn có thể để xe ở bãi đỗ xe.' },
+      { en: 'Traffic jam', type: '(n)', vi: 'Tắc đường', ipa: '/ˈtræfɪk dʒæm/', example: 'I was late because of a traffic jam.', viExample: 'Tôi đến muộn vì tắc đường.' },
+      { en: 'Lane', type: '(n)', vi: 'Làn đường/Con hẻm', ipa: '/leɪn/', example: 'The bike lane is clearly marked with green paint.', viExample: 'Làn đường dành cho xe đạp được đánh dấu rõ ràng bằng sơn xanh.' },
+      { en: 'Block', type: '(n)', vi: 'Dãy nhà', ipa: '/blɒk/', example: 'I live just one block away from the station.', viExample: 'Tôi sống chỉ cách nhà ga một dãy nhà.' },
+      { en: 'Housing', type: '(n)', vi: 'Nhà ở', ipa: '/ˈhaʊzɪŋ/', example: 'Affordable housing is needed in big cities.', viExample: 'Nhà ở giá rẻ là cần thiết ở các thành phố lớn.' },
+      { en: 'Boulevardier', type: '(n)', vi: 'Người hay dạo phố', ipa: '/ˌbuːləvɑːrˈdɪər/', example: 'The boulevardiers enjoy walking in the evening.', viExample: 'Những người hay dạo phố thích đi bộ vào buổi tối.' },
+      { en: 'Area', type: '(n)', vi: 'Khu vực', ipa: '/ˈeəriə/', example: 'This area of the city is famous for its nightlife.', viExample: 'Khu vực này của thành phố nổi tiếng với cuộc sống về đêm.' },
+      { en: 'Urbanization', type: '(n)', vi: 'Sự đô thị hóa', ipa: '/ˌɜːrbənaɪˈzeɪʃən/', example: 'Urbanization is increasing rapidly.', viExample: 'Quá trình đô thị hóa đang gia tăng nhanh chóng.' },
+      { en: 'Mayor', type: '(n)', vi: 'Thị trưởng', ipa: '/meə(r)/', example: 'The mayor gave a speech about the new budget.', viExample: 'Thị trưởng đã có bài phát biểu về ngân sách mới.' },
+      { en: 'Zebra crossing', type: '(n)', vi: 'Vạch kẻ đường cho người đi bộ', ipa: '/ˌzebrə ˈkrɒsɪŋ/', example: 'Always use the zebra crossing to cross the road.', viExample: 'Luôn sử dụng vạch kẻ đường để băng qua đường.' },
+      { en: 'Scenery', type: '(n)', vi: 'Phong cảnh', ipa: '/ˈsiːnəri/', example: 'The city offers some beautiful urban scenery.', viExample: 'Thành phố mang lại một số phong cảnh đô thị đẹp đẽ.' },
+      { en: 'Bridge', type: '(n)', vi: 'Cây cầu', ipa: '/brɪdʒ/', example: 'The old bridge is a popular spot for tourists.', viExample: 'Cây cầu cũ là một địa điểm phổ biến đối với du khách.' },
+      { en: 'Utility', type: '(n)', vi: 'Tiện ích', ipa: '/juːˈtɪləti/', example: 'Utility services are essential for residents.', viExample: 'Các tiện ích như điện, nước rất cần thiết cho cư dân.' },
+      { en: 'Crowded', type: '(adj)', vi: 'Đông đúc', ipa: '/ˈkraʊdɪd/', example: 'The city center is always crowded on weekends.', viExample: 'Trung tâm thành phố luôn đông đúc vào cuối tuần.' },
+      { en: 'Construction', type: '(n)', vi: 'Xây dựng', ipa: '/kənˈstrʌkʃən/', example: 'There is a lot of construction downtown.', viExample: 'Có rất nhiều công trình xây dựng ở trung tâm thành phố.' },
+      { en: 'Underground', type: '(n)', vi: 'Hệ thống tàu điện ngầm', ipa: '/ˌʌndəˈɡraʊnd/', example: 'I take the underground to work every day.', viExample: 'Tôi đi tàu điện ngầm đi làm mỗi ngày.' },
+      { en: 'Cosmopolitan', type: '(adj)', vi: 'Mang tính quốc tế, đa văn hóa', ipa: '/ˌkɒzməˈpɒlɪtən/', example: 'The city is famous for its cosmopolitan lifestyle.', viExample: 'Thành phố nổi tiếng với lối sống đa văn hóa.' },
+      { en: 'Market', type: '(n)', vi: 'Chợ', ipa: '/ˈmɑːkɪt/', example: 'You can find fresh fruit at the street market.', viExample: 'Bạn có thể tìm thấy trái cây tươi ở chợ đường phố.' },
+      { en: 'Modern', type: '(adj)', vi: 'Hiện đại', ipa: '/ˈmɒdn/', example: 'The city has many modern skyscrapers.', viExample: 'Thành phố có nhiều tòa nhà chọc trời hiện đại.' },
+      { en: 'Nightlife', type: '(n)', vi: 'Cuộc sống về đêm', ipa: '/ˈnaɪtlaɪf/', example: 'The city is famous for its vibrant nightlife.', viExample: 'Thành phố nổi tiếng với cuộc sống về đêm sôi động.' },
+      { en: 'Museum', type: '(n)', vi: 'Bảo tàng', ipa: '/mjuˈziːəm/', example: 'We learned about history at the local museum.', viExample: 'Chúng tôi đã tìm hiểu về lịch sử tại bảo tàng địa phương.' },
+      { en: 'Vendor', type: '(n)', vi: 'Người bán hàng', ipa: '/ˈvendər/', example: 'Street vendors sell cheap food.', viExample: 'Người bán hàng rong bán đồ ăn rẻ.' },
+      { en: 'Factory', type: '(n)', vi: 'Nhà máy', ipa: '/ˈfæktri/', example: 'The factory produces thousands of cars every year.', viExample: 'Nhà máy sản xuất hàng ngàn chiếc ô tô mỗi năm.' },
+      { en: 'High-rise', type: '(n)', vi: 'Tòa nhà cao tầng', ipa: '/ˈhaɪ raɪz/', example: 'Many people live in high-rise buildings.', viExample: 'Nhiều người sống trong các tòa nhà cao tầng.' },
+      { en: 'Corner', type: '(n)', vi: 'Góc đường', ipa: '/ˈkɔːnə(r)/', example: 'There is a small cafe on the corner of the street.', viExample: 'Có một quán cà phê nhỏ ở góc đường.' },
+      { en: 'Advertisement', type: '(n)', vi: 'Quảng cáo', ipa: '/ədˈvɜːtɪsmənt/', example: 'The city walls are covered with advertisements.', viExample: 'Các bức tường trong thành phố đầy những quảng cáo.' },
+      { en: 'Bustling', type: '(adj)', vi: 'Nhộn nhịp', ipa: '/ˈbʌslɪŋ/', example: 'The streets are bustling at night.', viExample: 'Các con phố nhộn nhịp vào ban đêm.' },
+      { en: 'Restaurant', type: '(n)', vi: 'Nhà hàng', ipa: '/ˈrestrɒnt/', example: 'There are many Italian restaurants in this street.', viExample: 'Có nhiều nhà hàng Ý trên con phố này.' },
+      { en: 'Pavement', type: '(n)', vi: 'Vỉa hè', ipa: '/ˈpeɪvmənt/', example: 'Please walk on the pavement for your safety.', viExample: 'Làm ơn hãy đi trên vỉa hè để đảm bảo an toàn.' },
+      { en: 'Recreation', type: '(n)', vi: 'Giải trí', ipa: '/ˌrekriˈeɪʃən/', example: 'The park is used for recreation.', viExample: 'Công viên được dùng cho hoạt động giải trí.' },
+      { en: 'Commuter', type: '(n)', vi: 'Người đi làm xa', ipa: '/kəˈmjuːtər/', example: 'Many commuters travel to the city every day.', viExample: 'Nhiều người đi làm xa di chuyển đến thành phố mỗi ngày.' },
+      { en: 'Department store', type: '(n)', vi: 'Cửa hàng bách hóa', ipa: '/dɪˈpɑːtmənt stɔː(r)/', example: 'I bought these shoes at the local department store.', viExample: 'Tôi đã mua đôi giày này ở cửa hàng bách hóa địa phương.' },
+      { en: 'Taxi rank', type: '(n)', vi: 'Bãi đỗ taxi', ipa: '/ˈtæksi ræŋk/', example: 'There is a taxi rank right outside the station.', viExample: 'Có một bãi đỗ taxi ngay bên ngoài nhà ga.' },
+      { en: 'Overpass', type: '(n)', vi: 'Cầu vượt', ipa: '/ˈoʊvərpæs/', example: 'The overpass helps reduce traffic congestion.', viExample: 'Cầu vượt giúp giảm ùn tắc giao thông.' },
+      { en: 'Public transport', type: '(n)', vi: 'Phương tiện công cộng', ipa: '/ˌpʌblɪk ˈtrænspɔːrt/', example: 'Public transport helps reduce traffic.', viExample: 'Phương tiện công cộng giúp giảm tắc nghẽn giao thông.' },
+      { en: 'Outskirts', type: '(n)', vi: 'Vùng ngoại ô', ipa: '/ˈaʊtskɜːrts/', example: 'They moved to the outskirts of the city.', viExample: 'Họ chuyển đến vùng ngoại ô của thành phố.' },
+      { en: 'Congestion', type: '(n)', vi: 'Sự ùn tắc', ipa: '/kənˈdʒestʃən/', example: 'Traffic congestion is worse during rush hour.', viExample: 'Tình trạng ùn tắc giao thông tệ hơn vào giờ cao điểm.' },
+      { en: 'Residential', type: '(adj)', vi: 'Thuộc khu dân cư', ipa: '/ˌrezɪˈdenʃl/', example: 'This is a quiet residential area.', viExample: 'Đây là một khu dân cư yên tĩnh.' },
+      { en: 'Gym', type: '(n)', vi: 'Phòng tập thể dục', ipa: '/dʒɪm/', example: 'I joined a gym near my office.', viExample: 'Tôi đã tham gia một phòng tập thể dục gần văn phòng.' },
+      { en: 'Boulevard', type: '(n)', vi: 'Đại lộ', ipa: '/ˈbuːləvɑːrd/', example: 'Trees are planted along the boulevard.', viExample: 'Cây được trồng dọc theo đại lộ.' },
+      { en: 'Outer', type: '(adj)', vi: 'Phía ngoài', ipa: '/ˈaʊtə(r)/', example: 'They live in the outer suburbs of the city.', viExample: 'Họ sống ở vùng ngoại ô phía ngoài của thành phố.' },
+      { en: 'Settlement', type: '(n)', vi: 'Khu định cư', ipa: '/ˈsetlmənt/', example: 'The settlement grew into a modern city.', viExample: 'Khu định cư đã phát triển thành thành phố hiện đại.' },
+      { en: 'Downtown', type: '(n)', vi: 'Trung tâm thành phố', ipa: '/ˌdaʊnˈtaʊn/', example: 'There are many offices downtown.', viExample: 'Có nhiều văn phòng ở trung tâm thành phố.' },
+      { en: 'Livability', type: '(n)', vi: 'Mức độ đáng sống', ipa: '/ˌlɪvəˈbɪləti/', example: 'Safety affects the livability of a city.', viExample: 'Sự an toàn ảnh hưởng đến mức độ đáng sống của một thành phố.' },
+      { en: 'Waste', type: '(n)', vi: 'Rác thải', ipa: '/weɪst/', example: 'The city needs better waste management.', viExample: 'Thành phố cần quản lý rác thải tốt hơn.' },
+      { en: 'Renovate', type: '(v)', vi: 'Cải tạo', ipa: '/ˈrenəveɪt/', example: 'They plan to renovate the old building.', viExample: 'Họ dự định cải tạo tòa nhà cũ.' },
+      { en: 'Town', type: '(n)', vi: 'Thị trấn', ipa: '/taʊn/', example: 'We live in a small town near the coast.', viExample: 'Chúng tôi sống trong một thị trấn nhỏ gần bờ biển.' },
+      { en: 'Underpass', type: '(n)', vi: 'Hầm chui', ipa: '/ˈʌndərpæs/', example: 'Cars pass through the underpass to avoid traffic.', viExample: 'Xe chạy qua hầm chui để tránh tắc đường.' },
+      { en: 'Accommodation', type: '(n)', vi: 'Chỗ ở', ipa: '/əˌkɒməˈdeɪʃn/', example: 'It is difficult to find cheap accommodation in the city.', viExample: 'Thật khó để tìm được chỗ ở giá rẻ trong thành phố.' },
+      { en: 'Slum', type: '(n)', vi: 'Khu ổ chuột', ipa: '/slʌm/', example: 'Some families live in slums on the outskirts.', viExample: 'Một số gia đình sống trong các khu ổ chuột ở vùng ven.' },
+      { en: 'Landmark', type: '(n)', vi: 'Địa danh nổi tiếng', ipa: '/ˈlændmɑːrk/', example: 'The tower is a famous landmark in the city.', viExample: 'Tòa tháp là một địa danh nổi tiếng trong thành phố.' },
+      { en: 'Library', type: '(n)', vi: 'Thư viện', ipa: '/ˈlaɪbrəri/', example: 'I go to the library to study in silence.', viExample: 'Tôi đến thư viện để học trong yên tĩnh.' },
+      { en: 'Park', type: '(n)', vi: 'Công viên', ipa: '/pɑːk/', example: 'People go to the park to relax and exercise.', viExample: 'Mọi người đến công viên để thư giãn và tập thể dục.' },
+      { en: 'Intersection', type: '(n)', vi: 'Ngã tư', ipa: '/ˌɪntərˈsekʃən/', example: 'Turn left at the next intersection.', viExample: 'Rẽ trái ở ngã tư tiếp theo.' },
+      { en: 'Gallery', type: '(n)', vi: 'Phòng trưng bày', ipa: '/ˈɡæləri/', example: 'The national gallery is free to enter.', viExample: 'Phòng trưng bày quốc gia được vào cửa miễn phí.' },
+      { en: 'Sanitation', type: '(n)', vi: 'Vệ sinh môi trường', ipa: '/ˌsænɪˈteɪʃən/', example: 'Sanitation is important for public health.', viExample: 'Vệ sinh môi trường rất quan trọng đối với sức khỏe cộng đồng.' },
+      { en: 'Building', type: '(n)', vi: 'Tòa nhà', ipa: '/ˈbɪldɪŋ/', example: 'The skyscraper is the tallest building in town.', viExample: 'Tòa nhà chọc trời là tòa nhà cao nhất trong thị trấn.' },
+      { en: 'Municipal', type: '(adj)', vi: 'Thuộc thành phố / đô thị', ipa: '/mjuːˈnɪsɪpl/', example: 'Municipal services are improving.', viExample: 'Các dịch vụ đô thị đang được cải thiện.' },
+      { en: 'Hospital', type: '(n)', vi: 'Bệnh viện', ipa: '/ˈhɒspɪtl/', example: 'The hospital is located on the North side of the city.', viExample: 'Bệnh viện nằm ở phía Bắc của thành phố.' },
+      { en: 'Rush hour', type: '(n)', vi: 'Giờ cao điểm', ipa: '/ˈrʌʃ aʊər/', example: 'Avoid driving during rush hour.', viExample: 'Hãy tránh lái xe vào giờ cao điểm.' },
+      { en: 'Skyscraper', type: '(n)', vi: 'Nhà chọc trời', ipa: '/ˈskaɪskreɪpər/', example: 'That skyscraper is over 50 floors tall.', viExample: 'Tòa nhà chọc trời đó cao hơn 50 tầng.' },
+      { en: 'Transit', type: '(n)', vi: 'Vận tải công cộng', ipa: '/ˈtrænzɪt/', example: 'The city plans to improve public transit.', viExample: 'Thành phố có kế hoạch cải thiện hệ thống vận tải công cộng.' },
+      { en: 'Metropolitan', type: '(adj)', vi: 'Thuộc đô thị lớn', ipa: '/ˌmetrəˈpɒlɪtən/', example: 'Ho Chi Minh City is a metropolitan area.', viExample: 'Thành phố Hồ Chí Minh là một khu đô thị lớn.' },
+      { en: 'Hotel', type: '(n)', vi: 'Khách sạn', ipa: '/həʊˈtel/', example: 'We stayed in a five-star hotel during our trip.', viExample: 'Chúng tôi đã ở trong một khách sạn năm sao trong chuyến đi.' },
+      { en: 'Avenue', type: '(n)', vi: 'Đại lộ', ipa: '/ˈævənuː/', example: 'There are many shops along this avenue.', viExample: 'Có nhiều cửa hàng dọc theo đại lộ này.' },
+      { en: 'Office', type: '(n)', vi: 'Văn phòng', ipa: '/ˈɒfɪs/', example: 'Many people work in tall office buildings.', viExample: 'Nhiều người làm việc trong những tòa nhà văn phòng cao tầng.' },
+      { en: 'Marketplace', type: '(n)', vi: 'Khu chợ', ipa: '/ˈmɑːrkɪtpleɪs/', example: 'The marketplace opens early in the morning.', viExample: 'Khu chợ mở cửa sớm vào buổi sáng.' },
+      { en: 'Convenient', type: '(adj)', vi: 'Thuận tiện', ipa: '/kənˈviːniənt/', example: 'Public transport is very convenient here.', viExample: 'Phương tiện công cộng ở đây rất thuận tiện.' },
+      { en: 'Subway', type: '(n)', vi: 'Tàu điện ngầm', ipa: '/ˈsʌbweɪ/', example: 'The subway is the fastest way to get around.', viExample: 'Tàu điện ngầm là cách nhanh nhất để đi lại xung quanh.' },
+      { en: 'Pedestrian', type: '(n)', vi: 'Người đi bộ', ipa: '/pəˈdestriən/', example: 'Pedestrians should use the crosswalk.', viExample: 'Người đi bộ nên sử dụng vạch sang đường.' },
+      { en: 'Street', type: '(n)', vi: 'Con đường/Phố', ipa: '/striːt/', example: 'The main street is lined with shops and cafes.', viExample: 'Con phố chính đầy dãy các cửa hàng và quán cà phê.' },
+    ],
+    storyEn: `📖 PHẦN 1: ÁC MỘNG ĐI LẠI (TRAFFIC NIGHTMARE)
+Being a Commuter in this Megacity is tough. During Rush hour, the Street and Avenue are full of Congestion. Yesterday, I got stuck in a terrible Traffic jam that became a complete Gridlock. I tried to use Public transport and mass Transit, but the Underground and Subway were packed. I walked on the Pavement, which some call the Sidewalk, acting like a Pedestrian. I crossed the Zebra crossing at the Intersection, walked over an Overpass, under an Underpass, and through a long Boulevard. Finally, I found a Taxi rank next to a Bridge, but the driver ignored the Zoning rules and parked in a illegal Parking lot in the wrong Lane!
+
+📖 PHẦN 2: CHUYỂN NHÀ LÊN PHỐ (MOVING TO THE CITY)
+My family decided to Relocate from a quiet Town to the Capital. The Population is huge, full of Citizen and Resident from everywhere. We didn't want to live in the Outer Suburb or Outskirts near a poor Settlement or Slum. Instead, we chose a Residential Neighborhood in the Urban Area. Because of rapid Urbanization, there is a lot of Demolition and Construction as they Renovate old Housing into a High-rise Building or a Skyscraper. We found a nice place just one Block from the center. The Livability is great, and this District has the best Accommodation in the whole Metropolis!
+
+📖 PHẦN 3: MỘT NGÀY THAM QUAN (A DAY OF SIGHTSEEING)
+Today, we went sightseeing. We visited a Historic Castle and a beautiful Cathedral. The city protects its cultural Heritage carefully. We took photos at a famous Monument and a Landmark which is a popular Tourist attraction. The Scenery was amazing! We also went to a Museum, an art Gallery with a new Exhibition, and read books in the Library. We relaxed by the Fountain in the Park for Recreation. Although some areas are Noisy, Crowded, and suffer from Pollution and Waste near the Industrial Factory, our tour was very Safe. The Municipal Facility and Utility here are great, ensuring good Sanitation and Infrastructure.
+
+📖 PHẦN 4: VUI CHƠI VÀ TIỆN ÍCH (SHOPPING & NIGHTLIFE)
+The Downtown Center is incredibly Bustling with a Cosmopolitan vibe. At night, the Nightlife is amazing, with neon Advertisement at every Corner. A Boulevardier likes to stroll around here. I went to the Market and Marketplace, bought snacks from a street Vendor, then visited a Modern Department store and a Shopping mall because it is very Convenient. We had dinner at a fancy Restaurant near the Harbor, then watched a movie at the Cinema. My friend works at an Office near the City hall where the Mayor works, and stays at a luxury Hotel. Tomorrow, he will go to the Post office, visit a sick friend at the Hospital, and then play sports at the Gym and Stadium in this beautiful Metropolitan region.`,
+
+    storyVi: `📖 PHẦN 1: ÁC MỘNG ĐI LẠI (TRAFFIC NIGHTMARE)
+Trở thành một Người đi làm xa (Commuter) ở Siêu đô thị (Megacity) này thật vất vả. Trong Giờ cao điểm (Rush hour), Con đường/Phố (Street) và Đại lộ (Avenue) đầy Sự ùn tắc (Congestion). Hôm qua, tôi kẹt trong một vụ Tắc đường (Traffic jam) tồi tệ biến thành Tắc nghẽn hoàn toàn (Gridlock). Tôi đã thử dùng Phương tiện công cộng (Public transport) và Vận tải công cộng (Transit), nhưng Hệ thống tàu điện ngầm (Underground) và Tàu điện ngầm (Subway) chật cứng. Tôi đi bộ trên Vỉa hè (Pavement), thứ mà vài người gọi là Vỉa hè (Sidewalk), hành xử như một Người đi bộ (Pedestrian). Tôi băng qua Vạch kẻ đường cho người đi bộ (Zebra crossing) ở Ngã tư (Intersection), đi qua Cầu vượt (Overpass), Hầm chui (Underpass) và một Đại lộ (Boulevard) dài. Cuối cùng, tôi tìm thấy một Bãi đỗ taxi (Taxi rank) cạnh Cây cầu (Bridge), nhưng tài xế phớt lờ Phân khu quy hoạch (Zoning) và đỗ ở một Bãi đỗ xe (Parking lot) trái phép sai Làn đường/Con hẻm (Lane)!
+
+📖 PHẦN 2: CHUYỂN NHÀ LÊN PHỐ (MOVING TO THE CITY)
+Gia đình tôi quyết định Di dời (Relocate) từ một Thị trấn (Town) yên tĩnh đến Thủ đô (Capital). Dân số (Population) rất đông, đầy Công dân (Citizen) và Cư dân (Resident) từ khắp nơi. Chúng tôi không muốn sống ở Phía ngoài (Outer) Ngoại ô (Suburb) hay Vùng ngoại ô (Outskirts) gần một Khu định cư (Settlement) hay Khu ổ chuột (Slum) nghèo nàn. Thay vào đó, chúng tôi chọn một Khu dân cư (Neighborhood) Thuộc khu dân cư (Residential) ở Khu vực (Area) Thuộc đô thị (Urban). Vì Sự đô thị hóa (Urbanization) nhanh chóng, có rất nhiều Sự phá dỡ (Demolition) và Xây dựng (Construction) khi họ Cải tạo (Renovate) Nhà ở (Housing) cũ thành Tòa nhà (Building) Tòa nhà cao tầng (High-rise) hoặc Nhà chọc trời (Skyscraper). Chúng tôi tìm được một nơi đẹp chỉ cách trung tâm một Dãy nhà (Block). Mức độ đáng sống (Livability) thật tuyệt, và Quận / Khu vực (District) này có Chỗ ở (Accommodation) tốt nhất trong toàn bộ Đô thị lớn (Metropolis)!
+
+📖 PHẦN 3: MỘT NGÀY THAM QUAN (A DAY OF SIGHTSEEING)
+Hôm nay, chúng tôi đi ngắm cảnh. Chúng tôi thăm một Lâu đài (Castle) Có tính lịch sử (Historic) và một Nhà thờ lớn (Cathedral) tuyệt đẹp. Thành phố bảo vệ Di sản (Heritage) văn hóa rất kỹ. Chúng tôi chụp ảnh ở một Đài tưởng niệm (Monument) nổi tiếng và một Địa danh nổi tiếng (Landmark), nơi là Điểm thu hút du khách (Tourist attraction) phổ biến. Phong cảnh (Scenery) thật đáng kinh ngạc! Chúng tôi cũng đến Bảo tàng (Museum), Phòng trưng bày (Gallery) nghệ thuật có Triển lãm (Exhibition) mới, và đọc sách ở Thư viện (Library). Chúng tôi thư giãn bên Đài phun nước (Fountain) trong Công viên (Park) để Giải trí (Recreation). Mặc dù vài khu vực khá Ồn ào (Noisy), Đông đúc (Crowded) và bị Ô nhiễm (Pollution) và Rác thải (Waste) gần Nhà máy (Factory) Thuộc công nghiệp (Industrial), chuyến đi rất An toàn (Safe). Cơ sở vật chất (Facility) và Tiện ích (Utility) Thuộc thành phố / đô thị (Municipal) ở đây rất tốt, đảm bảo Vệ sinh môi trường (Sanitation) và Cơ sở hạ tầng (Infrastructure) tốt.
+
+📖 PHẦN 4: VUI CHƠI VÀ TIỆN ÍCH (SHOPPING & NIGHTLIFE)
+Khu Trung tâm thành phố (Downtown) Trung tâm (Center) vô cùng Nhộn nhịp (Bustling) với bầu không khí Mang tính quốc tế, đa văn hóa (Cosmopolitan). Về đêm, Cuộc sống về đêm (Nightlife) thật tuyệt vời, với Quảng cáo (Advertisement) neon ở mọi Góc đường (Corner). Một Người hay dạo phố (Boulevardier) rất thích tản bộ quanh đây. Tôi đến Chợ (Market) và Khu chợ (Marketplace) mua đồ ăn vặt từ Người bán hàng (Vendor) đường phố, sau đó ghé thăm một Cửa hàng bách hóa (Department store) Hiện đại (Modern) và Trung tâm thương mại (Shopping mall) vì nó rất Thuận tiện (Convenient). Chúng tôi ăn tối ở Nhà hàng (Restaurant) sang trọng gần Cảng (Harbor), rồi xem phim tại Rạp chiếu phim (Cinema). Bạn tôi làm việc tại Văn phòng (Office) gần Tòa thị chính (City hall) nơi Thị trưởng (Mayor) làm việc, và ở tại một Khách sạn (Hotel) sang trọng. Ngày mai, anh ấy sẽ đến Bưu điện (Post office), thăm người bạn ốm ở Bệnh viện (Hospital), và sau đó chơi thể thao ở Phòng tập thể dục (Gym) và Sân vận động (Stadium) trong vùng Thuộc đô thị lớn (Metropolitan) tuyệt đẹp này.`
+  }
+];
+
+// ==========================================
+// 2. COMPONENT CHÍNH
+// ==========================================
+export default function VocabApp() {
+  const [activeTopicId, setActiveTopicId] = useState(vocabData[0].id);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [learningMode, setLearningMode] = useState('flashcard'); // 'flashcard', 'story', 'writing', 'speaking'
+  
+  // State cho Tìm kiếm chủ đề (Hỗ trợ 3000 từ)
+  const [searchTopic, setSearchTopic] = useState('');
+
+  // States cho Luyện Viết
+  const [writingInput, setWritingInput] = useState('');
+  const [writingStatus, setWritingStatus] = useState(null); // 'correct', 'wrong', null
+  const [showHint, setShowHint] = useState(false);
+
+  // States cho Luyện Nói
+  const [isListening, setIsListening] = useState(false);
+  const [spokenText, setSpokenText] = useState('');
+  const [speakStatus, setSpeakStatus] = useState(null); // 'correct', 'wrong', null
+
+  // Dữ liệu hiện tại
+  const activeTopic = vocabData.find(t => t.id === activeTopicId);
+  const currentWord = activeTopic.words[currentWordIndex];
+
+  // Hàm Đọc Audio (Speech Synthesis)
+  const playAudio = (text, lang = 'en-US') => {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = 0.85; 
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Trình duyệt của bạn không hỗ trợ phát âm.");
+    }
+  };
+
+  // Hàm Nhận Diện Giọng Nói (Speech Recognition)
+  const startListening = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Trình duyệt không hỗ trợ thu âm (Hãy dùng Chrome hoặc Edge trên máy tính).");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+      setSpokenText('');
+      setSpeakStatus(null);
+    };
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript.toLowerCase().replace(/[.,!?]/g, '').trim();
+      setSpokenText(transcript);
+      
+      const targetWord = currentWord.en.toLowerCase().trim();
+      
+      // Kiểm tra độ chính xác (linh hoạt một chút vì có thể nhận diện cả cụm từ)
+      if (transcript.includes(targetWord) || targetWord.includes(transcript)) {
+        setSpeakStatus('correct');
+        playAudio("Excellent!", 'en-US');
+      } else {
+        setSpeakStatus('wrong');
+      }
+    };
+
+    recognition.onspeechend = () => {
+      recognition.stop();
+      setIsListening(false);
+    };
+
+    recognition.onerror = (event) => {
+      setIsListening(false);
+      console.error(event.error);
+    };
+
+    recognition.start();
+  };
+
+  // Đổi chủ đề
+  const handleTopicChange = (topicId) => {
+    setActiveTopicId(topicId);
+    setCurrentWordIndex(0);
+    resetStates();
+  };
+
+  // Đổi Mode
+  const changeMode = (mode) => {
+    setLearningMode(mode);
+    setCurrentWordIndex(0);
+    resetStates();
+  };
+
+  // Nút Next / Prev
+  const handleNextWord = () => {
+    resetStates();
+    setTimeout(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % activeTopic.words.length);
+    }, 150);
+  };
+
+  const handlePrevWord = () => {
+    resetStates();
+    setTimeout(() => {
+      setCurrentWordIndex((prev) => (prev === 0 ? activeTopic.words.length - 1 : prev - 1));
+    }, 150);
+  };
+
+  // Reset toàn bộ trạng thái
+  const resetStates = () => {
+    setIsFlipped(false);
+    setWritingInput('');
+    setWritingStatus(null);
+    setShowHint(false);
+    setIsListening(false);
+    setSpokenText('');
+    setSpeakStatus(null);
+  };
+
+  // Lọc danh sách chủ đề dựa trên ô tìm kiếm
+  const filteredTopics = vocabData.filter(topic => 
+    topic.title.toLowerCase().includes(searchTopic.toLowerCase()) || 
+    topic.description.toLowerCase().includes(searchTopic.toLowerCase())
+  );
+
+  // Kiểm tra đáp án Luyện Viết
+  const checkWriting = (e) => {
+    e.preventDefault();
+    if (writingInput.trim().toLowerCase() === currentWord.en.toLowerCase()) {
+      setWritingStatus('correct');
+      playAudio(currentWord.en, 'en-US'); 
+    } else {
+      setWritingStatus('wrong');
+    }
+  };
+
+  // Hàm tạo câu hỏi đục lỗ
+  const generateClozeSentence = (sentence, targetWord) => {
+    // 1. Dọn dẹp từ khóa (đề phòng từ vựng có chứa ký tự đặc biệt)
+    const cleanWord = targetWord.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    
+    // 2. Thêm [a-z]* vào cuối để nó bắt được cả các đuôi số nhiều (s, es) hoặc đuôi động từ (ed, ing)
+    const regex = new RegExp(`\\b${cleanWord}[a-z]*\\b`, 'gi');
+    
+    return sentence.replace(regex, '_________');
+  };
+
+  // Làm nổi bật từ trong Truyện
+  const highlightStoryWords = (text, words) => {
+    let highlightedText = text;
+    words.forEach(wordObj => {
+      const regex = new RegExp(`\\b${wordObj.en}\\b`, 'gi');
+      highlightedText = highlightedText.replace(regex, (match) => `<span class="bg-yellow-300 border-b-4 border-black px-1 font-black rounded-md inline-block transform -rotate-1 hover:rotate-2 transition-transform cursor-pointer" title="Nghĩa: ${wordObj.vi} | Phát âm: ${wordObj.ipa}">${match}</span>`);
+    });
+    return highlightedText;
+  };
+
+  return (
+    <div className="min-h-screen bg-[#F0F4F8] font-sans p-2 md:p-8">
+      {/* HEADER */}
+      <div className="mb-8 text-center max-w-5xl mx-auto">
+        <h1 className="text-3xl md:text-5xl font-black text-slate-800 uppercase tracking-tight border-b-8 border-black inline-block pb-2 mb-2 shadow-[8px_8px_0_0_rgba(0,0,0,1)] bg-white px-6 rounded-2xl">
+          🚀 TỪ VỰNG ENGLISH PRO
+        </h1>
+        <p className="text-slate-800 font-bold mt-4 text-base md:text-lg bg-yellow-300 inline-block px-4 py-1 border-2 border-black rounded-full shadow-[2px_2px_0_0_rgba(0,0,0,1)]">
+          Nghe chuẩn - Đọc hiểu - Viết thạo - Nói tự tin!
+        </p>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8">
+        
+        {/* ================= SIDEBAR (CỘT TRÁI) ================= */}
+        <div className="lg:col-span-1 space-y-4">
+          <div className="bg-white border-4 border-black rounded-2xl shadow-[6px_6px_0_0_rgba(0,0,0,1)] p-4 sticky top-8 max-h-[85vh] flex flex-col">
+            <h2 className="text-xl font-black border-b-4 border-black pb-2 mb-4 bg-purple-200 inline-block px-3 rounded-lg shadow-[2px_2px_0_0_rgba(0,0,0,1)]">
+              📚 Chọn Chủ Đề
+            </h2>
+            
+            {/* Ô TÌM KIẾM CHỦ ĐỀ */}
+            <input 
+              type="text" 
+              placeholder="🔍 Tìm chủ đề (Ví dụ: Y tế, Môi trường)..." 
+              value={searchTopic}
+              onChange={(e) => setSearchTopic(e.target.value)}
+              className="w-full mb-4 p-2 border-4 border-black rounded-xl font-bold outline-none focus:bg-yellow-100 transition-colors shadow-inner text-sm"
+            />
+
+            <div className="space-y-3 overflow-y-auto custom-scrollbar flex-1 pr-2">
+              {filteredTopics.length > 0 ? (
+                filteredTopics.map((topic) => (
+                  <button
+                    key={topic.id}
+                    onClick={() => handleTopicChange(topic.id)}
+                    className={`w-full text-left p-3 rounded-xl border-4 border-black font-bold transition-all duration-200 flex flex-col gap-1
+                      ${activeTopicId === topic.id 
+                        ? 'bg-yellow-300 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-x-[-2px] translate-y-[-2px]' 
+                        : 'bg-white hover:bg-slate-100 hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)]'}`}
+                  >
+                    <span className="text-sm md:text-base leading-tight">{topic.title}</span>
+                    <span className="text-xs font-medium text-slate-600">{topic.words.length} từ vựng</span>
+                  </button>
+                ))
+              ) : (
+                <p className="text-sm font-bold text-slate-500 text-center py-4">Không tìm thấy chủ đề nào!</p>
+              )}
+            </div>
+            
+            <div>
+
+            </div>
+          </div>
+        </div>
+
+        {/* ================= MAIN CONTENT (CỘT PHẢI) ================= */}
+        <div className="lg:col-span-4 flex flex-col items-center justify-start">
+          
+          {/* MENU 4 BƯỚC HỌC */}
+          <div className="w-full flex flex-wrap xl:flex-nowrap gap-2 md:gap-4 mb-8">
+             <button onClick={() => changeMode('flashcard')} className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${learningMode === 'flashcard' ? 'bg-blue-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px]' : 'bg-white hover:bg-blue-100'}`}>
+                <span>Bước 1</span><span className="text-white text-shadow-black">🃏 Nhận Diện</span>
+             </button>
+             <button onClick={() => changeMode('story')} className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${learningMode === 'story' ? 'bg-green-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px]' : 'bg-white hover:bg-green-100'}`}>
+                <span>Bước 2</span><span className="text-white text-shadow-black">📖 Ngữ Cảnh</span>
+             </button>
+             <button onClick={() => changeMode('writing')} className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${learningMode === 'writing' ? 'bg-orange-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px]' : 'bg-white hover:bg-orange-100'}`}>
+                <span>Bước 3</span><span className="text-white text-shadow-black">✍️ Luyện Viết</span>
+             </button>
+             {/* BƯỚC 4 MỚI: LUYỆN NÓI */}
+             <button onClick={() => changeMode('speaking')} className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${learningMode === 'speaking' ? 'bg-purple-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px]' : 'bg-white hover:bg-purple-100'}`}>
+                <span>Bước 4</span><span className="text-white text-shadow-black">🎙️ Luyện Nói</span>
+             </button>
+          </div>
+
+          {/* --- BƯỚC 1: FLASHCARD --- */}
+          {learningMode === 'flashcard' && (
+            <div className="w-full flex flex-col items-center animate-fade-in">
+              <div className="bg-white border-4 border-black px-6 py-2 rounded-full font-black text-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] mb-6">Từ {currentWordIndex + 1} / {activeTopic.words.length}</div>
+              <div className="relative w-full max-w-3xl h-[26rem] perspective-1000 group cursor-pointer" onClick={() => setIsFlipped(!isFlipped)}>
+                <div className={`w-full h-full transition-transform duration-500 transform-style-preserve-3d relative ${isFlipped ? 'rotate-y-180' : ''}`}>
+                  {/* MẶT TRƯỚC */}
+                  <div className="absolute w-full h-full backface-hidden bg-white border-4 border-black rounded-[2rem] shadow-[10px_10px_0_0_rgba(0,0,0,1)] flex flex-col items-center justify-center p-8 text-center">
+                    <span className="absolute top-6 right-8 text-sm font-black text-slate-500 bg-slate-200 px-3 py-1 rounded-full border-2 border-black">Chạm thẻ lật 🔄</span>
+                    <button onClick={(e) => { e.stopPropagation(); playAudio(currentWord.en); }} className="mb-4 bg-blue-100 p-4 rounded-full border-4 border-black hover:bg-blue-300 hover:scale-110 transition-all shadow-[4px_4px_0_0_rgba(0,0,0,1)]" title="Nghe phát âm">🔊 Nghe & Đọc</button>
+                    <div className="text-5xl md:text-7xl font-black text-slate-800 mb-6">{currentWord.en}</div>
+                    <div className="flex items-center gap-4"><span className="text-xl font-black text-blue-600 bg-blue-50 px-4 py-2 rounded-xl border-2 border-blue-600">{currentWord.type}</span><span className="text-xl font-bold text-slate-600 bg-slate-100 px-4 py-2 rounded-xl border-2 border-slate-400">{currentWord.ipa}</span></div>
+                  </div>
+                  {/* MẶT SAU */}
+                  <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-yellow-200 border-4 border-black rounded-[2rem] shadow-[10px_10px_0_0_rgba(0,0,0,1)] flex flex-col items-center justify-center p-8 text-center">
+                    <div className="text-4xl md:text-5xl font-black text-red-600 mb-6 border-b-4 border-red-400 pb-4">{currentWord.vi}</div>
+                    <div className="w-full bg-white border-4 border-black rounded-2xl p-6 relative">
+                      <button onClick={(e) => { e.stopPropagation(); playAudio(currentWord.example); }} className="absolute -top-5 right-4 bg-blue-300 p-2 rounded-full border-2 border-black hover:bg-blue-400 font-bold">🔊 Nghe Câu</button>
+                      <p className="text-xl md:text-2xl font-bold text-slate-800 mb-3 mt-2">"{currentWord.example}"</p>
+                      <p className="text-lg font-bold text-slate-600 italic border-t-2 border-dashed border-slate-300 pt-3">{currentWord.viExample}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+        {/* --- BƯỚC 2: STORY MODE --- */}
+          {learningMode === 'story' && (
+            <div className="w-full animate-fade-in space-y-6">
+               <div className="bg-white border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)] relative">
+                 <button onClick={() => playAudio(activeTopic.storyEn)} className="absolute top-4 right-4 bg-blue-400 text-white font-bold border-4 border-black px-4 py-2 rounded-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:bg-blue-500 hover:translate-y-1 active:shadow-none transition-all flex items-center gap-2">🔊 Đọc Truyện</button>
+                 <h3 className="text-2xl font-black mb-8 mt-4 bg-green-300 inline-block px-4 py-2 border-2 border-black rounded-lg transform -rotate-2">📖 Truyện Thấm Ngữ Cảnh</h3>
+                 
+                 {/* 👉 ĐÃ THAY THẾ BẰNG COMPONENT MỚI TẠI ĐÂY */}
+                 <div className="text-xl md:text-2xl leading-loose md:leading-loose font-medium text-slate-800">
+                    <StoryWithHighlights 
+                       storyText={activeTopic.storyEn} 
+                       vocabList={activeTopic.words} 
+                    />
+                 </div>
+
+               </div>
+               <div className="bg-slate-800 border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)] text-white">
+                 <h3 className="text-2xl font-black mb-6 bg-red-400 text-black inline-block px-4 py-2 border-2 border-black rounded-lg transform rotate-1">🇻🇳 Bản dịch</h3>
+                 
+                 {/* 👉 DÙNG COMPONENT MỚI CHO BẢN DỊCH (để highlight luôn tiếng Anh trong bài tiếng Việt) */}
+                 <div className="text-lg md:text-xl leading-relaxed font-medium">
+                    <StoryWithHighlights 
+                       storyText={activeTopic.storyVi} 
+                       vocabList={activeTopic.words} 
+                    />
+                 </div>
+
+               </div>
+            </div>
+          )}
+
+          {/* --- BƯỚC 3: WRITING MODE --- */}
+          {learningMode === 'writing' && (
+            <div className="w-full flex flex-col items-center animate-fade-in">
+              <div className="bg-orange-100 border-4 border-black px-6 py-2 rounded-full font-black text-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] mb-6 text-orange-800">Luyện Viết: Từ {currentWordIndex + 1} / {activeTopic.words.length}</div>
+              <div className="w-full max-w-3xl bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[10px_10px_0_0_rgba(0,0,0,1)] text-center">
+                <h3 className="text-2xl font-bold text-slate-500 mb-2">Gõ từ Tiếng Anh có nghĩa là:</h3>
+                <div className="text-4xl md:text-5xl font-black text-red-600 mb-6 border-b-4 border-black pb-4 inline-block">{currentWord.vi}</div>
+                <div className="bg-slate-100 border-2 border-dashed border-slate-400 rounded-xl p-4 mb-8 text-left">
+                  <p className="text-sm font-bold text-slate-500 mb-1">DỊCH CÂU NÀY:</p>
+                  <p className="text-lg font-bold text-slate-800">"{generateClozeSentence(currentWord.example, currentWord.en)}"</p>
+                  <p className="text-sm font-medium text-slate-600 mt-2 italic">({currentWord.viExample})</p>
+                </div>
+                <form onSubmit={checkWriting} className="flex flex-col gap-4 items-center w-full">
+                  <input type="text" value={writingInput} onChange={(e) => setWritingInput(e.target.value)} placeholder="Gõ từ tiếng Anh..." autoFocus className={`w-full max-w-md text-center text-3xl font-black p-4 border-4 border-black rounded-2xl outline-none transition-all shadow-inner ${writingStatus === 'correct' ? 'bg-green-200 text-green-900 border-green-600' : writingStatus === 'wrong' ? 'bg-red-200 text-red-900 border-red-600 animate-shake' : 'bg-white focus:ring-4 focus:ring-orange-300'}`} />
+                  {writingStatus === 'correct' && <div className="text-green-600 font-black text-xl animate-bounce">✅ Chính xác! Giỏi lắm!</div>}
+                  {writingStatus === 'wrong' && <div className="text-red-600 font-black text-xl">❌ Chưa đúng, thử lại nhé!</div>}
+                  <div className="flex gap-4 w-full justify-center mt-4">
+                    <button type="button" onClick={() => setShowHint(true)} className="px-6 py-3 bg-slate-200 font-bold border-4 border-black rounded-xl hover:bg-slate-300 shadow-[4px_4px_0_0_rgba(0,0,0,1)]">{showHint ? `Đáp án: ${currentWord.en}` : '👀 Xem đáp án'}</button>
+                    <button type="submit" className="px-8 py-3 bg-orange-400 font-black text-white border-4 border-black rounded-xl hover:bg-orange-500 shadow-[4px_4px_0_0_rgba(0,0,0,1)]">KIỂM TRA</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
+
+          {/* --- BƯỚC 4: SPEAKING MODE (MỚI) --- */}
+          {learningMode === 'speaking' && (
+            <div className="w-full flex flex-col items-center animate-fade-in">
+              <div className="bg-purple-100 border-4 border-black px-6 py-2 rounded-full font-black text-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] mb-6 text-purple-800">Luyện Phát Âm: Từ {currentWordIndex + 1} / {activeTopic.words.length}</div>
+              <div className="w-full max-w-3xl bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[10px_10px_0_0_rgba(0,0,0,1)] text-center flex flex-col items-center">
+                
+                <h3 className="text-2xl font-bold text-slate-500 mb-2">Hãy phát âm chuẩn từ sau:</h3>
+                <div className="text-5xl md:text-7xl font-black text-slate-800 mb-2">{currentWord.en}</div>
+                <div className="text-2xl font-bold text-slate-400 mb-8">{currentWord.ipa} <span className="text-lg text-red-400">({currentWord.vi})</span></div>
+
+                <div className="mb-8 flex flex-col items-center">
+                  <button 
+                    onClick={startListening}
+                    disabled={isListening}
+                    className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-black flex items-center justify-center text-4xl md:text-5xl shadow-[6px_6px_0_0_rgba(0,0,0,1)] transition-all
+                      ${isListening ? 'bg-red-400 animate-pulse translate-y-[2px] shadow-[4px_4px_0_0_rgba(0,0,0,1)]' : 'bg-purple-300 hover:bg-purple-400 hover:translate-y-[-4px] active:translate-y-[4px] active:shadow-none'}`}
+                  >
+                    🎤
+                  </button>
+                  <p className="mt-4 font-bold text-lg text-slate-700">
+                    {isListening ? "Đang thu âm... Hãy đọc từ này lên!" : "Bấm vào Micro để nói"}
+                  </p>
+                </div>
+
+                {/* Kết quả nhận diện giọng nói */}
+                <div className="w-full max-w-md min-h-[100px] bg-slate-50 border-4 border-black border-dashed rounded-2xl p-4 flex flex-col justify-center items-center">
+                  <p className="text-sm font-bold text-slate-400 mb-2">AI NGHE THẤY:</p>
+                  {spokenText ? (
+                    <p className={`text-2xl font-black ${speakStatus === 'correct' ? 'text-green-600' : 'text-red-600'}`}>
+                      "{spokenText}"
+                    </p>
+                  ) : (
+                    <p className="text-xl font-medium text-slate-300 italic">Chưa có dữ liệu giọng nói</p>
+                  )}
+
+                  {speakStatus === 'correct' && <div className="mt-2 bg-green-200 px-4 py-1 rounded-full border-2 border-green-600 font-bold text-green-800 animate-bounce">Tuyệt vời! Phát âm chuẩn! 🌟</div>}
+                  {speakStatus === 'wrong' && <div className="mt-2 bg-red-200 px-4 py-1 rounded-full border-2 border-red-600 font-bold text-red-800">Chưa đúng, thử nói lại nhé! ❌</div>}
+                </div>
+
+                <button onClick={() => playAudio(currentWord.en)} className="mt-6 px-6 py-2 bg-blue-100 font-bold border-2 border-black rounded-xl hover:bg-blue-200">
+                  🔊 Nghe lại âm chuẩn
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* COMPONENT ĐIỀU HƯỚNG CHUNG BÊN DƯỚI */}
+          {learningMode !== 'story' && (
+            <div className="flex gap-4 md:gap-6 mt-10 w-full max-w-3xl justify-between">
+              <button onClick={handlePrevWord} className="flex-1 py-4 bg-white border-4 border-black rounded-2xl font-black text-xl hover:bg-slate-100 shadow-[6px_6px_0_0_rgba(0,0,0,1)] active:shadow-none active:translate-y-[4px] transition-all">
+                ⬅️ Từ Trước
+              </button>
+              <button onClick={handleNextWord} className="flex-1 py-4 bg-yellow-400 border-4 border-black rounded-2xl font-black text-xl hover:bg-yellow-500 shadow-[6px_6px_0_0_rgba(0,0,0,1)] active:shadow-none active:translate-y-[4px] transition-all">
+                Từ Tiếp ➡️
+              </button>
+            </div>
+          )}
+
+        </div>
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .text-shadow-black { text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; }
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; border: 1px solid #000; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; border: 1px solid #000; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-5px); } }
+        .animate-shake { animation: shake 0.4s ease-in-out; }
+      `}} />
+    </div>
+  );
+}
