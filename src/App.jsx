@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Vocab from './Vocab';
+import ImageScanner from './ImageScanner';
 import { 
   BookOpen, PenTool, CheckCircle, XCircle, Menu, X, Home, ChevronRight, 
   ChevronDown, Award, RotateCcw, Target, Shuffle, Volume2, Lightbulb, 
@@ -508,8 +509,14 @@ export default function App() {
              onClick={() => {setAppMode('vocab'); setMenu(false);}}
              className={`p-3 font-black border-4 border-slate-800 rounded-xl transition-all ${appMode === 'vocab' ? 'bg-green-400 text-white shadow-none translate-y-1' : 'bg-white shadow-[4px_4px_0_0_#1e293b]'}`}
            >
-             🔥 3000 TỪ VỰNG
+             🔥 TỪ VỰNG
            </button>
+           <button 
+          onClick={() => { setAppMode('scanner'); setMenu(false); }}
+          className={`p-3 font-black border-4 border-slate-800 rounded-xl transition-all ${appMode === 'scanner' ? 'bg-blue-400 text-white shadow-none translate-y-1' : 'bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-slate-50'}`}
+        >
+          📸 QUÉT ẢNH AI
+        </button>
          </div>
 
          <div className="flex-1 overflow-y-auto p-4 space-y-2 pb-24 custom-scrollbar">
@@ -525,19 +532,26 @@ export default function App() {
                 ))}
               </>
             )}
-         </div>
-      </aside>
-      {menu && <div className="fixed inset-0 bg-slate-900/50 z-30 md:hidden" onClick={()=>setMenu(false)}/>}
+          </div>
+        </aside>
 
       <main className="flex-1 p-4 md:p-10 h-screen overflow-y-auto bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:20px_20px]">
-        {/* NẾU LÀ TỪ VỰNG -> GỌI FILE VOCAB RA */}
-        {appMode === 'vocab' ? (
-           <Vocab />
-        ) : (
-           /* NẾU LÀ NGỮ PHÁP -> HIỆN GIAO DIỆN CŨ */
-           <div className="max-w-4xl mx-auto">
-             {!topicId ? (
-               <div className="bg-white border-[4px] border-slate-800 rounded-[3rem] p-10 text-center shadow-[12px_12px_0_0_#1e293b] mt-10">
+        {/* 1. NẾU LÀ TỪ VỰNG */}
+    {appMode === 'vocab' && (
+      <Vocab />
+    )}
+
+    {/* 2. NẾU LÀ QUÉT ẢNH AI */}
+    {appMode === 'scanner' && (
+      <ImageScanner />
+    )}
+
+    {/* 3. NẾU LÀ NGỮ PHÁP */}
+    {appMode === 'grammar' && (
+      /* NẾU LÀ NGỮ PHÁP -> HIỆN GIAO DIỆN CŨ */
+      <div className="max-w-4xl mx-auto">
+        {!topicId ? (
+          <div className="bg-white border-[4px] border-slate-800 rounded-[3rem] p-10 text-center shadow-[12px_12px_0_0_#1c293b] mt-10">
                   <Trophy size={100} className="mx-auto text-yellow-400 mb-8 fill-yellow-300"/>
                   <h2 className="text-5xl font-black mb-6 uppercase">Welcome Grammar Pro!</h2>
                   <p className="font-bold text-2xl text-slate-600 mb-10 leading-relaxed bg-yellow-100 p-4 rounded-2xl border-4 border-slate-800">Cỗ máy luyện Ngữ Pháp và Từ Vựng Tiếng Anh siêu cấp</p>
