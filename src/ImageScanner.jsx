@@ -6,6 +6,7 @@ const ImageScanner = () => {
   const [apiKey, setApiKey] = useState('');
   const [isKeySaved, setIsKeySaved] = useState(false);
 
+
   // State quản lý Ảnh và Kết quả
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);

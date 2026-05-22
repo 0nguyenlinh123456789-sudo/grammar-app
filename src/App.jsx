@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Vocab from './Vocab';
+import OxfordVocab from './components/unitData';
 import ImageScanner from './ImageScanner';
 import { 
   BookOpen, PenTool, CheckCircle, XCircle, Menu, X, Home, ChevronRight, 
@@ -8,7 +9,7 @@ import {
   BookMarked, BrainCircuit, Trophy, ArrowRight, Map, Snail, Edit3,
   CheckSquare, Key
 } from 'lucide-react';
-
+import { courseData } from './data/oxfordData';
 // ==========================================
 // DỮ LIỆU NGỮ PHÁP (21 CHUYÊN ĐỀ - BẢO TOÀN LÝ THUYẾT CHI TIẾT)
 // ==========================================
@@ -482,7 +483,10 @@ export default function App() {
   const [tab, setTab] = useState('theory');
   const [menu, setMenu] = useState(false);
   const [xp, setXp] = useState(0);
-
+  const [isVocabMenuOpen, setIsVocabMenuOpen] = useState(false);
+  const [activeVocabCategory, setActiveVocabCategory] = useState("VSTEP");
+const [oxfordUnitId, setOxfordUnitId] = useState(1);
+  const selectedOxfordUnit = courseData.find(u => u.id === oxfordUnitId);
   const topic = parsedData.find(t => t.id === topicId);
 
   return (
@@ -505,12 +509,37 @@ export default function App() {
            >
              📖 HỌC NGỮ PHÁP
            </button>
-           <button 
-             onClick={() => {setAppMode('vocab'); setMenu(false);}}
-             className={`p-3 font-black border-4 border-slate-800 rounded-xl transition-all ${appMode === 'vocab' ? 'bg-green-400 text-white shadow-none translate-y-1' : 'bg-white shadow-[4px_4px_0_0_#1e293b]'}`}
-           >
-             🔥 TỪ VỰNG
-           </button>
+          {/* KHỐI TỪ VỰNG CÓ DROPDOWN */}
+           <div className="flex flex-col gap-2">
+             <button 
+               onClick={() => {
+                 setAppMode('vocab'); 
+                 setIsVocabMenuOpen(!isVocabMenuOpen);
+               }}
+               className={`relative p-3 font-black border-4 border-slate-800 rounded-xl transition-all flex justify-center items-center ${appMode === 'vocab' ? 'bg-green-400 text-white shadow-none translate-y-1' : 'bg-white shadow-[4px_4px_0_0_#1e293b]'}`}
+             >
+               <span>🔥 TỪ VỰNG</span>
+               <ChevronDown className={`absolute right-4 transition-transform ${isVocabMenuOpen ? 'rotate-180' : ''}`} />
+             </button>
+
+             {/* 2 LỰA CHỌN VSTEP VÀ OXFORD */}
+             {isVocabMenuOpen && (
+               <div className="flex flex-col gap-2 ml-6 mt-1 animate-in fade-in slide-in-from-top-2">
+                 <button
+                   onClick={() => { setActiveVocabCategory("VSTEP"); setMenu(false); }}
+                   className={`p-2 font-black border-[3px] border-slate-800 rounded-xl transition-all flex justify-center items-center text-center gap-2 ${activeVocabCategory === 'VSTEP' && appMode === 'vocab' ? 'bg-yellow-300 shadow-none translate-y-1' : 'bg-white shadow-[2px_2px_0_0_#1e293b] hover:bg-slate-50'}`}
+                 >
+                   📘 VSTEP
+                 </button>
+                 <button
+                   onClick={() => { setActiveVocabCategory("OXFORD"); setMenu(false); }}
+                   className={`p-2 font-black border-[3px] border-slate-800 rounded-xl transition-all flex justify-center items-center text-center gap-2 ${activeVocabCategory === 'OXFORD' && appMode === 'vocab' ? 'bg-yellow-300 shadow-none translate-y-1' : 'bg-white shadow-[2px_2px_0_0_#1e293b] hover:bg-slate-50'}`}
+                 >
+                   📕 OXFORD
+                 </button>
+               </div>
+             )}
+           </div>
            <button 
           onClick={() => { setAppMode('scanner'); setMenu(false); }}
           className={`p-3 font-black border-4 border-slate-800 rounded-xl transition-all ${appMode === 'scanner' ? 'bg-blue-400 text-white shadow-none translate-y-1' : 'bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-slate-50'}`}
@@ -532,15 +561,36 @@ export default function App() {
                 ))}
               </>
             )}
+            {/* THÊM TOÀN BỘ KHỐI CODE NÀY VÀO ĐÂY: MENU CHO OXFORD */}
+            {appMode === 'vocab' && activeVocabCategory === 'OXFORD' && (
+              <>
+                <div className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2 mb-2 mt-4">60 Units Oxford</div>
+                {courseData.map(unit => (
+                  <button key={unit.id} onClick={() => { setOxfordUnitId(unit.id); setMenu(false); }} className={`w-full text-left font-bold p-4 border-[4px] border-slate-800 rounded-2xl truncate text-lg transition-all mb-2 ${oxfordUnitId === unit.id ? 'bg-yellow-200 translate-x-2 shadow-[2px_2px_0px_0px_#1e293b]' : 'bg-white hover:bg-slate-50'}`}>
+                    {unit.title}
+                  </button>
+                ))}
+              </>
+            )}
           </div>
         </aside>
+          
 
       <main className="flex-1 p-4 md:p-10 h-screen overflow-y-auto bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:20px_20px]">
         {/* 1. NẾU LÀ TỪ VỰNG */}
-    {appMode === 'vocab' && (
-      <Vocab />
-    )}
+        {appMode === 'vocab' && (
+          <div className="w-full h-full max-w-6xl mx-auto">
+            
+            {/* HIỆN VSTEP (Tức là component Vocab hiện tại của bạn) */}
+            {activeVocabCategory === 'VSTEP' && <Vocab />}
 
+            {/* HIỆN OXFORD - SỬA LẠI ĐOẠN NÀY */}
+            {activeVocabCategory === 'OXFORD' && (
+                <OxfordVocab unitData={selectedOxfordUnit} />
+            )}
+
+          </div>
+        )}
     {/* 2. NẾU LÀ QUÉT ẢNH AI */}
     {appMode === 'scanner' && (
       <ImageScanner />
