@@ -1,5 +1,5 @@
 // File: src/pages/VocabVstepPage.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Rocket, Layers, BookOpen, PenTool, Mic, Volume2, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 import StoryWithHighlights from '../components/vocab/StoryWithHighlights';
 import Flashcard from '../components/vocab/Flashcard';
@@ -46,31 +46,63 @@ const VocabVstepPage = ({ activeTopic, playAudio }) => {
       <div className="w-full max-w-3xl flex flex-wrap md:flex-nowrap gap-2 md:gap-4 mb-8">
          <button 
            onClick={() => setLearningMode('flashcard')} 
-           className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${learningMode === 'flashcard' ? 'bg-blue-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px]' : 'bg-white hover:bg-blue-100'}`}
+           className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${
+             learningMode === 'flashcard' 
+               ? 'bg-blue-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px] text-white' 
+               : 'bg-white hover:bg-blue-50 text-slate-800'
+           }`}
          >
-            <span>Bước 1</span>
-            <span className="text-white text-shadow-black flex items-center gap-1"><Layers size={16}/> Nhận Diện</span>
+            <span className={learningMode === 'flashcard' ? '' : 'text-slate-500'}>Bước 1</span>
+            <span className={`flex items-center gap-1 ${
+              learningMode === 'flashcard' ? 'text-white text-shadow-black' : 'text-blue-500'
+            }`}>
+              <Layers size={16}/> Nhận Diện
+            </span>
          </button>
          <button 
            onClick={() => setLearningMode('story')} 
-           className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${learningMode === 'story' ? 'bg-green-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px]' : 'bg-white hover:bg-green-100'}`}
+           className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${
+             learningMode === 'story' 
+               ? 'bg-green-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px] text-white' 
+               : 'bg-white hover:bg-green-50 text-slate-800'
+           }`}
          >
-            <span>Bước 2</span>
-            <span className="text-white text-shadow-black flex items-center gap-1"><BookOpen size={16}/> Ngữ Cảnh</span>
+            <span className={learningMode === 'story' ? '' : 'text-slate-500'}>Bước 2</span>
+            <span className={`flex items-center gap-1 ${
+              learningMode === 'story' ? 'text-white text-shadow-black' : 'text-green-600'
+            }`}>
+              <BookOpen size={16}/> Ngữ Cảnh
+            </span>
          </button>
          <button 
            onClick={() => setLearningMode('writing')} 
-           className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${learningMode === 'writing' ? 'bg-orange-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px]' : 'bg-white hover:bg-orange-100'}`}
+           className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${
+             learningMode === 'writing' 
+               ? 'bg-orange-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px] text-white' 
+               : 'bg-white hover:bg-orange-50 text-slate-800'
+           }`}
          >
-            <span>Bước 3</span>
-            <span className="text-white text-shadow-black flex items-center gap-1"><PenTool size={16}/> Luyện Viết</span>
+            <span className={learningMode === 'writing' ? '' : 'text-slate-500'}>Bước 3</span>
+            <span className={`flex items-center gap-1 ${
+              learningMode === 'writing' ? 'text-white text-shadow-black' : 'text-orange-500'
+            }`}>
+              <PenTool size={16}/> Luyện Viết
+            </span>
          </button>
          <button 
            onClick={() => setLearningMode('speaking')} 
-           className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${learningMode === 'speaking' ? 'bg-purple-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px]' : 'bg-white hover:bg-purple-100'}`}
+           className={`flex-1 py-3 px-2 border-4 border-black rounded-xl font-black text-xs md:text-sm transition-all flex flex-col items-center justify-center gap-1 ${
+             learningMode === 'speaking' 
+               ? 'bg-purple-400 shadow-[4px_4px_0_0_rgba(0,0,0,1)] translate-y-[-4px] text-white' 
+               : 'bg-white hover:bg-purple-50 text-slate-800'
+           }`}
          >
-            <span>Bước 4</span>
-            <span className="text-white text-shadow-black flex items-center gap-1"><Mic size={16}/> Luyện Nói</span>
+            <span className={learningMode === 'speaking' ? '' : 'text-slate-500'}>Bước 4</span>
+            <span className={`flex items-center gap-1 ${
+              learningMode === 'speaking' ? 'text-white text-shadow-black' : 'text-purple-500'
+            }`}>
+              <Mic size={16}/> Luyện Nói
+            </span>
          </button>
       </div>
 
