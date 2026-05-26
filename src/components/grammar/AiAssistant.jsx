@@ -1,5 +1,5 @@
 // File: src/components/grammar/AiAssistant.jsx
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Key, Edit3, Mic, Volume2, Shuffle } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 
@@ -11,6 +11,19 @@ const AiAssistant = ({ topic, sentences }) => {
   const [speakingSent, setSpeakingSent] = useState(sentences[0]);
   const [isRec, setIsRec] = useState(false);
   const [score, setScore] = useState(null);
+
+  // Sync API Key with localStorage on mount
+  useEffect(() => {
+    const savedKey = localStorage.getItem('MY_GEMINI_API_KEY');
+    if (savedKey) {
+      setApiKey(savedKey);
+    }
+  }, []);
+
+  const handleApiKeyChange = (val) => {
+    setApiKey(val);
+    localStorage.setItem('MY_GEMINI_API_KEY', val);
+  };
 
   const checkWriting = async () => {
     if (!apiKey) return alert("Vui lòng nhập Gemini API Key phía trên để AI hoạt động.");
@@ -24,7 +37,7 @@ const AiAssistant = ({ topic, sentences }) => {
       });
       const data = await res.json();
       setFeedback(data?.candidates?.[0]?.content?.parts?.[0]?.text || "Lỗi phản hồi từ AI.");
-    } catch (e) { 
+    } catch { 
       setFeedback("Lỗi kết nối hoặc API Key không hợp lệ."); 
     }
     setLoading(false);
@@ -52,7 +65,7 @@ const AiAssistant = ({ topic, sentences }) => {
     <div className="space-y-8 animate-in fade-in pb-12">
       <div className="bg-slate-800 text-white rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-[4px] border-slate-900 shadow-[6px_6px_0px_0px_#1e293b]">
         <div className="font-bold flex items-center gap-2"><Key className="text-yellow-400"/> Cài Gemini API Key (Bắt buộc cho phần Viết):</div>
-        <input type="password" value={apiKey} onChange={e=>setApiKey(e.target.value)} placeholder="Nhập Key vào đây..." className="bg-slate-700 p-3 rounded-2xl outline-none w-full sm:w-1/2 border-[4px] border-slate-600 focus:border-cyan-400 text-white"/>
+        <input type="password" value={apiKey} onChange={e=>handleApiKeyChange(e.target.value)} placeholder="Nhập Key vào đây..." className="bg-slate-700 p-3 rounded-2xl outline-none w-full sm:w-1/2 border-[4px] border-slate-600 focus:border-cyan-400 text-white"/>
       </div>
 
       <div className="bg-white rounded-3xl border-[4px] border-slate-800 p-8 shadow-[8px_8px_0px_0px_#1e293b]">

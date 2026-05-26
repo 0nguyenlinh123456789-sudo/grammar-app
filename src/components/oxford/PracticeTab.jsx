@@ -1,5 +1,5 @@
 // File: src/components/oxford/PracticeTab.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Key, Edit3, Mic, Volume2, Shuffle } from 'lucide-react';
 
 const PracticeTab = ({ unitData }) => {
@@ -10,6 +10,19 @@ const PracticeTab = ({ unitData }) => {
     const [speakItem, setSpeakItem] = useState(null);
     const [isRec, setIsRec] = useState(false);
     const [score, setScore] = useState(null);
+
+    // Sync API Key with localStorage on mount
+    useEffect(() => {
+        const savedKey = localStorage.getItem('MY_GEMINI_API_KEY');
+        if (savedKey) {
+            setApiKey(savedKey);
+        }
+    }, []);
+
+    const handleApiKeyChange = (val) => {
+        setApiKey(val);
+        localStorage.setItem('MY_GEMINI_API_KEY', val);
+    };
 
     useEffect(() => {
         if (unitData?.speaking) {
@@ -32,7 +45,7 @@ const PracticeTab = ({ unitData }) => {
             });
             const data = await res.json();
             setFeedback(data?.candidates?.[0]?.content?.parts?.[0]?.text || "Lỗi phản hồi từ AI.");
-        } catch (e) { 
+        } catch { 
             setFeedback("Lỗi kết nối hoặc API Key không hợp lệ."); 
         }
         setLoading(false);
@@ -74,7 +87,7 @@ const PracticeTab = ({ unitData }) => {
                 <input 
                   type="password" 
                   value={apiKey} 
-                  onChange={e=>setApiKey(e.target.value)} 
+                  onChange={e=>handleApiKeyChange(e.target.value)} 
                   placeholder="Nhập Key vào đây..." 
                   className="bg-slate-700 p-3 rounded-2xl outline-none w-full sm:w-1/2 border-4 border-slate-600 focus:border-cyan-400 text-white"
                 />

@@ -1,15 +1,15 @@
 // File: src/components/oxford/DragDropTab.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Gamepad2, RotateCcw } from 'lucide-react';
 
 const DragDropTab = ({ unitData }) => {
-    if (!unitData.dragDrop) return <div className="p-10 text-center font-bold">Chưa có dữ liệu ghép từ.</div>;
-    
     const [words, setWords] = useState([]);
 
     useEffect(() => {
-        setWords(unitData.dragDrop.items.map(i => ({...i, placedBucket: null})));
-    }, [unitData?.id]);
+        if (unitData?.dragDrop) {
+            setWords(unitData.dragDrop.items.map(i => ({...i, placedBucket: null})));
+        }
+    }, [unitData?.id, unitData?.dragDrop]);
     
     const handleDrop = (e, targetBucket) => {
         e.preventDefault();
@@ -18,8 +18,12 @@ const DragDropTab = ({ unitData }) => {
     };
 
     const resetGame = () => {
-        setWords(unitData.dragDrop.items.map(i => ({...i, placedBucket: null})));
+        if (unitData?.dragDrop) {
+            setWords(unitData.dragDrop.items.map(i => ({...i, placedBucket: null})));
+        }
     };
+
+    if (!unitData?.dragDrop) return <div className="p-10 text-center font-bold">Chưa có dữ liệu ghép từ.</div>;
 
     const getScore = () => words.filter(w => w.placedBucket === w.target).length;
     const total = words.length;

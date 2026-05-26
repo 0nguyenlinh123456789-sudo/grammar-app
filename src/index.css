@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
+}
+
 /* ==========================================================================
    Custom Global 3D & Animation Utilities (Duolingo Style Gamification)
    ========================================================================== */

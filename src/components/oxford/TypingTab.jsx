@@ -1,10 +1,8 @@
 // File: src/components/oxford/TypingTab.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Keyboard, RotateCcw, Sparkles } from 'lucide-react';
 
 const TypingTab = ({ unitData }) => {
-    if (!unitData.typingGame) return <div className="p-10 text-center font-bold">Chưa có dữ liệu gõ từ.</div>;
-
     const [qIdx, setQIdx] = useState(0);
     const [inputText, setInputText] = useState("");
     const [status, setStatus] = useState("idle");
@@ -14,6 +12,8 @@ const TypingTab = ({ unitData }) => {
         setInputText("");
         setStatus("idle");
     }, [unitData?.id]);
+
+    if (!unitData?.typingGame) return <div className="p-10 text-center font-bold">Chưa có dữ liệu gõ từ.</div>;
 
     const curr = unitData.typingGame[qIdx];
 
