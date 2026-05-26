@@ -40,7 +40,7 @@ const MainLayout = ({
       {/* --- MOBILE HEADER --- */}
       <div className="md:hidden bg-white border-b-4 border-slate-800 p-4 flex justify-between items-center sticky top-0 z-30 shadow-md">
         <div className="font-black text-xl flex items-center gap-2">
-          <img src="/logo.svg" alt="Grammar Pro Logo" className="w-10 h-10 rounded-xl border-2 border-slate-800 shadow-[2px_2px_0px_0px_#1e293b] p-0.5 bg-[#fdfbf7]" /> Grammar Pro
+          <img src="/logo.svg" alt="Grammar Pro Logo" className="w-8 h-8 rounded-lg border-2 border-slate-800 shadow-[2px_2px_0px_0px_#1e293b] p-0.5 bg-[#fdfbf7]" /> Grammar Pro
         </div>
         <button 
           onClick={() => setMenuOpen(!menuOpen)} 
@@ -54,7 +54,7 @@ const MainLayout = ({
       <aside className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:sticky top-0 left-0 h-screen w-80 md:w-96 bg-[#fdfbf7] border-r-[4px] border-slate-800 z-40 transition-transform flex flex-col shadow-[4px_0_0_0_#1e293b]`}>
          
          <div className="p-6 border-b-[4px] border-slate-800 bg-white font-black text-2xl hidden md:flex items-center gap-3">
-           <img src="/logo.svg" alt="Grammar Pro Logo" className="w-16 h-16 rounded-2xl border-[4px] border-slate-800 shadow-[4px_4px_0px_0px_#1e293b] p-1 bg-[#fdfbf7]" /> 
+           <img src="/logo.svg" alt="Grammar Pro Logo" className="w-12 h-12 rounded-xl border-[3px] border-slate-800 shadow-[3px_3px_0px_0px_#1e293b] p-1 bg-[#fdfbf7]" /> 
            Grammar Pro
          </div>
          
