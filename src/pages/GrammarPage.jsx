@@ -5,7 +5,7 @@ import SentenceBuilder from '../components/grammar/SentenceBuilder';
 import AiAssistant from '../components/grammar/AiAssistant';
 import QuizEngine from '../components/grammar/QuizEngine';
 
-const GrammarPage = ({ topic, setXp }) => {
+const GrammarPage = ({ topic, setXp, completeMilestone }) => {
   const [tab, setTab] = useState('theory');
 
   // Reset tab to theory when topic changes
@@ -52,13 +52,21 @@ const GrammarPage = ({ topic, setXp }) => {
         <SketchnoteTheory key={i} section={s} idx={i} />
       ))}
       {tab === 'sentence' && (
-        <SentenceBuilder sentences={topic.sentenceGame} setGlobalProgress={setXp} />
+        <SentenceBuilder 
+          sentences={topic.sentenceGame} 
+          setGlobalProgress={setXp} 
+          onComplete={() => completeMilestone(topic.id, 25)}
+        />
       )}
       {tab === 'ai' && (
         <AiAssistant topic={topic} sentences={topic.sentenceGame} />
       )}
       {tab === 'exercise' && (
-        <QuizEngine exercises={topic.exercises} setGlobalProgress={setXp} />
+        <QuizEngine 
+          exercises={topic.exercises} 
+          setGlobalProgress={setXp} 
+          onComplete={() => completeMilestone(topic.id, 40)}
+        />
       )}
     </div>
   );

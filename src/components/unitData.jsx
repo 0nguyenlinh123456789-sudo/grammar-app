@@ -10,7 +10,7 @@ import TypingTab from './oxford/TypingTab';
 import QuizTab from './oxford/QuizTab';
 import PracticeTab from './oxford/PracticeTab';
 
-export default function OxfordVocab({ unitData }) {
+export default function OxfordVocab({ unitData, completedMilestones = [], completeMilestone }) {
     const [activeTab, setActiveTab] = useState("theory");
 
     useEffect(() => {
@@ -33,8 +33,32 @@ export default function OxfordVocab({ unitData }) {
     // Remove pb-32 when on flashcard to fix double scrollbar issues
     const getScrollbarClass = () => activeTab === 'flashcard' ? 'pb-10' : 'pb-32';
 
+    const isCompleted = completedMilestones.includes(unitData.id);
+
     return (
         <div className="w-full h-full max-h-screen flex flex-col bg-transparent">
+            {/* Unit Header with Title & Complete Button */}
+            <div className="bg-white border-4 border-slate-800 rounded-3xl p-6 mb-6 shadow-[6px_6px_0_0_#1e293b] flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0">
+                <div>
+                    <h2 className="text-xl md:text-2xl font-black text-slate-800 uppercase tracking-tight">{unitData.title}</h2>
+                    <p className="text-slate-500 font-bold text-xs md:text-sm mt-1">{unitData.description}</p>
+                </div>
+                <div className="shrink-0">
+                    {isCompleted ? (
+                        <div className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-100 text-emerald-800 font-black border-[3px] border-emerald-800 rounded-xl shadow-[2px_2px_0_0_#065f46] text-xs">
+                            ✓ ĐÃ HOÀN THÀNH (+20 XP)
+                        </div>
+                    ) : (
+                        <button 
+                            onClick={() => completeMilestone(unitData.id, 20)}
+                            className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-300 text-slate-900 font-black border-[3px] border-slate-800 rounded-xl shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:bg-yellow-400 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer text-xs font-sans font-bold"
+                        >
+                            🌟 HOÀN THÀNH UNIT (+20 XP)
+                        </button>
+                    )}
+                </div>
+            </div>
+
             {/* Tab navigation */}
             <div className="flex gap-3 mb-6 pb-2 overflow-x-auto hide-scrollbar shrink-0">
                 {tabs.map(tab => (

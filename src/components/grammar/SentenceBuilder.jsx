@@ -3,12 +3,18 @@ import React, { useState, useEffect } from 'react';
 import { Target, ChevronRight } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 
-const SentenceBuilder = ({ sentences, setGlobalProgress }) => {
+const SentenceBuilder = ({ sentences, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
   const [avail, setAvail] = useState([]);
   const [sel, setSel] = useState([]);
   const [correct, setCorrect] = useState(null);
   const curr = sentences[qIdx];
+
+  useEffect(() => {
+    if (qIdx === 10 && onComplete) {
+      onComplete();
+    }
+  }, [qIdx, onComplete]);
 
   useEffect(() => {
     if (curr) { 

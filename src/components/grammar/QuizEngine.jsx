@@ -1,15 +1,21 @@
 // File: src/components/grammar/QuizEngine.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PenTool, ChevronRight, Sparkles } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 
-const QuizEngine = ({ exercises, setGlobalProgress }) => {
+const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
   const [sel, setSel] = useState(null);
   const [status, setStatus] = useState('idle');
   const [score, setScore] = useState(0);
   
   const curr = exercises && exercises.length > 0 ? exercises[qIdx] : null;
+
+  useEffect(() => {
+    if (qIdx === 30 && onComplete) {
+      onComplete();
+    }
+  }, [qIdx, onComplete]);
 
   const check = () => { 
     if (sel === curr.a) { 

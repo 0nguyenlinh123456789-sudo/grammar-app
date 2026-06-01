@@ -6,7 +6,7 @@ import Flashcard from '../components/vocab/Flashcard';
 import WritingPractice from '../components/vocab/WritingPractice';
 import SpeakingPractice from '../components/vocab/SpeakingPractice';
 
-const VocabVstepPage = ({ activeTopic, playAudio }) => {
+const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], completeMilestone }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [learningMode, setLearningMode] = useState('flashcard'); // 'flashcard', 'story', 'writing', 'speaking'
 
@@ -29,17 +29,34 @@ const VocabVstepPage = ({ activeTopic, playAudio }) => {
     setCurrentWordIndex((prev) => (prev === 0 ? activeTopic.words.length - 1 : prev - 1));
   };
 
+  const isCompleted = completedMilestones.includes(activeTopic.id);
+
   return (
     <div className="w-full h-full max-w-6xl mx-auto flex flex-col items-center justify-start pb-20">
       
       {/* HEADER SECTION */}
-      <div className="mb-8 text-center w-full max-w-3xl">
+      <div className="mb-8 text-center w-full max-w-3xl flex flex-col items-center gap-3">
         <h1 className="text-3xl md:text-5xl font-black text-slate-800 uppercase tracking-tight border-b-8 border-black inline-flex items-center justify-center gap-3 pb-2 mb-2 bg-white px-6 rounded-2xl shadow-[6px_6px_0_0_rgba(0,0,0,1)]">
           <Rocket size={40} className="text-indigo-600" /> {activeTopic.title.replace(/^[^\s]+\s/, '')}
         </h1>
-        <p className="text-slate-600 font-bold mt-4 text-base md:text-lg bg-yellow-100 border-2 border-black inline-block px-4 py-2 rounded-2xl">
+        <p className="text-slate-600 font-bold mt-2 text-base md:text-lg bg-yellow-100 border-2 border-black inline-block px-4 py-2 rounded-2xl">
           {activeTopic.description}
         </p>
+        
+        <div className="mt-3">
+          {isCompleted ? (
+            <div className="inline-flex items-center gap-2 px-6 py-2 bg-emerald-100 text-emerald-800 font-black border-[3px] border-emerald-800 rounded-xl shadow-[3px_3px_0_0_#065f46] text-sm">
+              ✓ ĐÃ HOÀN THÀNH CHẶNG NÀY (+20 XP)
+            </div>
+          ) : (
+            <button 
+              onClick={() => completeMilestone(activeTopic.id, 20)}
+              className="inline-flex items-center gap-2 px-6 py-2 bg-yellow-300 text-slate-900 font-black border-[3px] border-slate-800 rounded-xl shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-yellow-400 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer text-sm font-sans"
+            >
+              🌟 ĐÁNH DẤU HOÀN THÀNH (+20 XP)
+            </button>
+          )}
+        </div>
       </div>
 
       {/* MODE CONTROLS */}

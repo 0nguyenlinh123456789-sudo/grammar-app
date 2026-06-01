@@ -17,6 +17,7 @@ const MainLayout = ({
   vstepTopics,
   parsedGrammarData,
   courseData,
+  completedMilestones = [],
   children
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,6 +34,18 @@ const MainLayout = ({
     t.title.toLowerCase().includes(vstepSearch.toLowerCase()) || 
     t.description.toLowerCase().includes(vstepSearch.toLowerCase())
   );
+
+  // Calculate Rank Badge
+  const completedCount = completedMilestones ? completedMilestones.length : 0;
+  
+  const getRankBadge = (count) => {
+    if (count >= 24) return { text: 'Bậc Thầy 🏆', bg: 'bg-rose-500 text-white border-rose-800' };
+    if (count >= 16) return { text: 'Chiến Binh ⚡', bg: 'bg-emerald-500 text-white border-emerald-800' };
+    if (count >= 8) return { text: 'Chinh Phục 🌲', bg: 'bg-cyan-500 text-white border-cyan-800' };
+    return { text: 'Tân Binh 🌱', bg: 'bg-slate-400 text-white border-slate-600' };
+  };
+
+  const rank = getRankBadge(completedCount);
 
   return (
     <div className="min-h-screen bg-[#f4f0ec] flex flex-col md:flex-row font-sans text-slate-800 selection:bg-yellow-300">
@@ -58,17 +71,40 @@ const MainLayout = ({
            Grammar Pro
          </div>
          
-         <div className="p-6 border-b-2 border-slate-100 font-black text-emerald-700 bg-emerald-50 flex justify-between items-center text-lg">
-           <span className="flex items-center gap-2"><Flame className="text-rose-500"/> Năng lượng:</span> 
-           <span>{xp} XP</span>
+         {/* Gamified stats widget */}
+         <div className="p-4 border-b-[4px] border-slate-800 bg-[#fdfbf7] flex flex-col gap-2 shrink-0">
+           <div className="font-black text-emerald-700 bg-emerald-50 flex justify-between items-center text-base p-2.5 border-[3px] border-slate-800 rounded-xl shadow-[2px_2px_0_0_#1e293b]">
+             <span className="flex items-center gap-1.5"><Flame className="text-rose-500 animate-pulse" size={18}/> Năng lượng:</span> 
+             <span>{xp} XP</span>
+           </div>
+           <div className="flex justify-between items-center p-2.5 border-[3px] border-slate-800 rounded-xl bg-slate-50 shadow-[2px_2px_0_0_#1e293b] font-black text-xs">
+             <span className="text-slate-400 uppercase tracking-wider">Cấp Độ Học:</span>
+             <span className={`px-2 py-0.5 rounded-lg border-2 text-[10px] font-black uppercase tracking-wider ${rank.bg}`}>
+               {rank.text}
+             </span>
+           </div>
          </div>
          
          {/* --- NAVIGATION TOGGLES --- */}
-         <div className="flex flex-col gap-2 p-4 border-b-[4px] border-slate-200 bg-white">
+         <div className="flex flex-col gap-2 p-4 border-b-[4px] border-slate-200 bg-white shrink-0">
            
            <button 
-             onClick={() => selectMode('grammar')}
-             className={`p-3 font-black border-4 border-slate-800 rounded-xl transition-all flex items-center justify-center gap-2 ${appMode === 'grammar' ? 'bg-yellow-300 shadow-none translate-y-1' : 'bg-white shadow-[4px_4px_0_0_#1e293b]'}`}
+             onClick={() => {
+               setTopicId(null);
+               selectMode('grammar');
+             }}
+             className={`p-3 font-black border-4 border-slate-800 rounded-xl transition-all flex items-center justify-center gap-2 ${appMode === 'grammar' && !topicId ? 'bg-cyan-300 shadow-none translate-y-1' : 'bg-white shadow-[4px_4px_0_0_#1e293b] hover:bg-slate-50'}`}
+           >
+             <Home size={20} className="text-cyan-600" /> BẢN ĐỒ LỘ TRÌNH
+           </button>
+
+           <button 
+             onClick={() => {
+               // Open first grammar topic if none selected, or keep selected
+               if (!topicId) setTopicId('t1');
+               selectMode('grammar');
+             }}
+             className={`p-3 font-black border-4 border-slate-800 rounded-xl transition-all flex items-center justify-center gap-2 ${appMode === 'grammar' && topicId ? 'bg-yellow-300 shadow-none translate-y-1' : 'bg-white shadow-[4px_4px_0_0_#1e293b] hover:bg-slate-50'}`}
            >
              <BookOpen size={20} /> HỌC NGỮ PHÁP
            </button>

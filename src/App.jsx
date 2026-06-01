@@ -1,10 +1,11 @@
 // File: src/App.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Data layer
 import { parsedGrammarData } from './data/grammarData';
 import { courseData } from './data/oxfordData';
 import vocabVstepData from './data/vocabVstepData';
+import { roadmapData } from './data/roadmapData';
 
 // Layout layer
 import MainLayout from './layouts/MainLayout';
@@ -27,7 +28,24 @@ export default function App() {
   const [vstepTopicId, setVstepTopicId] = useState('travel-transport'); // Active VSTEP topic ID
 
   // Global user progress state
-  const [xp, setXp] = useState(0);
+  const [xp, setXp] = useState(() => {
+    const savedXp = localStorage.getItem('xp');
+    return savedXp ? parseInt(savedXp, 10) : 0;
+  });
+
+  const [completedMilestones, setCompletedMilestones] = useState(() => {
+    const saved = localStorage.getItem('completedMilestones');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // Persist XP and completed milestones to localStorage
+  useEffect(() => {
+    localStorage.setItem('xp', xp.toString());
+  }, [xp]);
+
+  useEffect(() => {
+    localStorage.setItem('completedMilestones', JSON.stringify(completedMilestones));
+  }, [completedMilestones]);
 
   // Computed selections
   const selectedGrammarTopic = parsedGrammarData.find(t => t.id === topicId);
@@ -47,24 +65,53 @@ export default function App() {
     }
   };
 
+  const completeMilestone = (id, xpBonus = 20) => {
+    if (!completedMilestones.includes(id)) {
+      setCompletedMilestones(prev => [...prev, id]);
+      setXp(prev => prev + xpBonus);
+    }
+  };
+
   // Render view coordinator (State-based Router)
   const renderContent = () => {
     switch (appMode) {
       case 'grammar':
         return topicId ? (
-          <GrammarPage topic={selectedGrammarTopic} setXp={setXp} />
+          <GrammarPage 
+            topic={selectedGrammarTopic} 
+            setXp={setXp} 
+            completeMilestone={completeMilestone} 
+          />
         ) : (
-          <WelcomePage />
+          <WelcomePage 
+            xp={xp}
+            completedMilestones={completedMilestones}
+            completeMilestone={completeMilestone}
+            setTopicId={setTopicId}
+            setAppMode={setAppMode}
+            setActiveVocabCategory={setActiveVocabCategory}
+            setOxfordUnitId={setOxfordUnitId}
+            setVstepTopicId={setVstepTopicId}
+          />
         );
 
       case 'vocab':
         if (activeVocabCategory === 'VSTEP') {
           return (
-            <VocabVstepPage activeTopic={selectedVstepTopic} playAudio={playAudio} />
+            <VocabVstepPage 
+              activeTopic={selectedVstepTopic} 
+              playAudio={playAudio} 
+              completedMilestones={completedMilestones}
+              completeMilestone={completeMilestone}
+            />
           );
         } else {
           return (
-            <VocabOxfordPage selectedUnit={selectedOxfordUnit} />
+            <VocabOxfordPage 
+              selectedUnit={selectedOxfordUnit} 
+              completedMilestones={completedMilestones}
+              completeMilestone={completeMilestone}
+            />
           );
         }
 
@@ -72,7 +119,18 @@ export default function App() {
         return <ScannerPage />;
 
       default:
-        return <WelcomePage />;
+        return (
+          <WelcomePage 
+            xp={xp}
+            completedMilestones={completedMilestones}
+            completeMilestone={completeMilestone}
+            setTopicId={setTopicId}
+            setAppMode={setAppMode}
+            setActiveVocabCategory={setActiveVocabCategory}
+            setOxfordUnitId={setOxfordUnitId}
+            setVstepTopicId={setVstepTopicId}
+          />
+        );
     }
   };
 
@@ -92,6 +150,7 @@ export default function App() {
       vstepTopics={vocabVstepData}
       parsedGrammarData={parsedGrammarData}
       courseData={courseData}
+      completedMilestones={completedMilestones}
     >
       {renderContent()}
     </MainLayout>
