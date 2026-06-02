@@ -350,7 +350,7 @@ const MainLayout = ({
                     >
                       <span className="text-sm md:text-base leading-tight font-black">{unit.title}</span>
                       <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                        {unit.theory ? `${unit.theory.length} phần lý thuyết` : ''}
+                        {unit.theory ? `${Array.isArray(unit.theory) ? unit.theory.length : Object.keys(unit.theory).length} phần lý thuyết` : ''}
                       </span>
                     </button>
                   ))}

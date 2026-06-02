@@ -13,7 +13,7 @@ import { roadmapData } from './data/roadmapData';
 
 const elementaryUnits = [...courseDataPart1, ...courseDataPart2, ...courseDataPart3];
 
-export const oxfordBooks = [
+const oxfordBooks = [
   {
     id: 'elementary',
     title: 'English Vocabulary in Use - Elementary',
@@ -57,7 +57,15 @@ export default function App() {
   
   // Topic/Unit states
   const [topicId, setTopicId] = useState(null); // Active grammar topic ID
-  const [oxfordUnitId, setOxfordUnitId] = useState(1); // Active Oxford unit ID
+  const [oxfordUnitId, setOxfordUnitId] = useState(() => {
+    const savedUnitId = localStorage.getItem('oxfordUnitId');
+    if (savedUnitId) {
+      return isNaN(savedUnitId) ? savedUnitId : parseInt(savedUnitId, 10);
+    }
+    const savedBook = localStorage.getItem('activeOxfordBookId') || 'elementary';
+    const book = oxfordBooks.find(b => b.id === savedBook) || oxfordBooks[0];
+    return book.units[0]?.id || 1;
+  }); // Active Oxford unit ID
   const [vstepTopicId, setVstepTopicId] = useState('travel-transport'); // Active VSTEP topic ID
   
   // Oxford Book State
@@ -132,6 +140,11 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('activeOxfordBookId', activeOxfordBookId);
   }, [activeOxfordBookId]);
+
+  // Persist Oxford Unit ID choice
+  useEffect(() => {
+    localStorage.setItem('oxfordUnitId', oxfordUnitId);
+  }, [oxfordUnitId]);
 
   // Persist and Apply Theme
   useEffect(() => {

@@ -1,9 +1,10 @@
 // File: src/components/unitData.jsx
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Gamepad2, PenTool, Edit3, Keyboard, Layers } from 'lucide-react';
+import { BookOpen, Gamepad2, PenTool, Edit3, Keyboard, Layers, Sparkles } from 'lucide-react';
 
 // Sub-components
 import TheoryTab from './oxford/TheoryTab';
+import ExercisesTab from './oxford/ExercisesTab';
 import FlashcardTab from './oxford/FlashcardTab';
 import DragDropTab from './oxford/DragDropTab';
 import TypingTab from './oxford/TypingTab';
@@ -23,11 +24,12 @@ export default function OxfordVocab({ unitData, completedMilestones = [], comple
 
     const tabs = [
         { id: "theory", name: "Lý Thuyết", icon: <BookOpen size={20} className="mr-2" /> },
+        { id: "exercises", name: "Bài Tập", icon: <Edit3 size={20} className="mr-2" /> },
         { id: "flashcard", name: "Thẻ Nhớ", icon: <Layers size={20} className="mr-2" /> },
         { id: "dragdrop", name: "Ghép Từ", icon: <Gamepad2 size={20} className="mr-2" /> },
         { id: "typing", name: "Gõ Từ", icon: <Keyboard size={20} className="mr-2" /> },
         { id: "quiz", name: "Làm Test", icon: <PenTool size={20} className="mr-2" /> },
-        { id: "practice", name: "AI", icon: <Edit3 size={20} className="mr-2" /> }
+        { id: "practice", name: "AI", icon: <Sparkles size={20} className="mr-2" /> }
     ];
 
     // Remove pb-32 when on flashcard to fix double scrollbar issues
@@ -75,6 +77,7 @@ export default function OxfordVocab({ unitData, completedMilestones = [], comple
             {/* Tab Content Panel */}
             <div className={`flex-1 overflow-y-auto custom-scrollbar pr-2 ${getScrollbarClass()}`}>
                 {activeTab === "theory" && <TheoryTab unitData={unitData} />}
+                {activeTab === "exercises" && <ExercisesTab unitData={unitData} />}
                 {activeTab === "flashcard" && <FlashcardTab unitData={unitData} />}
                 {activeTab === "dragdrop" && <DragDropTab unitData={unitData} />}
                 {activeTab === "typing" && <TypingTab unitData={unitData} />}

@@ -28,6 +28,14 @@ const DragDropTab = ({ unitData }) => {
     const getScore = () => words.filter(w => w.placedBucket === w.target).length;
     const total = words.length;
 
+    const getGridColsClass = () => {
+        const len = unitData.dragDrop?.buckets?.length || 5;
+        if (len === 2) return "grid-cols-1 md:grid-cols-2 lg:grid-cols-2";
+        if (len === 3) return "grid-cols-1 md:grid-cols-3 lg:grid-cols-3";
+        if (len === 4) return "grid-cols-1 md:grid-cols-2 lg:grid-cols-4";
+        return "grid-cols-1 md:grid-cols-3 lg:grid-cols-5";
+    };
+
     return (
         <div className="bg-white rounded-3xl p-8 border-4 border-slate-800 shadow-[8px_8px_0_0_#1e293b] animate-in fade-in mb-10">
             <div className="flex justify-between items-center mb-8 border-b-4 border-dashed border-slate-200 pb-4">
@@ -61,7 +69,7 @@ const DragDropTab = ({ unitData }) => {
                 {words.filter(w => !w.placedBucket).length === 0 && <span className="text-slate-400 font-bold m-auto">Bạn đã xếp xong! Hãy kiểm tra điểm số.</span>}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+            <div className={`grid gap-4 mb-8 ${getGridColsClass()}`}>
                 {unitData.dragDrop.buckets.map(bucket => (
                     <div 
                       key={bucket} 

@@ -15,7 +15,7 @@ const QuizTab = ({ unitData }) => {
         setScore(0);
     }, [unitData?.id]);
 
-    const curr = unitData.quiz[qIdx];
+    const curr = unitData?.quiz?.[qIdx];
 
     const resetQuiz = () => {
         setQIdx(0); 
@@ -37,7 +37,7 @@ const QuizTab = ({ unitData }) => {
 
         // Wait 1.5s to see results and automatically skip to next question
         setTimeout(() => {
-            if (qIdx < unitData.quiz.length - 1) {
+            if (unitData?.quiz && qIdx < unitData.quiz.length - 1) {
                 setStatus('idle');
                 setSel(null);
                 setQIdx(prev => prev + 1);

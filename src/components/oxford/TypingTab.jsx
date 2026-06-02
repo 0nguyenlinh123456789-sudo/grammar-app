@@ -94,7 +94,13 @@ const TypingTab = ({ unitData }) => {
             {status === 'wrong' && <p className="text-rose-600 font-black mt-2 mb-6 text-xl text-center animate-shake">Sai rồi. Đáp án là: <span className="underline">{curr.a}</span></p>}
             {status === 'correct' && <p className="text-emerald-600 font-black mt-2 mb-6 text-xl text-center flex items-center justify-center gap-2">Chính xác tuyệt đối! <Sparkles size={18} className="text-yellow-500 fill-yellow-500 animate-pulse" /></p>}
             
-            {status !== 'idle' && qIdx === unitData.typingGame.length - 1 && <p className="text-slate-800 font-black mt-6 text-xl text-center bg-yellow-300 py-2 rounded-xl border-2 border-slate-800">Bạn đã hoàn thành trò chơi!</p>}
+            {status !== 'idle' && qIdx === unitData.typingGame.length - 1 && (
+                <div className="mt-8 p-6 bg-slate-50 border-4 border-slate-800 border-dashed rounded-3xl text-center animate-in zoom-in">
+                    <h4 className="text-3xl font-black mb-2">Hoàn thành gõ từ!</h4>
+                    <p className="text-lg font-bold text-slate-600 mb-6">Bạn đã xuất sắc vượt qua toàn bộ thử thách!</p>
+                    <button onClick={resetGame} className="px-8 py-3 bg-slate-800 text-white font-black text-lg rounded-xl hover:bg-slate-700 transition cursor-pointer">Làm Lại Từ Đầu</button>
+                </div>
+            )}
         </div>
     );
 };
