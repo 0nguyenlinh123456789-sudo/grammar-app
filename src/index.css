@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
+  --variant-dark: .dark &;
 }
 
 /* ==========================================================================
@@ -25,6 +26,118 @@
 
 @utility text-shadow-black {
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+/* Enable class-based dark mode selector in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+/* Global Dark Mode Overrides (Guarantees color changes work 100%) */
+.dark body {
+  background-color: #090d16 !important;
+  color: #f8fafc !important;
+}
+
+.dark .min-h-screen {
+  background-color: #090d16 !important;
+  color: #f8fafc !important;
+}
+
+.dark aside {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+  box-shadow: 4px 0 0 0 #020617 !important;
+}
+
+.dark main {
+  background-color: #090d16 !important;
+  background-image: radial-gradient(#1e293b 1px, transparent 1px) !important;
+}
+
+.dark .bg-white {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+.dark .text-slate-800 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-slate-900 {
+  color: #ffffff !important;
+}
+
+.dark .border-slate-800 {
+  border-color: #334155 !important;
+}
+
+.dark .shadow-\[6px_6px_0_0_\#1e293b\] {
+  box-shadow: 6px 6px 0 0 #020617 !important;
+}
+
+.dark .shadow-\[10px_10px_0_0_\#1c293b\] {
+  box-shadow: 10px 10px 0 0 #020617 !important;
+}
+
+.dark .shadow-\[4px_4px_0_0_\#1e293b\] {
+  box-shadow: 4px 4px 0 0 #020617 !important;
+}
+
+.dark .shadow-\[2px_2px_0_0_\#1e293b\] {
+  box-shadow: 2px 2px 0 0 #020617 !important;
+}
+
+.dark .bg-slate-50 {
+  background-color: #1e293b/60 !important;
+  border-color: #334155 !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: #1e293b !important;
+}
+
+.dark .bg-\[\#fdfbf7\] {
+  background-color: #0f172a !important;
+}
+
+/* Smooth dark/light transitions */
+* {
+  transition-property: background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
+/* Speech bubble arrow styles */
+.bubble-arrow::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 30px;
+  border-width: 12px 12px 0;
+  border-style: solid;
+  border-color: #ffffff transparent;
+  display: block;
+  width: 0;
+}
+
+.dark .bubble-arrow::after {
+  border-color: #1e293b transparent;
+}
+
+.bubble-arrow-left::after {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 20px;
+  border-width: 12px 12px 12px 0;
+  border-style: solid;
+  border-color: transparent #ffffff;
+  display: block;
+  width: 0;
+}
+
+.dark .bubble-arrow-left::after {
+  border-color: transparent #1e293b;
 }
 
 @keyframes fadeIn {
@@ -59,4 +172,52 @@
 
 @utility animate-shake {
   animation: shake 0.4s ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@utility animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-70%) scale(1.08);
+  }
+}
+
+@utility animate-bounce-slow {
+  animation: bounceSlow 2s ease-in-out infinite;
+}
+
+/* Confetti particles */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti-particle {
+  position: fixed;
+  top: -20px;
+  width: 10px;
+  height: 10px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: confettiFall 3s linear forwards;
 }

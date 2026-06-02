@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw, Volume2, Snail } from 'lucide-react';
 
 const FlashcardTab = ({ unitData }) => {
-    const allWords = unitData.theory.flatMap(section => section.items);
+    const allWords = unitData.words || (unitData.theory ? unitData.theory.flatMap(section => section.items || []).filter(Boolean) : []);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [jumpVal, setJumpVal] = useState(1);

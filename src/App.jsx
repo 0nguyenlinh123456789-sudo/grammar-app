@@ -6,10 +6,39 @@ import { parsedGrammarData } from './data/grammarData';
 import { courseData as courseDataPart1 } from './data/oxfordData';
 import { courseData as courseDataPart2 } from './data/oxfordDataPart2';
 import { courseData as courseDataPart3 } from './data/oxfordDataPart3';
+import { courseData as courseDataPreInt } from './data/oxfordPreIntData';
+import { courseData as courseDataAdvanced } from './data/oxfordAdvancedData';
 import vocabVstepData from './data/vocabVstepData';
 import { roadmapData } from './data/roadmapData';
 
-const courseData = [...courseDataPart1, ...courseDataPart2, ...courseDataPart3];
+const elementaryUnits = [...courseDataPart1, ...courseDataPart2, ...courseDataPart3];
+
+export const oxfordBooks = [
+  {
+    id: 'elementary',
+    title: 'English Vocabulary in Use - Elementary',
+    description: 'Giáo trình từ vựng Oxford cấp độ Cơ bản (60 Units)',
+    units: elementaryUnits
+  },
+  {
+    id: 'pre_intermediate',
+    title: 'English Vocabulary in Use - Pre-Intermediate & Intermediate',
+    description: 'Giáo trình từ vựng Oxford cấp độ Trung cấp (3 Units mẫu)',
+    units: courseDataPreInt
+  },
+  {
+    id: 'advanced',
+    title: 'English Vocabulary in Use - Advanced',
+    description: 'Giáo trình từ vựng Oxford cấp độ Nâng cao (3 Units mẫu)',
+    units: courseDataAdvanced
+  }
+];
+
+const courseData = [
+  ...elementaryUnits,
+  ...courseDataPreInt,
+  ...courseDataAdvanced
+];
 
 // Layout layer
 import MainLayout from './layouts/MainLayout';
@@ -30,6 +59,18 @@ export default function App() {
   const [topicId, setTopicId] = useState(null); // Active grammar topic ID
   const [oxfordUnitId, setOxfordUnitId] = useState(1); // Active Oxford unit ID
   const [vstepTopicId, setVstepTopicId] = useState('travel-transport'); // Active VSTEP topic ID
+  
+  // Oxford Book State
+  const [activeOxfordBookId, setActiveOxfordBookId] = useState(() => {
+    const savedBook = localStorage.getItem('activeOxfordBookId');
+    return savedBook ? savedBook : 'elementary';
+  });
+
+  // Theme mode state
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme : 'light';
+  });
 
   // Global user progress state
   const [xp, setXp] = useState(() => {
@@ -42,6 +83,16 @@ export default function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
+  // Daily Streak States
+  const [streak, setStreak] = useState(() => {
+    const saved = localStorage.getItem('streak');
+    return saved ? parseInt(saved, 10) : 0;
+  });
+
+  const [lastActiveDate, setLastActiveDate] = useState(() => {
+    return localStorage.getItem('lastActiveDate') || '';
+  });
+
   // Persist XP and completed milestones to localStorage
   useEffect(() => {
     localStorage.setItem('xp', xp.toString());
@@ -51,9 +102,88 @@ export default function App() {
     localStorage.setItem('completedMilestones', JSON.stringify(completedMilestones));
   }, [completedMilestones]);
 
+  // Persist streak and last active date to localStorage
+  useEffect(() => {
+    localStorage.setItem('streak', streak.toString());
+  }, [streak]);
+
+  useEffect(() => {
+    localStorage.setItem('lastActiveDate', lastActiveDate);
+  }, [lastActiveDate]);
+
+  // Check if streak is broken on mount
+  useEffect(() => {
+    const today = new Date();
+    const todayStr = today.toDateString();
+    
+    if (lastActiveDate) {
+      const lastDate = new Date(lastActiveDate);
+      const d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      const d2 = new Date(lastDate.getFullYear(), lastDate.getMonth(), lastDate.getDate());
+      const diffDays = Math.round((d1 - d2) / (1000 * 60 * 60 * 24));
+      
+      if (diffDays > 1) {
+        setStreak(0);
+      }
+    }
+  }, [lastActiveDate]);
+
+  // Persist Oxford Book choice
+  useEffect(() => {
+    localStorage.setItem('activeOxfordBookId', activeOxfordBookId);
+  }, [activeOxfordBookId]);
+
+  // Persist and Apply Theme
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  // Oxford unit selector helper
+  const selectOxfordUnit = (unitId) => {
+    const book = oxfordBooks.find(b => b.units.some(u => u.id === unitId));
+    if (book) {
+      setActiveOxfordBookId(book.id);
+    }
+    setOxfordUnitId(unitId);
+  };
+
+  // Confetti Particle Trigger
+  const triggerConfetti = () => {
+    const colors = ['#febb07', '#38bdf8', '#4ade80', '#f43f5e', '#a855f7', '#fb923c'];
+    for (let i = 0; i < 50; i++) {
+      const p = document.createElement('div');
+      p.className = 'confetti-particle';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      p.style.transform = `scale(${Math.random() * 0.8 + 0.4})`;
+      p.style.animationDelay = Math.random() * 0.5 + 's';
+      p.style.animationDuration = Math.random() * 1.5 + 2 + 's';
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 4000);
+    }
+  };
+
+  // Reset roadmap state
+  const resetRoadmap = () => {
+    setXp(0);
+    setCompletedMilestones([]);
+    setStreak(0);
+    setLastActiveDate('');
+    localStorage.setItem('xp', '0');
+    localStorage.setItem('completedMilestones', JSON.stringify([]));
+    localStorage.setItem('streak', '0');
+    localStorage.setItem('lastActiveDate', '');
+  };
+
   // Computed selections
   const selectedGrammarTopic = parsedGrammarData.find(t => t.id === topicId);
-  const selectedOxfordUnit = courseData.find(u => u.id === oxfordUnitId);
+  const selectedBook = oxfordBooks.find(b => b.id === activeOxfordBookId) || oxfordBooks[0];
+  const selectedOxfordUnit = courseData.find(u => u.id === oxfordUnitId) || selectedBook.units[0];
   const selectedVstepTopic = vocabVstepData.find(t => t.id === vstepTopicId);
 
   // Global Speech Synthesis Helper
@@ -73,6 +203,30 @@ export default function App() {
     if (!completedMilestones.includes(id)) {
       setCompletedMilestones(prev => [...prev, id]);
       setXp(prev => prev + xpBonus);
+      
+      // Update Daily Streak
+      const today = new Date();
+      const todayStr = today.toDateString();
+      
+      if (lastActiveDate !== todayStr) {
+        if (lastActiveDate) {
+          const lastDate = new Date(lastActiveDate);
+          const d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+          const d2 = new Date(lastDate.getFullYear(), lastDate.getMonth(), lastDate.getDate());
+          const diffDays = Math.round((d1 - d2) / (1000 * 60 * 60 * 24));
+          
+          if (diffDays === 1) {
+            setStreak(prev => prev + 1);
+          } else {
+            setStreak(1);
+          }
+        } else {
+          setStreak(1);
+        }
+        setLastActiveDate(todayStr);
+      }
+      
+      triggerConfetti();
     }
   };
 
@@ -94,8 +248,10 @@ export default function App() {
             setTopicId={setTopicId}
             setAppMode={setAppMode}
             setActiveVocabCategory={setActiveVocabCategory}
-            setOxfordUnitId={setOxfordUnitId}
+            setOxfordUnitId={selectOxfordUnit}
             setVstepTopicId={setVstepTopicId}
+            resetRoadmap={resetRoadmap}
+            streak={streak}
           />
         );
 
@@ -131,8 +287,10 @@ export default function App() {
             setTopicId={setTopicId}
             setAppMode={setAppMode}
             setActiveVocabCategory={setActiveVocabCategory}
-            setOxfordUnitId={setOxfordUnitId}
+            setOxfordUnitId={selectOxfordUnit}
             setVstepTopicId={setVstepTopicId}
+            resetRoadmap={resetRoadmap}
+            streak={streak}
           />
         );
     }
@@ -148,13 +306,20 @@ export default function App() {
       activeVocabCategory={activeVocabCategory}
       setActiveVocabCategory={setActiveVocabCategory}
       oxfordUnitId={oxfordUnitId}
-      setOxfordUnitId={setOxfordUnitId}
+      setOxfordUnitId={selectOxfordUnit}
       vstepTopicId={vstepTopicId}
       setVstepTopicId={setVstepTopicId}
       vstepTopics={vocabVstepData}
       parsedGrammarData={parsedGrammarData}
-      courseData={courseData}
+      courseData={selectedBook.units}
+      oxfordBooks={oxfordBooks}
+      activeOxfordBookId={activeOxfordBookId}
+      setActiveOxfordBookId={setActiveOxfordBookId}
       completedMilestones={completedMilestones}
+      theme={theme}
+      setTheme={setTheme}
+      resetRoadmap={resetRoadmap}
+      streak={streak}
     >
       {renderContent()}
     </MainLayout>
