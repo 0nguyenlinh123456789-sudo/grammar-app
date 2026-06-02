@@ -3,9 +3,13 @@ import React, { useState, useEffect } from 'react';
 
 // Data layer
 import { parsedGrammarData } from './data/grammarData';
-import { courseData } from './data/oxfordData';
+import { courseData as courseDataPart1 } from './data/oxfordData';
+import { courseData as courseDataPart2 } from './data/oxfordDataPart2';
+import { courseData as courseDataPart3 } from './data/oxfordDataPart3';
 import vocabVstepData from './data/vocabVstepData';
 import { roadmapData } from './data/roadmapData';
+
+const courseData = [...courseDataPart1, ...courseDataPart2, ...courseDataPart3];
 
 // Layout layer
 import MainLayout from './layouts/MainLayout';

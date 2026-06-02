@@ -1,6 +1,6 @@
 // File: src/components/oxford/FlashcardTab.jsx
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { ChevronLeft, ChevronRight, RotateCcw, Volume2, Snail } from 'lucide-react';
 
 const FlashcardTab = ({ unitData }) => {
     const allWords = unitData.theory.flatMap(section => section.items);
@@ -16,6 +16,16 @@ const FlashcardTab = ({ unitData }) => {
     useEffect(() => {
         setJumpVal(currentIndex + 1);
     }, [currentIndex]);
+
+    const playWord = (word, rate = 0.9) => {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(word);
+            u.lang = 'en-US';
+            u.rate = rate;
+            window.speechSynthesis.speak(u);
+        }
+    };
 
     const nextCard = () => {
         setIsFlipped(false);
@@ -77,16 +87,53 @@ const FlashcardTab = ({ unitData }) => {
                 </button>
             </div>
 
-            <div className="relative w-80 sm:w-96 h-80 cursor-pointer" style={{perspective: '1000px'}} onClick={() => setIsFlipped(!isFlipped)}>
+            <div className="relative w-80 sm:w-96 h-96 cursor-pointer select-none" style={{perspective: '1000px'}} onClick={() => setIsFlipped(!isFlipped)}>
                 <div className="w-full h-full transition-transform duration-500" style={{transformStyle: 'preserve-3d', transform: isFlipped ? 'rotateY(180deg)' : ''}}>
                     <div className="absolute w-full h-full bg-white rounded-3xl border-4 border-slate-800 flex flex-col items-center justify-center p-6 shadow-[8px_8px_0_0_#1e293b]" style={{backfaceVisibility: 'hidden'}}>
-                        <h2 className="text-5xl font-black text-slate-800 text-center">{currentCard.word}</h2>
-                        <p className="text-lg text-slate-400 mt-6 font-bold flex items-center gap-2"><RotateCcw size={16}/> Chạm để lật</p>
+                        <h2 className="text-4xl sm:text-5xl font-black text-slate-800 text-center break-words max-w-full px-2">{currentCard.word}</h2>
+                        
+                        <div className="flex items-center gap-4 mt-8">
+                            <button 
+                              onClick={(e) => { e.stopPropagation(); playWord(currentCard.word, 0.9); }} 
+                              title="Nghe tốc độ thường"
+                              className="p-3 bg-indigo-100 hover:bg-indigo-200 border-[3px] border-slate-800 text-indigo-700 rounded-xl transition-all cursor-pointer flex items-center justify-center shadow-[2px_2px_0_0_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none"
+                            >
+                                <Volume2 size={22} />
+                            </button>
+                            <button 
+                              onClick={(e) => { e.stopPropagation(); playWord(currentCard.word, 0.55); }} 
+                              title="Nghe tốc độ chậm"
+                              className="p-3 bg-amber-100 hover:bg-amber-200 border-[3px] border-slate-800 text-amber-700 rounded-xl transition-all cursor-pointer flex items-center justify-center shadow-[2px_2px_0_0_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none"
+                            >
+                                <Snail size={22} />
+                            </button>
+                        </div>
+                        
+                        <p className="text-sm text-slate-400 mt-8 font-bold flex items-center gap-2"><RotateCcw size={16}/> Chạm để lật xem nghĩa</p>
                     </div>
+                    
                     <div className="absolute w-full h-full bg-slate-800 text-white rounded-3xl p-8 flex flex-col items-center justify-center border-4 border-slate-900 shadow-[8px_8px_0_0_#1e293b]" style={{backfaceVisibility: 'hidden', transform: 'rotateY(180deg)'}}>
-                        <h2 className="text-3xl font-bold text-yellow-400 mb-2 text-center">{currentCard.vi}</h2>
-                        <p className="text-xl text-slate-300 mb-6">{currentCard.phonetic}</p>
-                        <p className="text-center italic opacity-80 text-sm">{currentCard.example}</p>
+                        <h2 className="text-2xl sm:text-3xl font-black text-yellow-400 mb-2 text-center">{currentCard.vi}</h2>
+                        {currentCard.phonetic && <p className="text-lg md:text-xl text-indigo-300 font-mono font-bold mb-4 text-center">{currentCard.phonetic}</p>}
+                        
+                        <div className="flex items-center gap-4 mb-6">
+                            <button 
+                              onClick={(e) => { e.stopPropagation(); playWord(currentCard.word, 0.9); }} 
+                              title="Nghe tốc độ thường"
+                              className="p-3 bg-white/10 hover:bg-white/20 border-[3px] border-white/50 text-white rounded-xl transition-all cursor-pointer flex items-center justify-center shadow-[2px_2px_0_0_rgba(255,255,255,0.2)] active:translate-y-0.5 active:shadow-none"
+                            >
+                                <Volume2 size={22} />
+                            </button>
+                            <button 
+                              onClick={(e) => { e.stopPropagation(); playWord(currentCard.word, 0.55); }} 
+                              title="Nghe tốc độ chậm"
+                              className="p-3 bg-amber-400/20 hover:bg-amber-400/30 border-[3px] border-amber-400/50 text-amber-300 rounded-xl transition-all cursor-pointer flex items-center justify-center shadow-[2px_2px_0_0_rgba(251,191,36,0.2)] active:translate-y-0.5 active:shadow-none"
+                            >
+                                <Snail size={22} />
+                            </button>
+                        </div>
+                        
+                        <p className="text-center italic opacity-85 text-sm bg-slate-700/50 p-3 rounded-xl border border-dashed border-slate-600 max-w-full">{currentCard.example}</p>
                     </div>
                 </div>
             </div>

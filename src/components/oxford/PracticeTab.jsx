@@ -1,6 +1,6 @@
 // File: src/components/oxford/PracticeTab.jsx
-import { useState, useEffect } from 'react';
-import { Key, Edit3, Mic, Volume2, Shuffle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Key, Edit3, Mic, Volume2, Shuffle, Snail } from 'lucide-react';
 
 const PracticeTab = ({ unitData }) => {
     const [apiKey, setApiKey] = useState("");
@@ -69,11 +69,12 @@ const PracticeTab = ({ unitData }) => {
         rec.start();
     };
 
-    const speakWord = (word) => {
+    const speakWord = (word, rate = 0.9) => {
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
             const u = new SpeechSynthesisUtterance(word);
             u.lang = 'en-US';
+            u.rate = rate;
             window.speechSynthesis.speak(u);
         }
     };
@@ -120,10 +121,18 @@ const PracticeTab = ({ unitData }) => {
                 </div>
                 <div className="flex flex-wrap justify-center gap-4">
                     <button 
-                      onClick={() => speakWord(speakItem.text)} 
-                      className="flex items-center px-6 py-3 bg-white border-4 border-slate-800 font-black rounded-2xl shadow-[4px_4px_0_0_#1e293b] active:translate-y-1 active:shadow-none cursor-pointer"
+                      onClick={() => speakWord(speakItem.text, 0.9)} 
+                      title="Nghe tốc độ thường"
+                      className="flex items-center px-6 py-3 bg-white border-4 border-slate-800 font-black rounded-2xl shadow-[4px_4px_0_0_#1e293b] active:translate-y-1 active:shadow-none hover:bg-slate-50 transition-all cursor-pointer"
                     >
                         <Volume2 className="mr-2"/> Nghe Mẫu
+                    </button>
+                    <button 
+                      onClick={() => speakWord(speakItem.text, 0.55)} 
+                      title="Nghe tốc độ chậm"
+                      className="flex items-center px-6 py-3 bg-amber-100 border-4 border-slate-800 text-amber-700 font-black rounded-2xl shadow-[4px_4px_0_0_#1e293b] active:translate-y-1 active:shadow-none hover:bg-amber-200 transition-all cursor-pointer"
+                    >
+                        <Snail className="mr-2"/> Nghe Chậm
                     </button>
                     <button 
                       onClick={handleRecord} 

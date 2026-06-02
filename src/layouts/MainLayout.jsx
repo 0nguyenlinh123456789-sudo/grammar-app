@@ -226,7 +226,7 @@ const MainLayout = ({
             {/* OXFORD VOCAB UNITS LIST */}
             {appMode === 'vocab' && activeVocabCategory === 'OXFORD' && (
               <>
-                <div className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2 mb-2 mt-4">60 Units Oxford</div>
+                <div className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2 mb-2 mt-4">{courseData.length} Units Oxford</div>
                 {courseData.map(unit => (
                   <button 
                     key={unit.id} 
