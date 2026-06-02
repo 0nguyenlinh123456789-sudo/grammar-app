@@ -1,6 +1,7 @@
 // File: src/components/oxford/ExercisesTab.jsx
 import React, { useState, useEffect } from 'react';
 import { Volume2, Award, RotateCcw, HelpCircle, Check, X, Sparkles, BookOpen, ArrowRight } from 'lucide-react';
+import ScholarBunny from '../common/ScholarBunny';
 
 export default function ExercisesTab({ unitData }) {
     const [activeExIdx, setActiveExIdx] = useState(0);
@@ -123,6 +124,30 @@ export default function ExercisesTab({ unitData }) {
         setShowExpl(updated);
     };
 
+    const getDynamicExplanation = (q, type) => {
+        if (q.explanation) return q.explanation;
+        
+        if (type === 'fill_in_blanks') {
+            const cleanAnswer = q.answers?.[0] || '';
+            const cleanHint = q.hint ? q.hint.replace('Nghĩa: ', '') : '';
+            return `Scholar Bunny mách bé nè: Ở câu này chúng mình điền "${cleanAnswer}" nha! Từ này mang ý nghĩa là "${cleanHint}". Khi điền vào ô trống, câu của chúng mình sẽ hoàn chỉnh và đúng ngữ pháp 100% rồi đó. Bé hãy luyện đọc to cả câu lên để nhớ phát âm nhé! 🐰✨`;
+        }
+        
+        if (type === 'matching') {
+            const englishWord = q.text || '';
+            const vietnameseMeaning = q.answer || '';
+            return `Scholar Bunny bật mí nè: Từ tiếng Anh "${englishWord}" sẽ ghép đôi cực kỳ chính xác với nghĩa tiếng Việt là "${vietnameseMeaning}" đó! Bé nhớ ghi lại cặp từ này vào sổ tay của mình nha. Chăm chỉ tích lũy cặp từ sẽ giúp bé giao tiếp tự tin hơn nhiều đó! 🐰🎉`;
+        }
+        
+        if (type === 'categorization') {
+            const word = q.word || '';
+            const category = q.category || '';
+            return `Scholar Bunny mách nhỏ bé: Từ "${word}" thuộc nhóm từ vựng "${category}" là hoàn toàn chuẩn xác rồi nhé! Việc phân loại từ theo nhóm thế này là một phương pháp siêu thông minh giúp bộ não ghi nhớ từ vựng có hệ thống và lâu quên hơn đấy. Cố lên bé yêu nhé! 🐰💪`;
+        }
+        
+        return "Scholar Bunny rất vui vì bé đã hoàn thành câu hỏi này! Hãy tiếp tục rèn luyện chăm chỉ để ngày càng giỏi giang nhé! 🐰❤️";
+    };
+
     const getMascotFeedback = () => {
         if (score === total) {
             return "Tuyệt vời ông mặt trời! Bạn học bài siêu kĩ và hoàn thành chính xác 100% rồi đó. Hãy tiếp tục giữ vững phong độ ở các bài tiếp theo nhé! 🐰🎉";
@@ -175,9 +200,20 @@ export default function ExercisesTab({ unitData }) {
                     )}
                 </div>
 
-                <p className="text-slate-600 dark:text-slate-350 font-bold text-sm md:text-base bg-slate-50 dark:bg-slate-850 border-3 border-slate-200 dark:border-slate-700 p-4 rounded-xl mb-6 leading-relaxed select-none">
-                    🎯 <strong className="text-slate-800 dark:text-white">Yêu cầu:</strong> {currentEx.instruction}
-                </p>
+                <div className="flex flex-col sm:flex-row items-center gap-4 bg-slate-50 dark:bg-slate-850 border-3 border-slate-200 dark:border-slate-700 p-4 rounded-2xl mb-6 select-none shadow-sm transition-all duration-300">
+                    <ScholarBunny
+                        state={checked ? (score === total ? 'success' : score < total / 2 ? 'failed' : 'happy') : 'studying'}
+                        className="w-12 h-12 shrink-0"
+                        width={48}
+                        height={48}
+                    />
+                    <div className="flex-1 relative">
+                        <strong className="text-slate-800 dark:text-white text-xs uppercase tracking-wider block mb-1 text-indigo-500 font-black">Bunny:</strong>
+                        <p className="text-slate-600 dark:text-slate-300 font-bold text-sm md:text-base leading-relaxed">
+                            {currentEx.instruction}
+                        </p>
+                    </div>
+                </div>
 
                 {/* 1. FILL IN THE BLANKS */}
                 {currentEx.type === 'fill_in_blanks' && (
@@ -232,25 +268,25 @@ export default function ExercisesTab({ unitData }) {
                                         {/* Scholar Bunny explanation button */}
                                         {checked && (
                                             <div className="mt-3 border-t border-dashed border-slate-200 dark:border-slate-800 pt-3">
-                                                <button
-                                                    onClick={() => toggleExplanation(q.id)}
-                                                    className="inline-flex items-center gap-1.5 px-3 py-1 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300 font-extrabold text-xs border-2 border-slate-300 dark:border-slate-700 rounded-lg shadow-[2px_2px_0_0_rgba(0,0,0,0.05)] transition-all cursor-pointer"
-                                                >
-                                                    🐰 Scholar Bunny giải thích {showExpl[q.id] ? '▲' : '▼'}
-                                                </button>
+                                                    <button
+                                                        onClick={() => toggleExplanation(q.word || q.id)}
+                                                        className="inline-flex items-center gap-1.5 px-3 py-1 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300 font-extrabold text-xs border-2 border-slate-300 dark:border-slate-700 rounded-lg shadow-[2px_2px_0_0_rgba(0,0,0,0.05)] transition-all cursor-pointer"
+                                                    >
+                                                        Giải thích 🐰 {showExpl[q.word || q.id] ? '▲' : '▼'}
+                                                    </button>
 
                                                 {/* Scholar Bunny dialog bubble */}
                                                 {showExpl[q.id] && (
                                                     <div className="mt-3 p-4 bg-indigo-50/70 dark:bg-indigo-950/20 border-2 border-indigo-250 dark:border-indigo-900 rounded-xl flex gap-3 items-start animate-in slide-in-from-top-1 duration-200">
-                                                        <img
-                                                            src="/mascot_bunny.png"
-                                                            alt="Scholar Bunny"
-                                                            className="w-10 h-10 object-contain shrink-0 animate-bounce select-none"
-                                                            onError={(e) => { e.target.style.display = 'none'; }}
+                                                        <ScholarBunny
+                                                            state="studying"
+                                                            className="w-10 h-10 shrink-0 select-none"
+                                                            width={40}
+                                                            height={40}
                                                         />
                                                         <div className="flex-1">
-                                                            <p className="font-extrabold text-xs text-indigo-500 dark:text-indigo-400 select-none uppercase mb-0.5">Scholar Bunny giải thích:</p>
-                                                            <p className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 leading-relaxed">{q.explanation}</p>
+                                                            <p className="font-extrabold text-xs text-indigo-500 dark:text-indigo-400 select-none uppercase mb-0.5">Bunny:</p>
+                                                            <p className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 leading-relaxed">{getDynamicExplanation(q, currentEx.type)}</p>
                                                         </div>
                                                     </div>
                                                 )}
@@ -320,25 +356,25 @@ export default function ExercisesTab({ unitData }) {
                                         {/* Scholar Bunny explanation button */}
                                         {checked && (
                                             <div className="mt-3.5 border-t border-dashed border-slate-200 dark:border-slate-800 pt-3">
-                                                <button
-                                                    onClick={() => toggleExplanation(q.id)}
-                                                    className="inline-flex items-center gap-1.5 px-3 py-1 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300 font-extrabold text-xs border-2 border-slate-300 dark:border-slate-700 rounded-lg shadow-[2px_2px_0_0_rgba(0,0,0,0.05)] transition-all cursor-pointer"
-                                                >
-                                                    🐰 Scholar Bunny giải thích {showExpl[q.id] ? '▲' : '▼'}
-                                                </button>
+                                                    <button
+                                                        onClick={() => toggleExplanation(q.word || q.id)}
+                                                        className="inline-flex items-center gap-1.5 px-3 py-1 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300 font-extrabold text-xs border-2 border-slate-300 dark:border-slate-700 rounded-lg shadow-[2px_2px_0_0_rgba(0,0,0,0.05)] transition-all cursor-pointer"
+                                                    >
+                                                        Giải thích 🐰 {showExpl[q.word || q.id] ? '▲' : '▼'}
+                                                    </button>
 
                                                 {/* Scholar Bunny dialog bubble */}
                                                 {showExpl[q.id] && (
                                                     <div className="mt-3 p-4 bg-indigo-50/70 dark:bg-indigo-950/20 border-2 border-indigo-250 dark:border-indigo-900 rounded-xl flex gap-3 items-start animate-in slide-in-from-top-1 duration-200">
-                                                        <img
-                                                            src="/mascot_bunny.png"
-                                                            alt="Scholar Bunny"
-                                                            className="w-10 h-10 object-contain shrink-0 animate-bounce select-none"
-                                                            onError={(e) => { e.target.style.display = 'none'; }}
+                                                        <ScholarBunny
+                                                            state="studying"
+                                                            className="w-10 h-10 shrink-0 select-none"
+                                                            width={40}
+                                                            height={40}
                                                         />
                                                         <div className="flex-1">
                                                             <p className="font-extrabold text-xs text-indigo-500 dark:text-indigo-400 select-none uppercase mb-0.5">Scholar Bunny giải thích:</p>
-                                                            <p className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 leading-relaxed">{q.explanation}</p>
+                                                            <p className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 leading-relaxed">{getDynamicExplanation(q, currentEx.type)}</p>
                                                         </div>
                                                     </div>
                                                 )}
@@ -419,15 +455,15 @@ export default function ExercisesTab({ unitData }) {
 
                                             {showExpl[q.id] && (
                                                 <div className="mt-3 p-4 bg-indigo-50/70 dark:bg-indigo-950/20 border-2 border-indigo-250 dark:border-indigo-900 rounded-xl flex gap-3 items-start animate-in slide-in-from-top-1 duration-200">
-                                                    <img
-                                                        src="/mascot_bunny.png"
-                                                        alt="Scholar Bunny"
-                                                        className="w-10 h-10 object-contain shrink-0 animate-bounce select-none"
-                                                        onError={(e) => { e.target.style.display = 'none'; }}
+                                                    <ScholarBunny
+                                                        state="studying"
+                                                        className="w-10 h-10 shrink-0 select-none"
+                                                        width={40}
+                                                        height={40}
                                                     />
                                                     <div className="flex-1">
-                                                        <p className="font-extrabold text-xs text-indigo-500 dark:text-indigo-400 select-none uppercase mb-0.5">Scholar Bunny giải thích:</p>
-                                                        <p className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 leading-relaxed">{q.explanation}</p>
+                                                        <p className="font-extrabold text-xs text-indigo-500 dark:text-indigo-400 select-none uppercase mb-0.5">Bunny:</p>
+                                                        <p className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 leading-relaxed">{getDynamicExplanation(q, currentEx.type)}</p>
                                                     </div>
                                                 </div>
                                             )}
@@ -525,15 +561,15 @@ export default function ExercisesTab({ unitData }) {
 
                                                     {showExpl[q.word] && (
                                                         <div className="mt-3 p-4 bg-indigo-50/70 dark:bg-indigo-950/20 border-2 border-indigo-250 dark:border-indigo-900 rounded-xl flex gap-2.5 items-start animate-in slide-in-from-top-1 duration-200">
-                                                            <img
-                                                                src="/mascot_bunny.png"
-                                                                alt="Scholar Bunny"
-                                                                className="w-10 h-10 object-contain shrink-0 animate-bounce select-none"
-                                                                onError={(e) => { e.target.style.display = 'none'; }}
+                                                            <ScholarBunny
+                                                                state="studying"
+                                                                className="w-10 h-10 shrink-0 select-none"
+                                                                width={40}
+                                                                height={40}
                                                             />
                                                             <div className="flex-1">
                                                                 <p className="font-extrabold text-xs text-indigo-500 dark:text-indigo-400 select-none uppercase mb-0.5">Scholar Bunny giải thích:</p>
-                                                                <p className="text-xs font-bold text-slate-700 dark:text-slate-300 leading-relaxed">{q.explanation}</p>
+                                                                <p className="text-xs font-bold text-slate-700 dark:text-slate-300 leading-relaxed">{getDynamicExplanation(q, currentEx.type)}</p>
                                                             </div>
                                                         </div>
                                                     )}
@@ -563,14 +599,14 @@ export default function ExercisesTab({ unitData }) {
 
                             {/* Bunny dialogue speech bubble */}
                             <div className="flex-1 flex gap-4 items-start bg-white dark:bg-slate-850 border-4 border-slate-800 dark:border-slate-700 p-5 rounded-2xl shadow-[4px_4px_0_0_#1e293b] relative">
-                                <img
-                                    src="/mascot_bunny.png"
-                                    alt="Scholar Bunny"
-                                    className="w-16 h-16 object-contain shrink-0 animate-bounce select-none"
-                                    onError={(e) => { e.target.style.display = 'none'; }}
+                                <ScholarBunny
+                                    state={score === total ? 'success' : score < total / 2 ? 'failed' : 'happy'}
+                                    className="w-14 h-14 shrink-0 select-none"
+                                    width={56}
+                                    height={56}
                                 />
                                 <div className="flex-1">
-                                    <p className="font-extrabold text-xs text-indigo-500 dark:text-indigo-400 select-none uppercase mb-1">Scholar Bunny khuyên bảo:</p>
+                                    <p className="font-extrabold text-xs text-indigo-500 dark:text-indigo-400 select-none uppercase mb-1">Bunny:</p>
                                     <p className="text-sm md:text-base font-bold text-slate-700 dark:text-slate-200 leading-relaxed">
                                         {getMascotFeedback()}
                                     </p>
@@ -584,7 +620,7 @@ export default function ExercisesTab({ unitData }) {
                                 onClick={toggleAllExplanations}
                                 className="px-5 py-3 bg-indigo-50 dark:bg-indigo-950/40 hover:bg-indigo-100 dark:hover:bg-indigo-950/60 text-indigo-650 dark:text-indigo-400 border-3 border-indigo-200 dark:border-indigo-900 rounded-2xl font-black text-sm transition-all cursor-pointer shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#020617] active:translate-y-0.5 active:shadow-none"
                             >
-                                💬 {Object.values(showExpl).some(v => v) ? 'Ẩn tất cả giải thích' : 'Hiện tất cả giải thích'} của Bunny 🐰
+                                💬 {Object.values(showExpl).some(v => v) ? 'Ẩn giải thích' : 'Hiện giải thích'} Bunny 🐰
                             </button>
                         </div>
                     </div>

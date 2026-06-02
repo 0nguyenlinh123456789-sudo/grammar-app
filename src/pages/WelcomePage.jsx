@@ -6,6 +6,7 @@ import {
   Zap, BookOpen, Flame, Sparkles, AlertCircle, ArrowRight, RotateCcw, AlertTriangle
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
+import ScholarBunny from '../components/common/ScholarBunny';
 
 const WelcomePage = ({ 
   xp, 
@@ -87,24 +88,22 @@ const WelcomePage = ({
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 z-10 relative">
           <div className="flex items-center gap-5">
             {/* Bunny Mascot inside Hero */}
-            <div className="hidden lg:block relative shrink-0">
-              <img 
-                src="/mascot_bunny.png" 
-                alt="Bunny Scholar" 
-                className="w-24 h-24 animate-float object-contain" 
+            <div className="hidden lg:block relative shrink-0 select-none">
+              <ScholarBunny 
+                state="happy" 
+                className="w-14 h-14 transition-transform duration-250 hover:scale-105" 
+                width={56}
+                height={56}
               />
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[9px] font-black px-2 py-0.5 rounded-full border-2 border-slate-700">
-                🐰 Bunny
-              </div>
             </div>
             
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 bg-yellow-300 dark:bg-yellow-450 border-2 border-slate-800 dark:border-slate-700 px-3 py-1 rounded-xl shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#020617] font-black text-slate-900 text-xs uppercase tracking-wider">
                 <Sparkles size={14} className="animate-spin-slow" /> {getRankName(completedCount)}
               </div>
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none text-slate-900 dark:text-slate-100 mt-2">LỘ TRÌNH CHINH PHỤC</h2>
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none text-slate-900 dark:text-slate-100 mt-2">LỘ TRÌNH</h2>
               <p className="font-bold text-sm md:text-base text-slate-500 dark:text-slate-400 italic bg-slate-50 dark:bg-slate-800 p-3 rounded-2xl border-2 border-slate-200 dark:border-slate-750 relative mt-2 bubble-arrow-left leading-relaxed">
-                "Chào mừng bạn! Tớ là Bunny 🐰. Hãy cùng tớ khám phá bản đồ học tập tiếng Anh, tích lũy thật nhiều XP và duy trì chuỗi học hằng ngày nhé! 🌟"
+                "Cùng tớ học tiếng Anh nhé! 🐰✨"
               </p>
             </div>
           </div>

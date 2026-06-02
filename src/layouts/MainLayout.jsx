@@ -1,6 +1,7 @@
 // File: src/layouts/MainLayout.jsx
 import React, { useState } from 'react';
 import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, Sun, Moon, RotateCcw, AlertTriangle, Sparkles } from 'lucide-react';
+import ScholarBunny from '../components/common/ScholarBunny';
 
 const MainLayout = ({
   xp,
@@ -31,15 +32,16 @@ const MainLayout = ({
   const [isVocabMenuOpen, setIsVocabMenuOpen] = useState(true); // Default open to make experience smoother
   const [vstepSearch, setVstepSearch] = useState('');
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
-
+  const [clickActiveState, setClickActiveState] = useState(null);
+ 
   // Mascot Scholar Bunny quotes (universal - no "bé yêu")
   const mascotQuotes = [
-    "Chào mừng bạn! Hôm nay chúng mình cùng học tiếng Anh thật vui nhé! 🐰✨",
-    "Cố lên nào! Mỗi chặng học sẽ giúp bạn nâng tầm trình độ tiếng Anh đấy! 🌟",
-    "Bạn có biết: Duy trì chuỗi học tập mỗi ngày giúp ghi nhớ từ vựng lâu hơn 300% không? 📖🔥",
-    "Tớ là Bunny 🐰, rất vui được làm bạn đồng hành cùng bạn học tập mỗi ngày!",
-    "Bảo vệ đôi mắt bằng cách bật Chế độ tối khi học bài ban đêm nhé! 🌙🕶️",
-    "Bạn làm tốt lắm! Sẽ có pháo hoa Confetti chúc mừng khi hoàn thành bài học nha! 🎉"
+    "Hôm nay chúng mình cùng học tiếng Anh thật vui nhé! 🐰✨",
+    "Cố lên nào! Mỗi chặng học sẽ giúp nâng tầm tiếng Anh! 🌟",
+    "Duy trì Streak mỗi ngày giúp nhớ từ vựng lâu hơn 300%! 🔥",
+    "Tớ là Bunny 🐰, rất vui đồng hành cùng bạn!",
+    "Bật Chế độ tối khi học bài ban đêm nhé! 🌙🕶️",
+    "Sẽ có pháo hoa chúc mừng khi hoàn thành bài học nha! 🎉"
   ];
   
   const [mascotQuoteIndex, setMascotQuoteIndex] = useState(0);
@@ -55,6 +57,20 @@ const MainLayout = ({
       window.speechSynthesis.speak(u);
     }
     setMascotQuoteIndex((prev) => (prev + 1) % mascotQuotes.length);
+
+    // Trigger success dance for 1.5 seconds when clicked!
+    setClickActiveState('success');
+    setTimeout(() => {
+      setClickActiveState(null);
+    }, 1500);
+  };
+
+  const getSidebarMascotState = () => {
+    if (clickActiveState) return clickActiveState;
+    if (appMode === 'scanner') return 'studying';
+    if (appMode === 'vocab') return 'happy';
+    if (appMode === 'grammar') return 'happy';
+    return 'neutral';
   };
   
   // Context-aware mascot bubble text (universal - no "bé")
@@ -119,15 +135,15 @@ const MainLayout = ({
          {/* Gamified stats widget */}
          <div className="p-4 border-b-[4px] border-slate-800 dark:border-slate-700 bg-[#fdfbf7] dark:bg-slate-900 flex flex-col gap-2 shrink-0">
            <div className="font-black text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 flex justify-between items-center text-base p-2.5 border-[3px] border-slate-800 dark:border-slate-700 rounded-xl shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]">
-             <span className="flex items-center gap-1.5"><Sparkles className="text-yellow-500 animate-pulse" size={18}/> Năng lượng:</span> 
+             <span className="flex items-center gap-1.5"><Sparkles className="text-yellow-500 animate-pulse" size={18}/> XP:</span> 
              <span>{xp} XP</span>
            </div>
            <div className="font-black text-rose-700 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/30 flex justify-between items-center text-base p-2.5 border-[3px] border-slate-800 dark:border-slate-700 rounded-xl shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]">
-             <span className="flex items-center gap-1.5"><Flame className="text-rose-500 animate-pulse" size={18}/> Chuỗi học tập:</span> 
+             <span className="flex items-center gap-1.5"><Flame className="text-rose-500 animate-pulse" size={18}/> Streak:</span> 
              <span>{streak} ngày 🔥</span>
            </div>
            <div className="flex justify-between items-center p-2.5 border-[3px] border-slate-800 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-850 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] font-black text-xs dark:text-slate-300">
-             <span className="text-slate-400 dark:text-slate-500 uppercase tracking-wider">Cấp Độ Học:</span>
+             <span className="text-slate-400 dark:text-slate-500 uppercase tracking-wider">Cấp độ:</span>
              <span className={`px-2 py-0.5 rounded-lg border-2 text-[10px] font-black uppercase tracking-wider ${rank.bg}`}>
                {rank.text}
              </span>
@@ -142,19 +158,19 @@ const MainLayout = ({
                {theme === 'light' ? (
                  <>
                    <Moon size={14} className="text-indigo-600 dark:text-indigo-400" />
-                   <span>WEB TỐI</span>
+                   <span>TỐI</span>
                  </>
                ) : (
                  <>
                    <Sun size={14} className="text-yellow-400 animate-spin-slow" />
-                   <span>WEB SÁNG</span>
+                   <span>SÁNG</span>
                  </>
                )}
              </button>
              <button
                onClick={() => setIsResetModalOpen(true)}
                className="p-2.5 font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-700 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-950/40 text-xs flex justify-center items-center gap-1.5 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] cursor-pointer"
-               title="Làm mới lại lộ trình học tập"
+               title="Reset lộ trình"
              >
                <RotateCcw size={14} />
                <span>RESET</span>
@@ -172,7 +188,7 @@ const MainLayout = ({
              }}
              className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'grammar' && !topicId ? 'bg-cyan-300 dark:bg-cyan-400 dark:text-slate-950 shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'}`}
            >
-             <Home size={20} className="text-cyan-600 dark:text-cyan-400" /> BẢN ĐỒ LỘ TRÌNH
+             <Home size={20} className="text-cyan-600 dark:text-cyan-400" /> LỘ TRÌNH
            </button>
 
            <button 
@@ -183,7 +199,7 @@ const MainLayout = ({
              }}
              className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'grammar' && topicId ? 'bg-yellow-300 dark:bg-yellow-400 dark:text-slate-950 shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'}`}
            >
-             <BookOpen size={20} /> HỌC NGỮ PHÁP
+             <BookOpen size={20} /> NGỮ PHÁP
            </button>
            
            {/* VOCAB DROPDOWN */}
@@ -228,7 +244,7 @@ const MainLayout = ({
              onClick={() => selectMode('scanner')}
              className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'scanner' ? 'bg-blue-400 dark:bg-blue-500 text-white shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'}`}
            >
-             <Camera size={20} /> QUÉT ẢNH AI
+             <Camera size={20} /> QUÉT AI
            </button>
          
          </div>
@@ -361,14 +377,15 @@ const MainLayout = ({
          </div>
 
          {/* --- CUTE MASCOT SCHOLAR BUNNY --- */}
-         <div className="p-4 border-t-[4px] border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-900 flex items-center gap-3 shrink-0 relative mt-auto">
-           <div className="relative cursor-pointer group" onClick={handleMascotClick}>
-             <img 
-               src="/mascot_bunny.png" 
-               alt="Bunny Mascot" 
-               className="w-16 h-16 animate-float object-contain group-hover:scale-110 transition-transform duration-200" 
+         <div className="p-3 border-t-[4px] border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-900 flex items-center gap-2 shrink-0 relative mt-auto select-none">
+           <div className="relative cursor-pointer group shrink-0" onClick={handleMascotClick}>
+             <ScholarBunny 
+               state={getSidebarMascotState()} 
+               className="w-12 h-12 transition-transform duration-200 hover:scale-105" 
+               width={48}
+               height={48}
              />
-             <div className="absolute -top-1 -right-1 bg-pink-300 dark:bg-pink-400 border-2 border-slate-800 text-[8px] font-black px-1.5 py-0.5 rounded-full shadow-[1px_1px_0_0_#000] text-slate-900">
+             <div className="absolute -top-1 -right-1 bg-pink-300 dark:bg-pink-400 border-2 border-slate-800 text-[7px] font-black px-1 py-0.5 rounded-full shadow-[1px_1px_0_0_#000] text-slate-900">
                Bunny
              </div>
            </div>
