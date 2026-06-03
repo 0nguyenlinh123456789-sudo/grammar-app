@@ -29,53 +29,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "I have been trying to contact you all morning",
-        "vie": "Tôi đã cố liên lạc với bạn cả buổi sáng"
+        "text": "I have been trying to contact you all morning",
+        "trans": "Tôi đã cố liên lạc với bạn cả buổi sáng"
       },
       {
         "id": 2,
-        "eng": "By the time we got to the station the train had left",
-        "vie": "Lúc chúng tôi đến nhà ga chuyến tàu đã rời đi"
+        "text": "By the time we got to the station the train had left",
+        "trans": "Lúc chúng tôi đến nhà ga chuyến tàu đã rời đi"
       },
       {
         "id": 3,
-        "eng": "It was the first time I had ever seen such a beautiful painting",
-        "vie": "Đó là lần đầu tiên tôi từng thấy một bức tranh đẹp như vậy"
+        "text": "It was the first time I had ever seen such a beautiful painting",
+        "trans": "Đó là lần đầu tiên tôi từng thấy một bức tranh đẹp như vậy"
       },
       {
         "id": 4,
-        "eng": "He will always complain about the food in this restaurant",
-        "vie": "Anh ta luôn phàn nàn về đồ ăn ở nhà hàng này"
+        "text": "He will always complain about the food in this restaurant",
+        "trans": "Anh ta luôn phàn nàn về đồ ăn ở nhà hàng này"
       },
       {
         "id": 5,
-        "eng": "When we were kids we would play in the garden for hours",
-        "vie": "Khi chúng tôi còn nhỏ chúng tôi thường chơi trong vườn hàng giờ"
+        "text": "When we were kids we would play in the garden for hours",
+        "trans": "Khi chúng tôi còn nhỏ chúng tôi thường chơi trong vườn hàng giờ"
       },
       {
         "id": 6,
-        "eng": "She is forever losing her keys and asking for help",
-        "vie": "Cô ấy luôn luôn làm mất chìa khóa và xin giúp đỡ"
+        "text": "She is forever losing her keys and asking for help",
+        "trans": "Cô ấy luôn luôn làm mất chìa khóa và xin giúp đỡ"
       },
       {
         "id": 7,
-        "eng": "I have known him since we were in primary school",
-        "vie": "Tôi đã biết anh ấy từ khi chúng tôi học tiểu học"
+        "text": "I have known him since we were in primary school",
+        "trans": "Tôi đã biết anh ấy từ khi chúng tôi học tiểu học"
       },
       {
         "id": 8,
-        "eng": "They had been driving for six hours when they finally stopped",
-        "vie": "Họ đã lái xe sáu tiếng đồng hồ thì cuối cùng cũng dừng lại"
+        "text": "They had been driving for six hours when they finally stopped",
+        "trans": "Họ đã lái xe sáu tiếng đồng hồ thì cuối cùng cũng dừng lại"
       },
       {
         "id": 9,
-        "eng": "He has written three bestselling novels so far",
-        "vie": "Anh ấy đã viết được ba cuốn tiểu thuyết bán chạy nhất cho đến nay"
+        "text": "He has written three bestselling novels so far",
+        "trans": "Anh ấy đã viết được ba cuốn tiểu thuyết bán chạy nhất cho đến nay"
       },
       {
         "id": 10,
-        "eng": "The roads were wet because it had been raining all night",
-        "vie": "Đường xá ướt át vì trời đã mưa rả rích cả đêm"
+        "text": "The roads were wet because it had been raining all night",
+        "trans": "Đường xá ướt át vì trời đã mưa rả rích cả đêm"
       }
     ],
     "exercises": [
@@ -218,53 +218,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "By next summer I will have finished my master's degree",
-        "vie": "Đến mùa hè năm sau tôi sẽ hoàn thành bằng thạc sĩ"
+        "text": "By next summer I will have finished my master's degree",
+        "trans": "Đến mùa hè năm sau tôi sẽ hoàn thành bằng thạc sĩ"
       },
       {
         "id": 2,
-        "eng": "The President is to make an official announcement tonight",
-        "vie": "Tổng thống dự kiến sẽ có thông báo chính thức tối nay"
+        "text": "The President is to make an official announcement tonight",
+        "trans": "Tổng thống dự kiến sẽ có thông báo chính thức tối nay"
       },
       {
         "id": 3,
-        "eng": "I was on the point of giving up when I finally succeeded",
-        "vie": "Tôi gần như sắp bỏ cuộc thì cuối cùng lại thành công"
+        "text": "I was on the point of giving up when I finally succeeded",
+        "trans": "Tôi gần như sắp bỏ cuộc thì cuối cùng lại thành công"
       },
       {
         "id": 4,
-        "eng": "By five o'clock she will have been working for ten hours",
-        "vie": "Đến năm giờ cô ấy sẽ làm việc được mười tiếng liên tục"
+        "text": "By five o'clock she will have been working for ten hours",
+        "trans": "Đến năm giờ cô ấy sẽ làm việc được mười tiếng liên tục"
       },
       {
         "id": 5,
-        "eng": "The new shopping mall is due to open early next month",
-        "vie": "Trung tâm thương mại mới dự kiến mở cửa đầu tháng sau"
+        "text": "The new shopping mall is due to open early next month",
+        "trans": "Trung tâm thương mại mới dự kiến mở cửa đầu tháng sau"
       },
       {
         "id": 6,
-        "eng": "Hurry up because the train is about to leave the station",
-        "vie": "Nhanh lên vì tàu sắp sửa rời ga rồi"
+        "text": "Hurry up because the train is about to leave the station",
+        "trans": "Nhanh lên vì tàu sắp sửa rời ga rồi"
       },
       {
         "id": 7,
-        "eng": "We are meeting the clients tomorrow afternoon for a presentation",
-        "vie": "Chúng tôi sẽ gặp khách hàng chiều mai để thuyết trình"
+        "text": "We are meeting the clients tomorrow afternoon for a presentation",
+        "trans": "Chúng tôi sẽ gặp khách hàng chiều mai để thuyết trình"
       },
       {
         "id": 8,
-        "eng": "The concert starts at eight so don't be late",
-        "vie": "Buổi hòa nhạc bắt đầu lúc tám giờ nên đừng đến muộn"
+        "text": "The concert starts at eight so don't be late",
+        "trans": "Buổi hòa nhạc bắt đầu lúc tám giờ nên đừng đến muộn"
       },
       {
         "id": 9,
-        "eng": "You are to hand in your assignments by Friday at the latest",
-        "vie": "Các em phải nộp bài tập muộn nhất là vào thứ Sáu"
+        "text": "You are to hand in your assignments by Friday at the latest",
+        "trans": "Các em phải nộp bài tập muộn nhất là vào thứ Sáu"
       },
       {
         "id": 10,
-        "eng": "They will have built the new bridge by the end of the year",
-        "vie": "Họ sẽ xây xong cây cầu mới trước cuối năm nay"
+        "text": "They will have built the new bridge by the end of the year",
+        "trans": "Họ sẽ xây xong cây cầu mới trước cuối năm nay"
       }
     ],
     "exercises": [
@@ -407,53 +407,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "Little did he know that his life was about to change",
-        "vie": "Anh ta hoàn toàn không biết rằng cuộc đời mình sắp thay đổi"
+        "text": "Little did he know that his life was about to change",
+        "trans": "Anh ta hoàn toàn không biết rằng cuộc đời mình sắp thay đổi"
       },
       {
         "id": 2,
-        "eng": "Under no circumstances should you reveal this secret",
-        "vie": "Trong bất kỳ hoàn cảnh nào bạn cũng không được tiết lộ bí mật này"
+        "text": "Under no circumstances should you reveal this secret",
+        "trans": "Trong bất kỳ hoàn cảnh nào bạn cũng không được tiết lộ bí mật này"
       },
       {
         "id": 3,
-        "eng": "Only after I had read the book did I understand the movie",
-        "vie": "Chỉ sau khi đọc sách tôi mới hiểu được bộ phim"
+        "text": "Only after I had read the book did I understand the movie",
+        "trans": "Chỉ sau khi đọc sách tôi mới hiểu được bộ phim"
       },
       {
         "id": 4,
-        "eng": "Out ran the children into the garden to play",
-        "vie": "Bọn trẻ chạy ùa ra vườn để chơi"
+        "text": "Out ran the children into the garden to play",
+        "trans": "Bọn trẻ chạy ùa ra vườn để chơi"
       },
       {
         "id": 5,
-        "eng": "So strong was the wind that trees were uprooted",
-        "vie": "Gió mạnh đến nỗi cây cối bị tróc rễ"
+        "text": "So strong was the wind that trees were uprooted",
+        "trans": "Gió mạnh đến nỗi cây cối bị tróc rễ"
       },
       {
         "id": 6,
-        "eng": "Such was his popularity that he won the election easily",
-        "vie": "Sự nổi tiếng của anh ta lớn đến mức anh ta thắng cử dễ dàng"
+        "text": "Such was his popularity that he won the election easily",
+        "trans": "Sự nổi tiếng của anh ta lớn đến mức anh ta thắng cử dễ dàng"
       },
       {
         "id": 7,
-        "eng": "Not only did they arrive late but they also forgot the tickets",
-        "vie": "Họ không những đến muộn mà còn quên vé"
+        "text": "Not only did they arrive late but they also forgot the tickets",
+        "trans": "Họ không những đến muộn mà còn quên vé"
       },
       {
         "id": 8,
-        "eng": "Rarely have I tasted such a delicious meal in my life",
-        "vie": "Hiếm khi nào tôi nếm được một bữa ăn ngon như vậy trong đời"
+        "text": "Rarely have I tasted such a delicious meal in my life",
+        "trans": "Hiếm khi nào tôi nếm được một bữa ăn ngon như vậy trong đời"
       },
       {
         "id": 9,
-        "eng": "Here comes the train we have been waiting for",
-        "vie": "Chuyến tàu chúng ta đang đợi đến rồi kìa"
+        "text": "Here comes the train we have been waiting for",
+        "trans": "Chuyến tàu chúng ta đang đợi đến rồi kìa"
       },
       {
         "id": 10,
-        "eng": "He didn't want to go to the party and neither did I",
-        "vie": "Anh ta không muốn đi dự tiệc và tôi cũng vậy"
+        "text": "He didn't want to go to the party and neither did I",
+        "trans": "Anh ta không muốn đi dự tiệc và tôi cũng vậy"
       }
     ],
     "exercises": [
@@ -596,53 +596,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "The streets are entirely wet so it must have rained last night",
-        "vie": "Đường phố hoàn toàn ướt nên chắc hẳn đêm qua đã mưa"
+        "text": "The streets are entirely wet so it must have rained last night",
+        "trans": "Đường phố hoàn toàn ướt nên chắc hẳn đêm qua đã mưa"
       },
       {
         "id": 2,
-        "eng": "He can't have committed the crime because he was with me",
-        "vie": "Anh ta không thể đã phạm tội vì lúc đó anh ta ở với tôi"
+        "text": "He can't have committed the crime because he was with me",
+        "trans": "Anh ta không thể đã phạm tội vì lúc đó anh ta ở với tôi"
       },
       {
         "id": 3,
-        "eng": "You should have informed me about the changes earlier",
-        "vie": "Lẽ ra bạn nên thông báo cho tôi về những thay đổi sớm hơn"
+        "text": "You should have informed me about the changes earlier",
+        "trans": "Lẽ ra bạn nên thông báo cho tôi về những thay đổi sớm hơn"
       },
       {
         "id": 4,
-        "eng": "We needn't have cooked so much food since nobody came",
-        "vie": "Chúng ta lẽ ra không cần nấu quá nhiều thức ăn vì không ai đến"
+        "text": "We needn't have cooked so much food since nobody came",
+        "trans": "Chúng ta lẽ ra không cần nấu quá nhiều thức ăn vì không ai đến"
       },
       {
         "id": 5,
-        "eng": "They didn't need to wear a uniform at their previous school",
-        "vie": "Họ không cần mặc đồng phục ở trường cũ"
+        "text": "They didn't need to wear a uniform at their previous school",
+        "trans": "Họ không cần mặc đồng phục ở trường cũ"
       },
       {
         "id": 6,
-        "eng": "You had better apologize to her before she gets really angry",
-        "vie": "Tốt hơn hết bạn nên xin lỗi cô ấy trước khi cô ấy thực sự nổi giận"
+        "text": "You had better apologize to her before she gets really angry",
+        "trans": "Tốt hơn hết bạn nên xin lỗi cô ấy trước khi cô ấy thực sự nổi giận"
       },
       {
         "id": 7,
-        "eng": "I would rather you didn't smoke in my car if you don't mind",
-        "vie": "Tôi muốn bạn không hút thuốc trong xe của tôi nếu bạn không phiền"
+        "text": "I would rather you didn't smoke in my car if you don't mind",
+        "trans": "Tôi muốn bạn không hút thuốc trong xe của tôi nếu bạn không phiền"
       },
       {
         "id": 8,
-        "eng": "Despite the heavy storm we managed to reach the summit",
-        "vie": "Bất chấp cơn bão lớn chúng tôi đã xoay xở lên tới đỉnh"
+        "text": "Despite the heavy storm we managed to reach the summit",
+        "trans": "Bất chấp cơn bão lớn chúng tôi đã xoay xở lên tới đỉnh"
       },
       {
         "id": 9,
-        "eng": "She might have left her keys at the office by mistake",
-        "vie": "Có lẽ cô ấy đã để quên chìa khóa ở văn phòng do nhầm lẫn"
+        "text": "She might have left her keys at the office by mistake",
+        "trans": "Có lẽ cô ấy đã để quên chìa khóa ở văn phòng do nhầm lẫn"
       },
       {
         "id": 10,
-        "eng": "I have never been able to understand his strange behavior",
-        "vie": "Tôi chưa bao giờ có thể hiểu được hành vi kỳ lạ của anh ta"
+        "text": "I have never been able to understand his strange behavior",
+        "trans": "Tôi chưa bao giờ có thể hiểu được hành vi kỳ lạ của anh ta"
       }
     ],
     "exercises": [
@@ -785,53 +785,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "It is absolutely vital that she arrive at the airport on time",
-        "vie": "Việc cô ấy đến sân bay đúng giờ là hoàn toàn quan trọng"
+        "text": "It is absolutely vital that she arrive at the airport on time",
+        "trans": "Việc cô ấy đến sân bay đúng giờ là hoàn toàn quan trọng"
       },
       {
         "id": 2,
-        "eng": "The manager insisted that he wear a suit to the meeting",
-        "vie": "Quản lý kiên quyết yêu cầu anh ta mặc vest dự cuộc họp"
+        "text": "The manager insisted that he wear a suit to the meeting",
+        "trans": "Quản lý kiên quyết yêu cầu anh ta mặc vest dự cuộc họp"
       },
       {
         "id": 3,
-        "eng": "It is high time the government took action on climate change",
-        "vie": "Đã đến lúc chính phủ phải hành động về biến đổi khí hậu"
+        "text": "It is high time the government took action on climate change",
+        "trans": "Đã đến lúc chính phủ phải hành động về biến đổi khí hậu"
       },
       {
         "id": 4,
-        "eng": "I would rather you didn't mention this to anyone else",
-        "vie": "Tôi muốn bạn không nhắc chuyện này với ai khác"
+        "text": "I would rather you didn't mention this to anyone else",
+        "trans": "Tôi muốn bạn không nhắc chuyện này với ai khác"
       },
       {
         "id": 5,
-        "eng": "He acts as if he owned the entire company",
-        "vie": "Anh ta hành động như thể anh ta sở hữu cả công ty"
+        "text": "He acts as if he owned the entire company",
+        "trans": "Anh ta hành động như thể anh ta sở hữu cả công ty"
       },
       {
         "id": 6,
-        "eng": "She looked as though she had been crying for hours",
-        "vie": "Cô ấy trông như thể đã khóc hàng giờ đồng hồ"
+        "text": "She looked as though she had been crying for hours",
+        "trans": "Cô ấy trông như thể đã khóc hàng giờ đồng hồ"
       },
       {
         "id": 7,
-        "eng": "Suppose you lost your job today what would you do",
-        "vie": "Giả sử hôm nay bạn mất việc bạn sẽ làm gì"
+        "text": "Suppose you lost your job today what would you do",
+        "trans": "Giả sử hôm nay bạn mất việc bạn sẽ làm gì"
       },
       {
         "id": 8,
-        "eng": "Imagine you had been born a hundred years ago",
-        "vie": "Hãy tưởng tượng bạn được sinh ra cách đây một trăm năm"
+        "text": "Imagine you had been born a hundred years ago",
+        "trans": "Hãy tưởng tượng bạn được sinh ra cách đây một trăm năm"
       },
       {
         "id": 9,
-        "eng": "It is imperative that everyone be aware of the new rules",
-        "vie": "Bắt buộc mọi người phải nhận thức được các quy định mới"
+        "text": "It is imperative that everyone be aware of the new rules",
+        "trans": "Bắt buộc mọi người phải nhận thức được các quy định mới"
       },
       {
         "id": 10,
-        "eng": "I'd rather stay home tonight than go out to a club",
-        "vie": "Tôi thà ở nhà tối nay còn hơn đi chơi ở câu lạc bộ"
+        "text": "I'd rather stay home tonight than go out to a club",
+        "trans": "Tôi thà ở nhà tối nay còn hơn đi chơi ở câu lạc bộ"
       }
     ],
     "exercises": [
@@ -974,53 +974,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "If I had taken your advice I wouldn't be in this mess now",
-        "vie": "Nếu tôi nghe lời khuyên của bạn thì bây giờ tôi đã không rắc rối thế này"
+        "text": "If I had taken your advice I wouldn't be in this mess now",
+        "trans": "Nếu tôi nghe lời khuyên của bạn thì bây giờ tôi đã không rắc rối thế này"
       },
       {
         "id": 2,
-        "eng": "If she were a better driver she wouldn't have crashed the car",
-        "vie": "Nếu cô ấy lái xe giỏi hơn cô ấy đã không gây tai nạn"
+        "text": "If she were a better driver she wouldn't have crashed the car",
+        "trans": "Nếu cô ấy lái xe giỏi hơn cô ấy đã không gây tai nạn"
       },
       {
         "id": 3,
-        "eng": "Had I known about the meeting I would have attended",
-        "vie": "Nếu tôi biết về cuộc họp tôi đã tham dự"
+        "text": "Had I known about the meeting I would have attended",
+        "trans": "Nếu tôi biết về cuộc họp tôi đã tham dự"
       },
       {
         "id": 4,
-        "eng": "Were she to accept the offer we would be delighted",
-        "vie": "Nếu cô ấy chấp nhận lời đề nghị chúng tôi sẽ rất vui"
+        "text": "Were she to accept the offer we would be delighted",
+        "trans": "Nếu cô ấy chấp nhận lời đề nghị chúng tôi sẽ rất vui"
       },
       {
         "id": 5,
-        "eng": "Should you need any further assistance please contact us",
-        "vie": "Nếu bạn cần hỗ trợ thêm xin vui lòng liên hệ chúng tôi"
+        "text": "Should you need any further assistance please contact us",
+        "trans": "Nếu bạn cần hỗ trợ thêm xin vui lòng liên hệ chúng tôi"
       },
       {
         "id": 6,
-        "eng": "But for his generous donation the charity would have closed",
-        "vie": "Nếu không có khoản quyên góp hào phóng của ông quỹ từ thiện đã đóng cửa"
+        "text": "But for his generous donation the charity would have closed",
+        "trans": "Nếu không có khoản quyên góp hào phóng của ông quỹ từ thiện đã đóng cửa"
       },
       {
         "id": 7,
-        "eng": "Without your guidance I couldn't have completed the project",
-        "vie": "Nếu không có sự hướng dẫn của bạn tôi đã không thể hoàn thành dự án"
+        "text": "Without your guidance I couldn't have completed the project",
+        "trans": "Nếu không có sự hướng dẫn của bạn tôi đã không thể hoàn thành dự án"
       },
       {
         "id": 8,
-        "eng": "You can go out provided that you finish your homework first",
-        "vie": "Bạn có thể đi chơi miễn là bạn hoàn thành bài tập trước"
+        "text": "You can go out provided that you finish your homework first",
+        "trans": "Bạn có thể đi chơi miễn là bạn hoàn thành bài tập trước"
       },
       {
         "id": 9,
-        "eng": "I will not sign the contract unless you agree to my terms",
-        "vie": "Tôi sẽ không ký hợp đồng trừ khi bạn đồng ý với các điều khoản của tôi"
+        "text": "I will not sign the contract unless you agree to my terms",
+        "trans": "Tôi sẽ không ký hợp đồng trừ khi bạn đồng ý với các điều khoản của tôi"
       },
       {
         "id": 10,
-        "eng": "Assuming that it rains tomorrow what is our backup plan",
-        "vie": "Giả sử ngày mai trời mưa kế hoạch dự phòng của chúng ta là gì"
+        "text": "Assuming that it rains tomorrow what is our backup plan",
+        "trans": "Giả sử ngày mai trời mưa kế hoạch dự phòng của chúng ta là gì"
       }
     ],
     "exercises": [
@@ -1163,53 +1163,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "The weather being fine we decided to go for a long walk",
-        "vie": "Thời tiết đẹp nên chúng tôi quyết định đi dạo thật lâu"
+        "text": "The weather being fine we decided to go for a long walk",
+        "trans": "Thời tiết đẹp nên chúng tôi quyết định đi dạo thật lâu"
       },
       {
         "id": 2,
-        "eng": "All things considered we have made a very profitable investment",
-        "vie": "Xét về mọi mặt chúng ta đã đầu tư rất sinh lời"
+        "text": "All things considered we have made a very profitable investment",
+        "trans": "Xét về mọi mặt chúng ta đã đầu tư rất sinh lời"
       },
       {
         "id": 3,
-        "eng": "There being no further business the meeting was adjourned",
-        "vie": "Vì không còn việc gì nữa nên cuộc họp bị hoãn"
+        "text": "There being no further business the meeting was adjourned",
+        "trans": "Vì không còn việc gì nữa nên cuộc họp bị hoãn"
       },
       {
         "id": 4,
-        "eng": "It being Sunday all the local supermarkets were closed",
-        "vie": "Vì là Chủ nhật nên mọi siêu thị địa phương đều đóng cửa"
+        "text": "It being Sunday all the local supermarkets were closed",
+        "trans": "Vì là Chủ nhật nên mọi siêu thị địa phương đều đóng cửa"
       },
       {
         "id": 5,
-        "eng": "She fell asleep on the sofa with the television still playing",
-        "vie": "Cô ấy ngủ thiếp trên sô pha với chiếc tivi vẫn đang bật"
+        "text": "She fell asleep on the sofa with the television still playing",
+        "trans": "Cô ấy ngủ thiếp trên sô pha với chiếc tivi vẫn đang bật"
       },
       {
         "id": 6,
-        "eng": "He listened to the sad news with his eyes tightly closed",
-        "vie": "Anh ấy lắng nghe tin buồn với đôi mắt nhắm nghiền"
+        "text": "He listened to the sad news with his eyes tightly closed",
+        "trans": "Anh ấy lắng nghe tin buồn với đôi mắt nhắm nghiền"
       },
       {
         "id": 7,
-        "eng": "Weather permitting we will host the barbecue in the backyard",
-        "vie": "Nếu thời tiết cho phép chúng tôi sẽ tổ chức tiệc nướng ở sân sau"
+        "text": "Weather permitting we will host the barbecue in the backyard",
+        "trans": "Nếu thời tiết cho phép chúng tôi sẽ tổ chức tiệc nướng ở sân sau"
       },
       {
         "id": 8,
-        "eng": "His money having been stolen he had to sleep on the street",
-        "vie": "Bị trộm mất tiền anh ấy phải ngủ ngoài đường"
+        "text": "His money having been stolen he had to sleep on the street",
+        "trans": "Bị trộm mất tiền anh ấy phải ngủ ngoài đường"
       },
       {
         "id": 9,
-        "eng": "The sun having set the temperature dropped rapidly",
-        "vie": "Khi mặt trời lặn nhiệt độ giảm nhanh chóng"
+        "text": "The sun having set the temperature dropped rapidly",
+        "trans": "Khi mặt trời lặn nhiệt độ giảm nhanh chóng"
       },
       {
         "id": 10,
-        "eng": "With so many people watching she felt extremely nervous",
-        "vie": "Với bao nhiêu người đang nhìn cô ấy cảm thấy cực kỳ hồi hộp"
+        "text": "With so many people watching she felt extremely nervous",
+        "trans": "Với bao nhiêu người đang nhìn cô ấy cảm thấy cực kỳ hồi hộp"
       }
     ],
     "exercises": [
@@ -1352,53 +1352,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "Neil Armstrong was the first man to walk on the moon",
-        "vie": "Neil Armstrong là người đầu tiên đi bộ trên mặt trăng"
+        "text": "Neil Armstrong was the first man to walk on the moon",
+        "trans": "Neil Armstrong là người đầu tiên đi bộ trên mặt trăng"
       },
       {
         "id": 2,
-        "eng": "The students preparing for the exam are very stressed",
-        "vie": "Các học sinh đang chuẩn bị cho kỳ thi rất căng thẳng"
+        "text": "The students preparing for the exam are very stressed",
+        "trans": "Các học sinh đang chuẩn bị cho kỳ thi rất căng thẳng"
       },
       {
         "id": 3,
-        "eng": "The reports written by the manager are always accurate",
-        "vie": "Các báo cáo được viết bởi người quản lý luôn chính xác"
+        "text": "The reports written by the manager are always accurate",
+        "trans": "Các báo cáo được viết bởi người quản lý luôn chính xác"
       },
       {
         "id": 4,
-        "eng": "She is the only person to have survived the crash",
-        "vie": "Cô ấy là người duy nhất sống sót sau vụ tai nạn"
+        "text": "She is the only person to have survived the crash",
+        "trans": "Cô ấy là người duy nhất sống sót sau vụ tai nạn"
       },
       {
         "id": 5,
-        "eng": "The house located at the corner belongs to my uncle",
-        "vie": "Ngôi nhà nằm ở góc đường thuộc về chú tôi"
+        "text": "The house located at the corner belongs to my uncle",
+        "trans": "Ngôi nhà nằm ở góc đường thuộc về chú tôi"
       },
       {
         "id": 6,
-        "eng": "Mr Brown a famous scientist gave a speech yesterday",
-        "vie": "Ông Brown một nhà khoa học nổi tiếng đã phát biểu hôm qua"
+        "text": "Mr Brown a famous scientist gave a speech yesterday",
+        "trans": "Ông Brown một nhà khoa học nổi tiếng đã phát biểu hôm qua"
       },
       {
         "id": 7,
-        "eng": "This is the most important issue to be discussed today",
-        "vie": "Đây là vấn đề quan trọng nhất cần được thảo luận hôm nay"
+        "text": "This is the most important issue to be discussed today",
+        "trans": "Đây là vấn đề quan trọng nhất cần được thảo luận hôm nay"
       },
       {
         "id": 8,
-        "eng": "The man talking to the teacher is my father",
-        "vie": "Người đàn ông đang nói chuyện với giáo viên là bố tôi"
+        "text": "The man talking to the teacher is my father",
+        "trans": "Người đàn ông đang nói chuyện với giáo viên là bố tôi"
       },
       {
         "id": 9,
-        "eng": "The car purchased last year has already broken down",
-        "vie": "Chiếc xe được mua năm ngoái đã bị hỏng rồi"
+        "text": "The car purchased last year has already broken down",
+        "trans": "Chiếc xe được mua năm ngoái đã bị hỏng rồi"
       },
       {
         "id": 10,
-        "eng": "He has a lot of emails to answer before noon",
-        "vie": "Anh ấy có rất nhiều email phải trả lời trước buổi trưa"
+        "text": "He has a lot of emails to answer before noon",
+        "trans": "Anh ấy có rất nhiều email phải trả lời trước buổi trưa"
       }
     ],
     "exercises": [
@@ -1541,53 +1541,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "The police are still investigating the mysterious robbery",
-        "vie": "Cảnh sát vẫn đang điều tra vụ cướp bí ẩn"
+        "text": "The police are still investigating the mysterious robbery",
+        "trans": "Cảnh sát vẫn đang điều tra vụ cướp bí ẩn"
       },
       {
         "id": 2,
-        "eng": "My trousers are completely ruined after I fell in the mud",
-        "vie": "Quần của tôi bị hỏng hoàn toàn sau khi tôi ngã vào bùn"
+        "text": "My trousers are completely ruined after I fell in the mud",
+        "trans": "Quần của tôi bị hỏng hoàn toàn sau khi tôi ngã vào bùn"
       },
       {
         "id": 3,
-        "eng": "A great deal of effort has been put into this project",
-        "vie": "Một nỗ lực lớn đã được dồn vào dự án này"
+        "text": "A great deal of effort has been put into this project",
+        "trans": "Một nỗ lực lớn đã được dồn vào dự án này"
       },
       {
         "id": 4,
-        "eng": "A large number of students have registered for the course",
-        "vie": "Một số lượng lớn sinh viên đã đăng ký khóa học"
+        "text": "A large number of students have registered for the course",
+        "trans": "Một số lượng lớn sinh viên đã đăng ký khóa học"
       },
       {
         "id": 5,
-        "eng": "Neither of the two candidates was suitable for the job",
-        "vie": "Không ai trong hai ứng viên phù hợp với công việc"
+        "text": "Neither of the two candidates was suitable for the job",
+        "trans": "Không ai trong hai ứng viên phù hợp với công việc"
       },
       {
         "id": 6,
-        "eng": "None of the ten applicants met the strict requirements",
-        "vie": "Không ai trong mười ứng viên đáp ứng được yêu cầu khắt khe"
+        "text": "None of the ten applicants met the strict requirements",
+        "trans": "Không ai trong mười ứng viên đáp ứng được yêu cầu khắt khe"
       },
       {
         "id": 7,
-        "eng": "I spent the whole day cleaning the house from top to bottom",
-        "vie": "Tôi dành trọn cả ngày dọn dẹp nhà cửa từ trên xuống dưới"
+        "text": "I spent the whole day cleaning the house from top to bottom",
+        "trans": "Tôi dành trọn cả ngày dọn dẹp nhà cửa từ trên xuống dưới"
       },
       {
         "id": 8,
-        "eng": "All the information you provided was extremely helpful",
-        "vie": "Tất cả thông tin bạn cung cấp đều cực kỳ hữu ích"
+        "text": "All the information you provided was extremely helpful",
+        "trans": "Tất cả thông tin bạn cung cấp đều cực kỳ hữu ích"
       },
       {
         "id": 9,
-        "eng": "Each of the participants received a certificate of completion",
-        "vie": "Mỗi người tham gia đều nhận được giấy chứng nhận hoàn thành"
+        "text": "Each of the participants received a certificate of completion",
+        "trans": "Mỗi người tham gia đều nhận được giấy chứng nhận hoàn thành"
       },
       {
         "id": 10,
-        "eng": "We have staff meetings every two weeks to discuss progress",
-        "vie": "Chúng tôi họp nhân viên hai tuần một lần để thảo luận tiến độ"
+        "text": "We have staff meetings every two weeks to discuss progress",
+        "trans": "Chúng tôi họp nhân viên hai tuần một lần để thảo luận tiến độ"
       }
     ],
     "exercises": [
@@ -1730,53 +1730,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "I don't like the red shirt give me the blue one",
-        "vie": "Tôi không thích áo sơ mi đỏ hãy đưa tôi cái xanh"
+        "text": "I don't like the red shirt give me the blue one",
+        "trans": "Tôi không thích áo sơ mi đỏ hãy đưa tôi cái xanh"
       },
       {
         "id": 2,
-        "eng": "Are they coming to the party tonight I hope so",
-        "vie": "Tối nay họ có đến tiệc không tôi hy vọng thế"
+        "text": "Are they coming to the party tonight I hope so",
+        "trans": "Tối nay họ có đến tiệc không tôi hy vọng thế"
       },
       {
         "id": 3,
-        "eng": "He promised to help me clean and he did so",
-        "vie": "Anh ấy hứa giúp tôi dọn dẹp và anh ấy đã làm vậy"
+        "text": "He promised to help me clean and he did so",
+        "trans": "Anh ấy hứa giúp tôi dọn dẹp và anh ấy đã làm vậy"
       },
       {
         "id": 4,
-        "eng": "She can speak Japanese fluently but her brother cannot",
-        "vie": "Cô ấy có thể nói tiếng Nhật trôi chảy nhưng anh trai cô ấy không thể"
+        "text": "She can speak Japanese fluently but her brother cannot",
+        "trans": "Cô ấy có thể nói tiếng Nhật trôi chảy nhưng anh trai cô ấy không thể"
       },
       {
         "id": 5,
-        "eng": "I haven't finished the report yet but my colleague has",
-        "vie": "Tôi chưa hoàn thành báo cáo nhưng đồng nghiệp tôi đã xong"
+        "text": "I haven't finished the report yet but my colleague has",
+        "trans": "Tôi chưa hoàn thành báo cáo nhưng đồng nghiệp tôi đã xong"
       },
       {
         "id": 6,
-        "eng": "I didn't want to attend the meeting but I had to",
-        "vie": "Tôi không muốn tham dự cuộc họp nhưng tôi phải đi"
+        "text": "I didn't want to attend the meeting but I had to",
+        "trans": "Tôi không muốn tham dự cuộc họp nhưng tôi phải đi"
       },
       {
         "id": 7,
-        "eng": "You can stay at my place for the night if you want to",
-        "vie": "Bạn có thể ở lại chỗ tôi đêm nay nếu bạn muốn"
+        "text": "You can stay at my place for the night if you want to",
+        "trans": "Bạn có thể ở lại chỗ tôi đêm nay nếu bạn muốn"
       },
       {
         "id": 8,
-        "eng": "While walking home from work I found a lost wallet",
-        "vie": "Trong lúc đi bộ từ chỗ làm về nhà tôi nhặt được một chiếc ví rơi"
+        "text": "While walking home from work I found a lost wallet",
+        "trans": "Trong lúc đi bộ từ chỗ làm về nhà tôi nhặt được một chiếc ví rơi"
       },
       {
         "id": 9,
-        "eng": "Though deeply exhausted the marathon runner kept going",
-        "vie": "Dù vô cùng kiệt sức vận động viên marathon vẫn tiếp tục chạy"
+        "text": "Though deeply exhausted the marathon runner kept going",
+        "trans": "Dù vô cùng kiệt sức vận động viên marathon vẫn tiếp tục chạy"
       },
       {
         "id": 10,
-        "eng": "Is the project going to be cancelled I am afraid so",
-        "vie": "Dự án có bị hủy không tôi e là có"
+        "text": "Is the project going to be cancelled I am afraid so",
+        "trans": "Dự án có bị hủy không tôi e là có"
       }
     ],
     "exercises": [
@@ -1919,53 +1919,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "She bought a beautiful large old red Italian wooden table",
-        "vie": "Cô ấy mua một cái bàn gỗ Ý màu đỏ cũ lớn đẹp"
+        "text": "She bought a beautiful large old red Italian wooden table",
+        "trans": "Cô ấy mua một cái bàn gỗ Ý màu đỏ cũ lớn đẹp"
       },
       {
         "id": 2,
-        "eng": "After the marathon I was absolutely exhausted and couldn't walk",
-        "vie": "Sau cuộc chạy marathon tôi hoàn toàn kiệt sức và không thể đi bộ"
+        "text": "After the marathon I was absolutely exhausted and couldn't walk",
+        "trans": "Sau cuộc chạy marathon tôi hoàn toàn kiệt sức và không thể đi bộ"
       },
       {
         "id": 3,
-        "eng": "The house was completely destroyed by the fierce hurricane",
-        "vie": "Ngôi nhà bị phá hủy hoàn toàn bởi cơn bão dữ dội"
+        "text": "The house was completely destroyed by the fierce hurricane",
+        "trans": "Ngôi nhà bị phá hủy hoàn toàn bởi cơn bão dữ dội"
       },
       {
         "id": 4,
-        "eng": "He works hard every day but earns hardly enough money",
-        "vie": "Anh ấy làm việc chăm chỉ mỗi ngày nhưng hầu như không kiếm đủ tiền"
+        "text": "He works hard every day but earns hardly enough money",
+        "trans": "Anh ấy làm việc chăm chỉ mỗi ngày nhưng hầu như không kiếm đủ tiền"
       },
       {
         "id": 5,
-        "eng": "I haven't seen her lately so I don't know how she is",
-        "vie": "Gần đây tôi không gặp cô ấy nên tôi không biết cô ấy thế nào"
+        "text": "I haven't seen her lately so I don't know how she is",
+        "trans": "Gần đây tôi không gặp cô ấy nên tôi không biết cô ấy thế nào"
       },
       {
         "id": 6,
-        "eng": "His efforts to save the company were highly appreciated",
-        "vie": "Những nỗ lực cứu công ty của anh ấy được đánh giá rất cao"
+        "text": "His efforts to save the company were highly appreciated",
+        "trans": "Những nỗ lực cứu công ty của anh ấy được đánh giá rất cao"
       },
       {
         "id": 7,
-        "eng": "I was deeply moved by the tragic story of the orphans",
-        "vie": "Tôi vô cùng cảm động trước câu chuyện bi thảm của những đứa trẻ mồ côi"
+        "text": "I was deeply moved by the tragic story of the orphans",
+        "trans": "Tôi vô cùng cảm động trước câu chuyện bi thảm của những đứa trẻ mồ côi"
       },
       {
         "id": 8,
-        "eng": "The rich must pay higher taxes to help the poor",
-        "vie": "Người giàu phải trả thuế cao hơn để giúp đỡ người nghèo"
+        "text": "The rich must pay higher taxes to help the poor",
+        "trans": "Người giàu phải trả thuế cao hơn để giúp đỡ người nghèo"
       },
       {
         "id": 9,
-        "eng": "The severely injured were immediately taken to the nearest hospital",
-        "vie": "Những người bị thương nặng ngay lập tức được đưa đến bệnh viện gần nhất"
+        "text": "The severely injured were immediately taken to the nearest hospital",
+        "trans": "Những người bị thương nặng ngay lập tức được đưa đến bệnh viện gần nhất"
       },
       {
         "id": 10,
-        "eng": "It is utterly ridiculous to expect me to work for free",
-        "vie": "Thật hoàn toàn nực cười khi mong tôi làm việc miễn phí"
+        "text": "It is utterly ridiculous to expect me to work for free",
+        "trans": "Thật hoàn toàn nực cười khi mong tôi làm việc miễn phí"
       }
     ],
     "exercises": [
@@ -2108,53 +2108,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "The new software is significantly faster than the old version",
-        "vie": "Phần mềm mới nhanh hơn đáng kể so với phiên bản cũ"
+        "text": "The new software is significantly faster than the old version",
+        "trans": "Phần mềm mới nhanh hơn đáng kể so với phiên bản cũ"
       },
       {
         "id": 2,
-        "eng": "Our sales this quarter are marginally higher than expected",
-        "vie": "Doanh số quý này của chúng ta cao hơn một chút so với dự kiến"
+        "text": "Our sales this quarter are marginally higher than expected",
+        "trans": "Doanh số quý này của chúng ta cao hơn một chút so với dự kiến"
       },
       {
         "id": 3,
-        "eng": "That was by far the most challenging exam I have taken",
-        "vie": "Đó cho đến nay là bài thi thử thách nhất mà tôi từng làm"
+        "text": "That was by far the most challenging exam I have taken",
+        "trans": "Đó cho đến nay là bài thi thử thách nhất mà tôi từng làm"
       },
       {
         "id": 4,
-        "eng": "Tokyo is one of the most densely populated cities globally",
-        "vie": "Tokyo là một trong những thành phố đông dân nhất toàn cầu"
+        "text": "Tokyo is one of the most densely populated cities globally",
+        "trans": "Tokyo là một trong những thành phố đông dân nhất toàn cầu"
       },
       {
         "id": 5,
-        "eng": "The more effort you put in the better the results",
-        "vie": "Càng nỗ lực nhiều kết quả càng tốt"
+        "text": "The more effort you put in the better the results",
+        "trans": "Càng nỗ lực nhiều kết quả càng tốt"
       },
       {
         "id": 6,
-        "eng": "Because of global warming the summers are getting hotter and hotter",
-        "vie": "Vì trái đất nóng lên mùa hè ngày càng nóng hơn"
+        "text": "Because of global warming the summers are getting hotter and hotter",
+        "trans": "Vì trái đất nóng lên mùa hè ngày càng nóng hơn"
       },
       {
         "id": 7,
-        "eng": "He showed no emotion and remained as cold as ice",
-        "vie": "Anh ta không bộc lộ cảm xúc và lạnh lùng như băng"
+        "text": "He showed no emotion and remained as cold as ice",
+        "trans": "Anh ta không bộc lộ cảm xúc và lạnh lùng như băng"
       },
       {
         "id": 8,
-        "eng": "Even though she ate a lot she is as light as a feather",
-        "vie": "Dù ăn nhiều cô ấy vẫn nhẹ tựa lông hồng"
+        "text": "Even though she ate a lot she is as light as a feather",
+        "trans": "Dù ăn nhiều cô ấy vẫn nhẹ tựa lông hồng"
       },
       {
         "id": 9,
-        "eng": "Without his glasses my grandfather is as blind as a bat",
-        "vie": "Không có kính ông tôi gần như không thấy gì"
+        "text": "Without his glasses my grandfather is as blind as a bat",
+        "trans": "Không có kính ông tôi gần như không thấy gì"
       },
       {
         "id": 10,
-        "eng": "Trying to convince him is useless he is as stubborn as a mule",
-        "vie": "Thuyết phục anh ta là vô ích anh ta vô cùng bướng bỉnh"
+        "text": "Trying to convince him is useless he is as stubborn as a mule",
+        "trans": "Thuyết phục anh ta là vô ích anh ta vô cùng bướng bỉnh"
       }
     ],
     "exercises": [
@@ -2297,53 +2297,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "The project was carried out in accordance with safety regulations",
-        "vie": "Dự án được thực hiện tuân theo các quy định an toàn"
+        "text": "The project was carried out in accordance with safety regulations",
+        "trans": "Dự án được thực hiện tuân theo các quy định an toàn"
       },
       {
         "id": 2,
-        "eng": "I am writing this email with reference to your recent inquiry",
-        "vie": "Tôi viết email này liên quan đến thắc mắc gần đây của bạn"
+        "text": "I am writing this email with reference to your recent inquiry",
+        "trans": "Tôi viết email này liên quan đến thắc mắc gần đây của bạn"
       },
       {
         "id": 3,
-        "eng": "On behalf of the company I would like to apologize",
-        "vie": "Thay mặt công ty tôi muốn gửi lời xin lỗi"
+        "text": "On behalf of the company I would like to apologize",
+        "trans": "Thay mặt công ty tôi muốn gửi lời xin lỗi"
       },
       {
         "id": 4,
-        "eng": "Charities are usually exempt from paying income tax",
-        "vie": "Các tổ chức từ thiện thường được miễn đóng thuế thu nhập"
+        "text": "Charities are usually exempt from paying income tax",
+        "trans": "Các tổ chức từ thiện thường được miễn đóng thuế thu nhập"
       },
       {
         "id": 5,
-        "eng": "People who eat poorly are more prone to infections",
-        "vie": "Những người ăn uống kém dễ mắc bệnh nhiễm trùng hơn"
+        "text": "People who eat poorly are more prone to infections",
+        "trans": "Những người ăn uống kém dễ mắc bệnh nhiễm trùng hơn"
       },
       {
         "id": 6,
-        "eng": "He tried to fix the broken computer but in vain",
-        "vie": "Anh ta cố sửa chiếc máy tính hỏng nhưng vô ích"
+        "text": "He tried to fix the broken computer but in vain",
+        "trans": "Anh ta cố sửa chiếc máy tính hỏng nhưng vô ích"
       },
       {
         "id": 7,
-        "eng": "I was at a loss for words when I heard the news",
-        "vie": "Tôi đã không nói nên lời khi nghe tin"
+        "text": "I was at a loss for words when I heard the news",
+        "trans": "Tôi đã không nói nên lời khi nghe tin"
       },
       {
         "id": 8,
-        "eng": "On second thoughts maybe we shouldn't buy this expensive car",
-        "vie": "Nghĩ lại thì có lẽ chúng ta không nên mua chiếc xe đắt tiền này"
+        "text": "On second thoughts maybe we shouldn't buy this expensive car",
+        "trans": "Nghĩ lại thì có lẽ chúng ta không nên mua chiếc xe đắt tiền này"
       },
       {
         "id": 9,
-        "eng": "There is an exception to every rule in English grammar",
-        "vie": "Có một ngoại lệ cho mọi quy tắc trong ngữ pháp tiếng Anh"
+        "text": "There is an exception to every rule in English grammar",
+        "trans": "Có một ngoại lệ cho mọi quy tắc trong ngữ pháp tiếng Anh"
       },
       {
         "id": 10,
-        "eng": "His explanation was completely devoid of any logic or sense",
-        "vie": "Lời giải thích của anh ta hoàn toàn không có chút logic hay ý nghĩa nào"
+        "text": "His explanation was completely devoid of any logic or sense",
+        "trans": "Lời giải thích của anh ta hoàn toàn không có chút logic hay ý nghĩa nào"
       }
     ],
     "exercises": [
@@ -2486,53 +2486,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "He claims to have met the President during his visit",
-        "vie": "Anh ta khẳng định đã gặp Tổng thống trong chuyến thăm của ông"
+        "text": "He claims to have met the President during his visit",
+        "trans": "Anh ta khẳng định đã gặp Tổng thống trong chuyến thăm của ông"
       },
       {
         "id": 2,
-        "eng": "I am absolutely thrilled to have been given this opportunity",
-        "vie": "Tôi vô cùng hồi hộp vì đã được trao cơ hội này"
+        "text": "I am absolutely thrilled to have been given this opportunity",
+        "trans": "Tôi vô cùng hồi hộp vì đã được trao cơ hội này"
       },
       {
         "id": 3,
-        "eng": "She strongly dislikes being told what to do by others",
-        "vie": "Cô ấy cực kỳ không thích bị người khác bảo phải làm gì"
+        "text": "She strongly dislikes being told what to do by others",
+        "trans": "Cô ấy cực kỳ không thích bị người khác bảo phải làm gì"
       },
       {
         "id": 4,
-        "eng": "The politician denied having been involved in the massive scandal",
-        "vie": "Chính trị gia phủ nhận việc đã dính líu đến vụ bê bối lớn"
+        "text": "The politician denied having been involved in the massive scandal",
+        "trans": "Chính trị gia phủ nhận việc đã dính líu đến vụ bê bối lớn"
       },
       {
         "id": 5,
-        "eng": "They eventually persuaded him to sign the new contract",
-        "vie": "Cuối cùng họ đã thuyết phục được anh ta ký hợp đồng mới"
+        "text": "They eventually persuaded him to sign the new contract",
+        "trans": "Cuối cùng họ đã thuyết phục được anh ta ký hợp đồng mới"
       },
       {
         "id": 6,
-        "eng": "The security guard caught the thief trying to steal a car",
-        "vie": "Bảo vệ bắt quả tang tên trộm đang cố ăn cắp xe"
+        "text": "The security guard caught the thief trying to steal a car",
+        "trans": "Bảo vệ bắt quả tang tên trộm đang cố ăn cắp xe"
       },
       {
         "id": 7,
-        "eng": "I deeply regret lending him so much money last year",
-        "vie": "Tôi vô cùng hối hận vì đã cho anh ta vay quá nhiều tiền năm ngoái"
+        "text": "I deeply regret lending him so much money last year",
+        "trans": "Tôi vô cùng hối hận vì đã cho anh ta vay quá nhiều tiền năm ngoái"
       },
       {
         "id": 8,
-        "eng": "We regret to inform you that your application was rejected",
-        "vie": "Chúng tôi rất tiếc phải thông báo rằng đơn của bạn bị từ chối"
+        "text": "We regret to inform you that your application was rejected",
+        "trans": "Chúng tôi rất tiếc phải thông báo rằng đơn của bạn bị từ chối"
       },
       {
         "id": 9,
-        "eng": "He tried opening the window but it was completely stuck",
-        "vie": "Anh ta đã thử mở cửa sổ nhưng nó bị kẹt cứng"
+        "text": "He tried opening the window but it was completely stuck",
+        "trans": "Anh ta đã thử mở cửa sổ nhưng nó bị kẹt cứng"
       },
       {
         "id": 10,
-        "eng": "Please remember to turn off all the lights before leaving",
-        "vie": "Xin nhớ tắt hết đèn trước khi rời đi"
+        "text": "Please remember to turn off all the lights before leaving",
+        "trans": "Xin nhớ tắt hết đèn trước khi rời đi"
       }
     ],
     "exercises": [
@@ -2675,53 +2675,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "It is widely reported that the CEO resigned yesterday",
-        "vie": "Được báo cáo rộng rãi rằng CEO đã từ chức hôm qua"
+        "text": "It is widely reported that the CEO resigned yesterday",
+        "trans": "Được báo cáo rộng rãi rằng CEO đã từ chức hôm qua"
       },
       {
         "id": 2,
-        "eng": "The suspect is believed to have fled the country",
-        "vie": "Kẻ tình nghi được cho là đã trốn khỏi đất nước"
+        "text": "The suspect is believed to have fled the country",
+        "trans": "Kẻ tình nghi được cho là đã trốn khỏi đất nước"
       },
       {
         "id": 3,
-        "eng": "He had his wallet stolen while riding the crowded bus",
-        "vie": "Anh ấy bị trộm ví khi đang đi xe buýt đông người"
+        "text": "He had his wallet stolen while riding the crowded bus",
+        "trans": "Anh ấy bị trộm ví khi đang đi xe buýt đông người"
       },
       {
         "id": 4,
-        "eng": "We got our roof blown off during the severe hurricane",
-        "vie": "Chúng tôi bị tốc mái nhà trong cơn bão tồi tệ"
+        "text": "We got our roof blown off during the severe hurricane",
+        "trans": "Chúng tôi bị tốc mái nhà trong cơn bão tồi tệ"
       },
       {
         "id": 5,
-        "eng": "The man was seen to cross the street quickly",
-        "vie": "Người đàn ông được nhìn thấy băng qua đường nhanh chóng"
+        "text": "The man was seen to cross the street quickly",
+        "trans": "Người đàn ông được nhìn thấy băng qua đường nhanh chóng"
       },
       {
         "id": 6,
-        "eng": "The children were heard singing loudly in the next room",
-        "vie": "Bọn trẻ được nghe thấy đang hát lớn ở phòng bên"
+        "text": "The children were heard singing loudly in the next room",
+        "trans": "Bọn trẻ được nghe thấy đang hát lớn ở phòng bên"
       },
       {
         "id": 7,
-        "eng": "We were made to wait in the rain for two hours",
-        "vie": "Chúng tôi bị bắt đứng đợi dưới mưa suốt hai tiếng"
+        "text": "We were made to wait in the rain for two hours",
+        "trans": "Chúng tôi bị bắt đứng đợi dưới mưa suốt hai tiếng"
       },
       {
         "id": 8,
-        "eng": "Students are not allowed to use their phones during exams",
-        "vie": "Học sinh không được phép sử dụng điện thoại trong giờ thi"
+        "text": "Students are not allowed to use their phones during exams",
+        "trans": "Học sinh không được phép sử dụng điện thoại trong giờ thi"
       },
       {
         "id": 9,
-        "eng": "She is considered to be the best doctor in the hospital",
-        "vie": "Cô ấy được coi là bác sĩ giỏi nhất trong bệnh viện"
+        "text": "She is considered to be the best doctor in the hospital",
+        "trans": "Cô ấy được coi là bác sĩ giỏi nhất trong bệnh viện"
       },
       {
         "id": 10,
-        "eng": "It is expected that the new policy will improve productivity",
-        "vie": "Người ta kỳ vọng rằng chính sách mới sẽ cải thiện năng suất"
+        "text": "It is expected that the new policy will improve productivity",
+        "trans": "Người ta kỳ vọng rằng chính sách mới sẽ cải thiện năng suất"
       }
     ],
     "exercises": [
@@ -2860,53 +2860,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "The suspect firmly refused to answer any questions from police",
-        "vie": "Kẻ tình nghi kiên quyết từ chối trả lời bất kỳ câu hỏi nào của cảnh sát"
+        "text": "The suspect firmly refused to answer any questions from police",
+        "trans": "Kẻ tình nghi kiên quyết từ chối trả lời bất kỳ câu hỏi nào của cảnh sát"
       },
       {
         "id": 2,
-        "eng": "The teacher encouraged her to apply for the prestigious scholarship",
-        "vie": "Giáo viên khuyến khích cô ấy nộp đơn xin học bổng danh giá"
+        "text": "The teacher encouraged her to apply for the prestigious scholarship",
+        "trans": "Giáo viên khuyến khích cô ấy nộp đơn xin học bổng danh giá"
       },
       {
         "id": 3,
-        "eng": "He strongly denied stealing the money from the company safe",
-        "vie": "Anh ta kịch liệt phủ nhận việc trộm tiền từ két sắt công ty"
+        "text": "He strongly denied stealing the money from the company safe",
+        "trans": "Anh ta kịch liệt phủ nhận việc trộm tiền từ két sắt công ty"
       },
       {
         "id": 4,
-        "eng": "She accused him of deliberately lying about his qualifications",
-        "vie": "Cô ấy buộc tội anh ta cố ý nói dối về bằng cấp của mình"
+        "text": "She accused him of deliberately lying about his qualifications",
+        "trans": "Cô ấy buộc tội anh ta cố ý nói dối về bằng cấp của mình"
       },
       {
         "id": 5,
-        "eng": "The manager apologized for causing so much inconvenience to everyone",
-        "vie": "Người quản lý xin lỗi vì đã gây quá nhiều bất tiện cho mọi người"
+        "text": "The manager apologized for causing so much inconvenience to everyone",
+        "trans": "Người quản lý xin lỗi vì đã gây quá nhiều bất tiện cho mọi người"
       },
       {
         "id": 6,
-        "eng": "He promised to return the borrowed book by next Friday",
-        "vie": "Anh ấy hứa sẽ trả lại cuốn sách đã mượn trước thứ Sáu tới"
+        "text": "He promised to return the borrowed book by next Friday",
+        "trans": "Anh ấy hứa sẽ trả lại cuốn sách đã mượn trước thứ Sáu tới"
       },
       {
         "id": 7,
-        "eng": "The scientist explained that water boils at one hundred degrees",
-        "vie": "Nhà khoa học giải thích rằng nước sôi ở một trăm độ"
+        "text": "The scientist explained that water boils at one hundred degrees",
+        "trans": "Nhà khoa học giải thích rằng nước sôi ở một trăm độ"
       },
       {
         "id": 8,
-        "eng": "She asked me where I had bought that beautiful dress",
-        "vie": "Cô ấy hỏi tôi đã mua chiếc váy đẹp đó ở đâu"
+        "text": "She asked me where I had bought that beautiful dress",
+        "trans": "Cô ấy hỏi tôi đã mua chiếc váy đẹp đó ở đâu"
       },
       {
         "id": 9,
-        "eng": "He wondered if she would come to the party tonight",
-        "vie": "Anh ta tự hỏi liệu cô ấy có đến bữa tiệc tối nay không"
+        "text": "He wondered if she would come to the party tonight",
+        "trans": "Anh ta tự hỏi liệu cô ấy có đến bữa tiệc tối nay không"
       },
       {
         "id": 10,
-        "eng": "She exclaimed with joy that she had passed the exam",
-        "vie": "Cô ấy reo lên sung sướng rằng cô ấy đã đỗ kỳ thi"
+        "text": "She exclaimed with joy that she had passed the exam",
+        "trans": "Cô ấy reo lên sung sướng rằng cô ấy đã đỗ kỳ thi"
       }
     ],
     "exercises": [
@@ -3049,53 +3049,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "It was cold and to make matters worse it started raining",
-        "vie": "Trời đã lạnh và tệ hơn nữa là trời bắt đầu mưa"
+        "text": "It was cold and to make matters worse it started raining",
+        "trans": "Trời đã lạnh và tệ hơn nữa là trời bắt đầu mưa"
       },
       {
         "id": 2,
-        "eng": "In light of the new evidence the case was reopened",
-        "vie": "Xét thấy có bằng chứng mới vụ án đã được mở lại"
+        "text": "In light of the new evidence the case was reopened",
+        "trans": "Xét thấy có bằng chứng mới vụ án đã được mở lại"
       },
       {
         "id": 3,
-        "eng": "Much as I respect him I strongly disagree with his methods",
-        "vie": "Dù rất tôn trọng ông ấy nhưng tôi kịch liệt phản đối phương pháp của ông"
+        "text": "Much as I respect him I strongly disagree with his methods",
+        "trans": "Dù rất tôn trọng ông ấy nhưng tôi kịch liệt phản đối phương pháp của ông"
       },
       {
         "id": 4,
-        "eng": "He is a highly skilled programmer albeit slightly unorganized",
-        "vie": "Anh ta là một lập trình viên tay nghề cao mặc dù hơi thiếu tổ chức"
+        "text": "He is a highly skilled programmer albeit slightly unorganized",
+        "trans": "Anh ta là một lập trình viên tay nghề cao mặc dù hơi thiếu tổ chức"
       },
       {
         "id": 5,
-        "eng": "Be that as it may we still have a deadline to meet",
-        "vie": "Dù sao đi nữa chúng ta vẫn có hạn chót phải hoàn thành"
+        "text": "Be that as it may we still have a deadline to meet",
+        "trans": "Dù sao đi nữa chúng ta vẫn có hạn chót phải hoàn thành"
       },
       {
         "id": 6,
-        "eng": "Regarding your request for a refund it is being processed",
-        "vie": "Về yêu cầu hoàn tiền của bạn nó đang được xử lý"
+        "text": "Regarding your request for a refund it is being processed",
+        "trans": "Về yêu cầu hoàn tiền của bạn nó đang được xử lý"
       },
       {
         "id": 7,
-        "eng": "Incidentally I met your brother at the supermarket yesterday",
-        "vie": "Nhân tiện hôm qua tôi gặp anh trai bạn ở siêu thị"
+        "text": "Incidentally I met your brother at the supermarket yesterday",
+        "trans": "Nhân tiện hôm qua tôi gặp anh trai bạn ở siêu thị"
       },
       {
         "id": 8,
-        "eng": "The failure of the project stemmed from poor initial planning",
-        "vie": "Sự thất bại của dự án bắt nguồn từ việc lập kế hoạch ban đầu kém"
+        "text": "The failure of the project stemmed from poor initial planning",
+        "trans": "Sự thất bại của dự án bắt nguồn từ việc lập kế hoạch ban đầu kém"
       },
       {
         "id": 9,
-        "eng": "He didn't study at all consequently he failed the final exam",
-        "vie": "Anh ta không học gì cả do đó anh ta trượt bài thi cuối kỳ"
+        "text": "He didn't study at all consequently he failed the final exam",
+        "trans": "Anh ta không học gì cả do đó anh ta trượt bài thi cuối kỳ"
       },
       {
         "id": 10,
-        "eng": "In a nutshell the entire marketing campaign was a total disaster",
-        "vie": "Tóm lại toàn bộ chiến dịch marketing là một thảm họa hoàn toàn"
+        "text": "In a nutshell the entire marketing campaign was a total disaster",
+        "trans": "Tóm lại toàn bộ chiến dịch marketing là một thảm họa hoàn toàn"
       }
     ],
     "exercises": [
@@ -3238,53 +3238,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "I came across some old photographs while cleaning the attic",
-        "vie": "Tôi tình cờ thấy vài bức ảnh cũ khi dọn gác xép"
+        "text": "I came across some old photographs while cleaning the attic",
+        "trans": "Tôi tình cờ thấy vài bức ảnh cũ khi dọn gác xép"
       },
       {
         "id": 2,
-        "eng": "He came down with a bad cold after walking in the rain",
-        "vie": "Anh ấy mắc bệnh cảm nặng sau khi đi dưới mưa"
+        "text": "He came down with a bad cold after walking in the rain",
+        "trans": "Anh ấy mắc bệnh cảm nặng sau khi đi dưới mưa"
       },
       {
         "id": 3,
-        "eng": "She came into a fortune when her wealthy grandfather passed away",
-        "vie": "Cô ấy thừa kế một gia tài khi người ông giàu có qua đời"
+        "text": "She came into a fortune when her wealthy grandfather passed away",
+        "trans": "Cô ấy thừa kế một gia tài khi người ông giàu có qua đời"
       },
       {
         "id": 4,
-        "eng": "The alarm clock went off at six o'clock this morning",
-        "vie": "Đồng hồ báo thức reo lúc sáu giờ sáng nay"
+        "text": "The alarm clock went off at six o'clock this morning",
+        "trans": "Đồng hồ báo thức reo lúc sáu giờ sáng nay"
       },
       {
         "id": 5,
-        "eng": "Let's go over the plan one more time before the meeting",
-        "vie": "Hãy kiểm tra lại kế hoạch một lần nữa trước cuộc họp"
+        "text": "Let's go over the plan one more time before the meeting",
+        "trans": "Hãy kiểm tra lại kế hoạch một lần nữa trước cuộc họp"
       },
       {
         "id": 6,
-        "eng": "The new manager will take over the department next week",
-        "vie": "Quản lý mới sẽ tiếp quản phòng ban vào tuần tới"
+        "text": "The new manager will take over the department next week",
+        "trans": "Quản lý mới sẽ tiếp quản phòng ban vào tuần tới"
       },
       {
         "id": 7,
-        "eng": "He takes after his father in both looks and personality",
-        "vie": "Anh ấy giống bố cả về ngoại hình lẫn tính cách"
+        "text": "He takes after his father in both looks and personality",
+        "trans": "Anh ấy giống bố cả về ngoại hình lẫn tính cách"
       },
       {
         "id": 8,
-        "eng": "She brought up three children all by herself after the divorce",
-        "vie": "Cô ấy một mình nuôi dưỡng ba đứa trẻ sau khi ly hôn"
+        "text": "She brought up three children all by herself after the divorce",
+        "trans": "Cô ấy một mình nuôi dưỡng ba đứa trẻ sau khi ly hôn"
       },
       {
         "id": 9,
-        "eng": "The police are looking into the mysterious disappearance",
-        "vie": "Cảnh sát đang điều tra vụ mất tích bí ẩn"
+        "text": "The police are looking into the mysterious disappearance",
+        "trans": "Cảnh sát đang điều tra vụ mất tích bí ẩn"
       },
       {
         "id": 10,
-        "eng": "I can't put up with this terrible noise any longer",
-        "vie": "Tôi không thể chịu đựng tiếng ồn khủng khiếp này thêm nữa"
+        "text": "I can't put up with this terrible noise any longer",
+        "trans": "Tôi không thể chịu đựng tiếng ồn khủng khiếp này thêm nữa"
       }
     ],
     "exercises": [
@@ -3427,53 +3427,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "Her car broke down on the highway during rush hour",
-        "vie": "Xe của cô ấy bị hỏng trên đường cao tốc vào giờ cao điểm"
+        "text": "Her car broke down on the highway during rush hour",
+        "trans": "Xe của cô ấy bị hỏng trên đường cao tốc vào giờ cao điểm"
       },
       {
         "id": 2,
-        "eng": "The thieves broke into the museum and stole a valuable painting",
-        "vie": "Những tên trộm đột nhập bảo tàng và lấy đi một bức tranh quý"
+        "text": "The thieves broke into the museum and stole a valuable painting",
+        "trans": "Những tên trộm đột nhập bảo tàng và lấy đi một bức tranh quý"
       },
       {
         "id": 3,
-        "eng": "They had to call off the football match because of heavy rain",
-        "vie": "Họ phải hủy bỏ trận bóng đá do mưa lớn"
+        "text": "They had to call off the football match because of heavy rain",
+        "trans": "Họ phải hủy bỏ trận bóng đá do mưa lớn"
       },
       {
         "id": 4,
-        "eng": "You should cut down on sugar if you want to lose weight",
-        "vie": "Bạn nên cắt giảm lượng đường nếu muốn giảm cân"
+        "text": "You should cut down on sugar if you want to lose weight",
+        "trans": "Bạn nên cắt giảm lượng đường nếu muốn giảm cân"
       },
       {
         "id": 5,
-        "eng": "He got away with cheating on the exam without being caught",
-        "vie": "Anh ta trót lọt việc gian lận thi cử mà không bị bắt"
+        "text": "He got away with cheating on the exam without being caught",
+        "trans": "Anh ta trót lọt việc gian lận thi cử mà không bị bắt"
       },
       {
         "id": 6,
-        "eng": "The garbage bin gives off a terrible smell in the summer",
-        "vie": "Thùng rác tỏa ra mùi kinh khủng vào mùa hè"
+        "text": "The garbage bin gives off a terrible smell in the summer",
+        "trans": "Thùng rác tỏa ra mùi kinh khủng vào mùa hè"
       },
       {
         "id": 7,
-        "eng": "Sorry I'm late I was held up in terrible traffic",
-        "vie": "Xin lỗi tôi đến muộn tôi bị kẹt trong đám tắc đường tồi tệ"
+        "text": "Sorry I'm late I was held up in terrible traffic",
+        "trans": "Xin lỗi tôi đến muộn tôi bị kẹt trong đám tắc đường tồi tệ"
       },
       {
         "id": 8,
-        "eng": "We have completely run out of milk so I will buy some",
-        "vie": "Chúng ta đã hết sạch sữa rồi nên tôi sẽ đi mua"
+        "text": "We have completely run out of milk so I will buy some",
+        "trans": "Chúng ta đã hết sạch sữa rồi nên tôi sẽ đi mua"
       },
       {
         "id": 9,
-        "eng": "He turned down the job offer because the salary was too low",
-        "vie": "Anh ta từ chối lời mời làm việc vì lương quá thấp"
+        "text": "He turned down the job offer because the salary was too low",
+        "trans": "Anh ta từ chối lời mời làm việc vì lương quá thấp"
       },
       {
         "id": 10,
-        "eng": "We need to face up to the fact that we are losing money",
-        "vie": "Chúng ta cần đối mặt với thực tế là chúng ta đang lỗ"
+        "text": "We need to face up to the fact that we are losing money",
+        "trans": "Chúng ta cần đối mặt với thực tế là chúng ta đang lỗ"
       }
     ],
     "exercises": [
@@ -3616,53 +3616,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "Winning the lottery was a stroke of luck for the poor family",
-        "vie": "Trúng xổ số là một sự may mắn bất ngờ cho gia đình nghèo"
+        "text": "Winning the lottery was a stroke of luck for the poor family",
+        "trans": "Trúng xổ số là một sự may mắn bất ngờ cho gia đình nghèo"
       },
       {
         "id": 2,
-        "eng": "There is not a shred of evidence to support his wild claims",
-        "vie": "Không có một chút bằng chứng nào để ủng hộ những tuyên bố hoang đường của anh ta"
+        "text": "There is not a shred of evidence to support his wild claims",
+        "trans": "Không có một chút bằng chứng nào để ủng hộ những tuyên bố hoang đường của anh ta"
       },
       {
         "id": 3,
-        "eng": "The project ended in utter failure despite everyone's hard work",
-        "vie": "Dự án kết thúc trong thất bại hoàn toàn bất chấp sự nỗ lực của mọi người"
+        "text": "The project ended in utter failure despite everyone's hard work",
+        "trans": "Dự án kết thúc trong thất bại hoàn toàn bất chấp sự nỗ lực của mọi người"
       },
       {
         "id": 4,
-        "eng": "Climate change poses a serious threat to our planet's future",
-        "vie": "Biến đổi khí hậu tạo ra mối đe dọa nghiêm trọng tới tương lai hành tinh chúng ta"
+        "text": "Climate change poses a serious threat to our planet's future",
+        "trans": "Biến đổi khí hậu tạo ra mối đe dọa nghiêm trọng tới tương lai hành tinh chúng ta"
       },
       {
         "id": 5,
-        "eng": "The new findings will shed light on the origin of the universe",
-        "vie": "Những phát hiện mới sẽ làm sáng tỏ nguồn gốc của vũ trụ"
+        "text": "The new findings will shed light on the origin of the universe",
+        "trans": "Những phát hiện mới sẽ làm sáng tỏ nguồn gốc của vũ trụ"
       },
       {
         "id": 6,
-        "eng": "The storm wreaked havoc on the coastal villages last night",
-        "vie": "Cơn bão đã tàn phá các ngôi làng ven biển đêm qua"
+        "text": "The storm wreaked havoc on the coastal villages last night",
+        "trans": "Cơn bão đã tàn phá các ngôi làng ven biển đêm qua"
       },
       {
         "id": 7,
-        "eng": "It was bitterly cold outside so we decided to stay indoors",
-        "vie": "Ngoài trời lạnh buốt nên chúng tôi quyết định ở trong nhà"
+        "text": "It was bitterly cold outside so we decided to stay indoors",
+        "trans": "Ngoài trời lạnh buốt nên chúng tôi quyết định ở trong nhà"
       },
       {
         "id": 8,
-        "eng": "He was blissfully unaware of the danger he was facing",
-        "vie": "Anh ta hoàn toàn không biết gì về mối nguy hiểm mình đang đối mặt"
+        "text": "He was blissfully unaware of the danger he was facing",
+        "trans": "Anh ta hoàn toàn không biết gì về mối nguy hiểm mình đang đối mặt"
       },
       {
         "id": 9,
-        "eng": "It is highly unlikely that he will win the upcoming election",
-        "vie": "Rất khó có khả năng anh ta sẽ thắng cuộc bầu cử sắp tới"
+        "text": "It is highly unlikely that he will win the upcoming election",
+        "trans": "Rất khó có khả năng anh ta sẽ thắng cuộc bầu cử sắp tới"
       },
       {
         "id": 10,
-        "eng": "The smartphone market is fiercely competitive nowadays",
-        "vie": "Thị trường điện thoại thông minh ngày nay cạnh tranh vô cùng khốc liệt"
+        "text": "The smartphone market is fiercely competitive nowadays",
+        "trans": "Thị trường điện thoại thông minh ngày nay cạnh tranh vô cùng khốc liệt"
       }
     ],
     "exercises": [
@@ -3805,53 +3805,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "The country's economy relies heavily on tourism and agriculture",
-        "vie": "Nền kinh tế đất nước phụ thuộc nặng nề vào du lịch và nông nghiệp"
+        "text": "The country's economy relies heavily on tourism and agriculture",
+        "trans": "Nền kinh tế đất nước phụ thuộc nặng nề vào du lịch và nông nghiệp"
       },
       {
         "id": 2,
-        "eng": "He categorically denied having any involvement in the scandal",
-        "vie": "Anh ta phủ nhận hoàn toàn việc có bất kỳ dính líu nào đến vụ bê bối"
+        "text": "He categorically denied having any involvement in the scandal",
+        "trans": "Anh ta phủ nhận hoàn toàn việc có bất kỳ dính líu nào đến vụ bê bối"
       },
       {
         "id": 3,
-        "eng": "She apologized profusely for spilling coffee on my laptop",
-        "vie": "Cô ấy xin lỗi rối rít vì làm đổ cà phê lên laptop của tôi"
+        "text": "She apologized profusely for spilling coffee on my laptop",
+        "trans": "Cô ấy xin lỗi rối rít vì làm đổ cà phê lên laptop của tôi"
       },
       {
         "id": 4,
-        "eng": "Housing prices fluctuate wildly depending on the current market",
-        "vie": "Giá nhà đất biến động dữ dội tùy thuộc vào thị trường hiện tại"
+        "text": "Housing prices fluctuate wildly depending on the current market",
+        "trans": "Giá nhà đất biến động dữ dội tùy thuộc vào thị trường hiện tại"
       },
       {
         "id": 5,
-        "eng": "When the opportunity arises you must grab it immediately",
-        "vie": "Khi cơ hội xuất hiện bạn phải nắm lấy nó ngay lập tức"
+        "text": "When the opportunity arises you must grab it immediately",
+        "trans": "Khi cơ hội xuất hiện bạn phải nắm lấy nó ngay lập tức"
       },
       {
         "id": 6,
-        "eng": "The two companies finally struck a deal after months of negotiation",
-        "vie": "Hai công ty cuối cùng đã thỏa thuận thành công sau nhiều tháng đàm phán"
+        "text": "The two companies finally struck a deal after months of negotiation",
+        "trans": "Hai công ty cuối cùng đã thỏa thuận thành công sau nhiều tháng đàm phán"
       },
       {
         "id": 7,
-        "eng": "The marketing team launched a campaign to promote the new product",
-        "vie": "Đội marketing phát động một chiến dịch để quảng bá sản phẩm mới"
+        "text": "The marketing team launched a campaign to promote the new product",
+        "trans": "Đội marketing phát động một chiến dịch để quảng bá sản phẩm mới"
       },
       {
         "id": 8,
-        "eng": "They failed to meet the deadline because of unexpected delays",
-        "vie": "Họ thất bại trong việc kịp hạn chót do những sự chậm trễ bất ngờ"
+        "text": "They failed to meet the deadline because of unexpected delays",
+        "trans": "Họ thất bại trong việc kịp hạn chót do những sự chậm trễ bất ngờ"
       },
       {
         "id": 9,
-        "eng": "Scientists are conducting research to find a cure for the disease",
-        "vie": "Các nhà khoa học đang tiến hành nghiên cứu để tìm cách chữa căn bệnh"
+        "text": "Scientists are conducting research to find a cure for the disease",
+        "trans": "Các nhà khoa học đang tiến hành nghiên cứu để tìm cách chữa căn bệnh"
       },
       {
         "id": 10,
-        "eng": "His theory lacks empirical evidence to support its claims",
-        "vie": "Lý thuyết của ông ta thiếu bằng chứng thực nghiệm để ủng hộ các tuyên bố"
+        "text": "His theory lacks empirical evidence to support its claims",
+        "trans": "Lý thuyết của ông ta thiếu bằng chứng thực nghiệm để ủng hộ các tuyên bố"
       }
     ],
     "exercises": [
@@ -3994,53 +3994,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "Buying that sports car cost him an arm and a leg",
-        "vie": "Mua chiếc xe thể thao đó tốn của anh ta một khoản tiền rất lớn"
+        "text": "Buying that sports car cost him an arm and a leg",
+        "trans": "Mua chiếc xe thể thao đó tốn của anh ta một khoản tiền rất lớn"
       },
       {
         "id": 2,
-        "eng": "My boss and I rarely see eye to eye on marketing strategies",
-        "vie": "Sếp tôi và tôi hiếm khi đồng quan điểm về các chiến lược marketing"
+        "text": "My boss and I rarely see eye to eye on marketing strategies",
+        "trans": "Sếp tôi và tôi hiếm khi đồng quan điểm về các chiến lược marketing"
       },
       {
         "id": 3,
-        "eng": "The police cannot turn a blind eye to these illegal activities",
-        "vie": "Cảnh sát không thể nhắm mắt làm ngơ trước những hoạt động phi pháp này"
+        "text": "The police cannot turn a blind eye to these illegal activities",
+        "trans": "Cảnh sát không thể nhắm mắt làm ngơ trước những hoạt động phi pháp này"
       },
       {
         "id": 4,
-        "eng": "I bought a gift for Mom but my sister let the cat out of the bag",
-        "vie": "Tôi mua quà cho mẹ nhưng em gái tôi đã vô tình tiết lộ bí mật"
+        "text": "I bought a gift for Mom but my sister let the cat out of the bag",
+        "trans": "Tôi mua quà cho mẹ nhưng em gái tôi đã vô tình tiết lộ bí mật"
       },
       {
         "id": 5,
-        "eng": "He is a dark horse in this tournament and might actually win",
-        "vie": "Anh ta là nhân tố bí ẩn trong giải đấu này và có thể thực sự giành chiến thắng"
+        "text": "He is a dark horse in this tournament and might actually win",
+        "trans": "Anh ta là nhân tố bí ẩn trong giải đấu này và có thể thực sự giành chiến thắng"
       },
       {
         "id": 6,
-        "eng": "If you think I stole your money you are barking up the wrong tree",
-        "vie": "Nếu bạn nghĩ tôi trộm tiền của bạn thì bạn đang tìm sai người rồi"
+        "text": "If you think I stole your money you are barking up the wrong tree",
+        "trans": "Nếu bạn nghĩ tôi trộm tiền của bạn thì bạn đang tìm sai người rồi"
       },
       {
         "id": 7,
-        "eng": "My old friend called me completely out of the blue yesterday",
-        "vie": "Người bạn cũ gọi cho tôi một cách hoàn toàn bất ngờ vào hôm qua"
+        "text": "My old friend called me completely out of the blue yesterday",
+        "trans": "Người bạn cũ gọi cho tôi một cách hoàn toàn bất ngờ vào hôm qua"
       },
       {
         "id": 8,
-        "eng": "The thief was caught red-handed trying to open the safe",
-        "vie": "Tên trộm bị bắt quả tang đang cố mở két sắt"
+        "text": "The thief was caught red-handed trying to open the safe",
+        "trans": "Tên trộm bị bắt quả tang đang cố mở két sắt"
       },
       {
         "id": 9,
-        "eng": "I'm feeling a bit under the weather so I will stay home",
-        "vie": "Tôi cảm thấy hơi ốm nên tôi sẽ ở nhà"
+        "text": "I'm feeling a bit under the weather so I will stay home",
+        "trans": "Tôi cảm thấy hơi ốm nên tôi sẽ ở nhà"
       },
       {
         "id": 10,
-        "eng": "She passed the exam easily she said it was a breeze",
-        "vie": "Cô ấy qua bài thi dễ dàng cô ấy nói nó dễ như ăn kẹo"
+        "text": "She passed the exam easily she said it was a breeze",
+        "trans": "Cô ấy qua bài thi dễ dàng cô ấy nói nó dễ như ăn kẹo"
       }
     ],
     "exercises": [
@@ -4183,53 +4183,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "I read his story but I took it with a grain of salt",
-        "vie": "Tôi đọc câu chuyện của anh ta nhưng chỉ bán tín bán nghi"
+        "text": "I read his story but I took it with a grain of salt",
+        "trans": "Tôi đọc câu chuyện của anh ta nhưng chỉ bán tín bán nghi"
       },
       {
         "id": 2,
-        "eng": "He is just buttering you up because he wants a promotion",
-        "vie": "Anh ta chỉ đang nịnh bợ bạn vì muốn được thăng chức"
+        "text": "He is just buttering you up because he wants a promotion",
+        "trans": "Anh ta chỉ đang nịnh bợ bạn vì muốn được thăng chức"
       },
       {
         "id": 3,
-        "eng": "We have been working for ten hours let's call it a day",
-        "vie": "Chúng ta đã làm việc mười tiếng rồi hãy nghỉ tay thôi"
+        "text": "We have been working for ten hours let's call it a day",
+        "trans": "Chúng ta đã làm việc mười tiếng rồi hãy nghỉ tay thôi"
       },
       {
         "id": 4,
-        "eng": "The ambulance arrived in the nick of time to save him",
-        "vie": "Xe cứu thương đến vừa kịp lúc để cứu anh ấy"
+        "text": "The ambulance arrived in the nick of time to save him",
+        "trans": "Xe cứu thương đến vừa kịp lúc để cứu anh ấy"
       },
       {
         "id": 5,
-        "eng": "It is hard to make ends meet with such a low salary",
-        "vie": "Thật khó để kiếm đủ sống với mức lương thấp như vậy"
+        "text": "It is hard to make ends meet with such a low salary",
+        "trans": "Thật khó để kiếm đủ sống với mức lương thấp như vậy"
       },
       {
         "id": 6,
-        "eng": "Teaching is her passion but writing is her bread and butter",
-        "vie": "Dạy học là đam mê nhưng viết lách là nguồn thu nhập chính của cô ấy"
+        "text": "Teaching is her passion but writing is her bread and butter",
+        "trans": "Dạy học là đam mê nhưng viết lách là nguồn thu nhập chính của cô ấy"
       },
       {
         "id": 7,
-        "eng": "She studied very hard and passed the exam with flying colors",
-        "vie": "Cô ấy học rất chăm và thi đỗ với điểm số xuất sắc"
+        "text": "She studied very hard and passed the exam with flying colors",
+        "trans": "Cô ấy học rất chăm và thi đỗ với điểm số xuất sắc"
       },
       {
         "id": 8,
-        "eng": "You really hit the nail on the head with that comment",
-        "vie": "Bạn thực sự nói trúng phóc với bình luận đó"
+        "text": "You really hit the nail on the head with that comment",
+        "trans": "Bạn thực sự nói trúng phóc với bình luận đó"
       },
       {
         "id": 9,
-        "eng": "If you don't buy the tickets now you will miss the boat",
-        "vie": "Nếu bạn không mua vé bây giờ bạn sẽ lỡ mất cơ hội"
+        "text": "If you don't buy the tickets now you will miss the boat",
+        "trans": "Nếu bạn không mua vé bây giờ bạn sẽ lỡ mất cơ hội"
       },
       {
         "id": 10,
-        "eng": "The prototype failed so we must go back to the drawing board",
-        "vie": "Bản mẫu thất bại nên chúng ta phải bắt đầu lại từ đầu"
+        "text": "The prototype failed so we must go back to the drawing board",
+        "trans": "Bản mẫu thất bại nên chúng ta phải bắt đầu lại từ đầu"
       }
     ],
     "exercises": [
@@ -4372,53 +4372,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "My father who is sixty years old has just retired",
-        "vie": "Bố tôi người đã 60 tuổi vừa mới nghỉ hưu"
+        "text": "My father who is sixty years old has just retired",
+        "trans": "Bố tôi người đã 60 tuổi vừa mới nghỉ hưu"
       },
       {
         "id": 2,
-        "eng": "It was raining heavily therefore we decided to stay indoors",
-        "vie": "Trời mưa to vì vậy chúng tôi quyết định ở trong nhà"
+        "text": "It was raining heavily therefore we decided to stay indoors",
+        "trans": "Trời mưa to vì vậy chúng tôi quyết định ở trong nhà"
       },
       {
         "id": 3,
-        "eng": "We need three ingredients flour sugar and eggs",
-        "vie": "Chúng ta cần ba nguyên liệu bột mì đường và trứng"
+        "text": "We need three ingredients flour sugar and eggs",
+        "trans": "Chúng ta cần ba nguyên liệu bột mì đường và trứng"
       },
       {
         "id": 4,
-        "eng": "The hotel can accommodate up to five hundred guests",
-        "vie": "Khách sạn có thể chứa tới năm trăm khách"
+        "text": "The hotel can accommodate up to five hundred guests",
+        "trans": "Khách sạn có thể chứa tới năm trăm khách"
       },
       {
         "id": 5,
-        "eng": "I was extremely embarrassed when I forgot her name",
-        "vie": "Tôi cực kỳ xấu hổ khi quên tên cô ấy"
+        "text": "I was extremely embarrassed when I forgot her name",
+        "trans": "Tôi cực kỳ xấu hổ khi quên tên cô ấy"
       },
       {
         "id": 6,
-        "eng": "I would highly recommend this restaurant to anyone",
-        "vie": "Tôi chân thành giới thiệu nhà hàng này cho mọi người"
+        "text": "I would highly recommend this restaurant to anyone",
+        "trans": "Tôi chân thành giới thiệu nhà hàng này cho mọi người"
       },
       {
         "id": 7,
-        "eng": "She is definitely going to win the competition this year",
-        "vie": "Cô ấy chắc chắn sẽ thắng cuộc thi năm nay"
+        "text": "She is definitely going to win the competition this year",
+        "trans": "Cô ấy chắc chắn sẽ thắng cuộc thi năm nay"
       },
       {
         "id": 8,
-        "eng": "Please keep the two documents in separate folders",
-        "vie": "Vui lòng giữ hai tài liệu trong các thư mục riêng biệt"
+        "text": "Please keep the two documents in separate folders",
+        "trans": "Vui lòng giữ hai tài liệu trong các thư mục riêng biệt"
       },
       {
         "id": 9,
-        "eng": "I believe that science holds the key to our future",
-        "vie": "Tôi tin rằng khoa học nắm giữ chìa khóa cho tương lai chúng ta"
+        "text": "I believe that science holds the key to our future",
+        "trans": "Tôi tin rằng khoa học nắm giữ chìa khóa cho tương lai chúng ta"
       },
       {
         "id": 10,
-        "eng": "He tried to deceive me but I knew the truth",
-        "vie": "Anh ta cố lừa dối tôi nhưng tôi biết sự thật"
+        "text": "He tried to deceive me but I knew the truth",
+        "trans": "Anh ta cố lừa dối tôi nhưng tôi biết sự thật"
       }
     ],
     "exercises": [
@@ -4561,53 +4561,53 @@ export const grammarDataC1C2 = [
     "sentenceGame": [
       {
         "id": 1,
-        "eng": "Only when you grow up will you understand this",
-        "vie": "Chỉ khi bạn lớn lên bạn mới hiểu được điều này"
+        "text": "Only when you grow up will you understand this",
+        "trans": "Chỉ khi bạn lớn lên bạn mới hiểu được điều này"
       },
       {
         "id": 2,
-        "eng": "Had I not seen it with my own eyes I wouldn't have believed it",
-        "vie": "Nếu tôi không tận mắt chứng kiến tôi đã không tin"
+        "text": "Had I not seen it with my own eyes I wouldn't have believed it",
+        "trans": "Nếu tôi không tận mắt chứng kiến tôi đã không tin"
       },
       {
         "id": 3,
-        "eng": "It is crucial that the document be signed immediately",
-        "vie": "Điều quan trọng là tài liệu phải được ký ngay lập tức"
+        "text": "It is crucial that the document be signed immediately",
+        "trans": "Điều quan trọng là tài liệu phải được ký ngay lập tức"
       },
       {
         "id": 4,
-        "eng": "Not only did they lose the match but they also lost their captain",
-        "vie": "Họ không những thua trận mà còn mất luôn đội trưởng"
+        "text": "Not only did they lose the match but they also lost their captain",
+        "trans": "Họ không những thua trận mà còn mất luôn đội trưởng"
       },
       {
         "id": 5,
-        "eng": "He acts as if he were the boss of this company",
-        "vie": "Anh ta hành động như thể anh ta là sếp của công ty này"
+        "text": "He acts as if he were the boss of this company",
+        "trans": "Anh ta hành động như thể anh ta là sếp của công ty này"
       },
       {
         "id": 6,
-        "eng": "Having been delayed by the snow the train arrived late",
-        "vie": "Bị tuyết làm chậm trễ chuyến tàu đã đến muộn"
+        "text": "Having been delayed by the snow the train arrived late",
+        "trans": "Bị tuyết làm chậm trễ chuyến tàu đã đến muộn"
       },
       {
         "id": 7,
-        "eng": "I'd rather you didn't play your music so loudly",
-        "vie": "Tôi muốn bạn đừng mở nhạc quá lớn như vậy"
+        "text": "I'd rather you didn't play your music so loudly",
+        "trans": "Tôi muốn bạn đừng mở nhạc quá lớn như vậy"
       },
       {
         "id": 8,
-        "eng": "The thief is reported to have escaped through the window",
-        "vie": "Tên trộm được báo cáo là đã trốn thoát qua cửa sổ"
+        "text": "The thief is reported to have escaped through the window",
+        "trans": "Tên trộm được báo cáo là đã trốn thoát qua cửa sổ"
       },
       {
         "id": 9,
-        "eng": "She claims to have been working here for ten years",
-        "vie": "Cô ấy khẳng định đã làm việc ở đây được mười năm"
+        "text": "She claims to have been working here for ten years",
+        "trans": "Cô ấy khẳng định đã làm việc ở đây được mười năm"
       },
       {
         "id": 10,
-        "eng": "But for your timely advice I would have made a huge mistake",
-        "vie": "Nếu không có lời khuyên kịp thời của bạn tôi đã phạm sai lầm lớn"
+        "text": "But for your timely advice I would have made a huge mistake",
+        "trans": "Nếu không có lời khuyên kịp thời của bạn tôi đã phạm sai lầm lớn"
       }
     ],
     "exercises": [

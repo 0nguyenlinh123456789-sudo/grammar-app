@@ -36,7 +36,7 @@ const SketchnoteTheory = ({ section, idx }) => {
               return (
                 <div key={i} className="flex items-start gap-3 mb-3 ml-4 bg-slate-50 dark:bg-slate-850 p-3 rounded-xl border-2 border-slate-100 dark:border-slate-700">
                   <ArrowRight size={20} className="text-rose-500 dark:text-rose-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-slate-700 dark:text-slate-300 italic">{trimmedLine.substring(1).trim()}</span>
+                  <span className="text-slate-700 dark:text-slate-300 italic">{trimmedLine.replace(/^[→👉]\s*/u, '')}</span>
                 </div>
               );
             }
@@ -48,7 +48,7 @@ const SketchnoteTheory = ({ section, idx }) => {
                   <div className="bg-amber-100 dark:bg-amber-900/40 p-1.5 rounded-lg border-2 border-amber-300 dark:border-amber-700 flex-shrink-0">
                     <Key size={18} className="text-amber-600 dark:text-amber-400" />
                   </div>
-                  <span className="mt-0.5">{trimmedLine.substring(1).trim()}</span>
+                  <span className="mt-0.5">{trimmedLine.replace(/^📌\s*/, '')}</span>
                 </div>
               );
             }
@@ -58,7 +58,7 @@ const SketchnoteTheory = ({ section, idx }) => {
               return (
                 <div key={i} className="flex items-start gap-3 mb-4 mt-2 bg-rose-50 dark:bg-rose-950/30 p-4 rounded-2xl border-[3px] border-rose-300 dark:border-rose-800">
                   <AlertTriangle size={24} className="text-rose-600 dark:text-rose-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-rose-800 dark:text-rose-300">{trimmedLine.substring(1).trim()}</span>
+                  <span className="text-rose-800 dark:text-rose-300">{trimmedLine.replace(/^⚠️\s*/, '')}</span>
                 </div>
               );
             }
@@ -66,8 +66,8 @@ const SketchnoteTheory = ({ section, idx }) => {
             // Handle traditional block highlights
             if (trimmedLine.match(/^[✅❌❓]/)) {
               return (
-                <div key={i} className="bg-indigo-50 dark:bg-indigo-950/30 border-[3px] border-indigo-300 dark:border-indigo-800 border-dashed px-5 py-4 rounded-2xl my-4 text-indigo-900 dark:text-indigo-200">
-                  {trimmedLine}
+                <div key={i} className="bg-indigo-50 dark:bg-indigo-950/30 border-[3px] border-indigo-300 dark:border-indigo-800 border-dashed px-5 py-4 rounded-2xl my-4 text-indigo-900 dark:text-indigo-200 flex items-start gap-3">
+                  <span className="text-indigo-900 dark:text-indigo-200 mt-0.5">{trimmedLine}</span>
                 </div>
               );
             }

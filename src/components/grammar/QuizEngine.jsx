@@ -9,13 +9,15 @@ const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
   const [status, setStatus] = useState('idle');
   const [score, setScore] = useState(0);
   
-  const curr = exercises && exercises.length > 0 ? exercises[qIdx] : null;
+  const exercisesLen = exercises?.length || 0;
+
+  const curr = exercises && exercisesLen > 0 ? exercises[qIdx] : null;
 
   useEffect(() => {
-    if (qIdx === 30 && onComplete) {
+    if (exercisesLen > 0 && qIdx === exercisesLen && onComplete) {
       onComplete();
     }
-  }, [qIdx, onComplete]);
+  }, [qIdx, onComplete, exercisesLen]);
 
   const check = () => { 
     if (sel === curr.a) { 
@@ -33,21 +35,22 @@ const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
     setQIdx(prev => prev + 1); 
   };
 
-  if (!curr) return <div className="p-10 font-bold text-slate-500">Đang tải câu hỏi...</div>;
-  if (qIdx >= 30) {
+  if (qIdx >= exercisesLen) {
     return (
       <div className="text-center font-black text-3xl mt-10">
-        Điểm của bạn: {score}/30 <br/>
+        Điểm của bạn: {score}/{exercisesLen} <br/>
         <Btn3D onClick={() => { setQIdx(0); setScore(0); }} className="mt-6">Làm Lại</Btn3D>
       </div>
     );
   }
 
+  if (!curr) return <div className="p-10 font-bold text-slate-500">Đang tải câu hỏi...</div>;
+
   return (
     <div className="bg-white rounded-[3rem] border-[4px] border-slate-800 p-8 md:p-10 shadow-[8px_8px_0px_0px_#1e293b]">
        <div className="flex justify-between items-center font-black mb-8 text-xl border-b-4 border-slate-100 pb-4 border-dashed">
           <span className="flex items-center gap-2"><PenTool className="text-emerald-500"/> Làm Test</span>
-          <span className="bg-yellow-300 border-2 border-slate-800 px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_#1e293b]">{qIdx+1}/30</span>
+          <span className="bg-yellow-300 border-2 border-slate-800 px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_#1e293b]">{qIdx+1}/{exercisesLen}</span>
        </div>
        <p className="font-black text-3xl mb-8 leading-relaxed">{curr.q}</p>
        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">

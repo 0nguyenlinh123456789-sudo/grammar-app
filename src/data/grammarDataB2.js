@@ -1,6 +1,5 @@
 // File: src/data/grammarDataB2.js
-// Auto-generated B2 Grammar Data (Intermediate Level)
-// Based on Destination B2 curriculum structure
+// Auto-generated B2 Grammar Data (Medium Level)
 
 export const grammarDataB2 = [
   {
@@ -2364,7 +2363,7 @@ export const grammarDataB2 = [
           "must",
           "can't",
           "should",
-          "needn't"
+          "might"
         ],
         "a": "might"
       },

@@ -8,13 +8,14 @@ const SentenceBuilder = ({ sentences, setGlobalProgress, onComplete }) => {
   const [avail, setAvail] = useState([]);
   const [sel, setSel] = useState([]);
   const [correct, setCorrect] = useState(null);
-  const curr = sentences[qIdx];
+  const sentencesLen = sentences?.length || 0;
+  const curr = sentences && sentencesLen > 0 ? sentences[qIdx] : null;
 
   useEffect(() => {
-    if (qIdx === 10 && onComplete) {
+    if (sentencesLen > 0 && qIdx === sentencesLen && onComplete) {
       onComplete();
     }
-  }, [qIdx, onComplete]);
+  }, [qIdx, onComplete, sentencesLen]);
 
   useEffect(() => {
     if (curr) { 
@@ -46,9 +47,7 @@ const SentenceBuilder = ({ sentences, setGlobalProgress, onComplete }) => {
     }
   };
 
-  if (!curr) return <div className="p-10 font-bold text-slate-500">Đang tải thẻ học...</div>;
-
-  if (qIdx >= 10) {
+  if (qIdx >= sentencesLen) {
     return (
       <div className="text-center font-black text-3xl mt-10">
         Hoàn thành vòng chơi! <br />
@@ -57,11 +56,13 @@ const SentenceBuilder = ({ sentences, setGlobalProgress, onComplete }) => {
     );
   }
 
+  if (!curr) return <div className="p-10 font-bold text-slate-500">Đang tải thẻ học...</div>;
+
   return (
     <div className="bg-white rounded-[3rem] border-[4px] border-slate-800 p-8 md:p-10 shadow-[8px_8px_0px_0px_#1e293b]">
       <div className="flex justify-between items-center font-black mb-6 text-xl border-b-4 border-slate-100 pb-4 border-dashed">
          <span className="flex items-center gap-2"><Target className="text-rose-500"/> Xếp Câu Phản Xạ</span>
-         <span className="bg-white border-2 border-slate-800 px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_#1e293b]">{qIdx+1}/10</span>
+         <span className="bg-white border-2 border-slate-800 px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_#1e293b]">{qIdx+1}/{sentencesLen}</span>
       </div>
       <div className="bg-cyan-100 p-8 rounded-3xl border-[4px] border-slate-800 mb-8 font-black text-2xl md:text-3xl text-center shadow-[4px_4px_0px_0px_#1e293b]">"{curr.trans}"</div>
       

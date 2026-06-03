@@ -33,59 +33,7 @@ const MainLayout = ({
   const [isVocabMenuOpen, setIsVocabMenuOpen] = useState(true); // Default open to make experience smoother
   const [vstepSearch, setVstepSearch] = useState('');
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
-  const [clickActiveState, setClickActiveState] = useState(null);
   const [activeGrammarLevel, setActiveGrammarLevel] = useState('B1');
- 
-  // Mascot Scholar Bunny quotes (universal - no "bé yêu")
-  const mascotQuotes = [
-    "Hôm nay chúng mình cùng học tiếng Anh thật vui nhé! 🐰✨",
-    "Cố lên nào! Mỗi chặng học sẽ giúp nâng tầm tiếng Anh! 🌟",
-    "Duy trì Streak mỗi ngày giúp nhớ từ vựng lâu hơn 300%! 🔥",
-    "Tớ là Bunny 🐰, rất vui đồng hành cùng bạn!",
-    "Bật Chế độ tối khi học bài ban đêm nhé! 🌙🕶️",
-    "Sẽ có pháo hoa chúc mừng khi hoàn thành bài học nha! 🎉"
-  ];
-  
-  const [mascotQuoteIndex, setMascotQuoteIndex] = useState(0);
-  
-  const handleMascotClick = () => {
-    // Play a cute welcoming bunny voice speech synthesis
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance("Welcome back! Let's learn English together! 🐰");
-      u.lang = 'en-US';
-      u.pitch = 1.5; // Cute high pitch voice
-      u.rate = 1.0;
-      window.speechSynthesis.speak(u);
-    }
-    setMascotQuoteIndex((prev) => (prev + 1) % mascotQuotes.length);
-
-    // Trigger success dance for 1.5 seconds when clicked!
-    setClickActiveState('success');
-    setTimeout(() => {
-      setClickActiveState(null);
-    }, 1500);
-  };
-
-  const getSidebarMascotState = () => {
-    if (clickActiveState) return clickActiveState;
-    if (appMode === 'scanner') return 'studying';
-    if (appMode === 'vocab') return 'happy';
-    if (appMode === 'grammar') return 'happy';
-    return 'neutral';
-  };
-  
-  // Context-aware mascot bubble text (universal - no "bé")
-  let mascotBubbleText = mascotQuotes[mascotQuoteIndex];
-  if (appMode === 'grammar') {
-    mascotBubbleText = "Ngữ pháp tiếng Anh giống như những khối gạch xây nên ngôi nhà ngôn ngữ, cực kỳ thú vị đúng không? 🧱✨";
-  } else if (appMode === 'vocab') {
-    mascotBubbleText = activeVocabCategory === 'OXFORD' 
-      ? "Trọn bộ giáo trình từ vựng Oxford từ cơ bản đến nâng cao đang chờ bạn khám phá đấy! 📘📙📕"
-      : "Từ vựng VSTEP sẽ giúp bạn chinh phục các đỉnh núi tiếng Anh thật giỏi giang! ⛰️⚡";
-  } else if (appMode === 'scanner') {
-    mascotBubbleText = "Quét ảnh AI thông thái sẽ giúp phân tích và sửa lỗi viết siêu tốc luôn! 📸✨";
-  }
 
   const selectMode = (mode) => {
     setAppMode(mode);
@@ -98,17 +46,7 @@ const MainLayout = ({
     t.description.toLowerCase().includes(vstepSearch.toLowerCase())
   );
 
-  // Calculate Rank Badge
-  const completedCount = completedMilestones ? completedMilestones.length : 0;
-  
-  const getRankBadge = (count) => {
-    if (count >= 24) return { text: 'Bậc Thầy 🏆', bg: 'bg-rose-500 text-white border-rose-800' };
-    if (count >= 16) return { text: 'Chiến Binh ⚡', bg: 'bg-emerald-500 text-white border-emerald-800' };
-    if (count >= 8) return { text: 'Chinh Phục 🌲', bg: 'bg-cyan-500 text-white border-cyan-800' };
-    return { text: 'Tân Binh 🌱', bg: 'bg-slate-400 text-white border-slate-600' };
-  };
 
-  const rank = getRankBadge(completedCount);
 
   return (
     <div className="min-h-screen bg-[#f4f0ec] dark:bg-slate-950 flex flex-col md:flex-row font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
@@ -134,52 +72,7 @@ const MainLayout = ({
            Grammar Pro
          </div>
          
-         {/* Gamified stats widget */}
-         <div className="p-4 border-b-[4px] border-slate-800 dark:border-slate-700 bg-[#fdfbf7] dark:bg-slate-900 flex flex-col gap-2 shrink-0">
-           <div className="font-black text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 flex justify-between items-center text-base p-2.5 border-[3px] border-slate-800 dark:border-slate-700 rounded-xl shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]">
-             <span className="flex items-center gap-1.5"><Sparkles className="text-yellow-500 animate-pulse" size={18}/> XP:</span> 
-             <span>{xp} XP</span>
-           </div>
-           <div className="font-black text-rose-700 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/30 flex justify-between items-center text-base p-2.5 border-[3px] border-slate-800 dark:border-slate-700 rounded-xl shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]">
-             <span className="flex items-center gap-1.5"><Flame className="text-rose-500 animate-pulse" size={18}/> Streak:</span> 
-             <span>{streak} ngày 🔥</span>
-           </div>
-           <div className="flex justify-between items-center p-2.5 border-[3px] border-slate-800 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-850 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] font-black text-xs dark:text-slate-300">
-             <span className="text-slate-400 dark:text-slate-500 uppercase tracking-wider">Cấp độ:</span>
-             <span className={`px-2 py-0.5 rounded-lg border-2 text-[10px] font-black uppercase tracking-wider ${rank.bg}`}>
-               {rank.text}
-             </span>
-           </div>
-           
-           {/* Light/Dark Toggle and Reset Button */}
-           <div className="flex gap-2 mt-2">
-             <button
-               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-               className="flex-1 p-2.5 font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 text-xs flex justify-center items-center gap-1.5 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] cursor-pointer"
-             >
-               {theme === 'light' ? (
-                 <>
-                   <Moon size={14} className="text-indigo-600 dark:text-indigo-400" />
-                   <span>TỐI</span>
-                 </>
-               ) : (
-                 <>
-                   <Sun size={14} className="text-yellow-400 animate-spin-slow" />
-                   <span>SÁNG</span>
-                 </>
-               )}
-             </button>
-             <button
-               onClick={() => setIsResetModalOpen(true)}
-               className="p-2.5 font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-700 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-950/40 text-xs flex justify-center items-center gap-1.5 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] cursor-pointer"
-               title="Reset lộ trình"
-             >
-               <RotateCcw size={14} />
-               <span>RESET</span>
-             </button>
-           </div>
-         </div>
-         
+
          {/* --- NAVIGATION TOGGLES --- */}
          <div className="flex flex-col gap-2 p-4 border-b-[4px] border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0">
            
@@ -257,15 +150,6 @@ const MainLayout = ({
             {/* GRAMMAR TOPICS LIST */}
             {appMode === 'grammar' && topicId !== null && (
               <>
-                <button 
-                  onClick={() => {
-                    setTopicId(null); 
-                    setMenuOpen(false);
-                  }} 
-                  className={`w-full text-left font-black p-4 border-[4px] border-slate-800 dark:border-slate-700 rounded-2xl mb-2 text-lg transition-all flex items-center gap-2 cursor-pointer ${!topicId ? 'bg-cyan-200 dark:bg-cyan-400 dark:text-slate-950 shadow-[4px_4px_0px_0px_#1e293b] dark:shadow-[4px_4px_0px_0px_#020617] translate-x-2' : 'bg-white dark:bg-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]'}`}
-                >
-                  <Home size={20} className="text-cyan-600 dark:text-cyan-400" /> Trang Chủ
-                </button>
                 
                 {/* Grammar Level Tabs */}
                 <div className="flex gap-1.5 mb-3 mt-2">
@@ -302,11 +186,6 @@ const MainLayout = ({
                     className={`w-full text-left font-bold p-4 border-[4px] border-slate-800 dark:border-slate-700 rounded-2xl truncate text-lg transition-all mb-2 cursor-pointer ${topicId === t.id ? 'bg-yellow-200 dark:bg-yellow-450 dark:text-slate-950 translate-x-2 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617]' : 'bg-white dark:bg-slate-850 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]'}`}
                   >
                     <span className="text-sm">{t.title}</span>
-                    {t.level && <span className={`ml-2 text-[9px] font-black uppercase px-1.5 py-0.5 rounded-md border-2 border-slate-700 dark:border-slate-600 ${
-                      t.level === 'B1' ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400' :
-                      t.level === 'B2' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400' :
-                      'bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400'
-                    }`}>{t.level}</span>}
                   </button>
                 ))}
               </>
@@ -408,27 +287,7 @@ const MainLayout = ({
 
          </div>
 
-         {/* --- CUTE MASCOT SCHOLAR BUNNY --- */}
-         <div className="p-3 border-t-[4px] border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-900 flex items-center gap-2 shrink-0 relative mt-auto select-none">
-           <div className="relative cursor-pointer group shrink-0" onClick={handleMascotClick}>
-             <ScholarBunny 
-               state={getSidebarMascotState()} 
-               className="w-12 h-12 transition-transform duration-200 hover:scale-105" 
-               width={48}
-               height={48}
-             />
-             <div className="absolute -top-1 -right-1 bg-pink-300 dark:bg-pink-400 border-2 border-slate-800 text-[7px] font-black px-1 py-0.5 rounded-full shadow-[1px_1px_0_0_#000] text-slate-900">
-               Bunny
-             </div>
-           </div>
-           
-           <div className="flex-1 bg-slate-100 dark:bg-slate-800 border-[3px] border-slate-800 dark:border-slate-700 p-3 rounded-2xl relative text-xs font-bold leading-relaxed dark:text-slate-200 shadow-inner">
-             <div className="absolute left-[-8px] top-6 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[8px] border-r-slate-800 dark:border-r-slate-700"></div>
-             <div className="absolute left-[-5px] top-6 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[8px] border-r-slate-100 dark:border-r-slate-800"></div>
-             
-             <p>{mascotBubbleText}</p>
-           </div>
-         </div>
+
 
       </aside>
 

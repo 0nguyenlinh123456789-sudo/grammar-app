@@ -66,7 +66,7 @@ export default function App() {
   const [topicId, setTopicId] = useState(null); // Active grammar topic ID
   const [oxfordUnitId, setOxfordUnitId] = useState(() => {
     const savedUnitId = localStorage.getItem('oxfordUnitId');
-    if (savedUnitId) {
+    if (savedUnitId && savedUnitId !== 'null') {
       return isNaN(savedUnitId) ? savedUnitId : parseInt(savedUnitId, 10);
     }
     const savedBook = localStorage.getItem('activeOxfordBookId') || 'elementary';
@@ -94,8 +94,13 @@ export default function App() {
   });
 
   const [completedMilestones, setCompletedMilestones] = useState(() => {
-    const saved = localStorage.getItem('completedMilestones');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('completedMilestones');
+      const parsed = saved ? JSON.parse(saved) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
   });
 
   // Daily Streak States
@@ -272,6 +277,8 @@ export default function App() {
             setVstepTopicId={setVstepTopicId}
             resetRoadmap={resetRoadmap}
             streak={streak}
+            theme={theme}
+            setTheme={setTheme}
           />
         );
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { roadmapData } from '../data/roadmapData';
 import { 
   Trophy, CheckCircle2, Lock, Play, Compass, Award, 
-  Zap, BookOpen, Flame, Sparkles, AlertCircle, ArrowRight, RotateCcw, AlertTriangle
+  Zap, BookOpen, Flame, Sparkles, AlertCircle, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
@@ -17,7 +17,9 @@ const WelcomePage = ({
   setOxfordUnitId, 
   setVstepTopicId,
   resetRoadmap,
-  streak = 0
+  streak = 0,
+  theme,
+  setTheme
 }) => {
   const [activeTab, setActiveTab] = useState('all'); // 'all', 'beginner', 'intermediate', 'advanced'
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
@@ -88,12 +90,12 @@ const WelcomePage = ({
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 z-10 relative">
           <div className="flex items-center gap-5">
             {/* Bunny Mascot inside Hero */}
-            <div className="hidden lg:block relative shrink-0 select-none">
+            <div className="hidden sm:flex relative shrink-0 select-none mr-4 lg:mr-6 w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 items-center justify-center">
               <ScholarBunny 
                 state="happy" 
-                className="w-14 h-14 transition-transform duration-250 hover:scale-105" 
-                width={56}
-                height={56}
+                className="w-full h-full object-contain transition-transform duration-300 hover:scale-110 drop-shadow-[4px_4px_4px_rgba(0,0,0,0.15)] dark:drop-shadow-[4px_4px_4px_rgba(0,0,0,0.5)]" 
+                width="100%"
+                height="100%"
               />
             </div>
             
@@ -109,24 +111,45 @@ const WelcomePage = ({
           </div>
  
           <div className="flex flex-col xl:flex-row gap-4 w-full md:w-auto items-stretch shrink-0">
-            {/* Progress Card */}
-            <div className="bg-amber-50 dark:bg-slate-800 border-4 border-slate-800 dark:border-slate-700 p-4 rounded-3xl shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] flex items-center gap-4 flex-1 sm:flex-initial">
-              <Trophy size={48} className="text-yellow-500 fill-yellow-300 shrink-0" />
-              <div>
-                <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Tiến Độ Lộ Trình</p>
-                <p className="text-3xl font-black text-slate-900 dark:text-slate-100">{completedCount} / {totalMilestonesCount}</p>
-                <p className="text-xs font-black text-slate-500 dark:text-slate-400">Chặng đã hoàn thành ({completionPercentage}%)</p>
-              </div>
+            {/* Stats Column */}
+            <div className="flex flex-col gap-3 flex-1 sm:flex-initial">
+               {/* Progress / XP Card */}
+               <div className="bg-amber-50 dark:bg-slate-800 border-4 border-slate-800 dark:border-slate-700 px-5 py-3 rounded-3xl shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] flex items-center gap-4">
+                 <Trophy size={36} className="text-yellow-500 fill-yellow-300 shrink-0" />
+                 <div>
+                   <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Tiến Độ & XP</p>
+                   <p className="text-2xl font-black text-slate-900 dark:text-slate-100 leading-none mt-1">{completedCount}/{totalMilestonesCount} <span className="text-sm text-yellow-600 dark:text-yellow-500">({xp} XP)</span></p>
+                 </div>
+               </div>
+
+               {/* Streak Card */}
+               <div className="bg-rose-50 dark:bg-slate-800 border-4 border-slate-800 dark:border-slate-700 px-5 py-3 rounded-3xl shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] flex items-center gap-4">
+                 <Flame size={36} className="text-rose-500 fill-rose-300 shrink-0 animate-pulse" />
+                 <div>
+                   <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Chuỗi Học Tập</p>
+                   <p className="text-2xl font-black text-slate-900 dark:text-slate-100 leading-none mt-1">{streak} <span className="text-sm text-rose-500">Ngày</span></p>
+                 </div>
+               </div>
             </div>
 
-            {/* Streak Card */}
-            <div className="bg-rose-50 dark:bg-slate-800 border-4 border-slate-800 dark:border-slate-700 p-4 rounded-3xl shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] flex items-center gap-4 flex-1 sm:flex-initial">
-              <Flame size={48} className="text-rose-500 fill-rose-300 shrink-0 animate-pulse" />
-              <div>
-                <p className="text-xs font-bold text-slate-400 dark:text-slate-550 uppercase tracking-widest">Chuỗi Học Tập</p>
-                <p className="text-3xl font-black text-slate-900 dark:text-slate-100">{streak} Ngày</p>
-                <p className="text-xs font-black text-slate-500 dark:text-slate-400">🔥 Học tập mỗi ngày!</p>
-              </div>
+            {/* Actions Column */}
+            <div className="flex flex-col gap-3 flex-1 sm:flex-initial justify-between">
+               <button
+                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                 className="flex-1 min-h-[64px] px-6 font-black border-4 border-slate-800 dark:border-slate-700 rounded-3xl bg-indigo-50 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-800 dark:text-indigo-300 text-sm flex justify-center items-center gap-2 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] cursor-pointer transition-all"
+               >
+                 {theme === 'light' ? (
+                   <><Moon size={18} className="text-indigo-600 dark:text-indigo-400" /> CHẾ ĐỘ TỐI</>
+                 ) : (
+                   <><Sun size={18} className="text-yellow-500 animate-spin-slow" /> CHẾ ĐỘ SÁNG</>
+                 )}
+               </button>
+               <button
+                 onClick={() => setIsResetModalOpen(true)}
+                 className="flex-1 min-h-[64px] px-6 font-black border-4 border-slate-800 dark:border-slate-700 rounded-3xl bg-slate-50 dark:bg-slate-850 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 text-sm flex justify-center items-center gap-2 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] cursor-pointer transition-all"
+               >
+                 <RotateCcw size={18} /> RESET LỘ TRÌNH
+               </button>
             </div>
           </div>
         </div>
