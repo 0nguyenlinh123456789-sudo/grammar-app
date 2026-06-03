@@ -17,6 +17,7 @@ const MainLayout = ({
   setVstepTopicId,
   vstepTopics,
   parsedGrammarData,
+  grammarLevels = [],
   courseData,
   oxfordBooks = [],
   activeOxfordBookId = 'elementary',
@@ -33,6 +34,7 @@ const MainLayout = ({
   const [vstepSearch, setVstepSearch] = useState('');
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [clickActiveState, setClickActiveState] = useState(null);
+  const [activeGrammarLevel, setActiveGrammarLevel] = useState('B1');
  
   // Mascot Scholar Bunny quotes (universal - no "bé yêu")
   const mascotQuotes = [
@@ -194,7 +196,7 @@ const MainLayout = ({
            <button 
              onClick={() => {
                // Open first grammar topic if none selected, or keep selected
-               if (!topicId) setTopicId('t1');
+                if (!topicId) setTopicId('b1_01');
                selectMode('grammar');
              }}
              className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'grammar' && topicId ? 'bg-yellow-300 dark:bg-yellow-400 dark:text-slate-950 shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'}`}
@@ -264,8 +266,33 @@ const MainLayout = ({
                 >
                   <Home size={20} className="text-cyan-600 dark:text-cyan-400" /> Trang Chủ
                 </button>
-                <div className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest pl-2 mb-2 mt-4">21 Chuyên Đề Ngữ Pháp</div>
-                {parsedGrammarData.map(t => (
+                
+                {/* Grammar Level Tabs */}
+                <div className="flex gap-1.5 mb-3 mt-2">
+                  {grammarLevels.map(level => (
+                    <button
+                      key={level.id}
+                      onClick={() => setActiveGrammarLevel(level.id)}
+                      className={`flex-1 p-2 text-xs font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl transition-all cursor-pointer ${
+                        activeGrammarLevel === level.id
+                          ? `${level.color} text-white shadow-none translate-y-0.5`
+                          : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'
+                      }`}
+                    >
+                      {level.label}
+                    </button>
+                  ))}
+                </div>
+                
+                {/* Level Description */}
+                {grammarLevels.filter(l => l.id === activeGrammarLevel).map(level => (
+                  <div key={level.id} className="text-[10px] font-bold text-slate-400 dark:text-slate-500 pl-2 mb-2">
+                    {level.description} — {level.topics.length} chuyên đề
+                  </div>
+                ))}
+                
+                {/* Topic List for Selected Level */}
+                {(grammarLevels.find(l => l.id === activeGrammarLevel)?.topics || parsedGrammarData).map(t => (
                   <button 
                     key={t.id} 
                     onClick={() => {
@@ -274,7 +301,12 @@ const MainLayout = ({
                     }} 
                     className={`w-full text-left font-bold p-4 border-[4px] border-slate-800 dark:border-slate-700 rounded-2xl truncate text-lg transition-all mb-2 cursor-pointer ${topicId === t.id ? 'bg-yellow-200 dark:bg-yellow-450 dark:text-slate-950 translate-x-2 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617]' : 'bg-white dark:bg-slate-850 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]'}`}
                   >
-                    {t.title}
+                    <span className="text-sm">{t.title}</span>
+                    {t.level && <span className={`ml-2 text-[9px] font-black uppercase px-1.5 py-0.5 rounded-md border-2 border-slate-700 dark:border-slate-600 ${
+                      t.level === 'B1' ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400' :
+                      t.level === 'B2' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400' :
+                      'bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400'
+                    }`}>{t.level}</span>}
                   </button>
                 ))}
               </>

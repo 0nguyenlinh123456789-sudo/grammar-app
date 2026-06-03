@@ -721,7 +721,7 @@ const rawUnits = [
       { word: "whisper", type: "Động từ / Danh từ", phonetic: "/ˈwɪspə/", vi: "nói thầm thì nhỏ nhẹ vào tai kín đáo", example: "They whisper so others can't hear the secret.", bucket: 1 },
       { word: "angry", type: "Tính từ", phonetic: "/ˈæŋɡri/", vi: "tức giận, phẫn nộ, nổi đóa bực mình", example: "The bad-tempered shopkeeper got very angry.", bucket: 0 },
       { word: "shout", type: "Động từ", phonetic: "/ʃaʊt/", vi: "hét to, la hét lớn tiếng khi giận dữ/ở xa", example: "Don't shout; say aloud quietly so I can hear.", bucket: 1 },
-      { word: "frightened", type: "Tính từ", phonetic: "/ˈfraɪtnd/", vi: "hoảng sợ, khiếp hãi trước mối nguy hiểm", example: "Pupils were frightened by the heavy thunder storm.", bucket: 0 },
+{ word: "frightened", type: "Tính từ", phonetic: "/ˈfraɪtnd/", vi: "hoảng sợ, khiếp hãi trước mối nguy hiểm", example: "Pupils were frightened by the heavy thunder storm.", bucket: 0 },
       { word: "sigh", type: "Động từ / Danh từ", phonetic: "/saɪ/", vi: "thở dài thườn thượt chán nản thất vọng (h câm)", example: "He gave a deep sigh when the decision went wrong.", bucket: 1 }
     ]
   },
@@ -751,7 +751,7 @@ const rawUnits = [
       { word: "grow up", type: "Cụm động từ", phonetic: "/ɡrəʊ ʌp/", vi: "lớn lên, phát triển trưởng thành dần theo năm", example: "He grew up in a peaceful countryside hometown.", bucket: 0 },
       { word: "adult", type: "Danh từ", phonetic: "/ˈædʌlt/", vi: "người lớn đã hoàn toàn trưởng thành đứng đắn", example: "Adults pay a higher subway fare than pupils.", bucket: 1 },
       { word: "pregnant", type: "Tính từ", phonetic: "/ˈprɛɡnənt/", vi: "đang mang thai, có em bé chuẩn bị sinh", example: "The pregnant woman is taking steps carefully.", bucket: 1 },
-      { word: "baby", type: "Danh từ", phonetic: "/ˈbeɪbi/", vi: "đứa trẻ sơ sinh nhỏ xíu đỏ hỏn", example: "A newborn baby sleeps most of the day.", bucket: 0 },
+      { word: "baby", type: "Danh từ", phonetic: "/ˈbeɪbi/", vi: "đứa trẻ sơ sinh nhỏ xíu đỏ hờn", example: "A newborn baby sleeps most of the day.", bucket: 0 },
       { word: "toddler", type: "Danh từ", phonetic: "/ˈtɒdlə/", vi: "đứa trẻ chập chững biết đi từ 1-3 tuổi", example: "A toddler needs constant look after care.", bucket: 0 },
       { word: "middle-aged", type: "Tính từ", phonetic: "/ˌmɪdl ˈeɪdʒd/", vi: "độ tuổi trung niên chững chạc chín chắn", example: "Our well-known professor is a middle-aged man.", bucket: 1 },
       { word: "retired", type: "Tính từ", phonetic: "/rɪˈtaɪəd/", vi: "đã nghỉ hưu trí an hưởng tuổi già thư thái", example: "My retired grandfather is very easy-going.", bucket: 1 }
@@ -807,7 +807,6 @@ const rawUnits = [
   }
 ];
 
-// Helper to compile authentic textbook exercises for all 50 units
 function compileTextbookExercises(unit) {
   const { unitNum, words, buckets } = unit;
 
@@ -1239,14 +1238,38 @@ function compileUnit(unit) {
     }
   ];
 
+  const families = words.slice(0, 3).map(w => {
+    let related = [];
+    if (w.type.includes('Động từ')) related.push(`${w.word}er (Danh từ)`);
+    if (w.type.includes('Danh từ')) related.push(`${w.word}ful (Tính từ)`);
+    if (w.type.includes('Tính từ')) related.push(`${w.word}ly (Trạng từ)`);
+    return {
+      title: `Họ từ (Word Family) của "${w.word}"`,
+      value: related.length ? related.join(', ') : `Các dạng từ loại khác của "${w.word}" đang được cập nhật.`
+    };
+  });
+
+  const collocations = words.slice(3, 6).map(w => {
+    let colls = [];
+    if (w.type.includes('Danh từ')) colls = [`have a ${w.word}`, `make a ${w.word}`, `good ${w.word}`];
+    if (w.type.includes('Động từ')) colls = [`${w.word} quickly`, `always ${w.word}`];
+    if (w.type.includes('Tính từ')) colls = [`very ${w.word}`, `extremely ${w.word}`];
+    return {
+      title: `Cụm từ (Collocations) với "${w.word}"`,
+      value: colls.length ? `Ví dụ: ${colls.join(', ')}` : `Cụm từ liên quan đến ${w.word}`
+    };
+  });
+
   discoveryCornerList = [
     {
-      heading: `💡 Góc khám phá & Mẹo học học thuật (${theme})`,
-      intro: `Mẹo ghi nhớ siêu tốc của Scholar Bunny 🐰, các lưu ý tránh sai lầm và liên kết ngữ pháp thông minh, dễ hiểu đối với trẻ nhỏ:`,
-      details: [
-        ...crossRefNotes,
-        ...defaultDiscoveryDetails
-      ]
+      heading: `💡 Góc khám phá: Word Families (Họ từ)`,
+      intro: `Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit ${unitNum}:`,
+      details: families
+    },
+    {
+      heading: `🔥 Góc khám phá: Collocations (Cụm từ đi kèm)`,
+      intro: `Học cách sử dụng từ tự nhiên như người bản xứ:`,
+      details: collocations
     }
   ];
 

@@ -5,144 +5,323 @@ export const courseData = [
     "id": 1,
     "title": "Unit 1: Talking about language",
     "description": "Nắm vững các thuật ngữ ngữ pháp cốt lõi và ngôn ngữ mệnh lệnh thường dùng trong các bài tập tiếng Anh.",
-    "theory": [
-      {
-        "heading": "A. Language words (Từ vựng về ngôn ngữ)",
-        "items": [
-          {
-            "word": "noun",
-            "type": "Danh từ",
-            "phonetic": "/naʊn/",
-            "vi": "Chỉ một người hoặc một vật.",
-            "example": "book, girl, pen"
-          },
-          {
-            "word": "verb",
-            "type": "Động từ",
-            "phonetic": "/vɜːrb/",
-            "vi": "Chỉ một hành động (thứ chúng ta làm).",
-            "example": "do, read, write"
-          },
-          {
-            "word": "adjective",
-            "type": "Tính từ",
-            "phonetic": "/ˈædʒ.ek.tɪv/",
-            "vi": "Dùng để miêu tả một người hoặc một vật.",
-            "example": "good, bad, happy, long"
-          },
-          {
-            "word": "adverb",
-            "type": "Trạng từ",
-            "phonetic": "/ˈæd.vɜːrb/",
-            "vi": "Dùng để miêu tả cho một động từ.",
-            "example": "slowly, badly"
-          },
-          {
-            "word": "preposition",
-            "type": "Giới từ",
-            "phonetic": "/ˌprep.əˈzɪʃ.ən/",
-            "vi": "Một từ nhỏ đứng trước một danh từ/đại từ.",
-            "example": "in, on, by, at"
-          },
-          {
-            "word": "singular",
-            "type": "Số ít",
-            "phonetic": "/ˈsɪŋ.ɡjə.lɚ/",
-            "vi": "Chỉ có một (đơn lẻ).",
-            "example": "book, house"
-          },
-          {
-            "word": "plural",
-            "type": "Số nhiều",
-            "phonetic": "/ˈplʊr.əl/",
-            "vi": "Nhiều hơn một.",
-            "example": "books, houses"
-          },
-          {
-            "word": "phrase",
-            "type": "Cụm từ",
-            "phonetic": "/freɪz/",
-            "vi": "Một nhóm từ (không phải là một câu hoàn chỉnh).",
-            "example": "in a house, at home"
-          },
-          {
-            "word": "sentence",
-            "type": "Câu",
-            "phonetic": "/ˈsen.təns/",
-            "vi": "Một ý tưởng hoàn chỉnh, bắt đầu bằng chữ hoa và kết thúc bằng dấu chấm.",
-            "example": "The man went into the room."
-          },
-          {
-            "word": "paragraph",
-            "type": "Đoạn văn",
-            "phonetic": "/ˈper.ə.ɡræf/",
-            "vi": "Một phần ngắn của văn bản, bắt đầu trên một dòng mới.",
-            "example": "This book has 60 units."
-          },
-          {
-            "word": "dialogue",
-            "type": "Hội thoại",
-            "phonetic": "/ˈdaɪ.ə.lɑːɡ/",
-            "vi": "Cuộc trò chuyện giữa hai người.",
-            "example": "Ann: How's Jo? Bill: OK."
-          },
-          {
-            "word": "question",
-            "type": "Câu hỏi",
-            "phonetic": "/ˈkwes.tʃən/",
-            "vi": "Tập hợp các từ kết thúc bằng dấu chấm hỏi (?).",
-            "example": "Are you English?"
-          },
-          {
-            "word": "answer",
-            "type": "Câu trả lời",
-            "phonetic": "/ˈæn.sɚ/",
-            "vi": "Sự hồi đáp lại cho một câu hỏi.",
-            "example": "Yes, I am."
-          }
-        ]
-      },
-      {
-        "heading": "B. The language of the exercises (Ngôn ngữ bài tập)",
-        "items": [
-          {
-            "word": "Match...",
-            "type": "Chỉ thị",
-            "phonetic": "/mætʃ/",
-            "vi": "Ghép/Nối.",
-            "example": "Match the words on the left with the words on the right."
-          },
-          {
-            "word": "Fill...",
-            "type": "Chỉ thị",
-            "phonetic": "/fɪl/",
-            "vi": "Điền vào.",
-            "example": "Fill the gaps in the sentence."
-          },
-          {
-            "word": "Correct...",
-            "type": "Chỉ thị",
-            "phonetic": "/kəˈrekt/",
-            "vi": "Sửa lại cho đúng.",
-            "example": "Correct the mistakes in the sentences."
-          },
-          {
-            "word": "Complete...",
-            "type": "Chỉ thị",
-            "phonetic": "/kəmˈpliːt/",
-            "vi": "Hoàn thành.",
-            "example": "Complete the sentence for yourself."
-          },
-          {
-            "word": "Add...",
-            "type": "Chỉ thị",
-            "phonetic": "/æd/",
-            "vi": "Thêm vào.",
-            "example": "Add another example."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "noun",
+          "type": "Danh từ",
+          "phonetic": "/naʊn/",
+          "vi": "Chỉ một người hoặc một vật.",
+          "example": "book, girl, pen",
+          "bucket": 1,
+          "collocations": [
+            "have a noun",
+            "use noun"
+          ],
+          "wordFamily": "Biến thể của noun"
+        },
+        {
+          "word": "verb",
+          "type": "Động từ",
+          "phonetic": "/vɜːrb/",
+          "vi": "Chỉ một hành động (thứ chúng ta làm).",
+          "example": "do, read, write",
+          "bucket": 2,
+          "collocations": [
+            "verb something",
+            "always verb"
+          ],
+          "wordFamily": "Biến thể của verb"
+        },
+        {
+          "word": "adjective",
+          "type": "Tính từ",
+          "phonetic": "/ˈædʒ.ek.tɪv/",
+          "vi": "Dùng để miêu tả một người hoặc một vật.",
+          "example": "good, bad, happy, long",
+          "bucket": 1,
+          "collocations": [
+            "very adjective",
+            "extremely adjective"
+          ],
+          "wordFamily": "Biến thể của adjective"
+        },
+        {
+          "word": "adverb",
+          "type": "Trạng từ",
+          "phonetic": "/ˈæd.vɜːrb/",
+          "vi": "Dùng để miêu tả cho một động từ.",
+          "example": "slowly, badly",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của adverb"
+        },
+        {
+          "word": "preposition",
+          "type": "Giới từ",
+          "phonetic": "/ˌprep.əˈzɪʃ.ən/",
+          "vi": "Một từ nhỏ đứng trước một danh từ/đại từ.",
+          "example": "in, on, by, at",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của preposition"
+        },
+        {
+          "word": "singular",
+          "type": "Số ít",
+          "phonetic": "/ˈsɪŋ.ɡjə.lɚ/",
+          "vi": "Chỉ có một (đơn lẻ).",
+          "example": "book, house",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của singular"
+        },
+        {
+          "word": "plural",
+          "type": "Số nhiều",
+          "phonetic": "/ˈplʊr.əl/",
+          "vi": "Nhiều hơn một.",
+          "example": "books, houses",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của plural"
+        },
+        {
+          "word": "phrase",
+          "type": "Cụm từ",
+          "phonetic": "/freɪz/",
+          "vi": "Một nhóm từ (không phải là một câu hoàn chỉnh).",
+          "example": "in a house, at home",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của phrase"
+        },
+        {
+          "word": "sentence",
+          "type": "Câu",
+          "phonetic": "/ˈsen.təns/",
+          "vi": "Một ý tưởng hoàn chỉnh, bắt đầu bằng chữ hoa và kết thúc bằng dấu chấm.",
+          "example": "The man went into the room.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của sentence"
+        },
+        {
+          "word": "paragraph",
+          "type": "Đoạn văn",
+          "phonetic": "/ˈper.ə.ɡræf/",
+          "vi": "Một phần ngắn của văn bản, bắt đầu trên một dòng mới.",
+          "example": "This book has 60 units.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của paragraph"
+        },
+        {
+          "word": "dialogue",
+          "type": "Hội thoại",
+          "phonetic": "/ˈdaɪ.ə.lɑːɡ/",
+          "vi": "Cuộc trò chuyện giữa hai người.",
+          "example": "Ann: How's Jo? Bill: OK.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của dialogue"
+        },
+        {
+          "word": "question",
+          "type": "Câu hỏi",
+          "phonetic": "/ˈkwes.tʃən/",
+          "vi": "Tập hợp các từ kết thúc bằng dấu chấm hỏi (?).",
+          "example": "Are you English?",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của question"
+        },
+        {
+          "word": "answer",
+          "type": "Câu trả lời",
+          "phonetic": "/ˈæn.sɚ/",
+          "vi": "Sự hồi đáp lại cho một câu hỏi.",
+          "example": "Yes, I am.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của answer"
+        },
+        {
+          "word": "Match...",
+          "type": "Chỉ thị",
+          "phonetic": "/mætʃ/",
+          "vi": "Ghép/Nối.",
+          "example": "Match the words on the left with the words on the right.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của Match..."
+        },
+        {
+          "word": "Fill...",
+          "type": "Chỉ thị",
+          "phonetic": "/fɪl/",
+          "vi": "Điền vào.",
+          "example": "Fill the gaps in the sentence.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của Fill..."
+        },
+        {
+          "word": "Correct...",
+          "type": "Chỉ thị",
+          "phonetic": "/kəˈrekt/",
+          "vi": "Sửa lại cho đúng.",
+          "example": "Correct the mistakes in the sentences.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của Correct..."
+        },
+        {
+          "word": "Complete...",
+          "type": "Chỉ thị",
+          "phonetic": "/kəmˈpliːt/",
+          "vi": "Hoàn thành.",
+          "example": "Complete the sentence for yourself.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của Complete..."
+        },
+        {
+          "word": "Add...",
+          "type": "Chỉ thị",
+          "phonetic": "/æd/",
+          "vi": "Thêm vào.",
+          "example": "Add another example.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của Add..."
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Language words (Từ vựng về ngôn ngữ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "noun",
+              "value": "👉 book, girl, pen"
+            },
+            {
+              "title": "verb",
+              "value": "👉 do, read, write"
+            },
+            {
+              "title": "adjective",
+              "value": "👉 good, bad, happy, long"
+            },
+            {
+              "title": "adverb",
+              "value": "👉 slowly, badly"
+            },
+            {
+              "title": "preposition",
+              "value": "👉 in, on, by, at"
+            },
+            {
+              "title": "singular",
+              "value": "👉 book, house"
+            },
+            {
+              "title": "plural",
+              "value": "👉 books, houses"
+            },
+            {
+              "title": "phrase",
+              "value": "👉 in a house, at home"
+            },
+            {
+              "title": "sentence",
+              "value": "👉 The man went into the room."
+            },
+            {
+              "title": "paragraph",
+              "value": "👉 This book has 60 units."
+            },
+            {
+              "title": "dialogue",
+              "value": "👉 Ann: How's Jo? Bill: OK."
+            },
+            {
+              "title": "question",
+              "value": "👉 Are you English?"
+            },
+            {
+              "title": "answer",
+              "value": "👉 Yes, I am."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. The language of the exercises (Ngôn ngữ bài tập)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "Match...",
+              "value": "👉 Match the words on the left with the words on the right."
+            },
+            {
+              "title": "Fill...",
+              "value": "👉 Fill the gaps in the sentence."
+            },
+            {
+              "title": "Correct...",
+              "value": "👉 Correct the mistakes in the sentences."
+            },
+            {
+              "title": "Complete...",
+              "value": "👉 Complete the sentence for yourself."
+            },
+            {
+              "title": "Add...",
+              "value": "👉 Add another example."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"noun\"",
+              "value": "nounful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"verb\"",
+              "value": "verber (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"adjective\"",
+              "value": "adjectively (Trạng từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"adverb\"",
+              "value": "Cụm từ liên quan đến adverb"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"preposition\"",
+              "value": "Cụm từ liên quan đến preposition"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"singular\"",
+              "value": "Cụm từ liên quan đến singular"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Noun",
@@ -659,120 +838,465 @@ export const courseData = [
         "text": "Complete the sentence for yourself.",
         "trans": "Hoàn thành câu nói về bản thân bạn."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "1.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_1_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "noun"
+            ],
+            "hint": "Chỉ một người hoặc một vật.",
+            "explanation": "Từ cần điền là \"noun\", mang nghĩa là \"Chỉ một người hoặc một vật.\"."
+          },
+          {
+            "id": "ex_1_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "verb"
+            ],
+            "hint": "Chỉ một hành động (thứ chúng ta làm).",
+            "explanation": "Từ cần điền là \"verb\", mang nghĩa là \"Chỉ một hành động (thứ chúng ta làm).\"."
+          },
+          {
+            "id": "ex_1_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "adjective"
+            ],
+            "hint": "Dùng để miêu tả một người hoặc một vật.",
+            "explanation": "Từ cần điền là \"adjective\", mang nghĩa là \"Dùng để miêu tả một người hoặc một vật.\"."
+          },
+          {
+            "id": "ex_1_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "adverb"
+            ],
+            "hint": "Dùng để miêu tả cho một động từ.",
+            "explanation": "Từ cần điền là \"adverb\", mang nghĩa là \"Dùng để miêu tả cho một động từ.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "1.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_1_2_0",
+            "text": "preposition",
+            "options": [
+              "Chỉ có một (đơn lẻ).",
+              "Một từ nhỏ đứng trước một danh từ/đại từ.",
+              "Nhiều hơn một.",
+              "Một nhóm từ (không phải là một câu hoàn chỉnh)."
+            ],
+            "answer": "Một từ nhỏ đứng trước một danh từ/đại từ.",
+            "explanation": "Từ \"preposition\" có nghĩa chính xác là \"Một từ nhỏ đứng trước một danh từ/đại từ.\"."
+          },
+          {
+            "id": "ex_1_2_1",
+            "text": "singular",
+            "options": [
+              "Một nhóm từ (không phải là một câu hoàn chỉnh).",
+              "Nhiều hơn một.",
+              "Chỉ có một (đơn lẻ).",
+              "Một từ nhỏ đứng trước một danh từ/đại từ."
+            ],
+            "answer": "Chỉ có một (đơn lẻ).",
+            "explanation": "Từ \"singular\" có nghĩa chính xác là \"Chỉ có một (đơn lẻ).\"."
+          },
+          {
+            "id": "ex_1_2_2",
+            "text": "plural",
+            "options": [
+              "Một từ nhỏ đứng trước một danh từ/đại từ.",
+              "Chỉ có một (đơn lẻ).",
+              "Một nhóm từ (không phải là một câu hoàn chỉnh).",
+              "Nhiều hơn một."
+            ],
+            "answer": "Nhiều hơn một.",
+            "explanation": "Từ \"plural\" có nghĩa chính xác là \"Nhiều hơn một.\"."
+          },
+          {
+            "id": "ex_1_2_3",
+            "text": "phrase",
+            "options": [
+              "Nhiều hơn một.",
+              "Một nhóm từ (không phải là một câu hoàn chỉnh).",
+              "Chỉ có một (đơn lẻ).",
+              "Một từ nhỏ đứng trước một danh từ/đại từ."
+            ],
+            "answer": "Một nhóm từ (không phải là một câu hoàn chỉnh).",
+            "explanation": "Từ \"phrase\" có nghĩa chính xác là \"Một nhóm từ (không phải là một câu hoàn chỉnh).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "1.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_1_3_0",
+            "word": "noun",
+            "category": "Topic A",
+            "explanation": "Từ \"noun\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_1_3_1",
+            "word": "verb",
+            "category": "Topic B",
+            "explanation": "Từ \"verb\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_1_3_2",
+            "word": "adjective",
+            "category": "Topic A",
+            "explanation": "Từ \"adjective\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_1_3_3",
+            "word": "adverb",
+            "category": "Topic B",
+            "explanation": "Từ \"adverb\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_1_3_4",
+            "word": "preposition",
+            "category": "Topic A",
+            "explanation": "Từ \"preposition\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_1_3_5",
+            "word": "singular",
+            "category": "Topic B",
+            "explanation": "Từ \"singular\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "1.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_1_4_0",
+            "original": "I really like adjectives.",
+            "correct": "good, bad, happy, long",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"adjective\" thay vì \"adjectives\"."
+          },
+          {
+            "id": "ex_1_4_1",
+            "original": "I really like adverbs.",
+            "correct": "slowly, badly",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"adverb\" thay vì \"adverbs\"."
+          }
+        ]
+      },
+      {
+        "exNum": "1.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_1_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "preposition"
+            ],
+            "hint": "Một từ nhỏ đứng trước một danh từ/đại từ.",
+            "explanation": "Từ cần điền là \"preposition\"."
+          },
+          {
+            "id": "ex_1_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "singular"
+            ],
+            "hint": "Chỉ có một (đơn lẻ).",
+            "explanation": "Từ cần điền là \"singular\"."
+          },
+          {
+            "id": "ex_1_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "plural"
+            ],
+            "hint": "Nhiều hơn một.",
+            "explanation": "Từ cần điền là \"plural\"."
+          },
+          {
+            "id": "ex_1_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "phrase"
+            ],
+            "hint": "Một nhóm từ (không phải là một câu hoàn chỉnh).",
+            "explanation": "Từ cần điền là \"phrase\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 2,
     "title": "Unit 2: Learning vocabulary",
     "description": "Học cách ghi chép từ vựng hiệu quả: học theo cụm từ (collocations), theo họ từ (word families) và sử dụng hình ảnh/sơ đồ tư duy.",
-    "theory": [
-      {
-        "heading": "A. Collocations (Các từ luôn đi kèm với nhau)",
-        "items": [
-          {
-            "word": "do an exercise",
-            "type": "Cụm từ",
-            "phonetic": "/duː ən ˈek.sɚ.saɪz/",
-            "vi": "Làm bài tập.",
-            "example": "You do the exercises in this book."
-          },
-          {
-            "word": "make a mistake",
-            "type": "Cụm từ",
-            "phonetic": "/meɪk ə mɪˈsteɪk/",
-            "vi": "Phạm sai lầm (KHÔNG dùng 'do a mistake').",
-            "example": "Sometimes, you may make mistakes in your English."
-          },
-          {
-            "word": "go by train",
-            "type": "Cụm từ",
-            "phonetic": "/ɡoʊ baɪ treɪn/",
-            "vi": "Đi bằng tàu hỏa.",
-            "example": "I usually go to work by train."
-          },
-          {
-            "word": "go on foot",
-            "type": "Cụm từ",
-            "phonetic": "/ɡoʊ ɑːn fʊt/",
-            "vi": "Đi bộ (KHÔNG dùng 'go by foot').",
-            "example": "I don't have a car, so I go on foot."
-          },
-          {
-            "word": "good at languages",
-            "type": "Cụm từ",
-            "phonetic": "/ɡʊd æt ˈlæŋ.ɡwɪdʒ.ɪz/",
-            "vi": "Giỏi ngôn ngữ (KHÔNG dùng 'good in').",
-            "example": "Some people are very good at languages."
-          },
-          {
-            "word": "a tall man",
-            "type": "Cụm từ",
-            "phonetic": "/ə tɑːl mæn/",
-            "vi": "Một người đàn ông cao (KHÔNG dùng 'a high man').",
-            "example": "I saw a very tall man."
-          }
-        ]
-      },
-      {
-        "heading": "B. Word families (Gia đình từ / Nhóm từ vựng)",
-        "items": [
-          {
-            "word": "temperature",
-            "type": "Nhóm từ",
-            "phonetic": "/ˈtem.pɚ.ə.tʃɚ/",
-            "vi": "Nhiệt độ. Gồm: hot (nóng), warm (ấm), cool (mát), cold (lạnh).",
-            "example": "Make a page for 'temperature' words."
-          },
-          {
-            "word": "travel",
-            "type": "Nhóm từ",
-            "phonetic": "/ˈtræv.əl/",
-            "vi": "Du lịch. Gồm: ticket (vé), passport (hộ chiếu), suitcase (vali).",
-            "example": "Put ticket, passport and suitcase in the 'travel' family."
-          },
-          {
-            "word": "weather",
-            "type": "Nhóm từ",
-            "phonetic": "/ˈweð.ɚ/",
-            "vi": "Thời tiết. Gồm: sun, cloud, rain, snow, wet, dry.",
-            "example": "Wet and dry are weather words."
-          }
-        ]
-      },
-      {
-        "heading": "C. Pictures and diagrams (Hình ảnh và sơ đồ tư duy)",
-        "items": [
-          {
-            "word": "car parts",
-            "type": "Từ vựng xe hơi",
-            "phonetic": "/kɑːr pɑːrts/",
-            "vi": "boot (cốp xe), window (cửa sổ), wheel (bánh xe), door (cửa xe), windscreen (kính chắn gió), headlight (đèn pha).",
-            "example": "Draw a car and label its parts."
-          },
-          {
-            "word": "eating",
-            "type": "Đồ ăn uống",
-            "phonetic": "/ˈiː.tɪŋ/",
-            "vi": "knife (dao), fork (nĩa), spoon (thìa).",
-            "example": "We use a knife, fork and spoon to eat."
-          },
-          {
-            "word": "drinking",
-            "type": "Đồ uống nước",
-            "phonetic": "/ˈdrɪŋ.kɪŋ/",
-            "vi": "glass (ly/cốc thủy tinh), cup (tách), mug (cốc lớn có quai).",
-            "example": "I drink coffee from a mug."
-          },
-          {
-            "word": "furniture",
-            "type": "Đồ nội thất",
-            "phonetic": "/ˈfɝː.nɪ.tʃɚ/",
-            "vi": "chair (ghế), desk (bàn làm việc).",
-            "example": "A chair is a piece of furniture."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "do an exercise",
+          "type": "Cụm từ",
+          "phonetic": "/duː ən ˈek.sɚ.saɪz/",
+          "vi": "Làm bài tập.",
+          "example": "You do the exercises in this book.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của do an exercise"
+        },
+        {
+          "word": "make a mistake",
+          "type": "Cụm từ",
+          "phonetic": "/meɪk ə mɪˈsteɪk/",
+          "vi": "Phạm sai lầm (KHÔNG dùng 'do a mistake').",
+          "example": "Sometimes, you may make mistakes in your English.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make a mistake"
+        },
+        {
+          "word": "go by train",
+          "type": "Cụm từ",
+          "phonetic": "/ɡoʊ baɪ treɪn/",
+          "vi": "Đi bằng tàu hỏa.",
+          "example": "I usually go to work by train.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go by train"
+        },
+        {
+          "word": "go on foot",
+          "type": "Cụm từ",
+          "phonetic": "/ɡoʊ ɑːn fʊt/",
+          "vi": "Đi bộ (KHÔNG dùng 'go by foot').",
+          "example": "I don't have a car, so I go on foot.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go on foot"
+        },
+        {
+          "word": "good at languages",
+          "type": "Cụm từ",
+          "phonetic": "/ɡʊd æt ˈlæŋ.ɡwɪdʒ.ɪz/",
+          "vi": "Giỏi ngôn ngữ (KHÔNG dùng 'good in').",
+          "example": "Some people are very good at languages.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của good at languages"
+        },
+        {
+          "word": "a tall man",
+          "type": "Cụm từ",
+          "phonetic": "/ə tɑːl mæn/",
+          "vi": "Một người đàn ông cao (KHÔNG dùng 'a high man').",
+          "example": "I saw a very tall man.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của a tall man"
+        },
+        {
+          "word": "temperature",
+          "type": "Nhóm từ",
+          "phonetic": "/ˈtem.pɚ.ə.tʃɚ/",
+          "vi": "Nhiệt độ. Gồm: hot (nóng), warm (ấm), cool (mát), cold (lạnh).",
+          "example": "Make a page for 'temperature' words.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của temperature"
+        },
+        {
+          "word": "travel",
+          "type": "Nhóm từ",
+          "phonetic": "/ˈtræv.əl/",
+          "vi": "Du lịch. Gồm: ticket (vé), passport (hộ chiếu), suitcase (vali).",
+          "example": "Put ticket, passport and suitcase in the 'travel' family.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của travel"
+        },
+        {
+          "word": "weather",
+          "type": "Nhóm từ",
+          "phonetic": "/ˈweð.ɚ/",
+          "vi": "Thời tiết. Gồm: sun, cloud, rain, snow, wet, dry.",
+          "example": "Wet and dry are weather words.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của weather"
+        },
+        {
+          "word": "car parts",
+          "type": "Từ vựng xe hơi",
+          "phonetic": "/kɑːr pɑːrts/",
+          "vi": "boot (cốp xe), window (cửa sổ), wheel (bánh xe), door (cửa xe), windscreen (kính chắn gió), headlight (đèn pha).",
+          "example": "Draw a car and label its parts.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của car parts"
+        },
+        {
+          "word": "eating",
+          "type": "Đồ ăn uống",
+          "phonetic": "/ˈiː.tɪŋ/",
+          "vi": "knife (dao), fork (nĩa), spoon (thìa).",
+          "example": "We use a knife, fork and spoon to eat.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của eating"
+        },
+        {
+          "word": "drinking",
+          "type": "Đồ uống nước",
+          "phonetic": "/ˈdrɪŋ.kɪŋ/",
+          "vi": "glass (ly/cốc thủy tinh), cup (tách), mug (cốc lớn có quai).",
+          "example": "I drink coffee from a mug.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của drinking"
+        },
+        {
+          "word": "furniture",
+          "type": "Đồ nội thất",
+          "phonetic": "/ˈfɝː.nɪ.tʃɚ/",
+          "vi": "chair (ghế), desk (bàn làm việc).",
+          "example": "A chair is a piece of furniture.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của furniture"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Collocations (Các từ luôn đi kèm với nhau)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "do an exercise",
+              "value": "👉 You do the exercises in this book."
+            },
+            {
+              "title": "make a mistake",
+              "value": "👉 Sometimes, you may make mistakes in your English."
+            },
+            {
+              "title": "go by train",
+              "value": "👉 I usually go to work by train."
+            },
+            {
+              "title": "go on foot",
+              "value": "👉 I don't have a car, so I go on foot."
+            },
+            {
+              "title": "good at languages",
+              "value": "👉 Some people are very good at languages."
+            },
+            {
+              "title": "a tall man",
+              "value": "👉 I saw a very tall man."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Word families (Gia đình từ / Nhóm từ vựng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "temperature",
+              "value": "👉 Make a page for 'temperature' words."
+            },
+            {
+              "title": "travel",
+              "value": "👉 Put ticket, passport and suitcase in the 'travel' family."
+            },
+            {
+              "title": "weather",
+              "value": "👉 Wet and dry are weather words."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Pictures and diagrams (Hình ảnh và sơ đồ tư duy)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "car parts",
+              "value": "👉 Draw a car and label its parts."
+            },
+            {
+              "title": "eating",
+              "value": "👉 We use a knife, fork and spoon to eat."
+            },
+            {
+              "title": "drinking",
+              "value": "👉 I drink coffee from a mug."
+            },
+            {
+              "title": "furniture",
+              "value": "👉 A chair is a piece of furniture."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"do an exercise\"",
+              "value": "Các dạng từ loại khác của \"do an exercise\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"make a mistake\"",
+              "value": "Các dạng từ loại khác của \"make a mistake\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"go by train\"",
+              "value": "Các dạng từ loại khác của \"go by train\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"go on foot\"",
+              "value": "Cụm từ liên quan đến go on foot"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"good at languages\"",
+              "value": "Cụm từ liên quan đến good at languages"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"a tall man\"",
+              "value": "Cụm từ liên quan đến a tall man"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Car parts",
@@ -1289,141 +1813,507 @@ export const courseData = [
         "text": "I made a mistake in my English exercise today.",
         "trans": "Tôi đã phạm một sai lầm trong bài tập tiếng Anh hôm nay."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "2.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_2_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "do an exercise"
+            ],
+            "hint": "Làm bài tập.",
+            "explanation": "Từ cần điền là \"do an exercise\", mang nghĩa là \"Làm bài tập.\"."
+          },
+          {
+            "id": "ex_2_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "make a mistake"
+            ],
+            "hint": "Phạm sai lầm (KHÔNG dùng 'do a mistake').",
+            "explanation": "Từ cần điền là \"make a mistake\", mang nghĩa là \"Phạm sai lầm (KHÔNG dùng 'do a mistake').\"."
+          },
+          {
+            "id": "ex_2_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "go by train"
+            ],
+            "hint": "Đi bằng tàu hỏa.",
+            "explanation": "Từ cần điền là \"go by train\", mang nghĩa là \"Đi bằng tàu hỏa.\"."
+          },
+          {
+            "id": "ex_2_1_3",
+            "text": "I don't have a car, so I [blank].",
+            "answers": [
+              "go on foot"
+            ],
+            "hint": "Đi bộ (KHÔNG dùng 'go by foot').",
+            "explanation": "Từ cần điền là \"go on foot\", mang nghĩa là \"Đi bộ (KHÔNG dùng 'go by foot').\"."
+          }
+        ]
+      },
+      {
+        "exNum": "2.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_2_2_0",
+            "text": "good at languages",
+            "options": [
+              "Nhiệt độ. Gồm: hot (nóng), warm (ấm), cool (mát), cold (lạnh).",
+              "Du lịch. Gồm: ticket (vé), passport (hộ chiếu), suitcase (vali).",
+              "Một người đàn ông cao (KHÔNG dùng 'a high man').",
+              "Giỏi ngôn ngữ (KHÔNG dùng 'good in')."
+            ],
+            "answer": "Giỏi ngôn ngữ (KHÔNG dùng 'good in').",
+            "explanation": "Từ \"good at languages\" có nghĩa chính xác là \"Giỏi ngôn ngữ (KHÔNG dùng 'good in').\"."
+          },
+          {
+            "id": "ex_2_2_1",
+            "text": "a tall man",
+            "options": [
+              "Giỏi ngôn ngữ (KHÔNG dùng 'good in').",
+              "Du lịch. Gồm: ticket (vé), passport (hộ chiếu), suitcase (vali).",
+              "Một người đàn ông cao (KHÔNG dùng 'a high man').",
+              "Nhiệt độ. Gồm: hot (nóng), warm (ấm), cool (mát), cold (lạnh)."
+            ],
+            "answer": "Một người đàn ông cao (KHÔNG dùng 'a high man').",
+            "explanation": "Từ \"a tall man\" có nghĩa chính xác là \"Một người đàn ông cao (KHÔNG dùng 'a high man').\"."
+          },
+          {
+            "id": "ex_2_2_2",
+            "text": "temperature",
+            "options": [
+              "Du lịch. Gồm: ticket (vé), passport (hộ chiếu), suitcase (vali).",
+              "Giỏi ngôn ngữ (KHÔNG dùng 'good in').",
+              "Một người đàn ông cao (KHÔNG dùng 'a high man').",
+              "Nhiệt độ. Gồm: hot (nóng), warm (ấm), cool (mát), cold (lạnh)."
+            ],
+            "answer": "Nhiệt độ. Gồm: hot (nóng), warm (ấm), cool (mát), cold (lạnh).",
+            "explanation": "Từ \"temperature\" có nghĩa chính xác là \"Nhiệt độ. Gồm: hot (nóng), warm (ấm), cool (mát), cold (lạnh).\"."
+          },
+          {
+            "id": "ex_2_2_3",
+            "text": "travel",
+            "options": [
+              "Giỏi ngôn ngữ (KHÔNG dùng 'good in').",
+              "Một người đàn ông cao (KHÔNG dùng 'a high man').",
+              "Du lịch. Gồm: ticket (vé), passport (hộ chiếu), suitcase (vali).",
+              "Nhiệt độ. Gồm: hot (nóng), warm (ấm), cool (mát), cold (lạnh)."
+            ],
+            "answer": "Du lịch. Gồm: ticket (vé), passport (hộ chiếu), suitcase (vali).",
+            "explanation": "Từ \"travel\" có nghĩa chính xác là \"Du lịch. Gồm: ticket (vé), passport (hộ chiếu), suitcase (vali).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "2.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_2_3_0",
+            "word": "do an exercise",
+            "category": "Topic A",
+            "explanation": "Từ \"do an exercise\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_2_3_1",
+            "word": "make a mistake",
+            "category": "Topic B",
+            "explanation": "Từ \"make a mistake\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_2_3_2",
+            "word": "go by train",
+            "category": "Topic A",
+            "explanation": "Từ \"go by train\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_2_3_3",
+            "word": "go on foot",
+            "category": "Topic B",
+            "explanation": "Từ \"go on foot\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_2_3_4",
+            "word": "good at languages",
+            "category": "Topic A",
+            "explanation": "Từ \"good at languages\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_2_3_5",
+            "word": "a tall man",
+            "category": "Topic B",
+            "explanation": "Từ \"a tall man\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "2.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_2_4_0",
+            "original": "I really like go by trains.",
+            "correct": "I usually go to work by train.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"go by train\" thay vì \"go by trains\"."
+          },
+          {
+            "id": "ex_2_4_1",
+            "original": "I don't have a car, so I go on foots.",
+            "correct": "I don't have a car, so I go on foot.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"go on foot\" thay vì \"go on foots\"."
+          }
+        ]
+      },
+      {
+        "exNum": "2.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_2_5_0",
+            "text": "Some people are very [blank].",
+            "answers": [
+              "good at languages"
+            ],
+            "hint": "Giỏi ngôn ngữ (KHÔNG dùng 'good in').",
+            "explanation": "Từ cần điền là \"good at languages\"."
+          },
+          {
+            "id": "ex_2_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "a tall man"
+            ],
+            "hint": "Một người đàn ông cao (KHÔNG dùng 'a high man').",
+            "explanation": "Từ cần điền là \"a tall man\"."
+          },
+          {
+            "id": "ex_2_5_2",
+            "text": "Make a page for '[blank]' words.",
+            "answers": [
+              "temperature"
+            ],
+            "hint": "Nhiệt độ. Gồm: hot (nóng), warm (ấm), cool (mát), cold (lạnh).",
+            "explanation": "Từ cần điền là \"temperature\"."
+          },
+          {
+            "id": "ex_2_5_3",
+            "text": "Put ticket, passport and suitcase in the '[blank]' family.",
+            "answers": [
+              "travel"
+            ],
+            "hint": "Du lịch. Gồm: ticket (vé), passport (hộ chiếu), suitcase (vali).",
+            "explanation": "Từ cần điền là \"travel\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 3,
     "title": "Unit 3: Have / had / had",
     "description": "Học cách sử dụng động từ 'have' với các bữa ăn, sự kiện, vệ sinh cá nhân, cũng như các thành ngữ phổ biến, cách dùng 'have got' và 'have to'.",
-    "theory": [
-      {
-        "heading": "A & B. What can you have? (Bạn có thể dùng HAVE với những gì?)",
-        "items": [
-          {
-            "word": "have lunch",
-            "type": "Bữa ăn",
-            "phonetic": "/hæv lʌntʃ/",
-            "vi": "Ăn trưa (Tương tự: have dinner / breakfast / a meal / something to eat).",
-            "example": "I usually have lunch at 1 o'clock."
-          },
-          {
-            "word": "have a party",
-            "type": "Sự kiện",
-            "phonetic": "/hæv ə ˈpɑːr.t̬i/",
-            "vi": "Tổ chức tiệc (Tương tự: have a meeting / a competition / a game of football).",
-            "example": "Jane is having a party on Saturday."
-          },
-          {
-            "word": "have a lesson",
-            "type": "Học tập",
-            "phonetic": "/hæv ə ˈles.ən/",
-            "vi": "Có tiết học (Tương tự: have an exam / homework / an appointment).",
-            "example": "I have an appointment with the dentist at 3 o'clock."
-          },
-          {
-            "word": "have a cup of tea",
-            "type": "Đồ uống",
-            "phonetic": "/hæv ə kʌp əv tiː/",
-            "vi": "Uống một tách trà (Tương tự: have coffee / a drink / a sandwich / an ice-cream).",
-            "example": "Let's have a cup of coffee."
-          },
-          {
-            "word": "have a shower",
-            "type": "Vệ sinh/Thể thao",
-            "phonetic": "/hæv ə ˈʃaʊ.ɚ/",
-            "vi": "Tắm vòi sen (Tương tự: have a bath / a swim / a sauna).",
-            "example": "I always have a shower in the morning."
-          }
-        ]
-      },
-      {
-        "heading": "C. Expressions with Have (Các cụm thành ngữ với Have)",
-        "items": [
-          {
-            "word": "have a look",
-            "type": "Thành ngữ",
-            "phonetic": "/hæv ə lʊk/",
-            "vi": "Nhìn qua, xem thử (= look at it).",
-            "example": "Is that your new camera? Can I have a look?"
-          },
-          {
-            "word": "have a go",
-            "type": "Thành ngữ",
-            "phonetic": "/hæv ə ɡoʊ/",
-            "vi": "Thử làm, đi thử (= ride it / try it).",
-            "example": "Is that your bicycle? Can I have a go?"
-          },
-          {
-            "word": "have a good journey",
-            "type": "Thành ngữ",
-            "phonetic": "/hæv ə ɡʊd ˈdʒɝː.ni/",
-            "vi": "Chúc chuyến đi vui vẻ, thượng lộ bình an.",
-            "example": "Goodbye! Have a good journey!"
-          },
-          {
-            "word": "have a moment",
-            "type": "Thành ngữ",
-            "phonetic": "/hæv ə ˈmoʊ.mənt/",
-            "vi": "Có chút thời gian rảnh (= have some time).",
-            "example": "Do you have a moment?"
-          },
-          {
-            "word": "have a word",
-            "type": "Thành ngữ",
-            "phonetic": "/hæv ə wɝːd/",
-            "vi": "Nói chuyện riêng một lát (= speak to you).",
-            "example": "Can I have a word with you?"
-          },
-          {
-            "word": "have a good time",
-            "type": "Thành ngữ",
-            "phonetic": "/hæv ə ɡʊd taɪm/",
-            "vi": "Có khoảng thời gian vui vẻ (= enjoy).",
-            "example": "We always have a good time in our English lessons."
-          },
-          {
-            "word": "have my hair cut",
-            "type": "Thành ngữ",
-            "phonetic": "/hæv maɪ her kʌt/",
-            "vi": "Đi cắt tóc.",
-            "example": "I'm going to have my hair cut. See you later."
-          },
-          {
-            "word": "have the time",
-            "type": "Thành ngữ",
-            "phonetic": "/hæv ðə taɪm/",
-            "vi": "Có thời gian rảnh rỗi.",
-            "example": "I want to learn to ski but I don't have the time."
-          }
-        ]
-      },
-      {
-        "heading": "D & E. Have got & Have to",
-        "items": [
-          {
-            "word": "have got",
-            "type": "Sở hữu",
-            "phonetic": "/hæv ɡɑːt/",
-            "vi": "Có (dùng trong văn nói, thân mật = have trong văn viết).",
-            "example": "I've got three sisters. / I've got a problem."
-          },
-          {
-            "word": "have a cold",
-            "type": "Bệnh tật",
-            "phonetic": "/hæv ə koʊld/",
-            "vi": "Bị cảm lạnh (Tương tự: have a headache / a toothache).",
-            "example": "I've got a cold and a headache."
-          },
-          {
-            "word": "have to",
-            "type": "Bắt buộc",
-            "phonetic": "/hæv tuː/",
-            "vi": "Phải làm gì đó (do tình huống ép buộc = must).",
-            "example": "You have to pay $10 to go in. All students have to do the exam."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "have lunch",
+          "type": "Bữa ăn",
+          "phonetic": "/hæv lʌntʃ/",
+          "vi": "Ăn trưa (Tương tự: have dinner / breakfast / a meal / something to eat).",
+          "example": "I usually have lunch at 1 o'clock.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have lunch"
+        },
+        {
+          "word": "have a party",
+          "type": "Sự kiện",
+          "phonetic": "/hæv ə ˈpɑːr.t̬i/",
+          "vi": "Tổ chức tiệc (Tương tự: have a meeting / a competition / a game of football).",
+          "example": "Jane is having a party on Saturday.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a party"
+        },
+        {
+          "word": "have a lesson",
+          "type": "Học tập",
+          "phonetic": "/hæv ə ˈles.ən/",
+          "vi": "Có tiết học (Tương tự: have an exam / homework / an appointment).",
+          "example": "I have an appointment with the dentist at 3 o'clock.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a lesson"
+        },
+        {
+          "word": "have a cup of tea",
+          "type": "Đồ uống",
+          "phonetic": "/hæv ə kʌp əv tiː/",
+          "vi": "Uống một tách trà (Tương tự: have coffee / a drink / a sandwich / an ice-cream).",
+          "example": "Let's have a cup of coffee.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a cup of tea"
+        },
+        {
+          "word": "have a shower",
+          "type": "Vệ sinh/Thể thao",
+          "phonetic": "/hæv ə ˈʃaʊ.ɚ/",
+          "vi": "Tắm vòi sen (Tương tự: have a bath / a swim / a sauna).",
+          "example": "I always have a shower in the morning.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a shower"
+        },
+        {
+          "word": "have a look",
+          "type": "Thành ngữ",
+          "phonetic": "/hæv ə lʊk/",
+          "vi": "Nhìn qua, xem thử (= look at it).",
+          "example": "Is that your new camera? Can I have a look?",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a look"
+        },
+        {
+          "word": "have a go",
+          "type": "Thành ngữ",
+          "phonetic": "/hæv ə ɡoʊ/",
+          "vi": "Thử làm, đi thử (= ride it / try it).",
+          "example": "Is that your bicycle? Can I have a go?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a go"
+        },
+        {
+          "word": "have a good journey",
+          "type": "Thành ngữ",
+          "phonetic": "/hæv ə ɡʊd ˈdʒɝː.ni/",
+          "vi": "Chúc chuyến đi vui vẻ, thượng lộ bình an.",
+          "example": "Goodbye! Have a good journey!",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a good journey"
+        },
+        {
+          "word": "have a moment",
+          "type": "Thành ngữ",
+          "phonetic": "/hæv ə ˈmoʊ.mənt/",
+          "vi": "Có chút thời gian rảnh (= have some time).",
+          "example": "Do you have a moment?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a moment"
+        },
+        {
+          "word": "have a word",
+          "type": "Thành ngữ",
+          "phonetic": "/hæv ə wɝːd/",
+          "vi": "Nói chuyện riêng một lát (= speak to you).",
+          "example": "Can I have a word with you?",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a word"
+        },
+        {
+          "word": "have a good time",
+          "type": "Thành ngữ",
+          "phonetic": "/hæv ə ɡʊd taɪm/",
+          "vi": "Có khoảng thời gian vui vẻ (= enjoy).",
+          "example": "We always have a good time in our English lessons.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a good time"
+        },
+        {
+          "word": "have my hair cut",
+          "type": "Thành ngữ",
+          "phonetic": "/hæv maɪ her kʌt/",
+          "vi": "Đi cắt tóc.",
+          "example": "I'm going to have my hair cut. See you later.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have my hair cut"
+        },
+        {
+          "word": "have the time",
+          "type": "Thành ngữ",
+          "phonetic": "/hæv ðə taɪm/",
+          "vi": "Có thời gian rảnh rỗi.",
+          "example": "I want to learn to ski but I don't have the time.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have the time"
+        },
+        {
+          "word": "have got",
+          "type": "Sở hữu",
+          "phonetic": "/hæv ɡɑːt/",
+          "vi": "Có (dùng trong văn nói, thân mật = have trong văn viết).",
+          "example": "I've got three sisters. / I've got a problem.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have got"
+        },
+        {
+          "word": "have a cold",
+          "type": "Bệnh tật",
+          "phonetic": "/hæv ə koʊld/",
+          "vi": "Bị cảm lạnh (Tương tự: have a headache / a toothache).",
+          "example": "I've got a cold and a headache.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a cold"
+        },
+        {
+          "word": "have to",
+          "type": "Bắt buộc",
+          "phonetic": "/hæv tuː/",
+          "vi": "Phải làm gì đó (do tình huống ép buộc = must).",
+          "example": "You have to pay $10 to go in. All students have to do the exam.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have to"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A & B. What can you have? (Bạn có thể dùng HAVE với những gì?)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "have lunch",
+              "value": "👉 I usually have lunch at 1 o'clock."
+            },
+            {
+              "title": "have a party",
+              "value": "👉 Jane is having a party on Saturday."
+            },
+            {
+              "title": "have a lesson",
+              "value": "👉 I have an appointment with the dentist at 3 o'clock."
+            },
+            {
+              "title": "have a cup of tea",
+              "value": "👉 Let's have a cup of coffee."
+            },
+            {
+              "title": "have a shower",
+              "value": "👉 I always have a shower in the morning."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Expressions with Have (Các cụm thành ngữ với Have)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "have a look",
+              "value": "👉 Is that your new camera? Can I have a look?"
+            },
+            {
+              "title": "have a go",
+              "value": "👉 Is that your bicycle? Can I have a go?"
+            },
+            {
+              "title": "have a good journey",
+              "value": "👉 Goodbye! Have a good journey!"
+            },
+            {
+              "title": "have a moment",
+              "value": "👉 Do you have a moment?"
+            },
+            {
+              "title": "have a word",
+              "value": "👉 Can I have a word with you?"
+            },
+            {
+              "title": "have a good time",
+              "value": "👉 We always have a good time in our English lessons."
+            },
+            {
+              "title": "have my hair cut",
+              "value": "👉 I'm going to have my hair cut. See you later."
+            },
+            {
+              "title": "have the time",
+              "value": "👉 I want to learn to ski but I don't have the time."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D & E. Have got & Have to",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "have got",
+              "value": "👉 I've got three sisters. / I've got a problem."
+            },
+            {
+              "title": "have a cold",
+              "value": "👉 I've got a cold and a headache."
+            },
+            {
+              "title": "have to",
+              "value": "👉 You have to pay $10 to go in. All students have to do the exam."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"have lunch\"",
+              "value": "Các dạng từ loại khác của \"have lunch\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"have a party\"",
+              "value": "Các dạng từ loại khác của \"have a party\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"have a lesson\"",
+              "value": "Các dạng từ loại khác của \"have a lesson\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"have a cup of tea\"",
+              "value": "Cụm từ liên quan đến have a cup of tea"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"have a shower\"",
+              "value": "Cụm từ liên quan đến have a shower"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"have a look\"",
+              "value": "Cụm từ liên quan đến have a look"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Meals & Drinks",
@@ -1940,155 +2830,541 @@ export const courseData = [
         "text": "I'm going to have my hair cut this afternoon.",
         "trans": "Tôi dự định sẽ đi cắt tóc vào chiều nay."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "3.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_3_1_0",
+            "text": "I usually [blank] at 1 o'clock.",
+            "answers": [
+              "have lunch"
+            ],
+            "hint": "Ăn trưa (Tương tự: have dinner / breakfast / a meal / something to eat).",
+            "explanation": "Từ cần điền là \"have lunch\", mang nghĩa là \"Ăn trưa (Tương tự: have dinner / breakfast / a meal / something to eat).\"."
+          },
+          {
+            "id": "ex_3_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "have a party"
+            ],
+            "hint": "Tổ chức tiệc (Tương tự: have a meeting / a competition / a game of football).",
+            "explanation": "Từ cần điền là \"have a party\", mang nghĩa là \"Tổ chức tiệc (Tương tự: have a meeting / a competition / a game of football).\"."
+          },
+          {
+            "id": "ex_3_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "have a lesson"
+            ],
+            "hint": "Có tiết học (Tương tự: have an exam / homework / an appointment).",
+            "explanation": "Từ cần điền là \"have a lesson\", mang nghĩa là \"Có tiết học (Tương tự: have an exam / homework / an appointment).\"."
+          },
+          {
+            "id": "ex_3_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "have a cup of tea"
+            ],
+            "hint": "Uống một tách trà (Tương tự: have coffee / a drink / a sandwich / an ice-cream).",
+            "explanation": "Từ cần điền là \"have a cup of tea\", mang nghĩa là \"Uống một tách trà (Tương tự: have coffee / a drink / a sandwich / an ice-cream).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "3.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_3_2_0",
+            "text": "have a shower",
+            "options": [
+              "Tắm vòi sen (Tương tự: have a bath / a swim / a sauna).",
+              "Nhìn qua, xem thử (= look at it).",
+              "Thử làm, đi thử (= ride it / try it).",
+              "Chúc chuyến đi vui vẻ, thượng lộ bình an."
+            ],
+            "answer": "Tắm vòi sen (Tương tự: have a bath / a swim / a sauna).",
+            "explanation": "Từ \"have a shower\" có nghĩa chính xác là \"Tắm vòi sen (Tương tự: have a bath / a swim / a sauna).\"."
+          },
+          {
+            "id": "ex_3_2_1",
+            "text": "have a look",
+            "options": [
+              "Thử làm, đi thử (= ride it / try it).",
+              "Chúc chuyến đi vui vẻ, thượng lộ bình an.",
+              "Nhìn qua, xem thử (= look at it).",
+              "Tắm vòi sen (Tương tự: have a bath / a swim / a sauna)."
+            ],
+            "answer": "Nhìn qua, xem thử (= look at it).",
+            "explanation": "Từ \"have a look\" có nghĩa chính xác là \"Nhìn qua, xem thử (= look at it).\"."
+          },
+          {
+            "id": "ex_3_2_2",
+            "text": "have a go",
+            "options": [
+              "Tắm vòi sen (Tương tự: have a bath / a swim / a sauna).",
+              "Nhìn qua, xem thử (= look at it).",
+              "Thử làm, đi thử (= ride it / try it).",
+              "Chúc chuyến đi vui vẻ, thượng lộ bình an."
+            ],
+            "answer": "Thử làm, đi thử (= ride it / try it).",
+            "explanation": "Từ \"have a go\" có nghĩa chính xác là \"Thử làm, đi thử (= ride it / try it).\"."
+          },
+          {
+            "id": "ex_3_2_3",
+            "text": "have a good journey",
+            "options": [
+              "Tắm vòi sen (Tương tự: have a bath / a swim / a sauna).",
+              "Nhìn qua, xem thử (= look at it).",
+              "Chúc chuyến đi vui vẻ, thượng lộ bình an.",
+              "Thử làm, đi thử (= ride it / try it)."
+            ],
+            "answer": "Chúc chuyến đi vui vẻ, thượng lộ bình an.",
+            "explanation": "Từ \"have a good journey\" có nghĩa chính xác là \"Chúc chuyến đi vui vẻ, thượng lộ bình an.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "3.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_3_3_0",
+            "word": "have lunch",
+            "category": "Topic A",
+            "explanation": "Từ \"have lunch\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_3_3_1",
+            "word": "have a party",
+            "category": "Topic B",
+            "explanation": "Từ \"have a party\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_3_3_2",
+            "word": "have a lesson",
+            "category": "Topic A",
+            "explanation": "Từ \"have a lesson\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_3_3_3",
+            "word": "have a cup of tea",
+            "category": "Topic B",
+            "explanation": "Từ \"have a cup of tea\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_3_3_4",
+            "word": "have a shower",
+            "category": "Topic A",
+            "explanation": "Từ \"have a shower\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_3_3_5",
+            "word": "have a look",
+            "category": "Topic B",
+            "explanation": "Từ \"have a look\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "3.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_3_4_0",
+            "original": "I really like have a lessons.",
+            "correct": "I have an appointment with the dentist at 3 o'clock.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"have a lesson\" thay vì \"have a lessons\"."
+          },
+          {
+            "id": "ex_3_4_1",
+            "original": "I really like have a cup of teas.",
+            "correct": "Let's have a cup of coffee.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"have a cup of tea\" thay vì \"have a cup of teas\"."
+          }
+        ]
+      },
+      {
+        "exNum": "3.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_3_5_0",
+            "text": "I always [blank] in the morning.",
+            "answers": [
+              "have a shower"
+            ],
+            "hint": "Tắm vòi sen (Tương tự: have a bath / a swim / a sauna).",
+            "explanation": "Từ cần điền là \"have a shower\"."
+          },
+          {
+            "id": "ex_3_5_1",
+            "text": "Is that your new camera? Can I [blank]?",
+            "answers": [
+              "have a look"
+            ],
+            "hint": "Nhìn qua, xem thử (= look at it).",
+            "explanation": "Từ cần điền là \"have a look\"."
+          },
+          {
+            "id": "ex_3_5_2",
+            "text": "Is that your bicycle? Can I [blank]?",
+            "answers": [
+              "have a go"
+            ],
+            "hint": "Thử làm, đi thử (= ride it / try it).",
+            "explanation": "Từ cần điền là \"have a go\"."
+          },
+          {
+            "id": "ex_3_5_3",
+            "text": "Goodbye! [blank]!",
+            "answers": [
+              "have a good journey"
+            ],
+            "hint": "Chúc chuyến đi vui vẻ, thượng lộ bình an.",
+            "explanation": "Từ cần điền là \"have a good journey\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 4,
     "title": "Unit 4: Go / went / gone",
     "description": "Học cách diễn đạt sự di chuyển (go to/by), các giới từ đi kèm với 'go', các hoạt động giải trí (go + -ing), và cách nói về kế hoạch tương lai (be going to).",
-    "theory": [
-      {
-        "heading": "A. Go (Ý nghĩa và cách dùng cơ bản)",
-        "items": [
-          {
-            "word": "go",
-            "type": "Động từ",
-            "phonetic": "/ɡoʊ/",
-            "vi": "Di chuyển từ nơi này sang nơi khác.",
-            "example": "Where does this road go? (Con đường này dẫn đi đâu?)"
-          },
-          {
-            "word": "go by",
-            "type": "Cụm từ",
-            "phonetic": "/ɡoʊ baɪ/",
-            "vi": "Đi bằng phương tiện gì (car, bike, train...).",
-            "example": "I go to work by bike. My brother goes by car."
-          },
-          {
-            "word": "go on foot",
-            "type": "Cụm từ",
-            "phonetic": "/ɡoʊ ɑːn fʊt/",
-            "vi": "Đi bộ.",
-            "example": "You can go to a place on foot or in some kind of transport."
-          },
-          {
-            "word": "walk",
-            "type": "Động từ",
-            "phonetic": "/wɑːk/",
-            "vi": "Đi bộ (Thay vì nói 'go on foot', ta có thể dùng 'walk').",
-            "example": "We're walking to work this morning."
-          },
-          {
-            "word": "went",
-            "type": "Quá khứ",
-            "phonetic": "/went/",
-            "vi": "Đã đi (Quá khứ của 'go').",
-            "example": "We went to Paris last summer."
-          }
-        ]
-      },
-      {
-        "heading": "B. Go + prepositions (Go đi kèm giới từ)",
-        "items": [
-          {
-            "word": "go in(to)",
-            "type": "Cụm động từ",
-            "phonetic": "/ɡoʊ ˈɪn.tuː/",
-            "vi": "Đi vào trong.",
-            "example": "Kim went into his room and shut the door."
-          },
-          {
-            "word": "go up",
-            "type": "Cụm động từ",
-            "phonetic": "/ɡoʊ ʌp/",
-            "vi": "Đi lên.",
-            "example": "Rani was tired. He went up the stairs slowly."
-          },
-          {
-            "word": "go down",
-            "type": "Cụm động từ",
-            "phonetic": "/ɡoʊ daʊn/",
-            "vi": "Đi xuống.",
-            "example": "The phone was ringing. She went down the stairs quickly."
-          },
-          {
-            "word": "go out of",
-            "type": "Cụm động từ",
-            "phonetic": "/ɡoʊ aʊt əv/",
-            "vi": "Đi ra khỏi.",
-            "example": "Yuko went out of the house and into the garden."
-          },
-          {
-            "word": "go away",
-            "type": "Cụm động từ",
-            "phonetic": "/ɡoʊ əˈweɪ/",
-            "vi": "Đi đi, rời đi nơi khác.",
-            "example": "Please go away. I'm tired."
-          },
-          {
-            "word": "go back",
-            "type": "Cụm động từ",
-            "phonetic": "/ɡoʊ bæk/",
-            "vi": "Quay trở lại, trở về.",
-            "example": "I'm going back home this evening."
-          }
-        ]
-      },
-      {
-        "heading": "C & D. Go + -ing & Future plans (Hoạt động và Kế hoạch)",
-        "items": [
-          {
-            "word": "go shopping",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ ˈʃɑː.pɪŋ/",
-            "vi": "Đi mua sắm.",
-            "example": "I hate going shopping."
-          },
-          {
-            "word": "go swimming",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ ˈswɪm.ɪŋ/",
-            "vi": "Đi bơi.",
-            "example": "I usually go swimming in the morning."
-          },
-          {
-            "word": "go dancing",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ ˈdæn.sɪŋ/",
-            "vi": "Đi khiêu vũ / đi nhảy.",
-            "example": "Let's go dancing."
-          },
-          {
-            "word": "go sightseeing",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ ˈsaɪtˌsiː.ɪŋ/",
-            "vi": "Đi ngắm cảnh.",
-            "example": "Do you like going sightseeing when you are on holiday?"
-          },
-          {
-            "word": "go skiing",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ ˈskiː.ɪŋ/",
-            "vi": "Đi trượt tuyết.",
-            "example": "Hans goes skiing every winter."
-          },
-          {
-            "word": "go fishing",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ ˈfɪʃ.ɪŋ/",
-            "vi": "Đi câu cá.",
-            "example": "Bob is going fishing today."
-          },
-          {
-            "word": "be going to",
-            "type": "Ngữ pháp",
-            "phonetic": "/biː ˈɡoʊ.ɪŋ tuː/",
-            "vi": "Dự định làm gì (Dùng cho kế hoạch trong tương lai).",
-            "example": "On Saturday Jan is going to visit his aunt."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "go",
+          "type": "Động từ",
+          "phonetic": "/ɡoʊ/",
+          "vi": "Di chuyển từ nơi này sang nơi khác.",
+          "example": "Where does this road go? (Con đường này dẫn đi đâu?)",
+          "bucket": 1,
+          "collocations": [
+            "go something",
+            "always go"
+          ],
+          "wordFamily": "Biến thể của go"
+        },
+        {
+          "word": "go by",
+          "type": "Cụm từ",
+          "phonetic": "/ɡoʊ baɪ/",
+          "vi": "Đi bằng phương tiện gì (car, bike, train...).",
+          "example": "I go to work by bike. My brother goes by car.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go by"
+        },
+        {
+          "word": "go on foot",
+          "type": "Cụm từ",
+          "phonetic": "/ɡoʊ ɑːn fʊt/",
+          "vi": "Đi bộ.",
+          "example": "You can go to a place on foot or in some kind of transport.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go on foot"
+        },
+        {
+          "word": "walk",
+          "type": "Động từ",
+          "phonetic": "/wɑːk/",
+          "vi": "Đi bộ (Thay vì nói 'go on foot', ta có thể dùng 'walk').",
+          "example": "We're walking to work this morning.",
+          "bucket": 2,
+          "collocations": [
+            "walk something",
+            "always walk"
+          ],
+          "wordFamily": "Biến thể của walk"
+        },
+        {
+          "word": "went",
+          "type": "Quá khứ",
+          "phonetic": "/went/",
+          "vi": "Đã đi (Quá khứ của 'go').",
+          "example": "We went to Paris last summer.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của went"
+        },
+        {
+          "word": "go in(to)",
+          "type": "Cụm động từ",
+          "phonetic": "/ɡoʊ ˈɪn.tuː/",
+          "vi": "Đi vào trong.",
+          "example": "Kim went into his room and shut the door.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go in(to)"
+        },
+        {
+          "word": "go up",
+          "type": "Cụm động từ",
+          "phonetic": "/ɡoʊ ʌp/",
+          "vi": "Đi lên.",
+          "example": "Rani was tired. He went up the stairs slowly.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go up"
+        },
+        {
+          "word": "go down",
+          "type": "Cụm động từ",
+          "phonetic": "/ɡoʊ daʊn/",
+          "vi": "Đi xuống.",
+          "example": "The phone was ringing. She went down the stairs quickly.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go down"
+        },
+        {
+          "word": "go out of",
+          "type": "Cụm động từ",
+          "phonetic": "/ɡoʊ aʊt əv/",
+          "vi": "Đi ra khỏi.",
+          "example": "Yuko went out of the house and into the garden.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go out of"
+        },
+        {
+          "word": "go away",
+          "type": "Cụm động từ",
+          "phonetic": "/ɡoʊ əˈweɪ/",
+          "vi": "Đi đi, rời đi nơi khác.",
+          "example": "Please go away. I'm tired.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go away"
+        },
+        {
+          "word": "go back",
+          "type": "Cụm động từ",
+          "phonetic": "/ɡoʊ bæk/",
+          "vi": "Quay trở lại, trở về.",
+          "example": "I'm going back home this evening.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go back"
+        },
+        {
+          "word": "go shopping",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ ˈʃɑː.pɪŋ/",
+          "vi": "Đi mua sắm.",
+          "example": "I hate going shopping.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go shopping"
+        },
+        {
+          "word": "go swimming",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ ˈswɪm.ɪŋ/",
+          "vi": "Đi bơi.",
+          "example": "I usually go swimming in the morning.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go swimming"
+        },
+        {
+          "word": "go dancing",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ ˈdæn.sɪŋ/",
+          "vi": "Đi khiêu vũ / đi nhảy.",
+          "example": "Let's go dancing.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go dancing"
+        },
+        {
+          "word": "go sightseeing",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ ˈsaɪtˌsiː.ɪŋ/",
+          "vi": "Đi ngắm cảnh.",
+          "example": "Do you like going sightseeing when you are on holiday?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go sightseeing"
+        },
+        {
+          "word": "go skiing",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ ˈskiː.ɪŋ/",
+          "vi": "Đi trượt tuyết.",
+          "example": "Hans goes skiing every winter.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go skiing"
+        },
+        {
+          "word": "go fishing",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ ˈfɪʃ.ɪŋ/",
+          "vi": "Đi câu cá.",
+          "example": "Bob is going fishing today.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go fishing"
+        },
+        {
+          "word": "be going to",
+          "type": "Ngữ pháp",
+          "phonetic": "/biː ˈɡoʊ.ɪŋ tuː/",
+          "vi": "Dự định làm gì (Dùng cho kế hoạch trong tương lai).",
+          "example": "On Saturday Jan is going to visit his aunt.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của be going to"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Go (Ý nghĩa và cách dùng cơ bản)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "go",
+              "value": "👉 Where does this road go? (Con đường này dẫn đi đâu?)"
+            },
+            {
+              "title": "go by",
+              "value": "👉 I go to work by bike. My brother goes by car."
+            },
+            {
+              "title": "go on foot",
+              "value": "👉 You can go to a place on foot or in some kind of transport."
+            },
+            {
+              "title": "walk",
+              "value": "👉 We're walking to work this morning."
+            },
+            {
+              "title": "went",
+              "value": "👉 We went to Paris last summer."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Go + prepositions (Go đi kèm giới từ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "go in(to)",
+              "value": "👉 Kim went into his room and shut the door."
+            },
+            {
+              "title": "go up",
+              "value": "👉 Rani was tired. He went up the stairs slowly."
+            },
+            {
+              "title": "go down",
+              "value": "👉 The phone was ringing. She went down the stairs quickly."
+            },
+            {
+              "title": "go out of",
+              "value": "👉 Yuko went out of the house and into the garden."
+            },
+            {
+              "title": "go away",
+              "value": "👉 Please go away. I'm tired."
+            },
+            {
+              "title": "go back",
+              "value": "👉 I'm going back home this evening."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C & D. Go + -ing & Future plans (Hoạt động và Kế hoạch)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "go shopping",
+              "value": "👉 I hate going shopping."
+            },
+            {
+              "title": "go swimming",
+              "value": "👉 I usually go swimming in the morning."
+            },
+            {
+              "title": "go dancing",
+              "value": "👉 Let's go dancing."
+            },
+            {
+              "title": "go sightseeing",
+              "value": "👉 Do you like going sightseeing when you are on holiday?"
+            },
+            {
+              "title": "go skiing",
+              "value": "👉 Hans goes skiing every winter."
+            },
+            {
+              "title": "go fishing",
+              "value": "👉 Bob is going fishing today."
+            },
+            {
+              "title": "be going to",
+              "value": "👉 On Saturday Jan is going to visit his aunt."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"go\"",
+              "value": "goer (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"go by\"",
+              "value": "Các dạng từ loại khác của \"go by\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"go on foot\"",
+              "value": "Các dạng từ loại khác của \"go on foot\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"walk\"",
+              "value": "Ví dụ: walk quickly, always walk"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"went\"",
+              "value": "Cụm từ liên quan đến went"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"go in(to)\"",
+              "value": "Cụm từ liên quan đến go in(to)"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Places (Go to...)",
@@ -2605,141 +3881,507 @@ export const courseData = [
         "text": "On Saturday Jan is going to visit his aunt.",
         "trans": "Vào thứ Bảy, Jan dự định sẽ đi thăm dì của anh ấy."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "4.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_4_1_0",
+            "text": "Where does this road [blank]? (Con đường này dẫn đi đâu?)",
+            "answers": [
+              "go"
+            ],
+            "hint": "Di chuyển từ nơi này sang nơi khác.",
+            "explanation": "Từ cần điền là \"go\", mang nghĩa là \"Di chuyển từ nơi này sang nơi khác.\"."
+          },
+          {
+            "id": "ex_4_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "go by"
+            ],
+            "hint": "Đi bằng phương tiện gì (car, bike, train...).",
+            "explanation": "Từ cần điền là \"go by\", mang nghĩa là \"Đi bằng phương tiện gì (car, bike, train...).\"."
+          },
+          {
+            "id": "ex_4_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "go on foot"
+            ],
+            "hint": "Đi bộ.",
+            "explanation": "Từ cần điền là \"go on foot\", mang nghĩa là \"Đi bộ.\"."
+          },
+          {
+            "id": "ex_4_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "walk"
+            ],
+            "hint": "Đi bộ (Thay vì nói 'go on foot', ta có thể dùng 'walk').",
+            "explanation": "Từ cần điền là \"walk\", mang nghĩa là \"Đi bộ (Thay vì nói 'go on foot', ta có thể dùng 'walk').\"."
+          }
+        ]
+      },
+      {
+        "exNum": "4.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_4_2_0",
+            "text": "went",
+            "options": [
+              "Đi xuống.",
+              "Đi lên.",
+              "Đi vào trong.",
+              "Đã đi (Quá khứ của 'go')."
+            ],
+            "answer": "Đã đi (Quá khứ của 'go').",
+            "explanation": "Từ \"went\" có nghĩa chính xác là \"Đã đi (Quá khứ của 'go').\"."
+          },
+          {
+            "id": "ex_4_2_1",
+            "text": "go in(to)",
+            "options": [
+              "Đi lên.",
+              "Đi vào trong.",
+              "Đi xuống.",
+              "Đã đi (Quá khứ của 'go')."
+            ],
+            "answer": "Đi vào trong.",
+            "explanation": "Từ \"go in(to)\" có nghĩa chính xác là \"Đi vào trong.\"."
+          },
+          {
+            "id": "ex_4_2_2",
+            "text": "go up",
+            "options": [
+              "Đã đi (Quá khứ của 'go').",
+              "Đi vào trong.",
+              "Đi lên.",
+              "Đi xuống."
+            ],
+            "answer": "Đi lên.",
+            "explanation": "Từ \"go up\" có nghĩa chính xác là \"Đi lên.\"."
+          },
+          {
+            "id": "ex_4_2_3",
+            "text": "go down",
+            "options": [
+              "Đã đi (Quá khứ của 'go').",
+              "Đi vào trong.",
+              "Đi lên.",
+              "Đi xuống."
+            ],
+            "answer": "Đi xuống.",
+            "explanation": "Từ \"go down\" có nghĩa chính xác là \"Đi xuống.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "4.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_4_3_0",
+            "word": "go",
+            "category": "Topic A",
+            "explanation": "Từ \"go\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_4_3_1",
+            "word": "go by",
+            "category": "Topic B",
+            "explanation": "Từ \"go by\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_4_3_2",
+            "word": "go on foot",
+            "category": "Topic A",
+            "explanation": "Từ \"go on foot\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_4_3_3",
+            "word": "walk",
+            "category": "Topic B",
+            "explanation": "Từ \"walk\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_4_3_4",
+            "word": "went",
+            "category": "Topic A",
+            "explanation": "Từ \"went\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_4_3_5",
+            "word": "go in(to)",
+            "category": "Topic B",
+            "explanation": "Từ \"go in(to)\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "4.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_4_4_0",
+            "original": "I really like go on foots.",
+            "correct": "You can go to a place on foot or in some kind of transport.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"go on foot\" thay vì \"go on foots\"."
+          },
+          {
+            "id": "ex_4_4_1",
+            "original": "I really like walks.",
+            "correct": "We're walking to work this morning.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"walk\" thay vì \"walks\"."
+          }
+        ]
+      },
+      {
+        "exNum": "4.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_4_5_0",
+            "text": "We [blank] to Paris last summer.",
+            "answers": [
+              "went"
+            ],
+            "hint": "Đã đi (Quá khứ của 'go').",
+            "explanation": "Từ cần điền là \"went\"."
+          },
+          {
+            "id": "ex_4_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "go in(to)"
+            ],
+            "hint": "Đi vào trong.",
+            "explanation": "Từ cần điền là \"go in(to)\"."
+          },
+          {
+            "id": "ex_4_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "go up"
+            ],
+            "hint": "Đi lên.",
+            "explanation": "Từ cần điền là \"go up\"."
+          },
+          {
+            "id": "ex_4_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "go down"
+            ],
+            "hint": "Đi xuống.",
+            "explanation": "Từ cần điền là \"go down\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 5,
     "title": "Unit 5: Do / did / done",
     "description": "Nắm vững cách sử dụng 'do' như một trợ động từ, dùng 'do' để hỏi nghề nghiệp và học thuộc các công việc luôn đi kèm với động từ 'do' (Do + task).",
-    "theory": [
-      {
-        "heading": "A. Do as auxiliary (Do làm trợ động từ)",
-        "items": [
-          {
-            "word": "do / does",
-            "type": "Hiện tại",
-            "phonetic": "/duː/ /dʌz/",
-            "vi": "Trợ động từ dùng cho câu hỏi ở hiện tại.",
-            "example": "Do you like tennis? Yes, I do. / So does Sinjit."
-          },
-          {
-            "word": "did",
-            "type": "Quá khứ",
-            "phonetic": "/dɪd/",
-            "vi": "Trợ động từ dùng cho câu hỏi ở quá khứ.",
-            "example": "Did they like the film? Yes, they did. / So did I."
-          },
-          {
-            "word": "don't / doesn't",
-            "type": "Phủ định HT",
-            "phonetic": "/doʊnt/ /ˈdʌz.ənt/",
-            "vi": "Dùng trong câu phủ định ở hiện tại.",
-            "example": "He doesn't play well. / Don't do that, Tommy."
-          },
-          {
-            "word": "didn't",
-            "type": "Phủ định QK",
-            "phonetic": "/ˈdɪd.ənt/",
-            "vi": "Dùng trong câu phủ định ở quá khứ.",
-            "example": "Jo didn't see it."
-          }
-        ]
-      },
-      {
-        "heading": "B & C. Do as a general verb & Asking for jobs (Hành động chung & Hỏi nghề nghiệp)",
-        "items": [
-          {
-            "word": "What are you doing?",
-            "type": "Câu hỏi",
-            "phonetic": "/wɑːt ɑːr juː ˈduː.ɪŋ/",
-            "vi": "Bạn đang làm gì vậy?",
-            "example": "What are the people in the picture doing? They're dancing."
-          },
-          {
-            "word": "What do you do to relax?",
-            "type": "Câu hỏi",
-            "phonetic": "/wɑːt duː juː duː tuː rɪˈlæks/",
-            "vi": "Bạn làm gì để thư giãn?",
-            "example": "I listen to music."
-          },
-          {
-            "word": "What do you do?",
-            "type": "Hỏi nghề",
-            "phonetic": "/wɑːt duː juː duː/",
-            "vi": "Bạn làm nghề gì? (= What is your job?)",
-            "example": "I'm a student. / I'm an engineer."
-          },
-          {
-            "word": "What does your wife do?",
-            "type": "Hỏi nghề",
-            "phonetic": "/wɑːt dʌz jɔːr waɪf duː/",
-            "vi": "Vợ bạn làm nghề gì? (= What's your wife's job?)",
-            "example": "She's a doctor. / She's a secretary. / She's a mechanic."
-          }
-        ]
-      },
-      {
-        "heading": "D. Do + task (Do kết hợp với các công việc)",
-        "items": [
-          {
-            "word": "do the housework",
-            "type": "Cụm từ",
-            "phonetic": "/duː ðə ˈhaʊs.wɝːk/",
-            "vi": "Làm việc nhà.",
-            "example": "I do a lot of housework every day."
-          },
-          {
-            "word": "do the gardening",
-            "type": "Cụm từ",
-            "phonetic": "/duː ðə ˈɡɑːr.dən.ɪŋ/",
-            "vi": "Làm vườn.",
-            "example": "I never do the gardening."
-          },
-          {
-            "word": "do the washing",
-            "type": "Cụm từ",
-            "phonetic": "/duː ðə ˈwɑː.ʃɪŋ/",
-            "vi": "Giặt giũ quần áo.",
-            "example": "Did you do the washing this morning? No, I'll do it later."
-          },
-          {
-            "word": "do the washing-up",
-            "type": "Cụm từ",
-            "phonetic": "/duː ðə ˌwɑː.ʃɪŋˈʌp/",
-            "vi": "Rửa chén bát.",
-            "example": "I usually do the washing-up after dinner."
-          },
-          {
-            "word": "do your homework",
-            "type": "Cụm từ",
-            "phonetic": "/duː jɔːr ˈhoʊm.wɝːk/",
-            "vi": "Làm bài tập về nhà.",
-            "example": "You must do your homework."
-          },
-          {
-            "word": "do some exercises",
-            "type": "Cụm từ",
-            "phonetic": "/duː sʌm ˈek.sɚ.saɪ.zɪz/",
-            "vi": "Làm bài tập / Tập thể dục.",
-            "example": "I have to do some exercises."
-          },
-          {
-            "word": "do business with",
-            "type": "Cụm từ",
-            "phonetic": "/duː ˈbɪz.nɪs wɪð/",
-            "vi": "Làm ăn, kinh doanh với ai.",
-            "example": "Our company does a lot of business with the USA."
-          },
-          {
-            "word": "do your best",
-            "type": "Cụm từ",
-            "phonetic": "/duː jɔːr best/",
-            "vi": "Cố gắng hết sức.",
-            "example": "The exam is very difficult - just do your best."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "do / does",
+          "type": "Hiện tại",
+          "phonetic": "/duː/ /dʌz/",
+          "vi": "Trợ động từ dùng cho câu hỏi ở hiện tại.",
+          "example": "Do you like tennis? Yes, I do. / So does Sinjit.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của do / does"
+        },
+        {
+          "word": "did",
+          "type": "Quá khứ",
+          "phonetic": "/dɪd/",
+          "vi": "Trợ động từ dùng cho câu hỏi ở quá khứ.",
+          "example": "Did they like the film? Yes, they did. / So did I.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của did"
+        },
+        {
+          "word": "don't / doesn't",
+          "type": "Phủ định HT",
+          "phonetic": "/doʊnt/ /ˈdʌz.ənt/",
+          "vi": "Dùng trong câu phủ định ở hiện tại.",
+          "example": "He doesn't play well. / Don't do that, Tommy.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của don't / doesn't"
+        },
+        {
+          "word": "didn't",
+          "type": "Phủ định QK",
+          "phonetic": "/ˈdɪd.ənt/",
+          "vi": "Dùng trong câu phủ định ở quá khứ.",
+          "example": "Jo didn't see it.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của didn't"
+        },
+        {
+          "word": "What are you doing?",
+          "type": "Câu hỏi",
+          "phonetic": "/wɑːt ɑːr juː ˈduː.ɪŋ/",
+          "vi": "Bạn đang làm gì vậy?",
+          "example": "What are the people in the picture doing? They're dancing.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của What are you doing?"
+        },
+        {
+          "word": "What do you do to relax?",
+          "type": "Câu hỏi",
+          "phonetic": "/wɑːt duː juː duː tuː rɪˈlæks/",
+          "vi": "Bạn làm gì để thư giãn?",
+          "example": "I listen to music.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của What do you do to relax?"
+        },
+        {
+          "word": "What do you do?",
+          "type": "Hỏi nghề",
+          "phonetic": "/wɑːt duː juː duː/",
+          "vi": "Bạn làm nghề gì? (= What is your job?)",
+          "example": "I'm a student. / I'm an engineer.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của What do you do?"
+        },
+        {
+          "word": "What does your wife do?",
+          "type": "Hỏi nghề",
+          "phonetic": "/wɑːt dʌz jɔːr waɪf duː/",
+          "vi": "Vợ bạn làm nghề gì? (= What's your wife's job?)",
+          "example": "She's a doctor. / She's a secretary. / She's a mechanic.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của What does your wife do?"
+        },
+        {
+          "word": "do the housework",
+          "type": "Cụm từ",
+          "phonetic": "/duː ðə ˈhaʊs.wɝːk/",
+          "vi": "Làm việc nhà.",
+          "example": "I do a lot of housework every day.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của do the housework"
+        },
+        {
+          "word": "do the gardening",
+          "type": "Cụm từ",
+          "phonetic": "/duː ðə ˈɡɑːr.dən.ɪŋ/",
+          "vi": "Làm vườn.",
+          "example": "I never do the gardening.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của do the gardening"
+        },
+        {
+          "word": "do the washing",
+          "type": "Cụm từ",
+          "phonetic": "/duː ðə ˈwɑː.ʃɪŋ/",
+          "vi": "Giặt giũ quần áo.",
+          "example": "Did you do the washing this morning? No, I'll do it later.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của do the washing"
+        },
+        {
+          "word": "do the washing-up",
+          "type": "Cụm từ",
+          "phonetic": "/duː ðə ˌwɑː.ʃɪŋˈʌp/",
+          "vi": "Rửa chén bát.",
+          "example": "I usually do the washing-up after dinner.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của do the washing-up"
+        },
+        {
+          "word": "do your homework",
+          "type": "Cụm từ",
+          "phonetic": "/duː jɔːr ˈhoʊm.wɝːk/",
+          "vi": "Làm bài tập về nhà.",
+          "example": "You must do your homework.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của do your homework"
+        },
+        {
+          "word": "do some exercises",
+          "type": "Cụm từ",
+          "phonetic": "/duː sʌm ˈek.sɚ.saɪ.zɪz/",
+          "vi": "Làm bài tập / Tập thể dục.",
+          "example": "I have to do some exercises.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của do some exercises"
+        },
+        {
+          "word": "do business with",
+          "type": "Cụm từ",
+          "phonetic": "/duː ˈbɪz.nɪs wɪð/",
+          "vi": "Làm ăn, kinh doanh với ai.",
+          "example": "Our company does a lot of business with the USA.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của do business with"
+        },
+        {
+          "word": "do your best",
+          "type": "Cụm từ",
+          "phonetic": "/duː jɔːr best/",
+          "vi": "Cố gắng hết sức.",
+          "example": "The exam is very difficult - just do your best.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của do your best"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Do as auxiliary (Do làm trợ động từ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "do / does",
+              "value": "👉 Do you like tennis? Yes, I do. / So does Sinjit."
+            },
+            {
+              "title": "did",
+              "value": "👉 Did they like the film? Yes, they did. / So did I."
+            },
+            {
+              "title": "don't / doesn't",
+              "value": "👉 He doesn't play well. / Don't do that, Tommy."
+            },
+            {
+              "title": "didn't",
+              "value": "👉 Jo didn't see it."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B & C. Do as a general verb & Asking for jobs (Hành động chung & Hỏi nghề nghiệp)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "What are you doing?",
+              "value": "👉 What are the people in the picture doing? They're dancing."
+            },
+            {
+              "title": "What do you do to relax?",
+              "value": "👉 I listen to music."
+            },
+            {
+              "title": "What do you do?",
+              "value": "👉 I'm a student. / I'm an engineer."
+            },
+            {
+              "title": "What does your wife do?",
+              "value": "👉 She's a doctor. / She's a secretary. / She's a mechanic."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Do + task (Do kết hợp với các công việc)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "do the housework",
+              "value": "👉 I do a lot of housework every day."
+            },
+            {
+              "title": "do the gardening",
+              "value": "👉 I never do the gardening."
+            },
+            {
+              "title": "do the washing",
+              "value": "👉 Did you do the washing this morning? No, I'll do it later."
+            },
+            {
+              "title": "do the washing-up",
+              "value": "👉 I usually do the washing-up after dinner."
+            },
+            {
+              "title": "do your homework",
+              "value": "👉 You must do your homework."
+            },
+            {
+              "title": "do some exercises",
+              "value": "👉 I have to do some exercises."
+            },
+            {
+              "title": "do business with",
+              "value": "👉 Our company does a lot of business with the USA."
+            },
+            {
+              "title": "do your best",
+              "value": "👉 The exam is very difficult - just do your best."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"do / does\"",
+              "value": "Các dạng từ loại khác của \"do / does\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"did\"",
+              "value": "Các dạng từ loại khác của \"did\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"don't / doesn't\"",
+              "value": "Các dạng từ loại khác của \"don't / doesn't\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"didn't\"",
+              "value": "Cụm từ liên quan đến didn't"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"What are you doing?\"",
+              "value": "Cụm từ liên quan đến What are you doing?"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"What do you do to relax?\"",
+              "value": "Cụm từ liên quan đến What do you do to relax?"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Auxiliary Verbs",
@@ -3256,188 +4898,597 @@ export const courseData = [
         "text": "Did you do the washing this morning? No, I'm going to do it later.",
         "trans": "Sáng nay bạn đã giặt quần áo chưa? Chưa, tôi sẽ làm nó sau."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "5.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_5_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "do / does"
+            ],
+            "hint": "Trợ động từ dùng cho câu hỏi ở hiện tại.",
+            "explanation": "Từ cần điền là \"do / does\", mang nghĩa là \"Trợ động từ dùng cho câu hỏi ở hiện tại.\"."
+          },
+          {
+            "id": "ex_5_1_1",
+            "text": "[blank] they like the film? Yes, they [blank]. / So [blank] I.",
+            "answers": [
+              "did"
+            ],
+            "hint": "Trợ động từ dùng cho câu hỏi ở quá khứ.",
+            "explanation": "Từ cần điền là \"did\", mang nghĩa là \"Trợ động từ dùng cho câu hỏi ở quá khứ.\"."
+          },
+          {
+            "id": "ex_5_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "don't / doesn't"
+            ],
+            "hint": "Dùng trong câu phủ định ở hiện tại.",
+            "explanation": "Từ cần điền là \"don't / doesn't\", mang nghĩa là \"Dùng trong câu phủ định ở hiện tại.\"."
+          },
+          {
+            "id": "ex_5_1_3",
+            "text": "Jo [blank] see it.",
+            "answers": [
+              "didn't"
+            ],
+            "hint": "Dùng trong câu phủ định ở quá khứ.",
+            "explanation": "Từ cần điền là \"didn't\", mang nghĩa là \"Dùng trong câu phủ định ở quá khứ.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "5.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_5_2_0",
+            "text": "What are you doing?",
+            "options": [
+              "Bạn làm nghề gì? (= What is your job?)",
+              "Bạn làm gì để thư giãn?",
+              "Vợ bạn làm nghề gì? (= What's your wife's job?)",
+              "Bạn đang làm gì vậy?"
+            ],
+            "answer": "Bạn đang làm gì vậy?",
+            "explanation": "Từ \"What are you doing?\" có nghĩa chính xác là \"Bạn đang làm gì vậy?\"."
+          },
+          {
+            "id": "ex_5_2_1",
+            "text": "What do you do to relax?",
+            "options": [
+              "Bạn đang làm gì vậy?",
+              "Bạn làm gì để thư giãn?",
+              "Bạn làm nghề gì? (= What is your job?)",
+              "Vợ bạn làm nghề gì? (= What's your wife's job?)"
+            ],
+            "answer": "Bạn làm gì để thư giãn?",
+            "explanation": "Từ \"What do you do to relax?\" có nghĩa chính xác là \"Bạn làm gì để thư giãn?\"."
+          },
+          {
+            "id": "ex_5_2_2",
+            "text": "What do you do?",
+            "options": [
+              "Bạn làm gì để thư giãn?",
+              "Vợ bạn làm nghề gì? (= What's your wife's job?)",
+              "Bạn đang làm gì vậy?",
+              "Bạn làm nghề gì? (= What is your job?)"
+            ],
+            "answer": "Bạn làm nghề gì? (= What is your job?)",
+            "explanation": "Từ \"What do you do?\" có nghĩa chính xác là \"Bạn làm nghề gì? (= What is your job?)\"."
+          },
+          {
+            "id": "ex_5_2_3",
+            "text": "What does your wife do?",
+            "options": [
+              "Bạn đang làm gì vậy?",
+              "Bạn làm nghề gì? (= What is your job?)",
+              "Bạn làm gì để thư giãn?",
+              "Vợ bạn làm nghề gì? (= What's your wife's job?)"
+            ],
+            "answer": "Vợ bạn làm nghề gì? (= What's your wife's job?)",
+            "explanation": "Từ \"What does your wife do?\" có nghĩa chính xác là \"Vợ bạn làm nghề gì? (= What's your wife's job?)\"."
+          }
+        ]
+      },
+      {
+        "exNum": "5.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_5_3_0",
+            "word": "do / does",
+            "category": "Topic A",
+            "explanation": "Từ \"do / does\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_5_3_1",
+            "word": "did",
+            "category": "Topic B",
+            "explanation": "Từ \"did\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_5_3_2",
+            "word": "don't / doesn't",
+            "category": "Topic A",
+            "explanation": "Từ \"don't / doesn't\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_5_3_3",
+            "word": "didn't",
+            "category": "Topic B",
+            "explanation": "Từ \"didn't\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_5_3_4",
+            "word": "What are you doing?",
+            "category": "Topic A",
+            "explanation": "Từ \"What are you doing?\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_5_3_5",
+            "word": "What do you do to relax?",
+            "category": "Topic B",
+            "explanation": "Từ \"What do you do to relax?\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "5.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_5_4_0",
+            "original": "I really like don't / doesn'ts.",
+            "correct": "He doesn't play well. / Don't do that, Tommy.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"don't / doesn't\" thay vì \"don't / doesn'ts\"."
+          },
+          {
+            "id": "ex_5_4_1",
+            "original": "Jo didn'ts see it.",
+            "correct": "Jo didn't see it.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"didn't\" thay vì \"didn'ts\"."
+          }
+        ]
+      },
+      {
+        "exNum": "5.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_5_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "What are you doing?"
+            ],
+            "hint": "Bạn đang làm gì vậy?",
+            "explanation": "Từ cần điền là \"What are you doing?\"."
+          },
+          {
+            "id": "ex_5_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "What do you do to relax?"
+            ],
+            "hint": "Bạn làm gì để thư giãn?",
+            "explanation": "Từ cần điền là \"What do you do to relax?\"."
+          },
+          {
+            "id": "ex_5_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "What do you do?"
+            ],
+            "hint": "Bạn làm nghề gì? (= What is your job?)",
+            "explanation": "Từ cần điền là \"What do you do?\"."
+          },
+          {
+            "id": "ex_5_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "What does your wife do?"
+            ],
+            "hint": "Vợ bạn làm nghề gì? (= What's your wife's job?)",
+            "explanation": "Từ cần điền là \"What does your wife do?\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 6,
     "title": "Unit 6: Make / made / made",
     "description": "Học cách dùng động từ 'make' để tạo ra đồ ăn thức uống, tạo ra sự việc, cách dùng 'make somebody feel' và đặc biệt là phân biệt 'make' với 'do' hoặc 'take'.",
-    "theory": [
-      {
-        "heading": "A. Make... (Tạo ra đồ ăn, thức uống, bữa ăn)",
-        "items": [
-          {
-            "word": "make coffee",
-            "type": "Đồ uống",
-            "phonetic": "/meɪk ˈkɑː.fi/",
-            "vi": "Pha cà phê.",
-            "example": "I'll make some coffee."
-          },
-          {
-            "word": "make tea",
-            "type": "Đồ uống",
-            "phonetic": "/meɪk tiː/",
-            "vi": "Pha trà.",
-            "example": "I'll make some tea."
-          },
-          {
-            "word": "make hot chocolate",
-            "type": "Đồ uống",
-            "phonetic": "/meɪk hɑːt ˈtʃɑːk.lət/",
-            "vi": "Pha sô-cô-la nóng.",
-            "example": "I'll make some hot chocolate."
-          },
-          {
-            "word": "make breakfast",
-            "type": "Bữa ăn",
-            "phonetic": "/meɪk ˈbrek.fəst/",
-            "vi": "Làm bữa sáng.",
-            "example": "I make breakfast every day."
-          },
-          {
-            "word": "make lunch",
-            "type": "Bữa ăn",
-            "phonetic": "/meɪk lʌntʃ/",
-            "vi": "Làm bữa trưa.",
-            "example": "I make lunch for my family."
-          },
-          {
-            "word": "make dinner",
-            "type": "Bữa ăn",
-            "phonetic": "/meɪk ˈdɪn.ɚ/",
-            "vi": "Làm bữa tối.",
-            "example": "I'm going to make dinner."
-          },
-          {
-            "word": "make supper",
-            "type": "Bữa ăn",
-            "phonetic": "/meɪk ˈsʌp.ɚ/",
-            "vi": "Làm bữa ăn nhẹ (ngay trước khi đi ngủ).",
-            "example": "I make supper every day."
-          }
-        ]
-      },
-      {
-        "heading": "B. Make a ... (Tạo ra một thứ gì đó/Sự việc)",
-        "items": [
-          {
-            "word": "make a photocopy",
-            "type": "Cụm từ",
-            "phonetic": "/meɪk ə ˈfoʊ.t̬oʊˌkɑː.pi/",
-            "vi": "Bấm máy photocopy.",
-            "example": "The teacher's making a photocopy."
-          },
-          {
-            "word": "make a film",
-            "type": "Cụm từ",
-            "phonetic": "/meɪk ə fɪlm/",
-            "vi": "Làm phim / Quay phim.",
-            "example": "He's making a film of the class."
-          },
-          {
-            "word": "make a video",
-            "type": "Cụm từ",
-            "phonetic": "/meɪk ə ˈvɪd.i.oʊ/",
-            "vi": "Quay video.",
-            "example": "He's making a video."
-          },
-          {
-            "word": "make a noise",
-            "type": "Cụm từ",
-            "phonetic": "/meɪk ə nɔɪz/",
-            "vi": "Làm ồn.",
-            "example": "The children are making a noise."
-          }
-        ]
-      },
-      {
-        "heading": "C. Don't make mistakes with make! (Những lỗi sai kinh điển cần tránh)",
-        "items": [
-          {
-            "word": "make a mistake",
-            "type": "ĐÚNG",
-            "phonetic": "/meɪk ə mɪˈsteɪk/",
-            "vi": "Phạm sai lầm (KHÔNG dùng 'do a mistake').",
-            "example": "I made a mistake in the exercise."
-          },
-          {
-            "word": "do homework",
-            "type": "ĐÚNG",
-            "phonetic": "/duː ˈhoʊm.wɝːk/",
-            "vi": "Làm bài tập (KHÔNG dùng 'make my homework').",
-            "example": "I have to do my homework."
-          },
-          {
-            "word": "take / do an exam",
-            "type": "ĐÚNG",
-            "phonetic": "/teɪk ən ɪɡˈzæm/",
-            "vi": "Làm bài kiểm tra (KHÔNG dùng 'make an exam').",
-            "example": "I have to take/do an exam next week."
-          },
-          {
-            "word": "make my bed",
-            "type": "ĐÚNG",
-            "phonetic": "/meɪk maɪ bed/",
-            "vi": "Dọn dẹp giường ngủ.",
-            "example": "When I get up I make my bed."
-          },
-          {
-            "word": "make an appointment",
-            "type": "ĐÚNG",
-            "phonetic": "/meɪk ən əˈpɔɪnt.mənt/",
-            "vi": "Đặt lịch hẹn (= fix a time to see someone) (KHÔNG dùng 'take an appointment').",
-            "example": "I want to make an appointment with the doctor."
-          },
-          {
-            "word": "take a photo",
-            "type": "ĐÚNG",
-            "phonetic": "/teɪk ə ˈfoʊ.t̬oʊ/",
-            "vi": "Chụp ảnh (KHÔNG dùng 'make a photo').",
-            "example": "I'd like to take a photo of you."
-          },
-          {
-            "word": "do the dishes",
-            "type": "ĐÚNG",
-            "phonetic": "/duː ðə ˈdɪʃ.ɪz/",
-            "vi": "Rửa bát (KHÔNG dùng 'make the dishes').",
-            "example": "After dinner I'll help you do the dishes."
-          },
-          {
-            "word": "make a decision",
-            "type": "ĐÚNG",
-            "phonetic": "/meɪk ə dɪˈsɪʒ.ən/",
-            "vi": "Đưa ra quyết định (KHÔNG dùng 'do a decision').",
-            "example": "We must make a decision today."
-          }
-        ]
-      },
-      {
-        "heading": "D. It makes me (feel) ... (Làm ai đó cảm thấy thế nào)",
-        "items": [
-          {
-            "word": "make me tired",
-            "type": "Cảm xúc",
-            "phonetic": "/meɪk miː ˈtaɪɚd/",
-            "vi": "Làm tôi cảm thấy mệt mỏi.",
-            "example": "Going by train always makes me (feel) tired."
-          },
-          {
-            "word": "make me angry",
-            "type": "Cảm xúc",
-            "phonetic": "/meɪk miː ˈæŋ.ɡri/",
-            "vi": "Làm tôi tức giận.",
-            "example": "My friend called me stupid. It made me (feel) angry."
-          },
-          {
-            "word": "make me sad",
-            "type": "Cảm xúc",
-            "phonetic": "/meɪk miː sæd/",
-            "vi": "Làm tôi buồn.",
-            "example": "That film made me (feel) sad."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "make coffee",
+          "type": "Đồ uống",
+          "phonetic": "/meɪk ˈkɑː.fi/",
+          "vi": "Pha cà phê.",
+          "example": "I'll make some coffee.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make coffee"
+        },
+        {
+          "word": "make tea",
+          "type": "Đồ uống",
+          "phonetic": "/meɪk tiː/",
+          "vi": "Pha trà.",
+          "example": "I'll make some tea.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make tea"
+        },
+        {
+          "word": "make hot chocolate",
+          "type": "Đồ uống",
+          "phonetic": "/meɪk hɑːt ˈtʃɑːk.lət/",
+          "vi": "Pha sô-cô-la nóng.",
+          "example": "I'll make some hot chocolate.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make hot chocolate"
+        },
+        {
+          "word": "make breakfast",
+          "type": "Bữa ăn",
+          "phonetic": "/meɪk ˈbrek.fəst/",
+          "vi": "Làm bữa sáng.",
+          "example": "I make breakfast every day.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make breakfast"
+        },
+        {
+          "word": "make lunch",
+          "type": "Bữa ăn",
+          "phonetic": "/meɪk lʌntʃ/",
+          "vi": "Làm bữa trưa.",
+          "example": "I make lunch for my family.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make lunch"
+        },
+        {
+          "word": "make dinner",
+          "type": "Bữa ăn",
+          "phonetic": "/meɪk ˈdɪn.ɚ/",
+          "vi": "Làm bữa tối.",
+          "example": "I'm going to make dinner.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make dinner"
+        },
+        {
+          "word": "make supper",
+          "type": "Bữa ăn",
+          "phonetic": "/meɪk ˈsʌp.ɚ/",
+          "vi": "Làm bữa ăn nhẹ (ngay trước khi đi ngủ).",
+          "example": "I make supper every day.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make supper"
+        },
+        {
+          "word": "make a photocopy",
+          "type": "Cụm từ",
+          "phonetic": "/meɪk ə ˈfoʊ.t̬oʊˌkɑː.pi/",
+          "vi": "Bấm máy photocopy.",
+          "example": "The teacher's making a photocopy.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make a photocopy"
+        },
+        {
+          "word": "make a film",
+          "type": "Cụm từ",
+          "phonetic": "/meɪk ə fɪlm/",
+          "vi": "Làm phim / Quay phim.",
+          "example": "He's making a film of the class.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make a film"
+        },
+        {
+          "word": "make a video",
+          "type": "Cụm từ",
+          "phonetic": "/meɪk ə ˈvɪd.i.oʊ/",
+          "vi": "Quay video.",
+          "example": "He's making a video.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make a video"
+        },
+        {
+          "word": "make a noise",
+          "type": "Cụm từ",
+          "phonetic": "/meɪk ə nɔɪz/",
+          "vi": "Làm ồn.",
+          "example": "The children are making a noise.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make a noise"
+        },
+        {
+          "word": "make a mistake",
+          "type": "ĐÚNG",
+          "phonetic": "/meɪk ə mɪˈsteɪk/",
+          "vi": "Phạm sai lầm (KHÔNG dùng 'do a mistake').",
+          "example": "I made a mistake in the exercise.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make a mistake"
+        },
+        {
+          "word": "do homework",
+          "type": "ĐÚNG",
+          "phonetic": "/duː ˈhoʊm.wɝːk/",
+          "vi": "Làm bài tập (KHÔNG dùng 'make my homework').",
+          "example": "I have to do my homework.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của do homework"
+        },
+        {
+          "word": "take / do an exam",
+          "type": "ĐÚNG",
+          "phonetic": "/teɪk ən ɪɡˈzæm/",
+          "vi": "Làm bài kiểm tra (KHÔNG dùng 'make an exam').",
+          "example": "I have to take/do an exam next week.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của take / do an exam"
+        },
+        {
+          "word": "make my bed",
+          "type": "ĐÚNG",
+          "phonetic": "/meɪk maɪ bed/",
+          "vi": "Dọn dẹp giường ngủ.",
+          "example": "When I get up I make my bed.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make my bed"
+        },
+        {
+          "word": "make an appointment",
+          "type": "ĐÚNG",
+          "phonetic": "/meɪk ən əˈpɔɪnt.mənt/",
+          "vi": "Đặt lịch hẹn (= fix a time to see someone) (KHÔNG dùng 'take an appointment').",
+          "example": "I want to make an appointment with the doctor.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make an appointment"
+        },
+        {
+          "word": "take a photo",
+          "type": "ĐÚNG",
+          "phonetic": "/teɪk ə ˈfoʊ.t̬oʊ/",
+          "vi": "Chụp ảnh (KHÔNG dùng 'make a photo').",
+          "example": "I'd like to take a photo of you.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take a photo"
+        },
+        {
+          "word": "do the dishes",
+          "type": "ĐÚNG",
+          "phonetic": "/duː ðə ˈdɪʃ.ɪz/",
+          "vi": "Rửa bát (KHÔNG dùng 'make the dishes').",
+          "example": "After dinner I'll help you do the dishes.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của do the dishes"
+        },
+        {
+          "word": "make a decision",
+          "type": "ĐÚNG",
+          "phonetic": "/meɪk ə dɪˈsɪʒ.ən/",
+          "vi": "Đưa ra quyết định (KHÔNG dùng 'do a decision').",
+          "example": "We must make a decision today.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make a decision"
+        },
+        {
+          "word": "make me tired",
+          "type": "Cảm xúc",
+          "phonetic": "/meɪk miː ˈtaɪɚd/",
+          "vi": "Làm tôi cảm thấy mệt mỏi.",
+          "example": "Going by train always makes me (feel) tired.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make me tired"
+        },
+        {
+          "word": "make me angry",
+          "type": "Cảm xúc",
+          "phonetic": "/meɪk miː ˈæŋ.ɡri/",
+          "vi": "Làm tôi tức giận.",
+          "example": "My friend called me stupid. It made me (feel) angry.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make me angry"
+        },
+        {
+          "word": "make me sad",
+          "type": "Cảm xúc",
+          "phonetic": "/meɪk miː sæd/",
+          "vi": "Làm tôi buồn.",
+          "example": "That film made me (feel) sad.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make me sad"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Make... (Tạo ra đồ ăn, thức uống, bữa ăn)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "make coffee",
+              "value": "👉 I'll make some coffee."
+            },
+            {
+              "title": "make tea",
+              "value": "👉 I'll make some tea."
+            },
+            {
+              "title": "make hot chocolate",
+              "value": "👉 I'll make some hot chocolate."
+            },
+            {
+              "title": "make breakfast",
+              "value": "👉 I make breakfast every day."
+            },
+            {
+              "title": "make lunch",
+              "value": "👉 I make lunch for my family."
+            },
+            {
+              "title": "make dinner",
+              "value": "👉 I'm going to make dinner."
+            },
+            {
+              "title": "make supper",
+              "value": "👉 I make supper every day."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Make a ... (Tạo ra một thứ gì đó/Sự việc)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "make a photocopy",
+              "value": "👉 The teacher's making a photocopy."
+            },
+            {
+              "title": "make a film",
+              "value": "👉 He's making a film of the class."
+            },
+            {
+              "title": "make a video",
+              "value": "👉 He's making a video."
+            },
+            {
+              "title": "make a noise",
+              "value": "👉 The children are making a noise."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Don't make mistakes with make! (Những lỗi sai kinh điển cần tránh)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "make a mistake",
+              "value": "👉 I made a mistake in the exercise."
+            },
+            {
+              "title": "do homework",
+              "value": "👉 I have to do my homework."
+            },
+            {
+              "title": "take / do an exam",
+              "value": "👉 I have to take/do an exam next week."
+            },
+            {
+              "title": "make my bed",
+              "value": "👉 When I get up I make my bed."
+            },
+            {
+              "title": "make an appointment",
+              "value": "👉 I want to make an appointment with the doctor."
+            },
+            {
+              "title": "take a photo",
+              "value": "👉 I'd like to take a photo of you."
+            },
+            {
+              "title": "do the dishes",
+              "value": "👉 After dinner I'll help you do the dishes."
+            },
+            {
+              "title": "make a decision",
+              "value": "👉 We must make a decision today."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. It makes me (feel) ... (Làm ai đó cảm thấy thế nào)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "make me tired",
+              "value": "👉 Going by train always makes me (feel) tired."
+            },
+            {
+              "title": "make me angry",
+              "value": "👉 My friend called me stupid. It made me (feel) angry."
+            },
+            {
+              "title": "make me sad",
+              "value": "👉 That film made me (feel) sad."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"make coffee\"",
+              "value": "Các dạng từ loại khác của \"make coffee\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"make tea\"",
+              "value": "Các dạng từ loại khác của \"make tea\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"make hot chocolate\"",
+              "value": "Các dạng từ loại khác của \"make hot chocolate\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"make breakfast\"",
+              "value": "Cụm từ liên quan đến make breakfast"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"make lunch\"",
+              "value": "Cụm từ liên quan đến make lunch"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"make dinner\"",
+              "value": "Cụm từ liên quan đến make dinner"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Make (Food/Drink)",
@@ -3954,118 +6005,463 @@ export const courseData = [
         "text": "The children are making a noise.",
         "trans": "Bọn trẻ đang làm ồn."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "6.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_6_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "make coffee"
+            ],
+            "hint": "Pha cà phê.",
+            "explanation": "Từ cần điền là \"make coffee\", mang nghĩa là \"Pha cà phê.\"."
+          },
+          {
+            "id": "ex_6_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "make tea"
+            ],
+            "hint": "Pha trà.",
+            "explanation": "Từ cần điền là \"make tea\", mang nghĩa là \"Pha trà.\"."
+          },
+          {
+            "id": "ex_6_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "make hot chocolate"
+            ],
+            "hint": "Pha sô-cô-la nóng.",
+            "explanation": "Từ cần điền là \"make hot chocolate\", mang nghĩa là \"Pha sô-cô-la nóng.\"."
+          },
+          {
+            "id": "ex_6_1_3",
+            "text": "I [blank] every day.",
+            "answers": [
+              "make breakfast"
+            ],
+            "hint": "Làm bữa sáng.",
+            "explanation": "Từ cần điền là \"make breakfast\", mang nghĩa là \"Làm bữa sáng.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "6.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_6_2_0",
+            "text": "make lunch",
+            "options": [
+              "Làm bữa tối.",
+              "Làm bữa ăn nhẹ (ngay trước khi đi ngủ).",
+              "Làm bữa trưa.",
+              "Bấm máy photocopy."
+            ],
+            "answer": "Làm bữa trưa.",
+            "explanation": "Từ \"make lunch\" có nghĩa chính xác là \"Làm bữa trưa.\"."
+          },
+          {
+            "id": "ex_6_2_1",
+            "text": "make dinner",
+            "options": [
+              "Làm bữa tối.",
+              "Bấm máy photocopy.",
+              "Làm bữa trưa.",
+              "Làm bữa ăn nhẹ (ngay trước khi đi ngủ)."
+            ],
+            "answer": "Làm bữa tối.",
+            "explanation": "Từ \"make dinner\" có nghĩa chính xác là \"Làm bữa tối.\"."
+          },
+          {
+            "id": "ex_6_2_2",
+            "text": "make supper",
+            "options": [
+              "Làm bữa trưa.",
+              "Làm bữa tối.",
+              "Làm bữa ăn nhẹ (ngay trước khi đi ngủ).",
+              "Bấm máy photocopy."
+            ],
+            "answer": "Làm bữa ăn nhẹ (ngay trước khi đi ngủ).",
+            "explanation": "Từ \"make supper\" có nghĩa chính xác là \"Làm bữa ăn nhẹ (ngay trước khi đi ngủ).\"."
+          },
+          {
+            "id": "ex_6_2_3",
+            "text": "make a photocopy",
+            "options": [
+              "Làm bữa tối.",
+              "Bấm máy photocopy.",
+              "Làm bữa ăn nhẹ (ngay trước khi đi ngủ).",
+              "Làm bữa trưa."
+            ],
+            "answer": "Bấm máy photocopy.",
+            "explanation": "Từ \"make a photocopy\" có nghĩa chính xác là \"Bấm máy photocopy.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "6.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_6_3_0",
+            "word": "make coffee",
+            "category": "Topic A",
+            "explanation": "Từ \"make coffee\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_6_3_1",
+            "word": "make tea",
+            "category": "Topic B",
+            "explanation": "Từ \"make tea\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_6_3_2",
+            "word": "make hot chocolate",
+            "category": "Topic A",
+            "explanation": "Từ \"make hot chocolate\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_6_3_3",
+            "word": "make breakfast",
+            "category": "Topic B",
+            "explanation": "Từ \"make breakfast\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_6_3_4",
+            "word": "make lunch",
+            "category": "Topic A",
+            "explanation": "Từ \"make lunch\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_6_3_5",
+            "word": "make dinner",
+            "category": "Topic B",
+            "explanation": "Từ \"make dinner\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "6.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_6_4_0",
+            "original": "I really like make hot chocolates.",
+            "correct": "I'll make some hot chocolate.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"make hot chocolate\" thay vì \"make hot chocolates\"."
+          },
+          {
+            "id": "ex_6_4_1",
+            "original": "I make breakfasts every day.",
+            "correct": "I make breakfast every day.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"make breakfast\" thay vì \"make breakfasts\"."
+          }
+        ]
+      },
+      {
+        "exNum": "6.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_6_5_0",
+            "text": "I [blank] for my family.",
+            "answers": [
+              "make lunch"
+            ],
+            "hint": "Làm bữa trưa.",
+            "explanation": "Từ cần điền là \"make lunch\"."
+          },
+          {
+            "id": "ex_6_5_1",
+            "text": "I'm going to [blank].",
+            "answers": [
+              "make dinner"
+            ],
+            "hint": "Làm bữa tối.",
+            "explanation": "Từ cần điền là \"make dinner\"."
+          },
+          {
+            "id": "ex_6_5_2",
+            "text": "I [blank] every day.",
+            "answers": [
+              "make supper"
+            ],
+            "hint": "Làm bữa ăn nhẹ (ngay trước khi đi ngủ).",
+            "explanation": "Từ cần điền là \"make supper\"."
+          },
+          {
+            "id": "ex_6_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "make a photocopy"
+            ],
+            "hint": "Bấm máy photocopy.",
+            "explanation": "Từ cần điền là \"make a photocopy\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 7,
     "title": "Unit 7: Come / came / come",
     "description": "Học sự khác biệt giữa 'come' và 'go', các cụm từ chỉ hướng (come in, come out), sự trở về (come back, come home) và các ngữ cảnh giao tiếp quan trọng khác.",
-    "theory": [
-      {
-        "heading": "A. Come and Go (Sự khác biệt cơ bản)",
-        "items": [
-          {
-            "word": "go",
-            "type": "Động từ",
-            "phonetic": "/ɡoʊ/",
-            "vi": "Di chuyển từ ĐÂY (here) đến ĐÓ (there).",
-            "example": "I want to go to the park."
-          },
-          {
-            "word": "come",
-            "type": "Động từ",
-            "phonetic": "/kʌm/",
-            "vi": "Di chuyển từ ĐÓ (there) đến ĐÂY (here).",
-            "example": "Come here, please."
-          }
-        ]
-      },
-      {
-        "heading": "B. Come in / Come out (Vào / Ra)",
-        "items": [
-          {
-            "word": "come in",
-            "type": "Cụm động từ",
-            "phonetic": "/kʌm ɪn/",
-            "vi": "Đi vào trong (khi ai đó gõ cửa, bạn nói 'Come in!').",
-            "example": "The teacher came into the classroom."
-          },
-          {
-            "word": "come out (of)",
-            "type": "Cụm động từ",
-            "phonetic": "/kʌm aʊt/",
-            "vi": "Đi ra ngoài (ngược lại với come in).",
-            "example": "A woman came out of the shop. / The ticket comes out of the machine."
-          }
-        ]
-      },
-      {
-        "heading": "C. Come back / Come home (Trở về)",
-        "items": [
-          {
-            "word": "come back",
-            "type": "Cụm động từ",
-            "phonetic": "/kʌm bæk/",
-            "vi": "Trở lại nơi này (Return to this place here).",
-            "example": "She went away for three days. She came back yesterday."
-          },
-          {
-            "word": "come back from",
-            "type": "Cụm động từ",
-            "phonetic": "/kʌm bæk frʌm/",
-            "vi": "Trở về từ đâu đó.",
-            "example": "They came back from Italy yesterday."
-          },
-          {
-            "word": "come home",
-            "type": "Cụm động từ",
-            "phonetic": "/kʌm hoʊm/",
-            "vi": "Về nhà ('home' chính là 'here' đối với người đang nói).",
-            "example": "What time did you come home last night?"
-          }
-        ]
-      },
-      {
-        "heading": "D. Other uses (Các cách dùng quan trọng khác)",
-        "items": [
-          {
-            "word": "come from",
-            "type": "Cụm từ",
-            "phonetic": "/kʌm frʌm/",
-            "vi": "Đến từ quốc gia/nơi nào.",
-            "example": "What country do you come from? - I come from Norway."
-          },
-          {
-            "word": "come along",
-            "type": "Cụm động từ",
-            "phonetic": "/kʌm əˈlɑːŋ/",
-            "vi": "Đi cùng nhé (= come with us).",
-            "example": "We're going to a disco. Do you want to come along?"
-          },
-          {
-            "word": "come and see",
-            "type": "Cụm từ",
-            "phonetic": "/kʌm ænd siː/",
-            "vi": "Đến thăm ai đó (= visit).",
-            "example": "Come and see me some time."
-          },
-          {
-            "word": "come round",
-            "type": "Cụm động từ",
-            "phonetic": "/kʌm raʊnd/",
-            "vi": "Ghé thăm nhà ai đó một lát.",
-            "example": "Why don't you come round for dinner tonight?"
-          },
-          {
-            "word": "come across",
-            "type": "Cụm động từ",
-            "phonetic": "/kʌm əˈkrɑːs/",
-            "vi": "Tình cờ tìm thấy, tình cờ gặp.",
-            "example": "I came across this old photo in the drawer."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "go",
+          "type": "Động từ",
+          "phonetic": "/ɡoʊ/",
+          "vi": "Di chuyển từ ĐÂY (here) đến ĐÓ (there).",
+          "example": "I want to go to the park.",
+          "bucket": 1,
+          "collocations": [
+            "go something",
+            "always go"
+          ],
+          "wordFamily": "Biến thể của go"
+        },
+        {
+          "word": "come",
+          "type": "Động từ",
+          "phonetic": "/kʌm/",
+          "vi": "Di chuyển từ ĐÓ (there) đến ĐÂY (here).",
+          "example": "Come here, please.",
+          "bucket": 2,
+          "collocations": [
+            "come something",
+            "always come"
+          ],
+          "wordFamily": "Biến thể của come"
+        },
+        {
+          "word": "come in",
+          "type": "Cụm động từ",
+          "phonetic": "/kʌm ɪn/",
+          "vi": "Đi vào trong (khi ai đó gõ cửa, bạn nói 'Come in!').",
+          "example": "The teacher came into the classroom.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của come in"
+        },
+        {
+          "word": "come out (of)",
+          "type": "Cụm động từ",
+          "phonetic": "/kʌm aʊt/",
+          "vi": "Đi ra ngoài (ngược lại với come in).",
+          "example": "A woman came out of the shop. / The ticket comes out of the machine.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của come out (of)"
+        },
+        {
+          "word": "come back",
+          "type": "Cụm động từ",
+          "phonetic": "/kʌm bæk/",
+          "vi": "Trở lại nơi này (Return to this place here).",
+          "example": "She went away for three days. She came back yesterday.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của come back"
+        },
+        {
+          "word": "come back from",
+          "type": "Cụm động từ",
+          "phonetic": "/kʌm bæk frʌm/",
+          "vi": "Trở về từ đâu đó.",
+          "example": "They came back from Italy yesterday.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của come back from"
+        },
+        {
+          "word": "come home",
+          "type": "Cụm động từ",
+          "phonetic": "/kʌm hoʊm/",
+          "vi": "Về nhà ('home' chính là 'here' đối với người đang nói).",
+          "example": "What time did you come home last night?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của come home"
+        },
+        {
+          "word": "come from",
+          "type": "Cụm từ",
+          "phonetic": "/kʌm frʌm/",
+          "vi": "Đến từ quốc gia/nơi nào.",
+          "example": "What country do you come from? - I come from Norway.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của come from"
+        },
+        {
+          "word": "come along",
+          "type": "Cụm động từ",
+          "phonetic": "/kʌm əˈlɑːŋ/",
+          "vi": "Đi cùng nhé (= come with us).",
+          "example": "We're going to a disco. Do you want to come along?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của come along"
+        },
+        {
+          "word": "come and see",
+          "type": "Cụm từ",
+          "phonetic": "/kʌm ænd siː/",
+          "vi": "Đến thăm ai đó (= visit).",
+          "example": "Come and see me some time.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của come and see"
+        },
+        {
+          "word": "come round",
+          "type": "Cụm động từ",
+          "phonetic": "/kʌm raʊnd/",
+          "vi": "Ghé thăm nhà ai đó một lát.",
+          "example": "Why don't you come round for dinner tonight?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của come round"
+        },
+        {
+          "word": "come across",
+          "type": "Cụm động từ",
+          "phonetic": "/kʌm əˈkrɑːs/",
+          "vi": "Tình cờ tìm thấy, tình cờ gặp.",
+          "example": "I came across this old photo in the drawer.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của come across"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Come and Go (Sự khác biệt cơ bản)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "go",
+              "value": "👉 I want to go to the park."
+            },
+            {
+              "title": "come",
+              "value": "👉 Come here, please."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Come in / Come out (Vào / Ra)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "come in",
+              "value": "👉 The teacher came into the classroom."
+            },
+            {
+              "title": "come out (of)",
+              "value": "👉 A woman came out of the shop. / The ticket comes out of the machine."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Come back / Come home (Trở về)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "come back",
+              "value": "👉 She went away for three days. She came back yesterday."
+            },
+            {
+              "title": "come back from",
+              "value": "👉 They came back from Italy yesterday."
+            },
+            {
+              "title": "come home",
+              "value": "👉 What time did you come home last night?"
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Other uses (Các cách dùng quan trọng khác)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "come from",
+              "value": "👉 What country do you come from? - I come from Norway."
+            },
+            {
+              "title": "come along",
+              "value": "👉 We're going to a disco. Do you want to come along?"
+            },
+            {
+              "title": "come and see",
+              "value": "👉 Come and see me some time."
+            },
+            {
+              "title": "come round",
+              "value": "👉 Why don't you come round for dinner tonight?"
+            },
+            {
+              "title": "come across",
+              "value": "👉 I came across this old photo in the drawer."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"go\"",
+              "value": "goer (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"come\"",
+              "value": "comeer (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"come in\"",
+              "value": "Các dạng từ loại khác của \"come in\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"come out (of)\"",
+              "value": "Cụm từ liên quan đến come out (of)"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"come back\"",
+              "value": "Cụm từ liên quan đến come back"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"come back from\"",
+              "value": "Cụm từ liên quan đến come back from"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Direction (in/out/up)",
@@ -4581,153 +6977,527 @@ export const courseData = [
         "text": "What time did you come home last night?",
         "trans": "Bạn đã về nhà lúc mấy giờ tối qua?"
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "7.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_7_1_0",
+            "text": "I want to [blank] to the park.",
+            "answers": [
+              "go"
+            ],
+            "hint": "Di chuyển từ ĐÂY (here) đến ĐÓ (there).",
+            "explanation": "Từ cần điền là \"go\", mang nghĩa là \"Di chuyển từ ĐÂY (here) đến ĐÓ (there).\"."
+          },
+          {
+            "id": "ex_7_1_1",
+            "text": "[blank] here, please.",
+            "answers": [
+              "come"
+            ],
+            "hint": "Di chuyển từ ĐÓ (there) đến ĐÂY (here).",
+            "explanation": "Từ cần điền là \"come\", mang nghĩa là \"Di chuyển từ ĐÓ (there) đến ĐÂY (here).\"."
+          },
+          {
+            "id": "ex_7_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "come in"
+            ],
+            "hint": "Đi vào trong (khi ai đó gõ cửa, bạn nói 'Come in!').",
+            "explanation": "Từ cần điền là \"come in\", mang nghĩa là \"Đi vào trong (khi ai đó gõ cửa, bạn nói 'Come in!').\"."
+          },
+          {
+            "id": "ex_7_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "come out (of)"
+            ],
+            "hint": "Đi ra ngoài (ngược lại với come in).",
+            "explanation": "Từ cần điền là \"come out (of)\", mang nghĩa là \"Đi ra ngoài (ngược lại với come in).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "7.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_7_2_0",
+            "text": "come back",
+            "options": [
+              "Trở lại nơi này (Return to this place here).",
+              "Trở về từ đâu đó.",
+              "Đến từ quốc gia/nơi nào.",
+              "Về nhà ('home' chính là 'here' đối với người đang nói)."
+            ],
+            "answer": "Trở lại nơi này (Return to this place here).",
+            "explanation": "Từ \"come back\" có nghĩa chính xác là \"Trở lại nơi này (Return to this place here).\"."
+          },
+          {
+            "id": "ex_7_2_1",
+            "text": "come back from",
+            "options": [
+              "Trở về từ đâu đó.",
+              "Trở lại nơi này (Return to this place here).",
+              "Về nhà ('home' chính là 'here' đối với người đang nói).",
+              "Đến từ quốc gia/nơi nào."
+            ],
+            "answer": "Trở về từ đâu đó.",
+            "explanation": "Từ \"come back from\" có nghĩa chính xác là \"Trở về từ đâu đó.\"."
+          },
+          {
+            "id": "ex_7_2_2",
+            "text": "come home",
+            "options": [
+              "Về nhà ('home' chính là 'here' đối với người đang nói).",
+              "Trở về từ đâu đó.",
+              "Đến từ quốc gia/nơi nào.",
+              "Trở lại nơi này (Return to this place here)."
+            ],
+            "answer": "Về nhà ('home' chính là 'here' đối với người đang nói).",
+            "explanation": "Từ \"come home\" có nghĩa chính xác là \"Về nhà ('home' chính là 'here' đối với người đang nói).\"."
+          },
+          {
+            "id": "ex_7_2_3",
+            "text": "come from",
+            "options": [
+              "Đến từ quốc gia/nơi nào.",
+              "Về nhà ('home' chính là 'here' đối với người đang nói).",
+              "Trở về từ đâu đó.",
+              "Trở lại nơi này (Return to this place here)."
+            ],
+            "answer": "Đến từ quốc gia/nơi nào.",
+            "explanation": "Từ \"come from\" có nghĩa chính xác là \"Đến từ quốc gia/nơi nào.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "7.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_7_3_0",
+            "word": "go",
+            "category": "Topic A",
+            "explanation": "Từ \"go\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_7_3_1",
+            "word": "come",
+            "category": "Topic B",
+            "explanation": "Từ \"come\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_7_3_2",
+            "word": "come in",
+            "category": "Topic A",
+            "explanation": "Từ \"come in\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_7_3_3",
+            "word": "come out (of)",
+            "category": "Topic B",
+            "explanation": "Từ \"come out (of)\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_7_3_4",
+            "word": "come back",
+            "category": "Topic A",
+            "explanation": "Từ \"come back\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_7_3_5",
+            "word": "come back from",
+            "category": "Topic B",
+            "explanation": "Từ \"come back from\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "7.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_7_4_0",
+            "original": "I really like come ins.",
+            "correct": "The teacher came into the classroom.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"come in\" thay vì \"come ins\"."
+          },
+          {
+            "id": "ex_7_4_1",
+            "original": "I really like come out (of)s.",
+            "correct": "A woman came out of the shop. / The ticket comes out of the machine.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"come out (of)\" thay vì \"come out (of)s\"."
+          }
+        ]
+      },
+      {
+        "exNum": "7.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_7_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "come back"
+            ],
+            "hint": "Trở lại nơi này (Return to this place here).",
+            "explanation": "Từ cần điền là \"come back\"."
+          },
+          {
+            "id": "ex_7_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "come back from"
+            ],
+            "hint": "Trở về từ đâu đó.",
+            "explanation": "Từ cần điền là \"come back from\"."
+          },
+          {
+            "id": "ex_7_5_2",
+            "text": "What time did you [blank] last night?",
+            "answers": [
+              "come home"
+            ],
+            "hint": "Về nhà ('home' chính là 'here' đối với người đang nói).",
+            "explanation": "Từ cần điền là \"come home\"."
+          },
+          {
+            "id": "ex_7_5_3",
+            "text": "What country do you [blank]? - I [blank] Norway.",
+            "answers": [
+              "come from"
+            ],
+            "hint": "Đến từ quốc gia/nơi nào.",
+            "explanation": "Từ cần điền là \"come from\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 8,
     "title": "Unit 8: Take / took / taken",
     "description": "Học cách dùng 'take' để nói về khoảng thời gian cần thiết, tham gia các khóa học/kỳ thi, bắt các phương tiện giao thông và việc mang theo đồ vật.",
-    "theory": [
-      {
-        "heading": "A. Take with time (Dùng với Thời gian)",
-        "items": [
-          {
-            "word": "It takes + person + time + to-V",
-            "type": "Cấu trúc",
-            "phonetic": "/ɪt teɪks/",
-            "vi": "Ai đó mất bao nhiêu thời gian để làm gì.",
-            "example": "It takes Alan 20 minutes to get to work."
-          },
-          {
-            "word": "It takes me...",
-            "type": "Cụm từ",
-            "phonetic": "/ɪt teɪks miː/",
-            "vi": "Tôi mất (bao nhiêu thời gian).",
-            "example": "It takes me 30 minutes to get to school."
-          },
-          {
-            "word": "It took me...",
-            "type": "Quá khứ",
-            "phonetic": "/ɪt tʊk miː/",
-            "vi": "Tôi ĐÃ mất (bao nhiêu thời gian).",
-            "example": "I do homework every day. It took me two hours yesterday."
-          },
-          {
-            "word": "How long does it take...?",
-            "type": "Câu hỏi",
-            "phonetic": "/haʊ lɑːŋ dʌz ɪt teɪk/",
-            "vi": "Mất bao lâu để...?",
-            "example": "How long does it take to get to the station? - 15 minutes in a taxi."
-          }
-        ]
-      },
-      {
-        "heading": "B. Take with courses / exams (Dùng với Khóa học / Kỳ thi)",
-        "items": [
-          {
-            "word": "take a course",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ə kɔːrs/",
-            "vi": "Tham gia một khóa học.",
-            "example": "Are you taking an English course? Yes."
-          },
-          {
-            "word": "take an exam",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ən ɪɡˈzæm/",
-            "vi": "Làm một bài thi (hoặc dùng 'do an exam').",
-            "example": "Do you have to take an exam at the end of the course?"
-          },
-          {
-            "word": "take a lesson",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ə ˈles.ən/",
-            "vi": "Học một tiết học.",
-            "example": "I want to take some Japanese lessons."
-          },
-          {
-            "word": "take a test",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ə test/",
-            "vi": "Làm bài kiểm tra.",
-            "example": "In Britain, when you are 17, you can take your driving test."
-          }
-        ]
-      },
-      {
-        "heading": "C. Take with transport (Dùng với Phương tiện đi lại)",
-        "items": [
-          {
-            "word": "take the bus",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ðə bʌs/",
-            "vi": "Bắt xe buýt.",
-            "example": "How do you get to work? I take the bus."
-          },
-          {
-            "word": "take the train",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ðə treɪn/",
-            "vi": "Bắt tàu hỏa.",
-            "example": "How does Nik get to work? He takes the train."
-          },
-          {
-            "word": "take the metro",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ðə ˈmet.roʊ/",
-            "vi": "Đi tàu điện ngầm.",
-            "example": "In Paris you can take the metro to the Eiffel Tower."
-          },
-          {
-            "word": "take a taxi",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ə ˈtæk.si/",
-            "vi": "Bắt taxi.",
-            "example": "Take a taxi to the airport."
-          }
-        ]
-      },
-      {
-        "heading": "D. Take something with you (Mang theo cái gì)",
-        "items": [
-          {
-            "word": "take an umbrella",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ən ʌmˈbrel.ə/",
-            "vi": "Mang theo ô/dù.",
-            "example": "Are you going out? Take an umbrella. It's raining."
-          },
-          {
-            "word": "take water",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ˈwɑː.t̬ɚ/",
-            "vi": "Mang theo nước.",
-            "example": "Are you going to the beach? Take some water with you."
-          },
-          {
-            "word": "take your camera",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk jɔːr ˈkæm.rə/",
-            "vi": "Mang theo máy ảnh.",
-            "example": "Sorry, you can't take your camera into the museum."
-          },
-          {
-            "word": "take a photograph",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ə ˈfoʊ.t̬oʊ.ɡræf/",
-            "vi": "Chụp ảnh (= take a picture / a photo).",
-            "example": "Can I take a photograph here?"
-          },
-          {
-            "word": "take a look",
-            "type": "Thành ngữ",
-            "phonetic": "/teɪk ə lʊk/",
-            "vi": "Nhìn thử, xem qua.",
-            "example": "Can you take a look at my computer?"
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "It takes + person + time + to-V",
+          "type": "Cấu trúc",
+          "phonetic": "/ɪt teɪks/",
+          "vi": "Ai đó mất bao nhiêu thời gian để làm gì.",
+          "example": "It takes Alan 20 minutes to get to work.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của It takes + person + time + to-V"
+        },
+        {
+          "word": "It takes me...",
+          "type": "Cụm từ",
+          "phonetic": "/ɪt teɪks miː/",
+          "vi": "Tôi mất (bao nhiêu thời gian).",
+          "example": "It takes me 30 minutes to get to school.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của It takes me..."
+        },
+        {
+          "word": "It took me...",
+          "type": "Quá khứ",
+          "phonetic": "/ɪt tʊk miː/",
+          "vi": "Tôi ĐÃ mất (bao nhiêu thời gian).",
+          "example": "I do homework every day. It took me two hours yesterday.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của It took me..."
+        },
+        {
+          "word": "How long does it take...?",
+          "type": "Câu hỏi",
+          "phonetic": "/haʊ lɑːŋ dʌz ɪt teɪk/",
+          "vi": "Mất bao lâu để...?",
+          "example": "How long does it take to get to the station? - 15 minutes in a taxi.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của How long does it take...?"
+        },
+        {
+          "word": "take a course",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ə kɔːrs/",
+          "vi": "Tham gia một khóa học.",
+          "example": "Are you taking an English course? Yes.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take a course"
+        },
+        {
+          "word": "take an exam",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ən ɪɡˈzæm/",
+          "vi": "Làm một bài thi (hoặc dùng 'do an exam').",
+          "example": "Do you have to take an exam at the end of the course?",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của take an exam"
+        },
+        {
+          "word": "take a lesson",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ə ˈles.ən/",
+          "vi": "Học một tiết học.",
+          "example": "I want to take some Japanese lessons.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take a lesson"
+        },
+        {
+          "word": "take a test",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ə test/",
+          "vi": "Làm bài kiểm tra.",
+          "example": "In Britain, when you are 17, you can take your driving test.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của take a test"
+        },
+        {
+          "word": "take the bus",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ðə bʌs/",
+          "vi": "Bắt xe buýt.",
+          "example": "How do you get to work? I take the bus.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take the bus"
+        },
+        {
+          "word": "take the train",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ðə treɪn/",
+          "vi": "Bắt tàu hỏa.",
+          "example": "How does Nik get to work? He takes the train.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của take the train"
+        },
+        {
+          "word": "take the metro",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ðə ˈmet.roʊ/",
+          "vi": "Đi tàu điện ngầm.",
+          "example": "In Paris you can take the metro to the Eiffel Tower.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take the metro"
+        },
+        {
+          "word": "take a taxi",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ə ˈtæk.si/",
+          "vi": "Bắt taxi.",
+          "example": "Take a taxi to the airport.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của take a taxi"
+        },
+        {
+          "word": "take an umbrella",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ən ʌmˈbrel.ə/",
+          "vi": "Mang theo ô/dù.",
+          "example": "Are you going out? Take an umbrella. It's raining.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take an umbrella"
+        },
+        {
+          "word": "take water",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ˈwɑː.t̬ɚ/",
+          "vi": "Mang theo nước.",
+          "example": "Are you going to the beach? Take some water with you.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của take water"
+        },
+        {
+          "word": "take your camera",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk jɔːr ˈkæm.rə/",
+          "vi": "Mang theo máy ảnh.",
+          "example": "Sorry, you can't take your camera into the museum.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take your camera"
+        },
+        {
+          "word": "take a photograph",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ə ˈfoʊ.t̬oʊ.ɡræf/",
+          "vi": "Chụp ảnh (= take a picture / a photo).",
+          "example": "Can I take a photograph here?",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của take a photograph"
+        },
+        {
+          "word": "take a look",
+          "type": "Thành ngữ",
+          "phonetic": "/teɪk ə lʊk/",
+          "vi": "Nhìn thử, xem qua.",
+          "example": "Can you take a look at my computer?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take a look"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Take with time (Dùng với Thời gian)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "It takes + person + time + to-V",
+              "value": "👉 It takes Alan 20 minutes to get to work."
+            },
+            {
+              "title": "It takes me...",
+              "value": "👉 It takes me 30 minutes to get to school."
+            },
+            {
+              "title": "It took me...",
+              "value": "👉 I do homework every day. It took me two hours yesterday."
+            },
+            {
+              "title": "How long does it take...?",
+              "value": "👉 How long does it take to get to the station? - 15 minutes in a taxi."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Take with courses / exams (Dùng với Khóa học / Kỳ thi)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "take a course",
+              "value": "👉 Are you taking an English course? Yes."
+            },
+            {
+              "title": "take an exam",
+              "value": "👉 Do you have to take an exam at the end of the course?"
+            },
+            {
+              "title": "take a lesson",
+              "value": "👉 I want to take some Japanese lessons."
+            },
+            {
+              "title": "take a test",
+              "value": "👉 In Britain, when you are 17, you can take your driving test."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Take with transport (Dùng với Phương tiện đi lại)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "take the bus",
+              "value": "👉 How do you get to work? I take the bus."
+            },
+            {
+              "title": "take the train",
+              "value": "👉 How does Nik get to work? He takes the train."
+            },
+            {
+              "title": "take the metro",
+              "value": "👉 In Paris you can take the metro to the Eiffel Tower."
+            },
+            {
+              "title": "take a taxi",
+              "value": "👉 Take a taxi to the airport."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Take something with you (Mang theo cái gì)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "take an umbrella",
+              "value": "👉 Are you going out? Take an umbrella. It's raining."
+            },
+            {
+              "title": "take water",
+              "value": "👉 Are you going to the beach? Take some water with you."
+            },
+            {
+              "title": "take your camera",
+              "value": "👉 Sorry, you can't take your camera into the museum."
+            },
+            {
+              "title": "take a photograph",
+              "value": "👉 Can I take a photograph here?"
+            },
+            {
+              "title": "take a look",
+              "value": "👉 Can you take a look at my computer?"
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"It takes + person + time + to-V\"",
+              "value": "Các dạng từ loại khác của \"It takes + person + time + to-V\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"It takes me...\"",
+              "value": "Các dạng từ loại khác của \"It takes me...\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"It took me...\"",
+              "value": "Các dạng từ loại khác của \"It took me...\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"How long does it take...?\"",
+              "value": "Cụm từ liên quan đến How long does it take...?"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"take a course\"",
+              "value": "Cụm từ liên quan đến take a course"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"take an exam\"",
+              "value": "Cụm từ liên quan đến take an exam"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Time (It takes...)",
@@ -5243,92 +8013,415 @@ export const courseData = [
         "text": "Are you going out? Take an umbrella, it's raining.",
         "trans": "Bạn định ra ngoài à? Nhớ mang theo ô nhé, trời đang mưa đấy."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "8.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_8_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "It takes + person + time + to-V"
+            ],
+            "hint": "Ai đó mất bao nhiêu thời gian để làm gì.",
+            "explanation": "Từ cần điền là \"It takes + person + time + to-V\", mang nghĩa là \"Ai đó mất bao nhiêu thời gian để làm gì.\"."
+          },
+          {
+            "id": "ex_8_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "It takes me..."
+            ],
+            "hint": "Tôi mất (bao nhiêu thời gian).",
+            "explanation": "Từ cần điền là \"It takes me...\", mang nghĩa là \"Tôi mất (bao nhiêu thời gian).\"."
+          },
+          {
+            "id": "ex_8_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "It took me..."
+            ],
+            "hint": "Tôi ĐÃ mất (bao nhiêu thời gian).",
+            "explanation": "Từ cần điền là \"It took me...\", mang nghĩa là \"Tôi ĐÃ mất (bao nhiêu thời gian).\"."
+          },
+          {
+            "id": "ex_8_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "How long does it take...?"
+            ],
+            "hint": "Mất bao lâu để...?",
+            "explanation": "Từ cần điền là \"How long does it take...?\", mang nghĩa là \"Mất bao lâu để...?\"."
+          }
+        ]
+      },
+      {
+        "exNum": "8.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_8_2_0",
+            "text": "take a course",
+            "options": [
+              "Tham gia một khóa học.",
+              "Làm bài kiểm tra.",
+              "Làm một bài thi (hoặc dùng 'do an exam').",
+              "Học một tiết học."
+            ],
+            "answer": "Tham gia một khóa học.",
+            "explanation": "Từ \"take a course\" có nghĩa chính xác là \"Tham gia một khóa học.\"."
+          },
+          {
+            "id": "ex_8_2_1",
+            "text": "take an exam",
+            "options": [
+              "Tham gia một khóa học.",
+              "Làm một bài thi (hoặc dùng 'do an exam').",
+              "Học một tiết học.",
+              "Làm bài kiểm tra."
+            ],
+            "answer": "Làm một bài thi (hoặc dùng 'do an exam').",
+            "explanation": "Từ \"take an exam\" có nghĩa chính xác là \"Làm một bài thi (hoặc dùng 'do an exam').\"."
+          },
+          {
+            "id": "ex_8_2_2",
+            "text": "take a lesson",
+            "options": [
+              "Tham gia một khóa học.",
+              "Làm bài kiểm tra.",
+              "Làm một bài thi (hoặc dùng 'do an exam').",
+              "Học một tiết học."
+            ],
+            "answer": "Học một tiết học.",
+            "explanation": "Từ \"take a lesson\" có nghĩa chính xác là \"Học một tiết học.\"."
+          },
+          {
+            "id": "ex_8_2_3",
+            "text": "take a test",
+            "options": [
+              "Học một tiết học.",
+              "Làm bài kiểm tra.",
+              "Làm một bài thi (hoặc dùng 'do an exam').",
+              "Tham gia một khóa học."
+            ],
+            "answer": "Làm bài kiểm tra.",
+            "explanation": "Từ \"take a test\" có nghĩa chính xác là \"Làm bài kiểm tra.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "8.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_8_3_0",
+            "word": "It takes + person + time + to-V",
+            "category": "Topic A",
+            "explanation": "Từ \"It takes + person + time + to-V\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_8_3_1",
+            "word": "It takes me...",
+            "category": "Topic B",
+            "explanation": "Từ \"It takes me...\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_8_3_2",
+            "word": "It took me...",
+            "category": "Topic A",
+            "explanation": "Từ \"It took me...\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_8_3_3",
+            "word": "How long does it take...?",
+            "category": "Topic B",
+            "explanation": "Từ \"How long does it take...?\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_8_3_4",
+            "word": "take a course",
+            "category": "Topic A",
+            "explanation": "Từ \"take a course\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_8_3_5",
+            "word": "take an exam",
+            "category": "Topic B",
+            "explanation": "Từ \"take an exam\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "8.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_8_4_0",
+            "original": "I really like It took me...s.",
+            "correct": "I do homework every day. It took me two hours yesterday.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"It took me...\" thay vì \"It took me...s\"."
+          },
+          {
+            "id": "ex_8_4_1",
+            "original": "I really like How long does it take...?s.",
+            "correct": "How long does it take to get to the station? - 15 minutes in a taxi.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"How long does it take...?\" thay vì \"How long does it take...?s\"."
+          }
+        ]
+      },
+      {
+        "exNum": "8.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_8_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "take a course"
+            ],
+            "hint": "Tham gia một khóa học.",
+            "explanation": "Từ cần điền là \"take a course\"."
+          },
+          {
+            "id": "ex_8_5_1",
+            "text": "Do you have to [blank] at the end of the course?",
+            "answers": [
+              "take an exam"
+            ],
+            "hint": "Làm một bài thi (hoặc dùng 'do an exam').",
+            "explanation": "Từ cần điền là \"take an exam\"."
+          },
+          {
+            "id": "ex_8_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "take a lesson"
+            ],
+            "hint": "Học một tiết học.",
+            "explanation": "Từ cần điền là \"take a lesson\"."
+          },
+          {
+            "id": "ex_8_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "take a test"
+            ],
+            "hint": "Làm bài kiểm tra.",
+            "explanation": "Từ cần điền là \"take a test\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 9,
     "title": "Unit 9: Bring / brought / brought",
     "description": "Học cách phân biệt rõ ràng giữa 'bring' (mang đến chỗ người nói) và 'take' (mang đi khỏi chỗ người nói), cũng như cấu trúc mang trả lại (bring back).",
-    "theory": [
-      {
-        "heading": "A. Bring and take (Phân biệt mang đến và mang đi)",
-        "items": [
-          {
-            "word": "take",
-            "type": "Động từ",
-            "phonetic": "/teɪk/",
-            "vi": "Mang từ ĐÂY (here) đi đến ĐÓ (there). Mang ra xa người nói.",
-            "example": "Are you going to school? Take your books."
-          },
-          {
-            "word": "bring",
-            "type": "Động từ",
-            "phonetic": "/brɪŋ/",
-            "vi": "Mang từ ĐÓ (there) về ĐÂY (here). Mang lại gần người nói.",
-            "example": "Are you going to the kitchen? Can you bring me a glass?"
-          },
-          {
-            "word": "take to...",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk tuː/",
-            "vi": "Mang/đem đến cho ai đó ở xa.",
-            "example": "Please take this form to the secretary. (Thư ký đang ở đằng kia)"
-          },
-          {
-            "word": "bring to...",
-            "type": "Cụm từ",
-            "phonetic": "/brɪŋ tuː/",
-            "vi": "Mang/đem đến chỗ của mình.",
-            "example": "Come to my house tomorrow and bring your guitar."
-          }
-        ]
-      },
-      {
-        "heading": "B. Bring somebody something (Mang cho ai cái gì)",
-        "items": [
-          {
-            "word": "brought",
-            "type": "Quá khứ",
-            "phonetic": "/brɔːt/",
-            "vi": "Đã mang đến (Quá khứ của bring).",
-            "example": "I've brought you some apples from my garden."
-          },
-          {
-            "word": "bring me...",
-            "type": "Cấu trúc",
-            "phonetic": "/brɪŋ miː/",
-            "vi": "Mang cho tôi...",
-            "example": "When she visits me, she always brings me flowers."
-          }
-        ]
-      },
-      {
-        "heading": "C. Bring something back (Mang trả lại)",
-        "items": [
-          {
-            "word": "take (with you)",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk wɪð juː/",
-            "vi": "Cầm đi, mượn mang đi theo.",
-            "example": "It's raining. You can take my umbrella..."
-          },
-          {
-            "word": "bring back",
-            "type": "Cụm động từ",
-            "phonetic": "/brɪŋ bæk/",
-            "vi": "Mang trả lại chỗ cũ.",
-            "example": "...and bring it back tomorrow."
-          },
-          {
-            "word": "bring it back",
-            "type": "Cụm từ",
-            "phonetic": "/brɪŋ ɪt bæk/",
-            "vi": "Mang cái đó trả lại.",
-            "example": "Please take this book with you and read it. - Thanks. I'll bring it back on Friday."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "take",
+          "type": "Động từ",
+          "phonetic": "/teɪk/",
+          "vi": "Mang từ ĐÂY (here) đi đến ĐÓ (there). Mang ra xa người nói.",
+          "example": "Are you going to school? Take your books.",
+          "bucket": 1,
+          "collocations": [
+            "take something",
+            "always take"
+          ],
+          "wordFamily": "Biến thể của take"
+        },
+        {
+          "word": "bring",
+          "type": "Động từ",
+          "phonetic": "/brɪŋ/",
+          "vi": "Mang từ ĐÓ (there) về ĐÂY (here). Mang lại gần người nói.",
+          "example": "Are you going to the kitchen? Can you bring me a glass?",
+          "bucket": 2,
+          "collocations": [
+            "bring something",
+            "always bring"
+          ],
+          "wordFamily": "Biến thể của bring"
+        },
+        {
+          "word": "take to...",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk tuː/",
+          "vi": "Mang/đem đến cho ai đó ở xa.",
+          "example": "Please take this form to the secretary. (Thư ký đang ở đằng kia)",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take to..."
+        },
+        {
+          "word": "bring to...",
+          "type": "Cụm từ",
+          "phonetic": "/brɪŋ tuː/",
+          "vi": "Mang/đem đến chỗ của mình.",
+          "example": "Come to my house tomorrow and bring your guitar.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của bring to..."
+        },
+        {
+          "word": "brought",
+          "type": "Quá khứ",
+          "phonetic": "/brɔːt/",
+          "vi": "Đã mang đến (Quá khứ của bring).",
+          "example": "I've brought you some apples from my garden.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của brought"
+        },
+        {
+          "word": "bring me...",
+          "type": "Cấu trúc",
+          "phonetic": "/brɪŋ miː/",
+          "vi": "Mang cho tôi...",
+          "example": "When she visits me, she always brings me flowers.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của bring me..."
+        },
+        {
+          "word": "take (with you)",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk wɪð juː/",
+          "vi": "Cầm đi, mượn mang đi theo.",
+          "example": "It's raining. You can take my umbrella...",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take (with you)"
+        },
+        {
+          "word": "bring back",
+          "type": "Cụm động từ",
+          "phonetic": "/brɪŋ bæk/",
+          "vi": "Mang trả lại chỗ cũ.",
+          "example": "...and bring it back tomorrow.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của bring back"
+        },
+        {
+          "word": "bring it back",
+          "type": "Cụm từ",
+          "phonetic": "/brɪŋ ɪt bæk/",
+          "vi": "Mang cái đó trả lại.",
+          "example": "Please take this book with you and read it. - Thanks. I'll bring it back on Friday.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của bring it back"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Bring and take (Phân biệt mang đến và mang đi)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "take",
+              "value": "👉 Are you going to school? Take your books."
+            },
+            {
+              "title": "bring",
+              "value": "👉 Are you going to the kitchen? Can you bring me a glass?"
+            },
+            {
+              "title": "take to...",
+              "value": "👉 Please take this form to the secretary. (Thư ký đang ở đằng kia)"
+            },
+            {
+              "title": "bring to...",
+              "value": "👉 Come to my house tomorrow and bring your guitar."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Bring somebody something (Mang cho ai cái gì)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "brought",
+              "value": "👉 I've brought you some apples from my garden."
+            },
+            {
+              "title": "bring me...",
+              "value": "👉 When she visits me, she always brings me flowers."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Bring something back (Mang trả lại)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "take (with you)",
+              "value": "👉 It's raining. You can take my umbrella..."
+            },
+            {
+              "title": "bring back",
+              "value": "👉 ...and bring it back tomorrow."
+            },
+            {
+              "title": "bring it back",
+              "value": "👉 Please take this book with you and read it. - Thanks. I'll bring it back on Friday."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"take\"",
+              "value": "takeer (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"bring\"",
+              "value": "bringer (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"take to...\"",
+              "value": "Các dạng từ loại khác của \"take to...\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"bring to...\"",
+              "value": "Cụm từ liên quan đến bring to..."
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"brought\"",
+              "value": "Cụm từ liên quan đến brought"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"bring me...\"",
+              "value": "Cụm từ liên quan đến bring me..."
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Take (from Here to There)",
@@ -5843,153 +8936,560 @@ export const courseData = [
         "text": "You can take my umbrella and bring it back tomorrow.",
         "trans": "Bạn có thể cầm ô của tôi đi và mang trả lại vào ngày mai."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "9.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_9_1_0",
+            "text": "Are you going to school? [blank] your books.",
+            "answers": [
+              "take"
+            ],
+            "hint": "Mang từ ĐÂY (here) đi đến ĐÓ (there). Mang ra xa người nói.",
+            "explanation": "Từ cần điền là \"take\", mang nghĩa là \"Mang từ ĐÂY (here) đi đến ĐÓ (there). Mang ra xa người nói.\"."
+          },
+          {
+            "id": "ex_9_1_1",
+            "text": "Are you going to the kitchen? Can you [blank] me a glass?",
+            "answers": [
+              "bring"
+            ],
+            "hint": "Mang từ ĐÓ (there) về ĐÂY (here). Mang lại gần người nói.",
+            "explanation": "Từ cần điền là \"bring\", mang nghĩa là \"Mang từ ĐÓ (there) về ĐÂY (here). Mang lại gần người nói.\"."
+          },
+          {
+            "id": "ex_9_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "take to..."
+            ],
+            "hint": "Mang/đem đến cho ai đó ở xa.",
+            "explanation": "Từ cần điền là \"take to...\", mang nghĩa là \"Mang/đem đến cho ai đó ở xa.\"."
+          },
+          {
+            "id": "ex_9_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "bring to..."
+            ],
+            "hint": "Mang/đem đến chỗ của mình.",
+            "explanation": "Từ cần điền là \"bring to...\", mang nghĩa là \"Mang/đem đến chỗ của mình.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "9.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_9_2_0",
+            "text": "brought",
+            "options": [
+              "Đã mang đến (Quá khứ của bring).",
+              "Mang trả lại chỗ cũ.",
+              "Mang cho tôi...",
+              "Cầm đi, mượn mang đi theo."
+            ],
+            "answer": "Đã mang đến (Quá khứ của bring).",
+            "explanation": "Từ \"brought\" có nghĩa chính xác là \"Đã mang đến (Quá khứ của bring).\"."
+          },
+          {
+            "id": "ex_9_2_1",
+            "text": "bring me...",
+            "options": [
+              "Mang trả lại chỗ cũ.",
+              "Cầm đi, mượn mang đi theo.",
+              "Mang cho tôi...",
+              "Đã mang đến (Quá khứ của bring)."
+            ],
+            "answer": "Mang cho tôi...",
+            "explanation": "Từ \"bring me...\" có nghĩa chính xác là \"Mang cho tôi...\"."
+          },
+          {
+            "id": "ex_9_2_2",
+            "text": "take (with you)",
+            "options": [
+              "Đã mang đến (Quá khứ của bring).",
+              "Mang trả lại chỗ cũ.",
+              "Mang cho tôi...",
+              "Cầm đi, mượn mang đi theo."
+            ],
+            "answer": "Cầm đi, mượn mang đi theo.",
+            "explanation": "Từ \"take (with you)\" có nghĩa chính xác là \"Cầm đi, mượn mang đi theo.\"."
+          },
+          {
+            "id": "ex_9_2_3",
+            "text": "bring back",
+            "options": [
+              "Đã mang đến (Quá khứ của bring).",
+              "Cầm đi, mượn mang đi theo.",
+              "Mang cho tôi...",
+              "Mang trả lại chỗ cũ."
+            ],
+            "answer": "Mang trả lại chỗ cũ.",
+            "explanation": "Từ \"bring back\" có nghĩa chính xác là \"Mang trả lại chỗ cũ.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "9.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_9_3_0",
+            "word": "take",
+            "category": "Topic A",
+            "explanation": "Từ \"take\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_9_3_1",
+            "word": "bring",
+            "category": "Topic B",
+            "explanation": "Từ \"bring\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_9_3_2",
+            "word": "take to...",
+            "category": "Topic A",
+            "explanation": "Từ \"take to...\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_9_3_3",
+            "word": "bring to...",
+            "category": "Topic B",
+            "explanation": "Từ \"bring to...\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_9_3_4",
+            "word": "brought",
+            "category": "Topic A",
+            "explanation": "Từ \"brought\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_9_3_5",
+            "word": "bring me...",
+            "category": "Topic B",
+            "explanation": "Từ \"bring me...\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "9.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_9_4_0",
+            "original": "I really like take to...s.",
+            "correct": "Please take this form to the secretary. (Thư ký đang ở đằng kia)",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"take to...\" thay vì \"take to...s\"."
+          },
+          {
+            "id": "ex_9_4_1",
+            "original": "I really like bring to...s.",
+            "correct": "Come to my house tomorrow and bring your guitar.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"bring to...\" thay vì \"bring to...s\"."
+          }
+        ]
+      },
+      {
+        "exNum": "9.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_9_5_0",
+            "text": "I've [blank] you some apples from my garden.",
+            "answers": [
+              "brought"
+            ],
+            "hint": "Đã mang đến (Quá khứ của bring).",
+            "explanation": "Từ cần điền là \"brought\"."
+          },
+          {
+            "id": "ex_9_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "bring me..."
+            ],
+            "hint": "Mang cho tôi...",
+            "explanation": "Từ cần điền là \"bring me...\"."
+          },
+          {
+            "id": "ex_9_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "take (with you)"
+            ],
+            "hint": "Cầm đi, mượn mang đi theo.",
+            "explanation": "Từ cần điền là \"take (with you)\"."
+          },
+          {
+            "id": "ex_9_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "bring back"
+            ],
+            "hint": "Mang trả lại chỗ cũ.",
+            "explanation": "Từ cần điền là \"bring back\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 10,
     "title": "Unit 10: Get / got / got",
     "description": "Động từ 'get' là một trong những từ thông dụng nhất tiếng Anh. Bạn sẽ học cách dùng 'get' để diễn tả sự thay đổi trạng thái, việc nhận/mua đồ vật, sự di chuyển và các cụm từ phổ biến.",
-    "theory": [
-      {
-        "heading": "A. Get + adjective (Trở nên... - dùng cho sự thay đổi)",
-        "items": [
-          {
-            "word": "get dark",
-            "type": "Tính từ",
-            "phonetic": "/ɡet dɑːrk/",
-            "vi": "Trời tối dần. (It's light -> It's getting dark -> It's dark).",
-            "example": "It's getting dark."
-          },
-          {
-            "word": "get better",
-            "type": "Tính từ",
-            "phonetic": "/ɡet ˈbet̬.ɚ/",
-            "vi": "Trở nên tốt hơn, khỏe hơn. (She's ill -> She's getting better).",
-            "example": "She's getting better."
-          },
-          {
-            "word": "get tired",
-            "type": "Tính từ",
-            "phonetic": "/ɡet ˈtaɪɚd/",
-            "vi": "Trở nên mệt mỏi.",
-            "example": "I'm getting tired. I want to go to bed."
-          },
-          {
-            "word": "get wet",
-            "type": "Tính từ",
-            "phonetic": "/ɡet wet/",
-            "vi": "Bị ướt.",
-            "example": "It's raining! I'm getting wet!"
-          },
-          {
-            "word": "get cold",
-            "type": "Tính từ",
-            "phonetic": "/ɡet koʊld/",
-            "vi": "Trở nên lạnh.",
-            "example": "Please close the window. I'm getting cold."
-          }
-        ]
-      },
-      {
-        "heading": "B. Get + noun (Nhận được, lấy được, mua được)",
-        "items": [
-          {
-            "word": "get a stamp",
-            "type": "Danh từ",
-            "phonetic": "/ɡet ə stæmp/",
-            "vi": "Mua/lấy một con tem.",
-            "example": "I want to send a postcard. I have to get a stamp."
-          },
-          {
-            "word": "get a job",
-            "type": "Danh từ",
-            "phonetic": "/ɡet ə dʒɑːb/",
-            "vi": "Kiếm việc làm.",
-            "example": "I've finished my studies. Now I want to get a job."
-          },
-          {
-            "word": "get a doctor",
-            "type": "Danh từ",
-            "phonetic": "/ɡet ə ˈdɑːk.tɚ/",
-            "vi": "Gọi bác sĩ.",
-            "example": "My friend is ill! Please get a doctor."
-          },
-          {
-            "word": "get some coffee",
-            "type": "Danh từ",
-            "phonetic": "/ɡet sʌm ˈkɑː.fi/",
-            "vi": "Lấy một ít cà phê.",
-            "example": "Do you want a drink? I can get some coffee."
-          },
-          {
-            "word": "get a newspaper",
-            "type": "Danh từ",
-            "phonetic": "/ɡet ə ˈnuːzˌpeɪ.pɚ/",
-            "vi": "Mua tờ báo.",
-            "example": "I'm going to the shop to get a newspaper."
-          },
-          {
-            "word": "get a taxi",
-            "type": "Danh từ",
-            "phonetic": "/ɡet ə ˈtæk.si/",
-            "vi": "Bắt taxi.",
-            "example": "Where can I get a taxi?"
-          }
-        ]
-      },
-      {
-        "heading": "C. Get to (Đến, đi đến một nơi)",
-        "items": [
-          {
-            "word": "get to the airport",
-            "type": "Cụm từ",
-            "phonetic": "/ɡet tuː ði ˈer.pɔːrt/",
-            "vi": "Đến sân bay (= arrive at / reach).",
-            "example": "How can I get to the airport? Take the airport bus."
-          },
-          {
-            "word": "get to New York",
-            "type": "Cụm từ",
-            "phonetic": "/ɡet tuː nuː jɔːrk/",
-            "vi": "Đến New York.",
-            "example": "When you get to New York, ring me."
-          }
-        ]
-      },
-      {
-        "heading": "D. Other phrases with get (Các cụm từ khác với get)",
-        "items": [
-          {
-            "word": "get married",
-            "type": "Cụm từ",
-            "phonetic": "/ɡet ˈmer.id/",
-            "vi": "Kết hôn.",
-            "example": "Maria and David are getting married in April."
-          },
-          {
-            "word": "get back",
-            "type": "Cụm động từ",
-            "phonetic": "/ɡet bæk/",
-            "vi": "Trở về (= return).",
-            "example": "When you get back from Hong Kong, ring me."
-          },
-          {
-            "word": "get home",
-            "type": "Cụm từ",
-            "phonetic": "/ɡet hoʊm/",
-            "vi": "Về đến nhà (KHÔNG dùng 'get to home').",
-            "example": "When I get home, I have my lunch."
-          },
-          {
-            "word": "get there",
-            "type": "Cụm từ",
-            "phonetic": "/ɡet ðer/",
-            "vi": "Đến đó (KHÔNG dùng 'get to there').",
-            "example": "I get there at 6 o'clock."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "get dark",
+          "type": "Tính từ",
+          "phonetic": "/ɡet dɑːrk/",
+          "vi": "Trời tối dần. (It's light -> It's getting dark -> It's dark).",
+          "example": "It's getting dark.",
+          "bucket": 1,
+          "collocations": [
+            "very get dark",
+            "extremely get dark"
+          ],
+          "wordFamily": "Biến thể của get dark"
+        },
+        {
+          "word": "get better",
+          "type": "Tính từ",
+          "phonetic": "/ɡet ˈbet̬.ɚ/",
+          "vi": "Trở nên tốt hơn, khỏe hơn. (She's ill -> She's getting better).",
+          "example": "She's getting better.",
+          "bucket": 2,
+          "collocations": [
+            "very get better",
+            "extremely get better"
+          ],
+          "wordFamily": "Biến thể của get better"
+        },
+        {
+          "word": "get tired",
+          "type": "Tính từ",
+          "phonetic": "/ɡet ˈtaɪɚd/",
+          "vi": "Trở nên mệt mỏi.",
+          "example": "I'm getting tired. I want to go to bed.",
+          "bucket": 1,
+          "collocations": [
+            "very get tired",
+            "extremely get tired"
+          ],
+          "wordFamily": "Biến thể của get tired"
+        },
+        {
+          "word": "get wet",
+          "type": "Tính từ",
+          "phonetic": "/ɡet wet/",
+          "vi": "Bị ướt.",
+          "example": "It's raining! I'm getting wet!",
+          "bucket": 2,
+          "collocations": [
+            "very get wet",
+            "extremely get wet"
+          ],
+          "wordFamily": "Biến thể của get wet"
+        },
+        {
+          "word": "get cold",
+          "type": "Tính từ",
+          "phonetic": "/ɡet koʊld/",
+          "vi": "Trở nên lạnh.",
+          "example": "Please close the window. I'm getting cold.",
+          "bucket": 1,
+          "collocations": [
+            "very get cold",
+            "extremely get cold"
+          ],
+          "wordFamily": "Biến thể của get cold"
+        },
+        {
+          "word": "get a stamp",
+          "type": "Danh từ",
+          "phonetic": "/ɡet ə stæmp/",
+          "vi": "Mua/lấy một con tem.",
+          "example": "I want to send a postcard. I have to get a stamp.",
+          "bucket": 2,
+          "collocations": [
+            "have a get a stamp",
+            "use get a stamp"
+          ],
+          "wordFamily": "Biến thể của get a stamp"
+        },
+        {
+          "word": "get a job",
+          "type": "Danh từ",
+          "phonetic": "/ɡet ə dʒɑːb/",
+          "vi": "Kiếm việc làm.",
+          "example": "I've finished my studies. Now I want to get a job.",
+          "bucket": 1,
+          "collocations": [
+            "have a get a job",
+            "use get a job"
+          ],
+          "wordFamily": "Biến thể của get a job"
+        },
+        {
+          "word": "get a doctor",
+          "type": "Danh từ",
+          "phonetic": "/ɡet ə ˈdɑːk.tɚ/",
+          "vi": "Gọi bác sĩ.",
+          "example": "My friend is ill! Please get a doctor.",
+          "bucket": 2,
+          "collocations": [
+            "have a get a doctor",
+            "use get a doctor"
+          ],
+          "wordFamily": "Biến thể của get a doctor"
+        },
+        {
+          "word": "get some coffee",
+          "type": "Danh từ",
+          "phonetic": "/ɡet sʌm ˈkɑː.fi/",
+          "vi": "Lấy một ít cà phê.",
+          "example": "Do you want a drink? I can get some coffee.",
+          "bucket": 1,
+          "collocations": [
+            "have a get some coffee",
+            "use get some coffee"
+          ],
+          "wordFamily": "Biến thể của get some coffee"
+        },
+        {
+          "word": "get a newspaper",
+          "type": "Danh từ",
+          "phonetic": "/ɡet ə ˈnuːzˌpeɪ.pɚ/",
+          "vi": "Mua tờ báo.",
+          "example": "I'm going to the shop to get a newspaper.",
+          "bucket": 2,
+          "collocations": [
+            "have a get a newspaper",
+            "use get a newspaper"
+          ],
+          "wordFamily": "Biến thể của get a newspaper"
+        },
+        {
+          "word": "get a taxi",
+          "type": "Danh từ",
+          "phonetic": "/ɡet ə ˈtæk.si/",
+          "vi": "Bắt taxi.",
+          "example": "Where can I get a taxi?",
+          "bucket": 1,
+          "collocations": [
+            "have a get a taxi",
+            "use get a taxi"
+          ],
+          "wordFamily": "Biến thể của get a taxi"
+        },
+        {
+          "word": "get to the airport",
+          "type": "Cụm từ",
+          "phonetic": "/ɡet tuː ði ˈer.pɔːrt/",
+          "vi": "Đến sân bay (= arrive at / reach).",
+          "example": "How can I get to the airport? Take the airport bus.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của get to the airport"
+        },
+        {
+          "word": "get to New York",
+          "type": "Cụm từ",
+          "phonetic": "/ɡet tuː nuː jɔːrk/",
+          "vi": "Đến New York.",
+          "example": "When you get to New York, ring me.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của get to New York"
+        },
+        {
+          "word": "get married",
+          "type": "Cụm từ",
+          "phonetic": "/ɡet ˈmer.id/",
+          "vi": "Kết hôn.",
+          "example": "Maria and David are getting married in April.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của get married"
+        },
+        {
+          "word": "get back",
+          "type": "Cụm động từ",
+          "phonetic": "/ɡet bæk/",
+          "vi": "Trở về (= return).",
+          "example": "When you get back from Hong Kong, ring me.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của get back"
+        },
+        {
+          "word": "get home",
+          "type": "Cụm từ",
+          "phonetic": "/ɡet hoʊm/",
+          "vi": "Về đến nhà (KHÔNG dùng 'get to home').",
+          "example": "When I get home, I have my lunch.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của get home"
+        },
+        {
+          "word": "get there",
+          "type": "Cụm từ",
+          "phonetic": "/ɡet ðer/",
+          "vi": "Đến đó (KHÔNG dùng 'get to there').",
+          "example": "I get there at 6 o'clock.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của get there"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Get + adjective (Trở nên... - dùng cho sự thay đổi)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "get dark",
+              "value": "👉 It's getting dark."
+            },
+            {
+              "title": "get better",
+              "value": "👉 She's getting better."
+            },
+            {
+              "title": "get tired",
+              "value": "👉 I'm getting tired. I want to go to bed."
+            },
+            {
+              "title": "get wet",
+              "value": "👉 It's raining! I'm getting wet!"
+            },
+            {
+              "title": "get cold",
+              "value": "👉 Please close the window. I'm getting cold."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Get + noun (Nhận được, lấy được, mua được)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "get a stamp",
+              "value": "👉 I want to send a postcard. I have to get a stamp."
+            },
+            {
+              "title": "get a job",
+              "value": "👉 I've finished my studies. Now I want to get a job."
+            },
+            {
+              "title": "get a doctor",
+              "value": "👉 My friend is ill! Please get a doctor."
+            },
+            {
+              "title": "get some coffee",
+              "value": "👉 Do you want a drink? I can get some coffee."
+            },
+            {
+              "title": "get a newspaper",
+              "value": "👉 I'm going to the shop to get a newspaper."
+            },
+            {
+              "title": "get a taxi",
+              "value": "👉 Where can I get a taxi?"
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Get to (Đến, đi đến một nơi)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "get to the airport",
+              "value": "👉 How can I get to the airport? Take the airport bus."
+            },
+            {
+              "title": "get to New York",
+              "value": "👉 When you get to New York, ring me."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Other phrases with get (Các cụm từ khác với get)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "get married",
+              "value": "👉 Maria and David are getting married in April."
+            },
+            {
+              "title": "get back",
+              "value": "👉 When you get back from Hong Kong, ring me."
+            },
+            {
+              "title": "get home",
+              "value": "👉 When I get home, I have my lunch."
+            },
+            {
+              "title": "get there",
+              "value": "👉 I get there at 6 o'clock."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"get dark\"",
+              "value": "get darkly (Trạng từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"get better\"",
+              "value": "get betterly (Trạng từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"get tired\"",
+              "value": "get tiredly (Trạng từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"get wet\"",
+              "value": "Ví dụ: very get wet, extremely get wet"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"get cold\"",
+              "value": "Ví dụ: very get cold, extremely get cold"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"get a stamp\"",
+              "value": "Ví dụ: have a get a stamp, make a get a stamp, good get a stamp"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Changes (Get + Adj)",
@@ -6505,122 +10005,473 @@ export const courseData = [
         "text": "When I get home, I have my lunch.",
         "trans": "Khi tôi về đến nhà, tôi ăn bữa trưa của mình."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "10.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_10_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "get dark"
+            ],
+            "hint": "Trời tối dần. (It's light -> It's getting dark -> It's dark).",
+            "explanation": "Từ cần điền là \"get dark\", mang nghĩa là \"Trời tối dần. (It's light -> It's getting dark -> It's dark).\"."
+          },
+          {
+            "id": "ex_10_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "get better"
+            ],
+            "hint": "Trở nên tốt hơn, khỏe hơn. (She's ill -> She's getting better).",
+            "explanation": "Từ cần điền là \"get better\", mang nghĩa là \"Trở nên tốt hơn, khỏe hơn. (She's ill -> She's getting better).\"."
+          },
+          {
+            "id": "ex_10_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "get tired"
+            ],
+            "hint": "Trở nên mệt mỏi.",
+            "explanation": "Từ cần điền là \"get tired\", mang nghĩa là \"Trở nên mệt mỏi.\"."
+          },
+          {
+            "id": "ex_10_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "get wet"
+            ],
+            "hint": "Bị ướt.",
+            "explanation": "Từ cần điền là \"get wet\", mang nghĩa là \"Bị ướt.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "10.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_10_2_0",
+            "text": "get cold",
+            "options": [
+              "Mua/lấy một con tem.",
+              "Trở nên lạnh.",
+              "Gọi bác sĩ.",
+              "Kiếm việc làm."
+            ],
+            "answer": "Trở nên lạnh.",
+            "explanation": "Từ \"get cold\" có nghĩa chính xác là \"Trở nên lạnh.\"."
+          },
+          {
+            "id": "ex_10_2_1",
+            "text": "get a stamp",
+            "options": [
+              "Trở nên lạnh.",
+              "Mua/lấy một con tem.",
+              "Gọi bác sĩ.",
+              "Kiếm việc làm."
+            ],
+            "answer": "Mua/lấy một con tem.",
+            "explanation": "Từ \"get a stamp\" có nghĩa chính xác là \"Mua/lấy một con tem.\"."
+          },
+          {
+            "id": "ex_10_2_2",
+            "text": "get a job",
+            "options": [
+              "Mua/lấy một con tem.",
+              "Gọi bác sĩ.",
+              "Kiếm việc làm.",
+              "Trở nên lạnh."
+            ],
+            "answer": "Kiếm việc làm.",
+            "explanation": "Từ \"get a job\" có nghĩa chính xác là \"Kiếm việc làm.\"."
+          },
+          {
+            "id": "ex_10_2_3",
+            "text": "get a doctor",
+            "options": [
+              "Mua/lấy một con tem.",
+              "Gọi bác sĩ.",
+              "Trở nên lạnh.",
+              "Kiếm việc làm."
+            ],
+            "answer": "Gọi bác sĩ.",
+            "explanation": "Từ \"get a doctor\" có nghĩa chính xác là \"Gọi bác sĩ.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "10.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_10_3_0",
+            "word": "get dark",
+            "category": "Topic A",
+            "explanation": "Từ \"get dark\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_10_3_1",
+            "word": "get better",
+            "category": "Topic B",
+            "explanation": "Từ \"get better\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_10_3_2",
+            "word": "get tired",
+            "category": "Topic A",
+            "explanation": "Từ \"get tired\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_10_3_3",
+            "word": "get wet",
+            "category": "Topic B",
+            "explanation": "Từ \"get wet\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_10_3_4",
+            "word": "get cold",
+            "category": "Topic A",
+            "explanation": "Từ \"get cold\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_10_3_5",
+            "word": "get a stamp",
+            "category": "Topic B",
+            "explanation": "Từ \"get a stamp\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "10.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_10_4_0",
+            "original": "I really like get tireds.",
+            "correct": "I'm getting tired. I want to go to bed.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"get tired\" thay vì \"get tireds\"."
+          },
+          {
+            "id": "ex_10_4_1",
+            "original": "I really like get wets.",
+            "correct": "It's raining! I'm getting wet!",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"get wet\" thay vì \"get wets\"."
+          }
+        ]
+      },
+      {
+        "exNum": "10.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_10_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "get cold"
+            ],
+            "hint": "Trở nên lạnh.",
+            "explanation": "Từ cần điền là \"get cold\"."
+          },
+          {
+            "id": "ex_10_5_1",
+            "text": "I want to send a postcard. I have to [blank].",
+            "answers": [
+              "get a stamp"
+            ],
+            "hint": "Mua/lấy một con tem.",
+            "explanation": "Từ cần điền là \"get a stamp\"."
+          },
+          {
+            "id": "ex_10_5_2",
+            "text": "I've finished my studies. Now I want to [blank].",
+            "answers": [
+              "get a job"
+            ],
+            "hint": "Kiếm việc làm.",
+            "explanation": "Từ cần điền là \"get a job\"."
+          },
+          {
+            "id": "ex_10_5_3",
+            "text": "My friend is ill! Please [blank].",
+            "answers": [
+              "get a doctor"
+            ],
+            "hint": "Gọi bác sĩ.",
+            "explanation": "Từ cần điền là \"get a doctor\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 11,
     "title": "Unit 11: Phrasal verbs",
     "description": "Cụm động từ (Phrasal verbs) là sự kết hợp giữa một động từ và một giới từ, thường mang ý nghĩa hoàn toàn khác với động từ gốc. Bài này giúp bạn nắm vững các cụm từ phổ biến nhất.",
-    "theory": [
-      {
-        "heading": "A. What are phrasal verbs? (Cụm động từ là gì?)",
-        "items": [
-          {
-            "word": "get up",
-            "type": "Phrasal verb",
-            "phonetic": "/ɡet ʌp/",
-            "vi": "Thức dậy, rời khỏi giường.",
-            "example": "I got up at 6.30 this morning. I'm tired now."
-          },
-          {
-            "word": "get on (with)",
-            "type": "Phrasal verb",
-            "phonetic": "/ɡet ɑːn/",
-            "vi": "Hòa thuận, có mối quan hệ tốt với ai đó.",
-            "example": "I hated my sister when I was young but now we get on very well."
-          },
-          {
-            "word": "get over",
-            "type": "Phrasal verb",
-            "phonetic": "/ɡet ˈoʊ.vɚ/",
-            "vi": "Bình phục, vượt qua (bệnh tật, cú sốc).",
-            "example": "He soon got over his cold. (= he got better quickly)"
-          },
-          {
-            "word": "turn on",
-            "type": "Phrasal verb",
-            "phonetic": "/tɝːn ɑːn/",
-            "vi": "Bật (máy móc, tivi, đèn).",
-            "example": "He always turns on the TV at 9 o'clock."
-          },
-          {
-            "word": "turn off",
-            "type": "Phrasal verb",
-            "phonetic": "/tɝːn ɑːf/",
-            "vi": "Tắt (máy móc, tivi, đèn).",
-            "example": "It's a sunny day. Turn the light off."
-          },
-          {
-            "word": "turn up",
-            "type": "Phrasal verb",
-            "phonetic": "/tɝːn ʌp/",
-            "vi": "Vặn to lên (âm lượng).",
-            "example": "Turn the TV up. I can't hear it."
-          },
-          {
-            "word": "turn down",
-            "type": "Phrasal verb",
-            "phonetic": "/tɝːn daʊn/",
-            "vi": "Vặn nhỏ đi (âm lượng).",
-            "example": "Turn the TV down. It's too loud."
-          },
-          {
-            "word": "go on",
-            "type": "Phrasal verb",
-            "phonetic": "/ɡoʊ ɑːn/",
-            "vi": "Tiếp tục (= continue).",
-            "example": "Don't stop. Go on talking. It's very interesting."
-          },
-          {
-            "word": "go off",
-            "type": "Phrasal verb",
-            "phonetic": "/ɡoʊ ɑːf/",
-            "vi": "Phát nổ (bom) hoặc Đổ chuông (báo thức).",
-            "example": "A bomb went off in a London station today."
-          },
-          {
-            "word": "put on",
-            "type": "Phrasal verb",
-            "phonetic": "/pʊt ɑːn/",
-            "vi": "Mặc đồ, đội mũ, mang giày vào.",
-            "example": "It's cold and windy outside. Put your coat on."
-          },
-          {
-            "word": "come on",
-            "type": "Phrasal verb",
-            "phonetic": "/kʌm ɑːn/",
-            "vi": "Nhanh lên, thôi nào!",
-            "example": "Come on! We're late."
-          }
-        ]
-      },
-      {
-        "heading": "B. One phrasal verb, different meanings (Một cụm từ, nhiều nghĩa)",
-        "items": [
-          {
-            "word": "turn down",
-            "type": "Phrasal verb",
-            "phonetic": "/tɝːn daʊn/",
-            "vi": "1. Vặn nhỏ lại. 2. Từ chối (= refuse).",
-            "example": "She turned down the invitation. (= refused it)"
-          },
-          {
-            "word": "take off",
-            "type": "Phrasal verb",
-            "phonetic": "/teɪk ɑːf/",
-            "vi": "1. Cất cánh (máy bay). 2. Cởi đồ ra.",
-            "example": "Our plane takes off at 12.30. / She took off her shoes."
-          },
-          {
-            "word": "do up",
-            "type": "Phrasal verb",
-            "phonetic": "/duː ʌp/",
-            "vi": "1. Kéo khóa, cài nút áo. 2. Sửa sang, trang trí lại nhà.",
-            "example": "She did up her coat. / She did up her flat."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "get up",
+          "type": "Phrasal verb",
+          "phonetic": "/ɡet ʌp/",
+          "vi": "Thức dậy, rời khỏi giường.",
+          "example": "I got up at 6.30 this morning. I'm tired now.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của get up"
+        },
+        {
+          "word": "get on (with)",
+          "type": "Phrasal verb",
+          "phonetic": "/ɡet ɑːn/",
+          "vi": "Hòa thuận, có mối quan hệ tốt với ai đó.",
+          "example": "I hated my sister when I was young but now we get on very well.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của get on (with)"
+        },
+        {
+          "word": "get over",
+          "type": "Phrasal verb",
+          "phonetic": "/ɡet ˈoʊ.vɚ/",
+          "vi": "Bình phục, vượt qua (bệnh tật, cú sốc).",
+          "example": "He soon got over his cold. (= he got better quickly)",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của get over"
+        },
+        {
+          "word": "turn on",
+          "type": "Phrasal verb",
+          "phonetic": "/tɝːn ɑːn/",
+          "vi": "Bật (máy móc, tivi, đèn).",
+          "example": "He always turns on the TV at 9 o'clock.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của turn on"
+        },
+        {
+          "word": "turn off",
+          "type": "Phrasal verb",
+          "phonetic": "/tɝːn ɑːf/",
+          "vi": "Tắt (máy móc, tivi, đèn).",
+          "example": "It's a sunny day. Turn the light off.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của turn off"
+        },
+        {
+          "word": "turn up",
+          "type": "Phrasal verb",
+          "phonetic": "/tɝːn ʌp/",
+          "vi": "Vặn to lên (âm lượng).",
+          "example": "Turn the TV up. I can't hear it.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của turn up"
+        },
+        {
+          "word": "turn down",
+          "type": "Phrasal verb",
+          "phonetic": "/tɝːn daʊn/",
+          "vi": "Vặn nhỏ đi (âm lượng).",
+          "example": "Turn the TV down. It's too loud.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của turn down"
+        },
+        {
+          "word": "go on",
+          "type": "Phrasal verb",
+          "phonetic": "/ɡoʊ ɑːn/",
+          "vi": "Tiếp tục (= continue).",
+          "example": "Don't stop. Go on talking. It's very interesting.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go on"
+        },
+        {
+          "word": "go off",
+          "type": "Phrasal verb",
+          "phonetic": "/ɡoʊ ɑːf/",
+          "vi": "Phát nổ (bom) hoặc Đổ chuông (báo thức).",
+          "example": "A bomb went off in a London station today.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go off"
+        },
+        {
+          "word": "put on",
+          "type": "Phrasal verb",
+          "phonetic": "/pʊt ɑːn/",
+          "vi": "Mặc đồ, đội mũ, mang giày vào.",
+          "example": "It's cold and windy outside. Put your coat on.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của put on"
+        },
+        {
+          "word": "come on",
+          "type": "Phrasal verb",
+          "phonetic": "/kʌm ɑːn/",
+          "vi": "Nhanh lên, thôi nào!",
+          "example": "Come on! We're late.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của come on"
+        },
+        {
+          "word": "turn down",
+          "type": "Phrasal verb",
+          "phonetic": "/tɝːn daʊn/",
+          "vi": "1. Vặn nhỏ lại. 2. Từ chối (= refuse).",
+          "example": "She turned down the invitation. (= refused it)",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của turn down"
+        },
+        {
+          "word": "take off",
+          "type": "Phrasal verb",
+          "phonetic": "/teɪk ɑːf/",
+          "vi": "1. Cất cánh (máy bay). 2. Cởi đồ ra.",
+          "example": "Our plane takes off at 12.30. / She took off her shoes.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take off"
+        },
+        {
+          "word": "do up",
+          "type": "Phrasal verb",
+          "phonetic": "/duː ʌp/",
+          "vi": "1. Kéo khóa, cài nút áo. 2. Sửa sang, trang trí lại nhà.",
+          "example": "She did up her coat. / She did up her flat.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của do up"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. What are phrasal verbs? (Cụm động từ là gì?)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "get up",
+              "value": "👉 I got up at 6.30 this morning. I'm tired now."
+            },
+            {
+              "title": "get on (with)",
+              "value": "👉 I hated my sister when I was young but now we get on very well."
+            },
+            {
+              "title": "get over",
+              "value": "👉 He soon got over his cold. (= he got better quickly)"
+            },
+            {
+              "title": "turn on",
+              "value": "👉 He always turns on the TV at 9 o'clock."
+            },
+            {
+              "title": "turn off",
+              "value": "👉 It's a sunny day. Turn the light off."
+            },
+            {
+              "title": "turn up",
+              "value": "👉 Turn the TV up. I can't hear it."
+            },
+            {
+              "title": "turn down",
+              "value": "👉 Turn the TV down. It's too loud."
+            },
+            {
+              "title": "go on",
+              "value": "👉 Don't stop. Go on talking. It's very interesting."
+            },
+            {
+              "title": "go off",
+              "value": "👉 A bomb went off in a London station today."
+            },
+            {
+              "title": "put on",
+              "value": "👉 It's cold and windy outside. Put your coat on."
+            },
+            {
+              "title": "come on",
+              "value": "👉 Come on! We're late."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. One phrasal verb, different meanings (Một cụm từ, nhiều nghĩa)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "turn down",
+              "value": "👉 She turned down the invitation. (= refused it)"
+            },
+            {
+              "title": "take off",
+              "value": "👉 Our plane takes off at 12.30. / She took off her shoes."
+            },
+            {
+              "title": "do up",
+              "value": "👉 She did up her coat. / She did up her flat."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"get up\"",
+              "value": "Các dạng từ loại khác của \"get up\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"get on (with)\"",
+              "value": "Các dạng từ loại khác của \"get on (with)\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"get over\"",
+              "value": "Các dạng từ loại khác của \"get over\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"turn on\"",
+              "value": "Cụm từ liên quan đến turn on"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"turn off\"",
+              "value": "Cụm từ liên quan đến turn off"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"turn up\"",
+              "value": "Cụm từ liên quan đến turn up"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Get",
@@ -7137,169 +10988,563 @@ export const courseData = [
         "text": "It's cold and windy outside. Put your coat on.",
         "trans": "Bên ngoài trời lạnh và có gió. Hãy mặc áo khoác vào."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "11.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_11_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "get up"
+            ],
+            "hint": "Thức dậy, rời khỏi giường.",
+            "explanation": "Từ cần điền là \"get up\", mang nghĩa là \"Thức dậy, rời khỏi giường.\"."
+          },
+          {
+            "id": "ex_11_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "get on (with)"
+            ],
+            "hint": "Hòa thuận, có mối quan hệ tốt với ai đó.",
+            "explanation": "Từ cần điền là \"get on (with)\", mang nghĩa là \"Hòa thuận, có mối quan hệ tốt với ai đó.\"."
+          },
+          {
+            "id": "ex_11_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "get over"
+            ],
+            "hint": "Bình phục, vượt qua (bệnh tật, cú sốc).",
+            "explanation": "Từ cần điền là \"get over\", mang nghĩa là \"Bình phục, vượt qua (bệnh tật, cú sốc).\"."
+          },
+          {
+            "id": "ex_11_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "turn on"
+            ],
+            "hint": "Bật (máy móc, tivi, đèn).",
+            "explanation": "Từ cần điền là \"turn on\", mang nghĩa là \"Bật (máy móc, tivi, đèn).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "11.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_11_2_0",
+            "text": "turn off",
+            "options": [
+              "Tiếp tục (= continue).",
+              "Tắt (máy móc, tivi, đèn).",
+              "Vặn to lên (âm lượng).",
+              "Vặn nhỏ đi (âm lượng)."
+            ],
+            "answer": "Tắt (máy móc, tivi, đèn).",
+            "explanation": "Từ \"turn off\" có nghĩa chính xác là \"Tắt (máy móc, tivi, đèn).\"."
+          },
+          {
+            "id": "ex_11_2_1",
+            "text": "turn up",
+            "options": [
+              "Tiếp tục (= continue).",
+              "Vặn nhỏ đi (âm lượng).",
+              "Vặn to lên (âm lượng).",
+              "Tắt (máy móc, tivi, đèn)."
+            ],
+            "answer": "Vặn to lên (âm lượng).",
+            "explanation": "Từ \"turn up\" có nghĩa chính xác là \"Vặn to lên (âm lượng).\"."
+          },
+          {
+            "id": "ex_11_2_2",
+            "text": "turn down",
+            "options": [
+              "Vặn to lên (âm lượng).",
+              "Tiếp tục (= continue).",
+              "Tắt (máy móc, tivi, đèn).",
+              "Vặn nhỏ đi (âm lượng)."
+            ],
+            "answer": "Vặn nhỏ đi (âm lượng).",
+            "explanation": "Từ \"turn down\" có nghĩa chính xác là \"Vặn nhỏ đi (âm lượng).\"."
+          },
+          {
+            "id": "ex_11_2_3",
+            "text": "go on",
+            "options": [
+              "Tiếp tục (= continue).",
+              "Vặn nhỏ đi (âm lượng).",
+              "Vặn to lên (âm lượng).",
+              "Tắt (máy móc, tivi, đèn)."
+            ],
+            "answer": "Tiếp tục (= continue).",
+            "explanation": "Từ \"go on\" có nghĩa chính xác là \"Tiếp tục (= continue).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "11.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_11_3_0",
+            "word": "get up",
+            "category": "Topic A",
+            "explanation": "Từ \"get up\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_11_3_1",
+            "word": "get on (with)",
+            "category": "Topic B",
+            "explanation": "Từ \"get on (with)\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_11_3_2",
+            "word": "get over",
+            "category": "Topic A",
+            "explanation": "Từ \"get over\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_11_3_3",
+            "word": "turn on",
+            "category": "Topic B",
+            "explanation": "Từ \"turn on\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_11_3_4",
+            "word": "turn off",
+            "category": "Topic A",
+            "explanation": "Từ \"turn off\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_11_3_5",
+            "word": "turn up",
+            "category": "Topic B",
+            "explanation": "Từ \"turn up\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "11.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_11_4_0",
+            "original": "I really like get overs.",
+            "correct": "He soon got over his cold. (= he got better quickly)",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"get over\" thay vì \"get overs\"."
+          },
+          {
+            "id": "ex_11_4_1",
+            "original": "I really like turn ons.",
+            "correct": "He always turns on the TV at 9 o'clock.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"turn on\" thay vì \"turn ons\"."
+          }
+        ]
+      },
+      {
+        "exNum": "11.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_11_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "turn off"
+            ],
+            "hint": "Tắt (máy móc, tivi, đèn).",
+            "explanation": "Từ cần điền là \"turn off\"."
+          },
+          {
+            "id": "ex_11_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "turn up"
+            ],
+            "hint": "Vặn to lên (âm lượng).",
+            "explanation": "Từ cần điền là \"turn up\"."
+          },
+          {
+            "id": "ex_11_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "turn down"
+            ],
+            "hint": "Vặn nhỏ đi (âm lượng).",
+            "explanation": "Từ cần điền là \"turn down\"."
+          },
+          {
+            "id": "ex_11_5_3",
+            "text": "Don't stop. [blank] talking. It's very interesting.",
+            "answers": [
+              "go on"
+            ],
+            "hint": "Tiếp tục (= continue).",
+            "explanation": "Từ cần điền là \"go on\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 12,
     "title": "Unit 12: Everyday things",
     "description": "Học cách mô tả các hoạt động thường ngày (thức dậy, ăn sáng, đi làm, xem tivi, làm việc nhà) và cách hỏi đáp về tần suất của các thói quen.",
-    "theory": [
-      {
-        "heading": "A. Things we do every day (Những việc làm mỗi ngày)",
-        "items": [
-          {
-            "word": "wake up",
-            "type": "Hoạt động",
-            "phonetic": "/weɪk ʌp/",
-            "vi": "Tỉnh giấc.",
-            "example": "I usually wake up at 7 o'clock."
-          },
-          {
-            "word": "get up",
-            "type": "Hoạt động",
-            "phonetic": "/ɡet ʌp/",
-            "vi": "Thức dậy, rời khỏi giường.",
-            "example": "I get up at 7.15."
-          },
-          {
-            "word": "go to the bathroom",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ tuː ðə ˈbæθ.ruːm/",
-            "vi": "Đi vệ sinh.",
-            "example": "I go to the bathroom and have a shower."
-          },
-          {
-            "word": "have a shower",
-            "type": "Hoạt động",
-            "phonetic": "/hæv ə ˈʃaʊ.ɚ/",
-            "vi": "Tắm vòi sen.",
-            "example": "I always have a shower in the morning."
-          },
-          {
-            "word": "have breakfast",
-            "type": "Hoạt động",
-            "phonetic": "/hæv ˈbrek.fəst/",
-            "vi": "Ăn sáng.",
-            "example": "I have breakfast at 7.30."
-          },
-          {
-            "word": "listen to the radio",
-            "type": "Hoạt động",
-            "phonetic": "/ˈlɪs.ən tuː ðə ˈreɪ.di.oʊ/",
-            "vi": "Nghe đài.",
-            "example": "I listen to the radio in the kitchen."
-          },
-          {
-            "word": "go to work",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ tuː wɝːk/",
-            "vi": "Đi làm.",
-            "example": "I go to work by bus."
-          },
-          {
-            "word": "come home",
-            "type": "Hoạt động",
-            "phonetic": "/kʌm hoʊm/",
-            "vi": "Về nhà.",
-            "example": "I come home at 6 o'clock."
-          },
-          {
-            "word": "make dinner",
-            "type": "Hoạt động",
-            "phonetic": "/meɪk ˈdɪn.ɚ/",
-            "vi": "Nấu bữa tối.",
-            "example": "I make dinner for my family."
-          },
-          {
-            "word": "phone a friend",
-            "type": "Hoạt động",
-            "phonetic": "/foʊn ə frend/",
-            "vi": "Gọi điện cho bạn bè (= call a friend).",
-            "example": "I phone a friend in the evening."
-          },
-          {
-            "word": "watch TV",
-            "type": "Hoạt động",
-            "phonetic": "/wɑːtʃ ˌtiːˈviː/",
-            "vi": "Xem tivi.",
-            "example": "I watch TV for an hour."
-          },
-          {
-            "word": "go to bed",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ tuː bed/",
-            "vi": "Đi ngủ.",
-            "example": "I go to bed at 11 o'clock."
-          }
-        ]
-      },
-      {
-        "heading": "B. Sometimes I... (Thỉnh thoảng tôi...)",
-        "items": [
-          {
-            "word": "wash clothes",
-            "type": "Hoạt động",
-            "phonetic": "/wɑːʃ kloʊðz/",
-            "vi": "Giặt quần áo.",
-            "example": "I wash clothes at the weekend."
-          },
-          {
-            "word": "clean the house",
-            "type": "Hoạt động",
-            "phonetic": "/kliːn ðə haʊs/",
-            "vi": "Dọn dẹp nhà cửa.",
-            "example": "I clean the house on Saturday."
-          },
-          {
-            "word": "go for a walk",
-            "type": "Hoạt động",
-            "phonetic": "/ɡoʊ fɔːr ə wɑːk/",
-            "vi": "Đi dạo.",
-            "example": "On Sunday I go for a walk."
-          },
-          {
-            "word": "write letters",
-            "type": "Hoạt động",
-            "phonetic": "/raɪt ˈlet̬.ɚz/",
-            "vi": "Viết thư.",
-            "example": "Sometimes I write letters to my friends."
-          }
-        ]
-      },
-      {
-        "heading": "C & D. Questions & Adverbs (Hỏi tần suất & Trạng từ)",
-        "items": [
-          {
-            "word": "How often...?",
-            "type": "Câu hỏi",
-            "phonetic": "/haʊ ˈɑːf.ən/",
-            "vi": "Bao lâu một lần? (Hỏi về tần suất).",
-            "example": "How often do you watch TV? - Every day."
-          },
-          {
-            "word": "What time...?",
-            "type": "Câu hỏi",
-            "phonetic": "/wɑːt taɪm/",
-            "vi": "Mấy giờ? (Hỏi thời gian cụ thể).",
-            "example": "What time do you get up? - Seven o'clock."
-          },
-          {
-            "word": "How do you...?",
-            "type": "Câu hỏi",
-            "phonetic": "/haʊ duː juː/",
-            "vi": "Bằng phương tiện gì? Làm như thế nào?",
-            "example": "How do you go to work? - By bus."
-          },
-          {
-            "word": "usually / normally",
-            "type": "Trạng từ",
-            "phonetic": "/ˈjuː.ʒu.ə.li/ /ˈnɔːr.mə.li/",
-            "vi": "Thường xuyên, thông thường.",
-            "example": "I normally get up at eight o'clock, but today I got up at 8:30."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "wake up",
+          "type": "Hoạt động",
+          "phonetic": "/weɪk ʌp/",
+          "vi": "Tỉnh giấc.",
+          "example": "I usually wake up at 7 o'clock.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của wake up"
+        },
+        {
+          "word": "get up",
+          "type": "Hoạt động",
+          "phonetic": "/ɡet ʌp/",
+          "vi": "Thức dậy, rời khỏi giường.",
+          "example": "I get up at 7.15.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của get up"
+        },
+        {
+          "word": "go to the bathroom",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ tuː ðə ˈbæθ.ruːm/",
+          "vi": "Đi vệ sinh.",
+          "example": "I go to the bathroom and have a shower.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go to the bathroom"
+        },
+        {
+          "word": "have a shower",
+          "type": "Hoạt động",
+          "phonetic": "/hæv ə ˈʃaʊ.ɚ/",
+          "vi": "Tắm vòi sen.",
+          "example": "I always have a shower in the morning.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a shower"
+        },
+        {
+          "word": "have breakfast",
+          "type": "Hoạt động",
+          "phonetic": "/hæv ˈbrek.fəst/",
+          "vi": "Ăn sáng.",
+          "example": "I have breakfast at 7.30.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have breakfast"
+        },
+        {
+          "word": "listen to the radio",
+          "type": "Hoạt động",
+          "phonetic": "/ˈlɪs.ən tuː ðə ˈreɪ.di.oʊ/",
+          "vi": "Nghe đài.",
+          "example": "I listen to the radio in the kitchen.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của listen to the radio"
+        },
+        {
+          "word": "go to work",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ tuː wɝːk/",
+          "vi": "Đi làm.",
+          "example": "I go to work by bus.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go to work"
+        },
+        {
+          "word": "come home",
+          "type": "Hoạt động",
+          "phonetic": "/kʌm hoʊm/",
+          "vi": "Về nhà.",
+          "example": "I come home at 6 o'clock.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của come home"
+        },
+        {
+          "word": "make dinner",
+          "type": "Hoạt động",
+          "phonetic": "/meɪk ˈdɪn.ɚ/",
+          "vi": "Nấu bữa tối.",
+          "example": "I make dinner for my family.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make dinner"
+        },
+        {
+          "word": "phone a friend",
+          "type": "Hoạt động",
+          "phonetic": "/foʊn ə frend/",
+          "vi": "Gọi điện cho bạn bè (= call a friend).",
+          "example": "I phone a friend in the evening.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của phone a friend"
+        },
+        {
+          "word": "watch TV",
+          "type": "Hoạt động",
+          "phonetic": "/wɑːtʃ ˌtiːˈviː/",
+          "vi": "Xem tivi.",
+          "example": "I watch TV for an hour.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của watch TV"
+        },
+        {
+          "word": "go to bed",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ tuː bed/",
+          "vi": "Đi ngủ.",
+          "example": "I go to bed at 11 o'clock.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go to bed"
+        },
+        {
+          "word": "wash clothes",
+          "type": "Hoạt động",
+          "phonetic": "/wɑːʃ kloʊðz/",
+          "vi": "Giặt quần áo.",
+          "example": "I wash clothes at the weekend.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của wash clothes"
+        },
+        {
+          "word": "clean the house",
+          "type": "Hoạt động",
+          "phonetic": "/kliːn ðə haʊs/",
+          "vi": "Dọn dẹp nhà cửa.",
+          "example": "I clean the house on Saturday.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của clean the house"
+        },
+        {
+          "word": "go for a walk",
+          "type": "Hoạt động",
+          "phonetic": "/ɡoʊ fɔːr ə wɑːk/",
+          "vi": "Đi dạo.",
+          "example": "On Sunday I go for a walk.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go for a walk"
+        },
+        {
+          "word": "write letters",
+          "type": "Hoạt động",
+          "phonetic": "/raɪt ˈlet̬.ɚz/",
+          "vi": "Viết thư.",
+          "example": "Sometimes I write letters to my friends.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của write letters"
+        },
+        {
+          "word": "How often...?",
+          "type": "Câu hỏi",
+          "phonetic": "/haʊ ˈɑːf.ən/",
+          "vi": "Bao lâu một lần? (Hỏi về tần suất).",
+          "example": "How often do you watch TV? - Every day.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của How often...?"
+        },
+        {
+          "word": "What time...?",
+          "type": "Câu hỏi",
+          "phonetic": "/wɑːt taɪm/",
+          "vi": "Mấy giờ? (Hỏi thời gian cụ thể).",
+          "example": "What time do you get up? - Seven o'clock.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của What time...?"
+        },
+        {
+          "word": "How do you...?",
+          "type": "Câu hỏi",
+          "phonetic": "/haʊ duː juː/",
+          "vi": "Bằng phương tiện gì? Làm như thế nào?",
+          "example": "How do you go to work? - By bus.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của How do you...?"
+        },
+        {
+          "word": "usually / normally",
+          "type": "Trạng từ",
+          "phonetic": "/ˈjuː.ʒu.ə.li/ /ˈnɔːr.mə.li/",
+          "vi": "Thường xuyên, thông thường.",
+          "example": "I normally get up at eight o'clock, but today I got up at 8:30.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của usually / normally"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Things we do every day (Những việc làm mỗi ngày)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "wake up",
+              "value": "👉 I usually wake up at 7 o'clock."
+            },
+            {
+              "title": "get up",
+              "value": "👉 I get up at 7.15."
+            },
+            {
+              "title": "go to the bathroom",
+              "value": "👉 I go to the bathroom and have a shower."
+            },
+            {
+              "title": "have a shower",
+              "value": "👉 I always have a shower in the morning."
+            },
+            {
+              "title": "have breakfast",
+              "value": "👉 I have breakfast at 7.30."
+            },
+            {
+              "title": "listen to the radio",
+              "value": "👉 I listen to the radio in the kitchen."
+            },
+            {
+              "title": "go to work",
+              "value": "👉 I go to work by bus."
+            },
+            {
+              "title": "come home",
+              "value": "👉 I come home at 6 o'clock."
+            },
+            {
+              "title": "make dinner",
+              "value": "👉 I make dinner for my family."
+            },
+            {
+              "title": "phone a friend",
+              "value": "👉 I phone a friend in the evening."
+            },
+            {
+              "title": "watch TV",
+              "value": "👉 I watch TV for an hour."
+            },
+            {
+              "title": "go to bed",
+              "value": "👉 I go to bed at 11 o'clock."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Sometimes I... (Thỉnh thoảng tôi...)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "wash clothes",
+              "value": "👉 I wash clothes at the weekend."
+            },
+            {
+              "title": "clean the house",
+              "value": "👉 I clean the house on Saturday."
+            },
+            {
+              "title": "go for a walk",
+              "value": "👉 On Sunday I go for a walk."
+            },
+            {
+              "title": "write letters",
+              "value": "👉 Sometimes I write letters to my friends."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C & D. Questions & Adverbs (Hỏi tần suất & Trạng từ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "How often...?",
+              "value": "👉 How often do you watch TV? - Every day."
+            },
+            {
+              "title": "What time...?",
+              "value": "👉 What time do you get up? - Seven o'clock."
+            },
+            {
+              "title": "How do you...?",
+              "value": "👉 How do you go to work? - By bus."
+            },
+            {
+              "title": "usually / normally",
+              "value": "👉 I normally get up at eight o'clock, but today I got up at 8:30."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"wake up\"",
+              "value": "Các dạng từ loại khác của \"wake up\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"get up\"",
+              "value": "Các dạng từ loại khác của \"get up\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"go to the bathroom\"",
+              "value": "Các dạng từ loại khác của \"go to the bathroom\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"have a shower\"",
+              "value": "Cụm từ liên quan đến have a shower"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"have breakfast\"",
+              "value": "Cụm từ liên quan đến have breakfast"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"listen to the radio\"",
+              "value": "Cụm từ liên quan đến listen to the radio"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Morning",
@@ -7816,160 +12061,544 @@ export const courseData = [
         "text": "Sometimes I go for a walk or write letters to my friends.",
         "trans": "Thỉnh thoảng tôi đi dạo hoặc viết thư cho bạn bè."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "12.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_12_1_0",
+            "text": "I usually [blank] at 7 o'clock.",
+            "answers": [
+              "wake up"
+            ],
+            "hint": "Tỉnh giấc.",
+            "explanation": "Từ cần điền là \"wake up\", mang nghĩa là \"Tỉnh giấc.\"."
+          },
+          {
+            "id": "ex_12_1_1",
+            "text": "I [blank] at 7.15.",
+            "answers": [
+              "get up"
+            ],
+            "hint": "Thức dậy, rời khỏi giường.",
+            "explanation": "Từ cần điền là \"get up\", mang nghĩa là \"Thức dậy, rời khỏi giường.\"."
+          },
+          {
+            "id": "ex_12_1_2",
+            "text": "I [blank] and have a shower.",
+            "answers": [
+              "go to the bathroom"
+            ],
+            "hint": "Đi vệ sinh.",
+            "explanation": "Từ cần điền là \"go to the bathroom\", mang nghĩa là \"Đi vệ sinh.\"."
+          },
+          {
+            "id": "ex_12_1_3",
+            "text": "I always [blank] in the morning.",
+            "answers": [
+              "have a shower"
+            ],
+            "hint": "Tắm vòi sen.",
+            "explanation": "Từ cần điền là \"have a shower\", mang nghĩa là \"Tắm vòi sen.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "12.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_12_2_0",
+            "text": "have breakfast",
+            "options": [
+              "Đi làm.",
+              "Nghe đài.",
+              "Về nhà.",
+              "Ăn sáng."
+            ],
+            "answer": "Ăn sáng.",
+            "explanation": "Từ \"have breakfast\" có nghĩa chính xác là \"Ăn sáng.\"."
+          },
+          {
+            "id": "ex_12_2_1",
+            "text": "listen to the radio",
+            "options": [
+              "Ăn sáng.",
+              "Nghe đài.",
+              "Đi làm.",
+              "Về nhà."
+            ],
+            "answer": "Nghe đài.",
+            "explanation": "Từ \"listen to the radio\" có nghĩa chính xác là \"Nghe đài.\"."
+          },
+          {
+            "id": "ex_12_2_2",
+            "text": "go to work",
+            "options": [
+              "Đi làm.",
+              "Nghe đài.",
+              "Về nhà.",
+              "Ăn sáng."
+            ],
+            "answer": "Đi làm.",
+            "explanation": "Từ \"go to work\" có nghĩa chính xác là \"Đi làm.\"."
+          },
+          {
+            "id": "ex_12_2_3",
+            "text": "come home",
+            "options": [
+              "Đi làm.",
+              "Nghe đài.",
+              "Về nhà.",
+              "Ăn sáng."
+            ],
+            "answer": "Về nhà.",
+            "explanation": "Từ \"come home\" có nghĩa chính xác là \"Về nhà.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "12.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_12_3_0",
+            "word": "wake up",
+            "category": "Topic A",
+            "explanation": "Từ \"wake up\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_12_3_1",
+            "word": "get up",
+            "category": "Topic B",
+            "explanation": "Từ \"get up\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_12_3_2",
+            "word": "go to the bathroom",
+            "category": "Topic A",
+            "explanation": "Từ \"go to the bathroom\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_12_3_3",
+            "word": "have a shower",
+            "category": "Topic B",
+            "explanation": "Từ \"have a shower\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_12_3_4",
+            "word": "have breakfast",
+            "category": "Topic A",
+            "explanation": "Từ \"have breakfast\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_12_3_5",
+            "word": "listen to the radio",
+            "category": "Topic B",
+            "explanation": "Từ \"listen to the radio\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "12.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_12_4_0",
+            "original": "I go to the bathrooms and have a shower.",
+            "correct": "I go to the bathroom and have a shower.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"go to the bathroom\" thay vì \"go to the bathrooms\"."
+          },
+          {
+            "id": "ex_12_4_1",
+            "original": "I always have a showers in the morning.",
+            "correct": "I always have a shower in the morning.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"have a shower\" thay vì \"have a showers\"."
+          }
+        ]
+      },
+      {
+        "exNum": "12.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_12_5_0",
+            "text": "I [blank] at 7.30.",
+            "answers": [
+              "have breakfast"
+            ],
+            "hint": "Ăn sáng.",
+            "explanation": "Từ cần điền là \"have breakfast\"."
+          },
+          {
+            "id": "ex_12_5_1",
+            "text": "I [blank] in the kitchen.",
+            "answers": [
+              "listen to the radio"
+            ],
+            "hint": "Nghe đài.",
+            "explanation": "Từ cần điền là \"listen to the radio\"."
+          },
+          {
+            "id": "ex_12_5_2",
+            "text": "I [blank] by bus.",
+            "answers": [
+              "go to work"
+            ],
+            "hint": "Đi làm.",
+            "explanation": "Từ cần điền là \"go to work\"."
+          },
+          {
+            "id": "ex_12_5_3",
+            "text": "I [blank] at 6 o'clock.",
+            "answers": [
+              "come home"
+            ],
+            "hint": "Về nhà.",
+            "explanation": "Từ cần điền là \"come home\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 13,
     "title": "Unit 13: Talking",
     "description": "Học cách phân biệt và sử dụng chính xác các động từ giao tiếp rất dễ nhầm lẫn: say, tell, ask, speak, talk, answer, và reply.",
-    "theory": [
-      {
-        "heading": "A. Say (Nói, phát biểu)",
-        "items": [
-          {
-            "word": "say / said",
-            "type": "Động từ",
-            "phonetic": "/seɪ/ /sed/",
-            "vi": "Dùng để thuật lại lời ai đó nói hoặc hỏi về ngôn ngữ.",
-            "example": "She said 'This is horrible!' / He said that he wanted a drink."
-          },
-          {
-            "word": "say in a language",
-            "type": "Cụm từ",
-            "phonetic": "/seɪ ɪn ə ˈlæŋ.ɡwɪdʒ/",
-            "vi": "Nói/đọc một từ trong ngôn ngữ nào đó.",
-            "example": "How do you say 'book' in Spanish? - 'Libro'."
-          },
-          {
-            "word": "say hello / goodbye",
-            "type": "Cụm từ",
-            "phonetic": "/seɪ həˈloʊ/",
-            "vi": "Nói xin chào / tạm biệt.",
-            "example": "I must go now. I just want to say goodbye."
-          },
-          {
-            "word": "say please / thank you",
-            "type": "Cụm từ",
-            "phonetic": "/seɪ pliːz/",
-            "vi": "Nói làm ơn / cảm ơn.",
-            "example": "Always say please and thank you."
-          },
-          {
-            "word": "say congratulations",
-            "type": "Cụm từ",
-            "phonetic": "/seɪ kənˌɡrætʃ.əˈleɪ.ʃənz/",
-            "vi": "Nói lời chúc mừng.",
-            "example": "She passed her exam, so I said congratulations."
-          }
-        ]
-      },
-      {
-        "heading": "B. Tell (Kể, bảo, cho biết)",
-        "items": [
-          {
-            "word": "tell someone",
-            "type": "Ngữ pháp",
-            "phonetic": "/tel/",
-            "vi": "Tell THƯỜNG đi ngay với một người (me, you, him, her...). Say KHÔNG đi ngay với người.",
-            "example": "He told me his name. [KHÔNG DÙNG: He said me his name]"
-          },
-          {
-            "word": "tell someone how/where/why",
-            "type": "Cấu trúc",
-            "phonetic": "/tel/",
-            "vi": "Chỉ đường, giải thích cách làm hoặc lý do.",
-            "example": "Can you tell me where the bus station is? / He told me how to send a fax."
-          },
-          {
-            "word": "tell the time",
-            "type": "Cụm từ",
-            "phonetic": "/tel ðə taɪm/",
-            "vi": "Cho biết mấy giờ rồi.",
-            "example": "Excuse me, can you tell me the time?"
-          },
-          {
-            "word": "tell a story / a joke",
-            "type": "Cụm từ",
-            "phonetic": "/tel ə ˈstɔːr.i/",
-            "vi": "Kể một câu chuyện / Kể một câu chuyện đùa.",
-            "example": "Please, tell me a story."
-          },
-          {
-            "word": "tell your name / address",
-            "type": "Cụm từ",
-            "phonetic": "/tel jɔːr neɪm/",
-            "vi": "Cho biết tên / địa chỉ.",
-            "example": "He told me his address."
-          }
-        ]
-      },
-      {
-        "heading": "C. Ask (Hỏi, yêu cầu)",
-        "items": [
-          {
-            "word": "ask a question",
-            "type": "Cụm từ",
-            "phonetic": "/æsk ə ˈkwes.tʃən/",
-            "vi": "Đặt câu hỏi.",
-            "example": "Can I ask you a question?"
-          },
-          {
-            "word": "ask the way / the time",
-            "type": "Cụm từ",
-            "phonetic": "/æsk ðə weɪ/",
-            "vi": "Hỏi đường / Hỏi giờ.",
-            "example": "I asked him the way to the station."
-          },
-          {
-            "word": "ask someone to do something",
-            "type": "Cấu trúc",
-            "phonetic": "/æsk tuː duː/",
-            "vi": "Yêu cầu ai đó làm gì.",
-            "example": "I asked him to turn off his radio."
-          },
-          {
-            "word": "ask for something",
-            "type": "Cụm từ",
-            "phonetic": "/æsk fɔːr/",
-            "vi": "Yêu cầu món đồ gì đó (ví dụ: the bill - hóa đơn).",
-            "example": "She asked for the bill."
-          }
-        ]
-      },
-      {
-        "heading": "D. Speak / talk / answer / reply",
-        "items": [
-          {
-            "word": "speak a language",
-            "type": "Cụm từ",
-            "phonetic": "/spiːk/",
-            "vi": "Nói một ngôn ngữ.",
-            "example": "Do you speak Japanese? [KHÔNG DÙNG: Do you talk Japanese?]"
-          },
-          {
-            "word": "talk to someone",
-            "type": "Cụm từ",
-            "phonetic": "/tɑːk tuː/",
-            "vi": "Trò chuyện, nói chuyện với ai.",
-            "example": "I like talking to you."
-          },
-          {
-            "word": "answer the telephone / door",
-            "type": "Cụm từ",
-            "phonetic": "/ˈæn.sɚ/",
-            "vi": "Nhấc máy nghe điện thoại / Ra mở cửa khi có người gõ.",
-            "example": "Can you answer the telephone, please?"
-          },
-          {
-            "word": "reply to a letter",
-            "type": "Cụm từ",
-            "phonetic": "/rɪˈplaɪ/",
-            "vi": "Hồi âm (thư từ, email, fax).",
-            "example": "I wrote a letter to him but he did not reply."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "say / said",
+          "type": "Động từ",
+          "phonetic": "/seɪ/ /sed/",
+          "vi": "Dùng để thuật lại lời ai đó nói hoặc hỏi về ngôn ngữ.",
+          "example": "She said 'This is horrible!' / He said that he wanted a drink.",
+          "bucket": 1,
+          "collocations": [
+            "say / said something",
+            "always say / said"
+          ],
+          "wordFamily": "Biến thể của say / said"
+        },
+        {
+          "word": "say in a language",
+          "type": "Cụm từ",
+          "phonetic": "/seɪ ɪn ə ˈlæŋ.ɡwɪdʒ/",
+          "vi": "Nói/đọc một từ trong ngôn ngữ nào đó.",
+          "example": "How do you say 'book' in Spanish? - 'Libro'.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của say in a language"
+        },
+        {
+          "word": "say hello / goodbye",
+          "type": "Cụm từ",
+          "phonetic": "/seɪ həˈloʊ/",
+          "vi": "Nói xin chào / tạm biệt.",
+          "example": "I must go now. I just want to say goodbye.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của say hello / goodbye"
+        },
+        {
+          "word": "say please / thank you",
+          "type": "Cụm từ",
+          "phonetic": "/seɪ pliːz/",
+          "vi": "Nói làm ơn / cảm ơn.",
+          "example": "Always say please and thank you.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của say please / thank you"
+        },
+        {
+          "word": "say congratulations",
+          "type": "Cụm từ",
+          "phonetic": "/seɪ kənˌɡrætʃ.əˈleɪ.ʃənz/",
+          "vi": "Nói lời chúc mừng.",
+          "example": "She passed her exam, so I said congratulations.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của say congratulations"
+        },
+        {
+          "word": "tell someone",
+          "type": "Ngữ pháp",
+          "phonetic": "/tel/",
+          "vi": "Tell THƯỜNG đi ngay với một người (me, you, him, her...). Say KHÔNG đi ngay với người.",
+          "example": "He told me his name. [KHÔNG DÙNG: He said me his name]",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của tell someone"
+        },
+        {
+          "word": "tell someone how/where/why",
+          "type": "Cấu trúc",
+          "phonetic": "/tel/",
+          "vi": "Chỉ đường, giải thích cách làm hoặc lý do.",
+          "example": "Can you tell me where the bus station is? / He told me how to send a fax.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của tell someone how/where/why"
+        },
+        {
+          "word": "tell the time",
+          "type": "Cụm từ",
+          "phonetic": "/tel ðə taɪm/",
+          "vi": "Cho biết mấy giờ rồi.",
+          "example": "Excuse me, can you tell me the time?",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của tell the time"
+        },
+        {
+          "word": "tell a story / a joke",
+          "type": "Cụm từ",
+          "phonetic": "/tel ə ˈstɔːr.i/",
+          "vi": "Kể một câu chuyện / Kể một câu chuyện đùa.",
+          "example": "Please, tell me a story.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của tell a story / a joke"
+        },
+        {
+          "word": "tell your name / address",
+          "type": "Cụm từ",
+          "phonetic": "/tel jɔːr neɪm/",
+          "vi": "Cho biết tên / địa chỉ.",
+          "example": "He told me his address.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của tell your name / address"
+        },
+        {
+          "word": "ask a question",
+          "type": "Cụm từ",
+          "phonetic": "/æsk ə ˈkwes.tʃən/",
+          "vi": "Đặt câu hỏi.",
+          "example": "Can I ask you a question?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của ask a question"
+        },
+        {
+          "word": "ask the way / the time",
+          "type": "Cụm từ",
+          "phonetic": "/æsk ðə weɪ/",
+          "vi": "Hỏi đường / Hỏi giờ.",
+          "example": "I asked him the way to the station.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của ask the way / the time"
+        },
+        {
+          "word": "ask someone to do something",
+          "type": "Cấu trúc",
+          "phonetic": "/æsk tuː duː/",
+          "vi": "Yêu cầu ai đó làm gì.",
+          "example": "I asked him to turn off his radio.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của ask someone to do something"
+        },
+        {
+          "word": "ask for something",
+          "type": "Cụm từ",
+          "phonetic": "/æsk fɔːr/",
+          "vi": "Yêu cầu món đồ gì đó (ví dụ: the bill - hóa đơn).",
+          "example": "She asked for the bill.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của ask for something"
+        },
+        {
+          "word": "speak a language",
+          "type": "Cụm từ",
+          "phonetic": "/spiːk/",
+          "vi": "Nói một ngôn ngữ.",
+          "example": "Do you speak Japanese? [KHÔNG DÙNG: Do you talk Japanese?]",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của speak a language"
+        },
+        {
+          "word": "talk to someone",
+          "type": "Cụm từ",
+          "phonetic": "/tɑːk tuː/",
+          "vi": "Trò chuyện, nói chuyện với ai.",
+          "example": "I like talking to you.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của talk to someone"
+        },
+        {
+          "word": "answer the telephone / door",
+          "type": "Cụm từ",
+          "phonetic": "/ˈæn.sɚ/",
+          "vi": "Nhấc máy nghe điện thoại / Ra mở cửa khi có người gõ.",
+          "example": "Can you answer the telephone, please?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của answer the telephone / door"
+        },
+        {
+          "word": "reply to a letter",
+          "type": "Cụm từ",
+          "phonetic": "/rɪˈplaɪ/",
+          "vi": "Hồi âm (thư từ, email, fax).",
+          "example": "I wrote a letter to him but he did not reply.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của reply to a letter"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Say (Nói, phát biểu)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "say / said",
+              "value": "👉 She said 'This is horrible!' / He said that he wanted a drink."
+            },
+            {
+              "title": "say in a language",
+              "value": "👉 How do you say 'book' in Spanish? - 'Libro'."
+            },
+            {
+              "title": "say hello / goodbye",
+              "value": "👉 I must go now. I just want to say goodbye."
+            },
+            {
+              "title": "say please / thank you",
+              "value": "👉 Always say please and thank you."
+            },
+            {
+              "title": "say congratulations",
+              "value": "👉 She passed her exam, so I said congratulations."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Tell (Kể, bảo, cho biết)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "tell someone",
+              "value": "👉 He told me his name. [KHÔNG DÙNG: He said me his name]"
+            },
+            {
+              "title": "tell someone how/where/why",
+              "value": "👉 Can you tell me where the bus station is? / He told me how to send a fax."
+            },
+            {
+              "title": "tell the time",
+              "value": "👉 Excuse me, can you tell me the time?"
+            },
+            {
+              "title": "tell a story / a joke",
+              "value": "👉 Please, tell me a story."
+            },
+            {
+              "title": "tell your name / address",
+              "value": "👉 He told me his address."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Ask (Hỏi, yêu cầu)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "ask a question",
+              "value": "👉 Can I ask you a question?"
+            },
+            {
+              "title": "ask the way / the time",
+              "value": "👉 I asked him the way to the station."
+            },
+            {
+              "title": "ask someone to do something",
+              "value": "👉 I asked him to turn off his radio."
+            },
+            {
+              "title": "ask for something",
+              "value": "👉 She asked for the bill."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Speak / talk / answer / reply",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "speak a language",
+              "value": "👉 Do you speak Japanese? [KHÔNG DÙNG: Do you talk Japanese?]"
+            },
+            {
+              "title": "talk to someone",
+              "value": "👉 I like talking to you."
+            },
+            {
+              "title": "answer the telephone / door",
+              "value": "👉 Can you answer the telephone, please?"
+            },
+            {
+              "title": "reply to a letter",
+              "value": "👉 I wrote a letter to him but he did not reply."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"say / said\"",
+              "value": "say / saider (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"say in a language\"",
+              "value": "Các dạng từ loại khác của \"say in a language\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"say hello / goodbye\"",
+              "value": "Các dạng từ loại khác của \"say hello / goodbye\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"say please / thank you\"",
+              "value": "Cụm từ liên quan đến say please / thank you"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"say congratulations\"",
+              "value": "Cụm từ liên quan đến say congratulations"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"tell someone\"",
+              "value": "Cụm từ liên quan đến tell someone"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Say",
@@ -8486,153 +13115,542 @@ export const courseData = [
         "text": "My sister asked me where I was going.",
         "trans": "Chị gái tôi đã hỏi tôi là tôi đang đi đâu."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "13.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_13_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "say / said"
+            ],
+            "hint": "Dùng để thuật lại lời ai đó nói hoặc hỏi về ngôn ngữ.",
+            "explanation": "Từ cần điền là \"say / said\", mang nghĩa là \"Dùng để thuật lại lời ai đó nói hoặc hỏi về ngôn ngữ.\"."
+          },
+          {
+            "id": "ex_13_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "say in a language"
+            ],
+            "hint": "Nói/đọc một từ trong ngôn ngữ nào đó.",
+            "explanation": "Từ cần điền là \"say in a language\", mang nghĩa là \"Nói/đọc một từ trong ngôn ngữ nào đó.\"."
+          },
+          {
+            "id": "ex_13_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "say hello / goodbye"
+            ],
+            "hint": "Nói xin chào / tạm biệt.",
+            "explanation": "Từ cần điền là \"say hello / goodbye\", mang nghĩa là \"Nói xin chào / tạm biệt.\"."
+          },
+          {
+            "id": "ex_13_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "say please / thank you"
+            ],
+            "hint": "Nói làm ơn / cảm ơn.",
+            "explanation": "Từ cần điền là \"say please / thank you\", mang nghĩa là \"Nói làm ơn / cảm ơn.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "13.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_13_2_0",
+            "text": "say congratulations",
+            "options": [
+              "Nói lời chúc mừng.",
+              "Cho biết mấy giờ rồi.",
+              "Tell THƯỜNG đi ngay với một người (me, you, him, her...). Say KHÔNG đi ngay với người.",
+              "Chỉ đường, giải thích cách làm hoặc lý do."
+            ],
+            "answer": "Nói lời chúc mừng.",
+            "explanation": "Từ \"say congratulations\" có nghĩa chính xác là \"Nói lời chúc mừng.\"."
+          },
+          {
+            "id": "ex_13_2_1",
+            "text": "tell someone",
+            "options": [
+              "Cho biết mấy giờ rồi.",
+              "Chỉ đường, giải thích cách làm hoặc lý do.",
+              "Tell THƯỜNG đi ngay với một người (me, you, him, her...). Say KHÔNG đi ngay với người.",
+              "Nói lời chúc mừng."
+            ],
+            "answer": "Tell THƯỜNG đi ngay với một người (me, you, him, her...). Say KHÔNG đi ngay với người.",
+            "explanation": "Từ \"tell someone\" có nghĩa chính xác là \"Tell THƯỜNG đi ngay với một người (me, you, him, her...). Say KHÔNG đi ngay với người.\"."
+          },
+          {
+            "id": "ex_13_2_2",
+            "text": "tell someone how/where/why",
+            "options": [
+              "Chỉ đường, giải thích cách làm hoặc lý do.",
+              "Tell THƯỜNG đi ngay với một người (me, you, him, her...). Say KHÔNG đi ngay với người.",
+              "Nói lời chúc mừng.",
+              "Cho biết mấy giờ rồi."
+            ],
+            "answer": "Chỉ đường, giải thích cách làm hoặc lý do.",
+            "explanation": "Từ \"tell someone how/where/why\" có nghĩa chính xác là \"Chỉ đường, giải thích cách làm hoặc lý do.\"."
+          },
+          {
+            "id": "ex_13_2_3",
+            "text": "tell the time",
+            "options": [
+              "Tell THƯỜNG đi ngay với một người (me, you, him, her...). Say KHÔNG đi ngay với người.",
+              "Cho biết mấy giờ rồi.",
+              "Chỉ đường, giải thích cách làm hoặc lý do.",
+              "Nói lời chúc mừng."
+            ],
+            "answer": "Cho biết mấy giờ rồi.",
+            "explanation": "Từ \"tell the time\" có nghĩa chính xác là \"Cho biết mấy giờ rồi.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "13.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_13_3_0",
+            "word": "say / said",
+            "category": "Topic A",
+            "explanation": "Từ \"say / said\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_13_3_1",
+            "word": "say in a language",
+            "category": "Topic B",
+            "explanation": "Từ \"say in a language\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_13_3_2",
+            "word": "say hello / goodbye",
+            "category": "Topic A",
+            "explanation": "Từ \"say hello / goodbye\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_13_3_3",
+            "word": "say please / thank you",
+            "category": "Topic B",
+            "explanation": "Từ \"say please / thank you\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_13_3_4",
+            "word": "say congratulations",
+            "category": "Topic A",
+            "explanation": "Từ \"say congratulations\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_13_3_5",
+            "word": "tell someone",
+            "category": "Topic B",
+            "explanation": "Từ \"tell someone\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "13.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_13_4_0",
+            "original": "I really like say hello / goodbyes.",
+            "correct": "I must go now. I just want to say goodbye.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"say hello / goodbye\" thay vì \"say hello / goodbyes\"."
+          },
+          {
+            "id": "ex_13_4_1",
+            "original": "I really like say please / thank yous.",
+            "correct": "Always say please and thank you.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"say please / thank you\" thay vì \"say please / thank yous\"."
+          }
+        ]
+      },
+      {
+        "exNum": "13.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_13_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "say congratulations"
+            ],
+            "hint": "Nói lời chúc mừng.",
+            "explanation": "Từ cần điền là \"say congratulations\"."
+          },
+          {
+            "id": "ex_13_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "tell someone"
+            ],
+            "hint": "Tell THƯỜNG đi ngay với một người (me, you, him, her...). Say KHÔNG đi ngay với người.",
+            "explanation": "Từ cần điền là \"tell someone\"."
+          },
+          {
+            "id": "ex_13_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "tell someone how/where/why"
+            ],
+            "hint": "Chỉ đường, giải thích cách làm hoặc lý do.",
+            "explanation": "Từ cần điền là \"tell someone how/where/why\"."
+          },
+          {
+            "id": "ex_13_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "tell the time"
+            ],
+            "hint": "Cho biết mấy giờ rồi.",
+            "explanation": "Từ cần điền là \"tell the time\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 14,
     "title": "Unit 14: Moving",
     "description": "Khám phá từ vựng về các hành động di chuyển (đi bộ, chạy, nhảy...), cách dùng giới từ và động từ chính xác với các phương tiện giao thông, và cách nói về việc bưng bê đồ vật.",
-    "theory": [
-      {
-        "heading": "A. Without transport (Di chuyển bằng cơ thể)",
-        "items": [
-          {
-            "word": "walk / run / jog",
-            "type": "Hoạt động",
-            "phonetic": "/wɑːk/ /rʌn/ /dʒɑːɡ/",
-            "vi": "Đi bộ / Chạy / Chạy bộ thể dục (jogging).",
-            "example": "Jack likes jogging. Everyone runs round the park."
-          },
-          {
-            "word": "jump",
-            "type": "Hoạt động",
-            "phonetic": "/dʒʌmp/",
-            "vi": "Nhảy lên.",
-            "example": "He jumped over the wall."
-          },
-          {
-            "word": "dance",
-            "type": "Hoạt động",
-            "phonetic": "/dæns/",
-            "vi": "Khiêu vũ, nhảy múa.",
-            "example": "They danced at the party last night."
-          },
-          {
-            "word": "swim",
-            "type": "Hoạt động",
-            "phonetic": "/swɪm/",
-            "vi": "Bơi.",
-            "example": "James can swim very fast."
-          },
-          {
-            "word": "climb",
-            "type": "Hoạt động",
-            "phonetic": "/klaɪm/",
-            "vi": "Leo trèo.",
-            "example": "Robert loves climbing hills."
-          },
-          {
-            "word": "fall",
-            "type": "Hoạt động",
-            "phonetic": "/fɑːl/",
-            "vi": "Ngã, té.",
-            "example": "The old lady fell on her way home and broke her arm."
-          }
-        ]
-      },
-      {
-        "heading": "B & C. Transport & Verbs (Phương tiện và Động từ)",
-        "items": [
-          {
-            "word": "go by...",
-            "type": "Cụm từ",
-            "phonetic": "/ɡoʊ baɪ/",
-            "vi": "Đi bằng (car / plane / bus / train / bike / ship / taxi / underground).",
-            "example": "I prefer to go by bus than by car. [KHÔNG DÙNG: by a car]"
-          },
-          {
-            "word": "take a...",
-            "type": "Cụm từ",
-            "phonetic": "/teɪk ə/",
-            "vi": "Bắt chuyến (bus / train / taxi / plane / the underground).",
-            "example": "I usually take a taxi when it rains."
-          },
-          {
-            "word": "ride a...",
-            "type": "Cụm từ",
-            "phonetic": "/raɪd ə/",
-            "vi": "Cưỡi, lái (bicycle / bike / motorbike / horse / elephant).",
-            "example": "Can you ride a motorbike?"
-          },
-          {
-            "word": "drive a...",
-            "type": "Cụm từ",
-            "phonetic": "/draɪv ə/",
-            "vi": "Lái xe (car / bus / train / lorry).",
-            "example": "He drives a lorry."
-          },
-          {
-            "word": "fly a...",
-            "type": "Cụm từ",
-            "phonetic": "/flaɪ ə/",
-            "vi": "Lái máy bay (Dành cho phi công) / Đi máy bay.",
-            "example": "The pilot flies a plane. / We flew to Istanbul."
-          }
-        ]
-      },
-      {
-        "heading": "Arrive, Catch & Miss (Đến nơi và Lỡ chuyến)",
-        "items": [
-          {
-            "word": "arrive in / at",
-            "type": "Giới từ",
-            "phonetic": "/əˈraɪv/",
-            "vi": "Đến nơi. Dùng 'in' cho thành phố/quốc gia, 'at' cho địa điểm nhỏ. [KHÔNG DÙNG: arrive to].",
-            "example": "The train arrived in Tokyo on time. The plane arrived at Heathrow."
-          },
-          {
-            "word": "catch",
-            "type": "Động từ",
-            "phonetic": "/kætʃ/",
-            "vi": "Bắt kịp (xe buýt, tàu, máy bay) - đến đủ sớm để lên xe.",
-            "example": "Bill catches the 9.45 train to London every day."
-          },
-          {
-            "word": "miss",
-            "type": "Động từ",
-            "phonetic": "/mɪs/",
-            "vi": "Lỡ chuyến - đến quá muộn.",
-            "example": "If you miss the bus, you arrive too late to get it."
-          }
-        ]
-      },
-      {
-        "heading": "D. Moving objects (Di chuyển đồ vật)",
-        "items": [
-          {
-            "word": "pass",
-            "type": "Động từ",
-            "phonetic": "/pæs/",
-            "vi": "Đưa cho, chuyền tay (thường dùng trên bàn ăn).",
-            "example": "Please pass the salt."
-          },
-          {
-            "word": "carry",
-            "type": "Động từ",
-            "phonetic": "/ˈker.i/",
-            "vi": "Mang, vác, xách.",
-            "example": "Can I help you carry your luggage?"
-          },
-          {
-            "word": "pull / push",
-            "type": "Động từ",
-            "phonetic": "/pʊl/ /pʊʃ/",
-            "vi": "Kéo vào / Đẩy ra (thường thấy trên cửa).",
-            "example": "Pull the door to open it."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "walk / run / jog",
+          "type": "Hoạt động",
+          "phonetic": "/wɑːk/ /rʌn/ /dʒɑːɡ/",
+          "vi": "Đi bộ / Chạy / Chạy bộ thể dục (jogging).",
+          "example": "Jack likes jogging. Everyone runs round the park.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của walk / run / jog"
+        },
+        {
+          "word": "jump",
+          "type": "Hoạt động",
+          "phonetic": "/dʒʌmp/",
+          "vi": "Nhảy lên.",
+          "example": "He jumped over the wall.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của jump"
+        },
+        {
+          "word": "dance",
+          "type": "Hoạt động",
+          "phonetic": "/dæns/",
+          "vi": "Khiêu vũ, nhảy múa.",
+          "example": "They danced at the party last night.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của dance"
+        },
+        {
+          "word": "swim",
+          "type": "Hoạt động",
+          "phonetic": "/swɪm/",
+          "vi": "Bơi.",
+          "example": "James can swim very fast.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của swim"
+        },
+        {
+          "word": "climb",
+          "type": "Hoạt động",
+          "phonetic": "/klaɪm/",
+          "vi": "Leo trèo.",
+          "example": "Robert loves climbing hills.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của climb"
+        },
+        {
+          "word": "fall",
+          "type": "Hoạt động",
+          "phonetic": "/fɑːl/",
+          "vi": "Ngã, té.",
+          "example": "The old lady fell on her way home and broke her arm.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của fall"
+        },
+        {
+          "word": "go by...",
+          "type": "Cụm từ",
+          "phonetic": "/ɡoʊ baɪ/",
+          "vi": "Đi bằng (car / plane / bus / train / bike / ship / taxi / underground).",
+          "example": "I prefer to go by bus than by car. [KHÔNG DÙNG: by a car]",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của go by..."
+        },
+        {
+          "word": "take a...",
+          "type": "Cụm từ",
+          "phonetic": "/teɪk ə/",
+          "vi": "Bắt chuyến (bus / train / taxi / plane / the underground).",
+          "example": "I usually take a taxi when it rains.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của take a..."
+        },
+        {
+          "word": "ride a...",
+          "type": "Cụm từ",
+          "phonetic": "/raɪd ə/",
+          "vi": "Cưỡi, lái (bicycle / bike / motorbike / horse / elephant).",
+          "example": "Can you ride a motorbike?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của ride a..."
+        },
+        {
+          "word": "drive a...",
+          "type": "Cụm từ",
+          "phonetic": "/draɪv ə/",
+          "vi": "Lái xe (car / bus / train / lorry).",
+          "example": "He drives a lorry.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của drive a..."
+        },
+        {
+          "word": "fly a...",
+          "type": "Cụm từ",
+          "phonetic": "/flaɪ ə/",
+          "vi": "Lái máy bay (Dành cho phi công) / Đi máy bay.",
+          "example": "The pilot flies a plane. / We flew to Istanbul.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của fly a..."
+        },
+        {
+          "word": "arrive in / at",
+          "type": "Giới từ",
+          "phonetic": "/əˈraɪv/",
+          "vi": "Đến nơi. Dùng 'in' cho thành phố/quốc gia, 'at' cho địa điểm nhỏ. [KHÔNG DÙNG: arrive to].",
+          "example": "The train arrived in Tokyo on time. The plane arrived at Heathrow.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của arrive in / at"
+        },
+        {
+          "word": "catch",
+          "type": "Động từ",
+          "phonetic": "/kætʃ/",
+          "vi": "Bắt kịp (xe buýt, tàu, máy bay) - đến đủ sớm để lên xe.",
+          "example": "Bill catches the 9.45 train to London every day.",
+          "bucket": 1,
+          "collocations": [
+            "catch something",
+            "always catch"
+          ],
+          "wordFamily": "Biến thể của catch"
+        },
+        {
+          "word": "miss",
+          "type": "Động từ",
+          "phonetic": "/mɪs/",
+          "vi": "Lỡ chuyến - đến quá muộn.",
+          "example": "If you miss the bus, you arrive too late to get it.",
+          "bucket": 2,
+          "collocations": [
+            "miss something",
+            "always miss"
+          ],
+          "wordFamily": "Biến thể của miss"
+        },
+        {
+          "word": "pass",
+          "type": "Động từ",
+          "phonetic": "/pæs/",
+          "vi": "Đưa cho, chuyền tay (thường dùng trên bàn ăn).",
+          "example": "Please pass the salt.",
+          "bucket": 1,
+          "collocations": [
+            "pass something",
+            "always pass"
+          ],
+          "wordFamily": "Biến thể của pass"
+        },
+        {
+          "word": "carry",
+          "type": "Động từ",
+          "phonetic": "/ˈker.i/",
+          "vi": "Mang, vác, xách.",
+          "example": "Can I help you carry your luggage?",
+          "bucket": 2,
+          "collocations": [
+            "carry something",
+            "always carry"
+          ],
+          "wordFamily": "Biến thể của carry"
+        },
+        {
+          "word": "pull / push",
+          "type": "Động từ",
+          "phonetic": "/pʊl/ /pʊʃ/",
+          "vi": "Kéo vào / Đẩy ra (thường thấy trên cửa).",
+          "example": "Pull the door to open it.",
+          "bucket": 1,
+          "collocations": [
+            "pull / push something",
+            "always pull / push"
+          ],
+          "wordFamily": "Biến thể của pull / push"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Without transport (Di chuyển bằng cơ thể)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "walk / run / jog",
+              "value": "👉 Jack likes jogging. Everyone runs round the park."
+            },
+            {
+              "title": "jump",
+              "value": "👉 He jumped over the wall."
+            },
+            {
+              "title": "dance",
+              "value": "👉 They danced at the party last night."
+            },
+            {
+              "title": "swim",
+              "value": "👉 James can swim very fast."
+            },
+            {
+              "title": "climb",
+              "value": "👉 Robert loves climbing hills."
+            },
+            {
+              "title": "fall",
+              "value": "👉 The old lady fell on her way home and broke her arm."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B & C. Transport & Verbs (Phương tiện và Động từ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "go by...",
+              "value": "👉 I prefer to go by bus than by car. [KHÔNG DÙNG: by a car]"
+            },
+            {
+              "title": "take a...",
+              "value": "👉 I usually take a taxi when it rains."
+            },
+            {
+              "title": "ride a...",
+              "value": "👉 Can you ride a motorbike?"
+            },
+            {
+              "title": "drive a...",
+              "value": "👉 He drives a lorry."
+            },
+            {
+              "title": "fly a...",
+              "value": "👉 The pilot flies a plane. / We flew to Istanbul."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: Arrive, Catch & Miss (Đến nơi và Lỡ chuyến)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "arrive in / at",
+              "value": "👉 The train arrived in Tokyo on time. The plane arrived at Heathrow."
+            },
+            {
+              "title": "catch",
+              "value": "👉 Bill catches the 9.45 train to London every day."
+            },
+            {
+              "title": "miss",
+              "value": "👉 If you miss the bus, you arrive too late to get it."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Moving objects (Di chuyển đồ vật)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "pass",
+              "value": "👉 Please pass the salt."
+            },
+            {
+              "title": "carry",
+              "value": "👉 Can I help you carry your luggage?"
+            },
+            {
+              "title": "pull / push",
+              "value": "👉 Pull the door to open it."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"walk / run / jog\"",
+              "value": "Các dạng từ loại khác của \"walk / run / jog\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"jump\"",
+              "value": "Các dạng từ loại khác của \"jump\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"dance\"",
+              "value": "Các dạng từ loại khác của \"dance\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"swim\"",
+              "value": "Cụm từ liên quan đến swim"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"climb\"",
+              "value": "Cụm từ liên quan đến climb"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"fall\"",
+              "value": "Cụm từ liên quan đến fall"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Body actions",
@@ -9149,115 +14167,459 @@ export const courseData = [
         "text": "If you miss the bus, you arrive too late to get it.",
         "trans": "Nếu bạn lỡ xe buýt, tức là bạn đến quá muộn để bắt được nó."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "14.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_14_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "walk / run / jog"
+            ],
+            "hint": "Đi bộ / Chạy / Chạy bộ thể dục (jogging).",
+            "explanation": "Từ cần điền là \"walk / run / jog\", mang nghĩa là \"Đi bộ / Chạy / Chạy bộ thể dục (jogging).\"."
+          },
+          {
+            "id": "ex_14_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "jump"
+            ],
+            "hint": "Nhảy lên.",
+            "explanation": "Từ cần điền là \"jump\", mang nghĩa là \"Nhảy lên.\"."
+          },
+          {
+            "id": "ex_14_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "dance"
+            ],
+            "hint": "Khiêu vũ, nhảy múa.",
+            "explanation": "Từ cần điền là \"dance\", mang nghĩa là \"Khiêu vũ, nhảy múa.\"."
+          },
+          {
+            "id": "ex_14_1_3",
+            "text": "James can [blank] very fast.",
+            "answers": [
+              "swim"
+            ],
+            "hint": "Bơi.",
+            "explanation": "Từ cần điền là \"swim\", mang nghĩa là \"Bơi.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "14.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_14_2_0",
+            "text": "climb",
+            "options": [
+              "Bắt chuyến (bus / train / taxi / plane / the underground).",
+              "Ngã, té.",
+              "Leo trèo.",
+              "Đi bằng (car / plane / bus / train / bike / ship / taxi / underground)."
+            ],
+            "answer": "Leo trèo.",
+            "explanation": "Từ \"climb\" có nghĩa chính xác là \"Leo trèo.\"."
+          },
+          {
+            "id": "ex_14_2_1",
+            "text": "fall",
+            "options": [
+              "Bắt chuyến (bus / train / taxi / plane / the underground).",
+              "Đi bằng (car / plane / bus / train / bike / ship / taxi / underground).",
+              "Leo trèo.",
+              "Ngã, té."
+            ],
+            "answer": "Ngã, té.",
+            "explanation": "Từ \"fall\" có nghĩa chính xác là \"Ngã, té.\"."
+          },
+          {
+            "id": "ex_14_2_2",
+            "text": "go by...",
+            "options": [
+              "Bắt chuyến (bus / train / taxi / plane / the underground).",
+              "Ngã, té.",
+              "Leo trèo.",
+              "Đi bằng (car / plane / bus / train / bike / ship / taxi / underground)."
+            ],
+            "answer": "Đi bằng (car / plane / bus / train / bike / ship / taxi / underground).",
+            "explanation": "Từ \"go by...\" có nghĩa chính xác là \"Đi bằng (car / plane / bus / train / bike / ship / taxi / underground).\"."
+          },
+          {
+            "id": "ex_14_2_3",
+            "text": "take a...",
+            "options": [
+              "Leo trèo.",
+              "Ngã, té.",
+              "Đi bằng (car / plane / bus / train / bike / ship / taxi / underground).",
+              "Bắt chuyến (bus / train / taxi / plane / the underground)."
+            ],
+            "answer": "Bắt chuyến (bus / train / taxi / plane / the underground).",
+            "explanation": "Từ \"take a...\" có nghĩa chính xác là \"Bắt chuyến (bus / train / taxi / plane / the underground).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "14.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_14_3_0",
+            "word": "walk / run / jog",
+            "category": "Topic A",
+            "explanation": "Từ \"walk / run / jog\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_14_3_1",
+            "word": "jump",
+            "category": "Topic B",
+            "explanation": "Từ \"jump\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_14_3_2",
+            "word": "dance",
+            "category": "Topic A",
+            "explanation": "Từ \"dance\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_14_3_3",
+            "word": "swim",
+            "category": "Topic B",
+            "explanation": "Từ \"swim\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_14_3_4",
+            "word": "climb",
+            "category": "Topic A",
+            "explanation": "Từ \"climb\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_14_3_5",
+            "word": "fall",
+            "category": "Topic B",
+            "explanation": "Từ \"fall\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "14.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_14_4_0",
+            "original": "I really like dances.",
+            "correct": "They danced at the party last night.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"dance\" thay vì \"dances\"."
+          },
+          {
+            "id": "ex_14_4_1",
+            "original": "James can swims very fast.",
+            "correct": "James can swim very fast.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"swim\" thay vì \"swims\"."
+          }
+        ]
+      },
+      {
+        "exNum": "14.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_14_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "climb"
+            ],
+            "hint": "Leo trèo.",
+            "explanation": "Từ cần điền là \"climb\"."
+          },
+          {
+            "id": "ex_14_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "fall"
+            ],
+            "hint": "Ngã, té.",
+            "explanation": "Từ cần điền là \"fall\"."
+          },
+          {
+            "id": "ex_14_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "go by..."
+            ],
+            "hint": "Đi bằng (car / plane / bus / train / bike / ship / taxi / underground).",
+            "explanation": "Từ cần điền là \"go by...\"."
+          },
+          {
+            "id": "ex_14_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "take a..."
+            ],
+            "hint": "Bắt chuyến (bus / train / taxi / plane / the underground).",
+            "explanation": "Từ cần điền là \"take a...\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 15,
     "title": "Unit 15: Conjunctions and connecting words",
     "description": "Học cách sử dụng các liên từ và từ nối để ghép các vế câu lại với nhau. Chúng giúp thể hiện lý do, kết quả, sự đối lập, hoặc bổ sung thêm thông tin.",
-    "theory": [
-      {
-        "heading": "A. Basic conjunctions (Các liên từ cơ bản)",
-        "items": [
-          {
-            "word": "and",
-            "type": "Liên từ",
-            "phonetic": "/ænd/",
-            "vi": "Và (Dùng để thêm thông tin).",
-            "example": "We went home and went straight to bed."
-          },
-          {
-            "word": "but",
-            "type": "Liên từ",
-            "phonetic": "/bʌt/",
-            "vi": "Nhưng (Dùng để tạo sự đối lập).",
-            "example": "They are rich but they aren't happy."
-          },
-          {
-            "word": "because",
-            "type": "Liên từ",
-            "phonetic": "/bɪˈkɑːz/",
-            "vi": "Bởi vì (Trả lời cho câu hỏi Tại sao / Chỉ lý do).",
-            "example": "We went home because we were tired."
-          },
-          {
-            "word": "so",
-            "type": "Liên từ",
-            "phonetic": "/soʊ/",
-            "vi": "Vì vậy, cho nên (Chỉ kết quả).",
-            "example": "We went home early, so we missed the end of the concert."
-          },
-          {
-            "word": "when",
-            "type": "Liên từ",
-            "phonetic": "/wen/",
-            "vi": "Khi, vào lúc (Trả lời câu hỏi Khi nào).",
-            "example": "We went home when Jane wanted to."
-          },
-          {
-            "word": "before / after",
-            "type": "Liên từ",
-            "phonetic": "/bɪˈfɔːr/ /ˈæf.tɚ/",
-            "vi": "Trước khi / Sau khi (Chỉ cái gì xảy ra trước/sau).",
-            "example": "We went home before the concert ended."
-          },
-          {
-            "word": "although / though",
-            "type": "Liên từ",
-            "phonetic": "/ɑːlˈðoʊ/ /ðoʊ/",
-            "vi": "Mặc dù (Chỉ một điều gì đó gây ngạc nhiên, trái ngược).",
-            "example": "We went home although we did not really want to."
-          },
-          {
-            "word": "if",
-            "type": "Liên từ",
-            "phonetic": "/ɪf/",
-            "vi": "Nếu (Dùng để đưa ra điều kiện).",
-            "example": "We will go home if we are tired."
-          }
-        ]
-      },
-      {
-        "heading": "B. Other connecting words (Các từ nối khác)",
-        "items": [
-          {
-            "word": "only",
-            "type": "Từ nối",
-            "phonetic": "/ˈoʊn.li/",
-            "vi": "Chỉ, duy nhất (Ý nói không nhiều hoặc không lớn).",
-            "example": "He sleeps only 3 hours every night."
-          },
-          {
-            "word": "even",
-            "type": "Từ nối",
-            "phonetic": "/ˈiː.vən/",
-            "vi": "Thậm chí (Chỉ sự việc gây ngạc nhiên hoặc bất thường).",
-            "example": "Even their 10-year-old son works in the shop."
-          },
-          {
-            "word": "like",
-            "type": "Từ nối",
-            "phonetic": "/laɪk/",
-            "vi": "Giống như (Dùng để so sánh).",
-            "example": "She looks like her dad."
-          },
-          {
-            "word": "than",
-            "type": "Từ nối",
-            "phonetic": "/ðæn/",
-            "vi": "Hơn (Dùng sau tính từ hoặc trạng từ so sánh hơn).",
-            "example": "She works harder than he does."
-          },
-          {
-            "word": "also / too / as well",
-            "type": "Từ nối",
-            "phonetic": "/ˈɑːl.soʊ/ /tuː/",
-            "vi": "Cũng, ngoài ra (Dùng để thêm thông tin phụ).",
-            "example": "He works in the shop and she does also / too / as well."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "and",
+          "type": "Liên từ",
+          "phonetic": "/ænd/",
+          "vi": "Và (Dùng để thêm thông tin).",
+          "example": "We went home and went straight to bed.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của and"
+        },
+        {
+          "word": "but",
+          "type": "Liên từ",
+          "phonetic": "/bʌt/",
+          "vi": "Nhưng (Dùng để tạo sự đối lập).",
+          "example": "They are rich but they aren't happy.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của but"
+        },
+        {
+          "word": "because",
+          "type": "Liên từ",
+          "phonetic": "/bɪˈkɑːz/",
+          "vi": "Bởi vì (Trả lời cho câu hỏi Tại sao / Chỉ lý do).",
+          "example": "We went home because we were tired.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của because"
+        },
+        {
+          "word": "so",
+          "type": "Liên từ",
+          "phonetic": "/soʊ/",
+          "vi": "Vì vậy, cho nên (Chỉ kết quả).",
+          "example": "We went home early, so we missed the end of the concert.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của so"
+        },
+        {
+          "word": "when",
+          "type": "Liên từ",
+          "phonetic": "/wen/",
+          "vi": "Khi, vào lúc (Trả lời câu hỏi Khi nào).",
+          "example": "We went home when Jane wanted to.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của when"
+        },
+        {
+          "word": "before / after",
+          "type": "Liên từ",
+          "phonetic": "/bɪˈfɔːr/ /ˈæf.tɚ/",
+          "vi": "Trước khi / Sau khi (Chỉ cái gì xảy ra trước/sau).",
+          "example": "We went home before the concert ended.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của before / after"
+        },
+        {
+          "word": "although / though",
+          "type": "Liên từ",
+          "phonetic": "/ɑːlˈðoʊ/ /ðoʊ/",
+          "vi": "Mặc dù (Chỉ một điều gì đó gây ngạc nhiên, trái ngược).",
+          "example": "We went home although we did not really want to.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của although / though"
+        },
+        {
+          "word": "if",
+          "type": "Liên từ",
+          "phonetic": "/ɪf/",
+          "vi": "Nếu (Dùng để đưa ra điều kiện).",
+          "example": "We will go home if we are tired.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của if"
+        },
+        {
+          "word": "only",
+          "type": "Từ nối",
+          "phonetic": "/ˈoʊn.li/",
+          "vi": "Chỉ, duy nhất (Ý nói không nhiều hoặc không lớn).",
+          "example": "He sleeps only 3 hours every night.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của only"
+        },
+        {
+          "word": "even",
+          "type": "Từ nối",
+          "phonetic": "/ˈiː.vən/",
+          "vi": "Thậm chí (Chỉ sự việc gây ngạc nhiên hoặc bất thường).",
+          "example": "Even their 10-year-old son works in the shop.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của even"
+        },
+        {
+          "word": "like",
+          "type": "Từ nối",
+          "phonetic": "/laɪk/",
+          "vi": "Giống như (Dùng để so sánh).",
+          "example": "She looks like her dad.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của like"
+        },
+        {
+          "word": "than",
+          "type": "Từ nối",
+          "phonetic": "/ðæn/",
+          "vi": "Hơn (Dùng sau tính từ hoặc trạng từ so sánh hơn).",
+          "example": "She works harder than he does.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của than"
+        },
+        {
+          "word": "also / too / as well",
+          "type": "Từ nối",
+          "phonetic": "/ˈɑːl.soʊ/ /tuː/",
+          "vi": "Cũng, ngoài ra (Dùng để thêm thông tin phụ).",
+          "example": "He works in the shop and she does also / too / as well.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của also / too / as well"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Basic conjunctions (Các liên từ cơ bản)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "and",
+              "value": "👉 We went home and went straight to bed."
+            },
+            {
+              "title": "but",
+              "value": "👉 They are rich but they aren't happy."
+            },
+            {
+              "title": "because",
+              "value": "👉 We went home because we were tired."
+            },
+            {
+              "title": "so",
+              "value": "👉 We went home early, so we missed the end of the concert."
+            },
+            {
+              "title": "when",
+              "value": "👉 We went home when Jane wanted to."
+            },
+            {
+              "title": "before / after",
+              "value": "👉 We went home before the concert ended."
+            },
+            {
+              "title": "although / though",
+              "value": "👉 We went home although we did not really want to."
+            },
+            {
+              "title": "if",
+              "value": "👉 We will go home if we are tired."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Other connecting words (Các từ nối khác)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "only",
+              "value": "👉 He sleeps only 3 hours every night."
+            },
+            {
+              "title": "even",
+              "value": "👉 Even their 10-year-old son works in the shop."
+            },
+            {
+              "title": "like",
+              "value": "👉 She looks like her dad."
+            },
+            {
+              "title": "than",
+              "value": "👉 She works harder than he does."
+            },
+            {
+              "title": "also / too / as well",
+              "value": "👉 He works in the shop and she does also / too / as well."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"and\"",
+              "value": "Các dạng từ loại khác của \"and\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"but\"",
+              "value": "Các dạng từ loại khác của \"but\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"because\"",
+              "value": "Các dạng từ loại khác của \"because\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"so\"",
+              "value": "Cụm từ liên quan đến so"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"when\"",
+              "value": "Cụm từ liên quan đến when"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"before / after\"",
+              "value": "Cụm từ liên quan đến before / after"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Reason & Result",
@@ -9774,148 +15136,554 @@ export const courseData = [
         "text": "I love swimming and my brother loves swimming too.",
         "trans": "Tôi thích bơi lội và anh trai tôi cũng thích bơi lội."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "15.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_15_1_0",
+            "text": "We went home [blank] went straight to bed.",
+            "answers": [
+              "and"
+            ],
+            "hint": "Và (Dùng để thêm thông tin).",
+            "explanation": "Từ cần điền là \"and\", mang nghĩa là \"Và (Dùng để thêm thông tin).\"."
+          },
+          {
+            "id": "ex_15_1_1",
+            "text": "They are rich [blank] they aren't happy.",
+            "answers": [
+              "but"
+            ],
+            "hint": "Nhưng (Dùng để tạo sự đối lập).",
+            "explanation": "Từ cần điền là \"but\", mang nghĩa là \"Nhưng (Dùng để tạo sự đối lập).\"."
+          },
+          {
+            "id": "ex_15_1_2",
+            "text": "We went home [blank] we were tired.",
+            "answers": [
+              "because"
+            ],
+            "hint": "Bởi vì (Trả lời cho câu hỏi Tại sao / Chỉ lý do).",
+            "explanation": "Từ cần điền là \"because\", mang nghĩa là \"Bởi vì (Trả lời cho câu hỏi Tại sao / Chỉ lý do).\"."
+          },
+          {
+            "id": "ex_15_1_3",
+            "text": "We went home early, [blank] we missed the end of the concert.",
+            "answers": [
+              "so"
+            ],
+            "hint": "Vì vậy, cho nên (Chỉ kết quả).",
+            "explanation": "Từ cần điền là \"so\", mang nghĩa là \"Vì vậy, cho nên (Chỉ kết quả).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "15.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_15_2_0",
+            "text": "when",
+            "options": [
+              "Nếu (Dùng để đưa ra điều kiện).",
+              "Mặc dù (Chỉ một điều gì đó gây ngạc nhiên, trái ngược).",
+              "Trước khi / Sau khi (Chỉ cái gì xảy ra trước/sau).",
+              "Khi, vào lúc (Trả lời câu hỏi Khi nào)."
+            ],
+            "answer": "Khi, vào lúc (Trả lời câu hỏi Khi nào).",
+            "explanation": "Từ \"when\" có nghĩa chính xác là \"Khi, vào lúc (Trả lời câu hỏi Khi nào).\"."
+          },
+          {
+            "id": "ex_15_2_1",
+            "text": "before / after",
+            "options": [
+              "Khi, vào lúc (Trả lời câu hỏi Khi nào).",
+              "Trước khi / Sau khi (Chỉ cái gì xảy ra trước/sau).",
+              "Nếu (Dùng để đưa ra điều kiện).",
+              "Mặc dù (Chỉ một điều gì đó gây ngạc nhiên, trái ngược)."
+            ],
+            "answer": "Trước khi / Sau khi (Chỉ cái gì xảy ra trước/sau).",
+            "explanation": "Từ \"before / after\" có nghĩa chính xác là \"Trước khi / Sau khi (Chỉ cái gì xảy ra trước/sau).\"."
+          },
+          {
+            "id": "ex_15_2_2",
+            "text": "although / though",
+            "options": [
+              "Khi, vào lúc (Trả lời câu hỏi Khi nào).",
+              "Trước khi / Sau khi (Chỉ cái gì xảy ra trước/sau).",
+              "Nếu (Dùng để đưa ra điều kiện).",
+              "Mặc dù (Chỉ một điều gì đó gây ngạc nhiên, trái ngược)."
+            ],
+            "answer": "Mặc dù (Chỉ một điều gì đó gây ngạc nhiên, trái ngược).",
+            "explanation": "Từ \"although / though\" có nghĩa chính xác là \"Mặc dù (Chỉ một điều gì đó gây ngạc nhiên, trái ngược).\"."
+          },
+          {
+            "id": "ex_15_2_3",
+            "text": "if",
+            "options": [
+              "Trước khi / Sau khi (Chỉ cái gì xảy ra trước/sau).",
+              "Mặc dù (Chỉ một điều gì đó gây ngạc nhiên, trái ngược).",
+              "Nếu (Dùng để đưa ra điều kiện).",
+              "Khi, vào lúc (Trả lời câu hỏi Khi nào)."
+            ],
+            "answer": "Nếu (Dùng để đưa ra điều kiện).",
+            "explanation": "Từ \"if\" có nghĩa chính xác là \"Nếu (Dùng để đưa ra điều kiện).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "15.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_15_3_0",
+            "word": "and",
+            "category": "Topic A",
+            "explanation": "Từ \"and\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_15_3_1",
+            "word": "but",
+            "category": "Topic B",
+            "explanation": "Từ \"but\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_15_3_2",
+            "word": "because",
+            "category": "Topic A",
+            "explanation": "Từ \"because\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_15_3_3",
+            "word": "so",
+            "category": "Topic B",
+            "explanation": "Từ \"so\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_15_3_4",
+            "word": "when",
+            "category": "Topic A",
+            "explanation": "Từ \"when\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_15_3_5",
+            "word": "before / after",
+            "category": "Topic B",
+            "explanation": "Từ \"before / after\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "15.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_15_4_0",
+            "original": "We went home becauses we were tired.",
+            "correct": "We went home because we were tired.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"because\" thay vì \"becauses\"."
+          },
+          {
+            "id": "ex_15_4_1",
+            "original": "We went home early, sos we missed the end of the concert.",
+            "correct": "We went home early, so we missed the end of the concert.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"so\" thay vì \"sos\"."
+          }
+        ]
+      },
+      {
+        "exNum": "15.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_15_5_0",
+            "text": "We went home [blank] Jane wanted to.",
+            "answers": [
+              "when"
+            ],
+            "hint": "Khi, vào lúc (Trả lời câu hỏi Khi nào).",
+            "explanation": "Từ cần điền là \"when\"."
+          },
+          {
+            "id": "ex_15_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "before / after"
+            ],
+            "hint": "Trước khi / Sau khi (Chỉ cái gì xảy ra trước/sau).",
+            "explanation": "Từ cần điền là \"before / after\"."
+          },
+          {
+            "id": "ex_15_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "although / though"
+            ],
+            "hint": "Mặc dù (Chỉ một điều gì đó gây ngạc nhiên, trái ngược).",
+            "explanation": "Từ cần điền là \"although / though\"."
+          },
+          {
+            "id": "ex_15_5_3",
+            "text": "We will go home [blank] we are tired.",
+            "answers": [
+              "if"
+            ],
+            "hint": "Nếu (Dùng để đưa ra điều kiện).",
+            "explanation": "Từ cần điền là \"if\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 16,
     "title": "Unit 16: Time words (1): days, months and seasons",
     "description": "Học từ vựng cơ bản về thời gian, các ngày trong tuần, tháng trong năm, các mùa và đặc biệt là cách dùng giới từ (in, on, at) cho từng mốc thời gian.",
-    "theory": [
-      {
-        "heading": "A. Basic time words (Từ vựng thời gian cơ bản)",
-        "items": [
-          {
-            "word": "year",
-            "type": "Danh từ",
-            "phonetic": "/jɪr/",
-            "vi": "Năm (Có 365 days / 12 months / 52 weeks).",
-            "example": "There are 365 days in a year."
-          },
-          {
-            "word": "week",
-            "type": "Danh từ",
-            "phonetic": "/wiːk/",
-            "vi": "Tuần (Có 7 days).",
-            "example": "There are 7 days in a week."
-          },
-          {
-            "word": "fortnight",
-            "type": "Danh từ",
-            "phonetic": "/ˈfɔːrt.naɪt/",
-            "vi": "Hai tuần, nửa tháng.",
-            "example": "There are 2 weeks in a fortnight."
-          },
-          {
-            "word": "day",
-            "type": "Danh từ",
-            "phonetic": "/deɪ/",
-            "vi": "Ngày (Có 24 hours).",
-            "example": "There are 24 hours in a day."
-          },
-          {
-            "word": "hour",
-            "type": "Danh từ",
-            "phonetic": "/aʊr/",
-            "vi": "Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.",
-            "example": "There are 60 minutes in an hour."
-          },
-          {
-            "word": "minute",
-            "type": "Danh từ",
-            "phonetic": "/ˈmɪn.ɪt/",
-            "vi": "Phút (Có 60 seconds).",
-            "example": "There are 60 seconds in a minute."
-          },
-          {
-            "word": "century",
-            "type": "Danh từ",
-            "phonetic": "/ˈsen.tʃər.i/",
-            "vi": "Thế kỷ (100 năm).",
-            "example": "There are 100 years in a century."
-          }
-        ]
-      },
-      {
-        "heading": "B. Days of the week (Các ngày trong tuần)",
-        "items": [
-          {
-            "word": "Monday -> Sunday",
-            "type": "Danh từ",
-            "phonetic": "Monday: /ˈmʌndeɪ/ - Sunday: /ˈsʌndeɪ/",
-            "vi": "Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên).",
-            "example": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday."
-          },
-          {
-            "word": "the weekend",
-            "type": "Cụm từ",
-            "phonetic": "/ˈwiːk.end/",
-            "vi": "Cuối tuần (Thứ Bảy + Chủ Nhật).",
-            "example": "Saturday + Sunday = the weekend."
-          },
-          {
-            "word": "yesterday / today / tomorrow",
-            "type": "Trạng từ",
-            "phonetic": "yesterday: /ˈjestədeɪ/ | today: /təˈdeɪ/ | tomorrow: /təˈmɒrəʊ/",
-            "vi": "Hôm qua / Hôm nay / Ngày mai.",
-            "example": "Today is Wednesday. Tomorrow is Thursday."
-          },
-          {
-            "word": "the day before yesterday",
-            "type": "Cụm từ",
-            "phonetic": "/ðə deɪ bɪˈfɔː ˈjestədeɪ/",
-            "vi": "Hôm kia (Trước hôm qua).",
-            "example": "The day before yesterday was Monday."
-          },
-          {
-            "word": "the day after tomorrow",
-            "type": "Cụm từ",
-            "phonetic": "/ðə deɪ ˈɑːftə təˈmɒrəʊ/",
-            "vi": "Ngày mốt (Sau ngày mai).",
-            "example": "The day after tomorrow is Friday."
-          },
-          {
-            "word": "Prepositions for Days",
-            "type": "Ngữ pháp",
-            "phonetic": "/ˌprepəˈzɪʃnz fɔː deɪz/",
-            "vi": "Dùng ON cho các ngày: on Monday, on Tuesday evening. Dùng AT cho cuối tuần: at the weekend.",
-            "example": "I saw her on Friday. I went to the cinema at the weekend."
-          }
-        ]
-      },
-      {
-        "heading": "C. Months and seasons (Các tháng và các mùa)",
-        "items": [
-          {
-            "word": "January -> December",
-            "type": "Danh từ",
-            "phonetic": "January: /ˈdʒænjuəri/ - December: /dɪˈsembə/",
-            "vi": "Tháng 1 đến Tháng 12. (Luôn viết HOA chữ cái đầu tiên).",
-            "example": "January, February, March, April, May, June, July, August, September, October, November, December."
-          },
-          {
-            "word": "spring / summer",
-            "type": "Danh từ",
-            "phonetic": "/sprɪŋ/ /ˈsʌm.ɚ/",
-            "vi": "Mùa xuân / Mùa hè.",
-            "example": "Birds sing in the spring."
-          },
-          {
-            "word": "autumn / winter",
-            "type": "Danh từ",
-            "phonetic": "/ˈɑː.t̬əm/ /ˈwɪn.t̬ɚ/",
-            "vi": "Mùa thu / Mùa đông.",
-            "example": "It is cold in winter."
-          },
-          {
-            "word": "Prepositions for Months/Seasons",
-            "type": "Ngữ pháp",
-            "phonetic": "/ˌprepəˈzɪʃnz fɔː mʌnθs ˈsiːznz/",
-            "vi": "Dùng IN cho các tháng và mùa: in July, in (the) spring. KHÔNG dùng ON.",
-            "example": "My birthday is in July. [NOT on July]"
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "year",
+          "type": "Danh từ",
+          "phonetic": "/jɪr/",
+          "vi": "Năm (Có 365 days / 12 months / 52 weeks).",
+          "example": "There are 365 days in a year.",
+          "bucket": 1,
+          "collocations": [
+            "have a year",
+            "use year"
+          ],
+          "wordFamily": "Biến thể của year"
+        },
+        {
+          "word": "week",
+          "type": "Danh từ",
+          "phonetic": "/wiːk/",
+          "vi": "Tuần (Có 7 days).",
+          "example": "There are 7 days in a week.",
+          "bucket": 2,
+          "collocations": [
+            "have a week",
+            "use week"
+          ],
+          "wordFamily": "Biến thể của week"
+        },
+        {
+          "word": "fortnight",
+          "type": "Danh từ",
+          "phonetic": "/ˈfɔːrt.naɪt/",
+          "vi": "Hai tuần, nửa tháng.",
+          "example": "There are 2 weeks in a fortnight.",
+          "bucket": 1,
+          "collocations": [
+            "have a fortnight",
+            "use fortnight"
+          ],
+          "wordFamily": "Biến thể của fortnight"
+        },
+        {
+          "word": "day",
+          "type": "Danh từ",
+          "phonetic": "/deɪ/",
+          "vi": "Ngày (Có 24 hours).",
+          "example": "There are 24 hours in a day.",
+          "bucket": 2,
+          "collocations": [
+            "have a day",
+            "use day"
+          ],
+          "wordFamily": "Biến thể của day"
+        },
+        {
+          "word": "hour",
+          "type": "Danh từ",
+          "phonetic": "/aʊr/",
+          "vi": "Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.",
+          "example": "There are 60 minutes in an hour.",
+          "bucket": 1,
+          "collocations": [
+            "have a hour",
+            "use hour"
+          ],
+          "wordFamily": "Biến thể của hour"
+        },
+        {
+          "word": "minute",
+          "type": "Danh từ",
+          "phonetic": "/ˈmɪn.ɪt/",
+          "vi": "Phút (Có 60 seconds).",
+          "example": "There are 60 seconds in a minute.",
+          "bucket": 2,
+          "collocations": [
+            "have a minute",
+            "use minute"
+          ],
+          "wordFamily": "Biến thể của minute"
+        },
+        {
+          "word": "century",
+          "type": "Danh từ",
+          "phonetic": "/ˈsen.tʃər.i/",
+          "vi": "Thế kỷ (100 năm).",
+          "example": "There are 100 years in a century.",
+          "bucket": 1,
+          "collocations": [
+            "have a century",
+            "use century"
+          ],
+          "wordFamily": "Biến thể của century"
+        },
+        {
+          "word": "Monday -> Sunday",
+          "type": "Danh từ",
+          "phonetic": "Monday: /ˈmʌndeɪ/ - Sunday: /ˈsʌndeɪ/",
+          "vi": "Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên).",
+          "example": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.",
+          "bucket": 2,
+          "collocations": [
+            "have a Monday -> Sunday",
+            "use Monday -> Sunday"
+          ],
+          "wordFamily": "Biến thể của Monday -> Sunday"
+        },
+        {
+          "word": "the weekend",
+          "type": "Cụm từ",
+          "phonetic": "/ˈwiːk.end/",
+          "vi": "Cuối tuần (Thứ Bảy + Chủ Nhật).",
+          "example": "Saturday + Sunday = the weekend.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của the weekend"
+        },
+        {
+          "word": "yesterday / today / tomorrow",
+          "type": "Trạng từ",
+          "phonetic": "yesterday: /ˈjestədeɪ/ | today: /təˈdeɪ/ | tomorrow: /təˈmɒrəʊ/",
+          "vi": "Hôm qua / Hôm nay / Ngày mai.",
+          "example": "Today is Wednesday. Tomorrow is Thursday.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của yesterday / today / tomorrow"
+        },
+        {
+          "word": "the day before yesterday",
+          "type": "Cụm từ",
+          "phonetic": "/ðə deɪ bɪˈfɔː ˈjestədeɪ/",
+          "vi": "Hôm kia (Trước hôm qua).",
+          "example": "The day before yesterday was Monday.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của the day before yesterday"
+        },
+        {
+          "word": "the day after tomorrow",
+          "type": "Cụm từ",
+          "phonetic": "/ðə deɪ ˈɑːftə təˈmɒrəʊ/",
+          "vi": "Ngày mốt (Sau ngày mai).",
+          "example": "The day after tomorrow is Friday.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của the day after tomorrow"
+        },
+        {
+          "word": "Prepositions for Days",
+          "type": "Ngữ pháp",
+          "phonetic": "/ˌprepəˈzɪʃnz fɔː deɪz/",
+          "vi": "Dùng ON cho các ngày: on Monday, on Tuesday evening. Dùng AT cho cuối tuần: at the weekend.",
+          "example": "I saw her on Friday. I went to the cinema at the weekend.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của Prepositions for Days"
+        },
+        {
+          "word": "January -> December",
+          "type": "Danh từ",
+          "phonetic": "January: /ˈdʒænjuəri/ - December: /dɪˈsembə/",
+          "vi": "Tháng 1 đến Tháng 12. (Luôn viết HOA chữ cái đầu tiên).",
+          "example": "January, February, March, April, May, June, July, August, September, October, November, December.",
+          "bucket": 2,
+          "collocations": [
+            "have a January -> December",
+            "use January -> December"
+          ],
+          "wordFamily": "Biến thể của January -> December"
+        },
+        {
+          "word": "spring / summer",
+          "type": "Danh từ",
+          "phonetic": "/sprɪŋ/ /ˈsʌm.ɚ/",
+          "vi": "Mùa xuân / Mùa hè.",
+          "example": "Birds sing in the spring.",
+          "bucket": 1,
+          "collocations": [
+            "have a spring / summer",
+            "use spring / summer"
+          ],
+          "wordFamily": "Biến thể của spring / summer"
+        },
+        {
+          "word": "autumn / winter",
+          "type": "Danh từ",
+          "phonetic": "/ˈɑː.t̬əm/ /ˈwɪn.t̬ɚ/",
+          "vi": "Mùa thu / Mùa đông.",
+          "example": "It is cold in winter.",
+          "bucket": 2,
+          "collocations": [
+            "have a autumn / winter",
+            "use autumn / winter"
+          ],
+          "wordFamily": "Biến thể của autumn / winter"
+        },
+        {
+          "word": "Prepositions for Months/Seasons",
+          "type": "Ngữ pháp",
+          "phonetic": "/ˌprepəˈzɪʃnz fɔː mʌnθs ˈsiːznz/",
+          "vi": "Dùng IN cho các tháng và mùa: in July, in (the) spring. KHÔNG dùng ON.",
+          "example": "My birthday is in July. [NOT on July]",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của Prepositions for Months/Seasons"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Basic time words (Từ vựng thời gian cơ bản)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "year",
+              "value": "👉 There are 365 days in a year."
+            },
+            {
+              "title": "week",
+              "value": "👉 There are 7 days in a week."
+            },
+            {
+              "title": "fortnight",
+              "value": "👉 There are 2 weeks in a fortnight."
+            },
+            {
+              "title": "day",
+              "value": "👉 There are 24 hours in a day."
+            },
+            {
+              "title": "hour",
+              "value": "👉 There are 60 minutes in an hour."
+            },
+            {
+              "title": "minute",
+              "value": "👉 There are 60 seconds in a minute."
+            },
+            {
+              "title": "century",
+              "value": "👉 There are 100 years in a century."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Days of the week (Các ngày trong tuần)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "Monday -> Sunday",
+              "value": "👉 Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday."
+            },
+            {
+              "title": "the weekend",
+              "value": "👉 Saturday + Sunday = the weekend."
+            },
+            {
+              "title": "yesterday / today / tomorrow",
+              "value": "👉 Today is Wednesday. Tomorrow is Thursday."
+            },
+            {
+              "title": "the day before yesterday",
+              "value": "👉 The day before yesterday was Monday."
+            },
+            {
+              "title": "the day after tomorrow",
+              "value": "👉 The day after tomorrow is Friday."
+            },
+            {
+              "title": "Prepositions for Days",
+              "value": "👉 I saw her on Friday. I went to the cinema at the weekend."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Months and seasons (Các tháng và các mùa)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "January -> December",
+              "value": "👉 January, February, March, April, May, June, July, August, September, October, November, December."
+            },
+            {
+              "title": "spring / summer",
+              "value": "👉 Birds sing in the spring."
+            },
+            {
+              "title": "autumn / winter",
+              "value": "👉 It is cold in winter."
+            },
+            {
+              "title": "Prepositions for Months/Seasons",
+              "value": "👉 My birthday is in July. [NOT on July]"
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"year\"",
+              "value": "yearful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"week\"",
+              "value": "weekful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"fortnight\"",
+              "value": "fortnightful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"day\"",
+              "value": "Ví dụ: have a day, make a day, good day"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"hour\"",
+              "value": "Ví dụ: have a hour, make a hour, good hour"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"minute\"",
+              "value": "Ví dụ: have a minute, make a minute, good minute"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Time Durations",
@@ -10431,174 +16199,572 @@ export const courseData = [
         "text": "I love going to barbecues in the summer.",
         "trans": "Tôi rất thích đi ăn tiệc nướng ngoài trời vào mùa hè."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "16.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_16_1_0",
+            "text": "There are 365 days in a [blank].",
+            "answers": [
+              "year"
+            ],
+            "hint": "Năm (Có 365 days / 12 months / 52 weeks).",
+            "explanation": "Từ cần điền là \"year\", mang nghĩa là \"Năm (Có 365 days / 12 months / 52 weeks).\"."
+          },
+          {
+            "id": "ex_16_1_1",
+            "text": "There are 7 days in a [blank].",
+            "answers": [
+              "week"
+            ],
+            "hint": "Tuần (Có 7 days).",
+            "explanation": "Từ cần điền là \"week\", mang nghĩa là \"Tuần (Có 7 days).\"."
+          },
+          {
+            "id": "ex_16_1_2",
+            "text": "There are 2 weeks in a [blank].",
+            "answers": [
+              "fortnight"
+            ],
+            "hint": "Hai tuần, nửa tháng.",
+            "explanation": "Từ cần điền là \"fortnight\", mang nghĩa là \"Hai tuần, nửa tháng.\"."
+          },
+          {
+            "id": "ex_16_1_3",
+            "text": "There are 24 hours in a [blank].",
+            "answers": [
+              "day"
+            ],
+            "hint": "Ngày (Có 24 hours).",
+            "explanation": "Từ cần điền là \"day\", mang nghĩa là \"Ngày (Có 24 hours).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "16.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_16_2_0",
+            "text": "hour",
+            "options": [
+              "Phút (Có 60 seconds).",
+              "Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.",
+              "Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên).",
+              "Thế kỷ (100 năm)."
+            ],
+            "answer": "Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.",
+            "explanation": "Từ \"hour\" có nghĩa chính xác là \"Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.\"."
+          },
+          {
+            "id": "ex_16_2_1",
+            "text": "minute",
+            "options": [
+              "Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.",
+              "Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên).",
+              "Phút (Có 60 seconds).",
+              "Thế kỷ (100 năm)."
+            ],
+            "answer": "Phút (Có 60 seconds).",
+            "explanation": "Từ \"minute\" có nghĩa chính xác là \"Phút (Có 60 seconds).\"."
+          },
+          {
+            "id": "ex_16_2_2",
+            "text": "century",
+            "options": [
+              "Phút (Có 60 seconds).",
+              "Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.",
+              "Thế kỷ (100 năm).",
+              "Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên)."
+            ],
+            "answer": "Thế kỷ (100 năm).",
+            "explanation": "Từ \"century\" có nghĩa chính xác là \"Thế kỷ (100 năm).\"."
+          },
+          {
+            "id": "ex_16_2_3",
+            "text": "Monday -> Sunday",
+            "options": [
+              "Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.",
+              "Phút (Có 60 seconds).",
+              "Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên).",
+              "Thế kỷ (100 năm)."
+            ],
+            "answer": "Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên).",
+            "explanation": "Từ \"Monday -> Sunday\" có nghĩa chính xác là \"Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "16.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_16_3_0",
+            "word": "year",
+            "category": "Topic A",
+            "explanation": "Từ \"year\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_16_3_1",
+            "word": "week",
+            "category": "Topic B",
+            "explanation": "Từ \"week\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_16_3_2",
+            "word": "fortnight",
+            "category": "Topic A",
+            "explanation": "Từ \"fortnight\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_16_3_3",
+            "word": "day",
+            "category": "Topic B",
+            "explanation": "Từ \"day\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_16_3_4",
+            "word": "hour",
+            "category": "Topic A",
+            "explanation": "Từ \"hour\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_16_3_5",
+            "word": "minute",
+            "category": "Topic B",
+            "explanation": "Từ \"minute\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "16.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_16_4_0",
+            "original": "There are 2 weeks in a fortnights.",
+            "correct": "There are 2 weeks in a fortnight.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"fortnight\" thay vì \"fortnights\"."
+          },
+          {
+            "id": "ex_16_4_1",
+            "original": "There are 24 hours in a days.",
+            "correct": "There are 24 hours in a day.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"day\" thay vì \"days\"."
+          }
+        ]
+      },
+      {
+        "exNum": "16.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_16_5_0",
+            "text": "There are 60 minutes in an [blank].",
+            "answers": [
+              "hour"
+            ],
+            "hint": "Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.",
+            "explanation": "Từ cần điền là \"hour\"."
+          },
+          {
+            "id": "ex_16_5_1",
+            "text": "There are 60 seconds in a [blank].",
+            "answers": [
+              "minute"
+            ],
+            "hint": "Phút (Có 60 seconds).",
+            "explanation": "Từ cần điền là \"minute\"."
+          },
+          {
+            "id": "ex_16_5_2",
+            "text": "There are 100 years in a [blank].",
+            "answers": [
+              "century"
+            ],
+            "hint": "Thế kỷ (100 năm).",
+            "explanation": "Từ cần điền là \"century\"."
+          },
+          {
+            "id": "ex_16_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "Monday -> Sunday"
+            ],
+            "hint": "Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên).",
+            "explanation": "Từ cần điền là \"Monday -> Sunday\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 17,
     "title": "Unit 17: Time words (2)",
     "description": "Học cách diễn đạt thời gian so với hiện tại (quá khứ, tương lai), các khoảng thời gian ngắn (in a moment, soon) và các trạng từ chỉ tần suất (always, hardly ever, twice a week...).",
-    "theory": [
-      {
-        "heading": "A. Time in relation to NOW (Thời gian so với Hiện tại)",
-        "items": [
-          {
-            "word": "now",
-            "type": "Trạng từ",
-            "phonetic": "/naʊ/",
-            "vi": "Bây giờ, tại thời điểm này.",
-            "example": "It is 10 o'clock now."
-          },
-          {
-            "word": "then",
-            "type": "Trạng từ",
-            "phonetic": "/ðen/",
-            "vi": "Lúc đó, khi đó (thường ở quá khứ).",
-            "example": "I lived in Rome then."
-          },
-          {
-            "word": "ago",
-            "type": "Trạng từ",
-            "phonetic": "/əˈɡoʊ/",
-            "vi": "Trước đây, cách đây.",
-            "example": "I got up 2 hours ago. / An hour ago it was 9 o'clock."
-          },
-          {
-            "word": "for",
-            "type": "Giới từ",
-            "phonetic": "/fɔːr/",
-            "vi": "Trong khoảng thời gian.",
-            "example": "He lived there for two years."
-          },
-          {
-            "word": "from ... to ...",
-            "type": "Giới từ",
-            "phonetic": "/frʌm/ /tuː/",
-            "vi": "Từ ... đến ...",
-            "example": "He lived there from 1994 to 1996."
-          },
-          {
-            "word": "last / next",
-            "type": "Tính từ",
-            "phonetic": "/læst/ /nekst/",
-            "vi": "Trước / Tới.",
-            "example": "Last year / last week. Next year / next summer."
-          }
-        ]
-      },
-      {
-        "heading": "B. Past, present and future (Quá khứ, hiện tại, tương lai)",
-        "items": [
-          {
-            "word": "in the past",
-            "type": "Cụm từ",
-            "phonetic": "/ɪn ðə pæst/",
-            "vi": "Trong quá khứ.",
-            "example": "In the past people didn't have television."
-          },
-          {
-            "word": "in the future",
-            "type": "Cụm từ",
-            "phonetic": "/ɪn ðə ˈfjuː.tʃɚ/",
-            "vi": "Trong tương lai.",
-            "example": "People may travel to Mars in the future."
-          },
-          {
-            "word": "in a moment",
-            "type": "Cụm từ",
-            "phonetic": "/ɪn ə ˈmoʊ.mənt/",
-            "vi": "Một lát nữa (= a very short time).",
-            "example": "I'll be with you in a moment."
-          },
-          {
-            "word": "at the moment",
-            "type": "Cụm từ",
-            "phonetic": "/æt ðə ˈmoʊ.mənt/",
-            "vi": "Ngay lúc này (= now).",
-            "example": "Jane's in Paris at the moment."
-          },
-          {
-            "word": "soon",
-            "type": "Trạng từ",
-            "phonetic": "/suːn/",
-            "vi": "Sớm thôi (= in a short time).",
-            "example": "See you soon!"
-          },
-          {
-            "word": "recently",
-            "type": "Trạng từ",
-            "phonetic": "/ˈriː.sənt.li/",
-            "vi": "Gần đây (= not long ago).",
-            "example": "We met recently."
-          }
-        ]
-      },
-      {
-        "heading": "C. Frequency adverbs (Trạng từ chỉ tần suất)",
-        "items": [
-          {
-            "word": "always",
-            "type": "Trạng từ",
-            "phonetic": "/ˈɑːl.weɪz/",
-            "vi": "Luôn luôn (100%).",
-            "example": "It always snows in Russia in winter."
-          },
-          {
-            "word": "often / usually",
-            "type": "Trạng từ",
-            "phonetic": "/ˈɑːf.ən/ /ˈjuː.ʒu.ə.li/",
-            "vi": "Thường xuyên / Thông thường (Khoảng 70-80%).",
-            "example": "It often rains in Britain."
-          },
-          {
-            "word": "sometimes / occasionally",
-            "type": "Trạng từ",
-            "phonetic": "/ˈsʌm.taɪmz/ /əˈkeɪ.ʒən.əl.i/",
-            "vi": "Thỉnh thoảng / Đôi khi (Khoảng 30-50%).",
-            "example": "I occasionally go to the cinema."
-          },
-          {
-            "word": "rarely / hardly ever",
-            "type": "Trạng từ",
-            "phonetic": "/ˈrer.li/ /ˈhɑːrd.li ˈev.ɚ/",
-            "vi": "Hiếm khi / Hầu như không bao giờ (= almost never, khoảng 5-10%).",
-            "example": "The temperature hardly ever gets to 35 degrees."
-          },
-          {
-            "word": "never",
-            "type": "Trạng từ",
-            "phonetic": "/ˈnev.ɚ/",
-            "vi": "Không bao giờ (0%).",
-            "example": "The Ancient Romans never went to America."
-          }
-        ]
-      },
-      {
-        "heading": "D. Expressions of frequency (Các cụm từ chỉ tần suất)",
-        "items": [
-          {
-            "word": "once a week",
-            "type": "Cụm từ",
-            "phonetic": "/wʌns ə wiːk/",
-            "vi": "Một lần một tuần (= one time).",
-            "example": "I go swimming once a week."
-          },
-          {
-            "word": "twice a day",
-            "type": "Cụm từ",
-            "phonetic": "/twaɪs ə deɪ/",
-            "vi": "Hai lần một ngày (= two times).",
-            "example": "I clean my teeth twice a day."
-          },
-          {
-            "word": "three times a year",
-            "type": "Cụm từ",
-            "phonetic": "/θriː taɪmz ə jɪr/",
-            "vi": "Ba lần một năm.",
-            "example": "I see my uncle three times a year."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "now",
+          "type": "Trạng từ",
+          "phonetic": "/naʊ/",
+          "vi": "Bây giờ, tại thời điểm này.",
+          "example": "It is 10 o'clock now.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của now"
+        },
+        {
+          "word": "then",
+          "type": "Trạng từ",
+          "phonetic": "/ðen/",
+          "vi": "Lúc đó, khi đó (thường ở quá khứ).",
+          "example": "I lived in Rome then.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của then"
+        },
+        {
+          "word": "ago",
+          "type": "Trạng từ",
+          "phonetic": "/əˈɡoʊ/",
+          "vi": "Trước đây, cách đây.",
+          "example": "I got up 2 hours ago. / An hour ago it was 9 o'clock.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của ago"
+        },
+        {
+          "word": "for",
+          "type": "Giới từ",
+          "phonetic": "/fɔːr/",
+          "vi": "Trong khoảng thời gian.",
+          "example": "He lived there for two years.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của for"
+        },
+        {
+          "word": "from ... to ...",
+          "type": "Giới từ",
+          "phonetic": "/frʌm/ /tuː/",
+          "vi": "Từ ... đến ...",
+          "example": "He lived there from 1994 to 1996.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của from ... to ..."
+        },
+        {
+          "word": "last / next",
+          "type": "Tính từ",
+          "phonetic": "/læst/ /nekst/",
+          "vi": "Trước / Tới.",
+          "example": "Last year / last week. Next year / next summer.",
+          "bucket": 2,
+          "collocations": [
+            "very last / next",
+            "extremely last / next"
+          ],
+          "wordFamily": "Biến thể của last / next"
+        },
+        {
+          "word": "in the past",
+          "type": "Cụm từ",
+          "phonetic": "/ɪn ðə pæst/",
+          "vi": "Trong quá khứ.",
+          "example": "In the past people didn't have television.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của in the past"
+        },
+        {
+          "word": "in the future",
+          "type": "Cụm từ",
+          "phonetic": "/ɪn ðə ˈfjuː.tʃɚ/",
+          "vi": "Trong tương lai.",
+          "example": "People may travel to Mars in the future.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của in the future"
+        },
+        {
+          "word": "in a moment",
+          "type": "Cụm từ",
+          "phonetic": "/ɪn ə ˈmoʊ.mənt/",
+          "vi": "Một lát nữa (= a very short time).",
+          "example": "I'll be with you in a moment.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của in a moment"
+        },
+        {
+          "word": "at the moment",
+          "type": "Cụm từ",
+          "phonetic": "/æt ðə ˈmoʊ.mənt/",
+          "vi": "Ngay lúc này (= now).",
+          "example": "Jane's in Paris at the moment.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của at the moment"
+        },
+        {
+          "word": "soon",
+          "type": "Trạng từ",
+          "phonetic": "/suːn/",
+          "vi": "Sớm thôi (= in a short time).",
+          "example": "See you soon!",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của soon"
+        },
+        {
+          "word": "recently",
+          "type": "Trạng từ",
+          "phonetic": "/ˈriː.sənt.li/",
+          "vi": "Gần đây (= not long ago).",
+          "example": "We met recently.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của recently"
+        },
+        {
+          "word": "always",
+          "type": "Trạng từ",
+          "phonetic": "/ˈɑːl.weɪz/",
+          "vi": "Luôn luôn (100%).",
+          "example": "It always snows in Russia in winter.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của always"
+        },
+        {
+          "word": "often / usually",
+          "type": "Trạng từ",
+          "phonetic": "/ˈɑːf.ən/ /ˈjuː.ʒu.ə.li/",
+          "vi": "Thường xuyên / Thông thường (Khoảng 70-80%).",
+          "example": "It often rains in Britain.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của often / usually"
+        },
+        {
+          "word": "sometimes / occasionally",
+          "type": "Trạng từ",
+          "phonetic": "/ˈsʌm.taɪmz/ /əˈkeɪ.ʒən.əl.i/",
+          "vi": "Thỉnh thoảng / Đôi khi (Khoảng 30-50%).",
+          "example": "I occasionally go to the cinema.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của sometimes / occasionally"
+        },
+        {
+          "word": "rarely / hardly ever",
+          "type": "Trạng từ",
+          "phonetic": "/ˈrer.li/ /ˈhɑːrd.li ˈev.ɚ/",
+          "vi": "Hiếm khi / Hầu như không bao giờ (= almost never, khoảng 5-10%).",
+          "example": "The temperature hardly ever gets to 35 degrees.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của rarely / hardly ever"
+        },
+        {
+          "word": "never",
+          "type": "Trạng từ",
+          "phonetic": "/ˈnev.ɚ/",
+          "vi": "Không bao giờ (0%).",
+          "example": "The Ancient Romans never went to America.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của never"
+        },
+        {
+          "word": "once a week",
+          "type": "Cụm từ",
+          "phonetic": "/wʌns ə wiːk/",
+          "vi": "Một lần một tuần (= one time).",
+          "example": "I go swimming once a week.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của once a week"
+        },
+        {
+          "word": "twice a day",
+          "type": "Cụm từ",
+          "phonetic": "/twaɪs ə deɪ/",
+          "vi": "Hai lần một ngày (= two times).",
+          "example": "I clean my teeth twice a day.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của twice a day"
+        },
+        {
+          "word": "three times a year",
+          "type": "Cụm từ",
+          "phonetic": "/θriː taɪmz ə jɪr/",
+          "vi": "Ba lần một năm.",
+          "example": "I see my uncle three times a year.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của three times a year"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Time in relation to NOW (Thời gian so với Hiện tại)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "now",
+              "value": "👉 It is 10 o'clock now."
+            },
+            {
+              "title": "then",
+              "value": "👉 I lived in Rome then."
+            },
+            {
+              "title": "ago",
+              "value": "👉 I got up 2 hours ago. / An hour ago it was 9 o'clock."
+            },
+            {
+              "title": "for",
+              "value": "👉 He lived there for two years."
+            },
+            {
+              "title": "from ... to ...",
+              "value": "👉 He lived there from 1994 to 1996."
+            },
+            {
+              "title": "last / next",
+              "value": "👉 Last year / last week. Next year / next summer."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Past, present and future (Quá khứ, hiện tại, tương lai)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "in the past",
+              "value": "👉 In the past people didn't have television."
+            },
+            {
+              "title": "in the future",
+              "value": "👉 People may travel to Mars in the future."
+            },
+            {
+              "title": "in a moment",
+              "value": "👉 I'll be with you in a moment."
+            },
+            {
+              "title": "at the moment",
+              "value": "👉 Jane's in Paris at the moment."
+            },
+            {
+              "title": "soon",
+              "value": "👉 See you soon!"
+            },
+            {
+              "title": "recently",
+              "value": "👉 We met recently."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Frequency adverbs (Trạng từ chỉ tần suất)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "always",
+              "value": "👉 It always snows in Russia in winter."
+            },
+            {
+              "title": "often / usually",
+              "value": "👉 It often rains in Britain."
+            },
+            {
+              "title": "sometimes / occasionally",
+              "value": "👉 I occasionally go to the cinema."
+            },
+            {
+              "title": "rarely / hardly ever",
+              "value": "👉 The temperature hardly ever gets to 35 degrees."
+            },
+            {
+              "title": "never",
+              "value": "👉 The Ancient Romans never went to America."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Expressions of frequency (Các cụm từ chỉ tần suất)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "once a week",
+              "value": "👉 I go swimming once a week."
+            },
+            {
+              "title": "twice a day",
+              "value": "👉 I clean my teeth twice a day."
+            },
+            {
+              "title": "three times a year",
+              "value": "👉 I see my uncle three times a year."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"now\"",
+              "value": "Các dạng từ loại khác của \"now\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"then\"",
+              "value": "Các dạng từ loại khác của \"then\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"ago\"",
+              "value": "Các dạng từ loại khác của \"ago\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"for\"",
+              "value": "Cụm từ liên quan đến for"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"from ... to ...\"",
+              "value": "Cụm từ liên quan đến from ... to ..."
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"last / next\"",
+              "value": "Ví dụ: very last / next, extremely last / next"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Time (Past/Future)",
@@ -11115,167 +17281,585 @@ export const courseData = [
         "text": "People may travel to Mars in the future.",
         "trans": "Con người có thể du hành đến Sao Hỏa trong tương lai."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "17.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_17_1_0",
+            "text": "It is 10 o'clock [blank].",
+            "answers": [
+              "now"
+            ],
+            "hint": "Bây giờ, tại thời điểm này.",
+            "explanation": "Từ cần điền là \"now\", mang nghĩa là \"Bây giờ, tại thời điểm này.\"."
+          },
+          {
+            "id": "ex_17_1_1",
+            "text": "I lived in Rome [blank].",
+            "answers": [
+              "then"
+            ],
+            "hint": "Lúc đó, khi đó (thường ở quá khứ).",
+            "explanation": "Từ cần điền là \"then\", mang nghĩa là \"Lúc đó, khi đó (thường ở quá khứ).\"."
+          },
+          {
+            "id": "ex_17_1_2",
+            "text": "I got up 2 hours [blank]. / An hour [blank] it was 9 o'clock.",
+            "answers": [
+              "ago"
+            ],
+            "hint": "Trước đây, cách đây.",
+            "explanation": "Từ cần điền là \"ago\", mang nghĩa là \"Trước đây, cách đây.\"."
+          },
+          {
+            "id": "ex_17_1_3",
+            "text": "He lived there [blank] two years.",
+            "answers": [
+              "for"
+            ],
+            "hint": "Trong khoảng thời gian.",
+            "explanation": "Từ cần điền là \"for\", mang nghĩa là \"Trong khoảng thời gian.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "17.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_17_2_0",
+            "text": "from ... to ...",
+            "options": [
+              "Từ ... đến ...",
+              "Trước / Tới.",
+              "Trong quá khứ.",
+              "Trong tương lai."
+            ],
+            "answer": "Từ ... đến ...",
+            "explanation": "Từ \"from ... to ...\" có nghĩa chính xác là \"Từ ... đến ...\"."
+          },
+          {
+            "id": "ex_17_2_1",
+            "text": "last / next",
+            "options": [
+              "Trước / Tới.",
+              "Trong tương lai.",
+              "Từ ... đến ...",
+              "Trong quá khứ."
+            ],
+            "answer": "Trước / Tới.",
+            "explanation": "Từ \"last / next\" có nghĩa chính xác là \"Trước / Tới.\"."
+          },
+          {
+            "id": "ex_17_2_2",
+            "text": "in the past",
+            "options": [
+              "Từ ... đến ...",
+              "Trước / Tới.",
+              "Trong quá khứ.",
+              "Trong tương lai."
+            ],
+            "answer": "Trong quá khứ.",
+            "explanation": "Từ \"in the past\" có nghĩa chính xác là \"Trong quá khứ.\"."
+          },
+          {
+            "id": "ex_17_2_3",
+            "text": "in the future",
+            "options": [
+              "Trong tương lai.",
+              "Từ ... đến ...",
+              "Trước / Tới.",
+              "Trong quá khứ."
+            ],
+            "answer": "Trong tương lai.",
+            "explanation": "Từ \"in the future\" có nghĩa chính xác là \"Trong tương lai.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "17.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_17_3_0",
+            "word": "now",
+            "category": "Topic A",
+            "explanation": "Từ \"now\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_17_3_1",
+            "word": "then",
+            "category": "Topic B",
+            "explanation": "Từ \"then\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_17_3_2",
+            "word": "ago",
+            "category": "Topic A",
+            "explanation": "Từ \"ago\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_17_3_3",
+            "word": "for",
+            "category": "Topic B",
+            "explanation": "Từ \"for\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_17_3_4",
+            "word": "from ... to ...",
+            "category": "Topic A",
+            "explanation": "Từ \"from ... to ...\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_17_3_5",
+            "word": "last / next",
+            "category": "Topic B",
+            "explanation": "Từ \"last / next\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "17.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_17_4_0",
+            "original": "I got up 2 hours agos. / An hour ago it was 9 o'clock.",
+            "correct": "I got up 2 hours ago. / An hour ago it was 9 o'clock.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"ago\" thay vì \"agos\"."
+          },
+          {
+            "id": "ex_17_4_1",
+            "original": "He lived there fors two years.",
+            "correct": "He lived there for two years.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"for\" thay vì \"fors\"."
+          }
+        ]
+      },
+      {
+        "exNum": "17.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_17_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "from ... to ..."
+            ],
+            "hint": "Từ ... đến ...",
+            "explanation": "Từ cần điền là \"from ... to ...\"."
+          },
+          {
+            "id": "ex_17_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "last / next"
+            ],
+            "hint": "Trước / Tới.",
+            "explanation": "Từ cần điền là \"last / next\"."
+          },
+          {
+            "id": "ex_17_5_2",
+            "text": "[blank] people didn't have television.",
+            "answers": [
+              "in the past"
+            ],
+            "hint": "Trong quá khứ.",
+            "explanation": "Từ cần điền là \"in the past\"."
+          },
+          {
+            "id": "ex_17_5_3",
+            "text": "People may travel to Mars [blank].",
+            "answers": [
+              "in the future"
+            ],
+            "hint": "Trong tương lai.",
+            "explanation": "Từ cần điền là \"in the future\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 18,
     "title": "Unit 18: Places",
     "description": "Khám phá các từ vựng chỉ địa điểm chung, vị trí cụ thể (top, bottom, front, back), phương hướng (left, right) và cách nói ở nhà hay đi vắng (at home, away, abroad).",
-    "theory": [
-      {
-        "heading": "A. General place words (Từ chỉ địa điểm chung)",
-        "items": [
-          {
-            "word": "here",
-            "type": "Trạng từ",
-            "phonetic": "/hɪr/",
-            "vi": "Ở đây (tại chỗ người nói).",
-            "example": "Come here please."
-          },
-          {
-            "word": "there",
-            "type": "Trạng từ",
-            "phonetic": "/ðer/",
-            "vi": "Ở đó (một nơi khác).",
-            "example": "I'm going there in April."
-          },
-          {
-            "word": "back",
-            "type": "Trạng từ",
-            "phonetic": "/bæk/",
-            "vi": "Trở lại (nơi xuất phát).",
-            "example": "I'm coming back from Portugal in May."
-          },
-          {
-            "word": "everywhere",
-            "type": "Trạng từ",
-            "phonetic": "/ˈev.ri.wer/",
-            "vi": "Mọi nơi, khắp mọi nơi.",
-            "example": "There are books and papers everywhere in my room."
-          }
-        ]
-      },
-      {
-        "heading": "B. Positions (Vị trí)",
-        "items": [
-          {
-            "word": "the top",
-            "type": "Danh từ",
-            "phonetic": "/tɑːp/",
-            "vi": "Đỉnh, phần trên cùng.",
-            "example": "The top of the mountain."
-          },
-          {
-            "word": "the middle",
-            "type": "Danh từ",
-            "phonetic": "/ˈmɪd.əl/",
-            "vi": "Ở giữa.",
-            "example": "The middle of the road."
-          },
-          {
-            "word": "the bottom",
-            "type": "Danh từ",
-            "phonetic": "/ˈbɑː.t̬əm/",
-            "vi": "Đáy, phần dưới cùng.",
-            "example": "The bottom of the glass."
-          },
-          {
-            "word": "the front",
-            "type": "Danh từ",
-            "phonetic": "/frʌnt/",
-            "vi": "Phía trước.",
-            "example": "The front of the car."
-          },
-          {
-            "word": "the side",
-            "type": "Danh từ",
-            "phonetic": "/saɪd/",
-            "vi": "Bên hông, bên cạnh.",
-            "example": "The side of the car."
-          },
-          {
-            "word": "the back",
-            "type": "Danh từ",
-            "phonetic": "/bæk/",
-            "vi": "Phía sau.",
-            "example": "The back of the car."
-          },
-          {
-            "word": "the beginning",
-            "type": "Danh từ",
-            "phonetic": "/bɪˈɡɪn.ɪŋ/",
-            "vi": "Điểm bắt đầu, phần đầu.",
-            "example": "The beginning of the motorway."
-          },
-          {
-            "word": "the end",
-            "type": "Danh từ",
-            "phonetic": "/end/",
-            "vi": "Điểm kết thúc, phần cuối.",
-            "example": "The end of the motorway."
-          }
-        ]
-      },
-      {
-        "heading": "C. Left and right (Trái và Phải)",
-        "items": [
-          {
-            "word": "left",
-            "type": "Tính từ",
-            "phonetic": "/left/",
-            "vi": "Bên trái.",
-            "example": "This is his left hand."
-          },
-          {
-            "word": "right",
-            "type": "Tính từ",
-            "phonetic": "/raɪt/",
-            "vi": "Bên phải.",
-            "example": "This is his right hand."
-          },
-          {
-            "word": "on the left / on the right",
-            "type": "Cụm từ",
-            "phonetic": "on the left: /ɒn ðə left/ | on the right: /ɒn ðə raɪt/",
-            "vi": "Ở phía bên trái / Ở phía bên phải.",
-            "example": "There is a cinema on the left and a restaurant on the right."
-          }
-        ]
-      },
-      {
-        "heading": "D. Home and away (Ở nhà và Đi vắng)",
-        "items": [
-          {
-            "word": "at home",
-            "type": "Cụm từ",
-            "phonetic": "/æt hoʊm/",
-            "vi": "Ở nhà (in her house/flat).",
-            "example": "Is Mary at home?"
-          },
-          {
-            "word": "out",
-            "type": "Trạng từ",
-            "phonetic": "/aʊt/",
-            "vi": "Ra ngoài (đi siêu thị / đi làm / đi học).",
-            "example": "No, sorry, she's out."
-          },
-          {
-            "word": "away",
-            "type": "Trạng từ",
-            "phonetic": "/əˈweɪ/",
-            "vi": "Đi vắng (ở thành phố khác, nghỉ mát).",
-            "example": "No, sorry, she's away."
-          },
-          {
-            "word": "abroad",
-            "type": "Trạng từ",
-            "phonetic": "/əˈbrɑːd/",
-            "vi": "Ở nước ngoài.",
-            "example": "No, sorry, she's abroad."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "here",
+          "type": "Trạng từ",
+          "phonetic": "/hɪr/",
+          "vi": "Ở đây (tại chỗ người nói).",
+          "example": "Come here please.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của here"
+        },
+        {
+          "word": "there",
+          "type": "Trạng từ",
+          "phonetic": "/ðer/",
+          "vi": "Ở đó (một nơi khác).",
+          "example": "I'm going there in April.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của there"
+        },
+        {
+          "word": "back",
+          "type": "Trạng từ",
+          "phonetic": "/bæk/",
+          "vi": "Trở lại (nơi xuất phát).",
+          "example": "I'm coming back from Portugal in May.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của back"
+        },
+        {
+          "word": "everywhere",
+          "type": "Trạng từ",
+          "phonetic": "/ˈev.ri.wer/",
+          "vi": "Mọi nơi, khắp mọi nơi.",
+          "example": "There are books and papers everywhere in my room.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của everywhere"
+        },
+        {
+          "word": "the top",
+          "type": "Danh từ",
+          "phonetic": "/tɑːp/",
+          "vi": "Đỉnh, phần trên cùng.",
+          "example": "The top of the mountain.",
+          "bucket": 1,
+          "collocations": [
+            "have a the top",
+            "use the top"
+          ],
+          "wordFamily": "Biến thể của the top"
+        },
+        {
+          "word": "the middle",
+          "type": "Danh từ",
+          "phonetic": "/ˈmɪd.əl/",
+          "vi": "Ở giữa.",
+          "example": "The middle of the road.",
+          "bucket": 2,
+          "collocations": [
+            "have a the middle",
+            "use the middle"
+          ],
+          "wordFamily": "Biến thể của the middle"
+        },
+        {
+          "word": "the bottom",
+          "type": "Danh từ",
+          "phonetic": "/ˈbɑː.t̬əm/",
+          "vi": "Đáy, phần dưới cùng.",
+          "example": "The bottom of the glass.",
+          "bucket": 1,
+          "collocations": [
+            "have a the bottom",
+            "use the bottom"
+          ],
+          "wordFamily": "Biến thể của the bottom"
+        },
+        {
+          "word": "the front",
+          "type": "Danh từ",
+          "phonetic": "/frʌnt/",
+          "vi": "Phía trước.",
+          "example": "The front of the car.",
+          "bucket": 2,
+          "collocations": [
+            "have a the front",
+            "use the front"
+          ],
+          "wordFamily": "Biến thể của the front"
+        },
+        {
+          "word": "the side",
+          "type": "Danh từ",
+          "phonetic": "/saɪd/",
+          "vi": "Bên hông, bên cạnh.",
+          "example": "The side of the car.",
+          "bucket": 1,
+          "collocations": [
+            "have a the side",
+            "use the side"
+          ],
+          "wordFamily": "Biến thể của the side"
+        },
+        {
+          "word": "the back",
+          "type": "Danh từ",
+          "phonetic": "/bæk/",
+          "vi": "Phía sau.",
+          "example": "The back of the car.",
+          "bucket": 2,
+          "collocations": [
+            "have a the back",
+            "use the back"
+          ],
+          "wordFamily": "Biến thể của the back"
+        },
+        {
+          "word": "the beginning",
+          "type": "Danh từ",
+          "phonetic": "/bɪˈɡɪn.ɪŋ/",
+          "vi": "Điểm bắt đầu, phần đầu.",
+          "example": "The beginning of the motorway.",
+          "bucket": 1,
+          "collocations": [
+            "have a the beginning",
+            "use the beginning"
+          ],
+          "wordFamily": "Biến thể của the beginning"
+        },
+        {
+          "word": "the end",
+          "type": "Danh từ",
+          "phonetic": "/end/",
+          "vi": "Điểm kết thúc, phần cuối.",
+          "example": "The end of the motorway.",
+          "bucket": 2,
+          "collocations": [
+            "have a the end",
+            "use the end"
+          ],
+          "wordFamily": "Biến thể của the end"
+        },
+        {
+          "word": "left",
+          "type": "Tính từ",
+          "phonetic": "/left/",
+          "vi": "Bên trái.",
+          "example": "This is his left hand.",
+          "bucket": 1,
+          "collocations": [
+            "very left",
+            "extremely left"
+          ],
+          "wordFamily": "Biến thể của left"
+        },
+        {
+          "word": "right",
+          "type": "Tính từ",
+          "phonetic": "/raɪt/",
+          "vi": "Bên phải.",
+          "example": "This is his right hand.",
+          "bucket": 2,
+          "collocations": [
+            "very right",
+            "extremely right"
+          ],
+          "wordFamily": "Biến thể của right"
+        },
+        {
+          "word": "on the left / on the right",
+          "type": "Cụm từ",
+          "phonetic": "on the left: /ɒn ðə left/ | on the right: /ɒn ðə raɪt/",
+          "vi": "Ở phía bên trái / Ở phía bên phải.",
+          "example": "There is a cinema on the left and a restaurant on the right.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của on the left / on the right"
+        },
+        {
+          "word": "at home",
+          "type": "Cụm từ",
+          "phonetic": "/æt hoʊm/",
+          "vi": "Ở nhà (in her house/flat).",
+          "example": "Is Mary at home?",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của at home"
+        },
+        {
+          "word": "out",
+          "type": "Trạng từ",
+          "phonetic": "/aʊt/",
+          "vi": "Ra ngoài (đi siêu thị / đi làm / đi học).",
+          "example": "No, sorry, she's out.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của out"
+        },
+        {
+          "word": "away",
+          "type": "Trạng từ",
+          "phonetic": "/əˈweɪ/",
+          "vi": "Đi vắng (ở thành phố khác, nghỉ mát).",
+          "example": "No, sorry, she's away.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của away"
+        },
+        {
+          "word": "abroad",
+          "type": "Trạng từ",
+          "phonetic": "/əˈbrɑːd/",
+          "vi": "Ở nước ngoài.",
+          "example": "No, sorry, she's abroad.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của abroad"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. General place words (Từ chỉ địa điểm chung)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "here",
+              "value": "👉 Come here please."
+            },
+            {
+              "title": "there",
+              "value": "👉 I'm going there in April."
+            },
+            {
+              "title": "back",
+              "value": "👉 I'm coming back from Portugal in May."
+            },
+            {
+              "title": "everywhere",
+              "value": "👉 There are books and papers everywhere in my room."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Positions (Vị trí)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "the top",
+              "value": "👉 The top of the mountain."
+            },
+            {
+              "title": "the middle",
+              "value": "👉 The middle of the road."
+            },
+            {
+              "title": "the bottom",
+              "value": "👉 The bottom of the glass."
+            },
+            {
+              "title": "the front",
+              "value": "👉 The front of the car."
+            },
+            {
+              "title": "the side",
+              "value": "👉 The side of the car."
+            },
+            {
+              "title": "the back",
+              "value": "👉 The back of the car."
+            },
+            {
+              "title": "the beginning",
+              "value": "👉 The beginning of the motorway."
+            },
+            {
+              "title": "the end",
+              "value": "👉 The end of the motorway."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Left and right (Trái và Phải)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "left",
+              "value": "👉 This is his left hand."
+            },
+            {
+              "title": "right",
+              "value": "👉 This is his right hand."
+            },
+            {
+              "title": "on the left / on the right",
+              "value": "👉 There is a cinema on the left and a restaurant on the right."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Home and away (Ở nhà và Đi vắng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "at home",
+              "value": "👉 Is Mary at home?"
+            },
+            {
+              "title": "out",
+              "value": "👉 No, sorry, she's out."
+            },
+            {
+              "title": "away",
+              "value": "👉 No, sorry, she's away."
+            },
+            {
+              "title": "abroad",
+              "value": "👉 No, sorry, she's abroad."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"here\"",
+              "value": "Các dạng từ loại khác của \"here\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"there\"",
+              "value": "Các dạng từ loại khác của \"there\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"back\"",
+              "value": "Các dạng từ loại khác của \"back\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"everywhere\"",
+              "value": "Cụm từ liên quan đến everywhere"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"the top\"",
+              "value": "Ví dụ: have a the top, make a the top, good the top"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"the middle\"",
+              "value": "Ví dụ: have a the middle, make a the middle, good the middle"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "General Places",
@@ -11791,158 +18375,554 @@ export const courseData = [
         "text": "I want to leave this letter in Nora's office. Are you going there?",
         "trans": "Tôi muốn để lại lá thư này ở văn phòng của Nora. Bạn có đang đến đó không?"
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "18.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_18_1_0",
+            "text": "Come [blank] please.",
+            "answers": [
+              "here"
+            ],
+            "hint": "Ở đây (tại chỗ người nói).",
+            "explanation": "Từ cần điền là \"here\", mang nghĩa là \"Ở đây (tại chỗ người nói).\"."
+          },
+          {
+            "id": "ex_18_1_1",
+            "text": "I'm going [blank] in April.",
+            "answers": [
+              "there"
+            ],
+            "hint": "Ở đó (một nơi khác).",
+            "explanation": "Từ cần điền là \"there\", mang nghĩa là \"Ở đó (một nơi khác).\"."
+          },
+          {
+            "id": "ex_18_1_2",
+            "text": "I'm coming [blank] from Portugal in May.",
+            "answers": [
+              "back"
+            ],
+            "hint": "Trở lại (nơi xuất phát).",
+            "explanation": "Từ cần điền là \"back\", mang nghĩa là \"Trở lại (nơi xuất phát).\"."
+          },
+          {
+            "id": "ex_18_1_3",
+            "text": "There are books and papers [blank] in my room.",
+            "answers": [
+              "everywhere"
+            ],
+            "hint": "Mọi nơi, khắp mọi nơi.",
+            "explanation": "Từ cần điền là \"everywhere\", mang nghĩa là \"Mọi nơi, khắp mọi nơi.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "18.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_18_2_0",
+            "text": "the top",
+            "options": [
+              "Phía trước.",
+              "Đáy, phần dưới cùng.",
+              "Ở giữa.",
+              "Đỉnh, phần trên cùng."
+            ],
+            "answer": "Đỉnh, phần trên cùng.",
+            "explanation": "Từ \"the top\" có nghĩa chính xác là \"Đỉnh, phần trên cùng.\"."
+          },
+          {
+            "id": "ex_18_2_1",
+            "text": "the middle",
+            "options": [
+              "Phía trước.",
+              "Đỉnh, phần trên cùng.",
+              "Ở giữa.",
+              "Đáy, phần dưới cùng."
+            ],
+            "answer": "Ở giữa.",
+            "explanation": "Từ \"the middle\" có nghĩa chính xác là \"Ở giữa.\"."
+          },
+          {
+            "id": "ex_18_2_2",
+            "text": "the bottom",
+            "options": [
+              "Đỉnh, phần trên cùng.",
+              "Ở giữa.",
+              "Phía trước.",
+              "Đáy, phần dưới cùng."
+            ],
+            "answer": "Đáy, phần dưới cùng.",
+            "explanation": "Từ \"the bottom\" có nghĩa chính xác là \"Đáy, phần dưới cùng.\"."
+          },
+          {
+            "id": "ex_18_2_3",
+            "text": "the front",
+            "options": [
+              "Phía trước.",
+              "Ở giữa.",
+              "Đáy, phần dưới cùng.",
+              "Đỉnh, phần trên cùng."
+            ],
+            "answer": "Phía trước.",
+            "explanation": "Từ \"the front\" có nghĩa chính xác là \"Phía trước.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "18.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_18_3_0",
+            "word": "here",
+            "category": "Topic A",
+            "explanation": "Từ \"here\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_18_3_1",
+            "word": "there",
+            "category": "Topic B",
+            "explanation": "Từ \"there\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_18_3_2",
+            "word": "back",
+            "category": "Topic A",
+            "explanation": "Từ \"back\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_18_3_3",
+            "word": "everywhere",
+            "category": "Topic B",
+            "explanation": "Từ \"everywhere\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_18_3_4",
+            "word": "the top",
+            "category": "Topic A",
+            "explanation": "Từ \"the top\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_18_3_5",
+            "word": "the middle",
+            "category": "Topic B",
+            "explanation": "Từ \"the middle\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "18.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_18_4_0",
+            "original": "I'm coming backs from Portugal in May.",
+            "correct": "I'm coming back from Portugal in May.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"back\" thay vì \"backs\"."
+          },
+          {
+            "id": "ex_18_4_1",
+            "original": "There are books and papers everywheres in my room.",
+            "correct": "There are books and papers everywhere in my room.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"everywhere\" thay vì \"everywheres\"."
+          }
+        ]
+      },
+      {
+        "exNum": "18.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_18_5_0",
+            "text": "[blank] of the mountain.",
+            "answers": [
+              "the top"
+            ],
+            "hint": "Đỉnh, phần trên cùng.",
+            "explanation": "Từ cần điền là \"the top\"."
+          },
+          {
+            "id": "ex_18_5_1",
+            "text": "[blank] of the road.",
+            "answers": [
+              "the middle"
+            ],
+            "hint": "Ở giữa.",
+            "explanation": "Từ cần điền là \"the middle\"."
+          },
+          {
+            "id": "ex_18_5_2",
+            "text": "[blank] of the glass.",
+            "answers": [
+              "the bottom"
+            ],
+            "hint": "Đáy, phần dưới cùng.",
+            "explanation": "Từ cần điền là \"the bottom\"."
+          },
+          {
+            "id": "ex_18_5_3",
+            "text": "[blank] of the car.",
+            "answers": [
+              "the front"
+            ],
+            "hint": "Phía trước.",
+            "explanation": "Từ cần điền là \"the front\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 19,
     "title": "Unit 19: Manner",
     "description": "Manner (Cách thức) là cách chúng ta làm một việc gì đó. Bài học này giúp bạn phân biệt rõ ràng giữa Tính từ (dùng cho danh từ) và Trạng từ (dùng cho động từ).",
-    "theory": [
-      {
-        "heading": "A. Fast and slow (Nhanh và chậm)",
-        "items": [
-          {
-            "word": "fast (adjective)",
-            "type": "Tính từ",
-            "phonetic": "/fæst/",
-            "vi": "Nhanh (Dùng để miêu tả Danh từ).",
-            "example": "It's a fast car."
-          },
-          {
-            "word": "fast (adverb)",
-            "type": "Trạng từ",
-            "phonetic": "/fæst/",
-            "vi": "Một cách nhanh chóng. (KHÔNG CÓ 'fastly').",
-            "example": "This car goes very fast."
-          },
-          {
-            "word": "slow",
-            "type": "Tính từ",
-            "phonetic": "/sloʊ/",
-            "vi": "Chậm chạp.",
-            "example": "It's a slow car."
-          },
-          {
-            "word": "slowly",
-            "type": "Trạng từ",
-            "phonetic": "/ˈsloʊ.li/",
-            "vi": "Một cách chậm chạp.",
-            "example": "This car goes very slowly."
-          }
-        ]
-      },
-      {
-        "heading": "B. Right and wrong (Đúng và sai)",
-        "items": [
-          {
-            "word": "right",
-            "type": "Tính/Trạng từ",
-            "phonetic": "/raɪt/",
-            "vi": "Đúng, chính xác.",
-            "example": "This sentence is right. / You guessed right."
-          },
-          {
-            "word": "wrong",
-            "type": "Tính/Trạng từ",
-            "phonetic": "/rɑːŋ/",
-            "vi": "Sai, không chính xác.",
-            "example": "This sentence is wrong. / You spelled it wrong."
-          }
-        ]
-      },
-      {
-        "heading": "C. Loud and quiet (Ồn ào và yên tĩnh)",
-        "items": [
-          {
-            "word": "loud",
-            "type": "Tính từ",
-            "phonetic": "/laʊd/",
-            "vi": "To, ồn ào.",
-            "example": "The music is too loud."
-          },
-          {
-            "word": "loudly",
-            "type": "Trạng từ",
-            "phonetic": "/ˈlaʊd.li/",
-            "vi": "Một cách ầm ĩ, to tiếng.",
-            "example": "She sang loudly."
-          },
-          {
-            "word": "quiet",
-            "type": "Tính từ",
-            "phonetic": "/ˈkwaɪ.ət/",
-            "vi": "Yên lặng, không ồn ào.",
-            "example": "It's very quiet here."
-          },
-          {
-            "word": "quietly",
-            "type": "Trạng từ",
-            "phonetic": "/ˈkwaɪ.ət.li/",
-            "vi": "Một cách nhẹ nhàng, khẽ khàng.",
-            "example": "The teacher speaks very quietly. We can't hear him."
-          }
-        ]
-      },
-      {
-        "heading": "D. Well and badly (Tốt và tệ)",
-        "items": [
-          {
-            "word": "good",
-            "type": "Tính từ",
-            "phonetic": "/ɡʊd/",
-            "vi": "Tốt, giỏi (Đi với danh từ hoặc động từ to be).",
-            "example": "She's a good driver."
-          },
-          {
-            "word": "well",
-            "type": "Trạng từ",
-            "phonetic": "/wel/",
-            "vi": "Một cách tốt, giỏi (Đây là trạng từ của 'good').",
-            "example": "She drives well. [NOT She drives good]"
-          },
-          {
-            "word": "bad",
-            "type": "Tính từ",
-            "phonetic": "/bæd/",
-            "vi": "Tệ, kém.",
-            "example": "He's a bad driver."
-          },
-          {
-            "word": "badly",
-            "type": "Trạng từ",
-            "phonetic": "/ˈbæd.li/",
-            "vi": "Một cách tệ hại.",
-            "example": "He drives badly."
-          }
-        ]
-      },
-      {
-        "heading": "E. Way (Cách thức)",
-        "items": [
-          {
-            "word": "way",
-            "type": "Danh từ",
-            "phonetic": "/weɪ/",
-            "vi": "Cách thức mà ai đó làm việc gì.",
-            "example": "He's speaking in a friendly way."
-          },
-          {
-            "word": "in a friendly way",
-            "type": "Cụm từ",
-            "phonetic": "/ɪn ə ˈfrendli weɪ/",
-            "vi": "Một cách thân thiện (Friendly là tính từ, nên phải dùng cụm từ này thay cho trạng từ).",
-            "example": "He always talks to me in a friendly way."
-          },
-          {
-            "word": "in a normal way",
-            "type": "Cụm từ",
-            "phonetic": "/ɪn ə ˈnɔːml weɪ/",
-            "vi": "Một cách bình thường.",
-            "example": "Please speak in a normal way."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "fast (adjective)",
+          "type": "Tính từ",
+          "phonetic": "/fæst/",
+          "vi": "Nhanh (Dùng để miêu tả Danh từ).",
+          "example": "It's a fast car.",
+          "bucket": 1,
+          "collocations": [
+            "very fast (adjective)",
+            "extremely fast (adjective)"
+          ],
+          "wordFamily": "Biến thể của fast (adjective)"
+        },
+        {
+          "word": "fast (adverb)",
+          "type": "Trạng từ",
+          "phonetic": "/fæst/",
+          "vi": "Một cách nhanh chóng. (KHÔNG CÓ 'fastly').",
+          "example": "This car goes very fast.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của fast (adverb)"
+        },
+        {
+          "word": "slow",
+          "type": "Tính từ",
+          "phonetic": "/sloʊ/",
+          "vi": "Chậm chạp.",
+          "example": "It's a slow car.",
+          "bucket": 1,
+          "collocations": [
+            "very slow",
+            "extremely slow"
+          ],
+          "wordFamily": "Biến thể của slow"
+        },
+        {
+          "word": "slowly",
+          "type": "Trạng từ",
+          "phonetic": "/ˈsloʊ.li/",
+          "vi": "Một cách chậm chạp.",
+          "example": "This car goes very slowly.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của slowly"
+        },
+        {
+          "word": "right",
+          "type": "Tính/Trạng từ",
+          "phonetic": "/raɪt/",
+          "vi": "Đúng, chính xác.",
+          "example": "This sentence is right. / You guessed right.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của right"
+        },
+        {
+          "word": "wrong",
+          "type": "Tính/Trạng từ",
+          "phonetic": "/rɑːŋ/",
+          "vi": "Sai, không chính xác.",
+          "example": "This sentence is wrong. / You spelled it wrong.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của wrong"
+        },
+        {
+          "word": "loud",
+          "type": "Tính từ",
+          "phonetic": "/laʊd/",
+          "vi": "To, ồn ào.",
+          "example": "The music is too loud.",
+          "bucket": 1,
+          "collocations": [
+            "very loud",
+            "extremely loud"
+          ],
+          "wordFamily": "Biến thể của loud"
+        },
+        {
+          "word": "loudly",
+          "type": "Trạng từ",
+          "phonetic": "/ˈlaʊd.li/",
+          "vi": "Một cách ầm ĩ, to tiếng.",
+          "example": "She sang loudly.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của loudly"
+        },
+        {
+          "word": "quiet",
+          "type": "Tính từ",
+          "phonetic": "/ˈkwaɪ.ət/",
+          "vi": "Yên lặng, không ồn ào.",
+          "example": "It's very quiet here.",
+          "bucket": 1,
+          "collocations": [
+            "very quiet",
+            "extremely quiet"
+          ],
+          "wordFamily": "Biến thể của quiet"
+        },
+        {
+          "word": "quietly",
+          "type": "Trạng từ",
+          "phonetic": "/ˈkwaɪ.ət.li/",
+          "vi": "Một cách nhẹ nhàng, khẽ khàng.",
+          "example": "The teacher speaks very quietly. We can't hear him.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của quietly"
+        },
+        {
+          "word": "good",
+          "type": "Tính từ",
+          "phonetic": "/ɡʊd/",
+          "vi": "Tốt, giỏi (Đi với danh từ hoặc động từ to be).",
+          "example": "She's a good driver.",
+          "bucket": 1,
+          "collocations": [
+            "very good",
+            "extremely good"
+          ],
+          "wordFamily": "Biến thể của good"
+        },
+        {
+          "word": "well",
+          "type": "Trạng từ",
+          "phonetic": "/wel/",
+          "vi": "Một cách tốt, giỏi (Đây là trạng từ của 'good').",
+          "example": "She drives well. [NOT She drives good]",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của well"
+        },
+        {
+          "word": "bad",
+          "type": "Tính từ",
+          "phonetic": "/bæd/",
+          "vi": "Tệ, kém.",
+          "example": "He's a bad driver.",
+          "bucket": 1,
+          "collocations": [
+            "very bad",
+            "extremely bad"
+          ],
+          "wordFamily": "Biến thể của bad"
+        },
+        {
+          "word": "badly",
+          "type": "Trạng từ",
+          "phonetic": "/ˈbæd.li/",
+          "vi": "Một cách tệ hại.",
+          "example": "He drives badly.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của badly"
+        },
+        {
+          "word": "way",
+          "type": "Danh từ",
+          "phonetic": "/weɪ/",
+          "vi": "Cách thức mà ai đó làm việc gì.",
+          "example": "He's speaking in a friendly way.",
+          "bucket": 1,
+          "collocations": [
+            "have a way",
+            "use way"
+          ],
+          "wordFamily": "Biến thể của way"
+        },
+        {
+          "word": "in a friendly way",
+          "type": "Cụm từ",
+          "phonetic": "/ɪn ə ˈfrendli weɪ/",
+          "vi": "Một cách thân thiện (Friendly là tính từ, nên phải dùng cụm từ này thay cho trạng từ).",
+          "example": "He always talks to me in a friendly way.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của in a friendly way"
+        },
+        {
+          "word": "in a normal way",
+          "type": "Cụm từ",
+          "phonetic": "/ɪn ə ˈnɔːml weɪ/",
+          "vi": "Một cách bình thường.",
+          "example": "Please speak in a normal way.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của in a normal way"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Fast and slow (Nhanh và chậm)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "fast (adjective)",
+              "value": "👉 It's a fast car."
+            },
+            {
+              "title": "fast (adverb)",
+              "value": "👉 This car goes very fast."
+            },
+            {
+              "title": "slow",
+              "value": "👉 It's a slow car."
+            },
+            {
+              "title": "slowly",
+              "value": "👉 This car goes very slowly."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Right and wrong (Đúng và sai)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "right",
+              "value": "👉 This sentence is right. / You guessed right."
+            },
+            {
+              "title": "wrong",
+              "value": "👉 This sentence is wrong. / You spelled it wrong."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Loud and quiet (Ồn ào và yên tĩnh)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "loud",
+              "value": "👉 The music is too loud."
+            },
+            {
+              "title": "loudly",
+              "value": "👉 She sang loudly."
+            },
+            {
+              "title": "quiet",
+              "value": "👉 It's very quiet here."
+            },
+            {
+              "title": "quietly",
+              "value": "👉 The teacher speaks very quietly. We can't hear him."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Well and badly (Tốt và tệ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "good",
+              "value": "👉 She's a good driver."
+            },
+            {
+              "title": "well",
+              "value": "👉 She drives well. [NOT She drives good]"
+            },
+            {
+              "title": "bad",
+              "value": "👉 He's a bad driver."
+            },
+            {
+              "title": "badly",
+              "value": "👉 He drives badly."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: E. Way (Cách thức)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "way",
+              "value": "👉 He's speaking in a friendly way."
+            },
+            {
+              "title": "in a friendly way",
+              "value": "👉 He always talks to me in a friendly way."
+            },
+            {
+              "title": "in a normal way",
+              "value": "👉 Please speak in a normal way."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"fast (adjective)\"",
+              "value": "fast (adjective)ly (Trạng từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"fast (adverb)\"",
+              "value": "Các dạng từ loại khác của \"fast (adverb)\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"slow\"",
+              "value": "slowly (Trạng từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"slowly\"",
+              "value": "Cụm từ liên quan đến slowly"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"right\"",
+              "value": "Cụm từ liên quan đến right"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"wrong\"",
+              "value": "Cụm từ liên quan đến wrong"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Adjectives (Go with Nouns)",
@@ -12458,230 +19438,681 @@ export const courseData = [
         "text": "I like coffee very much.",
         "trans": "Tôi rất thích cà phê."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "19.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_19_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "fast (adjective)"
+            ],
+            "hint": "Nhanh (Dùng để miêu tả Danh từ).",
+            "explanation": "Từ cần điền là \"fast (adjective)\", mang nghĩa là \"Nhanh (Dùng để miêu tả Danh từ).\"."
+          },
+          {
+            "id": "ex_19_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "fast (adverb)"
+            ],
+            "hint": "Một cách nhanh chóng. (KHÔNG CÓ 'fastly').",
+            "explanation": "Từ cần điền là \"fast (adverb)\", mang nghĩa là \"Một cách nhanh chóng. (KHÔNG CÓ 'fastly').\"."
+          },
+          {
+            "id": "ex_19_1_2",
+            "text": "It's a [blank] car.",
+            "answers": [
+              "slow"
+            ],
+            "hint": "Chậm chạp.",
+            "explanation": "Từ cần điền là \"slow\", mang nghĩa là \"Chậm chạp.\"."
+          },
+          {
+            "id": "ex_19_1_3",
+            "text": "This car goes very [blank].",
+            "answers": [
+              "slowly"
+            ],
+            "hint": "Một cách chậm chạp.",
+            "explanation": "Từ cần điền là \"slowly\", mang nghĩa là \"Một cách chậm chạp.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "19.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_19_2_0",
+            "text": "right",
+            "options": [
+              "Một cách ầm ĩ, to tiếng.",
+              "To, ồn ào.",
+              "Sai, không chính xác.",
+              "Đúng, chính xác."
+            ],
+            "answer": "Đúng, chính xác.",
+            "explanation": "Từ \"right\" có nghĩa chính xác là \"Đúng, chính xác.\"."
+          },
+          {
+            "id": "ex_19_2_1",
+            "text": "wrong",
+            "options": [
+              "Sai, không chính xác.",
+              "Một cách ầm ĩ, to tiếng.",
+              "Đúng, chính xác.",
+              "To, ồn ào."
+            ],
+            "answer": "Sai, không chính xác.",
+            "explanation": "Từ \"wrong\" có nghĩa chính xác là \"Sai, không chính xác.\"."
+          },
+          {
+            "id": "ex_19_2_2",
+            "text": "loud",
+            "options": [
+              "Một cách ầm ĩ, to tiếng.",
+              "Đúng, chính xác.",
+              "Sai, không chính xác.",
+              "To, ồn ào."
+            ],
+            "answer": "To, ồn ào.",
+            "explanation": "Từ \"loud\" có nghĩa chính xác là \"To, ồn ào.\"."
+          },
+          {
+            "id": "ex_19_2_3",
+            "text": "loudly",
+            "options": [
+              "To, ồn ào.",
+              "Sai, không chính xác.",
+              "Một cách ầm ĩ, to tiếng.",
+              "Đúng, chính xác."
+            ],
+            "answer": "Một cách ầm ĩ, to tiếng.",
+            "explanation": "Từ \"loudly\" có nghĩa chính xác là \"Một cách ầm ĩ, to tiếng.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "19.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_19_3_0",
+            "word": "fast (adjective)",
+            "category": "Topic A",
+            "explanation": "Từ \"fast (adjective)\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_19_3_1",
+            "word": "fast (adverb)",
+            "category": "Topic B",
+            "explanation": "Từ \"fast (adverb)\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_19_3_2",
+            "word": "slow",
+            "category": "Topic A",
+            "explanation": "Từ \"slow\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_19_3_3",
+            "word": "slowly",
+            "category": "Topic B",
+            "explanation": "Từ \"slowly\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_19_3_4",
+            "word": "right",
+            "category": "Topic A",
+            "explanation": "Từ \"right\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_19_3_5",
+            "word": "wrong",
+            "category": "Topic B",
+            "explanation": "Từ \"wrong\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "19.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_19_4_0",
+            "original": "It's a slows car.",
+            "correct": "It's a slow car.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"slow\" thay vì \"slows\"."
+          },
+          {
+            "id": "ex_19_4_1",
+            "original": "This car goes very slowlys.",
+            "correct": "This car goes very slowly.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"slowly\" thay vì \"slowlys\"."
+          }
+        ]
+      },
+      {
+        "exNum": "19.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_19_5_0",
+            "text": "This sentence is [blank]. / You guessed [blank].",
+            "answers": [
+              "right"
+            ],
+            "hint": "Đúng, chính xác.",
+            "explanation": "Từ cần điền là \"right\"."
+          },
+          {
+            "id": "ex_19_5_1",
+            "text": "This sentence is [blank]. / You spelled it [blank].",
+            "answers": [
+              "wrong"
+            ],
+            "hint": "Sai, không chính xác.",
+            "explanation": "Từ cần điền là \"wrong\"."
+          },
+          {
+            "id": "ex_19_5_2",
+            "text": "The music is too [blank].",
+            "answers": [
+              "loud"
+            ],
+            "hint": "To, ồn ào.",
+            "explanation": "Từ cần điền là \"loud\"."
+          },
+          {
+            "id": "ex_19_5_3",
+            "text": "She sang [blank].",
+            "answers": [
+              "loudly"
+            ],
+            "hint": "Một cách ầm ĩ, to tiếng.",
+            "explanation": "Từ cần điền là \"loudly\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 20,
     "title": "Unit 20: Irregular verbs",
     "description": "Tiếng Anh có rất nhiều động từ bất quy tắc. Đừng học thuộc lòng một cách máy móc! Bài này chia chúng thành 4 nhóm quy luật: A-A-A, A-B-B, A-B-A và A-B-C để bạn dễ dàng ghi nhớ.",
-    "theory": [
-      {
-        "heading": "A. All forms the same (A - A - A)",
-        "items": [
-          {
-            "word": "cost - cost - cost",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/kɑːst/",
-            "vi": "Trị giá, có giá là.",
-            "example": "This book cost £10."
-          },
-          {
-            "word": "let - let - let",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/let/",
-            "vi": "Cho phép.",
-            "example": "My parents let me go out."
-          },
-          {
-            "word": "cut - cut - cut",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/kʌt/",
-            "vi": "Cắt.",
-            "example": "I cut my finger yesterday."
-          },
-          {
-            "word": "put - put - put",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/pʊt/",
-            "vi": "Đặt, để.",
-            "example": "Put the book on the table."
-          },
-          {
-            "word": "hurt - hurt - hurt",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/hɝːt/",
-            "vi": "Làm đau, bị thương.",
-            "example": "My back hurts."
-          },
-          {
-            "word": "shut - shut - shut",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/ʃʌt/",
-            "vi": "Đóng lại.",
-            "example": "Please shut the door."
-          }
-        ]
-      },
-      {
-        "heading": "B. Two different forms (A - B - B) - Phần 1",
-        "items": [
-          {
-            "word": "keep - kept - kept",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/kiːp/ /kept/",
-            "vi": "Giữ.",
-            "example": "He kept the money."
-          },
-          {
-            "word": "sleep - slept - slept",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/sliːp/ /slept/",
-            "vi": "Ngủ.",
-            "example": "I slept very well."
-          },
-          {
-            "word": "feel - felt - felt",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/fiːl/ /felt/",
-            "vi": "Cảm thấy.",
-            "example": "I felt ill yesterday."
-          },
-          {
-            "word": "leave - left - left",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/liːv/ /left/",
-            "vi": "Rời đi, để lại.",
-            "example": "She left the office at six."
-          },
-          {
-            "word": "meet - met - met",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/miːt/ /met/",
-            "vi": "Gặp gỡ.",
-            "example": "I met my friend."
-          },
-          {
-            "word": "bring - brought - brought",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/brɪŋ/ /brɔːt/",
-            "vi": "Mang đến.",
-            "example": "He brought a present."
-          },
-          {
-            "word": "buy - bought - bought",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/baɪ/ /bɑːt/",
-            "vi": "Mua.",
-            "example": "I bought a car."
-          },
-          {
-            "word": "think - thought - thought",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/θɪŋk/ /θɑːt/",
-            "vi": "Nghĩ.",
-            "example": "I thought about it."
-          }
-        ]
-      },
-      {
-        "heading": "C. Two different forms (A - B - B) - Phần 2",
-        "items": [
-          {
-            "word": "find - found - found",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/faɪnd/ /faʊnd/",
-            "vi": "Tìm thấy.",
-            "example": "I found my keys."
-          },
-          {
-            "word": "pay - paid - paid",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/peɪ/ /peɪd/",
-            "vi": "Trả tiền.",
-            "example": "I paid for the meal."
-          },
-          {
-            "word": "say - said - said",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/seɪ/ /sed/",
-            "vi": "Nói.",
-            "example": "She said hello."
-          },
-          {
-            "word": "tell - told - told",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/tel/ /toʊld/",
-            "vi": "Bảo, kể.",
-            "example": "He told me a story."
-          },
-          {
-            "word": "make - made - made",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/meɪk/ /meɪd/",
-            "vi": "Làm, chế tạo.",
-            "example": "I made a cake."
-          },
-          {
-            "word": "have - had - had",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/hæv/ /hæd/",
-            "vi": "Có.",
-            "example": "I had a dog."
-          },
-          {
-            "word": "understand - understood",
-            "type": "V1 - V2 - V3",
-            "phonetic": "/ˌʌn.dɚˈstænd/",
-            "vi": "Hiểu.",
-            "example": "I understood the lesson."
-          }
-        ]
-      },
-      {
-        "heading": "D. Three different forms (A - B - C) & (A - B - A)",
-        "items": [
-          {
-            "word": "run - ran - run",
-            "type": "A - B - A",
-            "phonetic": "/rʌn/ /ræn/",
-            "vi": "Chạy.",
-            "example": "He ran a marathon."
-          },
-          {
-            "word": "come - came - come",
-            "type": "A - B - A",
-            "phonetic": "/kʌm/ /keɪm/",
-            "vi": "Đến.",
-            "example": "She came home."
-          },
-          {
-            "word": "go - went - gone",
-            "type": "A - B - C",
-            "phonetic": "/ɡoʊ/ /went/ /ɡɑːn/",
-            "vi": "Đi.",
-            "example": "He has gone to Paris."
-          },
-          {
-            "word": "drink - drank - drunk",
-            "type": "A - B - C",
-            "phonetic": "/drɪŋk/ /dræŋk/ /drʌŋk/",
-            "vi": "Uống.",
-            "example": "I drank some water."
-          },
-          {
-            "word": "write - wrote - written",
-            "type": "A - B - C",
-            "phonetic": "/raɪt/ /roʊt/ /ˈrɪt.ən/",
-            "vi": "Viết.",
-            "example": "I wrote a letter."
-          },
-          {
-            "word": "speak - spoke - spoken",
-            "type": "A - B - C",
-            "phonetic": "/spiːk/ /spoʊk/ /ˈspoʊ.kən/",
-            "vi": "Nói.",
-            "example": "He spoke to me."
-          },
-          {
-            "word": "take - took - taken",
-            "type": "A - B - C",
-            "phonetic": "/teɪk/ /tʊk/ /ˈteɪ.kən/",
-            "vi": "Lấy, mất (thời gian).",
-            "example": "It took two hours."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "cost - cost - cost",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/kɑːst/",
+          "vi": "Trị giá, có giá là.",
+          "example": "This book cost £10.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của cost - cost - cost"
+        },
+        {
+          "word": "let - let - let",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/let/",
+          "vi": "Cho phép.",
+          "example": "My parents let me go out.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của let - let - let"
+        },
+        {
+          "word": "cut - cut - cut",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/kʌt/",
+          "vi": "Cắt.",
+          "example": "I cut my finger yesterday.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của cut - cut - cut"
+        },
+        {
+          "word": "put - put - put",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/pʊt/",
+          "vi": "Đặt, để.",
+          "example": "Put the book on the table.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của put - put - put"
+        },
+        {
+          "word": "hurt - hurt - hurt",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/hɝːt/",
+          "vi": "Làm đau, bị thương.",
+          "example": "My back hurts.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của hurt - hurt - hurt"
+        },
+        {
+          "word": "shut - shut - shut",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/ʃʌt/",
+          "vi": "Đóng lại.",
+          "example": "Please shut the door.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của shut - shut - shut"
+        },
+        {
+          "word": "keep - kept - kept",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/kiːp/ /kept/",
+          "vi": "Giữ.",
+          "example": "He kept the money.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của keep - kept - kept"
+        },
+        {
+          "word": "sleep - slept - slept",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/sliːp/ /slept/",
+          "vi": "Ngủ.",
+          "example": "I slept very well.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của sleep - slept - slept"
+        },
+        {
+          "word": "feel - felt - felt",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/fiːl/ /felt/",
+          "vi": "Cảm thấy.",
+          "example": "I felt ill yesterday.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của feel - felt - felt"
+        },
+        {
+          "word": "leave - left - left",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/liːv/ /left/",
+          "vi": "Rời đi, để lại.",
+          "example": "She left the office at six.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của leave - left - left"
+        },
+        {
+          "word": "meet - met - met",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/miːt/ /met/",
+          "vi": "Gặp gỡ.",
+          "example": "I met my friend.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của meet - met - met"
+        },
+        {
+          "word": "bring - brought - brought",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/brɪŋ/ /brɔːt/",
+          "vi": "Mang đến.",
+          "example": "He brought a present.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của bring - brought - brought"
+        },
+        {
+          "word": "buy - bought - bought",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/baɪ/ /bɑːt/",
+          "vi": "Mua.",
+          "example": "I bought a car.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của buy - bought - bought"
+        },
+        {
+          "word": "think - thought - thought",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/θɪŋk/ /θɑːt/",
+          "vi": "Nghĩ.",
+          "example": "I thought about it.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của think - thought - thought"
+        },
+        {
+          "word": "find - found - found",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/faɪnd/ /faʊnd/",
+          "vi": "Tìm thấy.",
+          "example": "I found my keys.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của find - found - found"
+        },
+        {
+          "word": "pay - paid - paid",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/peɪ/ /peɪd/",
+          "vi": "Trả tiền.",
+          "example": "I paid for the meal.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của pay - paid - paid"
+        },
+        {
+          "word": "say - said - said",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/seɪ/ /sed/",
+          "vi": "Nói.",
+          "example": "She said hello.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của say - said - said"
+        },
+        {
+          "word": "tell - told - told",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/tel/ /toʊld/",
+          "vi": "Bảo, kể.",
+          "example": "He told me a story.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của tell - told - told"
+        },
+        {
+          "word": "make - made - made",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/meɪk/ /meɪd/",
+          "vi": "Làm, chế tạo.",
+          "example": "I made a cake.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của make - made - made"
+        },
+        {
+          "word": "have - had - had",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/hæv/ /hæd/",
+          "vi": "Có.",
+          "example": "I had a dog.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have - had - had"
+        },
+        {
+          "word": "understand - understood",
+          "type": "V1 - V2 - V3",
+          "phonetic": "/ˌʌn.dɚˈstænd/",
+          "vi": "Hiểu.",
+          "example": "I understood the lesson.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của understand - understood"
+        },
+        {
+          "word": "run - ran - run",
+          "type": "A - B - A",
+          "phonetic": "/rʌn/ /ræn/",
+          "vi": "Chạy.",
+          "example": "He ran a marathon.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của run - ran - run"
+        },
+        {
+          "word": "come - came - come",
+          "type": "A - B - A",
+          "phonetic": "/kʌm/ /keɪm/",
+          "vi": "Đến.",
+          "example": "She came home.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của come - came - come"
+        },
+        {
+          "word": "go - went - gone",
+          "type": "A - B - C",
+          "phonetic": "/ɡoʊ/ /went/ /ɡɑːn/",
+          "vi": "Đi.",
+          "example": "He has gone to Paris.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go - went - gone"
+        },
+        {
+          "word": "drink - drank - drunk",
+          "type": "A - B - C",
+          "phonetic": "/drɪŋk/ /dræŋk/ /drʌŋk/",
+          "vi": "Uống.",
+          "example": "I drank some water.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của drink - drank - drunk"
+        },
+        {
+          "word": "write - wrote - written",
+          "type": "A - B - C",
+          "phonetic": "/raɪt/ /roʊt/ /ˈrɪt.ən/",
+          "vi": "Viết.",
+          "example": "I wrote a letter.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của write - wrote - written"
+        },
+        {
+          "word": "speak - spoke - spoken",
+          "type": "A - B - C",
+          "phonetic": "/spiːk/ /spoʊk/ /ˈspoʊ.kən/",
+          "vi": "Nói.",
+          "example": "He spoke to me.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của speak - spoke - spoken"
+        },
+        {
+          "word": "take - took - taken",
+          "type": "A - B - C",
+          "phonetic": "/teɪk/ /tʊk/ /ˈteɪ.kən/",
+          "vi": "Lấy, mất (thời gian).",
+          "example": "It took two hours.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của take - took - taken"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. All forms the same (A - A - A)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "cost - cost - cost",
+              "value": "👉 This book cost £10."
+            },
+            {
+              "title": "let - let - let",
+              "value": "👉 My parents let me go out."
+            },
+            {
+              "title": "cut - cut - cut",
+              "value": "👉 I cut my finger yesterday."
+            },
+            {
+              "title": "put - put - put",
+              "value": "👉 Put the book on the table."
+            },
+            {
+              "title": "hurt - hurt - hurt",
+              "value": "👉 My back hurts."
+            },
+            {
+              "title": "shut - shut - shut",
+              "value": "👉 Please shut the door."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Two different forms (A - B - B) - Phần 1",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "keep - kept - kept",
+              "value": "👉 He kept the money."
+            },
+            {
+              "title": "sleep - slept - slept",
+              "value": "👉 I slept very well."
+            },
+            {
+              "title": "feel - felt - felt",
+              "value": "👉 I felt ill yesterday."
+            },
+            {
+              "title": "leave - left - left",
+              "value": "👉 She left the office at six."
+            },
+            {
+              "title": "meet - met - met",
+              "value": "👉 I met my friend."
+            },
+            {
+              "title": "bring - brought - brought",
+              "value": "👉 He brought a present."
+            },
+            {
+              "title": "buy - bought - bought",
+              "value": "👉 I bought a car."
+            },
+            {
+              "title": "think - thought - thought",
+              "value": "👉 I thought about it."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Two different forms (A - B - B) - Phần 2",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "find - found - found",
+              "value": "👉 I found my keys."
+            },
+            {
+              "title": "pay - paid - paid",
+              "value": "👉 I paid for the meal."
+            },
+            {
+              "title": "say - said - said",
+              "value": "👉 She said hello."
+            },
+            {
+              "title": "tell - told - told",
+              "value": "👉 He told me a story."
+            },
+            {
+              "title": "make - made - made",
+              "value": "👉 I made a cake."
+            },
+            {
+              "title": "have - had - had",
+              "value": "👉 I had a dog."
+            },
+            {
+              "title": "understand - understood",
+              "value": "👉 I understood the lesson."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Three different forms (A - B - C) & (A - B - A)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "run - ran - run",
+              "value": "👉 He ran a marathon."
+            },
+            {
+              "title": "come - came - come",
+              "value": "👉 She came home."
+            },
+            {
+              "title": "go - went - gone",
+              "value": "👉 He has gone to Paris."
+            },
+            {
+              "title": "drink - drank - drunk",
+              "value": "👉 I drank some water."
+            },
+            {
+              "title": "write - wrote - written",
+              "value": "👉 I wrote a letter."
+            },
+            {
+              "title": "speak - spoke - spoken",
+              "value": "👉 He spoke to me."
+            },
+            {
+              "title": "take - took - taken",
+              "value": "👉 It took two hours."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"cost - cost - cost\"",
+              "value": "Các dạng từ loại khác của \"cost - cost - cost\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"let - let - let\"",
+              "value": "Các dạng từ loại khác của \"let - let - let\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"cut - cut - cut\"",
+              "value": "Các dạng từ loại khác của \"cut - cut - cut\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"put - put - put\"",
+              "value": "Cụm từ liên quan đến put - put - put"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"hurt - hurt - hurt\"",
+              "value": "Cụm từ liên quan đến hurt - hurt - hurt"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"shut - shut - shut\"",
+              "value": "Cụm từ liên quan đến shut - shut - shut"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Nhóm A-A-A (cut-cut-cut)",
@@ -13197,134 +20628,523 @@ export const courseData = [
         "text": "I have spent a long time on this work.",
         "trans": "Tôi đã dành một thời gian dài cho công việc này."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "20.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_20_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "cost - cost - cost"
+            ],
+            "hint": "Trị giá, có giá là.",
+            "explanation": "Từ cần điền là \"cost - cost - cost\", mang nghĩa là \"Trị giá, có giá là.\"."
+          },
+          {
+            "id": "ex_20_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "let - let - let"
+            ],
+            "hint": "Cho phép.",
+            "explanation": "Từ cần điền là \"let - let - let\", mang nghĩa là \"Cho phép.\"."
+          },
+          {
+            "id": "ex_20_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "cut - cut - cut"
+            ],
+            "hint": "Cắt.",
+            "explanation": "Từ cần điền là \"cut - cut - cut\", mang nghĩa là \"Cắt.\"."
+          },
+          {
+            "id": "ex_20_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "put - put - put"
+            ],
+            "hint": "Đặt, để.",
+            "explanation": "Từ cần điền là \"put - put - put\", mang nghĩa là \"Đặt, để.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "20.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_20_2_0",
+            "text": "hurt - hurt - hurt",
+            "options": [
+              "Giữ.",
+              "Ngủ.",
+              "Đóng lại.",
+              "Làm đau, bị thương."
+            ],
+            "answer": "Làm đau, bị thương.",
+            "explanation": "Từ \"hurt - hurt - hurt\" có nghĩa chính xác là \"Làm đau, bị thương.\"."
+          },
+          {
+            "id": "ex_20_2_1",
+            "text": "shut - shut - shut",
+            "options": [
+              "Giữ.",
+              "Đóng lại.",
+              "Làm đau, bị thương.",
+              "Ngủ."
+            ],
+            "answer": "Đóng lại.",
+            "explanation": "Từ \"shut - shut - shut\" có nghĩa chính xác là \"Đóng lại.\"."
+          },
+          {
+            "id": "ex_20_2_2",
+            "text": "keep - kept - kept",
+            "options": [
+              "Đóng lại.",
+              "Ngủ.",
+              "Làm đau, bị thương.",
+              "Giữ."
+            ],
+            "answer": "Giữ.",
+            "explanation": "Từ \"keep - kept - kept\" có nghĩa chính xác là \"Giữ.\"."
+          },
+          {
+            "id": "ex_20_2_3",
+            "text": "sleep - slept - slept",
+            "options": [
+              "Ngủ.",
+              "Giữ.",
+              "Làm đau, bị thương.",
+              "Đóng lại."
+            ],
+            "answer": "Ngủ.",
+            "explanation": "Từ \"sleep - slept - slept\" có nghĩa chính xác là \"Ngủ.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "20.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_20_3_0",
+            "word": "cost - cost - cost",
+            "category": "Topic A",
+            "explanation": "Từ \"cost - cost - cost\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_20_3_1",
+            "word": "let - let - let",
+            "category": "Topic B",
+            "explanation": "Từ \"let - let - let\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_20_3_2",
+            "word": "cut - cut - cut",
+            "category": "Topic A",
+            "explanation": "Từ \"cut - cut - cut\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_20_3_3",
+            "word": "put - put - put",
+            "category": "Topic B",
+            "explanation": "Từ \"put - put - put\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_20_3_4",
+            "word": "hurt - hurt - hurt",
+            "category": "Topic A",
+            "explanation": "Từ \"hurt - hurt - hurt\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_20_3_5",
+            "word": "shut - shut - shut",
+            "category": "Topic B",
+            "explanation": "Từ \"shut - shut - shut\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "20.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_20_4_0",
+            "original": "I really like cut - cut - cuts.",
+            "correct": "I cut my finger yesterday.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"cut - cut - cut\" thay vì \"cut - cut - cuts\"."
+          },
+          {
+            "id": "ex_20_4_1",
+            "original": "I really like put - put - puts.",
+            "correct": "Put the book on the table.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"put - put - put\" thay vì \"put - put - puts\"."
+          }
+        ]
+      },
+      {
+        "exNum": "20.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_20_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "hurt - hurt - hurt"
+            ],
+            "hint": "Làm đau, bị thương.",
+            "explanation": "Từ cần điền là \"hurt - hurt - hurt\"."
+          },
+          {
+            "id": "ex_20_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "shut - shut - shut"
+            ],
+            "hint": "Đóng lại.",
+            "explanation": "Từ cần điền là \"shut - shut - shut\"."
+          },
+          {
+            "id": "ex_20_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "keep - kept - kept"
+            ],
+            "hint": "Giữ.",
+            "explanation": "Từ cần điền là \"keep - kept - kept\"."
+          },
+          {
+            "id": "ex_20_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "sleep - slept - slept"
+            ],
+            "hint": "Ngủ.",
+            "explanation": "Từ cần điền là \"sleep - slept - slept\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 21,
     "title": "Unit 21: Common uncountable words",
     "description": "Khám phá danh sách các danh từ không đếm được (Uncountable nouns) thông dụng nhất. Bạn sẽ học cách tránh các lỗi sai kinh điển như dùng 'a/an' hoặc thêm 's' vào những từ này.",
-    "theory": [
-      {
-        "heading": "A. What is countable? (Đếm được là gì?)",
-        "items": [
-          {
-            "word": "countable",
-            "type": "Ngữ pháp",
-            "phonetic": "/ˈkaʊn.t̬ə.bəl/",
-            "vi": "Đếm được (có thể thêm số đếm ở trước, có dạng số nhiều).",
-            "example": "apples, shoes, plates (4 apples, 2 shoes)"
-          },
-          {
-            "word": "uncountable",
-            "type": "Ngữ pháp",
-            "phonetic": "/ʌnˈkaʊn.t̬ə.bəl/",
-            "vi": "Không đếm được (KHÔNG thêm số đếm, KHÔNG có dạng số nhiều 's/es').",
-            "example": "sugar, money, luggage [KHÔNG DÙNG: 3 luggages]"
-          },
-          {
-            "word": "some",
-            "type": "Từ hạn định",
-            "phonetic": "/sʌm/",
-            "vi": "Một ít, một vài (Dùng được cho cả đếm được số nhiều và không đếm được).",
-            "example": "Can I have three apples and some sugar, please?"
-          }
-        ]
-      },
-      {
-        "heading": "B. Everyday uncountable words (Từ không đếm được thường ngày)",
-        "items": [
-          {
-            "word": "furniture",
-            "type": "Danh từ",
-            "phonetic": "/ˈfɝː.nɪ.tʃɚ/",
-            "vi": "Đồ nội thất (Bàn, ghế, tủ nói chung).",
-            "example": "This furniture is modern. [KHÔNG DÙNG: furnitures]"
-          },
-          {
-            "word": "traffic",
-            "type": "Danh từ",
-            "phonetic": "/ˈtræf.ɪk/",
-            "vi": "Giao thông, xe cộ qua lại.",
-            "example": "The traffic is bad today."
-          },
-          {
-            "word": "information",
-            "type": "Danh từ",
-            "phonetic": "/ˌɪn.fɚˈmeɪ.ʃən/",
-            "vi": "Thông tin.",
-            "example": "He can give you some useful information. [NOT an information / informations]"
-          },
-          {
-            "word": "advice",
-            "type": "Danh từ",
-            "phonetic": "/ədˈvaɪs/",
-            "vi": "Lời khuyên.",
-            "example": "I'll give you some advice about your future. [NOT an advice]"
-          },
-          {
-            "word": "weather",
-            "type": "Danh từ",
-            "phonetic": "/ˈweð.ɚ/",
-            "vi": "Thời tiết.",
-            "example": "It's terrible weather today. [NOT a terrible weather]"
-          },
-          {
-            "word": "work",
-            "type": "Danh từ",
-            "phonetic": "/wɝːk/",
-            "vi": "Công việc.",
-            "example": "Studying is hard work. [NOT a hard work]"
-          },
-          {
-            "word": "news",
-            "type": "Danh từ",
-            "phonetic": "/nuːz/",
-            "vi": "Tin tức (Mặc dù có chữ 's' nhưng luôn là số ít).",
-            "example": "There is some bad news today. [NOT The news are]"
-          },
-          {
-            "word": "accommodation",
-            "type": "Danh từ",
-            "phonetic": "/əˌkɑː.məˈdeɪ.ʃən/",
-            "vi": "Chỗ ở.",
-            "example": "Accommodation here is expensive."
-          },
-          {
-            "word": "air",
-            "type": "Danh từ",
-            "phonetic": "/er/",
-            "vi": "Không khí.",
-            "example": "I need some fresh air."
-          },
-          {
-            "word": "travel",
-            "type": "Danh từ",
-            "phonetic": "/ˈtræv.əl/",
-            "vi": "Việc đi lại, du lịch nói chung.",
-            "example": "Air travel is faster than rail travel."
-          }
-        ]
-      },
-      {
-        "heading": "C. Food and drink (Thức ăn và đồ uống)",
-        "items": [
-          {
-            "word": "food categories",
-            "type": "Từ vựng",
-            "phonetic": "/fuːd ˈkætəɡəriz/",
-            "vi": "Rất nhiều đồ ăn thức uống là KHÔNG đếm được.",
-            "example": "rice, spaghetti, butter, bread, milk, water, tea, coffee."
-          },
-          {
-            "word": "measurements",
-            "type": "Đơn vị đo",
-            "phonetic": "/ˈmeʒəmənts/",
-            "vi": "Để nói số lượng của đồ không đếm được, ta dùng các đơn vị đo lường.",
-            "example": "Three loaves of bread (3 ổ bánh mì), two litres of milk (2 lít sữa), a kilo of apples (1 ký táo)."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "countable",
+          "type": "Ngữ pháp",
+          "phonetic": "/ˈkaʊn.t̬ə.bəl/",
+          "vi": "Đếm được (có thể thêm số đếm ở trước, có dạng số nhiều).",
+          "example": "apples, shoes, plates (4 apples, 2 shoes)",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của countable"
+        },
+        {
+          "word": "uncountable",
+          "type": "Ngữ pháp",
+          "phonetic": "/ʌnˈkaʊn.t̬ə.bəl/",
+          "vi": "Không đếm được (KHÔNG thêm số đếm, KHÔNG có dạng số nhiều 's/es').",
+          "example": "sugar, money, luggage [KHÔNG DÙNG: 3 luggages]",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của uncountable"
+        },
+        {
+          "word": "some",
+          "type": "Từ hạn định",
+          "phonetic": "/sʌm/",
+          "vi": "Một ít, một vài (Dùng được cho cả đếm được số nhiều và không đếm được).",
+          "example": "Can I have three apples and some sugar, please?",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của some"
+        },
+        {
+          "word": "furniture",
+          "type": "Danh từ",
+          "phonetic": "/ˈfɝː.nɪ.tʃɚ/",
+          "vi": "Đồ nội thất (Bàn, ghế, tủ nói chung).",
+          "example": "This furniture is modern. [KHÔNG DÙNG: furnitures]",
+          "bucket": 2,
+          "collocations": [
+            "have a furniture",
+            "use furniture"
+          ],
+          "wordFamily": "Biến thể của furniture"
+        },
+        {
+          "word": "traffic",
+          "type": "Danh từ",
+          "phonetic": "/ˈtræf.ɪk/",
+          "vi": "Giao thông, xe cộ qua lại.",
+          "example": "The traffic is bad today.",
+          "bucket": 1,
+          "collocations": [
+            "have a traffic",
+            "use traffic"
+          ],
+          "wordFamily": "Biến thể của traffic"
+        },
+        {
+          "word": "information",
+          "type": "Danh từ",
+          "phonetic": "/ˌɪn.fɚˈmeɪ.ʃən/",
+          "vi": "Thông tin.",
+          "example": "He can give you some useful information. [NOT an information / informations]",
+          "bucket": 2,
+          "collocations": [
+            "have a information",
+            "use information"
+          ],
+          "wordFamily": "Biến thể của information"
+        },
+        {
+          "word": "advice",
+          "type": "Danh từ",
+          "phonetic": "/ədˈvaɪs/",
+          "vi": "Lời khuyên.",
+          "example": "I'll give you some advice about your future. [NOT an advice]",
+          "bucket": 1,
+          "collocations": [
+            "have a advice",
+            "use advice"
+          ],
+          "wordFamily": "Biến thể của advice"
+        },
+        {
+          "word": "weather",
+          "type": "Danh từ",
+          "phonetic": "/ˈweð.ɚ/",
+          "vi": "Thời tiết.",
+          "example": "It's terrible weather today. [NOT a terrible weather]",
+          "bucket": 2,
+          "collocations": [
+            "have a weather",
+            "use weather"
+          ],
+          "wordFamily": "Biến thể của weather"
+        },
+        {
+          "word": "work",
+          "type": "Danh từ",
+          "phonetic": "/wɝːk/",
+          "vi": "Công việc.",
+          "example": "Studying is hard work. [NOT a hard work]",
+          "bucket": 1,
+          "collocations": [
+            "have a work",
+            "use work"
+          ],
+          "wordFamily": "Biến thể của work"
+        },
+        {
+          "word": "news",
+          "type": "Danh từ",
+          "phonetic": "/nuːz/",
+          "vi": "Tin tức (Mặc dù có chữ 's' nhưng luôn là số ít).",
+          "example": "There is some bad news today. [NOT The news are]",
+          "bucket": 2,
+          "collocations": [
+            "have a news",
+            "use news"
+          ],
+          "wordFamily": "Biến thể của news"
+        },
+        {
+          "word": "accommodation",
+          "type": "Danh từ",
+          "phonetic": "/əˌkɑː.məˈdeɪ.ʃən/",
+          "vi": "Chỗ ở.",
+          "example": "Accommodation here is expensive.",
+          "bucket": 1,
+          "collocations": [
+            "have a accommodation",
+            "use accommodation"
+          ],
+          "wordFamily": "Biến thể của accommodation"
+        },
+        {
+          "word": "air",
+          "type": "Danh từ",
+          "phonetic": "/er/",
+          "vi": "Không khí.",
+          "example": "I need some fresh air.",
+          "bucket": 2,
+          "collocations": [
+            "have a air",
+            "use air"
+          ],
+          "wordFamily": "Biến thể của air"
+        },
+        {
+          "word": "travel",
+          "type": "Danh từ",
+          "phonetic": "/ˈtræv.əl/",
+          "vi": "Việc đi lại, du lịch nói chung.",
+          "example": "Air travel is faster than rail travel.",
+          "bucket": 1,
+          "collocations": [
+            "have a travel",
+            "use travel"
+          ],
+          "wordFamily": "Biến thể của travel"
+        },
+        {
+          "word": "food categories",
+          "type": "Từ vựng",
+          "phonetic": "/fuːd ˈkætəɡəriz/",
+          "vi": "Rất nhiều đồ ăn thức uống là KHÔNG đếm được.",
+          "example": "rice, spaghetti, butter, bread, milk, water, tea, coffee.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của food categories"
+        },
+        {
+          "word": "measurements",
+          "type": "Đơn vị đo",
+          "phonetic": "/ˈmeʒəmənts/",
+          "vi": "Để nói số lượng của đồ không đếm được, ta dùng các đơn vị đo lường.",
+          "example": "Three loaves of bread (3 ổ bánh mì), two litres of milk (2 lít sữa), a kilo of apples (1 ký táo).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của measurements"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. What is countable? (Đếm được là gì?)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "countable",
+              "value": "👉 apples, shoes, plates (4 apples, 2 shoes)"
+            },
+            {
+              "title": "uncountable",
+              "value": "👉 sugar, money, luggage [KHÔNG DÙNG: 3 luggages]"
+            },
+            {
+              "title": "some",
+              "value": "👉 Can I have three apples and some sugar, please?"
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Everyday uncountable words (Từ không đếm được thường ngày)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "furniture",
+              "value": "👉 This furniture is modern. [KHÔNG DÙNG: furnitures]"
+            },
+            {
+              "title": "traffic",
+              "value": "👉 The traffic is bad today."
+            },
+            {
+              "title": "information",
+              "value": "👉 He can give you some useful information. [NOT an information / informations]"
+            },
+            {
+              "title": "advice",
+              "value": "👉 I'll give you some advice about your future. [NOT an advice]"
+            },
+            {
+              "title": "weather",
+              "value": "👉 It's terrible weather today. [NOT a terrible weather]"
+            },
+            {
+              "title": "work",
+              "value": "👉 Studying is hard work. [NOT a hard work]"
+            },
+            {
+              "title": "news",
+              "value": "👉 There is some bad news today. [NOT The news are]"
+            },
+            {
+              "title": "accommodation",
+              "value": "👉 Accommodation here is expensive."
+            },
+            {
+              "title": "air",
+              "value": "👉 I need some fresh air."
+            },
+            {
+              "title": "travel",
+              "value": "👉 Air travel is faster than rail travel."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Food and drink (Thức ăn và đồ uống)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "food categories",
+              "value": "👉 rice, spaghetti, butter, bread, milk, water, tea, coffee."
+            },
+            {
+              "title": "measurements",
+              "value": "👉 Three loaves of bread (3 ổ bánh mì), two litres of milk (2 lít sữa), a kilo of apples (1 ký táo)."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"countable\"",
+              "value": "Các dạng từ loại khác của \"countable\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"uncountable\"",
+              "value": "Các dạng từ loại khác của \"uncountable\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"some\"",
+              "value": "Các dạng từ loại khác của \"some\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"furniture\"",
+              "value": "Ví dụ: have a furniture, make a furniture, good furniture"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"traffic\"",
+              "value": "Ví dụ: have a traffic, make a traffic, good traffic"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"information\"",
+              "value": "Ví dụ: have a information, make a information, good information"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Countable (Thêm được S)",
@@ -13840,132 +21660,506 @@ export const courseData = [
         "text": "We should buy some new furniture.",
         "trans": "Chúng ta nên mua một ít đồ nội thất mới."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "21.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_21_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "countable"
+            ],
+            "hint": "Đếm được (có thể thêm số đếm ở trước, có dạng số nhiều).",
+            "explanation": "Từ cần điền là \"countable\", mang nghĩa là \"Đếm được (có thể thêm số đếm ở trước, có dạng số nhiều).\"."
+          },
+          {
+            "id": "ex_21_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "uncountable"
+            ],
+            "hint": "Không đếm được (KHÔNG thêm số đếm, KHÔNG có dạng số nhiều 's/es').",
+            "explanation": "Từ cần điền là \"uncountable\", mang nghĩa là \"Không đếm được (KHÔNG thêm số đếm, KHÔNG có dạng số nhiều 's/es').\"."
+          },
+          {
+            "id": "ex_21_1_2",
+            "text": "Can I have three apples and [blank] sugar, please?",
+            "answers": [
+              "some"
+            ],
+            "hint": "Một ít, một vài (Dùng được cho cả đếm được số nhiều và không đếm được).",
+            "explanation": "Từ cần điền là \"some\", mang nghĩa là \"Một ít, một vài (Dùng được cho cả đếm được số nhiều và không đếm được).\"."
+          },
+          {
+            "id": "ex_21_1_3",
+            "text": "This [blank] is modern. [KHÔNG DÙNG: furnitures]",
+            "answers": [
+              "furniture"
+            ],
+            "hint": "Đồ nội thất (Bàn, ghế, tủ nói chung).",
+            "explanation": "Từ cần điền là \"furniture\", mang nghĩa là \"Đồ nội thất (Bàn, ghế, tủ nói chung).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "21.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_21_2_0",
+            "text": "traffic",
+            "options": [
+              "Thời tiết.",
+              "Giao thông, xe cộ qua lại.",
+              "Thông tin.",
+              "Lời khuyên."
+            ],
+            "answer": "Giao thông, xe cộ qua lại.",
+            "explanation": "Từ \"traffic\" có nghĩa chính xác là \"Giao thông, xe cộ qua lại.\"."
+          },
+          {
+            "id": "ex_21_2_1",
+            "text": "information",
+            "options": [
+              "Giao thông, xe cộ qua lại.",
+              "Thời tiết.",
+              "Thông tin.",
+              "Lời khuyên."
+            ],
+            "answer": "Thông tin.",
+            "explanation": "Từ \"information\" có nghĩa chính xác là \"Thông tin.\"."
+          },
+          {
+            "id": "ex_21_2_2",
+            "text": "advice",
+            "options": [
+              "Thời tiết.",
+              "Lời khuyên.",
+              "Giao thông, xe cộ qua lại.",
+              "Thông tin."
+            ],
+            "answer": "Lời khuyên.",
+            "explanation": "Từ \"advice\" có nghĩa chính xác là \"Lời khuyên.\"."
+          },
+          {
+            "id": "ex_21_2_3",
+            "text": "weather",
+            "options": [
+              "Thời tiết.",
+              "Thông tin.",
+              "Giao thông, xe cộ qua lại.",
+              "Lời khuyên."
+            ],
+            "answer": "Thời tiết.",
+            "explanation": "Từ \"weather\" có nghĩa chính xác là \"Thời tiết.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "21.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_21_3_0",
+            "word": "countable",
+            "category": "Topic A",
+            "explanation": "Từ \"countable\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_21_3_1",
+            "word": "uncountable",
+            "category": "Topic B",
+            "explanation": "Từ \"uncountable\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_21_3_2",
+            "word": "some",
+            "category": "Topic A",
+            "explanation": "Từ \"some\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_21_3_3",
+            "word": "furniture",
+            "category": "Topic B",
+            "explanation": "Từ \"furniture\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_21_3_4",
+            "word": "traffic",
+            "category": "Topic A",
+            "explanation": "Từ \"traffic\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_21_3_5",
+            "word": "information",
+            "category": "Topic B",
+            "explanation": "Từ \"information\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "21.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_21_4_0",
+            "original": "Can I have three apples and somes sugar, please?",
+            "correct": "Can I have three apples and some sugar, please?",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"some\" thay vì \"somes\"."
+          },
+          {
+            "id": "ex_21_4_1",
+            "original": "This furnitures is modern. [KHÔNG DÙNG: furnitures]",
+            "correct": "This furniture is modern. [KHÔNG DÙNG: furnitures]",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"furniture\" thay vì \"furnitures\"."
+          }
+        ]
+      },
+      {
+        "exNum": "21.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_21_5_0",
+            "text": "The [blank] is bad today.",
+            "answers": [
+              "traffic"
+            ],
+            "hint": "Giao thông, xe cộ qua lại.",
+            "explanation": "Từ cần điền là \"traffic\"."
+          },
+          {
+            "id": "ex_21_5_1",
+            "text": "He can give you some useful [blank]. [NOT an [blank] / informations]",
+            "answers": [
+              "information"
+            ],
+            "hint": "Thông tin.",
+            "explanation": "Từ cần điền là \"information\"."
+          },
+          {
+            "id": "ex_21_5_2",
+            "text": "I'll give you some [blank] about your future. [NOT an [blank]]",
+            "answers": [
+              "advice"
+            ],
+            "hint": "Lời khuyên.",
+            "explanation": "Từ cần điền là \"advice\"."
+          },
+          {
+            "id": "ex_21_5_3",
+            "text": "It's terrible [blank] today. [NOT a terrible [blank]]",
+            "answers": [
+              "weather"
+            ],
+            "hint": "Thời tiết.",
+            "explanation": "Từ cần điền là \"weather\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 22,
     "title": "Unit 22: Common adjectives: good and bad things",
     "description": "Nâng cấp từ vựng của bạn từ 'good' và 'bad' lên những tính từ thể hiện cảm xúc mạnh mẽ hơn như wonderful, excellent, awful, hay terrible.",
-    "theory": [
-      {
-        "heading": "A. (+) 'good' adjectives (Các tính từ mang nghĩa Tốt)",
-        "items": [
-          {
-            "word": "good -> better -> the best",
-            "type": "So sánh",
-            "phonetic": "/ɡʊd/ /ˈbet̬.ɚ/ /best/",
-            "vi": "Tốt -> Tốt hơn -> Tốt nhất.",
-            "example": "A good restaurant. This one is better. The best in town."
-          },
-          {
-            "word": "nice (+)",
-            "type": "Tính từ",
-            "phonetic": "/naɪs/",
-            "vi": "Đẹp, dễ thương, dễ chịu.",
-            "example": "That's a nice jacket."
-          },
-          {
-            "word": "lovely (++)",
-            "type": "Tính từ",
-            "phonetic": "/ˈlʌv.li/",
-            "vi": "Rất đẹp, đáng yêu.",
-            "example": "It's a lovely day today!"
-          },
-          {
-            "word": "wonderful (+++)",
-            "type": "Tính từ",
-            "phonetic": "/ˈwʌn.dɚ.fəl/",
-            "vi": "Tuyệt vời, kỳ diệu.",
-            "example": "Mary's a wonderful person. Everybody loves her."
-          },
-          {
-            "word": "excellent (++++)",
-            "type": "Tính từ",
-            "phonetic": "/ˈek.səl.ənt/",
-            "vi": "Xuất sắc, cực kỳ tốt.",
-            "example": "That's an excellent idea!"
-          }
-        ]
-      },
-      {
-        "heading": "Responding with 'good' adjectives (Cách đáp lời khen ngợi)",
-        "items": [
-          {
-            "word": "Excellent!",
-            "type": "Cảm thán",
-            "phonetic": "/ˈek.səl.ənt/",
-            "vi": "Tuyệt quá!",
-            "example": "A: Dinner is at seven. B: Excellent!"
-          },
-          {
-            "word": "Great!",
-            "type": "Cảm thán",
-            "phonetic": "/ɡreɪt/",
-            "vi": "Quá tuyệt!",
-            "example": "Great! See you then."
-          },
-          {
-            "word": "Perfect!",
-            "type": "Cảm thán",
-            "phonetic": "/ˈpɝː.fekt/",
-            "vi": "Hoàn hảo!",
-            "example": "A: I booked the tickets. B: Perfect!"
-          }
-        ]
-      },
-      {
-        "heading": "B. (-) 'bad' adjectives (Các tính từ mang nghĩa Xấu/Tệ)",
-        "items": [
-          {
-            "word": "bad -> worse -> the worst",
-            "type": "So sánh",
-            "phonetic": "/bæd/ /wɝːs/ /wɝːst/",
-            "vi": "Tệ -> Tệ hơn -> Tệ nhất.",
-            "example": "The weather last year was worse than this year."
-          },
-          {
-            "word": "awful (--)",
-            "type": "Tính từ",
-            "phonetic": "/ˈɑː.fəl/",
-            "vi": "Tồi tệ, gớm ghiếc.",
-            "example": "My hair is awful! I must go to the hairdresser's."
-          },
-          {
-            "word": "terrible (---)",
-            "type": "Tính từ",
-            "phonetic": "/ˈter.ə.bəl/",
-            "vi": "Khủng khiếp (thường dùng cho tình huống/sự việc).",
-            "example": "I had a terrible day at work today."
-          },
-          {
-            "word": "horrible (---)",
-            "type": "Tính từ",
-            "phonetic": "/ˈhɔːr.ə.bəl/",
-            "vi": "Đáng ghét, kinh khủng (thường dùng cho người).",
-            "example": "Tim is a horrible person. Nobody likes him."
-          }
-        ]
-      },
-      {
-        "heading": "Other common expressions (Các cách diễn đạt phổ biến khác)",
-        "items": [
-          {
-            "word": "not bad",
-            "type": "Cụm từ",
-            "phonetic": "/nɑːt bæd/",
-            "vi": "Không tệ (= khá tốt).",
-            "example": "A: I get $500 a week. B: That's not bad! (= good!)"
-          },
-          {
-            "word": "How awful!",
-            "type": "Cảm thán",
-            "phonetic": "/haʊ ˈɑː.fəl/",
-            "vi": "Thật tồi tệ làm sao! [KHÔNG DÙNG: How bad!]",
-            "example": "A: I have to get up at 5.30. B: Oh, how awful!"
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "good -> better -> the best",
+          "type": "So sánh",
+          "phonetic": "/ɡʊd/ /ˈbet̬.ɚ/ /best/",
+          "vi": "Tốt -> Tốt hơn -> Tốt nhất.",
+          "example": "A good restaurant. This one is better. The best in town.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của good -> better -> the best"
+        },
+        {
+          "word": "nice (+)",
+          "type": "Tính từ",
+          "phonetic": "/naɪs/",
+          "vi": "Đẹp, dễ thương, dễ chịu.",
+          "example": "That's a nice jacket.",
+          "bucket": 2,
+          "collocations": [
+            "very nice (+)",
+            "extremely nice (+)"
+          ],
+          "wordFamily": "Biến thể của nice (+)"
+        },
+        {
+          "word": "lovely (++)",
+          "type": "Tính từ",
+          "phonetic": "/ˈlʌv.li/",
+          "vi": "Rất đẹp, đáng yêu.",
+          "example": "It's a lovely day today!",
+          "bucket": 1,
+          "collocations": [
+            "very lovely (++)",
+            "extremely lovely (++)"
+          ],
+          "wordFamily": "Biến thể của lovely (++)"
+        },
+        {
+          "word": "wonderful (+++)",
+          "type": "Tính từ",
+          "phonetic": "/ˈwʌn.dɚ.fəl/",
+          "vi": "Tuyệt vời, kỳ diệu.",
+          "example": "Mary's a wonderful person. Everybody loves her.",
+          "bucket": 2,
+          "collocations": [
+            "very wonderful (+++)",
+            "extremely wonderful (+++)"
+          ],
+          "wordFamily": "Biến thể của wonderful (+++)"
+        },
+        {
+          "word": "excellent (++++)",
+          "type": "Tính từ",
+          "phonetic": "/ˈek.səl.ənt/",
+          "vi": "Xuất sắc, cực kỳ tốt.",
+          "example": "That's an excellent idea!",
+          "bucket": 1,
+          "collocations": [
+            "very excellent (++++)",
+            "extremely excellent (++++)"
+          ],
+          "wordFamily": "Biến thể của excellent (++++)"
+        },
+        {
+          "word": "Excellent!",
+          "type": "Cảm thán",
+          "phonetic": "/ˈek.səl.ənt/",
+          "vi": "Tuyệt quá!",
+          "example": "A: Dinner is at seven. B: Excellent!",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của Excellent!"
+        },
+        {
+          "word": "Great!",
+          "type": "Cảm thán",
+          "phonetic": "/ɡreɪt/",
+          "vi": "Quá tuyệt!",
+          "example": "Great! See you then.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của Great!"
+        },
+        {
+          "word": "Perfect!",
+          "type": "Cảm thán",
+          "phonetic": "/ˈpɝː.fekt/",
+          "vi": "Hoàn hảo!",
+          "example": "A: I booked the tickets. B: Perfect!",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của Perfect!"
+        },
+        {
+          "word": "bad -> worse -> the worst",
+          "type": "So sánh",
+          "phonetic": "/bæd/ /wɝːs/ /wɝːst/",
+          "vi": "Tệ -> Tệ hơn -> Tệ nhất.",
+          "example": "The weather last year was worse than this year.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của bad -> worse -> the worst"
+        },
+        {
+          "word": "awful (--)",
+          "type": "Tính từ",
+          "phonetic": "/ˈɑː.fəl/",
+          "vi": "Tồi tệ, gớm ghiếc.",
+          "example": "My hair is awful! I must go to the hairdresser's.",
+          "bucket": 2,
+          "collocations": [
+            "very awful (--)",
+            "extremely awful (--)"
+          ],
+          "wordFamily": "Biến thể của awful (--)"
+        },
+        {
+          "word": "terrible (---)",
+          "type": "Tính từ",
+          "phonetic": "/ˈter.ə.bəl/",
+          "vi": "Khủng khiếp (thường dùng cho tình huống/sự việc).",
+          "example": "I had a terrible day at work today.",
+          "bucket": 1,
+          "collocations": [
+            "very terrible (---)",
+            "extremely terrible (---)"
+          ],
+          "wordFamily": "Biến thể của terrible (---)"
+        },
+        {
+          "word": "horrible (---)",
+          "type": "Tính từ",
+          "phonetic": "/ˈhɔːr.ə.bəl/",
+          "vi": "Đáng ghét, kinh khủng (thường dùng cho người).",
+          "example": "Tim is a horrible person. Nobody likes him.",
+          "bucket": 2,
+          "collocations": [
+            "very horrible (---)",
+            "extremely horrible (---)"
+          ],
+          "wordFamily": "Biến thể của horrible (---)"
+        },
+        {
+          "word": "not bad",
+          "type": "Cụm từ",
+          "phonetic": "/nɑːt bæd/",
+          "vi": "Không tệ (= khá tốt).",
+          "example": "A: I get $500 a week. B: That's not bad! (= good!)",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của not bad"
+        },
+        {
+          "word": "How awful!",
+          "type": "Cảm thán",
+          "phonetic": "/haʊ ˈɑː.fəl/",
+          "vi": "Thật tồi tệ làm sao! [KHÔNG DÙNG: How bad!]",
+          "example": "A: I have to get up at 5.30. B: Oh, how awful!",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của How awful!"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. (+) 'good' adjectives (Các tính từ mang nghĩa Tốt)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "good -> better -> the best",
+              "value": "👉 A good restaurant. This one is better. The best in town."
+            },
+            {
+              "title": "nice (+)",
+              "value": "👉 That's a nice jacket."
+            },
+            {
+              "title": "lovely (++)",
+              "value": "👉 It's a lovely day today!"
+            },
+            {
+              "title": "wonderful (+++)",
+              "value": "👉 Mary's a wonderful person. Everybody loves her."
+            },
+            {
+              "title": "excellent (++++)",
+              "value": "👉 That's an excellent idea!"
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: Responding with 'good' adjectives (Cách đáp lời khen ngợi)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "Excellent!",
+              "value": "👉 A: Dinner is at seven. B: Excellent!"
+            },
+            {
+              "title": "Great!",
+              "value": "👉 Great! See you then."
+            },
+            {
+              "title": "Perfect!",
+              "value": "👉 A: I booked the tickets. B: Perfect!"
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. (-) 'bad' adjectives (Các tính từ mang nghĩa Xấu/Tệ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "bad -> worse -> the worst",
+              "value": "👉 The weather last year was worse than this year."
+            },
+            {
+              "title": "awful (--)",
+              "value": "👉 My hair is awful! I must go to the hairdresser's."
+            },
+            {
+              "title": "terrible (---)",
+              "value": "👉 I had a terrible day at work today."
+            },
+            {
+              "title": "horrible (---)",
+              "value": "👉 Tim is a horrible person. Nobody likes him."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: Other common expressions (Các cách diễn đạt phổ biến khác)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "not bad",
+              "value": "👉 A: I get $500 a week. B: That's not bad! (= good!)"
+            },
+            {
+              "title": "How awful!",
+              "value": "👉 A: I have to get up at 5.30. B: Oh, how awful!"
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"good -> better -> the best\"",
+              "value": "Các dạng từ loại khác của \"good -> better -> the best\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"nice (+)\"",
+              "value": "nice (+)ly (Trạng từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"lovely (++)\"",
+              "value": "lovely (++)ly (Trạng từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"wonderful (+++)\"",
+              "value": "Ví dụ: very wonderful (+++), extremely wonderful (+++)"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"excellent (++++)\"",
+              "value": "Ví dụ: very excellent (++++), extremely excellent (++++)"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"Excellent!\"",
+              "value": "Cụm từ liên quan đến Excellent!"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Good (+)",
@@ -14482,153 +22676,569 @@ export const courseData = [
         "text": "I have to get up at half past five tomorrow morning. - Oh, how awful!",
         "trans": "Sáng mai tôi phải dậy lúc 5 rưỡi. - Ồ, thật tồi tệ làm sao!"
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "22.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_22_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "good -> better -> the best"
+            ],
+            "hint": "Tốt -> Tốt hơn -> Tốt nhất.",
+            "explanation": "Từ cần điền là \"good -> better -> the best\", mang nghĩa là \"Tốt -> Tốt hơn -> Tốt nhất.\"."
+          },
+          {
+            "id": "ex_22_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "nice (+)"
+            ],
+            "hint": "Đẹp, dễ thương, dễ chịu.",
+            "explanation": "Từ cần điền là \"nice (+)\", mang nghĩa là \"Đẹp, dễ thương, dễ chịu.\"."
+          },
+          {
+            "id": "ex_22_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "lovely (++)"
+            ],
+            "hint": "Rất đẹp, đáng yêu.",
+            "explanation": "Từ cần điền là \"lovely (++)\", mang nghĩa là \"Rất đẹp, đáng yêu.\"."
+          },
+          {
+            "id": "ex_22_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "wonderful (+++)"
+            ],
+            "hint": "Tuyệt vời, kỳ diệu.",
+            "explanation": "Từ cần điền là \"wonderful (+++)\", mang nghĩa là \"Tuyệt vời, kỳ diệu.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "22.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_22_2_0",
+            "text": "excellent (++++)",
+            "options": [
+              "Tuyệt quá!",
+              "Quá tuyệt!",
+              "Hoàn hảo!",
+              "Xuất sắc, cực kỳ tốt."
+            ],
+            "answer": "Xuất sắc, cực kỳ tốt.",
+            "explanation": "Từ \"excellent (++++)\" có nghĩa chính xác là \"Xuất sắc, cực kỳ tốt.\"."
+          },
+          {
+            "id": "ex_22_2_1",
+            "text": "Excellent!",
+            "options": [
+              "Xuất sắc, cực kỳ tốt.",
+              "Tuyệt quá!",
+              "Quá tuyệt!",
+              "Hoàn hảo!"
+            ],
+            "answer": "Tuyệt quá!",
+            "explanation": "Từ \"Excellent!\" có nghĩa chính xác là \"Tuyệt quá!\"."
+          },
+          {
+            "id": "ex_22_2_2",
+            "text": "Great!",
+            "options": [
+              "Hoàn hảo!",
+              "Xuất sắc, cực kỳ tốt.",
+              "Tuyệt quá!",
+              "Quá tuyệt!"
+            ],
+            "answer": "Quá tuyệt!",
+            "explanation": "Từ \"Great!\" có nghĩa chính xác là \"Quá tuyệt!\"."
+          },
+          {
+            "id": "ex_22_2_3",
+            "text": "Perfect!",
+            "options": [
+              "Quá tuyệt!",
+              "Tuyệt quá!",
+              "Xuất sắc, cực kỳ tốt.",
+              "Hoàn hảo!"
+            ],
+            "answer": "Hoàn hảo!",
+            "explanation": "Từ \"Perfect!\" có nghĩa chính xác là \"Hoàn hảo!\"."
+          }
+        ]
+      },
+      {
+        "exNum": "22.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_22_3_0",
+            "word": "good -> better -> the best",
+            "category": "Topic A",
+            "explanation": "Từ \"good -> better -> the best\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_22_3_1",
+            "word": "nice (+)",
+            "category": "Topic B",
+            "explanation": "Từ \"nice (+)\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_22_3_2",
+            "word": "lovely (++)",
+            "category": "Topic A",
+            "explanation": "Từ \"lovely (++)\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_22_3_3",
+            "word": "wonderful (+++)",
+            "category": "Topic B",
+            "explanation": "Từ \"wonderful (+++)\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_22_3_4",
+            "word": "excellent (++++)",
+            "category": "Topic A",
+            "explanation": "Từ \"excellent (++++)\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_22_3_5",
+            "word": "Excellent!",
+            "category": "Topic B",
+            "explanation": "Từ \"Excellent!\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "22.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_22_4_0",
+            "original": "I really like lovely (++)s.",
+            "correct": "It's a lovely day today!",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"lovely (++)\" thay vì \"lovely (++)s\"."
+          },
+          {
+            "id": "ex_22_4_1",
+            "original": "I really like wonderful (+++)s.",
+            "correct": "Mary's a wonderful person. Everybody loves her.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"wonderful (+++)\" thay vì \"wonderful (+++)s\"."
+          }
+        ]
+      },
+      {
+        "exNum": "22.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_22_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "excellent (++++)"
+            ],
+            "hint": "Xuất sắc, cực kỳ tốt.",
+            "explanation": "Từ cần điền là \"excellent (++++)\"."
+          },
+          {
+            "id": "ex_22_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "Excellent!"
+            ],
+            "hint": "Tuyệt quá!",
+            "explanation": "Từ cần điền là \"Excellent!\"."
+          },
+          {
+            "id": "ex_22_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "Great!"
+            ],
+            "hint": "Quá tuyệt!",
+            "explanation": "Từ cần điền là \"Great!\"."
+          },
+          {
+            "id": "ex_22_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "Perfect!"
+            ],
+            "hint": "Hoàn hảo!",
+            "explanation": "Từ cần điền là \"Perfect!\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 23,
     "title": "Unit 23: Common adjectives: people",
     "description": "Học các tính từ thông dụng để miêu tả tính cách con người (tốt, xấu, tính cách trẻ em) và các giới từ đi kèm với những tính từ này.",
-    "theory": [
-      {
-        "heading": "A. Saying positive (+)/good things about people (Nói điều tốt)",
-        "items": [
-          {
-            "word": "nice (**)",
-            "type": "Tính từ",
-            "phonetic": "/naɪs/",
-            "vi": "Tốt, tử tế (Từ phổ biến nhất để chỉ người ta thích).",
-            "example": "Mary's very nice. Richard's a nice man."
-          },
-          {
-            "word": "wonderful (****)",
-            "type": "Tính từ",
-            "phonetic": "/ˈwʌn.dɚ.fəl/",
-            "vi": "Tuyệt vời (Mức độ mạnh hơn 'nice'). KHÔNG DÙNG 'very wonderful'.",
-            "example": "Ron is a wonderful teacher."
-          },
-          {
-            "word": "kind",
-            "type": "Tính từ",
-            "phonetic": "/kaɪnd/",
-            "vi": "Tốt bụng, hay giúp đỡ người khác.",
-            "example": "She's very kind; she helps me with the children."
-          },
-          {
-            "word": "lovely",
-            "type": "Tính từ",
-            "phonetic": "/ˈlʌv.li/",
-            "vi": "Dễ thương, đáng yêu (= very kind / I like him very much).",
-            "example": "My teacher is a lovely man."
-          },
-          {
-            "word": "easy-going",
-            "type": "Tính từ",
-            "phonetic": "/ˌiː.ziˈɡoʊ.ɪŋ/",
-            "vi": "Thoải mái, dễ tính (= relaxed, easy to be with).",
-            "example": "My friend Neil is very easy-going."
-          },
-          {
-            "word": "happy",
-            "type": "Tính từ",
-            "phonetic": "/ˈhæp.i/",
-            "vi": "Vui vẻ (Ngược với unhappy).",
-            "example": "Maureen's a happy person."
-          },
-          {
-            "word": "intelligent",
-            "type": "Tính từ",
-            "phonetic": "/ɪnˈtel.ə.dʒənt/",
-            "vi": "Thông minh (= clever).",
-            "example": "All my friends are more intelligent than me."
-          }
-        ]
-      },
-      {
-        "heading": "B. Saying negative (-)/bad things about people (Nói điều xấu)",
-        "items": [
-          {
-            "word": "not very nice (**)",
-            "type": "Cụm từ",
-            "phonetic": "/nɒt ˈveri naɪs/",
-            "vi": "Không tốt lắm.",
-            "example": "Marcia is not very nice."
-          },
-          {
-            "word": "horrible (****)",
-            "type": "Tính từ",
-            "phonetic": "/ˈhɔːr.ə.bəl/",
-            "vi": "Đáng ghét, kinh khủng.",
-            "example": "Margaret is a horrible woman; nobody likes her."
-          },
-          {
-            "word": "difficult",
-            "type": "Tính từ",
-            "phonetic": "/ˈdɪf.ə.kəlt/",
-            "vi": "Khó tính, khó chịu.",
-            "example": "My uncle is a difficult person. He is never happy."
-          },
-          {
-            "word": "stupid (****)",
-            "type": "Tính từ",
-            "phonetic": "/ˈstuː.pɪd/",
-            "vi": "Ngốc nghếch (Từ rất nặng, cần cẩn thận khi dùng).",
-            "example": "That waiter is stupid."
-          },
-          {
-            "word": "selfish",
-            "type": "Tính từ",
-            "phonetic": "/ˈsel.fɪʃ/",
-            "vi": "Ích kỷ (Chỉ nghĩ cho bản thân).",
-            "example": "I don't like selfish people."
-          }
-        ]
-      },
-      {
-        "heading": "C. Little children (Trẻ nhỏ)",
-        "items": [
-          {
-            "word": "good",
-            "type": "Tính từ",
-            "phonetic": "/ɡʊd/",
-            "vi": "Ngoan ngoãn.",
-            "example": "Tim is very good."
-          },
-          {
-            "word": "well-behaved",
-            "type": "Tính từ",
-            "phonetic": "/ˌwel bɪˈheɪvd/",
-            "vi": "Cư xử đúng mực, ngoan.",
-            "example": "He is a well-behaved boy."
-          },
-          {
-            "word": "naughty",
-            "type": "Tính từ",
-            "phonetic": "/ˈnɑː.t̬i/",
-            "vi": "Hư, nghịch ngợm.",
-            "example": "His little sister is very naughty."
-          }
-        ]
-      },
-      {
-        "heading": "D. Prepositions (Giới từ đi với tính từ)",
-        "items": [
-          {
-            "word": "to me",
-            "type": "Giới từ",
-            "phonetic": "/tuː miː/",
-            "vi": "Tốt/Xấu VỚI TÔI.",
-            "example": "Jean was nice / kind / wonderful / horrible to me."
-          },
-          {
-            "word": "of you",
-            "type": "Giới từ",
-            "phonetic": "/ɒv juː/",
-            "vi": "Bạn thật tốt (khi làm gì đó).",
-            "example": "It was nice / kind of you to remember my birthday."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "nice (**)",
+          "type": "Tính từ",
+          "phonetic": "/naɪs/",
+          "vi": "Tốt, tử tế (Từ phổ biến nhất để chỉ người ta thích).",
+          "example": "Mary's very nice. Richard's a nice man.",
+          "bucket": 1,
+          "collocations": [
+            "very nice (**)",
+            "extremely nice (**)"
+          ],
+          "wordFamily": "Biến thể của nice (**)"
+        },
+        {
+          "word": "wonderful (****)",
+          "type": "Tính từ",
+          "phonetic": "/ˈwʌn.dɚ.fəl/",
+          "vi": "Tuyệt vời (Mức độ mạnh hơn 'nice'). KHÔNG DÙNG 'very wonderful'.",
+          "example": "Ron is a wonderful teacher.",
+          "bucket": 2,
+          "collocations": [
+            "very wonderful (****)",
+            "extremely wonderful (****)"
+          ],
+          "wordFamily": "Biến thể của wonderful (****)"
+        },
+        {
+          "word": "kind",
+          "type": "Tính từ",
+          "phonetic": "/kaɪnd/",
+          "vi": "Tốt bụng, hay giúp đỡ người khác.",
+          "example": "She's very kind; she helps me with the children.",
+          "bucket": 1,
+          "collocations": [
+            "very kind",
+            "extremely kind"
+          ],
+          "wordFamily": "Biến thể của kind"
+        },
+        {
+          "word": "lovely",
+          "type": "Tính từ",
+          "phonetic": "/ˈlʌv.li/",
+          "vi": "Dễ thương, đáng yêu (= very kind / I like him very much).",
+          "example": "My teacher is a lovely man.",
+          "bucket": 2,
+          "collocations": [
+            "very lovely",
+            "extremely lovely"
+          ],
+          "wordFamily": "Biến thể của lovely"
+        },
+        {
+          "word": "easy-going",
+          "type": "Tính từ",
+          "phonetic": "/ˌiː.ziˈɡoʊ.ɪŋ/",
+          "vi": "Thoải mái, dễ tính (= relaxed, easy to be with).",
+          "example": "My friend Neil is very easy-going.",
+          "bucket": 1,
+          "collocations": [
+            "very easy-going",
+            "extremely easy-going"
+          ],
+          "wordFamily": "Biến thể của easy-going"
+        },
+        {
+          "word": "happy",
+          "type": "Tính từ",
+          "phonetic": "/ˈhæp.i/",
+          "vi": "Vui vẻ (Ngược với unhappy).",
+          "example": "Maureen's a happy person.",
+          "bucket": 2,
+          "collocations": [
+            "very happy",
+            "extremely happy"
+          ],
+          "wordFamily": "Biến thể của happy"
+        },
+        {
+          "word": "intelligent",
+          "type": "Tính từ",
+          "phonetic": "/ɪnˈtel.ə.dʒənt/",
+          "vi": "Thông minh (= clever).",
+          "example": "All my friends are more intelligent than me.",
+          "bucket": 1,
+          "collocations": [
+            "very intelligent",
+            "extremely intelligent"
+          ],
+          "wordFamily": "Biến thể của intelligent"
+        },
+        {
+          "word": "not very nice (**)",
+          "type": "Cụm từ",
+          "phonetic": "/nɒt ˈveri naɪs/",
+          "vi": "Không tốt lắm.",
+          "example": "Marcia is not very nice.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của not very nice (**)"
+        },
+        {
+          "word": "horrible (****)",
+          "type": "Tính từ",
+          "phonetic": "/ˈhɔːr.ə.bəl/",
+          "vi": "Đáng ghét, kinh khủng.",
+          "example": "Margaret is a horrible woman; nobody likes her.",
+          "bucket": 1,
+          "collocations": [
+            "very horrible (****)",
+            "extremely horrible (****)"
+          ],
+          "wordFamily": "Biến thể của horrible (****)"
+        },
+        {
+          "word": "difficult",
+          "type": "Tính từ",
+          "phonetic": "/ˈdɪf.ə.kəlt/",
+          "vi": "Khó tính, khó chịu.",
+          "example": "My uncle is a difficult person. He is never happy.",
+          "bucket": 2,
+          "collocations": [
+            "very difficult",
+            "extremely difficult"
+          ],
+          "wordFamily": "Biến thể của difficult"
+        },
+        {
+          "word": "stupid (****)",
+          "type": "Tính từ",
+          "phonetic": "/ˈstuː.pɪd/",
+          "vi": "Ngốc nghếch (Từ rất nặng, cần cẩn thận khi dùng).",
+          "example": "That waiter is stupid.",
+          "bucket": 1,
+          "collocations": [
+            "very stupid (****)",
+            "extremely stupid (****)"
+          ],
+          "wordFamily": "Biến thể của stupid (****)"
+        },
+        {
+          "word": "selfish",
+          "type": "Tính từ",
+          "phonetic": "/ˈsel.fɪʃ/",
+          "vi": "Ích kỷ (Chỉ nghĩ cho bản thân).",
+          "example": "I don't like selfish people.",
+          "bucket": 2,
+          "collocations": [
+            "very selfish",
+            "extremely selfish"
+          ],
+          "wordFamily": "Biến thể của selfish"
+        },
+        {
+          "word": "good",
+          "type": "Tính từ",
+          "phonetic": "/ɡʊd/",
+          "vi": "Ngoan ngoãn.",
+          "example": "Tim is very good.",
+          "bucket": 1,
+          "collocations": [
+            "very good",
+            "extremely good"
+          ],
+          "wordFamily": "Biến thể của good"
+        },
+        {
+          "word": "well-behaved",
+          "type": "Tính từ",
+          "phonetic": "/ˌwel bɪˈheɪvd/",
+          "vi": "Cư xử đúng mực, ngoan.",
+          "example": "He is a well-behaved boy.",
+          "bucket": 2,
+          "collocations": [
+            "very well-behaved",
+            "extremely well-behaved"
+          ],
+          "wordFamily": "Biến thể của well-behaved"
+        },
+        {
+          "word": "naughty",
+          "type": "Tính từ",
+          "phonetic": "/ˈnɑː.t̬i/",
+          "vi": "Hư, nghịch ngợm.",
+          "example": "His little sister is very naughty.",
+          "bucket": 1,
+          "collocations": [
+            "very naughty",
+            "extremely naughty"
+          ],
+          "wordFamily": "Biến thể của naughty"
+        },
+        {
+          "word": "to me",
+          "type": "Giới từ",
+          "phonetic": "/tuː miː/",
+          "vi": "Tốt/Xấu VỚI TÔI.",
+          "example": "Jean was nice / kind / wonderful / horrible to me.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của to me"
+        },
+        {
+          "word": "of you",
+          "type": "Giới từ",
+          "phonetic": "/ɒv juː/",
+          "vi": "Bạn thật tốt (khi làm gì đó).",
+          "example": "It was nice / kind of you to remember my birthday.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của of you"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Saying positive (+)/good things about people (Nói điều tốt)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "nice (**)",
+              "value": "👉 Mary's very nice. Richard's a nice man."
+            },
+            {
+              "title": "wonderful (****)",
+              "value": "👉 Ron is a wonderful teacher."
+            },
+            {
+              "title": "kind",
+              "value": "👉 She's very kind; she helps me with the children."
+            },
+            {
+              "title": "lovely",
+              "value": "👉 My teacher is a lovely man."
+            },
+            {
+              "title": "easy-going",
+              "value": "👉 My friend Neil is very easy-going."
+            },
+            {
+              "title": "happy",
+              "value": "👉 Maureen's a happy person."
+            },
+            {
+              "title": "intelligent",
+              "value": "👉 All my friends are more intelligent than me."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Saying negative (-)/bad things about people (Nói điều xấu)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "not very nice (**)",
+              "value": "👉 Marcia is not very nice."
+            },
+            {
+              "title": "horrible (****)",
+              "value": "👉 Margaret is a horrible woman; nobody likes her."
+            },
+            {
+              "title": "difficult",
+              "value": "👉 My uncle is a difficult person. He is never happy."
+            },
+            {
+              "title": "stupid (****)",
+              "value": "👉 That waiter is stupid."
+            },
+            {
+              "title": "selfish",
+              "value": "👉 I don't like selfish people."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Little children (Trẻ nhỏ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "good",
+              "value": "👉 Tim is very good."
+            },
+            {
+              "title": "well-behaved",
+              "value": "👉 He is a well-behaved boy."
+            },
+            {
+              "title": "naughty",
+              "value": "👉 His little sister is very naughty."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Prepositions (Giới từ đi với tính từ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "to me",
+              "value": "👉 Jean was nice / kind / wonderful / horrible to me."
+            },
+            {
+              "title": "of you",
+              "value": "👉 It was nice / kind of you to remember my birthday."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"nice (**)\"",
+              "value": "nice (**)ly (Trạng từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"wonderful (****)\"",
+              "value": "wonderful (****)ly (Trạng từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"kind\"",
+              "value": "kindly (Trạng từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"lovely\"",
+              "value": "Ví dụ: very lovely, extremely lovely"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"easy-going\"",
+              "value": "Ví dụ: very easy-going, extremely easy-going"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"happy\"",
+              "value": "Ví dụ: very happy, extremely happy"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Positive (+)",
@@ -15144,160 +23754,580 @@ export const courseData = [
         "text": "Tim is very well-behaved, but his little sister is naughty.",
         "trans": "Tim rất ngoan ngoãn, nhưng em gái nhỏ của cậu ấy lại rất nghịch ngợm."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "23.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_23_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "nice (**)"
+            ],
+            "hint": "Tốt, tử tế (Từ phổ biến nhất để chỉ người ta thích).",
+            "explanation": "Từ cần điền là \"nice (**)\", mang nghĩa là \"Tốt, tử tế (Từ phổ biến nhất để chỉ người ta thích).\"."
+          },
+          {
+            "id": "ex_23_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "wonderful (****)"
+            ],
+            "hint": "Tuyệt vời (Mức độ mạnh hơn 'nice'). KHÔNG DÙNG 'very wonderful'.",
+            "explanation": "Từ cần điền là \"wonderful (****)\", mang nghĩa là \"Tuyệt vời (Mức độ mạnh hơn 'nice'). KHÔNG DÙNG 'very wonderful'.\"."
+          },
+          {
+            "id": "ex_23_1_2",
+            "text": "She's very [blank]; she helps me with the children.",
+            "answers": [
+              "kind"
+            ],
+            "hint": "Tốt bụng, hay giúp đỡ người khác.",
+            "explanation": "Từ cần điền là \"kind\", mang nghĩa là \"Tốt bụng, hay giúp đỡ người khác.\"."
+          },
+          {
+            "id": "ex_23_1_3",
+            "text": "My teacher is a [blank] man.",
+            "answers": [
+              "lovely"
+            ],
+            "hint": "Dễ thương, đáng yêu (= very kind / I like him very much).",
+            "explanation": "Từ cần điền là \"lovely\", mang nghĩa là \"Dễ thương, đáng yêu (= very kind / I like him very much).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "23.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_23_2_0",
+            "text": "easy-going",
+            "options": [
+              "Không tốt lắm.",
+              "Thông minh (= clever).",
+              "Vui vẻ (Ngược với unhappy).",
+              "Thoải mái, dễ tính (= relaxed, easy to be with)."
+            ],
+            "answer": "Thoải mái, dễ tính (= relaxed, easy to be with).",
+            "explanation": "Từ \"easy-going\" có nghĩa chính xác là \"Thoải mái, dễ tính (= relaxed, easy to be with).\"."
+          },
+          {
+            "id": "ex_23_2_1",
+            "text": "happy",
+            "options": [
+              "Không tốt lắm.",
+              "Thoải mái, dễ tính (= relaxed, easy to be with).",
+              "Vui vẻ (Ngược với unhappy).",
+              "Thông minh (= clever)."
+            ],
+            "answer": "Vui vẻ (Ngược với unhappy).",
+            "explanation": "Từ \"happy\" có nghĩa chính xác là \"Vui vẻ (Ngược với unhappy).\"."
+          },
+          {
+            "id": "ex_23_2_2",
+            "text": "intelligent",
+            "options": [
+              "Không tốt lắm.",
+              "Thoải mái, dễ tính (= relaxed, easy to be with).",
+              "Vui vẻ (Ngược với unhappy).",
+              "Thông minh (= clever)."
+            ],
+            "answer": "Thông minh (= clever).",
+            "explanation": "Từ \"intelligent\" có nghĩa chính xác là \"Thông minh (= clever).\"."
+          },
+          {
+            "id": "ex_23_2_3",
+            "text": "not very nice (**)",
+            "options": [
+              "Vui vẻ (Ngược với unhappy).",
+              "Không tốt lắm.",
+              "Thoải mái, dễ tính (= relaxed, easy to be with).",
+              "Thông minh (= clever)."
+            ],
+            "answer": "Không tốt lắm.",
+            "explanation": "Từ \"not very nice (**)\" có nghĩa chính xác là \"Không tốt lắm.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "23.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_23_3_0",
+            "word": "nice (**)",
+            "category": "Topic A",
+            "explanation": "Từ \"nice (**)\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_23_3_1",
+            "word": "wonderful (****)",
+            "category": "Topic B",
+            "explanation": "Từ \"wonderful (****)\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_23_3_2",
+            "word": "kind",
+            "category": "Topic A",
+            "explanation": "Từ \"kind\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_23_3_3",
+            "word": "lovely",
+            "category": "Topic B",
+            "explanation": "Từ \"lovely\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_23_3_4",
+            "word": "easy-going",
+            "category": "Topic A",
+            "explanation": "Từ \"easy-going\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_23_3_5",
+            "word": "happy",
+            "category": "Topic B",
+            "explanation": "Từ \"happy\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "23.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_23_4_0",
+            "original": "She's very kinds; she helps me with the children.",
+            "correct": "She's very kind; she helps me with the children.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"kind\" thay vì \"kinds\"."
+          },
+          {
+            "id": "ex_23_4_1",
+            "original": "My teacher is a lovelys man.",
+            "correct": "My teacher is a lovely man.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"lovely\" thay vì \"lovelys\"."
+          }
+        ]
+      },
+      {
+        "exNum": "23.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_23_5_0",
+            "text": "My friend Neil is very [blank].",
+            "answers": [
+              "easy-going"
+            ],
+            "hint": "Thoải mái, dễ tính (= relaxed, easy to be with).",
+            "explanation": "Từ cần điền là \"easy-going\"."
+          },
+          {
+            "id": "ex_23_5_1",
+            "text": "Maureen's a [blank] person.",
+            "answers": [
+              "happy"
+            ],
+            "hint": "Vui vẻ (Ngược với unhappy).",
+            "explanation": "Từ cần điền là \"happy\"."
+          },
+          {
+            "id": "ex_23_5_2",
+            "text": "All my friends are more [blank] than me.",
+            "answers": [
+              "intelligent"
+            ],
+            "hint": "Thông minh (= clever).",
+            "explanation": "Từ cần điền là \"intelligent\"."
+          },
+          {
+            "id": "ex_23_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "not very nice (**)"
+            ],
+            "hint": "Không tốt lắm.",
+            "explanation": "Từ cần điền là \"not very nice (**)\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 24,
     "title": "Unit 24: Words and prepositions",
     "description": "Một trong những bài học quan trọng nhất! Khám phá các động từ và tính từ luôn đi kèm với một giới từ cố định (ví dụ: listen TO, good AT) và các động từ thay đổi nghĩa khi đổi giới từ (look AT, look FOR, look AFTER).",
-    "theory": [
-      {
-        "heading": "A. Verbs and prepositions (Động từ đi kèm giới từ)",
-        "items": [
-          {
-            "word": "listen to",
-            "type": "Động từ",
-            "phonetic": "/ˈlɪs.ən tuː/",
-            "vi": "Lắng nghe (ai/cái gì).",
-            "example": "I listen to the radio in bed."
-          },
-          {
-            "word": "wait for",
-            "type": "Động từ",
-            "phonetic": "/weɪt fɔːr/",
-            "vi": "Chờ đợi (ai/cái gì).",
-            "example": "I waited for the bus for half an hour."
-          },
-          {
-            "word": "ask for",
-            "type": "Động từ",
-            "phonetic": "/æsk fɔːr/",
-            "vi": "Yêu cầu, xin (cái gì).",
-            "example": "I asked for a black coffee."
-          },
-          {
-            "word": "pay for",
-            "type": "Động từ",
-            "phonetic": "/peɪ fɔːr/",
-            "vi": "Trả tiền cho (cái gì).",
-            "example": "Where do I pay for our meal?"
-          },
-          {
-            "word": "belong to",
-            "type": "Động từ",
-            "phonetic": "/bɪˈlɑːŋ tuː/",
-            "vi": "Thuộc về (ai).",
-            "example": "This book belongs to Sarah."
-          },
-          {
-            "word": "think about",
-            "type": "Động từ",
-            "phonetic": "/θɪŋk əˈbaʊt/",
-            "vi": "Suy nghĩ về (ai/cái gì).",
-            "example": "What are you thinking about?"
-          },
-          {
-            "word": "thank (someone) for",
-            "type": "Động từ",
-            "phonetic": "/θæŋk fɔːr/",
-            "vi": "Cảm ơn (ai) vì (cái gì).",
-            "example": "Helena thanked her mother for the present."
-          },
-          {
-            "word": "apologise for",
-            "type": "Động từ",
-            "phonetic": "/əˈpɑː.lə.dʒaɪz fɔːr/",
-            "vi": "Xin lỗi vì (điều gì).",
-            "example": "Jamie apologised for being late."
-          }
-        ]
-      },
-      {
-        "heading": "B. Same verb, different preposition (Cùng động từ, khác giới từ)",
-        "items": [
-          {
-            "word": "look at",
-            "type": "Cụm động từ",
-            "phonetic": "/lʊk æt/",
-            "vi": "Nhìn vào.",
-            "example": "I love looking at old photographs."
-          },
-          {
-            "word": "look for",
-            "type": "Cụm động từ",
-            "phonetic": "/lʊk fɔːr/",
-            "vi": "Tìm kiếm (= try to find).",
-            "example": "I am looking for my key."
-          },
-          {
-            "word": "look after",
-            "type": "Cụm động từ",
-            "phonetic": "/lʊk ˈæf.tɚ/",
-            "vi": "Chăm sóc (= take care of).",
-            "example": "Parents look after their children."
-          },
-          {
-            "word": "look forward to",
-            "type": "Cụm động từ",
-            "phonetic": "/lʊk ˈfɔːr.wɚd tuː/",
-            "vi": "Mong chờ, háo hức (điều tốt đẹp sắp tới).",
-            "example": "I look forward to the holiday."
-          }
-        ]
-      },
-      {
-        "heading": "C. Adjectives and prepositions (Tính từ đi kèm giới từ)",
-        "items": [
-          {
-            "word": "good at / bad at",
-            "type": "Tính từ",
-            "phonetic": "/ɡʊd æt/ /bæd æt/",
-            "vi": "Giỏi về / Tệ về (môn học, kỹ năng). [KHÔNG DÙNG: good in].",
-            "example": "I'm good at geography but bad at maths."
-          },
-          {
-            "word": "interested in",
-            "type": "Tính từ",
-            "phonetic": "/ˈɪn.trɪ.stɪd ɪn/",
-            "vi": "Quan tâm, thích thú với.",
-            "example": "I'm interested in hearing all your news."
-          },
-          {
-            "word": "afraid of",
-            "type": "Tính từ",
-            "phonetic": "/əˈfreɪd əv/",
-            "vi": "Sợ hãi.",
-            "example": "He is afraid of mice."
-          },
-          {
-            "word": "proud of",
-            "type": "Tính từ",
-            "phonetic": "/praʊd əv/",
-            "vi": "Tự hào về.",
-            "example": "John is proud of winning a medal."
-          },
-          {
-            "word": "used to",
-            "type": "Tính từ",
-            "phonetic": "/juːst tuː/",
-            "vi": "Quen với (việc gì đó). Đồng nghĩa: accustomed to.",
-            "example": "I'm used to getting up early."
-          }
-        ]
-      },
-      {
-        "heading": "D. Grammar rule (Quy tắc ngữ pháp quan trọng)",
-        "items": [
-          {
-            "word": "Preposition + Noun / V-ing",
-            "type": "Ngữ pháp",
-            "phonetic": "/ˌprepəˈzɪʃn + naʊn/ | /v-ɪŋ/",
-            "vi": "Sau giới từ LUÔN LÀ Danh từ HOẶC Động từ thêm -ing. [KHÔNG BAO GIỜ dùng động từ nguyên mẫu].",
-            "example": "Joe is good at tennis (Noun). Joe is good at playing the piano (V-ing)."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "listen to",
+          "type": "Động từ",
+          "phonetic": "/ˈlɪs.ən tuː/",
+          "vi": "Lắng nghe (ai/cái gì).",
+          "example": "I listen to the radio in bed.",
+          "bucket": 1,
+          "collocations": [
+            "listen to something",
+            "always listen to"
+          ],
+          "wordFamily": "Biến thể của listen to"
+        },
+        {
+          "word": "wait for",
+          "type": "Động từ",
+          "phonetic": "/weɪt fɔːr/",
+          "vi": "Chờ đợi (ai/cái gì).",
+          "example": "I waited for the bus for half an hour.",
+          "bucket": 2,
+          "collocations": [
+            "wait for something",
+            "always wait for"
+          ],
+          "wordFamily": "Biến thể của wait for"
+        },
+        {
+          "word": "ask for",
+          "type": "Động từ",
+          "phonetic": "/æsk fɔːr/",
+          "vi": "Yêu cầu, xin (cái gì).",
+          "example": "I asked for a black coffee.",
+          "bucket": 1,
+          "collocations": [
+            "ask for something",
+            "always ask for"
+          ],
+          "wordFamily": "Biến thể của ask for"
+        },
+        {
+          "word": "pay for",
+          "type": "Động từ",
+          "phonetic": "/peɪ fɔːr/",
+          "vi": "Trả tiền cho (cái gì).",
+          "example": "Where do I pay for our meal?",
+          "bucket": 2,
+          "collocations": [
+            "pay for something",
+            "always pay for"
+          ],
+          "wordFamily": "Biến thể của pay for"
+        },
+        {
+          "word": "belong to",
+          "type": "Động từ",
+          "phonetic": "/bɪˈlɑːŋ tuː/",
+          "vi": "Thuộc về (ai).",
+          "example": "This book belongs to Sarah.",
+          "bucket": 1,
+          "collocations": [
+            "belong to something",
+            "always belong to"
+          ],
+          "wordFamily": "Biến thể của belong to"
+        },
+        {
+          "word": "think about",
+          "type": "Động từ",
+          "phonetic": "/θɪŋk əˈbaʊt/",
+          "vi": "Suy nghĩ về (ai/cái gì).",
+          "example": "What are you thinking about?",
+          "bucket": 2,
+          "collocations": [
+            "think about something",
+            "always think about"
+          ],
+          "wordFamily": "Biến thể của think about"
+        },
+        {
+          "word": "thank (someone) for",
+          "type": "Động từ",
+          "phonetic": "/θæŋk fɔːr/",
+          "vi": "Cảm ơn (ai) vì (cái gì).",
+          "example": "Helena thanked her mother for the present.",
+          "bucket": 1,
+          "collocations": [
+            "thank (someone) for something",
+            "always thank (someone) for"
+          ],
+          "wordFamily": "Biến thể của thank (someone) for"
+        },
+        {
+          "word": "apologise for",
+          "type": "Động từ",
+          "phonetic": "/əˈpɑː.lə.dʒaɪz fɔːr/",
+          "vi": "Xin lỗi vì (điều gì).",
+          "example": "Jamie apologised for being late.",
+          "bucket": 2,
+          "collocations": [
+            "apologise for something",
+            "always apologise for"
+          ],
+          "wordFamily": "Biến thể của apologise for"
+        },
+        {
+          "word": "look at",
+          "type": "Cụm động từ",
+          "phonetic": "/lʊk æt/",
+          "vi": "Nhìn vào.",
+          "example": "I love looking at old photographs.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của look at"
+        },
+        {
+          "word": "look for",
+          "type": "Cụm động từ",
+          "phonetic": "/lʊk fɔːr/",
+          "vi": "Tìm kiếm (= try to find).",
+          "example": "I am looking for my key.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của look for"
+        },
+        {
+          "word": "look after",
+          "type": "Cụm động từ",
+          "phonetic": "/lʊk ˈæf.tɚ/",
+          "vi": "Chăm sóc (= take care of).",
+          "example": "Parents look after their children.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của look after"
+        },
+        {
+          "word": "look forward to",
+          "type": "Cụm động từ",
+          "phonetic": "/lʊk ˈfɔːr.wɚd tuː/",
+          "vi": "Mong chờ, háo hức (điều tốt đẹp sắp tới).",
+          "example": "I look forward to the holiday.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của look forward to"
+        },
+        {
+          "word": "good at / bad at",
+          "type": "Tính từ",
+          "phonetic": "/ɡʊd æt/ /bæd æt/",
+          "vi": "Giỏi về / Tệ về (môn học, kỹ năng). [KHÔNG DÙNG: good in].",
+          "example": "I'm good at geography but bad at maths.",
+          "bucket": 1,
+          "collocations": [
+            "very good at / bad at",
+            "extremely good at / bad at"
+          ],
+          "wordFamily": "Biến thể của good at / bad at"
+        },
+        {
+          "word": "interested in",
+          "type": "Tính từ",
+          "phonetic": "/ˈɪn.trɪ.stɪd ɪn/",
+          "vi": "Quan tâm, thích thú với.",
+          "example": "I'm interested in hearing all your news.",
+          "bucket": 2,
+          "collocations": [
+            "very interested in",
+            "extremely interested in"
+          ],
+          "wordFamily": "Biến thể của interested in"
+        },
+        {
+          "word": "afraid of",
+          "type": "Tính từ",
+          "phonetic": "/əˈfreɪd əv/",
+          "vi": "Sợ hãi.",
+          "example": "He is afraid of mice.",
+          "bucket": 1,
+          "collocations": [
+            "very afraid of",
+            "extremely afraid of"
+          ],
+          "wordFamily": "Biến thể của afraid of"
+        },
+        {
+          "word": "proud of",
+          "type": "Tính từ",
+          "phonetic": "/praʊd əv/",
+          "vi": "Tự hào về.",
+          "example": "John is proud of winning a medal.",
+          "bucket": 2,
+          "collocations": [
+            "very proud of",
+            "extremely proud of"
+          ],
+          "wordFamily": "Biến thể của proud of"
+        },
+        {
+          "word": "used to",
+          "type": "Tính từ",
+          "phonetic": "/juːst tuː/",
+          "vi": "Quen với (việc gì đó). Đồng nghĩa: accustomed to.",
+          "example": "I'm used to getting up early.",
+          "bucket": 1,
+          "collocations": [
+            "very used to",
+            "extremely used to"
+          ],
+          "wordFamily": "Biến thể của used to"
+        },
+        {
+          "word": "Preposition + Noun / V-ing",
+          "type": "Ngữ pháp",
+          "phonetic": "/ˌprepəˈzɪʃn + naʊn/ | /v-ɪŋ/",
+          "vi": "Sau giới từ LUÔN LÀ Danh từ HOẶC Động từ thêm -ing. [KHÔNG BAO GIỜ dùng động từ nguyên mẫu].",
+          "example": "Joe is good at tennis (Noun). Joe is good at playing the piano (V-ing).",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của Preposition + Noun / V-ing"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Verbs and prepositions (Động từ đi kèm giới từ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "listen to",
+              "value": "👉 I listen to the radio in bed."
+            },
+            {
+              "title": "wait for",
+              "value": "👉 I waited for the bus for half an hour."
+            },
+            {
+              "title": "ask for",
+              "value": "👉 I asked for a black coffee."
+            },
+            {
+              "title": "pay for",
+              "value": "👉 Where do I pay for our meal?"
+            },
+            {
+              "title": "belong to",
+              "value": "👉 This book belongs to Sarah."
+            },
+            {
+              "title": "think about",
+              "value": "👉 What are you thinking about?"
+            },
+            {
+              "title": "thank (someone) for",
+              "value": "👉 Helena thanked her mother for the present."
+            },
+            {
+              "title": "apologise for",
+              "value": "👉 Jamie apologised for being late."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Same verb, different preposition (Cùng động từ, khác giới từ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "look at",
+              "value": "👉 I love looking at old photographs."
+            },
+            {
+              "title": "look for",
+              "value": "👉 I am looking for my key."
+            },
+            {
+              "title": "look after",
+              "value": "👉 Parents look after their children."
+            },
+            {
+              "title": "look forward to",
+              "value": "👉 I look forward to the holiday."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Adjectives and prepositions (Tính từ đi kèm giới từ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "good at / bad at",
+              "value": "👉 I'm good at geography but bad at maths."
+            },
+            {
+              "title": "interested in",
+              "value": "👉 I'm interested in hearing all your news."
+            },
+            {
+              "title": "afraid of",
+              "value": "👉 He is afraid of mice."
+            },
+            {
+              "title": "proud of",
+              "value": "👉 John is proud of winning a medal."
+            },
+            {
+              "title": "used to",
+              "value": "👉 I'm used to getting up early."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Grammar rule (Quy tắc ngữ pháp quan trọng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "Preposition + Noun / V-ing",
+              "value": "👉 Joe is good at tennis (Noun). Joe is good at playing the piano (V-ing)."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"listen to\"",
+              "value": "listen toer (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"wait for\"",
+              "value": "wait forer (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"ask for\"",
+              "value": "ask forer (Danh từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"pay for\"",
+              "value": "Ví dụ: pay for quickly, always pay for"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"belong to\"",
+              "value": "Ví dụ: belong to quickly, always belong to"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"think about\"",
+              "value": "Ví dụ: think about quickly, always think about"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "to",
@@ -15814,97 +24844,415 @@ export const courseData = [
         "text": "Joe is good at playing the piano.",
         "trans": "Joe rất giỏi chơi đàn piano."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "24.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_24_1_0",
+            "text": "I [blank] the radio in bed.",
+            "answers": [
+              "listen to"
+            ],
+            "hint": "Lắng nghe (ai/cái gì).",
+            "explanation": "Từ cần điền là \"listen to\", mang nghĩa là \"Lắng nghe (ai/cái gì).\"."
+          },
+          {
+            "id": "ex_24_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "wait for"
+            ],
+            "hint": "Chờ đợi (ai/cái gì).",
+            "explanation": "Từ cần điền là \"wait for\", mang nghĩa là \"Chờ đợi (ai/cái gì).\"."
+          },
+          {
+            "id": "ex_24_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "ask for"
+            ],
+            "hint": "Yêu cầu, xin (cái gì).",
+            "explanation": "Từ cần điền là \"ask for\", mang nghĩa là \"Yêu cầu, xin (cái gì).\"."
+          },
+          {
+            "id": "ex_24_1_3",
+            "text": "Where do I [blank] our meal?",
+            "answers": [
+              "pay for"
+            ],
+            "hint": "Trả tiền cho (cái gì).",
+            "explanation": "Từ cần điền là \"pay for\", mang nghĩa là \"Trả tiền cho (cái gì).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "24.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_24_2_0",
+            "text": "belong to",
+            "options": [
+              "Thuộc về (ai).",
+              "Suy nghĩ về (ai/cái gì).",
+              "Cảm ơn (ai) vì (cái gì).",
+              "Xin lỗi vì (điều gì)."
+            ],
+            "answer": "Thuộc về (ai).",
+            "explanation": "Từ \"belong to\" có nghĩa chính xác là \"Thuộc về (ai).\"."
+          },
+          {
+            "id": "ex_24_2_1",
+            "text": "think about",
+            "options": [
+              "Thuộc về (ai).",
+              "Suy nghĩ về (ai/cái gì).",
+              "Xin lỗi vì (điều gì).",
+              "Cảm ơn (ai) vì (cái gì)."
+            ],
+            "answer": "Suy nghĩ về (ai/cái gì).",
+            "explanation": "Từ \"think about\" có nghĩa chính xác là \"Suy nghĩ về (ai/cái gì).\"."
+          },
+          {
+            "id": "ex_24_2_2",
+            "text": "thank (someone) for",
+            "options": [
+              "Suy nghĩ về (ai/cái gì).",
+              "Thuộc về (ai).",
+              "Xin lỗi vì (điều gì).",
+              "Cảm ơn (ai) vì (cái gì)."
+            ],
+            "answer": "Cảm ơn (ai) vì (cái gì).",
+            "explanation": "Từ \"thank (someone) for\" có nghĩa chính xác là \"Cảm ơn (ai) vì (cái gì).\"."
+          },
+          {
+            "id": "ex_24_2_3",
+            "text": "apologise for",
+            "options": [
+              "Thuộc về (ai).",
+              "Suy nghĩ về (ai/cái gì).",
+              "Cảm ơn (ai) vì (cái gì).",
+              "Xin lỗi vì (điều gì)."
+            ],
+            "answer": "Xin lỗi vì (điều gì).",
+            "explanation": "Từ \"apologise for\" có nghĩa chính xác là \"Xin lỗi vì (điều gì).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "24.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_24_3_0",
+            "word": "listen to",
+            "category": "Topic A",
+            "explanation": "Từ \"listen to\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_24_3_1",
+            "word": "wait for",
+            "category": "Topic B",
+            "explanation": "Từ \"wait for\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_24_3_2",
+            "word": "ask for",
+            "category": "Topic A",
+            "explanation": "Từ \"ask for\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_24_3_3",
+            "word": "pay for",
+            "category": "Topic B",
+            "explanation": "Từ \"pay for\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_24_3_4",
+            "word": "belong to",
+            "category": "Topic A",
+            "explanation": "Từ \"belong to\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_24_3_5",
+            "word": "think about",
+            "category": "Topic B",
+            "explanation": "Từ \"think about\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "24.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_24_4_0",
+            "original": "I really like ask fors.",
+            "correct": "I asked for a black coffee.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"ask for\" thay vì \"ask fors\"."
+          },
+          {
+            "id": "ex_24_4_1",
+            "original": "Where do I pay fors our meal?",
+            "correct": "Where do I pay for our meal?",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"pay for\" thay vì \"pay fors\"."
+          }
+        ]
+      },
+      {
+        "exNum": "24.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_24_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "belong to"
+            ],
+            "hint": "Thuộc về (ai).",
+            "explanation": "Từ cần điền là \"belong to\"."
+          },
+          {
+            "id": "ex_24_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "think about"
+            ],
+            "hint": "Suy nghĩ về (ai/cái gì).",
+            "explanation": "Từ cần điền là \"think about\"."
+          },
+          {
+            "id": "ex_24_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "thank (someone) for"
+            ],
+            "hint": "Cảm ơn (ai) vì (cái gì).",
+            "explanation": "Từ cần điền là \"thank (someone) for\"."
+          },
+          {
+            "id": "ex_24_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "apologise for"
+            ],
+            "hint": "Xin lỗi vì (điều gì).",
+            "explanation": "Từ cần điền là \"apologise for\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 25,
     "title": "Unit 25: Prefixes",
     "description": "Tiền tố (Prefixes) là những âm tiết đứng ở đầu từ giúp thay đổi nghĩa của từ gốc. Nắm vững tiền tố giúp bạn tự suy luận ra nghĩa của hàng trăm từ mới.",
-    "theory": [
-      {
-        "heading": "A. ex- / half- / pre-",
-        "items": [
-          {
-            "word": "ex- (+ noun)",
-            "type": "Tiền tố",
-            "phonetic": "/eks/",
-            "vi": "Đã từng là (was but not now).",
-            "example": "ex-wife (vợ cũ), ex-president (cựu tổng thống)."
-          },
-          {
-            "word": "half-",
-            "type": "Tiền tố",
-            "phonetic": "/hæf/",
-            "vi": "Một nửa (50% of something).",
-            "example": "half-price (nửa giá), half-hour (nửa giờ)."
-          },
-          {
-            "word": "pre-",
-            "type": "Tiền tố",
-            "phonetic": "/priː/",
-            "vi": "Trước, tiền (before).",
-            "example": "pre-school (trường mầm non - trước khi đi học)."
-          }
-        ]
-      },
-      {
-        "heading": "B. in- / im- / non- / un- (Mang nghĩa Phủ định = NOT)",
-        "items": [
-          {
-            "word": "in-",
-            "type": "Tiền tố",
-            "phonetic": "/ɪn/",
-            "vi": "Không (not). Thường đi với tính từ.",
-            "example": "informal (không trang trọng), incorrect (không chính xác)."
-          },
-          {
-            "word": "im-",
-            "type": "Tiền tố",
-            "phonetic": "/ɪm/",
-            "vi": "Không (not). Thường đứng trước từ bắt đầu bằng m, p, b.",
-            "example": "impossible (không thể nào), impolite (bất lịch sự)."
-          },
-          {
-            "word": "non-",
-            "type": "Tiền tố",
-            "phonetic": "/nɑːn/",
-            "vi": "Không (not). Thường có dấu gạch nối.",
-            "example": "non-smoking (không hút thuốc), non-alcoholic (không có cồn)."
-          },
-          {
-            "word": "un-",
-            "type": "Tiền tố",
-            "phonetic": "/ʌn/",
-            "vi": "Không (not).",
-            "example": "unhappy (không vui), unsafe (không an toàn), unread (chưa đọc)."
-          }
-        ]
-      },
-      {
-        "heading": "C. re- (Làm lại điều gì đó)",
-        "items": [
-          {
-            "word": "re- (+ verb)",
-            "type": "Tiền tố",
-            "phonetic": "/riː/",
-            "vi": "Lại, một lần nữa (again).",
-            "example": "redo (làm lại), rewrite (viết lại), reread (đọc lại)."
-          }
-        ]
-      },
-      {
-        "heading": "D. Grammar Note (Lưu ý về dấu gạch nối)",
-        "items": [
-          {
-            "word": "Hyphens (-)",
-            "type": "Ngữ pháp",
-            "phonetic": "/ˈhaɪfnz/",
-            "vi": "Đôi khi tiền tố đi kèm dấu gạch nối (half-hour), đôi khi thì không (impossible). Bạn nên dùng từ điển khi không chắc chắn.",
-            "example": "ex-boss (có gạch) / uncomfortable (không gạch)."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "ex- (+ noun)",
+          "type": "Tiền tố",
+          "phonetic": "/eks/",
+          "vi": "Đã từng là (was but not now).",
+          "example": "ex-wife (vợ cũ), ex-president (cựu tổng thống).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của ex- (+ noun)"
+        },
+        {
+          "word": "half-",
+          "type": "Tiền tố",
+          "phonetic": "/hæf/",
+          "vi": "Một nửa (50% of something).",
+          "example": "half-price (nửa giá), half-hour (nửa giờ).",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của half-"
+        },
+        {
+          "word": "pre-",
+          "type": "Tiền tố",
+          "phonetic": "/priː/",
+          "vi": "Trước, tiền (before).",
+          "example": "pre-school (trường mầm non - trước khi đi học).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của pre-"
+        },
+        {
+          "word": "in-",
+          "type": "Tiền tố",
+          "phonetic": "/ɪn/",
+          "vi": "Không (not). Thường đi với tính từ.",
+          "example": "informal (không trang trọng), incorrect (không chính xác).",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của in-"
+        },
+        {
+          "word": "im-",
+          "type": "Tiền tố",
+          "phonetic": "/ɪm/",
+          "vi": "Không (not). Thường đứng trước từ bắt đầu bằng m, p, b.",
+          "example": "impossible (không thể nào), impolite (bất lịch sự).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của im-"
+        },
+        {
+          "word": "non-",
+          "type": "Tiền tố",
+          "phonetic": "/nɑːn/",
+          "vi": "Không (not). Thường có dấu gạch nối.",
+          "example": "non-smoking (không hút thuốc), non-alcoholic (không có cồn).",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của non-"
+        },
+        {
+          "word": "un-",
+          "type": "Tiền tố",
+          "phonetic": "/ʌn/",
+          "vi": "Không (not).",
+          "example": "unhappy (không vui), unsafe (không an toàn), unread (chưa đọc).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của un-"
+        },
+        {
+          "word": "re- (+ verb)",
+          "type": "Tiền tố",
+          "phonetic": "/riː/",
+          "vi": "Lại, một lần nữa (again).",
+          "example": "redo (làm lại), rewrite (viết lại), reread (đọc lại).",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của re- (+ verb)"
+        },
+        {
+          "word": "Hyphens (-)",
+          "type": "Ngữ pháp",
+          "phonetic": "/ˈhaɪfnz/",
+          "vi": "Đôi khi tiền tố đi kèm dấu gạch nối (half-hour), đôi khi thì không (impossible). Bạn nên dùng từ điển khi không chắc chắn.",
+          "example": "ex-boss (có gạch) / uncomfortable (không gạch).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của Hyphens (-)"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. ex- / half- / pre-",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "ex- (+ noun)",
+              "value": "👉 ex-wife (vợ cũ), ex-president (cựu tổng thống)."
+            },
+            {
+              "title": "half-",
+              "value": "👉 half-price (nửa giá), half-hour (nửa giờ)."
+            },
+            {
+              "title": "pre-",
+              "value": "👉 pre-school (trường mầm non - trước khi đi học)."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. in- / im- / non- / un- (Mang nghĩa Phủ định = NOT)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "in-",
+              "value": "👉 informal (không trang trọng), incorrect (không chính xác)."
+            },
+            {
+              "title": "im-",
+              "value": "👉 impossible (không thể nào), impolite (bất lịch sự)."
+            },
+            {
+              "title": "non-",
+              "value": "👉 non-smoking (không hút thuốc), non-alcoholic (không có cồn)."
+            },
+            {
+              "title": "un-",
+              "value": "👉 unhappy (không vui), unsafe (không an toàn), unread (chưa đọc)."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. re- (Làm lại điều gì đó)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "re- (+ verb)",
+              "value": "👉 redo (làm lại), rewrite (viết lại), reread (đọc lại)."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. Grammar Note (Lưu ý về dấu gạch nối)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "Hyphens (-)",
+              "value": "👉 ex-boss (có gạch) / uncomfortable (không gạch)."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"ex- (+ noun)\"",
+              "value": "Các dạng từ loại khác của \"ex- (+ noun)\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"half-\"",
+              "value": "Các dạng từ loại khác của \"half-\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"pre-\"",
+              "value": "Các dạng từ loại khác của \"pre-\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"in-\"",
+              "value": "Cụm từ liên quan đến in-"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"im-\"",
+              "value": "Cụm từ liên quan đến im-"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"non-\"",
+              "value": "Cụm từ liên quan đến non-"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "ex- (Cũ / Đã từng)",
@@ -16421,97 +25769,415 @@ export const courseData = [
         "text": "I can't read this. Please rewrite your homework.",
         "trans": "Tôi không thể đọc được chữ này. Vui lòng viết lại bài tập của bạn."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "25.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_25_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "ex- (+ noun)"
+            ],
+            "hint": "Đã từng là (was but not now).",
+            "explanation": "Từ cần điền là \"ex- (+ noun)\", mang nghĩa là \"Đã từng là (was but not now).\"."
+          },
+          {
+            "id": "ex_25_1_1",
+            "text": "[blank]price (nửa giá), [blank]hour (nửa giờ).",
+            "answers": [
+              "half-"
+            ],
+            "hint": "Một nửa (50% of something).",
+            "explanation": "Từ cần điền là \"half-\", mang nghĩa là \"Một nửa (50% of something).\"."
+          },
+          {
+            "id": "ex_25_1_2",
+            "text": "[blank]school (trường mầm non - trước khi đi học).",
+            "answers": [
+              "pre-"
+            ],
+            "hint": "Trước, tiền (before).",
+            "explanation": "Từ cần điền là \"pre-\", mang nghĩa là \"Trước, tiền (before).\"."
+          },
+          {
+            "id": "ex_25_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "in-"
+            ],
+            "hint": "Không (not). Thường đi với tính từ.",
+            "explanation": "Từ cần điền là \"in-\", mang nghĩa là \"Không (not). Thường đi với tính từ.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "25.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_25_2_0",
+            "text": "im-",
+            "options": [
+              "Lại, một lần nữa (again).",
+              "Không (not).",
+              "Không (not). Thường có dấu gạch nối.",
+              "Không (not). Thường đứng trước từ bắt đầu bằng m, p, b."
+            ],
+            "answer": "Không (not). Thường đứng trước từ bắt đầu bằng m, p, b.",
+            "explanation": "Từ \"im-\" có nghĩa chính xác là \"Không (not). Thường đứng trước từ bắt đầu bằng m, p, b.\"."
+          },
+          {
+            "id": "ex_25_2_1",
+            "text": "non-",
+            "options": [
+              "Không (not). Thường đứng trước từ bắt đầu bằng m, p, b.",
+              "Không (not). Thường có dấu gạch nối.",
+              "Không (not).",
+              "Lại, một lần nữa (again)."
+            ],
+            "answer": "Không (not). Thường có dấu gạch nối.",
+            "explanation": "Từ \"non-\" có nghĩa chính xác là \"Không (not). Thường có dấu gạch nối.\"."
+          },
+          {
+            "id": "ex_25_2_2",
+            "text": "un-",
+            "options": [
+              "Lại, một lần nữa (again).",
+              "Không (not). Thường có dấu gạch nối.",
+              "Không (not). Thường đứng trước từ bắt đầu bằng m, p, b.",
+              "Không (not)."
+            ],
+            "answer": "Không (not).",
+            "explanation": "Từ \"un-\" có nghĩa chính xác là \"Không (not).\"."
+          },
+          {
+            "id": "ex_25_2_3",
+            "text": "re- (+ verb)",
+            "options": [
+              "Không (not).",
+              "Không (not). Thường đứng trước từ bắt đầu bằng m, p, b.",
+              "Lại, một lần nữa (again).",
+              "Không (not). Thường có dấu gạch nối."
+            ],
+            "answer": "Lại, một lần nữa (again).",
+            "explanation": "Từ \"re- (+ verb)\" có nghĩa chính xác là \"Lại, một lần nữa (again).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "25.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_25_3_0",
+            "word": "ex- (+ noun)",
+            "category": "Topic A",
+            "explanation": "Từ \"ex- (+ noun)\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_25_3_1",
+            "word": "half-",
+            "category": "Topic B",
+            "explanation": "Từ \"half-\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_25_3_2",
+            "word": "pre-",
+            "category": "Topic A",
+            "explanation": "Từ \"pre-\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_25_3_3",
+            "word": "in-",
+            "category": "Topic B",
+            "explanation": "Từ \"in-\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_25_3_4",
+            "word": "im-",
+            "category": "Topic A",
+            "explanation": "Từ \"im-\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_25_3_5",
+            "word": "non-",
+            "category": "Topic B",
+            "explanation": "Từ \"non-\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "25.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_25_4_0",
+            "original": "pre-sschool (trường mầm non - trước khi đi học).",
+            "correct": "pre-school (trường mầm non - trước khi đi học).",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"pre-\" thay vì \"pre-s\"."
+          },
+          {
+            "id": "ex_25_4_1",
+            "original": "I really like in-s.",
+            "correct": "informal (không trang trọng), incorrect (không chính xác).",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"in-\" thay vì \"in-s\"."
+          }
+        ]
+      },
+      {
+        "exNum": "25.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_25_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "im-"
+            ],
+            "hint": "Không (not). Thường đứng trước từ bắt đầu bằng m, p, b.",
+            "explanation": "Từ cần điền là \"im-\"."
+          },
+          {
+            "id": "ex_25_5_1",
+            "text": "[blank]smoking (không hút thuốc), [blank]alcoholic (không có cồn).",
+            "answers": [
+              "non-"
+            ],
+            "hint": "Không (not). Thường có dấu gạch nối.",
+            "explanation": "Từ cần điền là \"non-\"."
+          },
+          {
+            "id": "ex_25_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "un-"
+            ],
+            "hint": "Không (not).",
+            "explanation": "Từ cần điền là \"un-\"."
+          },
+          {
+            "id": "ex_25_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "re- (+ verb)"
+            ],
+            "hint": "Lại, một lần nữa (again).",
+            "explanation": "Từ cần điền là \"re- (+ verb)\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 26,
     "title": "Unit 26: Suffixes",
     "description": "Hậu tố (Suffixes) nằm ở cuối từ, giúp bạn biến đổi từ loại (ví dụ từ Danh từ sang Tính từ, từ Động từ sang Danh từ chỉ người).",
-    "theory": [
-      {
-        "heading": "A. -er / -or (Chỉ người hoặc máy móc)",
-        "items": [
-          {
-            "word": "-er, -or (person)",
-            "type": "Hậu tố",
-            "phonetic": "/ɚ/",
-            "vi": "Chỉ người thực hiện hành động.",
-            "example": "worker (công nhân), swimmer (người bơi), instructor (người hướng dẫn)."
-          },
-          {
-            "word": "-er, -or (machine)",
-            "type": "Hậu tố",
-            "phonetic": "/ɚ/",
-            "vi": "Chỉ máy móc, dụng cụ.",
-            "example": "cooker (bếp lò), word processor (máy xử lý văn bản)."
-          }
-        ]
-      },
-      {
-        "heading": "B. -ful / -less (Có / Không có)",
-        "items": [
-          {
-            "word": "-ful",
-            "type": "Hậu tố",
-            "phonetic": "/fəl/",
-            "vi": "Đầy (full of), mang tính chất gì đó. (Tạo ra Tính từ).",
-            "example": "useful (hữu ích), beautiful (xinh đẹp)."
-          },
-          {
-            "word": "less",
-            "type": "Hậu tố",
-            "phonetic": "/ləs/",
-            "vi": "Không có (without). (Tạo ra Tính từ).",
-            "example": "useless (vô dụng), endless (bất tận, không có điểm dừng)."
-          }
-        ]
-      },
-      {
-        "heading": "C. -ology / -ics (Môn học)",
-        "items": [
-          {
-            "word": "-ology",
-            "type": "Hậu tố",
-            "phonetic": "/ˈɑː.lə.dʒi/",
-            "vi": "Môn học, ngành khoa học.",
-            "example": "sociology (xã hội học), psychology (tâm lý học)."
-          },
-          {
-            "word": "-ics",
-            "type": "Hậu tố",
-            "phonetic": "/ɪks/",
-            "vi": "Môn học (luôn chia số ít).",
-            "example": "economics (kinh tế học), politics (chính trị học)."
-          }
-        ]
-      },
-      {
-        "heading": "D. -ly / -ness / -y (Trạng từ và Danh từ trừu tượng)",
-        "items": [
-          {
-            "word": "-ly",
-            "type": "Hậu tố",
-            "phonetic": "/li/",
-            "vi": "Tạo thành Trạng từ từ Tính từ.",
-            "example": "sadly (một cách buồn bã), happily (một cách vui vẻ)."
-          },
-          {
-            "word": "-ness",
-            "type": "Hậu tố",
-            "phonetic": "/nəs/",
-            "vi": "Tạo thành Danh từ trừu tượng từ Tính từ.",
-            "example": "happiness (niềm vui), sadness (sự buồn bã)."
-          },
-          {
-            "word": "-y",
-            "type": "Hậu tố",
-            "phonetic": "/i/",
-            "vi": "Tạo thành Tính từ từ Danh từ (thường chỉ thời tiết).",
-            "example": "sandy (có cát), sunny (có nắng)."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "-er, -or (person)",
+          "type": "Hậu tố",
+          "phonetic": "/ɚ/",
+          "vi": "Chỉ người thực hiện hành động.",
+          "example": "worker (công nhân), swimmer (người bơi), instructor (người hướng dẫn).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của -er, -or (person)"
+        },
+        {
+          "word": "-er, -or (machine)",
+          "type": "Hậu tố",
+          "phonetic": "/ɚ/",
+          "vi": "Chỉ máy móc, dụng cụ.",
+          "example": "cooker (bếp lò), word processor (máy xử lý văn bản).",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của -er, -or (machine)"
+        },
+        {
+          "word": "-ful",
+          "type": "Hậu tố",
+          "phonetic": "/fəl/",
+          "vi": "Đầy (full of), mang tính chất gì đó. (Tạo ra Tính từ).",
+          "example": "useful (hữu ích), beautiful (xinh đẹp).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của -ful"
+        },
+        {
+          "word": "less",
+          "type": "Hậu tố",
+          "phonetic": "/ləs/",
+          "vi": "Không có (without). (Tạo ra Tính từ).",
+          "example": "useless (vô dụng), endless (bất tận, không có điểm dừng).",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của less"
+        },
+        {
+          "word": "-ology",
+          "type": "Hậu tố",
+          "phonetic": "/ˈɑː.lə.dʒi/",
+          "vi": "Môn học, ngành khoa học.",
+          "example": "sociology (xã hội học), psychology (tâm lý học).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của -ology"
+        },
+        {
+          "word": "-ics",
+          "type": "Hậu tố",
+          "phonetic": "/ɪks/",
+          "vi": "Môn học (luôn chia số ít).",
+          "example": "economics (kinh tế học), politics (chính trị học).",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của -ics"
+        },
+        {
+          "word": "-ly",
+          "type": "Hậu tố",
+          "phonetic": "/li/",
+          "vi": "Tạo thành Trạng từ từ Tính từ.",
+          "example": "sadly (một cách buồn bã), happily (một cách vui vẻ).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của -ly"
+        },
+        {
+          "word": "-ness",
+          "type": "Hậu tố",
+          "phonetic": "/nəs/",
+          "vi": "Tạo thành Danh từ trừu tượng từ Tính từ.",
+          "example": "happiness (niềm vui), sadness (sự buồn bã).",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của -ness"
+        },
+        {
+          "word": "-y",
+          "type": "Hậu tố",
+          "phonetic": "/i/",
+          "vi": "Tạo thành Tính từ từ Danh từ (thường chỉ thời tiết).",
+          "example": "sandy (có cát), sunny (có nắng).",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của -y"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. -er / -or (Chỉ người hoặc máy móc)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "-er, -or (person)",
+              "value": "👉 worker (công nhân), swimmer (người bơi), instructor (người hướng dẫn)."
+            },
+            {
+              "title": "-er, -or (machine)",
+              "value": "👉 cooker (bếp lò), word processor (máy xử lý văn bản)."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. -ful / -less (Có / Không có)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "-ful",
+              "value": "👉 useful (hữu ích), beautiful (xinh đẹp)."
+            },
+            {
+              "title": "less",
+              "value": "👉 useless (vô dụng), endless (bất tận, không có điểm dừng)."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. -ology / -ics (Môn học)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "-ology",
+              "value": "👉 sociology (xã hội học), psychology (tâm lý học)."
+            },
+            {
+              "title": "-ics",
+              "value": "👉 economics (kinh tế học), politics (chính trị học)."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. -ly / -ness / -y (Trạng từ và Danh từ trừu tượng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "-ly",
+              "value": "👉 sadly (một cách buồn bã), happily (một cách vui vẻ)."
+            },
+            {
+              "title": "-ness",
+              "value": "👉 happiness (niềm vui), sadness (sự buồn bã)."
+            },
+            {
+              "title": "-y",
+              "value": "👉 sandy (có cát), sunny (có nắng)."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"-er, -or (person)\"",
+              "value": "Các dạng từ loại khác của \"-er, -or (person)\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"-er, -or (machine)\"",
+              "value": "Các dạng từ loại khác của \"-er, -or (machine)\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"-ful\"",
+              "value": "Các dạng từ loại khác của \"-ful\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"less\"",
+              "value": "Cụm từ liên quan đến less"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"-ology\"",
+              "value": "Cụm từ liên quan đến -ology"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"-ics\"",
+              "value": "Cụm từ liên quan đến -ics"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Person / Machine (-er/-or)",
@@ -17028,155 +26694,583 @@ export const courseData = [
         "text": "The mother was smiling with happiness as she held her baby.",
         "trans": "Người mẹ mỉm cười hạnh phúc khi bế đứa con của mình."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "26.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_26_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "-er, -or (person)"
+            ],
+            "hint": "Chỉ người thực hiện hành động.",
+            "explanation": "Từ cần điền là \"-er, -or (person)\", mang nghĩa là \"Chỉ người thực hiện hành động.\"."
+          },
+          {
+            "id": "ex_26_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "-er, -or (machine)"
+            ],
+            "hint": "Chỉ máy móc, dụng cụ.",
+            "explanation": "Từ cần điền là \"-er, -or (machine)\", mang nghĩa là \"Chỉ máy móc, dụng cụ.\"."
+          },
+          {
+            "id": "ex_26_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "-ful"
+            ],
+            "hint": "Đầy (full of), mang tính chất gì đó. (Tạo ra Tính từ).",
+            "explanation": "Từ cần điền là \"-ful\", mang nghĩa là \"Đầy (full of), mang tính chất gì đó. (Tạo ra Tính từ).\"."
+          },
+          {
+            "id": "ex_26_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "less"
+            ],
+            "hint": "Không có (without). (Tạo ra Tính từ).",
+            "explanation": "Từ cần điền là \"less\", mang nghĩa là \"Không có (without). (Tạo ra Tính từ).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "26.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_26_2_0",
+            "text": "-ology",
+            "options": [
+              "Môn học (luôn chia số ít).",
+              "Môn học, ngành khoa học.",
+              "Tạo thành Danh từ trừu tượng từ Tính từ.",
+              "Tạo thành Trạng từ từ Tính từ."
+            ],
+            "answer": "Môn học, ngành khoa học.",
+            "explanation": "Từ \"-ology\" có nghĩa chính xác là \"Môn học, ngành khoa học.\"."
+          },
+          {
+            "id": "ex_26_2_1",
+            "text": "-ics",
+            "options": [
+              "Tạo thành Danh từ trừu tượng từ Tính từ.",
+              "Tạo thành Trạng từ từ Tính từ.",
+              "Môn học (luôn chia số ít).",
+              "Môn học, ngành khoa học."
+            ],
+            "answer": "Môn học (luôn chia số ít).",
+            "explanation": "Từ \"-ics\" có nghĩa chính xác là \"Môn học (luôn chia số ít).\"."
+          },
+          {
+            "id": "ex_26_2_2",
+            "text": "-ly",
+            "options": [
+              "Tạo thành Danh từ trừu tượng từ Tính từ.",
+              "Tạo thành Trạng từ từ Tính từ.",
+              "Môn học (luôn chia số ít).",
+              "Môn học, ngành khoa học."
+            ],
+            "answer": "Tạo thành Trạng từ từ Tính từ.",
+            "explanation": "Từ \"-ly\" có nghĩa chính xác là \"Tạo thành Trạng từ từ Tính từ.\"."
+          },
+          {
+            "id": "ex_26_2_3",
+            "text": "-ness",
+            "options": [
+              "Tạo thành Trạng từ từ Tính từ.",
+              "Tạo thành Danh từ trừu tượng từ Tính từ.",
+              "Môn học, ngành khoa học.",
+              "Môn học (luôn chia số ít)."
+            ],
+            "answer": "Tạo thành Danh từ trừu tượng từ Tính từ.",
+            "explanation": "Từ \"-ness\" có nghĩa chính xác là \"Tạo thành Danh từ trừu tượng từ Tính từ.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "26.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_26_3_0",
+            "word": "-er, -or (person)",
+            "category": "Topic A",
+            "explanation": "Từ \"-er, -or (person)\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_26_3_1",
+            "word": "-er, -or (machine)",
+            "category": "Topic B",
+            "explanation": "Từ \"-er, -or (machine)\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_26_3_2",
+            "word": "-ful",
+            "category": "Topic A",
+            "explanation": "Từ \"-ful\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_26_3_3",
+            "word": "less",
+            "category": "Topic B",
+            "explanation": "Từ \"less\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_26_3_4",
+            "word": "-ology",
+            "category": "Topic A",
+            "explanation": "Từ \"-ology\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_26_3_5",
+            "word": "-ics",
+            "category": "Topic B",
+            "explanation": "Từ \"-ics\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "26.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_26_4_0",
+            "original": "I really like -fuls.",
+            "correct": "useful (hữu ích), beautiful (xinh đẹp).",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"-ful\" thay vì \"-fuls\"."
+          },
+          {
+            "id": "ex_26_4_1",
+            "original": "I really like les.",
+            "correct": "useless (vô dụng), endless (bất tận, không có điểm dừng).",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"less\" thay vì \"les\"."
+          }
+        ]
+      },
+      {
+        "exNum": "26.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_26_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "-ology"
+            ],
+            "hint": "Môn học, ngành khoa học.",
+            "explanation": "Từ cần điền là \"-ology\"."
+          },
+          {
+            "id": "ex_26_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "-ics"
+            ],
+            "hint": "Môn học (luôn chia số ít).",
+            "explanation": "Từ cần điền là \"-ics\"."
+          },
+          {
+            "id": "ex_26_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "-ly"
+            ],
+            "hint": "Tạo thành Trạng từ từ Tính từ.",
+            "explanation": "Từ cần điền là \"-ly\"."
+          },
+          {
+            "id": "ex_26_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "-ness"
+            ],
+            "hint": "Tạo thành Danh từ trừu tượng từ Tính từ.",
+            "explanation": "Từ cần điền là \"-ness\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 27,
     "title": "Unit 27: Words you may confuse",
     "description": "Khắc phục triệt để các lỗi sai kinh điển khi sử dụng những từ có âm thanh giống nhau (quite/quiet, lose/loose) hoặc ý nghĩa dễ nhầm lẫn (lend/borrow, check/control).",
-    "theory": [
-      {
-        "heading": "A. Similar sounds (Các từ có âm thanh giống nhau)",
-        "items": [
-          {
-            "word": "quite",
-            "type": "Trạng từ",
-            "phonetic": "/kwaɪt/",
-            "vi": "Khá, tương đối (= not bad, quite good). (Âm /aɪ/ giống 'right').",
-            "example": "This book is quite good."
-          },
-          {
-            "word": "quiet",
-            "type": "Tính từ",
-            "phonetic": "/ˈkwaɪ.ət/",
-            "vi": "Yên lặng, không ồn ào. (Âm /aɪ.ə/ giống 'higher').",
-            "example": "My bedroom is very quiet."
-          },
-          {
-            "word": "lose",
-            "type": "Động từ",
-            "phonetic": "/luːz/",
-            "vi": "Đánh mất, không tìm thấy (Âm cuối là /z/, vần với 'shoes').",
-            "example": "Why do I always lose my keys!"
-          },
-          {
-            "word": "loose",
-            "type": "Tính từ",
-            "phonetic": "/luːs/",
-            "vi": "Lỏng lẻo, rộng, không chật (Âm cuối là /s/, vần với 'juice').",
-            "example": "These trousers are very loose."
-          },
-          {
-            "word": "fell",
-            "type": "Động từ",
-            "phonetic": "/fel/",
-            "vi": "Đã ngã (Quá khứ của fall).",
-            "example": "Yesterday I fell and broke my arm."
-          },
-          {
-            "word": "felt",
-            "type": "Động từ",
-            "phonetic": "/felt/",
-            "vi": "Đã cảm thấy (Quá khứ của feel).",
-            "example": "I felt ill yesterday, but I feel OK today."
-          },
-          {
-            "word": "cooker",
-            "type": "Danh từ",
-            "phonetic": "/ˈkʊk.ɚ/",
-            "vi": "Bếp lò (cái máy để nấu ăn).",
-            "example": "This cooker costs £500."
-          },
-          {
-            "word": "cook",
-            "type": "Danh từ",
-            "phonetic": "/kʊk/",
-            "vi": "Đầu bếp (người nấu ăn).",
-            "example": "He is a very good cook. [NOT He is a very good cooker]"
-          }
-        ]
-      },
-      {
-        "heading": "B. Similar or related meanings (Ý nghĩa tương tự nhau)",
-        "items": [
-          {
-            "word": "lend",
-            "type": "Động từ",
-            "phonetic": "/lend/",
-            "vi": "Cho mượn (bạn đưa cho ai đó).",
-            "example": "Will you lend me your bicycle?"
-          },
-          {
-            "word": "borrow",
-            "type": "Động từ",
-            "phonetic": "/ˈbɑː.roʊ/",
-            "vi": "Đi mượn (bạn lấy từ ai đó).",
-            "example": "Can I borrow your bicycle?"
-          },
-          {
-            "word": "check",
-            "type": "Động từ",
-            "phonetic": "/tʃek/",
-            "vi": "Kiểm tra, xem xét (xem có đúng/an toàn không).",
-            "example": "The passport officer checked my passport."
-          },
-          {
-            "word": "control",
-            "type": "Động từ",
-            "phonetic": "/kənˈtroʊl/",
-            "vi": "Điều khiển, kiểm soát (bảo nó phải làm gì).",
-            "example": "The mouse controls the computer. [NOT checked the computer]"
-          }
-        ]
-      },
-      {
-        "heading": "C. Other words often mixed up (Các từ khác thường bị nhầm)",
-        "items": [
-          {
-            "word": "afternoon",
-            "type": "Danh từ",
-            "phonetic": "/ˌæf.tɚˈnuːn/",
-            "vi": "Buổi chiều (Khoảng từ 12h trưa đến 5-6h chiều).",
-            "example": "I will see you in the afternoon."
-          },
-          {
-            "word": "evening",
-            "type": "Danh từ",
-            "phonetic": "/ˈiːv.nɪŋ/",
-            "vi": "Buổi tối (Khoảng 5-6h chiều đến 9-10h tối).",
-            "example": "We watch TV in the evening."
-          },
-          {
-            "word": "night",
-            "type": "Danh từ",
-            "phonetic": "/naɪt/",
-            "vi": "Đêm (Sau 9-10h tối).",
-            "example": "I sleep at night."
-          },
-          {
-            "word": "wait for",
-            "type": "Cụm động từ",
-            "phonetic": "/weɪt fɔːr/",
-            "vi": "Chờ đợi (ai/cái gì).",
-            "example": "They're waiting for the bus."
-          },
-          {
-            "word": "hope",
-            "type": "Động từ",
-            "phonetic": "/hoʊp/",
-            "vi": "Hy vọng (bạn thực sự muốn điều đó xảy ra).",
-            "example": "I hope I pass my exams."
-          },
-          {
-            "word": "expect",
-            "type": "Động từ",
-            "phonetic": "/ɪkˈspekt/",
-            "vi": "Nghĩ rằng điều gì sẽ xảy ra, dự kiến (dù có muốn hay không).",
-            "example": "I have not studied; I expect I'll fail my exams."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "quite",
+          "type": "Trạng từ",
+          "phonetic": "/kwaɪt/",
+          "vi": "Khá, tương đối (= not bad, quite good). (Âm /aɪ/ giống 'right').",
+          "example": "This book is quite good.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của quite"
+        },
+        {
+          "word": "quiet",
+          "type": "Tính từ",
+          "phonetic": "/ˈkwaɪ.ət/",
+          "vi": "Yên lặng, không ồn ào. (Âm /aɪ.ə/ giống 'higher').",
+          "example": "My bedroom is very quiet.",
+          "bucket": 2,
+          "collocations": [
+            "very quiet",
+            "extremely quiet"
+          ],
+          "wordFamily": "Biến thể của quiet"
+        },
+        {
+          "word": "lose",
+          "type": "Động từ",
+          "phonetic": "/luːz/",
+          "vi": "Đánh mất, không tìm thấy (Âm cuối là /z/, vần với 'shoes').",
+          "example": "Why do I always lose my keys!",
+          "bucket": 1,
+          "collocations": [
+            "lose something",
+            "always lose"
+          ],
+          "wordFamily": "Biến thể của lose"
+        },
+        {
+          "word": "loose",
+          "type": "Tính từ",
+          "phonetic": "/luːs/",
+          "vi": "Lỏng lẻo, rộng, không chật (Âm cuối là /s/, vần với 'juice').",
+          "example": "These trousers are very loose.",
+          "bucket": 2,
+          "collocations": [
+            "very loose",
+            "extremely loose"
+          ],
+          "wordFamily": "Biến thể của loose"
+        },
+        {
+          "word": "fell",
+          "type": "Động từ",
+          "phonetic": "/fel/",
+          "vi": "Đã ngã (Quá khứ của fall).",
+          "example": "Yesterday I fell and broke my arm.",
+          "bucket": 1,
+          "collocations": [
+            "fell something",
+            "always fell"
+          ],
+          "wordFamily": "Biến thể của fell"
+        },
+        {
+          "word": "felt",
+          "type": "Động từ",
+          "phonetic": "/felt/",
+          "vi": "Đã cảm thấy (Quá khứ của feel).",
+          "example": "I felt ill yesterday, but I feel OK today.",
+          "bucket": 2,
+          "collocations": [
+            "felt something",
+            "always felt"
+          ],
+          "wordFamily": "Biến thể của felt"
+        },
+        {
+          "word": "cooker",
+          "type": "Danh từ",
+          "phonetic": "/ˈkʊk.ɚ/",
+          "vi": "Bếp lò (cái máy để nấu ăn).",
+          "example": "This cooker costs £500.",
+          "bucket": 1,
+          "collocations": [
+            "have a cooker",
+            "use cooker"
+          ],
+          "wordFamily": "Biến thể của cooker"
+        },
+        {
+          "word": "cook",
+          "type": "Danh từ",
+          "phonetic": "/kʊk/",
+          "vi": "Đầu bếp (người nấu ăn).",
+          "example": "He is a very good cook. [NOT He is a very good cooker]",
+          "bucket": 2,
+          "collocations": [
+            "have a cook",
+            "use cook"
+          ],
+          "wordFamily": "Biến thể của cook"
+        },
+        {
+          "word": "lend",
+          "type": "Động từ",
+          "phonetic": "/lend/",
+          "vi": "Cho mượn (bạn đưa cho ai đó).",
+          "example": "Will you lend me your bicycle?",
+          "bucket": 1,
+          "collocations": [
+            "lend something",
+            "always lend"
+          ],
+          "wordFamily": "Biến thể của lend"
+        },
+        {
+          "word": "borrow",
+          "type": "Động từ",
+          "phonetic": "/ˈbɑː.roʊ/",
+          "vi": "Đi mượn (bạn lấy từ ai đó).",
+          "example": "Can I borrow your bicycle?",
+          "bucket": 2,
+          "collocations": [
+            "borrow something",
+            "always borrow"
+          ],
+          "wordFamily": "Biến thể của borrow"
+        },
+        {
+          "word": "check",
+          "type": "Động từ",
+          "phonetic": "/tʃek/",
+          "vi": "Kiểm tra, xem xét (xem có đúng/an toàn không).",
+          "example": "The passport officer checked my passport.",
+          "bucket": 1,
+          "collocations": [
+            "check something",
+            "always check"
+          ],
+          "wordFamily": "Biến thể của check"
+        },
+        {
+          "word": "control",
+          "type": "Động từ",
+          "phonetic": "/kənˈtroʊl/",
+          "vi": "Điều khiển, kiểm soát (bảo nó phải làm gì).",
+          "example": "The mouse controls the computer. [NOT checked the computer]",
+          "bucket": 2,
+          "collocations": [
+            "control something",
+            "always control"
+          ],
+          "wordFamily": "Biến thể của control"
+        },
+        {
+          "word": "afternoon",
+          "type": "Danh từ",
+          "phonetic": "/ˌæf.tɚˈnuːn/",
+          "vi": "Buổi chiều (Khoảng từ 12h trưa đến 5-6h chiều).",
+          "example": "I will see you in the afternoon.",
+          "bucket": 1,
+          "collocations": [
+            "have a afternoon",
+            "use afternoon"
+          ],
+          "wordFamily": "Biến thể của afternoon"
+        },
+        {
+          "word": "evening",
+          "type": "Danh từ",
+          "phonetic": "/ˈiːv.nɪŋ/",
+          "vi": "Buổi tối (Khoảng 5-6h chiều đến 9-10h tối).",
+          "example": "We watch TV in the evening.",
+          "bucket": 2,
+          "collocations": [
+            "have a evening",
+            "use evening"
+          ],
+          "wordFamily": "Biến thể của evening"
+        },
+        {
+          "word": "night",
+          "type": "Danh từ",
+          "phonetic": "/naɪt/",
+          "vi": "Đêm (Sau 9-10h tối).",
+          "example": "I sleep at night.",
+          "bucket": 1,
+          "collocations": [
+            "have a night",
+            "use night"
+          ],
+          "wordFamily": "Biến thể của night"
+        },
+        {
+          "word": "wait for",
+          "type": "Cụm động từ",
+          "phonetic": "/weɪt fɔːr/",
+          "vi": "Chờ đợi (ai/cái gì).",
+          "example": "They're waiting for the bus.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của wait for"
+        },
+        {
+          "word": "hope",
+          "type": "Động từ",
+          "phonetic": "/hoʊp/",
+          "vi": "Hy vọng (bạn thực sự muốn điều đó xảy ra).",
+          "example": "I hope I pass my exams.",
+          "bucket": 1,
+          "collocations": [
+            "hope something",
+            "always hope"
+          ],
+          "wordFamily": "Biến thể của hope"
+        },
+        {
+          "word": "expect",
+          "type": "Động từ",
+          "phonetic": "/ɪkˈspekt/",
+          "vi": "Nghĩ rằng điều gì sẽ xảy ra, dự kiến (dù có muốn hay không).",
+          "example": "I have not studied; I expect I'll fail my exams.",
+          "bucket": 2,
+          "collocations": [
+            "expect something",
+            "always expect"
+          ],
+          "wordFamily": "Biến thể của expect"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Similar sounds (Các từ có âm thanh giống nhau)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "quite",
+              "value": "👉 This book is quite good."
+            },
+            {
+              "title": "quiet",
+              "value": "👉 My bedroom is very quiet."
+            },
+            {
+              "title": "lose",
+              "value": "👉 Why do I always lose my keys!"
+            },
+            {
+              "title": "loose",
+              "value": "👉 These trousers are very loose."
+            },
+            {
+              "title": "fell",
+              "value": "👉 Yesterday I fell and broke my arm."
+            },
+            {
+              "title": "felt",
+              "value": "👉 I felt ill yesterday, but I feel OK today."
+            },
+            {
+              "title": "cooker",
+              "value": "👉 This cooker costs £500."
+            },
+            {
+              "title": "cook",
+              "value": "👉 He is a very good cook. [NOT He is a very good cooker]"
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Similar or related meanings (Ý nghĩa tương tự nhau)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "lend",
+              "value": "👉 Will you lend me your bicycle?"
+            },
+            {
+              "title": "borrow",
+              "value": "👉 Can I borrow your bicycle?"
+            },
+            {
+              "title": "check",
+              "value": "👉 The passport officer checked my passport."
+            },
+            {
+              "title": "control",
+              "value": "👉 The mouse controls the computer. [NOT checked the computer]"
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Other words often mixed up (Các từ khác thường bị nhầm)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "afternoon",
+              "value": "👉 I will see you in the afternoon."
+            },
+            {
+              "title": "evening",
+              "value": "👉 We watch TV in the evening."
+            },
+            {
+              "title": "night",
+              "value": "👉 I sleep at night."
+            },
+            {
+              "title": "wait for",
+              "value": "👉 They're waiting for the bus."
+            },
+            {
+              "title": "hope",
+              "value": "👉 I hope I pass my exams."
+            },
+            {
+              "title": "expect",
+              "value": "👉 I have not studied; I expect I'll fail my exams."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"quite\"",
+              "value": "Các dạng từ loại khác của \"quite\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"quiet\"",
+              "value": "quietly (Trạng từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"lose\"",
+              "value": "loseer (Danh từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"loose\"",
+              "value": "Ví dụ: very loose, extremely loose"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"fell\"",
+              "value": "Ví dụ: fell quickly, always fell"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"felt\"",
+              "value": "Ví dụ: felt quickly, always felt"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Quite / Quiet",
@@ -17693,141 +27787,543 @@ export const courseData = [
         "text": "He is a very good cook and he just bought a new cooker.",
         "trans": "Anh ấy là một đầu bếp rất giỏi và anh ấy vừa mua một chiếc bếp lò mới."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "27.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_27_1_0",
+            "text": "This book is [blank] good.",
+            "answers": [
+              "quite"
+            ],
+            "hint": "Khá, tương đối (= not bad, quite good). (Âm /aɪ/ giống 'right').",
+            "explanation": "Từ cần điền là \"quite\", mang nghĩa là \"Khá, tương đối (= not bad, quite good). (Âm /aɪ/ giống 'right').\"."
+          },
+          {
+            "id": "ex_27_1_1",
+            "text": "My bedroom is very [blank].",
+            "answers": [
+              "quiet"
+            ],
+            "hint": "Yên lặng, không ồn ào. (Âm /aɪ.ə/ giống 'higher').",
+            "explanation": "Từ cần điền là \"quiet\", mang nghĩa là \"Yên lặng, không ồn ào. (Âm /aɪ.ə/ giống 'higher').\"."
+          },
+          {
+            "id": "ex_27_1_2",
+            "text": "Why do I always [blank] my keys!",
+            "answers": [
+              "lose"
+            ],
+            "hint": "Đánh mất, không tìm thấy (Âm cuối là /z/, vần với 'shoes').",
+            "explanation": "Từ cần điền là \"lose\", mang nghĩa là \"Đánh mất, không tìm thấy (Âm cuối là /z/, vần với 'shoes').\"."
+          },
+          {
+            "id": "ex_27_1_3",
+            "text": "These trousers are very [blank].",
+            "answers": [
+              "loose"
+            ],
+            "hint": "Lỏng lẻo, rộng, không chật (Âm cuối là /s/, vần với 'juice').",
+            "explanation": "Từ cần điền là \"loose\", mang nghĩa là \"Lỏng lẻo, rộng, không chật (Âm cuối là /s/, vần với 'juice').\"."
+          }
+        ]
+      },
+      {
+        "exNum": "27.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_27_2_0",
+            "text": "fell",
+            "options": [
+              "Bếp lò (cái máy để nấu ăn).",
+              "Đã cảm thấy (Quá khứ của feel).",
+              "Đã ngã (Quá khứ của fall).",
+              "Đầu bếp (người nấu ăn)."
+            ],
+            "answer": "Đã ngã (Quá khứ của fall).",
+            "explanation": "Từ \"fell\" có nghĩa chính xác là \"Đã ngã (Quá khứ của fall).\"."
+          },
+          {
+            "id": "ex_27_2_1",
+            "text": "felt",
+            "options": [
+              "Đầu bếp (người nấu ăn).",
+              "Đã cảm thấy (Quá khứ của feel).",
+              "Đã ngã (Quá khứ của fall).",
+              "Bếp lò (cái máy để nấu ăn)."
+            ],
+            "answer": "Đã cảm thấy (Quá khứ của feel).",
+            "explanation": "Từ \"felt\" có nghĩa chính xác là \"Đã cảm thấy (Quá khứ của feel).\"."
+          },
+          {
+            "id": "ex_27_2_2",
+            "text": "cooker",
+            "options": [
+              "Đã cảm thấy (Quá khứ của feel).",
+              "Đã ngã (Quá khứ của fall).",
+              "Bếp lò (cái máy để nấu ăn).",
+              "Đầu bếp (người nấu ăn)."
+            ],
+            "answer": "Bếp lò (cái máy để nấu ăn).",
+            "explanation": "Từ \"cooker\" có nghĩa chính xác là \"Bếp lò (cái máy để nấu ăn).\"."
+          },
+          {
+            "id": "ex_27_2_3",
+            "text": "cook",
+            "options": [
+              "Đã cảm thấy (Quá khứ của feel).",
+              "Đã ngã (Quá khứ của fall).",
+              "Bếp lò (cái máy để nấu ăn).",
+              "Đầu bếp (người nấu ăn)."
+            ],
+            "answer": "Đầu bếp (người nấu ăn).",
+            "explanation": "Từ \"cook\" có nghĩa chính xác là \"Đầu bếp (người nấu ăn).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "27.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_27_3_0",
+            "word": "quite",
+            "category": "Topic A",
+            "explanation": "Từ \"quite\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_27_3_1",
+            "word": "quiet",
+            "category": "Topic B",
+            "explanation": "Từ \"quiet\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_27_3_2",
+            "word": "lose",
+            "category": "Topic A",
+            "explanation": "Từ \"lose\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_27_3_3",
+            "word": "loose",
+            "category": "Topic B",
+            "explanation": "Từ \"loose\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_27_3_4",
+            "word": "fell",
+            "category": "Topic A",
+            "explanation": "Từ \"fell\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_27_3_5",
+            "word": "felt",
+            "category": "Topic B",
+            "explanation": "Từ \"felt\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "27.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_27_4_0",
+            "original": "Why do I always loses my keys!",
+            "correct": "Why do I always lose my keys!",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"lose\" thay vì \"loses\"."
+          },
+          {
+            "id": "ex_27_4_1",
+            "original": "These trousers are very looses.",
+            "correct": "These trousers are very loose.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"loose\" thay vì \"looses\"."
+          }
+        ]
+      },
+      {
+        "exNum": "27.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_27_5_0",
+            "text": "Yesterday I [blank] and broke my arm.",
+            "answers": [
+              "fell"
+            ],
+            "hint": "Đã ngã (Quá khứ của fall).",
+            "explanation": "Từ cần điền là \"fell\"."
+          },
+          {
+            "id": "ex_27_5_1",
+            "text": "I [blank] ill yesterday, but I feel OK today.",
+            "answers": [
+              "felt"
+            ],
+            "hint": "Đã cảm thấy (Quá khứ của feel).",
+            "explanation": "Từ cần điền là \"felt\"."
+          },
+          {
+            "id": "ex_27_5_2",
+            "text": "This [blank] costs £500.",
+            "answers": [
+              "cooker"
+            ],
+            "hint": "Bếp lò (cái máy để nấu ăn).",
+            "explanation": "Từ cần điền là \"cooker\"."
+          },
+          {
+            "id": "ex_27_5_3",
+            "text": "He is a very good [blank]. [NOT He is a very good cooker]",
+            "answers": [
+              "cook"
+            ],
+            "hint": "Đầu bếp (người nấu ăn).",
+            "explanation": "Từ cần điền là \"cook\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 28,
     "title": "Unit 28: Birth, marriage and death",
     "description": "Học toàn bộ hệ thống từ vựng về ba cột mốc quan trọng nhất trong vòng đời con người: sinh ra, kết hôn và qua đời, cùng các cụm từ đi kèm.",
-    "theory": [
-      {
-        "heading": "A. Birth (Sự ra đời)",
-        "items": [
-          {
-            "word": "have a baby",
-            "type": "Cụm từ",
-            "phonetic": "/hæv ə ˈbeɪ.bi/",
-            "vi": "Sinh em bé.",
-            "example": "Diana had a baby yesterday."
-          },
-          {
-            "word": "be born",
-            "type": "Động từ (Bị động)",
-            "phonetic": "/bɔːrn/",
-            "vi": "Được sinh ra.",
-            "example": "He was born at 1.15 yesterday morning. / The parents were born in 1974."
-          },
-          {
-            "word": "weigh",
-            "type": "Động từ",
-            "phonetic": "/weɪ/",
-            "vi": "Nặng (bao nhiêu cân).",
-            "example": "The baby weighed 3 kilograms."
-          },
-          {
-            "word": "call someone after...",
-            "type": "Cụm động từ",
-            "phonetic": "/kɑːl ˈæf.tɚ/",
-            "vi": "Đặt tên theo tên của ai đó.",
-            "example": "They are going to call him John - after John, his grandfather."
-          }
-        ]
-      },
-      {
-        "heading": "B. Marriage (Kết hôn)",
-        "items": [
-          {
-            "word": "single",
-            "type": "Tính từ",
-            "phonetic": "/ˈsɪŋ.ɡəl/",
-            "vi": "Độc thân (không có đối tác/vợ/chồng).",
-            "example": "If you do not have a partner, you are single."
-          },
-          {
-            "word": "married",
-            "type": "Tính từ",
-            "phonetic": "/ˈmer.id/",
-            "vi": "Đã kết hôn.",
-            "example": "If you have a husband or wife, you are married."
-          },
-          {
-            "word": "widowed",
-            "type": "Tính từ",
-            "phonetic": "/ˈwɪd.oʊd/",
-            "vi": "Góa (chồng hoặc vợ đã mất).",
-            "example": "If your husband or wife dies, you are widowed."
-          },
-          {
-            "word": "separated / divorced",
-            "type": "Tính từ",
-            "phonetic": "/ˈsep.ə.reɪ.tɪd/ /dɪˈvɔːrst/",
-            "vi": "Ly thân / Ly hôn.",
-            "example": "If your marriage breaks up, you are separated/divorced."
-          },
-          {
-            "word": "bride / (bride)groom",
-            "type": "Danh từ",
-            "phonetic": "/braɪd/ /ɡruːm/",
-            "vi": "Cô dâu / Chú rể.",
-            "example": "The bride and groom looked very happy."
-          },
-          {
-            "word": "get married to",
-            "type": "Cụm từ",
-            "phonetic": "/get ˈmer.id tuː/",
-            "vi": "Kết hôn với ai. [KHÔNG DÙNG: married with].",
-            "example": "Sarah got married to Bill."
-          },
-          {
-            "word": "honeymoon",
-            "type": "Danh từ",
-            "phonetic": "/ˈhʌn.i.muːn/",
-            "vi": "Tuần trăng mật.",
-            "example": "They went on honeymoon to Italy."
-          }
-        ]
-      },
-      {
-        "heading": "C. Death (Sự qua đời)",
-        "items": [
-          {
-            "word": "die",
-            "type": "Động từ",
-            "phonetic": "/daɪ/",
-            "vi": "Chết, qua đời (Hành động).",
-            "example": "He died last year."
-          },
-          {
-            "word": "die of",
-            "type": "Cụm động từ",
-            "phonetic": "/daɪ əv/",
-            "vi": "Chết vì bệnh gì đó.",
-            "example": "He died of a heart attack."
-          },
-          {
-            "word": "dead",
-            "type": "Tính từ",
-            "phonetic": "/ded/",
-            "vi": "Đã chết (Trạng thái).",
-            "example": "Bill is dead."
-          },
-          {
-            "word": "death",
-            "type": "Danh từ",
-            "phonetic": "/deθ/",
-            "vi": "Cái chết.",
-            "example": "His death was a great shock."
-          },
-          {
-            "word": "funeral",
-            "type": "Danh từ",
-            "phonetic": "/ˈfjuː.nɚ.əl/",
-            "vi": "Đám tang.",
-            "example": "Many people went to the funeral."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "have a baby",
+          "type": "Cụm từ",
+          "phonetic": "/hæv ə ˈbeɪ.bi/",
+          "vi": "Sinh em bé.",
+          "example": "Diana had a baby yesterday.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của have a baby"
+        },
+        {
+          "word": "be born",
+          "type": "Động từ (Bị động)",
+          "phonetic": "/bɔːrn/",
+          "vi": "Được sinh ra.",
+          "example": "He was born at 1.15 yesterday morning. / The parents were born in 1974.",
+          "bucket": 2,
+          "collocations": [
+            "be born something",
+            "always be born"
+          ],
+          "wordFamily": "Biến thể của be born"
+        },
+        {
+          "word": "weigh",
+          "type": "Động từ",
+          "phonetic": "/weɪ/",
+          "vi": "Nặng (bao nhiêu cân).",
+          "example": "The baby weighed 3 kilograms.",
+          "bucket": 1,
+          "collocations": [
+            "weigh something",
+            "always weigh"
+          ],
+          "wordFamily": "Biến thể của weigh"
+        },
+        {
+          "word": "call someone after...",
+          "type": "Cụm động từ",
+          "phonetic": "/kɑːl ˈæf.tɚ/",
+          "vi": "Đặt tên theo tên của ai đó.",
+          "example": "They are going to call him John - after John, his grandfather.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của call someone after..."
+        },
+        {
+          "word": "single",
+          "type": "Tính từ",
+          "phonetic": "/ˈsɪŋ.ɡəl/",
+          "vi": "Độc thân (không có đối tác/vợ/chồng).",
+          "example": "If you do not have a partner, you are single.",
+          "bucket": 1,
+          "collocations": [
+            "very single",
+            "extremely single"
+          ],
+          "wordFamily": "Biến thể của single"
+        },
+        {
+          "word": "married",
+          "type": "Tính từ",
+          "phonetic": "/ˈmer.id/",
+          "vi": "Đã kết hôn.",
+          "example": "If you have a husband or wife, you are married.",
+          "bucket": 2,
+          "collocations": [
+            "very married",
+            "extremely married"
+          ],
+          "wordFamily": "Biến thể của married"
+        },
+        {
+          "word": "widowed",
+          "type": "Tính từ",
+          "phonetic": "/ˈwɪd.oʊd/",
+          "vi": "Góa (chồng hoặc vợ đã mất).",
+          "example": "If your husband or wife dies, you are widowed.",
+          "bucket": 1,
+          "collocations": [
+            "very widowed",
+            "extremely widowed"
+          ],
+          "wordFamily": "Biến thể của widowed"
+        },
+        {
+          "word": "separated / divorced",
+          "type": "Tính từ",
+          "phonetic": "/ˈsep.ə.reɪ.tɪd/ /dɪˈvɔːrst/",
+          "vi": "Ly thân / Ly hôn.",
+          "example": "If your marriage breaks up, you are separated/divorced.",
+          "bucket": 2,
+          "collocations": [
+            "very separated / divorced",
+            "extremely separated / divorced"
+          ],
+          "wordFamily": "Biến thể của separated / divorced"
+        },
+        {
+          "word": "bride / (bride)groom",
+          "type": "Danh từ",
+          "phonetic": "/braɪd/ /ɡruːm/",
+          "vi": "Cô dâu / Chú rể.",
+          "example": "The bride and groom looked very happy.",
+          "bucket": 1,
+          "collocations": [
+            "have a bride / (bride)groom",
+            "use bride / (bride)groom"
+          ],
+          "wordFamily": "Biến thể của bride / (bride)groom"
+        },
+        {
+          "word": "get married to",
+          "type": "Cụm từ",
+          "phonetic": "/get ˈmer.id tuː/",
+          "vi": "Kết hôn với ai. [KHÔNG DÙNG: married with].",
+          "example": "Sarah got married to Bill.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của get married to"
+        },
+        {
+          "word": "honeymoon",
+          "type": "Danh từ",
+          "phonetic": "/ˈhʌn.i.muːn/",
+          "vi": "Tuần trăng mật.",
+          "example": "They went on honeymoon to Italy.",
+          "bucket": 1,
+          "collocations": [
+            "have a honeymoon",
+            "use honeymoon"
+          ],
+          "wordFamily": "Biến thể của honeymoon"
+        },
+        {
+          "word": "die",
+          "type": "Động từ",
+          "phonetic": "/daɪ/",
+          "vi": "Chết, qua đời (Hành động).",
+          "example": "He died last year.",
+          "bucket": 2,
+          "collocations": [
+            "die something",
+            "always die"
+          ],
+          "wordFamily": "Biến thể của die"
+        },
+        {
+          "word": "die of",
+          "type": "Cụm động từ",
+          "phonetic": "/daɪ əv/",
+          "vi": "Chết vì bệnh gì đó.",
+          "example": "He died of a heart attack.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của die of"
+        },
+        {
+          "word": "dead",
+          "type": "Tính từ",
+          "phonetic": "/ded/",
+          "vi": "Đã chết (Trạng thái).",
+          "example": "Bill is dead.",
+          "bucket": 2,
+          "collocations": [
+            "very dead",
+            "extremely dead"
+          ],
+          "wordFamily": "Biến thể của dead"
+        },
+        {
+          "word": "death",
+          "type": "Danh từ",
+          "phonetic": "/deθ/",
+          "vi": "Cái chết.",
+          "example": "His death was a great shock.",
+          "bucket": 1,
+          "collocations": [
+            "have a death",
+            "use death"
+          ],
+          "wordFamily": "Biến thể của death"
+        },
+        {
+          "word": "funeral",
+          "type": "Danh từ",
+          "phonetic": "/ˈfjuː.nɚ.əl/",
+          "vi": "Đám tang.",
+          "example": "Many people went to the funeral.",
+          "bucket": 2,
+          "collocations": [
+            "have a funeral",
+            "use funeral"
+          ],
+          "wordFamily": "Biến thể của funeral"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Birth (Sự ra đời)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "have a baby",
+              "value": "👉 Diana had a baby yesterday."
+            },
+            {
+              "title": "be born",
+              "value": "👉 He was born at 1.15 yesterday morning. / The parents were born in 1974."
+            },
+            {
+              "title": "weigh",
+              "value": "👉 The baby weighed 3 kilograms."
+            },
+            {
+              "title": "call someone after...",
+              "value": "👉 They are going to call him John - after John, his grandfather."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Marriage (Kết hôn)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "single",
+              "value": "👉 If you do not have a partner, you are single."
+            },
+            {
+              "title": "married",
+              "value": "👉 If you have a husband or wife, you are married."
+            },
+            {
+              "title": "widowed",
+              "value": "👉 If your husband or wife dies, you are widowed."
+            },
+            {
+              "title": "separated / divorced",
+              "value": "👉 If your marriage breaks up, you are separated/divorced."
+            },
+            {
+              "title": "bride / (bride)groom",
+              "value": "👉 The bride and groom looked very happy."
+            },
+            {
+              "title": "get married to",
+              "value": "👉 Sarah got married to Bill."
+            },
+            {
+              "title": "honeymoon",
+              "value": "👉 They went on honeymoon to Italy."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Death (Sự qua đời)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "die",
+              "value": "👉 He died last year."
+            },
+            {
+              "title": "die of",
+              "value": "👉 He died of a heart attack."
+            },
+            {
+              "title": "dead",
+              "value": "👉 Bill is dead."
+            },
+            {
+              "title": "death",
+              "value": "👉 His death was a great shock."
+            },
+            {
+              "title": "funeral",
+              "value": "👉 Many people went to the funeral."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"have a baby\"",
+              "value": "Các dạng từ loại khác của \"have a baby\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"be born\"",
+              "value": "be borner (Danh từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"weigh\"",
+              "value": "weigher (Danh từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"call someone after...\"",
+              "value": "Cụm từ liên quan đến call someone after..."
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"single\"",
+              "value": "Ví dụ: very single, extremely single"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"married\"",
+              "value": "Ví dụ: very married, extremely married"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Birth (Sinh ra)",
@@ -18344,139 +28840,544 @@ export const courseData = [
         "text": "His death was a great shock to her.",
         "trans": "Cái chết của anh ấy là một cú sốc lớn đối với cô."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "28.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_28_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "have a baby"
+            ],
+            "hint": "Sinh em bé.",
+            "explanation": "Từ cần điền là \"have a baby\", mang nghĩa là \"Sinh em bé.\"."
+          },
+          {
+            "id": "ex_28_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "be born"
+            ],
+            "hint": "Được sinh ra.",
+            "explanation": "Từ cần điền là \"be born\", mang nghĩa là \"Được sinh ra.\"."
+          },
+          {
+            "id": "ex_28_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "weigh"
+            ],
+            "hint": "Nặng (bao nhiêu cân).",
+            "explanation": "Từ cần điền là \"weigh\", mang nghĩa là \"Nặng (bao nhiêu cân).\"."
+          },
+          {
+            "id": "ex_28_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "call someone after..."
+            ],
+            "hint": "Đặt tên theo tên của ai đó.",
+            "explanation": "Từ cần điền là \"call someone after...\", mang nghĩa là \"Đặt tên theo tên của ai đó.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "28.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_28_2_0",
+            "text": "single",
+            "options": [
+              "Ly thân / Ly hôn.",
+              "Đã kết hôn.",
+              "Góa (chồng hoặc vợ đã mất).",
+              "Độc thân (không có đối tác/vợ/chồng)."
+            ],
+            "answer": "Độc thân (không có đối tác/vợ/chồng).",
+            "explanation": "Từ \"single\" có nghĩa chính xác là \"Độc thân (không có đối tác/vợ/chồng).\"."
+          },
+          {
+            "id": "ex_28_2_1",
+            "text": "married",
+            "options": [
+              "Ly thân / Ly hôn.",
+              "Góa (chồng hoặc vợ đã mất).",
+              "Đã kết hôn.",
+              "Độc thân (không có đối tác/vợ/chồng)."
+            ],
+            "answer": "Đã kết hôn.",
+            "explanation": "Từ \"married\" có nghĩa chính xác là \"Đã kết hôn.\"."
+          },
+          {
+            "id": "ex_28_2_2",
+            "text": "widowed",
+            "options": [
+              "Góa (chồng hoặc vợ đã mất).",
+              "Độc thân (không có đối tác/vợ/chồng).",
+              "Ly thân / Ly hôn.",
+              "Đã kết hôn."
+            ],
+            "answer": "Góa (chồng hoặc vợ đã mất).",
+            "explanation": "Từ \"widowed\" có nghĩa chính xác là \"Góa (chồng hoặc vợ đã mất).\"."
+          },
+          {
+            "id": "ex_28_2_3",
+            "text": "separated / divorced",
+            "options": [
+              "Ly thân / Ly hôn.",
+              "Độc thân (không có đối tác/vợ/chồng).",
+              "Đã kết hôn.",
+              "Góa (chồng hoặc vợ đã mất)."
+            ],
+            "answer": "Ly thân / Ly hôn.",
+            "explanation": "Từ \"separated / divorced\" có nghĩa chính xác là \"Ly thân / Ly hôn.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "28.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_28_3_0",
+            "word": "have a baby",
+            "category": "Topic A",
+            "explanation": "Từ \"have a baby\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_28_3_1",
+            "word": "be born",
+            "category": "Topic B",
+            "explanation": "Từ \"be born\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_28_3_2",
+            "word": "weigh",
+            "category": "Topic A",
+            "explanation": "Từ \"weigh\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_28_3_3",
+            "word": "call someone after...",
+            "category": "Topic B",
+            "explanation": "Từ \"call someone after...\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_28_3_4",
+            "word": "single",
+            "category": "Topic A",
+            "explanation": "Từ \"single\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_28_3_5",
+            "word": "married",
+            "category": "Topic B",
+            "explanation": "Từ \"married\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "28.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_28_4_0",
+            "original": "I really like weighs.",
+            "correct": "The baby weighed 3 kilograms.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"weigh\" thay vì \"weighs\"."
+          },
+          {
+            "id": "ex_28_4_1",
+            "original": "I really like call someone after...s.",
+            "correct": "They are going to call him John - after John, his grandfather.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"call someone after...\" thay vì \"call someone after...s\"."
+          }
+        ]
+      },
+      {
+        "exNum": "28.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_28_5_0",
+            "text": "If you do not have a partner, you are [blank].",
+            "answers": [
+              "single"
+            ],
+            "hint": "Độc thân (không có đối tác/vợ/chồng).",
+            "explanation": "Từ cần điền là \"single\"."
+          },
+          {
+            "id": "ex_28_5_1",
+            "text": "If you have a husband or wife, you are [blank].",
+            "answers": [
+              "married"
+            ],
+            "hint": "Đã kết hôn.",
+            "explanation": "Từ cần điền là \"married\"."
+          },
+          {
+            "id": "ex_28_5_2",
+            "text": "If your husband or wife dies, you are [blank].",
+            "answers": [
+              "widowed"
+            ],
+            "hint": "Góa (chồng hoặc vợ đã mất).",
+            "explanation": "Từ cần điền là \"widowed\"."
+          },
+          {
+            "id": "ex_28_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "separated / divorced"
+            ],
+            "hint": "Ly thân / Ly hôn.",
+            "explanation": "Từ cần điền là \"separated / divorced\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 29,
     "title": "Unit 29: The family",
     "description": "Học toàn bộ từ vựng về cây gia phả (family tree), các mối quan hệ ruột thịt (parents, children) và họ hàng (uncle, aunt, niece, nephew, cousin).",
-    "theory": [
-      {
-        "heading": "A. Parents and Children (Cha mẹ và Con cái)",
-        "items": [
-          {
-            "word": "husband / wife",
-            "type": "Danh từ",
-            "phonetic": "/ˈhʌz.bənd/ /waɪf/",
-            "vi": "Chồng / Vợ.",
-            "example": "Paul is Anne's husband and Anne is Paul's wife."
-          },
-          {
-            "word": "parents",
-            "type": "Danh từ",
-            "phonetic": "/ˈper.ənts/",
-            "vi": "Cha mẹ (số nhiều).",
-            "example": "Anne and Paul are Sarah and Jack's parents."
-          },
-          {
-            "word": "son / daughter",
-            "type": "Danh từ",
-            "phonetic": "/sʌn/ /ˈdɑː.t̬ɚ/",
-            "vi": "Con trai / Con gái.",
-            "example": "Sarah is Anne's daughter. Jack is her son."
-          },
-          {
-            "word": "brother / sister",
-            "type": "Danh từ",
-            "phonetic": "/ˈbrʌð.ɚ/ /ˈsɪs.tɚ/",
-            "vi": "Anh/em trai / Chị/em gái.",
-            "example": "Sarah is Jack's sister."
-          }
-        ]
-      },
-      {
-        "heading": "B. Grandparents (Ông bà)",
-        "items": [
-          {
-            "word": "grandfather / grandmother",
-            "type": "Danh từ",
-            "phonetic": "/ˈgrandˌfaː.ðər/ /...ˌmʌð.ər/",
-            "vi": "Ông / Bà.",
-            "example": "Henry is Sarah's grandfather."
-          },
-          {
-            "word": "grandparents",
-            "type": "Danh từ",
-            "phonetic": "/ˈgrandˌper.ənts/",
-            "vi": "Ông bà (nói chung).",
-            "example": "Henry and Diana are Sarah's grandparents."
-          },
-          {
-            "word": "grandson / granddaughter",
-            "type": "Danh từ",
-            "phonetic": "/ˈgrand.sʌn/ /ˈgrandˌdaː.tər/",
-            "vi": "Cháu trai / Cháu gái (của ông bà).",
-            "example": "Sarah is Diana's granddaughter."
-          }
-        ]
-      },
-      {
-        "heading": "C. Extended family (Họ hàng)",
-        "items": [
-          {
-            "word": "uncle",
-            "type": "Danh từ",
-            "phonetic": "/ˈʌŋ.kəl/",
-            "vi": "Chú, bác trai, cậu, dượng.",
-            "example": "John is Sarah's uncle."
-          },
-          {
-            "word": "aunt",
-            "type": "Danh từ",
-            "phonetic": "/ænt/",
-            "vi": "Cô, dì, thím, mợ, bác gái.",
-            "example": "Amelia is Sarah's aunt."
-          },
-          {
-            "word": "nephew",
-            "type": "Danh từ",
-            "phonetic": "/ˈnef.juː/",
-            "vi": "Cháu trai (con của anh/chị/em mình).",
-            "example": "Jack is Amelia's nephew."
-          },
-          {
-            "word": "niece",
-            "type": "Danh từ",
-            "phonetic": "/niːs/",
-            "vi": "Cháu gái (con của anh/chị/em mình).",
-            "example": "Sarah is John's niece."
-          },
-          {
-            "word": "cousin",
-            "type": "Danh từ",
-            "phonetic": "/ˈkʌz.ən/",
-            "vi": "Anh chị em họ (con của chú/dì...).",
-            "example": "Emily and Peter are Sarah's cousins."
-          },
-          {
-            "word": "relatives / relations",
-            "type": "Danh từ",
-            "phonetic": "/ˈrel.ə.tɪvz/",
-            "vi": "Họ hàng nói chung.",
-            "example": "They are my relatives."
-          }
-        ]
-      },
-      {
-        "heading": "D. In-laws (Gia đình nhà vợ/chồng)",
-        "items": [
-          {
-            "word": "mother-in-law",
-            "type": "Danh từ",
-            "phonetic": "/ˈmʌð.ər.ɪn.lɔː/",
-            "vi": "Mẹ vợ / Mẹ chồng.",
-            "example": "Mrs Scott is Paul's mother-in-law."
-          },
-          {
-            "word": "brother-in-law",
-            "type": "Danh từ",
-            "phonetic": "/ˈbrʌð.ər.ɪn.lɔː/",
-            "vi": "Anh/em rể, anh/em vợ.",
-            "example": "Howard is George's brother-in-law."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "husband / wife",
+          "type": "Danh từ",
+          "phonetic": "/ˈhʌz.bənd/ /waɪf/",
+          "vi": "Chồng / Vợ.",
+          "example": "Paul is Anne's husband and Anne is Paul's wife.",
+          "bucket": 1,
+          "collocations": [
+            "have a husband / wife",
+            "use husband / wife"
+          ],
+          "wordFamily": "Biến thể của husband / wife"
+        },
+        {
+          "word": "parents",
+          "type": "Danh từ",
+          "phonetic": "/ˈper.ənts/",
+          "vi": "Cha mẹ (số nhiều).",
+          "example": "Anne and Paul are Sarah and Jack's parents.",
+          "bucket": 2,
+          "collocations": [
+            "have a parents",
+            "use parents"
+          ],
+          "wordFamily": "Biến thể của parents"
+        },
+        {
+          "word": "son / daughter",
+          "type": "Danh từ",
+          "phonetic": "/sʌn/ /ˈdɑː.t̬ɚ/",
+          "vi": "Con trai / Con gái.",
+          "example": "Sarah is Anne's daughter. Jack is her son.",
+          "bucket": 1,
+          "collocations": [
+            "have a son / daughter",
+            "use son / daughter"
+          ],
+          "wordFamily": "Biến thể của son / daughter"
+        },
+        {
+          "word": "brother / sister",
+          "type": "Danh từ",
+          "phonetic": "/ˈbrʌð.ɚ/ /ˈsɪs.tɚ/",
+          "vi": "Anh/em trai / Chị/em gái.",
+          "example": "Sarah is Jack's sister.",
+          "bucket": 2,
+          "collocations": [
+            "have a brother / sister",
+            "use brother / sister"
+          ],
+          "wordFamily": "Biến thể của brother / sister"
+        },
+        {
+          "word": "grandfather / grandmother",
+          "type": "Danh từ",
+          "phonetic": "/ˈgrandˌfaː.ðər/ /...ˌmʌð.ər/",
+          "vi": "Ông / Bà.",
+          "example": "Henry is Sarah's grandfather.",
+          "bucket": 1,
+          "collocations": [
+            "have a grandfather / grandmother",
+            "use grandfather / grandmother"
+          ],
+          "wordFamily": "Biến thể của grandfather / grandmother"
+        },
+        {
+          "word": "grandparents",
+          "type": "Danh từ",
+          "phonetic": "/ˈgrandˌper.ənts/",
+          "vi": "Ông bà (nói chung).",
+          "example": "Henry and Diana are Sarah's grandparents.",
+          "bucket": 2,
+          "collocations": [
+            "have a grandparents",
+            "use grandparents"
+          ],
+          "wordFamily": "Biến thể của grandparents"
+        },
+        {
+          "word": "grandson / granddaughter",
+          "type": "Danh từ",
+          "phonetic": "/ˈgrand.sʌn/ /ˈgrandˌdaː.tər/",
+          "vi": "Cháu trai / Cháu gái (của ông bà).",
+          "example": "Sarah is Diana's granddaughter.",
+          "bucket": 1,
+          "collocations": [
+            "have a grandson / granddaughter",
+            "use grandson / granddaughter"
+          ],
+          "wordFamily": "Biến thể của grandson / granddaughter"
+        },
+        {
+          "word": "uncle",
+          "type": "Danh từ",
+          "phonetic": "/ˈʌŋ.kəl/",
+          "vi": "Chú, bác trai, cậu, dượng.",
+          "example": "John is Sarah's uncle.",
+          "bucket": 2,
+          "collocations": [
+            "have a uncle",
+            "use uncle"
+          ],
+          "wordFamily": "Biến thể của uncle"
+        },
+        {
+          "word": "aunt",
+          "type": "Danh từ",
+          "phonetic": "/ænt/",
+          "vi": "Cô, dì, thím, mợ, bác gái.",
+          "example": "Amelia is Sarah's aunt.",
+          "bucket": 1,
+          "collocations": [
+            "have a aunt",
+            "use aunt"
+          ],
+          "wordFamily": "Biến thể của aunt"
+        },
+        {
+          "word": "nephew",
+          "type": "Danh từ",
+          "phonetic": "/ˈnef.juː/",
+          "vi": "Cháu trai (con của anh/chị/em mình).",
+          "example": "Jack is Amelia's nephew.",
+          "bucket": 2,
+          "collocations": [
+            "have a nephew",
+            "use nephew"
+          ],
+          "wordFamily": "Biến thể của nephew"
+        },
+        {
+          "word": "niece",
+          "type": "Danh từ",
+          "phonetic": "/niːs/",
+          "vi": "Cháu gái (con của anh/chị/em mình).",
+          "example": "Sarah is John's niece.",
+          "bucket": 1,
+          "collocations": [
+            "have a niece",
+            "use niece"
+          ],
+          "wordFamily": "Biến thể của niece"
+        },
+        {
+          "word": "cousin",
+          "type": "Danh từ",
+          "phonetic": "/ˈkʌz.ən/",
+          "vi": "Anh chị em họ (con của chú/dì...).",
+          "example": "Emily and Peter are Sarah's cousins.",
+          "bucket": 2,
+          "collocations": [
+            "have a cousin",
+            "use cousin"
+          ],
+          "wordFamily": "Biến thể của cousin"
+        },
+        {
+          "word": "relatives / relations",
+          "type": "Danh từ",
+          "phonetic": "/ˈrel.ə.tɪvz/",
+          "vi": "Họ hàng nói chung.",
+          "example": "They are my relatives.",
+          "bucket": 1,
+          "collocations": [
+            "have a relatives / relations",
+            "use relatives / relations"
+          ],
+          "wordFamily": "Biến thể của relatives / relations"
+        },
+        {
+          "word": "mother-in-law",
+          "type": "Danh từ",
+          "phonetic": "/ˈmʌð.ər.ɪn.lɔː/",
+          "vi": "Mẹ vợ / Mẹ chồng.",
+          "example": "Mrs Scott is Paul's mother-in-law.",
+          "bucket": 2,
+          "collocations": [
+            "have a mother-in-law",
+            "use mother-in-law"
+          ],
+          "wordFamily": "Biến thể của mother-in-law"
+        },
+        {
+          "word": "brother-in-law",
+          "type": "Danh từ",
+          "phonetic": "/ˈbrʌð.ər.ɪn.lɔː/",
+          "vi": "Anh/em rể, anh/em vợ.",
+          "example": "Howard is George's brother-in-law.",
+          "bucket": 1,
+          "collocations": [
+            "have a brother-in-law",
+            "use brother-in-law"
+          ],
+          "wordFamily": "Biến thể của brother-in-law"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Parents and Children (Cha mẹ và Con cái)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "husband / wife",
+              "value": "👉 Paul is Anne's husband and Anne is Paul's wife."
+            },
+            {
+              "title": "parents",
+              "value": "👉 Anne and Paul are Sarah and Jack's parents."
+            },
+            {
+              "title": "son / daughter",
+              "value": "👉 Sarah is Anne's daughter. Jack is her son."
+            },
+            {
+              "title": "brother / sister",
+              "value": "👉 Sarah is Jack's sister."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Grandparents (Ông bà)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "grandfather / grandmother",
+              "value": "👉 Henry is Sarah's grandfather."
+            },
+            {
+              "title": "grandparents",
+              "value": "👉 Henry and Diana are Sarah's grandparents."
+            },
+            {
+              "title": "grandson / granddaughter",
+              "value": "👉 Sarah is Diana's granddaughter."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Extended family (Họ hàng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "uncle",
+              "value": "👉 John is Sarah's uncle."
+            },
+            {
+              "title": "aunt",
+              "value": "👉 Amelia is Sarah's aunt."
+            },
+            {
+              "title": "nephew",
+              "value": "👉 Jack is Amelia's nephew."
+            },
+            {
+              "title": "niece",
+              "value": "👉 Sarah is John's niece."
+            },
+            {
+              "title": "cousin",
+              "value": "👉 Emily and Peter are Sarah's cousins."
+            },
+            {
+              "title": "relatives / relations",
+              "value": "👉 They are my relatives."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D. In-laws (Gia đình nhà vợ/chồng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "mother-in-law",
+              "value": "👉 Mrs Scott is Paul's mother-in-law."
+            },
+            {
+              "title": "brother-in-law",
+              "value": "👉 Howard is George's brother-in-law."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"husband / wife\"",
+              "value": "husband / wifeful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"parents\"",
+              "value": "parentsful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"son / daughter\"",
+              "value": "son / daughterful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"brother / sister\"",
+              "value": "Ví dụ: have a brother / sister, make a brother / sister, good brother / sister"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"grandfather / grandmother\"",
+              "value": "Ví dụ: have a grandfather / grandmother, make a grandfather / grandmother, good grandfather / grandmother"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"grandparents\"",
+              "value": "Ví dụ: have a grandparents, make a grandparents, good grandparents"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Nuclear Family (Gia đình nhỏ)",
@@ -18992,153 +29893,572 @@ export const courseData = [
         "text": "Have you got any brothers and sisters?",
         "trans": "Bạn có anh chị em nào không?"
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "29.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_29_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "husband / wife"
+            ],
+            "hint": "Chồng / Vợ.",
+            "explanation": "Từ cần điền là \"husband / wife\", mang nghĩa là \"Chồng / Vợ.\"."
+          },
+          {
+            "id": "ex_29_1_1",
+            "text": "Anne and Paul are Sarah and Jack's [blank].",
+            "answers": [
+              "parents"
+            ],
+            "hint": "Cha mẹ (số nhiều).",
+            "explanation": "Từ cần điền là \"parents\", mang nghĩa là \"Cha mẹ (số nhiều).\"."
+          },
+          {
+            "id": "ex_29_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "son / daughter"
+            ],
+            "hint": "Con trai / Con gái.",
+            "explanation": "Từ cần điền là \"son / daughter\", mang nghĩa là \"Con trai / Con gái.\"."
+          },
+          {
+            "id": "ex_29_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "brother / sister"
+            ],
+            "hint": "Anh/em trai / Chị/em gái.",
+            "explanation": "Từ cần điền là \"brother / sister\", mang nghĩa là \"Anh/em trai / Chị/em gái.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "29.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_29_2_0",
+            "text": "grandfather / grandmother",
+            "options": [
+              "Chú, bác trai, cậu, dượng.",
+              "Ông bà (nói chung).",
+              "Ông / Bà.",
+              "Cháu trai / Cháu gái (của ông bà)."
+            ],
+            "answer": "Ông / Bà.",
+            "explanation": "Từ \"grandfather / grandmother\" có nghĩa chính xác là \"Ông / Bà.\"."
+          },
+          {
+            "id": "ex_29_2_1",
+            "text": "grandparents",
+            "options": [
+              "Ông / Bà.",
+              "Ông bà (nói chung).",
+              "Cháu trai / Cháu gái (của ông bà).",
+              "Chú, bác trai, cậu, dượng."
+            ],
+            "answer": "Ông bà (nói chung).",
+            "explanation": "Từ \"grandparents\" có nghĩa chính xác là \"Ông bà (nói chung).\"."
+          },
+          {
+            "id": "ex_29_2_2",
+            "text": "grandson / granddaughter",
+            "options": [
+              "Ông / Bà.",
+              "Chú, bác trai, cậu, dượng.",
+              "Cháu trai / Cháu gái (của ông bà).",
+              "Ông bà (nói chung)."
+            ],
+            "answer": "Cháu trai / Cháu gái (của ông bà).",
+            "explanation": "Từ \"grandson / granddaughter\" có nghĩa chính xác là \"Cháu trai / Cháu gái (của ông bà).\"."
+          },
+          {
+            "id": "ex_29_2_3",
+            "text": "uncle",
+            "options": [
+              "Ông / Bà.",
+              "Ông bà (nói chung).",
+              "Cháu trai / Cháu gái (của ông bà).",
+              "Chú, bác trai, cậu, dượng."
+            ],
+            "answer": "Chú, bác trai, cậu, dượng.",
+            "explanation": "Từ \"uncle\" có nghĩa chính xác là \"Chú, bác trai, cậu, dượng.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "29.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_29_3_0",
+            "word": "husband / wife",
+            "category": "Topic A",
+            "explanation": "Từ \"husband / wife\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_29_3_1",
+            "word": "parents",
+            "category": "Topic B",
+            "explanation": "Từ \"parents\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_29_3_2",
+            "word": "son / daughter",
+            "category": "Topic A",
+            "explanation": "Từ \"son / daughter\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_29_3_3",
+            "word": "brother / sister",
+            "category": "Topic B",
+            "explanation": "Từ \"brother / sister\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_29_3_4",
+            "word": "grandfather / grandmother",
+            "category": "Topic A",
+            "explanation": "Từ \"grandfather / grandmother\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_29_3_5",
+            "word": "grandparents",
+            "category": "Topic B",
+            "explanation": "Từ \"grandparents\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "29.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_29_4_0",
+            "original": "I really like son / daughters.",
+            "correct": "Sarah is Anne's daughter. Jack is her son.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"son / daughter\" thay vì \"son / daughters\"."
+          },
+          {
+            "id": "ex_29_4_1",
+            "original": "I really like brother / sisters.",
+            "correct": "Sarah is Jack's sister.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"brother / sister\" thay vì \"brother / sisters\"."
+          }
+        ]
+      },
+      {
+        "exNum": "29.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_29_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "grandfather / grandmother"
+            ],
+            "hint": "Ông / Bà.",
+            "explanation": "Từ cần điền là \"grandfather / grandmother\"."
+          },
+          {
+            "id": "ex_29_5_1",
+            "text": "Henry and Diana are Sarah's [blank].",
+            "answers": [
+              "grandparents"
+            ],
+            "hint": "Ông bà (nói chung).",
+            "explanation": "Từ cần điền là \"grandparents\"."
+          },
+          {
+            "id": "ex_29_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "grandson / granddaughter"
+            ],
+            "hint": "Cháu trai / Cháu gái (của ông bà).",
+            "explanation": "Từ cần điền là \"grandson / granddaughter\"."
+          },
+          {
+            "id": "ex_29_5_3",
+            "text": "John is Sarah's [blank].",
+            "answers": [
+              "uncle"
+            ],
+            "hint": "Chú, bác trai, cậu, dượng.",
+            "explanation": "Từ cần điền là \"uncle\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 30,
     "title": "Unit 30: Parts of the body",
     "description": "Học từ vựng về các bộ phận trên cơ thể người từ đầu đến chân, các danh từ số nhiều bất quy tắc (tooth-teeth) và lỗi ngữ pháp khi dùng mạo từ.",
-    "theory": [
-      {
-        "heading": "A. Head and face (Đầu và khuôn mặt)",
-        "items": [
-          {
-            "word": "hair / ear / eye",
-            "type": "Danh từ",
-            "phonetic": "/her/ /ɪr/ /aɪ/",
-            "vi": "Tóc / Tai / Mắt.",
-            "example": "She has long hair and blue eyes."
-          },
-          {
-            "word": "nose / mouth / lip",
-            "type": "Danh từ",
-            "phonetic": "/noʊz/ /maʊθ/ /lɪp/",
-            "vi": "Mũi / Miệng / Môi.",
-            "example": "You smell with your nose."
-          },
-          {
-            "word": "tooth (plural: teeth)",
-            "type": "Danh từ",
-            "phonetic": "/tuːθ/ /tiːθ/",
-            "vi": "Cái răng (Số nhiều: những cái răng).",
-            "example": "An adult has 32 teeth."
-          },
-          {
-            "word": "neck",
-            "type": "Danh từ",
-            "phonetic": "/nek/",
-            "vi": "Cái cổ.",
-            "example": "A giraffe has a very long neck."
-          }
-        ]
-      },
-      {
-        "heading": "B. Arm and leg (Tay và chân)",
-        "items": [
-          {
-            "word": "shoulder / arm",
-            "type": "Danh từ",
-            "phonetic": "/ˈʃoʊl.dər/ /aːrm/",
-            "vi": "Bờ vai / Cánh tay.",
-            "example": "He has broad shoulders."
-          },
-          {
-            "word": "hand / finger / thumb",
-            "type": "Danh từ",
-            "phonetic": "/hænd/ /ˈfɪŋ.ɡər/ /θʌm/",
-            "vi": "Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).",
-            "example": "A hand has four fingers and one thumb."
-          },
-          {
-            "word": "nail",
-            "type": "Danh từ",
-            "phonetic": "/neɪl/",
-            "vi": "Móng tay/chân.",
-            "example": "She is painting her nails."
-          },
-          {
-            "word": "leg / knee",
-            "type": "Danh từ",
-            "phonetic": "/leɡ/ /niː/",
-            "vi": "Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm).",
-            "example": "I have a pain in my knee."
-          },
-          {
-            "word": "foot (plural: feet)",
-            "type": "Danh từ",
-            "phonetic": "/fʊt/ /fiːt/",
-            "vi": "Bàn chân (Số nhiều: những bàn chân).",
-            "example": "A foot has five toes."
-          },
-          {
-            "word": "toe",
-            "type": "Danh từ",
-            "phonetic": "/toʊd/",
-            "vi": "Ngón chân.",
-            "example": "I hurt my big toe."
-          }
-        ]
-      },
-      {
-        "heading": "C & D. Rest of body & Inside (Phần còn lại & Bên trong)",
-        "items": [
-          {
-            "word": "chest / bust",
-            "type": "Danh từ",
-            "phonetic": "/tʃest/ /bʌst/",
-            "vi": "Ngực / Vòng một (chỉ dùng cho nữ).",
-            "example": "He crossed his arms over his chest."
-          },
-          {
-            "word": "stomach / back",
-            "type": "Danh từ",
-            "phonetic": "/ˈstʌm.ək/ /bæk/",
-            "vi": "Bụng / Cái lưng.",
-            "example": "My stomach hurts."
-          },
-          {
-            "word": "waist / hips",
-            "type": "Danh từ",
-            "phonetic": "/weɪst/ /hɪps/",
-            "vi": "Eo / Hông.",
-            "example": "She put her hands on her hips."
-          },
-          {
-            "word": "skin",
-            "type": "Danh từ",
-            "phonetic": "/skɪn/",
-            "vi": "Làn da.",
-            "example": "He has dark skin."
-          },
-          {
-            "word": "heart / brain / blood",
-            "type": "Danh từ",
-            "phonetic": "/hɑːrt/ /breɪn/ /blʌd/",
-            "vi": "Trái tim / Não / Máu.",
-            "example": "The heart is a symbol of love."
-          }
-        ]
-      },
-      {
-        "heading": "E & F. Pronunciation & Grammar (Phát âm & Ngữ pháp)",
-        "items": [
-          {
-            "word": "Pronunciation notes",
-            "type": "Phát âm",
-            "phonetic": "/prəˌnʌnsiˈeɪʃn nəʊts/",
-            "vi": "Lưu ý cách đọc: eye /aɪ/, knee /niː/, stomach /ˈstʌm.ək/, heart /hɑːrt/, blood /blʌd/.",
-            "example": "Blood rhymes with 'mud'."
-          },
-          {
-            "word": "Grammar: Possessives",
-            "type": "Ngữ pháp",
-            "phonetic": "/ˈɡræmə: pəˈzesɪvz/",
-            "vi": "LUÔN dùng tính từ sở hữu (my, your, his, her...) với bộ phận cơ thể. [KHÔNG dùng 'the'].",
-            "example": "Jane is washing her hair. [KHÔNG DÙNG: washing the hair]. I have a pain in my leg. [KHÔNG DÙNG: in the leg]."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "hair / ear / eye",
+          "type": "Danh từ",
+          "phonetic": "/her/ /ɪr/ /aɪ/",
+          "vi": "Tóc / Tai / Mắt.",
+          "example": "She has long hair and blue eyes.",
+          "bucket": 1,
+          "collocations": [
+            "have a hair / ear / eye",
+            "use hair / ear / eye"
+          ],
+          "wordFamily": "Biến thể của hair / ear / eye"
+        },
+        {
+          "word": "nose / mouth / lip",
+          "type": "Danh từ",
+          "phonetic": "/noʊz/ /maʊθ/ /lɪp/",
+          "vi": "Mũi / Miệng / Môi.",
+          "example": "You smell with your nose.",
+          "bucket": 2,
+          "collocations": [
+            "have a nose / mouth / lip",
+            "use nose / mouth / lip"
+          ],
+          "wordFamily": "Biến thể của nose / mouth / lip"
+        },
+        {
+          "word": "tooth (plural: teeth)",
+          "type": "Danh từ",
+          "phonetic": "/tuːθ/ /tiːθ/",
+          "vi": "Cái răng (Số nhiều: những cái răng).",
+          "example": "An adult has 32 teeth.",
+          "bucket": 1,
+          "collocations": [
+            "have a tooth (plural: teeth)",
+            "use tooth (plural: teeth)"
+          ],
+          "wordFamily": "Biến thể của tooth (plural: teeth)"
+        },
+        {
+          "word": "neck",
+          "type": "Danh từ",
+          "phonetic": "/nek/",
+          "vi": "Cái cổ.",
+          "example": "A giraffe has a very long neck.",
+          "bucket": 2,
+          "collocations": [
+            "have a neck",
+            "use neck"
+          ],
+          "wordFamily": "Biến thể của neck"
+        },
+        {
+          "word": "shoulder / arm",
+          "type": "Danh từ",
+          "phonetic": "/ˈʃoʊl.dər/ /aːrm/",
+          "vi": "Bờ vai / Cánh tay.",
+          "example": "He has broad shoulders.",
+          "bucket": 1,
+          "collocations": [
+            "have a shoulder / arm",
+            "use shoulder / arm"
+          ],
+          "wordFamily": "Biến thể của shoulder / arm"
+        },
+        {
+          "word": "hand / finger / thumb",
+          "type": "Danh từ",
+          "phonetic": "/hænd/ /ˈfɪŋ.ɡər/ /θʌm/",
+          "vi": "Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).",
+          "example": "A hand has four fingers and one thumb.",
+          "bucket": 2,
+          "collocations": [
+            "have a hand / finger / thumb",
+            "use hand / finger / thumb"
+          ],
+          "wordFamily": "Biến thể của hand / finger / thumb"
+        },
+        {
+          "word": "nail",
+          "type": "Danh từ",
+          "phonetic": "/neɪl/",
+          "vi": "Móng tay/chân.",
+          "example": "She is painting her nails.",
+          "bucket": 1,
+          "collocations": [
+            "have a nail",
+            "use nail"
+          ],
+          "wordFamily": "Biến thể của nail"
+        },
+        {
+          "word": "leg / knee",
+          "type": "Danh từ",
+          "phonetic": "/leɡ/ /niː/",
+          "vi": "Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm).",
+          "example": "I have a pain in my knee.",
+          "bucket": 2,
+          "collocations": [
+            "have a leg / knee",
+            "use leg / knee"
+          ],
+          "wordFamily": "Biến thể của leg / knee"
+        },
+        {
+          "word": "foot (plural: feet)",
+          "type": "Danh từ",
+          "phonetic": "/fʊt/ /fiːt/",
+          "vi": "Bàn chân (Số nhiều: những bàn chân).",
+          "example": "A foot has five toes.",
+          "bucket": 1,
+          "collocations": [
+            "have a foot (plural: feet)",
+            "use foot (plural: feet)"
+          ],
+          "wordFamily": "Biến thể của foot (plural: feet)"
+        },
+        {
+          "word": "toe",
+          "type": "Danh từ",
+          "phonetic": "/toʊd/",
+          "vi": "Ngón chân.",
+          "example": "I hurt my big toe.",
+          "bucket": 2,
+          "collocations": [
+            "have a toe",
+            "use toe"
+          ],
+          "wordFamily": "Biến thể của toe"
+        },
+        {
+          "word": "chest / bust",
+          "type": "Danh từ",
+          "phonetic": "/tʃest/ /bʌst/",
+          "vi": "Ngực / Vòng một (chỉ dùng cho nữ).",
+          "example": "He crossed his arms over his chest.",
+          "bucket": 1,
+          "collocations": [
+            "have a chest / bust",
+            "use chest / bust"
+          ],
+          "wordFamily": "Biến thể của chest / bust"
+        },
+        {
+          "word": "stomach / back",
+          "type": "Danh từ",
+          "phonetic": "/ˈstʌm.ək/ /bæk/",
+          "vi": "Bụng / Cái lưng.",
+          "example": "My stomach hurts.",
+          "bucket": 2,
+          "collocations": [
+            "have a stomach / back",
+            "use stomach / back"
+          ],
+          "wordFamily": "Biến thể của stomach / back"
+        },
+        {
+          "word": "waist / hips",
+          "type": "Danh từ",
+          "phonetic": "/weɪst/ /hɪps/",
+          "vi": "Eo / Hông.",
+          "example": "She put her hands on her hips.",
+          "bucket": 1,
+          "collocations": [
+            "have a waist / hips",
+            "use waist / hips"
+          ],
+          "wordFamily": "Biến thể của waist / hips"
+        },
+        {
+          "word": "skin",
+          "type": "Danh từ",
+          "phonetic": "/skɪn/",
+          "vi": "Làn da.",
+          "example": "He has dark skin.",
+          "bucket": 2,
+          "collocations": [
+            "have a skin",
+            "use skin"
+          ],
+          "wordFamily": "Biến thể của skin"
+        },
+        {
+          "word": "heart / brain / blood",
+          "type": "Danh từ",
+          "phonetic": "/hɑːrt/ /breɪn/ /blʌd/",
+          "vi": "Trái tim / Não / Máu.",
+          "example": "The heart is a symbol of love.",
+          "bucket": 1,
+          "collocations": [
+            "have a heart / brain / blood",
+            "use heart / brain / blood"
+          ],
+          "wordFamily": "Biến thể của heart / brain / blood"
+        },
+        {
+          "word": "Pronunciation notes",
+          "type": "Phát âm",
+          "phonetic": "/prəˌnʌnsiˈeɪʃn nəʊts/",
+          "vi": "Lưu ý cách đọc: eye /aɪ/, knee /niː/, stomach /ˈstʌm.ək/, heart /hɑːrt/, blood /blʌd/.",
+          "example": "Blood rhymes with 'mud'.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của Pronunciation notes"
+        },
+        {
+          "word": "Grammar: Possessives",
+          "type": "Ngữ pháp",
+          "phonetic": "/ˈɡræmə: pəˈzesɪvz/",
+          "vi": "LUÔN dùng tính từ sở hữu (my, your, his, her...) với bộ phận cơ thể. [KHÔNG dùng 'the'].",
+          "example": "Jane is washing her hair. [KHÔNG DÙNG: washing the hair]. I have a pain in my leg. [KHÔNG DÙNG: in the leg].",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của Grammar: Possessives"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Head and face (Đầu và khuôn mặt)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "hair / ear / eye",
+              "value": "👉 She has long hair and blue eyes."
+            },
+            {
+              "title": "nose / mouth / lip",
+              "value": "👉 You smell with your nose."
+            },
+            {
+              "title": "tooth (plural: teeth)",
+              "value": "👉 An adult has 32 teeth."
+            },
+            {
+              "title": "neck",
+              "value": "👉 A giraffe has a very long neck."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Arm and leg (Tay và chân)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "shoulder / arm",
+              "value": "👉 He has broad shoulders."
+            },
+            {
+              "title": "hand / finger / thumb",
+              "value": "👉 A hand has four fingers and one thumb."
+            },
+            {
+              "title": "nail",
+              "value": "👉 She is painting her nails."
+            },
+            {
+              "title": "leg / knee",
+              "value": "👉 I have a pain in my knee."
+            },
+            {
+              "title": "foot (plural: feet)",
+              "value": "👉 A foot has five toes."
+            },
+            {
+              "title": "toe",
+              "value": "👉 I hurt my big toe."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C & D. Rest of body & Inside (Phần còn lại & Bên trong)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "chest / bust",
+              "value": "👉 He crossed his arms over his chest."
+            },
+            {
+              "title": "stomach / back",
+              "value": "👉 My stomach hurts."
+            },
+            {
+              "title": "waist / hips",
+              "value": "👉 She put her hands on her hips."
+            },
+            {
+              "title": "skin",
+              "value": "👉 He has dark skin."
+            },
+            {
+              "title": "heart / brain / blood",
+              "value": "👉 The heart is a symbol of love."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: E & F. Pronunciation & Grammar (Phát âm & Ngữ pháp)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "Pronunciation notes",
+              "value": "👉 Blood rhymes with 'mud'."
+            },
+            {
+              "title": "Grammar: Possessives",
+              "value": "👉 Jane is washing her hair. [KHÔNG DÙNG: washing the hair]. I have a pain in my leg. [KHÔNG DÙNG: in the leg]."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"hair / ear / eye\"",
+              "value": "hair / ear / eyeful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"nose / mouth / lip\"",
+              "value": "nose / mouth / lipful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"tooth (plural: teeth)\"",
+              "value": "tooth (plural: teeth)ful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"neck\"",
+              "value": "Ví dụ: have a neck, make a neck, good neck"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"shoulder / arm\"",
+              "value": "Ví dụ: have a shoulder / arm, make a shoulder / arm, good shoulder / arm"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"hand / finger / thumb\"",
+              "value": "Ví dụ: have a hand / finger / thumb, make a hand / finger / thumb, good hand / finger / thumb"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Head & Face",
@@ -19655,141 +30975,543 @@ export const courseData = [
         "text": "Your blood type can be A, B, AB or O.",
         "trans": "Nhóm máu của bạn có thể là A, B, AB hoặc O."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "30.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_30_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "hair / ear / eye"
+            ],
+            "hint": "Tóc / Tai / Mắt.",
+            "explanation": "Từ cần điền là \"hair / ear / eye\", mang nghĩa là \"Tóc / Tai / Mắt.\"."
+          },
+          {
+            "id": "ex_30_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "nose / mouth / lip"
+            ],
+            "hint": "Mũi / Miệng / Môi.",
+            "explanation": "Từ cần điền là \"nose / mouth / lip\", mang nghĩa là \"Mũi / Miệng / Môi.\"."
+          },
+          {
+            "id": "ex_30_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "tooth (plural: teeth)"
+            ],
+            "hint": "Cái răng (Số nhiều: những cái răng).",
+            "explanation": "Từ cần điền là \"tooth (plural: teeth)\", mang nghĩa là \"Cái răng (Số nhiều: những cái răng).\"."
+          },
+          {
+            "id": "ex_30_1_3",
+            "text": "A giraffe has a very long [blank].",
+            "answers": [
+              "neck"
+            ],
+            "hint": "Cái cổ.",
+            "explanation": "Từ cần điền là \"neck\", mang nghĩa là \"Cái cổ.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "30.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_30_2_0",
+            "text": "shoulder / arm",
+            "options": [
+              "Bờ vai / Cánh tay.",
+              "Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).",
+              "Móng tay/chân.",
+              "Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm)."
+            ],
+            "answer": "Bờ vai / Cánh tay.",
+            "explanation": "Từ \"shoulder / arm\" có nghĩa chính xác là \"Bờ vai / Cánh tay.\"."
+          },
+          {
+            "id": "ex_30_2_1",
+            "text": "hand / finger / thumb",
+            "options": [
+              "Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm).",
+              "Móng tay/chân.",
+              "Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).",
+              "Bờ vai / Cánh tay."
+            ],
+            "answer": "Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).",
+            "explanation": "Từ \"hand / finger / thumb\" có nghĩa chính xác là \"Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).\"."
+          },
+          {
+            "id": "ex_30_2_2",
+            "text": "nail",
+            "options": [
+              "Bờ vai / Cánh tay.",
+              "Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).",
+              "Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm).",
+              "Móng tay/chân."
+            ],
+            "answer": "Móng tay/chân.",
+            "explanation": "Từ \"nail\" có nghĩa chính xác là \"Móng tay/chân.\"."
+          },
+          {
+            "id": "ex_30_2_3",
+            "text": "leg / knee",
+            "options": [
+              "Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).",
+              "Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm).",
+              "Bờ vai / Cánh tay.",
+              "Móng tay/chân."
+            ],
+            "answer": "Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm).",
+            "explanation": "Từ \"leg / knee\" có nghĩa chính xác là \"Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "30.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_30_3_0",
+            "word": "hair / ear / eye",
+            "category": "Topic A",
+            "explanation": "Từ \"hair / ear / eye\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_30_3_1",
+            "word": "nose / mouth / lip",
+            "category": "Topic B",
+            "explanation": "Từ \"nose / mouth / lip\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_30_3_2",
+            "word": "tooth (plural: teeth)",
+            "category": "Topic A",
+            "explanation": "Từ \"tooth (plural: teeth)\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_30_3_3",
+            "word": "neck",
+            "category": "Topic B",
+            "explanation": "Từ \"neck\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_30_3_4",
+            "word": "shoulder / arm",
+            "category": "Topic A",
+            "explanation": "Từ \"shoulder / arm\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_30_3_5",
+            "word": "hand / finger / thumb",
+            "category": "Topic B",
+            "explanation": "Từ \"hand / finger / thumb\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "30.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_30_4_0",
+            "original": "I really like tooth (plural: teeth)s.",
+            "correct": "An adult has 32 teeth.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"tooth (plural: teeth)\" thay vì \"tooth (plural: teeth)s\"."
+          },
+          {
+            "id": "ex_30_4_1",
+            "original": "A giraffe has a very long necks.",
+            "correct": "A giraffe has a very long neck.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"neck\" thay vì \"necks\"."
+          }
+        ]
+      },
+      {
+        "exNum": "30.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_30_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "shoulder / arm"
+            ],
+            "hint": "Bờ vai / Cánh tay.",
+            "explanation": "Từ cần điền là \"shoulder / arm\"."
+          },
+          {
+            "id": "ex_30_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "hand / finger / thumb"
+            ],
+            "hint": "Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).",
+            "explanation": "Từ cần điền là \"hand / finger / thumb\"."
+          },
+          {
+            "id": "ex_30_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "nail"
+            ],
+            "hint": "Móng tay/chân.",
+            "explanation": "Từ cần điền là \"nail\"."
+          },
+          {
+            "id": "ex_30_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "leg / knee"
+            ],
+            "hint": "Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm).",
+            "explanation": "Từ cần điền là \"leg / knee\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 31,
     "title": "Unit 31: Clothes",
     "description": "Học từ vựng về các loại quần áo, phụ kiện. Đặc biệt lưu ý các danh từ luôn ở dạng số nhiều (như trousers, glasses) và cách phân biệt động từ 'wear' (mặc/đeo) với 'carry' (mang/xách).",
-    "theory": [
-      {
-        "heading": "A. Clothes (Quần áo và Phụ kiện)",
-        "items": [
-          {
-            "word": "shirt / T-shirt",
-            "type": "Danh từ",
-            "phonetic": "/ʃɝːt/ /ˈtiː.ʃɝːt/",
-            "vi": "Áo sơ mi / Áo thun.",
-            "example": "He is wearing a white shirt."
-          },
-          {
-            "word": "sweater / jumper",
-            "type": "Danh từ",
-            "phonetic": "/ˈswet̬.ɚ/ /ˈdʒʌm.pɚ/",
-            "vi": "Áo len (dài tay).",
-            "example": "It's cold, put your sweater on."
-          },
-          {
-            "word": "coat / jacket",
-            "type": "Danh từ",
-            "phonetic": "/koʊt/ /ˈdʒæk.ɪt/",
-            "vi": "Áo khoác dài / Áo khoác ngắn.",
-            "example": "She is wearing a red coat."
-          },
-          {
-            "word": "skirt / dress",
-            "type": "Danh từ",
-            "phonetic": "/skirt/ /dres/",
-            "vi": "Chân váy / Váy liền thân.",
-            "example": "That is a beautiful dress."
-          },
-          {
-            "word": "shoes / trainers / boots",
-            "type": "Danh từ",
-            "phonetic": "/shoes/ /trainers/ /boots/",
-            "vi": "Giày / Giày thể thao / Giày bốt.",
-            "example": "I need a new pair of trainers."
-          },
-          {
-            "word": "tie / belt / hat / scarf",
-            "type": "Danh từ",
-            "phonetic": "/tie/ /belt/ /hat/ /scarf/",
-            "vi": "Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.",
-            "example": "He is wearing a suit and a tie."
-          },
-          {
-            "word": "watch / ring / gloves",
-            "type": "Danh từ",
-            "phonetic": "/watch/ /ring/ /gloves/",
-            "vi": "Đồng hồ đeo tay / Nhẫn / Găng tay.",
-            "example": "She wears a gold ring."
-          }
-        ]
-      },
-      {
-        "heading": "B. Plural words (Danh từ luôn ở dạng Số nhiều)",
-        "items": [
-          {
-            "word": "trousers / jeans / shorts",
-            "type": "Danh từ",
-            "phonetic": "/trousers/ /jeans/ /shorts/",
-            "vi": "Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều).",
-            "example": "My trousers are old."
-          },
-          {
-            "word": "tights",
-            "type": "Danh từ",
-            "phonetic": "/tights/",
-            "vi": "Quần tất (ôm sát).",
-            "example": "Her tights are blue."
-          },
-          {
-            "word": "glasses / sunglasses",
-            "type": "Danh từ",
-            "phonetic": "/glasses/",
-            "vi": "Kính mắt / Kính râm.",
-            "example": "Where are my glasses?"
-          },
-          {
-            "word": "a pair of...",
-            "type": "Cụm từ",
-            "phonetic": "/a pair of/",
-            "vi": "Một chiếc/đôi... (Dùng để đếm các danh từ số nhiều ở trên).",
-            "example": "I bought a pair of jeans and a pair of glasses."
-          }
-        ]
-      },
-      {
-        "heading": "C. Verbs (Động từ dùng với quần áo)",
-        "items": [
-          {
-            "word": "wear",
-            "type": "Động từ",
-            "phonetic": "/wer/",
-            "vi": "Mặc, đội, đeo (trên cơ thể). [KHÔNG DÙNG 'use clothes'].",
-            "example": "Naomi is wearing a long red coat."
-          },
-          {
-            "word": "carry",
-            "type": "Động từ",
-            "phonetic": "/carry/",
-            "vi": "Mang, xách, cầm (bằng tay).",
-            "example": "She's carrying a suitcase and a handbag."
-          },
-          {
-            "word": "have (got) on",
-            "type": "Cụm động từ",
-            "phonetic": "/have got on/",
-            "vi": "Đang mặc (= wear).",
-            "example": "Naomi has got a red coat on."
-          },
-          {
-            "word": "get dressed / undressed",
-            "type": "Cụm động từ",
-            "phonetic": "/get dressed/ /undressed/",
-            "vi": "Mặc quần áo / Cởi quần áo (chỉ hành động thay đồ nói chung).",
-            "example": "In the morning you get dressed."
-          },
-          {
-            "word": "put on / take off",
-            "type": "Cụm động từ",
-            "phonetic": "/put on/ /take off/",
-            "vi": "Mặc vào / Cởi ra (một món đồ cụ thể).",
-            "example": "Put your clothes on. Take your shoes off."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "shirt / T-shirt",
+          "type": "Danh từ",
+          "phonetic": "/ʃɝːt/ /ˈtiː.ʃɝːt/",
+          "vi": "Áo sơ mi / Áo thun.",
+          "example": "He is wearing a white shirt.",
+          "bucket": 1,
+          "collocations": [
+            "have a shirt / T-shirt",
+            "use shirt / T-shirt"
+          ],
+          "wordFamily": "Biến thể của shirt / T-shirt"
+        },
+        {
+          "word": "sweater / jumper",
+          "type": "Danh từ",
+          "phonetic": "/ˈswet̬.ɚ/ /ˈdʒʌm.pɚ/",
+          "vi": "Áo len (dài tay).",
+          "example": "It's cold, put your sweater on.",
+          "bucket": 2,
+          "collocations": [
+            "have a sweater / jumper",
+            "use sweater / jumper"
+          ],
+          "wordFamily": "Biến thể của sweater / jumper"
+        },
+        {
+          "word": "coat / jacket",
+          "type": "Danh từ",
+          "phonetic": "/koʊt/ /ˈdʒæk.ɪt/",
+          "vi": "Áo khoác dài / Áo khoác ngắn.",
+          "example": "She is wearing a red coat.",
+          "bucket": 1,
+          "collocations": [
+            "have a coat / jacket",
+            "use coat / jacket"
+          ],
+          "wordFamily": "Biến thể của coat / jacket"
+        },
+        {
+          "word": "skirt / dress",
+          "type": "Danh từ",
+          "phonetic": "/skirt/ /dres/",
+          "vi": "Chân váy / Váy liền thân.",
+          "example": "That is a beautiful dress.",
+          "bucket": 2,
+          "collocations": [
+            "have a skirt / dress",
+            "use skirt / dress"
+          ],
+          "wordFamily": "Biến thể của skirt / dress"
+        },
+        {
+          "word": "shoes / trainers / boots",
+          "type": "Danh từ",
+          "phonetic": "/shoes/ /trainers/ /boots/",
+          "vi": "Giày / Giày thể thao / Giày bốt.",
+          "example": "I need a new pair of trainers.",
+          "bucket": 1,
+          "collocations": [
+            "have a shoes / trainers / boots",
+            "use shoes / trainers / boots"
+          ],
+          "wordFamily": "Biến thể của shoes / trainers / boots"
+        },
+        {
+          "word": "tie / belt / hat / scarf",
+          "type": "Danh từ",
+          "phonetic": "/tie/ /belt/ /hat/ /scarf/",
+          "vi": "Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.",
+          "example": "He is wearing a suit and a tie.",
+          "bucket": 2,
+          "collocations": [
+            "have a tie / belt / hat / scarf",
+            "use tie / belt / hat / scarf"
+          ],
+          "wordFamily": "Biến thể của tie / belt / hat / scarf"
+        },
+        {
+          "word": "watch / ring / gloves",
+          "type": "Danh từ",
+          "phonetic": "/watch/ /ring/ /gloves/",
+          "vi": "Đồng hồ đeo tay / Nhẫn / Găng tay.",
+          "example": "She wears a gold ring.",
+          "bucket": 1,
+          "collocations": [
+            "have a watch / ring / gloves",
+            "use watch / ring / gloves"
+          ],
+          "wordFamily": "Biến thể của watch / ring / gloves"
+        },
+        {
+          "word": "trousers / jeans / shorts",
+          "type": "Danh từ",
+          "phonetic": "/trousers/ /jeans/ /shorts/",
+          "vi": "Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều).",
+          "example": "My trousers are old.",
+          "bucket": 2,
+          "collocations": [
+            "have a trousers / jeans / shorts",
+            "use trousers / jeans / shorts"
+          ],
+          "wordFamily": "Biến thể của trousers / jeans / shorts"
+        },
+        {
+          "word": "tights",
+          "type": "Danh từ",
+          "phonetic": "/tights/",
+          "vi": "Quần tất (ôm sát).",
+          "example": "Her tights are blue.",
+          "bucket": 1,
+          "collocations": [
+            "have a tights",
+            "use tights"
+          ],
+          "wordFamily": "Biến thể của tights"
+        },
+        {
+          "word": "glasses / sunglasses",
+          "type": "Danh từ",
+          "phonetic": "/glasses/",
+          "vi": "Kính mắt / Kính râm.",
+          "example": "Where are my glasses?",
+          "bucket": 2,
+          "collocations": [
+            "have a glasses / sunglasses",
+            "use glasses / sunglasses"
+          ],
+          "wordFamily": "Biến thể của glasses / sunglasses"
+        },
+        {
+          "word": "a pair of...",
+          "type": "Cụm từ",
+          "phonetic": "/a pair of/",
+          "vi": "Một chiếc/đôi... (Dùng để đếm các danh từ số nhiều ở trên).",
+          "example": "I bought a pair of jeans and a pair of glasses.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của a pair of..."
+        },
+        {
+          "word": "wear",
+          "type": "Động từ",
+          "phonetic": "/wer/",
+          "vi": "Mặc, đội, đeo (trên cơ thể). [KHÔNG DÙNG 'use clothes'].",
+          "example": "Naomi is wearing a long red coat.",
+          "bucket": 2,
+          "collocations": [
+            "wear something",
+            "always wear"
+          ],
+          "wordFamily": "Biến thể của wear"
+        },
+        {
+          "word": "carry",
+          "type": "Động từ",
+          "phonetic": "/carry/",
+          "vi": "Mang, xách, cầm (bằng tay).",
+          "example": "She's carrying a suitcase and a handbag.",
+          "bucket": 1,
+          "collocations": [
+            "carry something",
+            "always carry"
+          ],
+          "wordFamily": "Biến thể của carry"
+        },
+        {
+          "word": "have (got) on",
+          "type": "Cụm động từ",
+          "phonetic": "/have got on/",
+          "vi": "Đang mặc (= wear).",
+          "example": "Naomi has got a red coat on.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của have (got) on"
+        },
+        {
+          "word": "get dressed / undressed",
+          "type": "Cụm động từ",
+          "phonetic": "/get dressed/ /undressed/",
+          "vi": "Mặc quần áo / Cởi quần áo (chỉ hành động thay đồ nói chung).",
+          "example": "In the morning you get dressed.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của get dressed / undressed"
+        },
+        {
+          "word": "put on / take off",
+          "type": "Cụm động từ",
+          "phonetic": "/put on/ /take off/",
+          "vi": "Mặc vào / Cởi ra (một món đồ cụ thể).",
+          "example": "Put your clothes on. Take your shoes off.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của put on / take off"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Clothes (Quần áo và Phụ kiện)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "shirt / T-shirt",
+              "value": "👉 He is wearing a white shirt."
+            },
+            {
+              "title": "sweater / jumper",
+              "value": "👉 It's cold, put your sweater on."
+            },
+            {
+              "title": "coat / jacket",
+              "value": "👉 She is wearing a red coat."
+            },
+            {
+              "title": "skirt / dress",
+              "value": "👉 That is a beautiful dress."
+            },
+            {
+              "title": "shoes / trainers / boots",
+              "value": "👉 I need a new pair of trainers."
+            },
+            {
+              "title": "tie / belt / hat / scarf",
+              "value": "👉 He is wearing a suit and a tie."
+            },
+            {
+              "title": "watch / ring / gloves",
+              "value": "👉 She wears a gold ring."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Plural words (Danh từ luôn ở dạng Số nhiều)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "trousers / jeans / shorts",
+              "value": "👉 My trousers are old."
+            },
+            {
+              "title": "tights",
+              "value": "👉 Her tights are blue."
+            },
+            {
+              "title": "glasses / sunglasses",
+              "value": "👉 Where are my glasses?"
+            },
+            {
+              "title": "a pair of...",
+              "value": "👉 I bought a pair of jeans and a pair of glasses."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Verbs (Động từ dùng với quần áo)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "wear",
+              "value": "👉 Naomi is wearing a long red coat."
+            },
+            {
+              "title": "carry",
+              "value": "👉 She's carrying a suitcase and a handbag."
+            },
+            {
+              "title": "have (got) on",
+              "value": "👉 Naomi has got a red coat on."
+            },
+            {
+              "title": "get dressed / undressed",
+              "value": "👉 In the morning you get dressed."
+            },
+            {
+              "title": "put on / take off",
+              "value": "👉 Put your clothes on. Take your shoes off."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"shirt / T-shirt\"",
+              "value": "shirt / T-shirtful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"sweater / jumper\"",
+              "value": "sweater / jumperful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"coat / jacket\"",
+              "value": "coat / jacketful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"skirt / dress\"",
+              "value": "Ví dụ: have a skirt / dress, make a skirt / dress, good skirt / dress"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"shoes / trainers / boots\"",
+              "value": "Ví dụ: have a shoes / trainers / boots, make a shoes / trainers / boots, good shoes / trainers / boots"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"tie / belt / hat / scarf\"",
+              "value": "Ví dụ: have a tie / belt / hat / scarf, make a tie / belt / hat / scarf, good tie / belt / hat / scarf"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Tops & Body (Áo/Váy)",
@@ -20306,153 +32028,569 @@ export const courseData = [
         "text": "Is this a new pair of trainers? They look great!",
         "trans": "Đây có phải là đôi giày thể thao mới không? Chúng trông tuyệt quá!"
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "31.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_31_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "shirt / T-shirt"
+            ],
+            "hint": "Áo sơ mi / Áo thun.",
+            "explanation": "Từ cần điền là \"shirt / T-shirt\", mang nghĩa là \"Áo sơ mi / Áo thun.\"."
+          },
+          {
+            "id": "ex_31_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "sweater / jumper"
+            ],
+            "hint": "Áo len (dài tay).",
+            "explanation": "Từ cần điền là \"sweater / jumper\", mang nghĩa là \"Áo len (dài tay).\"."
+          },
+          {
+            "id": "ex_31_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "coat / jacket"
+            ],
+            "hint": "Áo khoác dài / Áo khoác ngắn.",
+            "explanation": "Từ cần điền là \"coat / jacket\", mang nghĩa là \"Áo khoác dài / Áo khoác ngắn.\"."
+          },
+          {
+            "id": "ex_31_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "skirt / dress"
+            ],
+            "hint": "Chân váy / Váy liền thân.",
+            "explanation": "Từ cần điền là \"skirt / dress\", mang nghĩa là \"Chân váy / Váy liền thân.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "31.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_31_2_0",
+            "text": "shoes / trainers / boots",
+            "options": [
+              "Giày / Giày thể thao / Giày bốt.",
+              "Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.",
+              "Đồng hồ đeo tay / Nhẫn / Găng tay.",
+              "Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều)."
+            ],
+            "answer": "Giày / Giày thể thao / Giày bốt.",
+            "explanation": "Từ \"shoes / trainers / boots\" có nghĩa chính xác là \"Giày / Giày thể thao / Giày bốt.\"."
+          },
+          {
+            "id": "ex_31_2_1",
+            "text": "tie / belt / hat / scarf",
+            "options": [
+              "Đồng hồ đeo tay / Nhẫn / Găng tay.",
+              "Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.",
+              "Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều).",
+              "Giày / Giày thể thao / Giày bốt."
+            ],
+            "answer": "Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.",
+            "explanation": "Từ \"tie / belt / hat / scarf\" có nghĩa chính xác là \"Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.\"."
+          },
+          {
+            "id": "ex_31_2_2",
+            "text": "watch / ring / gloves",
+            "options": [
+              "Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.",
+              "Giày / Giày thể thao / Giày bốt.",
+              "Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều).",
+              "Đồng hồ đeo tay / Nhẫn / Găng tay."
+            ],
+            "answer": "Đồng hồ đeo tay / Nhẫn / Găng tay.",
+            "explanation": "Từ \"watch / ring / gloves\" có nghĩa chính xác là \"Đồng hồ đeo tay / Nhẫn / Găng tay.\"."
+          },
+          {
+            "id": "ex_31_2_3",
+            "text": "trousers / jeans / shorts",
+            "options": [
+              "Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều).",
+              "Giày / Giày thể thao / Giày bốt.",
+              "Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.",
+              "Đồng hồ đeo tay / Nhẫn / Găng tay."
+            ],
+            "answer": "Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều).",
+            "explanation": "Từ \"trousers / jeans / shorts\" có nghĩa chính xác là \"Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "31.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_31_3_0",
+            "word": "shirt / T-shirt",
+            "category": "Topic A",
+            "explanation": "Từ \"shirt / T-shirt\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_31_3_1",
+            "word": "sweater / jumper",
+            "category": "Topic B",
+            "explanation": "Từ \"sweater / jumper\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_31_3_2",
+            "word": "coat / jacket",
+            "category": "Topic A",
+            "explanation": "Từ \"coat / jacket\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_31_3_3",
+            "word": "skirt / dress",
+            "category": "Topic B",
+            "explanation": "Từ \"skirt / dress\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_31_3_4",
+            "word": "shoes / trainers / boots",
+            "category": "Topic A",
+            "explanation": "Từ \"shoes / trainers / boots\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_31_3_5",
+            "word": "tie / belt / hat / scarf",
+            "category": "Topic B",
+            "explanation": "Từ \"tie / belt / hat / scarf\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "31.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_31_4_0",
+            "original": "I really like coat / jackets.",
+            "correct": "She is wearing a red coat.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"coat / jacket\" thay vì \"coat / jackets\"."
+          },
+          {
+            "id": "ex_31_4_1",
+            "original": "I really like skirt / dres.",
+            "correct": "That is a beautiful dress.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"skirt / dress\" thay vì \"skirt / dres\"."
+          }
+        ]
+      },
+      {
+        "exNum": "31.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_31_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "shoes / trainers / boots"
+            ],
+            "hint": "Giày / Giày thể thao / Giày bốt.",
+            "explanation": "Từ cần điền là \"shoes / trainers / boots\"."
+          },
+          {
+            "id": "ex_31_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "tie / belt / hat / scarf"
+            ],
+            "hint": "Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.",
+            "explanation": "Từ cần điền là \"tie / belt / hat / scarf\"."
+          },
+          {
+            "id": "ex_31_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "watch / ring / gloves"
+            ],
+            "hint": "Đồng hồ đeo tay / Nhẫn / Găng tay.",
+            "explanation": "Từ cần điền là \"watch / ring / gloves\"."
+          },
+          {
+            "id": "ex_31_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "trousers / jeans / shorts"
+            ],
+            "hint": "Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều).",
+            "explanation": "Từ cần điền là \"trousers / jeans / shorts\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 32,
     "title": "Unit 32: Describing people",
     "description": "Học cách miêu tả ngoại hình của một người một cách tự nhiên và lịch sự: từ chiều cao, cân nặng, khuôn mặt, mái tóc cho đến độ tuổi và nhan sắc.",
-    "theory": [
-      {
-        "heading": "A. Height (Chiều cao)",
-        "items": [
-          {
-            "word": "tall / short",
-            "type": "Tính từ",
-            "phonetic": "/tall/ /short/",
-            "vi": "Cao / Thấp. [KHÔNG DÙNG: high / low].",
-            "example": "Mary is a very tall woman. Tom is quite short."
-          },
-          {
-            "word": "medium height",
-            "type": "Tính từ",
-            "phonetic": "/medium height/",
-            "vi": "Chiều cao trung bình.",
-            "example": "If you aren't tall or short, you are medium height."
-          },
-          {
-            "word": "How tall...?",
-            "type": "Câu hỏi",
-            "phonetic": "/how tall/",
-            "vi": "Cao bao nhiêu?",
-            "example": "How tall is Mary? - She's 1.60 metres tall."
-          }
-        ]
-      },
-      {
-        "heading": "B. Weight (Cân nặng)",
-        "items": [
-          {
-            "word": "slim / thin",
-            "type": "Tính từ",
-            "phonetic": "/slim/ /thin/",
-            "vi": "Mảnh mai / Gầy ốm (Thin mang nghĩa tiêu cực hơn).",
-            "example": "Dolly is really slim. I was very thin when I was in hospital."
-          },
-          {
-            "word": "fat / overweight",
-            "type": "Tính từ",
-            "phonetic": "/fat/ /overweight/",
-            "vi": "Béo / Thừa cân (Overweight lịch sự hơn fat).",
-            "example": "The doctor said I am overweight."
-          },
-          {
-            "word": "How much do you weigh?",
-            "type": "Câu hỏi",
-            "phonetic": "/weigh/",
-            "vi": "Bạn nặng bao nhiêu?",
-            "example": "I weigh 62 kilos."
-          }
-        ]
-      },
-      {
-        "heading": "C. Face and head (Khuôn mặt và đầu tóc)",
-        "items": [
-          {
-            "word": "dark / fair skin",
-            "type": "Tính từ",
-            "phonetic": "/dark/ /fair skin/",
-            "vi": "Da ngăm đen / Da trắng sáng.",
-            "example": "Sally has dark skin. Polly has fair skin."
-          },
-          {
-            "word": "blonde (fair) hair",
-            "type": "Tính từ",
-            "phonetic": "/blonde/",
-            "vi": "Tóc vàng.",
-            "example": "Polly has blonde hair."
-          },
-          {
-            "word": "beard / moustache",
-            "type": "Danh từ",
-            "phonetic": "/beard/ /moustache/",
-            "vi": "Râu quai nón / Râu mép.",
-            "example": "Harry has a moustache and Billy has a beard."
-          },
-          {
-            "word": "has got",
-            "type": "Ngữ pháp",
-            "phonetic": "/has got/",
-            "vi": "Có (dùng để miêu tả các đặc điểm trên cơ thể).",
-            "example": "Sally has got dark hair and brown eyes."
-          }
-        ]
-      },
-      {
-        "heading": "D & E. Age and Looks (Độ tuổi và Ngoại hình)",
-        "items": [
-          {
-            "word": "young / old",
-            "type": "Tính từ",
-            "phonetic": "/young/ /old/",
-            "vi": "Trẻ / Già.",
-            "example": "My sister is 14. She's young."
-          },
-          {
-            "word": "middle-aged",
-            "type": "Tính từ",
-            "phonetic": "/middle-aged/",
-            "vi": "Tuổi trung niên.",
-            "example": "My father is 56. He's middle-aged."
-          },
-          {
-            "word": "elderly",
-            "type": "Tính từ",
-            "phonetic": "/elderly/",
-            "vi": "Người cao tuổi (Lịch sự hơn 'old').",
-            "example": "This hospital is for elderly people."
-          },
-          {
-            "word": "pretty / beautiful",
-            "type": "Tính từ",
-            "phonetic": "/pretty/ /beautiful/",
-            "vi": "Khá xinh / Rất đẹp (thường chỉ dùng cho phái nữ).",
-            "example": "My sister is quite pretty."
-          },
-          {
-            "word": "handsome",
-            "type": "Tính từ",
-            "phonetic": "/handsome/",
-            "vi": "Đẹp trai (thường chỉ dùng cho phái nam).",
-            "example": "Jim's a very handsome man."
-          },
-          {
-            "word": "ugly",
-            "type": "Tính từ",
-            "phonetic": "/ugly/",
-            "vi": "Xấu xí.",
-            "example": "Bob's a rather ugly man."
-          },
-          {
-            "word": "ordinary-looking",
-            "type": "Tính từ",
-            "phonetic": "/ordinary-looking/",
-            "vi": "Trông bình thường (không đẹp cũng không xấu).",
-            "example": "I'm just ordinary-looking."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "tall / short",
+          "type": "Tính từ",
+          "phonetic": "/tall/ /short/",
+          "vi": "Cao / Thấp. [KHÔNG DÙNG: high / low].",
+          "example": "Mary is a very tall woman. Tom is quite short.",
+          "bucket": 1,
+          "collocations": [
+            "very tall / short",
+            "extremely tall / short"
+          ],
+          "wordFamily": "Biến thể của tall / short"
+        },
+        {
+          "word": "medium height",
+          "type": "Tính từ",
+          "phonetic": "/medium height/",
+          "vi": "Chiều cao trung bình.",
+          "example": "If you aren't tall or short, you are medium height.",
+          "bucket": 2,
+          "collocations": [
+            "very medium height",
+            "extremely medium height"
+          ],
+          "wordFamily": "Biến thể của medium height"
+        },
+        {
+          "word": "How tall...?",
+          "type": "Câu hỏi",
+          "phonetic": "/how tall/",
+          "vi": "Cao bao nhiêu?",
+          "example": "How tall is Mary? - She's 1.60 metres tall.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của How tall...?"
+        },
+        {
+          "word": "slim / thin",
+          "type": "Tính từ",
+          "phonetic": "/slim/ /thin/",
+          "vi": "Mảnh mai / Gầy ốm (Thin mang nghĩa tiêu cực hơn).",
+          "example": "Dolly is really slim. I was very thin when I was in hospital.",
+          "bucket": 2,
+          "collocations": [
+            "very slim / thin",
+            "extremely slim / thin"
+          ],
+          "wordFamily": "Biến thể của slim / thin"
+        },
+        {
+          "word": "fat / overweight",
+          "type": "Tính từ",
+          "phonetic": "/fat/ /overweight/",
+          "vi": "Béo / Thừa cân (Overweight lịch sự hơn fat).",
+          "example": "The doctor said I am overweight.",
+          "bucket": 1,
+          "collocations": [
+            "very fat / overweight",
+            "extremely fat / overweight"
+          ],
+          "wordFamily": "Biến thể của fat / overweight"
+        },
+        {
+          "word": "How much do you weigh?",
+          "type": "Câu hỏi",
+          "phonetic": "/weigh/",
+          "vi": "Bạn nặng bao nhiêu?",
+          "example": "I weigh 62 kilos.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của How much do you weigh?"
+        },
+        {
+          "word": "dark / fair skin",
+          "type": "Tính từ",
+          "phonetic": "/dark/ /fair skin/",
+          "vi": "Da ngăm đen / Da trắng sáng.",
+          "example": "Sally has dark skin. Polly has fair skin.",
+          "bucket": 1,
+          "collocations": [
+            "very dark / fair skin",
+            "extremely dark / fair skin"
+          ],
+          "wordFamily": "Biến thể của dark / fair skin"
+        },
+        {
+          "word": "blonde (fair) hair",
+          "type": "Tính từ",
+          "phonetic": "/blonde/",
+          "vi": "Tóc vàng.",
+          "example": "Polly has blonde hair.",
+          "bucket": 2,
+          "collocations": [
+            "very blonde (fair) hair",
+            "extremely blonde (fair) hair"
+          ],
+          "wordFamily": "Biến thể của blonde (fair) hair"
+        },
+        {
+          "word": "beard / moustache",
+          "type": "Danh từ",
+          "phonetic": "/beard/ /moustache/",
+          "vi": "Râu quai nón / Râu mép.",
+          "example": "Harry has a moustache and Billy has a beard.",
+          "bucket": 1,
+          "collocations": [
+            "have a beard / moustache",
+            "use beard / moustache"
+          ],
+          "wordFamily": "Biến thể của beard / moustache"
+        },
+        {
+          "word": "has got",
+          "type": "Ngữ pháp",
+          "phonetic": "/has got/",
+          "vi": "Có (dùng để miêu tả các đặc điểm trên cơ thể).",
+          "example": "Sally has got dark hair and brown eyes.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của has got"
+        },
+        {
+          "word": "young / old",
+          "type": "Tính từ",
+          "phonetic": "/young/ /old/",
+          "vi": "Trẻ / Già.",
+          "example": "My sister is 14. She's young.",
+          "bucket": 1,
+          "collocations": [
+            "very young / old",
+            "extremely young / old"
+          ],
+          "wordFamily": "Biến thể của young / old"
+        },
+        {
+          "word": "middle-aged",
+          "type": "Tính từ",
+          "phonetic": "/middle-aged/",
+          "vi": "Tuổi trung niên.",
+          "example": "My father is 56. He's middle-aged.",
+          "bucket": 2,
+          "collocations": [
+            "very middle-aged",
+            "extremely middle-aged"
+          ],
+          "wordFamily": "Biến thể của middle-aged"
+        },
+        {
+          "word": "elderly",
+          "type": "Tính từ",
+          "phonetic": "/elderly/",
+          "vi": "Người cao tuổi (Lịch sự hơn 'old').",
+          "example": "This hospital is for elderly people.",
+          "bucket": 1,
+          "collocations": [
+            "very elderly",
+            "extremely elderly"
+          ],
+          "wordFamily": "Biến thể của elderly"
+        },
+        {
+          "word": "pretty / beautiful",
+          "type": "Tính từ",
+          "phonetic": "/pretty/ /beautiful/",
+          "vi": "Khá xinh / Rất đẹp (thường chỉ dùng cho phái nữ).",
+          "example": "My sister is quite pretty.",
+          "bucket": 2,
+          "collocations": [
+            "very pretty / beautiful",
+            "extremely pretty / beautiful"
+          ],
+          "wordFamily": "Biến thể của pretty / beautiful"
+        },
+        {
+          "word": "handsome",
+          "type": "Tính từ",
+          "phonetic": "/handsome/",
+          "vi": "Đẹp trai (thường chỉ dùng cho phái nam).",
+          "example": "Jim's a very handsome man.",
+          "bucket": 1,
+          "collocations": [
+            "very handsome",
+            "extremely handsome"
+          ],
+          "wordFamily": "Biến thể của handsome"
+        },
+        {
+          "word": "ugly",
+          "type": "Tính từ",
+          "phonetic": "/ugly/",
+          "vi": "Xấu xí.",
+          "example": "Bob's a rather ugly man.",
+          "bucket": 2,
+          "collocations": [
+            "very ugly",
+            "extremely ugly"
+          ],
+          "wordFamily": "Biến thể của ugly"
+        },
+        {
+          "word": "ordinary-looking",
+          "type": "Tính từ",
+          "phonetic": "/ordinary-looking/",
+          "vi": "Trông bình thường (không đẹp cũng không xấu).",
+          "example": "I'm just ordinary-looking.",
+          "bucket": 1,
+          "collocations": [
+            "very ordinary-looking",
+            "extremely ordinary-looking"
+          ],
+          "wordFamily": "Biến thể của ordinary-looking"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Height (Chiều cao)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "tall / short",
+              "value": "👉 Mary is a very tall woman. Tom is quite short."
+            },
+            {
+              "title": "medium height",
+              "value": "👉 If you aren't tall or short, you are medium height."
+            },
+            {
+              "title": "How tall...?",
+              "value": "👉 How tall is Mary? - She's 1.60 metres tall."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Weight (Cân nặng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "slim / thin",
+              "value": "👉 Dolly is really slim. I was very thin when I was in hospital."
+            },
+            {
+              "title": "fat / overweight",
+              "value": "👉 The doctor said I am overweight."
+            },
+            {
+              "title": "How much do you weigh?",
+              "value": "👉 I weigh 62 kilos."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Face and head (Khuôn mặt và đầu tóc)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "dark / fair skin",
+              "value": "👉 Sally has dark skin. Polly has fair skin."
+            },
+            {
+              "title": "blonde (fair) hair",
+              "value": "👉 Polly has blonde hair."
+            },
+            {
+              "title": "beard / moustache",
+              "value": "👉 Harry has a moustache and Billy has a beard."
+            },
+            {
+              "title": "has got",
+              "value": "👉 Sally has got dark hair and brown eyes."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: D & E. Age and Looks (Độ tuổi và Ngoại hình)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "young / old",
+              "value": "👉 My sister is 14. She's young."
+            },
+            {
+              "title": "middle-aged",
+              "value": "👉 My father is 56. He's middle-aged."
+            },
+            {
+              "title": "elderly",
+              "value": "👉 This hospital is for elderly people."
+            },
+            {
+              "title": "pretty / beautiful",
+              "value": "👉 My sister is quite pretty."
+            },
+            {
+              "title": "handsome",
+              "value": "👉 Jim's a very handsome man."
+            },
+            {
+              "title": "ugly",
+              "value": "👉 Bob's a rather ugly man."
+            },
+            {
+              "title": "ordinary-looking",
+              "value": "👉 I'm just ordinary-looking."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"tall / short\"",
+              "value": "tall / shortly (Trạng từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"medium height\"",
+              "value": "medium heightly (Trạng từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"How tall...?\"",
+              "value": "Các dạng từ loại khác của \"How tall...?\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"slim / thin\"",
+              "value": "Ví dụ: very slim / thin, extremely slim / thin"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"fat / overweight\"",
+              "value": "Ví dụ: very fat / overweight, extremely fat / overweight"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"How much do you weigh?\"",
+              "value": "Cụm từ liên quan đến How much do you weigh?"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Height & Weight",
@@ -20967,6 +33105,215 @@ export const courseData = [
       {
         "text": "I'm not ugly or beautiful, I'm just ordinary-looking.",
         "trans": "Tôi không xấu cũng không đẹp, tôi chỉ có ngoại hình bình thường."
+      }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "32.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_32_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "tall / short"
+            ],
+            "hint": "Cao / Thấp. [KHÔNG DÙNG: high / low].",
+            "explanation": "Từ cần điền là \"tall / short\", mang nghĩa là \"Cao / Thấp. [KHÔNG DÙNG: high / low].\"."
+          },
+          {
+            "id": "ex_32_1_1",
+            "text": "If you aren't tall or short, you are [blank].",
+            "answers": [
+              "medium height"
+            ],
+            "hint": "Chiều cao trung bình.",
+            "explanation": "Từ cần điền là \"medium height\", mang nghĩa là \"Chiều cao trung bình.\"."
+          },
+          {
+            "id": "ex_32_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "How tall...?"
+            ],
+            "hint": "Cao bao nhiêu?",
+            "explanation": "Từ cần điền là \"How tall...?\", mang nghĩa là \"Cao bao nhiêu?\"."
+          },
+          {
+            "id": "ex_32_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "slim / thin"
+            ],
+            "hint": "Mảnh mai / Gầy ốm (Thin mang nghĩa tiêu cực hơn).",
+            "explanation": "Từ cần điền là \"slim / thin\", mang nghĩa là \"Mảnh mai / Gầy ốm (Thin mang nghĩa tiêu cực hơn).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "32.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_32_2_0",
+            "text": "fat / overweight",
+            "options": [
+              "Béo / Thừa cân (Overweight lịch sự hơn fat).",
+              "Tóc vàng.",
+              "Bạn nặng bao nhiêu?",
+              "Da ngăm đen / Da trắng sáng."
+            ],
+            "answer": "Béo / Thừa cân (Overweight lịch sự hơn fat).",
+            "explanation": "Từ \"fat / overweight\" có nghĩa chính xác là \"Béo / Thừa cân (Overweight lịch sự hơn fat).\"."
+          },
+          {
+            "id": "ex_32_2_1",
+            "text": "How much do you weigh?",
+            "options": [
+              "Béo / Thừa cân (Overweight lịch sự hơn fat).",
+              "Bạn nặng bao nhiêu?",
+              "Tóc vàng.",
+              "Da ngăm đen / Da trắng sáng."
+            ],
+            "answer": "Bạn nặng bao nhiêu?",
+            "explanation": "Từ \"How much do you weigh?\" có nghĩa chính xác là \"Bạn nặng bao nhiêu?\"."
+          },
+          {
+            "id": "ex_32_2_2",
+            "text": "dark / fair skin",
+            "options": [
+              "Béo / Thừa cân (Overweight lịch sự hơn fat).",
+              "Bạn nặng bao nhiêu?",
+              "Da ngăm đen / Da trắng sáng.",
+              "Tóc vàng."
+            ],
+            "answer": "Da ngăm đen / Da trắng sáng.",
+            "explanation": "Từ \"dark / fair skin\" có nghĩa chính xác là \"Da ngăm đen / Da trắng sáng.\"."
+          },
+          {
+            "id": "ex_32_2_3",
+            "text": "blonde (fair) hair",
+            "options": [
+              "Da ngăm đen / Da trắng sáng.",
+              "Tóc vàng.",
+              "Bạn nặng bao nhiêu?",
+              "Béo / Thừa cân (Overweight lịch sự hơn fat)."
+            ],
+            "answer": "Tóc vàng.",
+            "explanation": "Từ \"blonde (fair) hair\" có nghĩa chính xác là \"Tóc vàng.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "32.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_32_3_0",
+            "word": "tall / short",
+            "category": "Topic A",
+            "explanation": "Từ \"tall / short\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_32_3_1",
+            "word": "medium height",
+            "category": "Topic B",
+            "explanation": "Từ \"medium height\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_32_3_2",
+            "word": "How tall...?",
+            "category": "Topic A",
+            "explanation": "Từ \"How tall...?\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_32_3_3",
+            "word": "slim / thin",
+            "category": "Topic B",
+            "explanation": "Từ \"slim / thin\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_32_3_4",
+            "word": "fat / overweight",
+            "category": "Topic A",
+            "explanation": "Từ \"fat / overweight\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_32_3_5",
+            "word": "How much do you weigh?",
+            "category": "Topic B",
+            "explanation": "Từ \"How much do you weigh?\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "32.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_32_4_0",
+            "original": "I really like How tall...?s.",
+            "correct": "How tall is Mary? - She's 1.60 metres tall.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"How tall...?\" thay vì \"How tall...?s\"."
+          },
+          {
+            "id": "ex_32_4_1",
+            "original": "I really like slim / thins.",
+            "correct": "Dolly is really slim. I was very thin when I was in hospital.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"slim / thin\" thay vì \"slim / thins\"."
+          }
+        ]
+      },
+      {
+        "exNum": "32.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_32_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "fat / overweight"
+            ],
+            "hint": "Béo / Thừa cân (Overweight lịch sự hơn fat).",
+            "explanation": "Từ cần điền là \"fat / overweight\"."
+          },
+          {
+            "id": "ex_32_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "How much do you weigh?"
+            ],
+            "hint": "Bạn nặng bao nhiêu?",
+            "explanation": "Từ cần điền là \"How much do you weigh?\"."
+          },
+          {
+            "id": "ex_32_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "dark / fair skin"
+            ],
+            "hint": "Da ngăm đen / Da trắng sáng.",
+            "explanation": "Từ cần điền là \"dark / fair skin\"."
+          },
+          {
+            "id": "ex_32_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "blonde (fair) hair"
+            ],
+            "hint": "Tóc vàng.",
+            "explanation": "Từ cần điền là \"blonde (fair) hair\"."
+          }
+        ]
       }
     ]
   }

@@ -2,16 +2,23 @@
 import React, { useState, useEffect } from 'react';
 
 // Data layer
-import { parsedGrammarData } from './data/grammarData';
+import { parsedGrammarData, grammarLevels } from './data/grammarData';
 import { courseData as courseDataPart1 } from './data/oxfordData';
 import { courseData as courseDataPart2 } from './data/oxfordDataPart2';
 import { courseData as courseDataPart3 } from './data/oxfordDataPart3';
 import { courseData as courseDataPreInt } from './data/oxfordPreIntData';
-import { courseData as courseDataAdvanced } from './data/oxfordAdvancedData';
+import { courseData51_75 as courseDataPreIntPart3 } from './data/oxfordPreIntData51_75';
+import { courseData76_100 as courseDataPreIntPart4 } from './data/oxfordPreIntData76_100';
+import { courseData1_25 as courseDataAdvancedPart1 } from './data/oxfordAdvancedData1_25';
+import { courseData26_50 as courseDataAdvancedPart2 } from './data/oxfordAdvancedData26_50';
+import { courseData51_75 as courseDataAdvancedPart3 } from './data/oxfordAdvancedData51_75';
+import { courseData76_100 as courseDataAdvancedPart4 } from './data/oxfordAdvancedData76_100';
 import vocabVstepData from './data/vocabVstepData';
 import { roadmapData } from './data/roadmapData';
 
 const elementaryUnits = [...courseDataPart1, ...courseDataPart2, ...courseDataPart3];
+const preIntUnits = [...courseDataPreInt, ...courseDataPreIntPart3, ...courseDataPreIntPart4];
+const advancedUnits = [...courseDataAdvancedPart1, ...courseDataAdvancedPart2, ...courseDataAdvancedPart3, ...courseDataAdvancedPart4];
 
 const oxfordBooks = [
   {
@@ -23,21 +30,21 @@ const oxfordBooks = [
   {
     id: 'pre_intermediate',
     title: 'English Vocabulary in Use - Pre-Intermediate & Intermediate',
-    description: 'Giáo trình từ vựng Oxford cấp độ Trung cấp (3 Units mẫu)',
-    units: courseDataPreInt
+    description: 'Giáo trình từ vựng Oxford cấp độ Trung cấp (100 Units)',
+    units: preIntUnits
   },
   {
     id: 'advanced',
     title: 'English Vocabulary in Use - Advanced',
-    description: 'Giáo trình từ vựng Oxford cấp độ Nâng cao (3 Units mẫu)',
-    units: courseDataAdvanced
+    description: 'Giáo trình từ vựng Oxford cấp độ Cao cấp, dành cho IELTS 7.0+ và C1-C2 (100 Units)',
+    units: advancedUnits
   }
 ];
 
 const courseData = [
   ...elementaryUnits,
-  ...courseDataPreInt,
-  ...courseDataAdvanced
+  ...preIntUnits,
+  ...advancedUnits
 ];
 
 // Layout layer
@@ -196,7 +203,7 @@ export default function App() {
   // Computed selections
   const selectedGrammarTopic = parsedGrammarData.find(t => t.id === topicId);
   const selectedBook = oxfordBooks.find(b => b.id === activeOxfordBookId) || oxfordBooks[0];
-  const selectedOxfordUnit = courseData.find(u => u.id === oxfordUnitId) || selectedBook.units[0];
+  const selectedOxfordUnit = selectedBook.units.find(u => u.id === oxfordUnitId) || selectedBook.units[0];
   const selectedVstepTopic = vocabVstepData.find(t => t.id === vstepTopicId);
 
   // Global Speech Synthesis Helper
@@ -324,6 +331,7 @@ export default function App() {
       setVstepTopicId={setVstepTopicId}
       vstepTopics={vocabVstepData}
       parsedGrammarData={parsedGrammarData}
+      grammarLevels={grammarLevels}
       courseData={selectedBook.units}
       oxfordBooks={oxfordBooks}
       activeOxfordBookId={activeOxfordBookId}

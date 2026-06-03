@@ -5,79 +5,201 @@ export const courseData = [
     "id": 47,
     "title": "Unit 47: Jobs",
     "description": "Học từ vựng về các ngành nghề, nơi làm việc, các chức danh phổ biến và cách diễn đạt công việc trong cuộc sống.",
-    "theory": [
-      {
-        "heading": "A. People and their jobs (Các ngành nghề phổ biến)",
-        "items": [
-          {
-            "word": "secretary",
-            "type": "Danh từ",
-            "phonetic": "/ˈsek.rə.ter.i/",
-            "vi": "Thư ký (viết thư, trả lời điện thoại, sắp xếp lịch trình).",
-            "example": "The secretary is typing letters in the office."
-          },
-          {
-            "word": "manager",
-            "type": "Danh từ",
-            "phonetic": "/ˈmæn.ə.dʒɚ/",
-            "vi": "Người quản lý (điều hành công ty hoặc phòng ban).",
-            "example": "The manager is in a meeting with the clients."
-          },
-          {
-            "word": "nurse / doctor",
-            "type": "Danh từ",
-            "phonetic": "/nɝːs/ /ˈdɑːk.tɚ/",
-            "vi": "Y tá / Bác sĩ (chăm sóc và chữa trị bệnh nhân).",
-            "example": "The doctor and nurse work together at the hospital."
-          },
-          {
-            "word": "engineer",
-            "type": "Danh từ",
-            "phonetic": "/ˌen.dʒɪˈnɪr/",
-            "vi": "Kỹ sư (thiết kế, xây dựng máy móc, cầu cống, phần mềm).",
-            "example": "He is a software engineer for a tech company."
-          }
-        ]
-      },
-      {
-        "heading": "B. Workplaces (Nơi làm việc tương ứng)",
-        "items": [
-          {
-            "word": "office / factory",
-            "type": "Danh từ",
-            "phonetic": "/ˈɑː.fɪs/ /ˈfæk.tɚ.i/",
-            "vi": "Văn phòng / Nhà máy.",
-            "example": "My dad works in a factory, but my mom works in an office."
-          },
-          {
-            "word": "hospital / school",
-            "type": "Danh từ",
-            "phonetic": "/ˈhɑː.spɪ.t̬əl/ /skuːl/",
-            "vi": "Bệnh viện / Trường học.",
-            "example": "Nurses work in a hospital, and teachers work in a school."
-          }
-        ]
-      },
-      {
-        "heading": "C. Job expressions (Cách hỏi và trả lời về nghề nghiệp)",
-        "items": [
-          {
-            "word": "What do you do?",
-            "type": "Câu hỏi",
-            "phonetic": "/wɒt duː juː duː/",
-            "vi": "Bạn làm nghề gì? (= What is your job?)",
-            "example": "What do you do? - I'm an engineer."
-          },
-          {
-            "word": "work for / work in",
-            "type": "Động từ",
-            "phonetic": "work for: /wɜːk fɔː/ | work in: /wɜːk ɪn/",
-            "vi": "Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).",
-            "example": "I work for a large German bank. She works in a department store."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "secretary",
+          "type": "Danh từ",
+          "phonetic": "/ˈsek.rə.ter.i/",
+          "vi": "Thư ký (viết thư, trả lời điện thoại, sắp xếp lịch trình).",
+          "example": "The secretary is typing letters in the office.",
+          "bucket": 1,
+          "collocations": [
+            "have a secretary",
+            "use secretary"
+          ],
+          "wordFamily": "Biến thể của secretary"
+        },
+        {
+          "word": "manager",
+          "type": "Danh từ",
+          "phonetic": "/ˈmæn.ə.dʒɚ/",
+          "vi": "Người quản lý (điều hành công ty hoặc phòng ban).",
+          "example": "The manager is in a meeting with the clients.",
+          "bucket": 2,
+          "collocations": [
+            "have a manager",
+            "use manager"
+          ],
+          "wordFamily": "Biến thể của manager"
+        },
+        {
+          "word": "nurse / doctor",
+          "type": "Danh từ",
+          "phonetic": "/nɝːs/ /ˈdɑːk.tɚ/",
+          "vi": "Y tá / Bác sĩ (chăm sóc và chữa trị bệnh nhân).",
+          "example": "The doctor and nurse work together at the hospital.",
+          "bucket": 1,
+          "collocations": [
+            "have a nurse / doctor",
+            "use nurse / doctor"
+          ],
+          "wordFamily": "Biến thể của nurse / doctor"
+        },
+        {
+          "word": "engineer",
+          "type": "Danh từ",
+          "phonetic": "/ˌen.dʒɪˈnɪr/",
+          "vi": "Kỹ sư (thiết kế, xây dựng máy móc, cầu cống, phần mềm).",
+          "example": "He is a software engineer for a tech company.",
+          "bucket": 2,
+          "collocations": [
+            "have a engineer",
+            "use engineer"
+          ],
+          "wordFamily": "Biến thể của engineer"
+        },
+        {
+          "word": "office / factory",
+          "type": "Danh từ",
+          "phonetic": "/ˈɑː.fɪs/ /ˈfæk.tɚ.i/",
+          "vi": "Văn phòng / Nhà máy.",
+          "example": "My dad works in a factory, but my mom works in an office.",
+          "bucket": 1,
+          "collocations": [
+            "have a office / factory",
+            "use office / factory"
+          ],
+          "wordFamily": "Biến thể của office / factory"
+        },
+        {
+          "word": "hospital / school",
+          "type": "Danh từ",
+          "phonetic": "/ˈhɑː.spɪ.t̬əl/ /skuːl/",
+          "vi": "Bệnh viện / Trường học.",
+          "example": "Nurses work in a hospital, and teachers work in a school.",
+          "bucket": 2,
+          "collocations": [
+            "have a hospital / school",
+            "use hospital / school"
+          ],
+          "wordFamily": "Biến thể của hospital / school"
+        },
+        {
+          "word": "What do you do?",
+          "type": "Câu hỏi",
+          "phonetic": "/wɒt duː juː duː/",
+          "vi": "Bạn làm nghề gì? (= What is your job?)",
+          "example": "What do you do? - I'm an engineer.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của What do you do?"
+        },
+        {
+          "word": "work for / work in",
+          "type": "Động từ",
+          "phonetic": "work for: /wɜːk fɔː/ | work in: /wɜːk ɪn/",
+          "vi": "Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).",
+          "example": "I work for a large German bank. She works in a department store.",
+          "bucket": 2,
+          "collocations": [
+            "work for / work in something",
+            "always work for / work in"
+          ],
+          "wordFamily": "Biến thể của work for / work in"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. People and their jobs (Các ngành nghề phổ biến)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "secretary",
+              "value": "👉 The secretary is typing letters in the office."
+            },
+            {
+              "title": "manager",
+              "value": "👉 The manager is in a meeting with the clients."
+            },
+            {
+              "title": "nurse / doctor",
+              "value": "👉 The doctor and nurse work together at the hospital."
+            },
+            {
+              "title": "engineer",
+              "value": "👉 He is a software engineer for a tech company."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Workplaces (Nơi làm việc tương ứng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "office / factory",
+              "value": "👉 My dad works in a factory, but my mom works in an office."
+            },
+            {
+              "title": "hospital / school",
+              "value": "👉 Nurses work in a hospital, and teachers work in a school."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Job expressions (Cách hỏi và trả lời về nghề nghiệp)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "What do you do?",
+              "value": "👉 What do you do? - I'm an engineer."
+            },
+            {
+              "title": "work for / work in",
+              "value": "👉 I work for a large German bank. She works in a department store."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"secretary\"",
+              "value": "secretaryful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"manager\"",
+              "value": "managerful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"nurse / doctor\"",
+              "value": "nurse / doctorful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"engineer\"",
+              "value": "Ví dụ: have a engineer, make a engineer, good engineer"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"office / factory\"",
+              "value": "Ví dụ: have a office / factory, make a office / factory, good office / factory"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"hospital / school\"",
+              "value": "Ví dụ: have a hospital / school, make a hospital / school, good hospital / school"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Medical & Education",
@@ -593,71 +715,382 @@ export const courseData = [
         "text": "My grandfather is seventy years old, so he is retired now.",
         "trans": "Ông nội tôi bảy mươi tuổi rồi, vì vậy hiện tại ông đã nghỉ hưu."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "47.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_47_1_0",
+            "text": "The [blank] is typing letters in the office.",
+            "answers": [
+              "secretary"
+            ],
+            "hint": "Thư ký (viết thư, trả lời điện thoại, sắp xếp lịch trình).",
+            "explanation": "Từ cần điền là \"secretary\", mang nghĩa là \"Thư ký (viết thư, trả lời điện thoại, sắp xếp lịch trình).\"."
+          },
+          {
+            "id": "ex_47_1_1",
+            "text": "The [blank] is in a meeting with the clients.",
+            "answers": [
+              "manager"
+            ],
+            "hint": "Người quản lý (điều hành công ty hoặc phòng ban).",
+            "explanation": "Từ cần điền là \"manager\", mang nghĩa là \"Người quản lý (điều hành công ty hoặc phòng ban).\"."
+          },
+          {
+            "id": "ex_47_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "nurse / doctor"
+            ],
+            "hint": "Y tá / Bác sĩ (chăm sóc và chữa trị bệnh nhân).",
+            "explanation": "Từ cần điền là \"nurse / doctor\", mang nghĩa là \"Y tá / Bác sĩ (chăm sóc và chữa trị bệnh nhân).\"."
+          },
+          {
+            "id": "ex_47_1_3",
+            "text": "He is a software [blank] for a tech company.",
+            "answers": [
+              "engineer"
+            ],
+            "hint": "Kỹ sư (thiết kế, xây dựng máy móc, cầu cống, phần mềm).",
+            "explanation": "Từ cần điền là \"engineer\", mang nghĩa là \"Kỹ sư (thiết kế, xây dựng máy móc, cầu cống, phần mềm).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "47.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_47_2_0",
+            "text": "office / factory",
+            "options": [
+              "Văn phòng / Nhà máy.",
+              "Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).",
+              "Bạn làm nghề gì? (= What is your job?)",
+              "Bệnh viện / Trường học."
+            ],
+            "answer": "Văn phòng / Nhà máy.",
+            "explanation": "Từ \"office / factory\" có nghĩa chính xác là \"Văn phòng / Nhà máy.\"."
+          },
+          {
+            "id": "ex_47_2_1",
+            "text": "hospital / school",
+            "options": [
+              "Bệnh viện / Trường học.",
+              "Văn phòng / Nhà máy.",
+              "Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).",
+              "Bạn làm nghề gì? (= What is your job?)"
+            ],
+            "answer": "Bệnh viện / Trường học.",
+            "explanation": "Từ \"hospital / school\" có nghĩa chính xác là \"Bệnh viện / Trường học.\"."
+          },
+          {
+            "id": "ex_47_2_2",
+            "text": "What do you do?",
+            "options": [
+              "Bạn làm nghề gì? (= What is your job?)",
+              "Bệnh viện / Trường học.",
+              "Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).",
+              "Văn phòng / Nhà máy."
+            ],
+            "answer": "Bạn làm nghề gì? (= What is your job?)",
+            "explanation": "Từ \"What do you do?\" có nghĩa chính xác là \"Bạn làm nghề gì? (= What is your job?)\"."
+          },
+          {
+            "id": "ex_47_2_3",
+            "text": "work for / work in",
+            "options": [
+              "Bệnh viện / Trường học.",
+              "Văn phòng / Nhà máy.",
+              "Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).",
+              "Bạn làm nghề gì? (= What is your job?)"
+            ],
+            "answer": "Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).",
+            "explanation": "Từ \"work for / work in\" có nghĩa chính xác là \"Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).\"."
+          }
+        ]
+      },
+      {
+        "exNum": "47.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_47_3_0",
+            "word": "secretary",
+            "category": "Topic A",
+            "explanation": "Từ \"secretary\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_47_3_1",
+            "word": "manager",
+            "category": "Topic B",
+            "explanation": "Từ \"manager\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_47_3_2",
+            "word": "nurse / doctor",
+            "category": "Topic A",
+            "explanation": "Từ \"nurse / doctor\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_47_3_3",
+            "word": "engineer",
+            "category": "Topic B",
+            "explanation": "Từ \"engineer\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_47_3_4",
+            "word": "office / factory",
+            "category": "Topic A",
+            "explanation": "Từ \"office / factory\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_47_3_5",
+            "word": "hospital / school",
+            "category": "Topic B",
+            "explanation": "Từ \"hospital / school\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "47.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_47_4_0",
+            "original": "I really like nurse / doctors.",
+            "correct": "The doctor and nurse work together at the hospital.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"nurse / doctor\" thay vì \"nurse / doctors\"."
+          },
+          {
+            "id": "ex_47_4_1",
+            "original": "He is a software engineers for a tech company.",
+            "correct": "He is a software engineer for a tech company.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"engineer\" thay vì \"engineers\"."
+          }
+        ]
+      },
+      {
+        "exNum": "47.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_47_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "office / factory"
+            ],
+            "hint": "Văn phòng / Nhà máy.",
+            "explanation": "Từ cần điền là \"office / factory\"."
+          },
+          {
+            "id": "ex_47_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "hospital / school"
+            ],
+            "hint": "Bệnh viện / Trường học.",
+            "explanation": "Từ cần điền là \"hospital / school\"."
+          },
+          {
+            "id": "ex_47_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "What do you do?"
+            ],
+            "hint": "Bạn làm nghề gì? (= What is your job?)",
+            "explanation": "Từ cần điền là \"What do you do?\"."
+          },
+          {
+            "id": "ex_47_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "work for / work in"
+            ],
+            "hint": "Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).",
+            "explanation": "Từ cần điền là \"work for / work in\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 48,
     "title": "Unit 48: At school and university",
     "description": "Học từ vựng về các môn học, địa điểm trong trường học, các dụng cụ học tập và cách diễn đạt các hoạt động học thi.",
-    "theory": [
-      {
-        "heading": "A. School subjects (Các môn học chính khóa)",
-        "items": [
-          {
-            "word": "maths / physics / chemistry",
-            "type": "Danh từ",
-            "phonetic": "/mæθs/ /ˈfɪz.ɪks/ /ˈkem.ɪ.stri/",
-            "vi": "Toán học / Vật lý / Hóa học.",
-            "example": "I like maths, but I am bad at physics and chemistry."
-          },
-          {
-            "word": "biology / history / geography",
-            "type": "Danh từ",
-            "phonetic": "/baɪˈɑː.lə.dʒi/ /ˈhɪs.t̬ɚ.i/ /dʒiˈɑː.ɡrə.fi/",
-            "vi": "Sinh học / Lịch sử / Địa lý.",
-            "example": "We learned about rivers in our geography class."
-          }
-        ]
-      },
-      {
-        "heading": "B. School places and things (Địa điểm & Dụng cụ học tập)",
-        "items": [
-          {
-            "word": "classroom / library / laboratory",
-            "type": "Danh từ",
-            "phonetic": "classroom: /ˈklɑːsruːm/ | library: /ˈlaɪbrəri/ | laboratory: /ləˈbɒrətri/",
-            "vi": "Lớp học / Thư viện / Phòng thí nghiệm.",
-            "example": "We study in the classroom and borrow books from the library."
-          },
-          {
-            "word": "textbook / notebook / rubber",
-            "type": "Danh từ",
-            "phonetic": "textbook: /ˈtekstbʊk/ | notebook: /ˈnəʊtbʊk/ | rubber: /ˈrʌbə/",
-            "vi": "Sách giáo khoa / Vở viết / Cục tẩy (Gôm).",
-            "example": "Open your textbook and write the answers in your notebook."
-          }
-        ]
-      },
-      {
-        "heading": "C. School and university verbs (Động từ học thi và giáo dục)",
-        "items": [
-          {
-            "word": "take / pass / fail an exam",
-            "type": "Cụm động từ",
-            "phonetic": "take exam: /teɪk ɪɡˈzæm/ | pass: /pɑːs/ | fail: /feɪl/",
-            "vi": "Đi thi / Thi đỗ / Thi trượt.",
-            "example": "I have to take an exam tomorrow. I hope I pass and don't fail."
-          },
-          {
-            "word": "study / learn / do homework",
-            "type": "Động từ",
-            "phonetic": "study: /ˈstʌdi/ | learn: /lɜːn/ | do homework: /duː ˈhəʊmwɜːk/",
-            "vi": "Nghiên cứu / Học hỏi / Làm bài tập về nhà.",
-            "example": "She is studying biology. He has to do his homework before dinner."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "maths / physics / chemistry",
+          "type": "Danh từ",
+          "phonetic": "/mæθs/ /ˈfɪz.ɪks/ /ˈkem.ɪ.stri/",
+          "vi": "Toán học / Vật lý / Hóa học.",
+          "example": "I like maths, but I am bad at physics and chemistry.",
+          "bucket": 1,
+          "collocations": [
+            "have a maths / physics / chemistry",
+            "use maths / physics / chemistry"
+          ],
+          "wordFamily": "Biến thể của maths / physics / chemistry"
+        },
+        {
+          "word": "biology / history / geography",
+          "type": "Danh từ",
+          "phonetic": "/baɪˈɑː.lə.dʒi/ /ˈhɪs.t̬ɚ.i/ /dʒiˈɑː.ɡrə.fi/",
+          "vi": "Sinh học / Lịch sử / Địa lý.",
+          "example": "We learned about rivers in our geography class.",
+          "bucket": 2,
+          "collocations": [
+            "have a biology / history / geography",
+            "use biology / history / geography"
+          ],
+          "wordFamily": "Biến thể của biology / history / geography"
+        },
+        {
+          "word": "classroom / library / laboratory",
+          "type": "Danh từ",
+          "phonetic": "classroom: /ˈklɑːsruːm/ | library: /ˈlaɪbrəri/ | laboratory: /ləˈbɒrətri/",
+          "vi": "Lớp học / Thư viện / Phòng thí nghiệm.",
+          "example": "We study in the classroom and borrow books from the library.",
+          "bucket": 1,
+          "collocations": [
+            "have a classroom / library / laboratory",
+            "use classroom / library / laboratory"
+          ],
+          "wordFamily": "Biến thể của classroom / library / laboratory"
+        },
+        {
+          "word": "textbook / notebook / rubber",
+          "type": "Danh từ",
+          "phonetic": "textbook: /ˈtekstbʊk/ | notebook: /ˈnəʊtbʊk/ | rubber: /ˈrʌbə/",
+          "vi": "Sách giáo khoa / Vở viết / Cục tẩy (Gôm).",
+          "example": "Open your textbook and write the answers in your notebook.",
+          "bucket": 2,
+          "collocations": [
+            "have a textbook / notebook / rubber",
+            "use textbook / notebook / rubber"
+          ],
+          "wordFamily": "Biến thể của textbook / notebook / rubber"
+        },
+        {
+          "word": "take / pass / fail an exam",
+          "type": "Cụm động từ",
+          "phonetic": "take exam: /teɪk ɪɡˈzæm/ | pass: /pɑːs/ | fail: /feɪl/",
+          "vi": "Đi thi / Thi đỗ / Thi trượt.",
+          "example": "I have to take an exam tomorrow. I hope I pass and don't fail.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take / pass / fail an exam"
+        },
+        {
+          "word": "study / learn / do homework",
+          "type": "Động từ",
+          "phonetic": "study: /ˈstʌdi/ | learn: /lɜːn/ | do homework: /duː ˈhəʊmwɜːk/",
+          "vi": "Nghiên cứu / Học hỏi / Làm bài tập về nhà.",
+          "example": "She is studying biology. He has to do his homework before dinner.",
+          "bucket": 2,
+          "collocations": [
+            "study / learn / do homework something",
+            "always study / learn / do homework"
+          ],
+          "wordFamily": "Biến thể của study / learn / do homework"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. School subjects (Các môn học chính khóa)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "maths / physics / chemistry",
+              "value": "👉 I like maths, but I am bad at physics and chemistry."
+            },
+            {
+              "title": "biology / history / geography",
+              "value": "👉 We learned about rivers in our geography class."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. School places and things (Địa điểm & Dụng cụ học tập)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "classroom / library / laboratory",
+              "value": "👉 We study in the classroom and borrow books from the library."
+            },
+            {
+              "title": "textbook / notebook / rubber",
+              "value": "👉 Open your textbook and write the answers in your notebook."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. School and university verbs (Động từ học thi và giáo dục)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "take / pass / fail an exam",
+              "value": "👉 I have to take an exam tomorrow. I hope I pass and don't fail."
+            },
+            {
+              "title": "study / learn / do homework",
+              "value": "👉 She is studying biology. He has to do his homework before dinner."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"maths / physics / chemistry\"",
+              "value": "maths / physics / chemistryful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"biology / history / geography\"",
+              "value": "biology / history / geographyful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"classroom / library / laboratory\"",
+              "value": "classroom / library / laboratoryful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"textbook / notebook / rubber\"",
+              "value": "Ví dụ: have a textbook / notebook / rubber, make a textbook / notebook / rubber, good textbook / notebook / rubber"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"take / pass / fail an exam\"",
+              "value": "Cụm từ liên quan đến take / pass / fail an exam"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"study / learn / do homework\"",
+              "value": "Ví dụ: study / learn / do homework quickly, always study / learn / do homework"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "School Subjects",
@@ -1173,78 +1606,253 @@ export const courseData = [
         "text": "Please do your homework in your notebook using a pencil.",
         "trans": "Làm ơn hãy làm bài tập về nhà vào vở viết của bạn bằng bút chì."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "48.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_48_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "maths / physics / chemistry"
+            ],
+            "hint": "Toán học / Vật lý / Hóa học.",
+            "explanation": "Từ cần điền là \"maths / physics / chemistry\"."
+          },
+          {
+            "id": "ex_48_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "biology / history / geography"
+            ],
+            "hint": "Sinh học / Lịch sử / Địa lý.",
+            "explanation": "Từ cần điền là \"biology / history / geography\"."
+          },
+          {
+            "id": "ex_48_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "classroom / library / laboratory"
+            ],
+            "hint": "Lớp học / Thư viện / Phòng thí nghiệm.",
+            "explanation": "Từ cần điền là \"classroom / library / laboratory\"."
+          },
+          {
+            "id": "ex_48_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "textbook / notebook / rubber"
+            ],
+            "hint": "Sách giáo khoa / Vở viết / Cục tẩy (Gôm).",
+            "explanation": "Từ cần điền là \"textbook / notebook / rubber\"."
+          },
+          {
+            "id": "ex_48_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "take / pass / fail an exam"
+            ],
+            "hint": "Đi thi / Thi đỗ / Thi trượt.",
+            "explanation": "Từ cần điền là \"take / pass / fail an exam\"."
+          },
+          {
+            "id": "ex_48_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "study / learn / do homework"
+            ],
+            "hint": "Nghiên cứu / Học hỏi / Làm bài tập về nhà.",
+            "explanation": "Từ cần điền là \"study / learn / do homework\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 49,
     "title": "Unit 49: Communications",
     "description": "Học từ vựng về các phương thức liên lạc truyền thống và hiện đại, máy tính, mạng internet và các thuật ngữ kỹ thuật số.",
-    "theory": [
-      {
-        "heading": "A. Ways of communicating (Các phương thức liên lạc)",
-        "items": [
-          {
-            "word": "letter / postcard",
-            "type": "Danh từ",
-            "phonetic": "letter: /ˈletə/ | postcard: /ˈpəʊstkɑːd/",
-            "vi": "Thư tay / Bưu thiếp.",
-            "example": "He sent me a postcard from Paris and a long letter."
-          },
-          {
-            "word": "email / text message",
-            "type": "Danh từ",
-            "phonetic": "email: /ˈiːmeɪl/ | text message: /tekst ˈmesɪdʒ/",
-            "vi": "Thư điện tử / Tin nhắn văn bản.",
-            "example": "I got an email from my boss and a text message from a friend."
-          }
-        ]
-      },
-      {
-        "heading": "B. Computer and Internet (Máy tính và Mạng internet)",
-        "items": [
-          {
-            "word": "keyboard / mouse / screen",
-            "type": "Danh từ",
-            "phonetic": "keyboard: /ˈkiːbɔːd/ | mouse: /maʊs/ | screen: /skriːn/",
-            "vi": "Bàn phím / Chuột máy tính / Màn hình.",
-            "example": "Use the keyboard to type and the mouse to click on the screen."
-          },
-          {
-            "word": "website / online",
-            "type": "Danh từ / Tính từ",
-            "phonetic": "website: /ˈwebsaɪt/ | online: /ˌɒnˈlaɪn/",
-            "vi": "Trang web / Trực tuyến.",
-            "example": "You can find all details online on our official website."
-          },
-          {
-            "word": "download / save / delete",
-            "type": "Động từ",
-            "phonetic": "download: /ˌdaʊnˈləʊd/ | save: /seɪv/ | delete: /dɪˈliːt/",
-            "vi": "Tải xuống / Lưu lại / Xóa đi.",
-            "example": "Download the file, save it on your computer, and delete the old version."
-          }
-        ]
-      },
-      {
-        "heading": "C. Phone communications (Liên lạc qua điện thoại)",
-        "items": [
-          {
-            "word": "make a phone call",
-            "type": "Cụm động từ",
-            "phonetic": "/meɪk ə fəʊn kɔːl/",
-            "vi": "Gọi một cuộc điện thoại.",
-            "example": "I need to make a phone call to my parents."
-          },
-          {
-            "word": "voicemail / ring",
-            "type": "Danh từ / Động từ",
-            "phonetic": "voicemail: /ˈvɔɪsmeɪl/ | ring: /rɪŋ/",
-            "vi": "Tin nhắn thoại / Rung chuông.",
-            "example": "If I don't answer, leave a voicemail. The phone is ringing."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "letter / postcard",
+          "type": "Danh từ",
+          "phonetic": "letter: /ˈletə/ | postcard: /ˈpəʊstkɑːd/",
+          "vi": "Thư tay / Bưu thiếp.",
+          "example": "He sent me a postcard from Paris and a long letter.",
+          "bucket": 1,
+          "collocations": [
+            "have a letter / postcard",
+            "use letter / postcard"
+          ],
+          "wordFamily": "Biến thể của letter / postcard"
+        },
+        {
+          "word": "email / text message",
+          "type": "Danh từ",
+          "phonetic": "email: /ˈiːmeɪl/ | text message: /tekst ˈmesɪdʒ/",
+          "vi": "Thư điện tử / Tin nhắn văn bản.",
+          "example": "I got an email from my boss and a text message from a friend.",
+          "bucket": 2,
+          "collocations": [
+            "have a email / text message",
+            "use email / text message"
+          ],
+          "wordFamily": "Biến thể của email / text message"
+        },
+        {
+          "word": "keyboard / mouse / screen",
+          "type": "Danh từ",
+          "phonetic": "keyboard: /ˈkiːbɔːd/ | mouse: /maʊs/ | screen: /skriːn/",
+          "vi": "Bàn phím / Chuột máy tính / Màn hình.",
+          "example": "Use the keyboard to type and the mouse to click on the screen.",
+          "bucket": 1,
+          "collocations": [
+            "have a keyboard / mouse / screen",
+            "use keyboard / mouse / screen"
+          ],
+          "wordFamily": "Biến thể của keyboard / mouse / screen"
+        },
+        {
+          "word": "website / online",
+          "type": "Danh từ / Tính từ",
+          "phonetic": "website: /ˈwebsaɪt/ | online: /ˌɒnˈlaɪn/",
+          "vi": "Trang web / Trực tuyến.",
+          "example": "You can find all details online on our official website.",
+          "bucket": 2,
+          "collocations": [
+            "very website / online",
+            "extremely website / online"
+          ],
+          "wordFamily": "Biến thể của website / online"
+        },
+        {
+          "word": "download / save / delete",
+          "type": "Động từ",
+          "phonetic": "download: /ˌdaʊnˈləʊd/ | save: /seɪv/ | delete: /dɪˈliːt/",
+          "vi": "Tải xuống / Lưu lại / Xóa đi.",
+          "example": "Download the file, save it on your computer, and delete the old version.",
+          "bucket": 1,
+          "collocations": [
+            "download / save / delete something",
+            "always download / save / delete"
+          ],
+          "wordFamily": "Biến thể của download / save / delete"
+        },
+        {
+          "word": "make a phone call",
+          "type": "Cụm động từ",
+          "phonetic": "/meɪk ə fəʊn kɔːl/",
+          "vi": "Gọi một cuộc điện thoại.",
+          "example": "I need to make a phone call to my parents.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của make a phone call"
+        },
+        {
+          "word": "voicemail / ring",
+          "type": "Danh từ / Động từ",
+          "phonetic": "voicemail: /ˈvɔɪsmeɪl/ | ring: /rɪŋ/",
+          "vi": "Tin nhắn thoại / Rung chuông.",
+          "example": "If I don't answer, leave a voicemail. The phone is ringing.",
+          "bucket": 1,
+          "collocations": [
+            "voicemail / ring something",
+            "always voicemail / ring"
+          ],
+          "wordFamily": "Biến thể của voicemail / ring"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Ways of communicating (Các phương thức liên lạc)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "letter / postcard",
+              "value": "👉 He sent me a postcard from Paris and a long letter."
+            },
+            {
+              "title": "email / text message",
+              "value": "👉 I got an email from my boss and a text message from a friend."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Computer and Internet (Máy tính và Mạng internet)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "keyboard / mouse / screen",
+              "value": "👉 Use the keyboard to type and the mouse to click on the screen."
+            },
+            {
+              "title": "website / online",
+              "value": "👉 You can find all details online on our official website."
+            },
+            {
+              "title": "download / save / delete",
+              "value": "👉 Download the file, save it on your computer, and delete the old version."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Phone communications (Liên lạc qua điện thoại)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "make a phone call",
+              "value": "👉 I need to make a phone call to my parents."
+            },
+            {
+              "title": "voicemail / ring",
+              "value": "👉 If I don't answer, leave a voicemail. The phone is ringing."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"letter / postcard\"",
+              "value": "letter / postcardful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"email / text message\"",
+              "value": "email / text messageful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"keyboard / mouse / screen\"",
+              "value": "keyboard / mouse / screenful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"website / online\"",
+              "value": "Ví dụ: very website / online, extremely website / online"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"download / save / delete\"",
+              "value": "Ví dụ: download / save / delete quickly, always download / save / delete"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"make a phone call\"",
+              "value": "Cụm từ liên quan đến make a phone call"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Post & Written",
@@ -1760,78 +2368,259 @@ export const courseData = [
         "text": "I bought stamps at the post office and sent a letter to my ex-boss.",
         "trans": "Tôi đã mua tem ở bưu điện và gửi một lá thư cho sếp cũ của tôi."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "49.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_49_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "letter / postcard"
+            ],
+            "hint": "Thư tay / Bưu thiếp.",
+            "explanation": "Từ cần điền là \"letter / postcard\"."
+          },
+          {
+            "id": "ex_49_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "email / text message"
+            ],
+            "hint": "Thư điện tử / Tin nhắn văn bản.",
+            "explanation": "Từ cần điền là \"email / text message\"."
+          },
+          {
+            "id": "ex_49_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "keyboard / mouse / screen"
+            ],
+            "hint": "Bàn phím / Chuột máy tính / Màn hình.",
+            "explanation": "Từ cần điền là \"keyboard / mouse / screen\"."
+          },
+          {
+            "id": "ex_49_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "website / online"
+            ],
+            "hint": "Trang web / Trực tuyến.",
+            "explanation": "Từ cần điền là \"website / online\"."
+          },
+          {
+            "id": "ex_49_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "download / save / delete"
+            ],
+            "hint": "Tải xuống / Lưu lại / Xóa đi.",
+            "explanation": "Từ cần điền là \"download / save / delete\"."
+          },
+          {
+            "id": "ex_49_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "make a phone call"
+            ],
+            "hint": "Gọi một cuộc điện thoại.",
+            "explanation": "Từ cần điền là \"make a phone call\"."
+          },
+          {
+            "id": "ex_49_1_6",
+            "text": "The word is [blank].",
+            "answers": [
+              "voicemail / ring"
+            ],
+            "hint": "Tin nhắn thoại / Rung chuông.",
+            "explanation": "Từ cần điền là \"voicemail / ring\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 50,
     "title": "Unit 50: Holidays",
     "description": "Học từ vựng về các loại hình du lịch, đồ dùng cá nhân khi đi xa, các hoạt động tham quan và cách viết bưu thiếp du lịch.",
-    "theory": [
-      {
-        "heading": "A. Types of holidays (Các hình thức du lịch phổ biến)",
-        "items": [
-          {
-            "word": "package holiday",
-            "type": "Danh từ",
-            "phonetic": "/ˈpækɪdʒ ˈhɒlɪdeɪ/",
-            "vi": "Du lịch trọn gói (đã bao gồm vé bay, khách sạn, đồ ăn).",
-            "example": "We booked a package holiday to Italy."
-          },
-          {
-            "word": "sightseeing",
-            "type": "Danh từ",
-            "phonetic": "/ˈsaɪtˌsiː.ɪŋ/",
-            "vi": "Hoạt động ngắm cảnh, tham quan các địa danh nổi tiếng.",
-            "example": "We did lots of sightseeing in Rome."
-          },
-          {
-            "word": "camping",
-            "type": "Danh từ",
-            "phonetic": "/ˈkæm.pɪŋ/",
-            "vi": "Cắm trại ngoài trời (ngủ trong lều dã ngoại).",
-            "example": "We love camping in the mountains during summer."
-          }
-        ]
-      },
-      {
-        "heading": "B. Travel essentials (Đồ dùng cần thiết khi đi du lịch)",
-        "items": [
-          {
-            "word": "passport / visa",
-            "type": "Danh từ",
-            "phonetic": "passport: /ˈpɑːspɔːt/ | visa: /ˈviːzə/",
-            "vi": "Hộ chiếu / Thị thực xuất nhập cảnh.",
-            "example": "You cannot travel abroad without a passport and a visa."
-          },
-          {
-            "word": "suitcase / ticket / map",
-            "type": "Danh từ",
-            "phonetic": "suitcase: /ˈsuːtkeɪs/ | ticket: /ˈtɪkɪt/ | map: /mæp/",
-            "vi": "Va li / Vé đi lại / Bản đồ.",
-            "example": "I packed my suitcase, printed my ticket, and bought a city map."
-          }
-        ]
-      },
-      {
-        "heading": "C. Holiday activities (Các hoạt động giải trí ngày nghỉ)",
-        "items": [
-          {
-            "word": "go on holiday / have a holiday",
-            "type": "Cụm từ",
-            "phonetic": "go on holiday: /ɡəʊ ɒn ˈhɒlɪdeɪ/ | have holiday: /hæv ə ˈhɒlɪdeɪ/",
-            "vi": "Đi nghỉ mát / Có kỳ nghỉ mát.",
-            "example": "We are going on holiday next week. I had a wonderful holiday."
-          },
-          {
-            "word": "take photos / buy souvenirs",
-            "type": "Cụm từ",
-            "phonetic": "take photos: /teɪk ˈfəʊtəʊz/ | buy souvenirs: /baɪ ˌsuːvəˈnɪəz/",
-            "vi": "Chụp ảnh / Mua quà lưu niệm.",
-            "example": "I took many photos of the mountains and bought souvenirs for my friends."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "package holiday",
+          "type": "Danh từ",
+          "phonetic": "/ˈpækɪdʒ ˈhɒlɪdeɪ/",
+          "vi": "Du lịch trọn gói (đã bao gồm vé bay, khách sạn, đồ ăn).",
+          "example": "We booked a package holiday to Italy.",
+          "bucket": 1,
+          "collocations": [
+            "have a package holiday",
+            "use package holiday"
+          ],
+          "wordFamily": "Biến thể của package holiday"
+        },
+        {
+          "word": "sightseeing",
+          "type": "Danh từ",
+          "phonetic": "/ˈsaɪtˌsiː.ɪŋ/",
+          "vi": "Hoạt động ngắm cảnh, tham quan các địa danh nổi tiếng.",
+          "example": "We did lots of sightseeing in Rome.",
+          "bucket": 2,
+          "collocations": [
+            "have a sightseeing",
+            "use sightseeing"
+          ],
+          "wordFamily": "Biến thể của sightseeing"
+        },
+        {
+          "word": "camping",
+          "type": "Danh từ",
+          "phonetic": "/ˈkæm.pɪŋ/",
+          "vi": "Cắm trại ngoài trời (ngủ trong lều dã ngoại).",
+          "example": "We love camping in the mountains during summer.",
+          "bucket": 1,
+          "collocations": [
+            "have a camping",
+            "use camping"
+          ],
+          "wordFamily": "Biến thể của camping"
+        },
+        {
+          "word": "passport / visa",
+          "type": "Danh từ",
+          "phonetic": "passport: /ˈpɑːspɔːt/ | visa: /ˈviːzə/",
+          "vi": "Hộ chiếu / Thị thực xuất nhập cảnh.",
+          "example": "You cannot travel abroad without a passport and a visa.",
+          "bucket": 2,
+          "collocations": [
+            "have a passport / visa",
+            "use passport / visa"
+          ],
+          "wordFamily": "Biến thể của passport / visa"
+        },
+        {
+          "word": "suitcase / ticket / map",
+          "type": "Danh từ",
+          "phonetic": "suitcase: /ˈsuːtkeɪs/ | ticket: /ˈtɪkɪt/ | map: /mæp/",
+          "vi": "Va li / Vé đi lại / Bản đồ.",
+          "example": "I packed my suitcase, printed my ticket, and bought a city map.",
+          "bucket": 1,
+          "collocations": [
+            "have a suitcase / ticket / map",
+            "use suitcase / ticket / map"
+          ],
+          "wordFamily": "Biến thể của suitcase / ticket / map"
+        },
+        {
+          "word": "go on holiday / have a holiday",
+          "type": "Cụm từ",
+          "phonetic": "go on holiday: /ɡəʊ ɒn ˈhɒlɪdeɪ/ | have holiday: /hæv ə ˈhɒlɪdeɪ/",
+          "vi": "Đi nghỉ mát / Có kỳ nghỉ mát.",
+          "example": "We are going on holiday next week. I had a wonderful holiday.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của go on holiday / have a holiday"
+        },
+        {
+          "word": "take photos / buy souvenirs",
+          "type": "Cụm từ",
+          "phonetic": "take photos: /teɪk ˈfəʊtəʊz/ | buy souvenirs: /baɪ ˌsuːvəˈnɪəz/",
+          "vi": "Chụp ảnh / Mua quà lưu niệm.",
+          "example": "I took many photos of the mountains and bought souvenirs for my friends.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của take photos / buy souvenirs"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Types of holidays (Các hình thức du lịch phổ biến)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "package holiday",
+              "value": "👉 We booked a package holiday to Italy."
+            },
+            {
+              "title": "sightseeing",
+              "value": "👉 We did lots of sightseeing in Rome."
+            },
+            {
+              "title": "camping",
+              "value": "👉 We love camping in the mountains during summer."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Travel essentials (Đồ dùng cần thiết khi đi du lịch)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "passport / visa",
+              "value": "👉 You cannot travel abroad without a passport and a visa."
+            },
+            {
+              "title": "suitcase / ticket / map",
+              "value": "👉 I packed my suitcase, printed my ticket, and bought a city map."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Holiday activities (Các hoạt động giải trí ngày nghỉ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "go on holiday / have a holiday",
+              "value": "👉 We are going on holiday next week. I had a wonderful holiday."
+            },
+            {
+              "title": "take photos / buy souvenirs",
+              "value": "👉 I took many photos of the mountains and bought souvenirs for my friends."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"package holiday\"",
+              "value": "package holidayful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"sightseeing\"",
+              "value": "sightseeingful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"camping\"",
+              "value": "campingful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"passport / visa\"",
+              "value": "Ví dụ: have a passport / visa, make a passport / visa, good passport / visa"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"suitcase / ticket / map\"",
+              "value": "Ví dụ: have a suitcase / ticket / map, make a suitcase / ticket / map, good suitcase / ticket / map"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"go on holiday / have a holiday\"",
+              "value": "Cụm từ liên quan đến go on holiday / have a holiday"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Types of Holidays",
@@ -2347,78 +3136,265 @@ export const courseData = [
         "text": "Can you show me where the campsite is on the map?",
         "trans": "Bạn có thể chỉ cho tôi khu cắm trại ở đâu trên bản đồ được không?"
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "50.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_50_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "package holiday"
+            ],
+            "hint": "Du lịch trọn gói (đã bao gồm vé bay, khách sạn, đồ ăn).",
+            "explanation": "Từ cần điền là \"package holiday\"."
+          },
+          {
+            "id": "ex_50_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "sightseeing"
+            ],
+            "hint": "Hoạt động ngắm cảnh, tham quan các địa danh nổi tiếng.",
+            "explanation": "Từ cần điền là \"sightseeing\"."
+          },
+          {
+            "id": "ex_50_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "camping"
+            ],
+            "hint": "Cắm trại ngoài trời (ngủ trong lều dã ngoại).",
+            "explanation": "Từ cần điền là \"camping\"."
+          },
+          {
+            "id": "ex_50_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "passport / visa"
+            ],
+            "hint": "Hộ chiếu / Thị thực xuất nhập cảnh.",
+            "explanation": "Từ cần điền là \"passport / visa\"."
+          },
+          {
+            "id": "ex_50_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "suitcase / ticket / map"
+            ],
+            "hint": "Va li / Vé đi lại / Bản đồ.",
+            "explanation": "Từ cần điền là \"suitcase / ticket / map\"."
+          },
+          {
+            "id": "ex_50_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "go on holiday / have a holiday"
+            ],
+            "hint": "Đi nghỉ mát / Có kỳ nghỉ mát.",
+            "explanation": "Từ cần điền là \"go on holiday / have a holiday\"."
+          },
+          {
+            "id": "ex_50_1_6",
+            "text": "The word is [blank].",
+            "answers": [
+              "take photos / buy souvenirs"
+            ],
+            "hint": "Chụp ảnh / Mua quà lưu niệm.",
+            "explanation": "Từ cần điền là \"take photos / buy souvenirs\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 51,
     "title": "Unit 51: Shops and shopping",
     "description": "Học từ vựng về các loại cửa hàng chuyên dụng, các đồ vật tại nơi mua sắm, giao dịch thanh toán và từ vựng về hàng hiệu, giảm giá.",
-    "theory": [
-      {
-        "heading": "A. Types of shops (Các loại cửa hàng bán lẻ chuyên dụng)",
-        "items": [
-          {
-            "word": "supermarket / department store",
-            "type": "Danh từ",
-            "phonetic": "supermarket: /ˈsuːpəmɑːkɪt/ | department store: /dɪˈpɑːtmənt stɔː/",
-            "vi": "Siêu thị / Cửa hàng bách hóa tổng hợp.",
-            "example": "We buy food in the supermarket and clothes in the department store."
-          },
-          {
-            "word": "baker's / butcher's / chemist's",
-            "type": "Danh từ",
-            "phonetic": "baker's: /ˈbeɪkəz/ | butcher's: /ˈbʊtʃəz/ | chemist's: /ˈkemɪsts/",
-            "vi": "Tiệm bánh mì / Tiệm bán thịt / Hiệu thuốc tây.",
-            "example": "Get bread at the baker's, sausages at the butcher's, and aspirin at the chemist's."
-          },
-          {
-            "word": "bookshop / shoe shop",
-            "type": "Danh từ",
-            "phonetic": "bookshop: /ˈbʊkʃɒp/ | shoe shop: /ʃuː ʃɒp/",
-            "vi": "Hiệu sách / Cửa hàng bán giày.",
-            "example": "I bought a novel at the bookshop and trainers at the shoe shop."
-          }
-        ]
-      },
-      {
-        "heading": "B. Inside the shop (Các đồ vật thường gặp tại cửa hàng)",
-        "items": [
-          {
-            "word": "trolley / basket",
-            "type": "Danh từ",
-            "phonetic": "trolley: /ˈtrɒli/ | basket: /ˈbɑːskɪt/",
-            "vi": "Xe đẩy siêu thị / Giỏ xách mua hàng.",
-            "example": "Put heavy items in the trolley and small items in the basket."
-          },
-          {
-            "word": "queue / checkout / receipt",
-            "type": "Danh từ",
-            "phonetic": "queue: /kjuː/ | checkout: /ˈtʃekaʊt/ | receipt: /rɪˈsiːt/",
-            "vi": "Hàng người xếp hàng / Quầy thu ngân / Hóa đơn mua hàng.",
-            "example": "There is a long queue at the checkout. Keep your receipt."
-          }
-        ]
-      },
-      {
-        "heading": "C. Paying & Money (Giao dịch và tiền nong)",
-        "items": [
-          {
-            "word": "cash / credit card",
-            "type": "Danh từ",
-            "phonetic": "cash: /kæʃ/ | credit card: /ˈkredɪt kɑːd/",
-            "vi": "Tiền mặt / Thẻ tín dụng.",
-            "example": "You can pay in cash or by credit card."
-          },
-          {
-            "word": "price / discount / sale",
-            "type": "Danh từ",
-            "phonetic": "price: /praɪs/ | discount: /ˈdɪskaʊnt/ | sale: /seɪl/",
-            "vi": "Giá cả / Phần trăm giảm giá / Đợt giảm giá xả hàng.",
-            "example": "The price is cheap because the store has a big sale."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "supermarket / department store",
+          "type": "Danh từ",
+          "phonetic": "supermarket: /ˈsuːpəmɑːkɪt/ | department store: /dɪˈpɑːtmənt stɔː/",
+          "vi": "Siêu thị / Cửa hàng bách hóa tổng hợp.",
+          "example": "We buy food in the supermarket and clothes in the department store.",
+          "bucket": 1,
+          "collocations": [
+            "have a supermarket / department store",
+            "use supermarket / department store"
+          ],
+          "wordFamily": "Biến thể của supermarket / department store"
+        },
+        {
+          "word": "baker's / butcher's / chemist's",
+          "type": "Danh từ",
+          "phonetic": "baker's: /ˈbeɪkəz/ | butcher's: /ˈbʊtʃəz/ | chemist's: /ˈkemɪsts/",
+          "vi": "Tiệm bánh mì / Tiệm bán thịt / Hiệu thuốc tây.",
+          "example": "Get bread at the baker's, sausages at the butcher's, and aspirin at the chemist's.",
+          "bucket": 2,
+          "collocations": [
+            "have a baker's / butcher's / chemist's",
+            "use baker's / butcher's / chemist's"
+          ],
+          "wordFamily": "Biến thể của baker's / butcher's / chemist's"
+        },
+        {
+          "word": "bookshop / shoe shop",
+          "type": "Danh từ",
+          "phonetic": "bookshop: /ˈbʊkʃɒp/ | shoe shop: /ʃuː ʃɒp/",
+          "vi": "Hiệu sách / Cửa hàng bán giày.",
+          "example": "I bought a novel at the bookshop and trainers at the shoe shop.",
+          "bucket": 1,
+          "collocations": [
+            "have a bookshop / shoe shop",
+            "use bookshop / shoe shop"
+          ],
+          "wordFamily": "Biến thể của bookshop / shoe shop"
+        },
+        {
+          "word": "trolley / basket",
+          "type": "Danh từ",
+          "phonetic": "trolley: /ˈtrɒli/ | basket: /ˈbɑːskɪt/",
+          "vi": "Xe đẩy siêu thị / Giỏ xách mua hàng.",
+          "example": "Put heavy items in the trolley and small items in the basket.",
+          "bucket": 2,
+          "collocations": [
+            "have a trolley / basket",
+            "use trolley / basket"
+          ],
+          "wordFamily": "Biến thể của trolley / basket"
+        },
+        {
+          "word": "queue / checkout / receipt",
+          "type": "Danh từ",
+          "phonetic": "queue: /kjuː/ | checkout: /ˈtʃekaʊt/ | receipt: /rɪˈsiːt/",
+          "vi": "Hàng người xếp hàng / Quầy thu ngân / Hóa đơn mua hàng.",
+          "example": "There is a long queue at the checkout. Keep your receipt.",
+          "bucket": 1,
+          "collocations": [
+            "have a queue / checkout / receipt",
+            "use queue / checkout / receipt"
+          ],
+          "wordFamily": "Biến thể của queue / checkout / receipt"
+        },
+        {
+          "word": "cash / credit card",
+          "type": "Danh từ",
+          "phonetic": "cash: /kæʃ/ | credit card: /ˈkredɪt kɑːd/",
+          "vi": "Tiền mặt / Thẻ tín dụng.",
+          "example": "You can pay in cash or by credit card.",
+          "bucket": 2,
+          "collocations": [
+            "have a cash / credit card",
+            "use cash / credit card"
+          ],
+          "wordFamily": "Biến thể của cash / credit card"
+        },
+        {
+          "word": "price / discount / sale",
+          "type": "Danh từ",
+          "phonetic": "price: /praɪs/ | discount: /ˈdɪskaʊnt/ | sale: /seɪl/",
+          "vi": "Giá cả / Phần trăm giảm giá / Đợt giảm giá xả hàng.",
+          "example": "The price is cheap because the store has a big sale.",
+          "bucket": 1,
+          "collocations": [
+            "have a price / discount / sale",
+            "use price / discount / sale"
+          ],
+          "wordFamily": "Biến thể của price / discount / sale"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Types of shops (Các loại cửa hàng bán lẻ chuyên dụng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "supermarket / department store",
+              "value": "👉 We buy food in the supermarket and clothes in the department store."
+            },
+            {
+              "title": "baker's / butcher's / chemist's",
+              "value": "👉 Get bread at the baker's, sausages at the butcher's, and aspirin at the chemist's."
+            },
+            {
+              "title": "bookshop / shoe shop",
+              "value": "👉 I bought a novel at the bookshop and trainers at the shoe shop."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Inside the shop (Các đồ vật thường gặp tại cửa hàng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "trolley / basket",
+              "value": "👉 Put heavy items in the trolley and small items in the basket."
+            },
+            {
+              "title": "queue / checkout / receipt",
+              "value": "👉 There is a long queue at the checkout. Keep your receipt."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Paying & Money (Giao dịch và tiền nong)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "cash / credit card",
+              "value": "👉 You can pay in cash or by credit card."
+            },
+            {
+              "title": "price / discount / sale",
+              "value": "👉 The price is cheap because the store has a big sale."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"supermarket / department store\"",
+              "value": "supermarket / department storeful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"baker's / butcher's / chemist's\"",
+              "value": "baker's / butcher's / chemist'sful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"bookshop / shoe shop\"",
+              "value": "bookshop / shoe shopful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"trolley / basket\"",
+              "value": "Ví dụ: have a trolley / basket, make a trolley / basket, good trolley / basket"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"queue / checkout / receipt\"",
+              "value": "Ví dụ: have a queue / checkout / receipt, make a queue / checkout / receipt, good queue / checkout / receipt"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"cash / credit card\"",
+              "value": "Ví dụ: have a cash / credit card, make a cash / credit card, good cash / credit card"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Retail Shops",
@@ -2934,71 +3910,242 @@ export const courseData = [
         "text": "This department store has a fifty percent discount on many items.",
         "trans": "Cửa hàng bách hóa này đang giảm giá năm mươi phần trăm cho nhiều mặt hàng."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "51.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_51_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "supermarket / department store"
+            ],
+            "hint": "Siêu thị / Cửa hàng bách hóa tổng hợp.",
+            "explanation": "Từ cần điền là \"supermarket / department store\"."
+          },
+          {
+            "id": "ex_51_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "baker's / butcher's / chemist's"
+            ],
+            "hint": "Tiệm bánh mì / Tiệm bán thịt / Hiệu thuốc tây.",
+            "explanation": "Từ cần điền là \"baker's / butcher's / chemist's\"."
+          },
+          {
+            "id": "ex_51_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "bookshop / shoe shop"
+            ],
+            "hint": "Hiệu sách / Cửa hàng bán giày.",
+            "explanation": "Từ cần điền là \"bookshop / shoe shop\"."
+          },
+          {
+            "id": "ex_51_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "trolley / basket"
+            ],
+            "hint": "Xe đẩy siêu thị / Giỏ xách mua hàng.",
+            "explanation": "Từ cần điền là \"trolley / basket\"."
+          },
+          {
+            "id": "ex_51_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "queue / checkout / receipt"
+            ],
+            "hint": "Hàng người xếp hàng / Quầy thu ngân / Hóa đơn mua hàng.",
+            "explanation": "Từ cần điền là \"queue / checkout / receipt\"."
+          },
+          {
+            "id": "ex_51_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "cash / credit card"
+            ],
+            "hint": "Tiền mặt / Thẻ tín dụng.",
+            "explanation": "Từ cần điền là \"cash / credit card\"."
+          },
+          {
+            "id": "ex_51_1_6",
+            "text": "The word is [blank].",
+            "answers": [
+              "price / discount / sale"
+            ],
+            "hint": "Giá cả / Phần trăm giảm giá / Đợt giảm giá xả hàng.",
+            "explanation": "Từ cần điền là \"price / discount / sale\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 52,
     "title": "Unit 52: In a hotel",
     "description": "Học cách giao tiếp đặt phòng khách sạn, làm quen với các loại phòng, dịch vụ buồng phòng, thủ tục check-in và thanh toán hóa đơn.",
-    "theory": [
-      {
-        "heading": "A. Hotel rooms (Các loại phòng khách sạn)",
-        "items": [
-          {
-            "word": "single room / double room",
-            "type": "Danh từ",
-            "phonetic": "single room: /ˈsɪŋɡl ruːm/ | double room: /ˈdʌbl ruːm/",
-            "vi": "Phòng đơn (một giường đơn) / Phòng đôi (một giường đôi lớn).",
-            "example": "I booked a single room for myself, and a double room for my parents."
-          },
-          {
-            "word": "twin room / suite",
-            "type": "Danh từ",
-            "phonetic": "twin room: /twɪn ruːm/ | suite: /swiːt/",
-            "vi": "Phòng đôi (hai giường đơn tách rời) / Phòng hạng sang (suite - có thêm phòng khách).",
-            "example": "We stayed in a twin room. The wealthy guest booked the luxury suite."
-          }
-        ]
-      },
-      {
-        "heading": "B. Hotel services & facilities (Dịch vụ & Tiện ích khách sạn)",
-        "items": [
-          {
-            "word": "reception / room service",
-            "type": "Danh từ",
-            "phonetic": "reception: /rɪˈsepʃn/ | room service: /ruːm ˈsɜːvɪs/",
-            "vi": "Quầy lễ tân / Dịch vụ phục vụ thức ăn tận buồng phòng.",
-            "example": "Leave your key card at reception. We ordered room service for breakfast."
-          },
-          {
-            "word": "lift / key card",
-            "type": "Danh từ",
-            "phonetic": "lift: /lɪft/ | key card: /kiː kɑːd/",
-            "vi": "Thang máy / Thẻ từ mở cửa phòng.",
-            "example": "Take the lift to the fourth floor. I lost my key card."
-          }
-        ]
-      },
-      {
-        "heading": "C. Hotel actions (Các thủ tục hành động cần biết)",
-        "items": [
-          {
-            "word": "book a room",
-            "type": "Cụm động từ",
-            "phonetic": "/bʊk ə ruːm/",
-            "vi": "Đặt phòng trước.",
-            "example": "You should book a room in advance during summer holidays."
-          },
-          {
-            "word": "check in / check out",
-            "type": "Cụm động từ",
-            "phonetic": "check in: /tʃek ɪn/ | check out: /tʃek aʊt/",
-            "vi": "Làm thủ tục nhận phòng / Làm thủ tục trả phòng.",
-            "example": "We checked in at 2 PM, and checked out at 11 AM to pay our bill."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "single room / double room",
+          "type": "Danh từ",
+          "phonetic": "single room: /ˈsɪŋɡl ruːm/ | double room: /ˈdʌbl ruːm/",
+          "vi": "Phòng đơn (một giường đơn) / Phòng đôi (một giường đôi lớn).",
+          "example": "I booked a single room for myself, and a double room for my parents.",
+          "bucket": 1,
+          "collocations": [
+            "have a single room / double room",
+            "use single room / double room"
+          ],
+          "wordFamily": "Biến thể của single room / double room"
+        },
+        {
+          "word": "twin room / suite",
+          "type": "Danh từ",
+          "phonetic": "twin room: /twɪn ruːm/ | suite: /swiːt/",
+          "vi": "Phòng đôi (hai giường đơn tách rời) / Phòng hạng sang (suite - có thêm phòng khách).",
+          "example": "We stayed in a twin room. The wealthy guest booked the luxury suite.",
+          "bucket": 2,
+          "collocations": [
+            "have a twin room / suite",
+            "use twin room / suite"
+          ],
+          "wordFamily": "Biến thể của twin room / suite"
+        },
+        {
+          "word": "reception / room service",
+          "type": "Danh từ",
+          "phonetic": "reception: /rɪˈsepʃn/ | room service: /ruːm ˈsɜːvɪs/",
+          "vi": "Quầy lễ tân / Dịch vụ phục vụ thức ăn tận buồng phòng.",
+          "example": "Leave your key card at reception. We ordered room service for breakfast.",
+          "bucket": 1,
+          "collocations": [
+            "have a reception / room service",
+            "use reception / room service"
+          ],
+          "wordFamily": "Biến thể của reception / room service"
+        },
+        {
+          "word": "lift / key card",
+          "type": "Danh từ",
+          "phonetic": "lift: /lɪft/ | key card: /kiː kɑːd/",
+          "vi": "Thang máy / Thẻ từ mở cửa phòng.",
+          "example": "Take the lift to the fourth floor. I lost my key card.",
+          "bucket": 2,
+          "collocations": [
+            "have a lift / key card",
+            "use lift / key card"
+          ],
+          "wordFamily": "Biến thể của lift / key card"
+        },
+        {
+          "word": "book a room",
+          "type": "Cụm động từ",
+          "phonetic": "/bʊk ə ruːm/",
+          "vi": "Đặt phòng trước.",
+          "example": "You should book a room in advance during summer holidays.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của book a room"
+        },
+        {
+          "word": "check in / check out",
+          "type": "Cụm động từ",
+          "phonetic": "check in: /tʃek ɪn/ | check out: /tʃek aʊt/",
+          "vi": "Làm thủ tục nhận phòng / Làm thủ tục trả phòng.",
+          "example": "We checked in at 2 PM, and checked out at 11 AM to pay our bill.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của check in / check out"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Hotel rooms (Các loại phòng khách sạn)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "single room / double room",
+              "value": "👉 I booked a single room for myself, and a double room for my parents."
+            },
+            {
+              "title": "twin room / suite",
+              "value": "👉 We stayed in a twin room. The wealthy guest booked the luxury suite."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Hotel services & facilities (Dịch vụ & Tiện ích khách sạn)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "reception / room service",
+              "value": "👉 Leave your key card at reception. We ordered room service for breakfast."
+            },
+            {
+              "title": "lift / key card",
+              "value": "👉 Take the lift to the fourth floor. I lost my key card."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Hotel actions (Các thủ tục hành động cần biết)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "book a room",
+              "value": "👉 You should book a room in advance during summer holidays."
+            },
+            {
+              "title": "check in / check out",
+              "value": "👉 We checked in at 2 PM, and checked out at 11 AM to pay our bill."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"single room / double room\"",
+              "value": "single room / double roomful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"twin room / suite\"",
+              "value": "twin room / suiteful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"reception / room service\"",
+              "value": "reception / room serviceful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"lift / key card\"",
+              "value": "Ví dụ: have a lift / key card, make a lift / key card, good lift / key card"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"book a room\"",
+              "value": "Cụm từ liên quan đến book a room"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"check in / check out\"",
+              "value": "Cụm từ liên quan đến check in / check out"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Hotel Rooms",
@@ -3514,78 +4661,256 @@ export const courseData = [
         "text": "I lost my key card, can I get another one at reception?",
         "trans": "Tôi đã làm mất thẻ từ phòng mình rồi, tôi có thể nhận cái khác tại quầy lễ tân được không?"
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "52.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_52_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "single room / double room"
+            ],
+            "hint": "Phòng đơn (một giường đơn) / Phòng đôi (một giường đôi lớn).",
+            "explanation": "Từ cần điền là \"single room / double room\"."
+          },
+          {
+            "id": "ex_52_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "twin room / suite"
+            ],
+            "hint": "Phòng đôi (hai giường đơn tách rời) / Phòng hạng sang (suite - có thêm phòng khách).",
+            "explanation": "Từ cần điền là \"twin room / suite\"."
+          },
+          {
+            "id": "ex_52_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "reception / room service"
+            ],
+            "hint": "Quầy lễ tân / Dịch vụ phục vụ thức ăn tận buồng phòng.",
+            "explanation": "Từ cần điền là \"reception / room service\"."
+          },
+          {
+            "id": "ex_52_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "lift / key card"
+            ],
+            "hint": "Thang máy / Thẻ từ mở cửa phòng.",
+            "explanation": "Từ cần điền là \"lift / key card\"."
+          },
+          {
+            "id": "ex_52_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "book a room"
+            ],
+            "hint": "Đặt phòng trước.",
+            "explanation": "Từ cần điền là \"book a room\"."
+          },
+          {
+            "id": "ex_52_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "check in / check out"
+            ],
+            "hint": "Làm thủ tục nhận phòng / Làm thủ tục trả phòng.",
+            "explanation": "Từ cần điền là \"check in / check out\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 53,
     "title": "Unit 53: Eating out",
     "description": "Học từ vựng phục vụ việc đi ăn ngoài nhà hàng: các hình thức quán ăn, quy trình gọi món từ thực đơn (menu), dùng bữa và thanh toán hóa đơn.",
-    "theory": [
-      {
-        "heading": "A. Places to eat (Các địa điểm ăn uống)",
-        "items": [
-          {
-            "word": "restaurant / café",
-            "type": "Danh từ",
-            "phonetic": "/ˈres.tə.rɑːnt/ /kæfˈeɪ/",
-            "vi": "Nhà hàng ăn uống / Quán cà phê giải khát.",
-            "example": "We had a formal dinner in a restaurant and coffee in a café."
-          },
-          {
-            "word": "pub / fast food restaurant",
-            "type": "Danh từ",
-            "phonetic": "pub: /pʌb/ | fast food: /fɑːst fuːd ˈrestrɒnt/",
-            "vi": "Quán bia hơi phục vụ đồ ăn / Cửa hàng ăn nhanh.",
-            "example": "Let's go to the pub for a beer and chips. Kids love fast food restaurants."
-          }
-        ]
-      },
-      {
-        "heading": "B. People & Procedures (Nhân sự & Quy trình đặt món)",
-        "items": [
-          {
-            "word": "waiter / waitress / chef",
-            "type": "Danh từ",
-            "phonetic": "waiter: /ˈweɪtə/ | waitress: /ˈweɪtrəs/ | chef: /ʃef/",
-            "vi": "Nam bồi bàn / Nữ bồi bàn / Đầu bếp trưởng.",
-            "example": "The waiter took our order and the chef cooked the food."
-          },
-          {
-            "word": "menu / order / bill / tip",
-            "type": "Danh từ / Động từ",
-            "phonetic": "menu: /ˈmenjuː/ | order: /ˈɔːdə/ | bill: /bɪl/ | tip: /tɪp/",
-            "vi": "Thực đơn / Gọi món / Hóa đơn / Tiền boa.",
-            "example": "Look at the menu. We ordered soup. Can we have the bill? We left a tip."
-          }
-        ]
-      },
-      {
-        "heading": "C. Menu courses (Các phần của bữa ăn)",
-        "items": [
-          {
-            "word": "starter",
-            "type": "Danh từ",
-            "phonetic": "/ˈstɑːr.t̬ɚ/",
-            "vi": "Món khai vị (soup, salad).",
-            "example": "For my starter, I had chicken soup."
-          },
-          {
-            "word": "main course",
-            "type": "Danh từ",
-            "phonetic": "/meɪn kɔːs/",
-            "vi": "Món ăn chính (steak, fish and chips).",
-            "example": "My main course was steak and baked potatoes."
-          },
-          {
-            "word": "dessert / drinks",
-            "type": "Danh từ",
-            "phonetic": "/dɪˈzɝːt/",
-            "vi": "Món tráng miệng (ice cream, cake) / Đồ uống.",
-            "example": "We had chocolate ice cream for dessert and red wine for drinks."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "restaurant / café",
+          "type": "Danh từ",
+          "phonetic": "/ˈres.tə.rɑːnt/ /kæfˈeɪ/",
+          "vi": "Nhà hàng ăn uống / Quán cà phê giải khát.",
+          "example": "We had a formal dinner in a restaurant and coffee in a café.",
+          "bucket": 1,
+          "collocations": [
+            "have a restaurant / café",
+            "use restaurant / café"
+          ],
+          "wordFamily": "Biến thể của restaurant / café"
+        },
+        {
+          "word": "pub / fast food restaurant",
+          "type": "Danh từ",
+          "phonetic": "pub: /pʌb/ | fast food: /fɑːst fuːd ˈrestrɒnt/",
+          "vi": "Quán bia hơi phục vụ đồ ăn / Cửa hàng ăn nhanh.",
+          "example": "Let's go to the pub for a beer and chips. Kids love fast food restaurants.",
+          "bucket": 2,
+          "collocations": [
+            "have a pub / fast food restaurant",
+            "use pub / fast food restaurant"
+          ],
+          "wordFamily": "Biến thể của pub / fast food restaurant"
+        },
+        {
+          "word": "waiter / waitress / chef",
+          "type": "Danh từ",
+          "phonetic": "waiter: /ˈweɪtə/ | waitress: /ˈweɪtrəs/ | chef: /ʃef/",
+          "vi": "Nam bồi bàn / Nữ bồi bàn / Đầu bếp trưởng.",
+          "example": "The waiter took our order and the chef cooked the food.",
+          "bucket": 1,
+          "collocations": [
+            "have a waiter / waitress / chef",
+            "use waiter / waitress / chef"
+          ],
+          "wordFamily": "Biến thể của waiter / waitress / chef"
+        },
+        {
+          "word": "menu / order / bill / tip",
+          "type": "Danh từ / Động từ",
+          "phonetic": "menu: /ˈmenjuː/ | order: /ˈɔːdə/ | bill: /bɪl/ | tip: /tɪp/",
+          "vi": "Thực đơn / Gọi món / Hóa đơn / Tiền boa.",
+          "example": "Look at the menu. We ordered soup. Can we have the bill? We left a tip.",
+          "bucket": 2,
+          "collocations": [
+            "menu / order / bill / tip something",
+            "always menu / order / bill / tip"
+          ],
+          "wordFamily": "Biến thể của menu / order / bill / tip"
+        },
+        {
+          "word": "starter",
+          "type": "Danh từ",
+          "phonetic": "/ˈstɑːr.t̬ɚ/",
+          "vi": "Món khai vị (soup, salad).",
+          "example": "For my starter, I had chicken soup.",
+          "bucket": 1,
+          "collocations": [
+            "have a starter",
+            "use starter"
+          ],
+          "wordFamily": "Biến thể của starter"
+        },
+        {
+          "word": "main course",
+          "type": "Danh từ",
+          "phonetic": "/meɪn kɔːs/",
+          "vi": "Món ăn chính (steak, fish and chips).",
+          "example": "My main course was steak and baked potatoes.",
+          "bucket": 2,
+          "collocations": [
+            "have a main course",
+            "use main course"
+          ],
+          "wordFamily": "Biến thể của main course"
+        },
+        {
+          "word": "dessert / drinks",
+          "type": "Danh từ",
+          "phonetic": "/dɪˈzɝːt/",
+          "vi": "Món tráng miệng (ice cream, cake) / Đồ uống.",
+          "example": "We had chocolate ice cream for dessert and red wine for drinks.",
+          "bucket": 1,
+          "collocations": [
+            "have a dessert / drinks",
+            "use dessert / drinks"
+          ],
+          "wordFamily": "Biến thể của dessert / drinks"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Places to eat (Các địa điểm ăn uống)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "restaurant / café",
+              "value": "👉 We had a formal dinner in a restaurant and coffee in a café."
+            },
+            {
+              "title": "pub / fast food restaurant",
+              "value": "👉 Let's go to the pub for a beer and chips. Kids love fast food restaurants."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. People & Procedures (Nhân sự & Quy trình đặt món)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "waiter / waitress / chef",
+              "value": "👉 The waiter took our order and the chef cooked the food."
+            },
+            {
+              "title": "menu / order / bill / tip",
+              "value": "👉 Look at the menu. We ordered soup. Can we have the bill? We left a tip."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Menu courses (Các phần của bữa ăn)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "starter",
+              "value": "👉 For my starter, I had chicken soup."
+            },
+            {
+              "title": "main course",
+              "value": "👉 My main course was steak and baked potatoes."
+            },
+            {
+              "title": "dessert / drinks",
+              "value": "👉 We had chocolate ice cream for dessert and red wine for drinks."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"restaurant / café\"",
+              "value": "restaurant / caféful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"pub / fast food restaurant\"",
+              "value": "pub / fast food restaurantful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"waiter / waitress / chef\"",
+              "value": "waiter / waitress / chefful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"menu / order / bill / tip\"",
+              "value": "Ví dụ: menu / order / bill / tip quickly, always menu / order / bill / tip"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"starter\"",
+              "value": "Ví dụ: have a starter, make a starter, good starter"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"main course\"",
+              "value": "Ví dụ: have a main course, make a main course, good main course"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Eating Places",
@@ -4101,71 +5426,248 @@ export const courseData = [
         "text": "We left a generous tip for the waitress because the service was excellent.",
         "trans": "Chúng tôi đã để lại một khoản tiền boa lớn cho cô phục vụ bàn vì dịch vụ cực kỳ tốt."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "53.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_53_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "restaurant / café"
+            ],
+            "hint": "Nhà hàng ăn uống / Quán cà phê giải khát.",
+            "explanation": "Từ cần điền là \"restaurant / café\"."
+          },
+          {
+            "id": "ex_53_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "pub / fast food restaurant"
+            ],
+            "hint": "Quán bia hơi phục vụ đồ ăn / Cửa hàng ăn nhanh.",
+            "explanation": "Từ cần điền là \"pub / fast food restaurant\"."
+          },
+          {
+            "id": "ex_53_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "waiter / waitress / chef"
+            ],
+            "hint": "Nam bồi bàn / Nữ bồi bàn / Đầu bếp trưởng.",
+            "explanation": "Từ cần điền là \"waiter / waitress / chef\"."
+          },
+          {
+            "id": "ex_53_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "menu / order / bill / tip"
+            ],
+            "hint": "Thực đơn / Gọi món / Hóa đơn / Tiền boa.",
+            "explanation": "Từ cần điền là \"menu / order / bill / tip\"."
+          },
+          {
+            "id": "ex_53_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "starter"
+            ],
+            "hint": "Món khai vị (soup, salad).",
+            "explanation": "Từ cần điền là \"starter\"."
+          },
+          {
+            "id": "ex_53_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "main course"
+            ],
+            "hint": "Món ăn chính (steak, fish and chips).",
+            "explanation": "Từ cần điền là \"main course\"."
+          },
+          {
+            "id": "ex_53_1_6",
+            "text": "The word is [blank].",
+            "answers": [
+              "dessert / drinks"
+            ],
+            "hint": "Món tráng miệng (ice cream, cake) / Đồ uống.",
+            "explanation": "Từ cần điền là \"dessert / drinks\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 54,
     "title": "Unit 54: Sports",
     "description": "Học từ vựng về các môn thể thao đồng đội và cá nhân phổ biến, các địa điểm thi đấu, dụng cụ thể thao và động từ đi cùng.",
-    "theory": [
-      {
-        "heading": "A. Team and Individual sports (Các môn thể thao)",
-        "items": [
-          {
-            "word": "football / basketball / volleyball",
-            "type": "Danh từ",
-            "phonetic": "football: /ˈfʊtbɔːl/ | basketball: /ˈbɑːskɪtbɔːl/ | volleyball: /ˈvɒlɪbɔːl/",
-            "vi": "Bóng đá / Bóng rổ / Bóng chuyền (Môn thể thao đồng đội).",
-            "example": "We play football on the pitch and basketball in the gym."
-          },
-          {
-            "word": "tennis / swimming / running",
-            "type": "Danh từ",
-            "phonetic": "tennis: /ˈtenɪs/ | swimming: /ˈswɪmɪŋ/ | running: /ˈrʌnɪŋ/",
-            "vi": "Quần vợt / Bơi lội / Chạy bộ.",
-            "example": "I play tennis on weekends and go swimming in summer."
-          }
-        ]
-      },
-      {
-        "heading": "B. Places and Equipment (Địa điểm & Dụng cụ thể thao)",
-        "items": [
-          {
-            "word": "pool / pitch / court",
-            "type": "Danh từ",
-            "phonetic": "pool: /puːl/ | pitch: /pɪtʃ/ | court: /cɔːt/",
-            "vi": "Bể bơi / Sân cỏ bóng đá / Sân đấu quần vợt, bóng rổ.",
-            "example": "We swam in the pool, played football on the pitch, and tennis on the court."
-          },
-          {
-            "word": "racket / ball / trainers",
-            "type": "Danh từ",
-            "phonetic": "racket: /ˈrækɪt/ | ball: /bɔːl/ | trainers: /ˈtreɪnəz/",
-            "vi": "Vợt thể thao / Quả bóng / Giày thể thao.",
-            "example": "You need a tennis racket, a ball, and a good pair of trainers."
-          }
-        ]
-      },
-      {
-        "heading": "C. Sports verbs & outcomes (Động từ và kết quả thi đấu)",
-        "items": [
-          {
-            "word": "play / go / do",
-            "type": "Động từ",
-            "phonetic": "play: /pleɪ/ | go: /ɡəʊ/ | do: /duː/",
-            "vi": "Chơi (môn dùng bóng: play football/tennis) / Đi (môn đuôi -ing: go swimming/running) / Tập (môn võ/dẻo: do judo/gymnastics).",
-            "example": "I play basketball, go running, and do judo."
-          },
-          {
-            "word": "win / lose / draw",
-            "type": "Động từ",
-            "phonetic": "win: /wɪn/ | lose: /luːz/ | draw: /drɔː/",
-            "vi": "Thắng / Thua / Hòa.",
-            "example": "Our team played well. We won 3-1 and didn't lose. Last week we drew 1-1."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "football / basketball / volleyball",
+          "type": "Danh từ",
+          "phonetic": "football: /ˈfʊtbɔːl/ | basketball: /ˈbɑːskɪtbɔːl/ | volleyball: /ˈvɒlɪbɔːl/",
+          "vi": "Bóng đá / Bóng rổ / Bóng chuyền (Môn thể thao đồng đội).",
+          "example": "We play football on the pitch and basketball in the gym.",
+          "bucket": 1,
+          "collocations": [
+            "have a football / basketball / volleyball",
+            "use football / basketball / volleyball"
+          ],
+          "wordFamily": "Biến thể của football / basketball / volleyball"
+        },
+        {
+          "word": "tennis / swimming / running",
+          "type": "Danh từ",
+          "phonetic": "tennis: /ˈtenɪs/ | swimming: /ˈswɪmɪŋ/ | running: /ˈrʌnɪŋ/",
+          "vi": "Quần vợt / Bơi lội / Chạy bộ.",
+          "example": "I play tennis on weekends and go swimming in summer.",
+          "bucket": 2,
+          "collocations": [
+            "have a tennis / swimming / running",
+            "use tennis / swimming / running"
+          ],
+          "wordFamily": "Biến thể của tennis / swimming / running"
+        },
+        {
+          "word": "pool / pitch / court",
+          "type": "Danh từ",
+          "phonetic": "pool: /puːl/ | pitch: /pɪtʃ/ | court: /cɔːt/",
+          "vi": "Bể bơi / Sân cỏ bóng đá / Sân đấu quần vợt, bóng rổ.",
+          "example": "We swam in the pool, played football on the pitch, and tennis on the court.",
+          "bucket": 1,
+          "collocations": [
+            "have a pool / pitch / court",
+            "use pool / pitch / court"
+          ],
+          "wordFamily": "Biến thể của pool / pitch / court"
+        },
+        {
+          "word": "racket / ball / trainers",
+          "type": "Danh từ",
+          "phonetic": "racket: /ˈrækɪt/ | ball: /bɔːl/ | trainers: /ˈtreɪnəz/",
+          "vi": "Vợt thể thao / Quả bóng / Giày thể thao.",
+          "example": "You need a tennis racket, a ball, and a good pair of trainers.",
+          "bucket": 2,
+          "collocations": [
+            "have a racket / ball / trainers",
+            "use racket / ball / trainers"
+          ],
+          "wordFamily": "Biến thể của racket / ball / trainers"
+        },
+        {
+          "word": "play / go / do",
+          "type": "Động từ",
+          "phonetic": "play: /pleɪ/ | go: /ɡəʊ/ | do: /duː/",
+          "vi": "Chơi (môn dùng bóng: play football/tennis) / Đi (môn đuôi -ing: go swimming/running) / Tập (môn võ/dẻo: do judo/gymnastics).",
+          "example": "I play basketball, go running, and do judo.",
+          "bucket": 1,
+          "collocations": [
+            "play / go / do something",
+            "always play / go / do"
+          ],
+          "wordFamily": "Biến thể của play / go / do"
+        },
+        {
+          "word": "win / lose / draw",
+          "type": "Động từ",
+          "phonetic": "win: /wɪn/ | lose: /luːz/ | draw: /drɔː/",
+          "vi": "Thắng / Thua / Hòa.",
+          "example": "Our team played well. We won 3-1 and didn't lose. Last week we drew 1-1.",
+          "bucket": 2,
+          "collocations": [
+            "win / lose / draw something",
+            "always win / lose / draw"
+          ],
+          "wordFamily": "Biến thể của win / lose / draw"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Team and Individual sports (Các môn thể thao)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "football / basketball / volleyball",
+              "value": "👉 We play football on the pitch and basketball in the gym."
+            },
+            {
+              "title": "tennis / swimming / running",
+              "value": "👉 I play tennis on weekends and go swimming in summer."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Places and Equipment (Địa điểm & Dụng cụ thể thao)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "pool / pitch / court",
+              "value": "👉 We swam in the pool, played football on the pitch, and tennis on the court."
+            },
+            {
+              "title": "racket / ball / trainers",
+              "value": "👉 You need a tennis racket, a ball, and a good pair of trainers."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Sports verbs & outcomes (Động từ và kết quả thi đấu)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "play / go / do",
+              "value": "👉 I play basketball, go running, and do judo."
+            },
+            {
+              "title": "win / lose / draw",
+              "value": "👉 Our team played well. We won 3-1 and didn't lose. Last week we drew 1-1."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"football / basketball / volleyball\"",
+              "value": "football / basketball / volleyballful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"tennis / swimming / running\"",
+              "value": "tennis / swimming / runningful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"pool / pitch / court\"",
+              "value": "pool / pitch / courtful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"racket / ball / trainers\"",
+              "value": "Ví dụ: have a racket / ball / trainers, make a racket / ball / trainers, good racket / ball / trainers"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"play / go / do\"",
+              "value": "Ví dụ: play / go / do quickly, always play / go / do"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"win / lose / draw\"",
+              "value": "Ví dụ: win / lose / draw quickly, always win / lose / draw"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Ball & Team Sports",
@@ -4681,71 +6183,239 @@ export const courseData = [
         "text": "He scored a goal and the match ended in a draw.",
         "trans": "Anh ấy đã ghi một bàn thắng và trận đấu kết thúc với tỷ số hòa."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "54.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_54_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "football / basketball / volleyball"
+            ],
+            "hint": "Bóng đá / Bóng rổ / Bóng chuyền (Môn thể thao đồng đội).",
+            "explanation": "Từ cần điền là \"football / basketball / volleyball\"."
+          },
+          {
+            "id": "ex_54_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "tennis / swimming / running"
+            ],
+            "hint": "Quần vợt / Bơi lội / Chạy bộ.",
+            "explanation": "Từ cần điền là \"tennis / swimming / running\"."
+          },
+          {
+            "id": "ex_54_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "pool / pitch / court"
+            ],
+            "hint": "Bể bơi / Sân cỏ bóng đá / Sân đấu quần vợt, bóng rổ.",
+            "explanation": "Từ cần điền là \"pool / pitch / court\"."
+          },
+          {
+            "id": "ex_54_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "racket / ball / trainers"
+            ],
+            "hint": "Vợt thể thao / Quả bóng / Giày thể thao.",
+            "explanation": "Từ cần điền là \"racket / ball / trainers\"."
+          },
+          {
+            "id": "ex_54_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "play / go / do"
+            ],
+            "hint": "Chơi (môn dùng bóng: play football/tennis) / Đi (môn đuôi -ing: go swimming/running) / Tập (môn võ/dẻo: do judo/gymnastics).",
+            "explanation": "Từ cần điền là \"play / go / do\"."
+          },
+          {
+            "id": "ex_54_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "win / lose / draw"
+            ],
+            "hint": "Thắng / Thua / Hòa.",
+            "explanation": "Từ cần điền là \"win / lose / draw\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 55,
     "title": "Unit 55: Cinema",
     "description": "Học từ vựng về thế giới điện ảnh: các thể loại phim hấp dẫn, nhân sự đoàn phim, trải nghiệm xem phim rạp và viết đánh giá (review).",
-    "theory": [
-      {
-        "heading": "A. Film genres (Các thể loại phim phổ biến)",
-        "items": [
-          {
-            "word": "action film / comedy / horror film",
-            "type": "Danh từ",
-            "phonetic": "action film: /ˈækʃn fɪlm/ | comedy: /ˈkɒmədi/ | horror film: /ˈhɒrə fɪlm/",
-            "vi": "Phim hành động / Phim hài / Phim kinh dị.",
-            "example": "I love action films, my sister likes comedies, but we both hate horror films."
-          },
-          {
-            "word": "romantic film / sci-fi / documentary",
-            "type": "Danh từ",
-            "phonetic": "romantic: /rəʊˈmæntɪk/ | sci-fi: /ˌsaɪˈfaɪ/ | documentary: /ˌdɒkjuˈmentri/",
-            "vi": "Phim lãng mạn / Phim khoa học viễn tưởng / Phim tài liệu.",
-            "example": "We watched a romantic film last night. Sci-fi shows future technology. This documentary is about nature."
-          }
-        ]
-      },
-      {
-        "heading": "B. People in cinema (Những con người làm nên tác phẩm)",
-        "items": [
-          {
-            "word": "actor / actress / star",
-            "type": "Danh từ",
-            "phonetic": "actor: /ˈæktə/ | actress: /ˈæktrəs/ | star: /stɑː/",
-            "vi": "Nam diễn viên / Nữ diễn viên / Ngôi sao điện ảnh nổi tiếng.",
-            "example": "He is a brilliant actor. She is a famous actress. She became a Hollywood star."
-          },
-          {
-            "word": "director / audience",
-            "type": "Danh từ",
-            "phonetic": "/daɪˈrek.tɚ/ /ˈɑː.di.əns/",
-            "vi": "Đạo diễn (người chỉ đạo) / Khán giả xem phim.",
-            "example": "The director directed the film, and the audience clapped at the end."
-          }
-        ]
-      },
-      {
-        "heading": "C. Going to the cinema (Trải nghiệm tại rạp phim)",
-        "items": [
-          {
-            "word": "ticket / screen / popcorn",
-            "type": "Danh từ",
-            "phonetic": "ticket: /ˈtɪkɪt/ | screen: /skriːn/ | popcorn: /ˈpɒpkɔːn/",
-            "vi": "Vé xem phim / Màn ảnh rộng / Bắp rang bơ.",
-            "example": "We bought tickets, got large popcorn, and sat in front of the giant screen."
-          },
-          {
-            "word": "review / subtitles",
-            "type": "Danh từ",
-            "phonetic": "review: /rɪˈvjuː/ | subtitles: /ˈsʌbtaɪtlz/",
-            "vi": "Bài đánh giá, bình luận phim / Phụ đề tiếng nước ngoài.",
-            "example": "The film got great reviews. I prefer foreign movies with English subtitles."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "action film / comedy / horror film",
+          "type": "Danh từ",
+          "phonetic": "action film: /ˈækʃn fɪlm/ | comedy: /ˈkɒmədi/ | horror film: /ˈhɒrə fɪlm/",
+          "vi": "Phim hành động / Phim hài / Phim kinh dị.",
+          "example": "I love action films, my sister likes comedies, but we both hate horror films.",
+          "bucket": 1,
+          "collocations": [
+            "have a action film / comedy / horror film",
+            "use action film / comedy / horror film"
+          ],
+          "wordFamily": "Biến thể của action film / comedy / horror film"
+        },
+        {
+          "word": "romantic film / sci-fi / documentary",
+          "type": "Danh từ",
+          "phonetic": "romantic: /rəʊˈmæntɪk/ | sci-fi: /ˌsaɪˈfaɪ/ | documentary: /ˌdɒkjuˈmentri/",
+          "vi": "Phim lãng mạn / Phim khoa học viễn tưởng / Phim tài liệu.",
+          "example": "We watched a romantic film last night. Sci-fi shows future technology. This documentary is about nature.",
+          "bucket": 2,
+          "collocations": [
+            "have a romantic film / sci-fi / documentary",
+            "use romantic film / sci-fi / documentary"
+          ],
+          "wordFamily": "Biến thể của romantic film / sci-fi / documentary"
+        },
+        {
+          "word": "actor / actress / star",
+          "type": "Danh từ",
+          "phonetic": "actor: /ˈæktə/ | actress: /ˈæktrəs/ | star: /stɑː/",
+          "vi": "Nam diễn viên / Nữ diễn viên / Ngôi sao điện ảnh nổi tiếng.",
+          "example": "He is a brilliant actor. She is a famous actress. She became a Hollywood star.",
+          "bucket": 1,
+          "collocations": [
+            "have a actor / actress / star",
+            "use actor / actress / star"
+          ],
+          "wordFamily": "Biến thể của actor / actress / star"
+        },
+        {
+          "word": "director / audience",
+          "type": "Danh từ",
+          "phonetic": "/daɪˈrek.tɚ/ /ˈɑː.di.əns/",
+          "vi": "Đạo diễn (người chỉ đạo) / Khán giả xem phim.",
+          "example": "The director directed the film, and the audience clapped at the end.",
+          "bucket": 2,
+          "collocations": [
+            "have a director / audience",
+            "use director / audience"
+          ],
+          "wordFamily": "Biến thể của director / audience"
+        },
+        {
+          "word": "ticket / screen / popcorn",
+          "type": "Danh từ",
+          "phonetic": "ticket: /ˈtɪkɪt/ | screen: /skriːn/ | popcorn: /ˈpɒpkɔːn/",
+          "vi": "Vé xem phim / Màn ảnh rộng / Bắp rang bơ.",
+          "example": "We bought tickets, got large popcorn, and sat in front of the giant screen.",
+          "bucket": 1,
+          "collocations": [
+            "have a ticket / screen / popcorn",
+            "use ticket / screen / popcorn"
+          ],
+          "wordFamily": "Biến thể của ticket / screen / popcorn"
+        },
+        {
+          "word": "review / subtitles",
+          "type": "Danh từ",
+          "phonetic": "review: /rɪˈvjuː/ | subtitles: /ˈsʌbtaɪtlz/",
+          "vi": "Bài đánh giá, bình luận phim / Phụ đề tiếng nước ngoài.",
+          "example": "The film got great reviews. I prefer foreign movies with English subtitles.",
+          "bucket": 2,
+          "collocations": [
+            "have a review / subtitles",
+            "use review / subtitles"
+          ],
+          "wordFamily": "Biến thể của review / subtitles"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Film genres (Các thể loại phim phổ biến)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "action film / comedy / horror film",
+              "value": "👉 I love action films, my sister likes comedies, but we both hate horror films."
+            },
+            {
+              "title": "romantic film / sci-fi / documentary",
+              "value": "👉 We watched a romantic film last night. Sci-fi shows future technology. This documentary is about nature."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. People in cinema (Những con người làm nên tác phẩm)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "actor / actress / star",
+              "value": "👉 He is a brilliant actor. She is a famous actress. She became a Hollywood star."
+            },
+            {
+              "title": "director / audience",
+              "value": "👉 The director directed the film, and the audience clapped at the end."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Going to the cinema (Trải nghiệm tại rạp phim)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "ticket / screen / popcorn",
+              "value": "👉 We bought tickets, got large popcorn, and sat in front of the giant screen."
+            },
+            {
+              "title": "review / subtitles",
+              "value": "👉 The film got great reviews. I prefer foreign movies with English subtitles."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"action film / comedy / horror film\"",
+              "value": "action film / comedy / horror filmful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"romantic film / sci-fi / documentary\"",
+              "value": "romantic film / sci-fi / documentaryful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"actor / actress / star\"",
+              "value": "actor / actress / starful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"director / audience\"",
+              "value": "Ví dụ: have a director / audience, make a director / audience, good director / audience"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"ticket / screen / popcorn\"",
+              "value": "Ví dụ: have a ticket / screen / popcorn, make a ticket / screen / popcorn, good ticket / screen / popcorn"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"review / subtitles\"",
+              "value": "Ví dụ: have a review / subtitles, make a review / subtitles, good review / subtitles"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Film Genres",
@@ -5261,71 +6931,230 @@ export const courseData = [
         "text": "The cinema audience clapped loudly because the film had a wonderful soundtrack.",
         "trans": "Khán giả rạp phim đã vỗ tay nồng nhiệt vì bộ phim có nhạc nền rất hay."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "55.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_55_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "action film / comedy / horror film"
+            ],
+            "hint": "Phim hành động / Phim hài / Phim kinh dị.",
+            "explanation": "Từ cần điền là \"action film / comedy / horror film\"."
+          },
+          {
+            "id": "ex_55_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "romantic film / sci-fi / documentary"
+            ],
+            "hint": "Phim lãng mạn / Phim khoa học viễn tưởng / Phim tài liệu.",
+            "explanation": "Từ cần điền là \"romantic film / sci-fi / documentary\"."
+          },
+          {
+            "id": "ex_55_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "actor / actress / star"
+            ],
+            "hint": "Nam diễn viên / Nữ diễn viên / Ngôi sao điện ảnh nổi tiếng.",
+            "explanation": "Từ cần điền là \"actor / actress / star\"."
+          },
+          {
+            "id": "ex_55_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "director / audience"
+            ],
+            "hint": "Đạo diễn (người chỉ đạo) / Khán giả xem phim.",
+            "explanation": "Từ cần điền là \"director / audience\"."
+          },
+          {
+            "id": "ex_55_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "ticket / screen / popcorn"
+            ],
+            "hint": "Vé xem phim / Màn ảnh rộng / Bắp rang bơ.",
+            "explanation": "Từ cần điền là \"ticket / screen / popcorn\"."
+          },
+          {
+            "id": "ex_55_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "review / subtitles"
+            ],
+            "hint": "Bài đánh giá, bình luận phim / Phụ đề tiếng nước ngoài.",
+            "explanation": "Từ cần điền là \"review / subtitles\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 56,
     "title": "Unit 56: Free time at home / Leisure",
     "description": "Học từ vựng về các hoạt động giải trí khi ở nhà: sở thích nhẹ nhàng (đọc sách, xem TV), sáng tạo (nấu ăn, vẽ tranh) và giao lưu bạn bè.",
-    "theory": [
-      {
-        "heading": "A. Quiet hobbies at home (Sở thích thư giãn nhẹ nhàng)",
-        "items": [
-          {
-            "word": "reading / listening to music",
-            "type": "Danh từ",
-            "phonetic": "reading: /ˈriːdɪŋ/ | listening to music: /ˈlɪsnɪŋ tuː ˈmjuːzɪk/",
-            "vi": "Đọc sách / Lắng nghe âm nhạc.",
-            "example": "I spend my free time reading novels and listening to music."
-          },
-          {
-            "word": "playing board games / chess",
-            "type": "Cụm danh từ",
-            "phonetic": "playing board games: /ˈpleɪɪŋ bɔːd ɡeɪmz/ | chess: /tʃes/",
-            "vi": "Chơi cờ bàn / Chơi cờ vua.",
-            "example": "My dad and I love playing board games like chess on rainy days."
-          }
-        ]
-      },
-      {
-        "heading": "B. Creative & Practical hobbies (Sở thích sáng tạo & Thực tế)",
-        "items": [
-          {
-            "word": "gardening / cooking",
-            "type": "Danh từ",
-            "phonetic": "gardening: /ˈɡɑːdnɪŋ/ | cooking: /ˈkʊkɪŋ/",
-            "vi": "Làm vườn / Nấu nướng.",
-            "example": "Gardening keeps me healthy, and cooking allows me to create delicious meals."
-          },
-          {
-            "word": "DIY (Do-It-Yourself) / painting",
-            "type": "Danh từ",
-            "phonetic": "DIY: /ˌdiː aɪ ˈwaɪ/ | painting: /ˈpeɪntɪŋ/",
-            "vi": "Tự tay làm, sửa đồ đạc (thủ công) / Vẽ tranh.",
-            "example": "He loves DIY and repaired the broken chair. She does painting for relaxation."
-          }
-        ]
-      },
-      {
-        "heading": "C. Active & Social leisure (Hoạt động tương tác & Mạng xã hội)",
-        "items": [
-          {
-            "word": "surf the internet / play video games",
-            "type": "Cụm động từ",
-            "phonetic": "surf internet: /sɜːf ˈɪntənet/ | play video games: /pleɪ ˈvɪdɪəʊ ɡeɪmz/",
-            "vi": "Lướt mạng internet / Chơi trò chơi điện tử.",
-            "example": "He surfs the internet for news and plays video games with friends."
-          },
-          {
-            "word": "invite friends over / have a party",
-            "type": "Cụm động từ",
-            "phonetic": "invite friends: /ɪnˈvaɪt frendz/ | have a party: /hæv ə ˈpɑːti/",
-            "vi": "Mời bạn bè sang nhà chơi / Tổ chức một bữa tiệc.",
-            "example": "Let's invite friends over and have a party at the weekend."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "reading / listening to music",
+          "type": "Danh từ",
+          "phonetic": "reading: /ˈriːdɪŋ/ | listening to music: /ˈlɪsnɪŋ tuː ˈmjuːzɪk/",
+          "vi": "Đọc sách / Lắng nghe âm nhạc.",
+          "example": "I spend my free time reading novels and listening to music.",
+          "bucket": 1,
+          "collocations": [
+            "have a reading / listening to music",
+            "use reading / listening to music"
+          ],
+          "wordFamily": "Biến thể của reading / listening to music"
+        },
+        {
+          "word": "playing board games / chess",
+          "type": "Cụm danh từ",
+          "phonetic": "playing board games: /ˈpleɪɪŋ bɔːd ɡeɪmz/ | chess: /tʃes/",
+          "vi": "Chơi cờ bàn / Chơi cờ vua.",
+          "example": "My dad and I love playing board games like chess on rainy days.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của playing board games / chess"
+        },
+        {
+          "word": "gardening / cooking",
+          "type": "Danh từ",
+          "phonetic": "gardening: /ˈɡɑːdnɪŋ/ | cooking: /ˈkʊkɪŋ/",
+          "vi": "Làm vườn / Nấu nướng.",
+          "example": "Gardening keeps me healthy, and cooking allows me to create delicious meals.",
+          "bucket": 1,
+          "collocations": [
+            "have a gardening / cooking",
+            "use gardening / cooking"
+          ],
+          "wordFamily": "Biến thể của gardening / cooking"
+        },
+        {
+          "word": "DIY (Do-It-Yourself) / painting",
+          "type": "Danh từ",
+          "phonetic": "DIY: /ˌdiː aɪ ˈwaɪ/ | painting: /ˈpeɪntɪŋ/",
+          "vi": "Tự tay làm, sửa đồ đạc (thủ công) / Vẽ tranh.",
+          "example": "He loves DIY and repaired the broken chair. She does painting for relaxation.",
+          "bucket": 2,
+          "collocations": [
+            "have a DIY (Do-It-Yourself) / painting",
+            "use DIY (Do-It-Yourself) / painting"
+          ],
+          "wordFamily": "Biến thể của DIY (Do-It-Yourself) / painting"
+        },
+        {
+          "word": "surf the internet / play video games",
+          "type": "Cụm động từ",
+          "phonetic": "surf internet: /sɜːf ˈɪntənet/ | play video games: /pleɪ ˈvɪdɪəʊ ɡeɪmz/",
+          "vi": "Lướt mạng internet / Chơi trò chơi điện tử.",
+          "example": "He surfs the internet for news and plays video games with friends.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của surf the internet / play video games"
+        },
+        {
+          "word": "invite friends over / have a party",
+          "type": "Cụm động từ",
+          "phonetic": "invite friends: /ɪnˈvaɪt frendz/ | have a party: /hæv ə ˈpɑːti/",
+          "vi": "Mời bạn bè sang nhà chơi / Tổ chức một bữa tiệc.",
+          "example": "Let's invite friends over and have a party at the weekend.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của invite friends over / have a party"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Quiet hobbies at home (Sở thích thư giãn nhẹ nhàng)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "reading / listening to music",
+              "value": "👉 I spend my free time reading novels and listening to music."
+            },
+            {
+              "title": "playing board games / chess",
+              "value": "👉 My dad and I love playing board games like chess on rainy days."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Creative & Practical hobbies (Sở thích sáng tạo & Thực tế)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "gardening / cooking",
+              "value": "👉 Gardening keeps me healthy, and cooking allows me to create delicious meals."
+            },
+            {
+              "title": "DIY (Do-It-Yourself) / painting",
+              "value": "👉 He loves DIY and repaired the broken chair. She does painting for relaxation."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Active & Social leisure (Hoạt động tương tác & Mạng xã hội)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "surf the internet / play video games",
+              "value": "👉 He surfs the internet for news and plays video games with friends."
+            },
+            {
+              "title": "invite friends over / have a party",
+              "value": "👉 Let's invite friends over and have a party at the weekend."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"reading / listening to music\"",
+              "value": "reading / listening to musicful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"playing board games / chess\"",
+              "value": "Các dạng từ loại khác của \"playing board games / chess\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"gardening / cooking\"",
+              "value": "gardening / cookingful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"DIY (Do-It-Yourself) / painting\"",
+              "value": "Ví dụ: have a DIY (Do-It-Yourself) / painting, make a DIY (Do-It-Yourself) / painting, good DIY (Do-It-Yourself) / painting"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"surf the internet / play video games\"",
+              "value": "Cụm từ liên quan đến surf the internet / play video games"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"invite friends over / have a party\"",
+              "value": "Cụm từ liên quan đến invite friends over / have a party"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Quiet Hobbies",
@@ -5841,71 +7670,239 @@ export const courseData = [
         "text": "Let's invite friends over and have a party at the weekend.",
         "trans": "Chúng ta hãy mời bạn bè qua chơi và tổ chức một bữa tiệc vào cuối tuần nhé."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "56.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_56_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "reading / listening to music"
+            ],
+            "hint": "Đọc sách / Lắng nghe âm nhạc.",
+            "explanation": "Từ cần điền là \"reading / listening to music\"."
+          },
+          {
+            "id": "ex_56_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "playing board games / chess"
+            ],
+            "hint": "Chơi cờ bàn / Chơi cờ vua.",
+            "explanation": "Từ cần điền là \"playing board games / chess\"."
+          },
+          {
+            "id": "ex_56_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "gardening / cooking"
+            ],
+            "hint": "Làm vườn / Nấu nướng.",
+            "explanation": "Từ cần điền là \"gardening / cooking\"."
+          },
+          {
+            "id": "ex_56_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "DIY (Do-It-Yourself) / painting"
+            ],
+            "hint": "Tự tay làm, sửa đồ đạc (thủ công) / Vẽ tranh.",
+            "explanation": "Từ cần điền là \"DIY (Do-It-Yourself) / painting\"."
+          },
+          {
+            "id": "ex_56_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "surf the internet / play video games"
+            ],
+            "hint": "Lướt mạng internet / Chơi trò chơi điện tử.",
+            "explanation": "Từ cần điền là \"surf the internet / play video games\"."
+          },
+          {
+            "id": "ex_56_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "invite friends over / have a party"
+            ],
+            "hint": "Mời bạn bè sang nhà chơi / Tổ chức một bữa tiệc.",
+            "explanation": "Từ cần điền là \"invite friends over / have a party\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 57,
     "title": "Unit 57: Crime",
     "description": "Học từ vựng mô tả các hành vi phạm tội thường gặp (theft, robbery), danh xưng của tội phạm, cơ quan thực thi pháp luật và các động từ liên quan.",
-    "theory": [
-      {
-        "heading": "A. Types of crime (Các loại tội phạm hành vi)",
-        "items": [
-          {
-            "word": "theft / robbery",
-            "type": "Danh từ",
-            "phonetic": "/θeft/ /ˈrɑː.bɚ.i/",
-            "vi": "Trộm cắp (lén lút) / Cướp đoạt (dùng bạo lực, vũ khí cướp ngân hàng/người).",
-            "example": "The theft of the money occurred at night. The armed robbery at the bank was terrifying."
-          },
-          {
-            "word": "burglary / shoplifting",
-            "type": "Danh từ",
-            "phonetic": "burglary: /ˈbɜːɡləri/ | shoplifting: /ˈʃɒplɪftɪŋ/",
-            "vi": "Trộm đột nhập vào nhà / Ăn cắp vặt ở cửa hàng.",
-            "example": "Burglary is a problem when people are on holiday. Shoplifting is common in supermarkets."
-          }
-        ]
-      },
-      {
-        "heading": "B. Criminals (Tên gọi của các loại tội phạm)",
-        "items": [
-          {
-            "word": "thief / robber / burglar",
-            "type": "Danh từ",
-            "phonetic": "thief: /θiːf/ | robber: /ˈrɒbə/ | burglar: /ˈbɜːɡlə/",
-            "vi": "Kẻ trộm / Kẻ cướp / Kẻ trộm đột nhập.",
-            "example": "The thief stole my wallet. The bank robbers had guns. The burglar entered through the window."
-          },
-          {
-            "word": "shoplifter / murderer",
-            "type": "Danh từ",
-            "phonetic": "shoplifter: /ˈtʃɒplɪftə/ | murderer: /ˈmɜːdərə/",
-            "vi": "Kẻ cắp vặt cửa hàng / Kẻ sát nhân.",
-            "example": "The shoplifter was caught by security. The murderer was sentenced to life."
-          }
-        ]
-      },
-      {
-        "heading": "C. Law enforcement and verbs (Thực thi pháp luật và động từ)",
-        "items": [
-          {
-            "word": "steal / rob / break into",
-            "type": "Động từ",
-            "phonetic": "steal: /stiːl/ | rob: /rɒb/ | break into: /breɪk ˈɪntuː/",
-            "vi": "Ăn trộm (vật cụ thể) / Cướp đoạt (tiền từ ai/ngân hàng) / Đột nhập vào nhà.",
-            "example": "He stole my bike. They robbed the bank. Burglars broke into the house."
-          },
-          {
-            "word": "police officer / arrest / prison",
-            "type": "Danh từ / Động từ",
-            "phonetic": "police officer: /pəˈliːs ˈɒfɪs/ | arrest: /əˈrest/ | prison: /ˈprɪzn/",
-            "vi": "Cảnh sát viên / Bắt giữ / Nhà tù.",
-            "example": "The police officer arrested the thief and sent him to prison."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "theft / robbery",
+          "type": "Danh từ",
+          "phonetic": "/θeft/ /ˈrɑː.bɚ.i/",
+          "vi": "Trộm cắp (lén lút) / Cướp đoạt (dùng bạo lực, vũ khí cướp ngân hàng/người).",
+          "example": "The theft of the money occurred at night. The armed robbery at the bank was terrifying.",
+          "bucket": 1,
+          "collocations": [
+            "have a theft / robbery",
+            "use theft / robbery"
+          ],
+          "wordFamily": "Biến thể của theft / robbery"
+        },
+        {
+          "word": "burglary / shoplifting",
+          "type": "Danh từ",
+          "phonetic": "burglary: /ˈbɜːɡləri/ | shoplifting: /ˈʃɒplɪftɪŋ/",
+          "vi": "Trộm đột nhập vào nhà / Ăn cắp vặt ở cửa hàng.",
+          "example": "Burglary is a problem when people are on holiday. Shoplifting is common in supermarkets.",
+          "bucket": 2,
+          "collocations": [
+            "have a burglary / shoplifting",
+            "use burglary / shoplifting"
+          ],
+          "wordFamily": "Biến thể của burglary / shoplifting"
+        },
+        {
+          "word": "thief / robber / burglar",
+          "type": "Danh từ",
+          "phonetic": "thief: /θiːf/ | robber: /ˈrɒbə/ | burglar: /ˈbɜːɡlə/",
+          "vi": "Kẻ trộm / Kẻ cướp / Kẻ trộm đột nhập.",
+          "example": "The thief stole my wallet. The bank robbers had guns. The burglar entered through the window.",
+          "bucket": 1,
+          "collocations": [
+            "have a thief / robber / burglar",
+            "use thief / robber / burglar"
+          ],
+          "wordFamily": "Biến thể của thief / robber / burglar"
+        },
+        {
+          "word": "shoplifter / murderer",
+          "type": "Danh từ",
+          "phonetic": "shoplifter: /ˈtʃɒplɪftə/ | murderer: /ˈmɜːdərə/",
+          "vi": "Kẻ cắp vặt cửa hàng / Kẻ sát nhân.",
+          "example": "The shoplifter was caught by security. The murderer was sentenced to life.",
+          "bucket": 2,
+          "collocations": [
+            "have a shoplifter / murderer",
+            "use shoplifter / murderer"
+          ],
+          "wordFamily": "Biến thể của shoplifter / murderer"
+        },
+        {
+          "word": "steal / rob / break into",
+          "type": "Động từ",
+          "phonetic": "steal: /stiːl/ | rob: /rɒb/ | break into: /breɪk ˈɪntuː/",
+          "vi": "Ăn trộm (vật cụ thể) / Cướp đoạt (tiền từ ai/ngân hàng) / Đột nhập vào nhà.",
+          "example": "He stole my bike. They robbed the bank. Burglars broke into the house.",
+          "bucket": 1,
+          "collocations": [
+            "steal / rob / break into something",
+            "always steal / rob / break into"
+          ],
+          "wordFamily": "Biến thể của steal / rob / break into"
+        },
+        {
+          "word": "police officer / arrest / prison",
+          "type": "Danh từ / Động từ",
+          "phonetic": "police officer: /pəˈliːs ˈɒfɪs/ | arrest: /əˈrest/ | prison: /ˈprɪzn/",
+          "vi": "Cảnh sát viên / Bắt giữ / Nhà tù.",
+          "example": "The police officer arrested the thief and sent him to prison.",
+          "bucket": 2,
+          "collocations": [
+            "police officer / arrest / prison something",
+            "always police officer / arrest / prison"
+          ],
+          "wordFamily": "Biến thể của police officer / arrest / prison"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Types of crime (Các loại tội phạm hành vi)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "theft / robbery",
+              "value": "👉 The theft of the money occurred at night. The armed robbery at the bank was terrifying."
+            },
+            {
+              "title": "burglary / shoplifting",
+              "value": "👉 Burglary is a problem when people are on holiday. Shoplifting is common in supermarkets."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Criminals (Tên gọi của các loại tội phạm)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "thief / robber / burglar",
+              "value": "👉 The thief stole my wallet. The bank robbers had guns. The burglar entered through the window."
+            },
+            {
+              "title": "shoplifter / murderer",
+              "value": "👉 The shoplifter was caught by security. The murderer was sentenced to life."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Law enforcement and verbs (Thực thi pháp luật và động từ)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "steal / rob / break into",
+              "value": "👉 He stole my bike. They robbed the bank. Burglars broke into the house."
+            },
+            {
+              "title": "police officer / arrest / prison",
+              "value": "👉 The police officer arrested the thief and sent him to prison."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"theft / robbery\"",
+              "value": "theft / robberyful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"burglary / shoplifting\"",
+              "value": "burglary / shopliftingful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"thief / robber / burglar\"",
+              "value": "thief / robber / burglarful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"shoplifter / murderer\"",
+              "value": "Ví dụ: have a shoplifter / murderer, make a shoplifter / murderer, good shoplifter / murderer"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"steal / rob / break into\"",
+              "value": "Ví dụ: steal / rob / break into quickly, always steal / rob / break into"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"police officer / arrest / prison\"",
+              "value": "Ví dụ: police officer / arrest / prison quickly, always police officer / arrest / prison"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Types of Crimes",
@@ -6421,71 +8418,239 @@ export const courseData = [
         "text": "The detectives collected fingerprints from the door to investigate the crime.",
         "trans": "Các thám tử đã thu thập dấu vân tay từ cánh cửa để điều tra vụ án."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "57.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_57_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "theft / robbery"
+            ],
+            "hint": "Trộm cắp (lén lút) / Cướp đoạt (dùng bạo lực, vũ khí cướp ngân hàng/người).",
+            "explanation": "Từ cần điền là \"theft / robbery\"."
+          },
+          {
+            "id": "ex_57_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "burglary / shoplifting"
+            ],
+            "hint": "Trộm đột nhập vào nhà / Ăn cắp vặt ở cửa hàng.",
+            "explanation": "Từ cần điền là \"burglary / shoplifting\"."
+          },
+          {
+            "id": "ex_57_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "thief / robber / burglar"
+            ],
+            "hint": "Kẻ trộm / Kẻ cướp / Kẻ trộm đột nhập.",
+            "explanation": "Từ cần điền là \"thief / robber / burglar\"."
+          },
+          {
+            "id": "ex_57_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "shoplifter / murderer"
+            ],
+            "hint": "Kẻ cắp vặt cửa hàng / Kẻ sát nhân.",
+            "explanation": "Từ cần điền là \"shoplifter / murderer\"."
+          },
+          {
+            "id": "ex_57_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "steal / rob / break into"
+            ],
+            "hint": "Ăn trộm (vật cụ thể) / Cướp đoạt (tiền từ ai/ngân hàng) / Đột nhập vào nhà.",
+            "explanation": "Từ cần điền là \"steal / rob / break into\"."
+          },
+          {
+            "id": "ex_57_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "police officer / arrest / prison"
+            ],
+            "hint": "Cảnh sát viên / Bắt giữ / Nhà tù.",
+            "explanation": "Từ cần điền là \"police officer / arrest / prison\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 58,
     "title": "Unit 58: The media",
     "description": "Học từ vựng về báo chí (newspaper, magazine), truyền hình (news, documentary), internet và mạng xã hội.",
-    "theory": [
-      {
-        "heading": "A. Print media (Báo chí in ấn truyền thống)",
-        "items": [
-          {
-            "word": "newspaper / magazine",
-            "type": "Danh từ",
-            "phonetic": "newspaper: /ˈnjuːzpeɪpə/ | magazine: /ˌmæɡəˈziːn/",
-            "vi": "Báo giấy hằng ngày / Tạp chí chuyên đề.",
-            "example": "I read the newspaper in the morning and a fashion magazine on weekends."
-          },
-          {
-            "word": "article / headline",
-            "type": "Danh từ",
-            "phonetic": "article: /ˈɑːtɪkl/ | headline: /ˈhedlaɪn/",
-            "vi": "Bài báo / Tiêu đề lớn trên trang nhất.",
-            "example": "The front-page headline was shocking. I read an interesting article about travel."
-          }
-        ]
-      },
-      {
-        "heading": "B. Broadcast media (Truyền hình và phát thanh)",
-        "items": [
-          {
-            "word": "news program / documentary",
-            "type": "Danh từ",
-            "phonetic": "news program: /njuːz ˈprəʊɡræm/ | documentary: /ˌdɒkjuˈmentri/",
-            "vi": "Chương trình tin tức / Phim tài liệu.",
-            "example": "We watch the news program at 7:00 and a nature documentary later."
-          },
-          {
-            "word": "soap opera / commercial",
-            "type": "Danh từ",
-            "phonetic": "soap opera: /ˈsəʊp ˈɒprə/ | commercial: /kəˈmɜːʃl/",
-            "vi": "Phim truyền hình dài tập tâm lý / Quảng cáo truyền hình.",
-            "example": "My mother loves this Spanish soap opera. There are too many commercials during the film."
-          }
-        ]
-      },
-      {
-        "heading": "C. Digital media & verbs (Mạng internet và mạng xã hội)",
-        "items": [
-          {
-            "word": "social network / blog / channel",
-            "type": "Danh từ",
-            "phonetic": "social network: /ˈsəʊʃl ˈnetwɜːk/ | blog: /blɒɡ/ | channel: /ˈtʃænl/",
-            "vi": "Mạng xã hội (Facebook, Instagram) / Blog cá nhân / Kênh nội dung.",
-            "example": "She has a popular travel blog and a YouTube channel with many subscribers."
-          },
-          {
-            "word": "post / share / publish",
-            "type": "Động từ",
-            "phonetic": "post: /pəʊst/ | share: /ʃeə/ | publish: /ˈpʌblɪʃ/",
-            "vi": "Đăng tải bài viết / Chia sẻ / Xuất bản, phát hành.",
-            "example": "He posted a comment, shared the video, and the company published the news."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "newspaper / magazine",
+          "type": "Danh từ",
+          "phonetic": "newspaper: /ˈnjuːzpeɪpə/ | magazine: /ˌmæɡəˈziːn/",
+          "vi": "Báo giấy hằng ngày / Tạp chí chuyên đề.",
+          "example": "I read the newspaper in the morning and a fashion magazine on weekends.",
+          "bucket": 1,
+          "collocations": [
+            "have a newspaper / magazine",
+            "use newspaper / magazine"
+          ],
+          "wordFamily": "Biến thể của newspaper / magazine"
+        },
+        {
+          "word": "article / headline",
+          "type": "Danh từ",
+          "phonetic": "article: /ˈɑːtɪkl/ | headline: /ˈhedlaɪn/",
+          "vi": "Bài báo / Tiêu đề lớn trên trang nhất.",
+          "example": "The front-page headline was shocking. I read an interesting article about travel.",
+          "bucket": 2,
+          "collocations": [
+            "have a article / headline",
+            "use article / headline"
+          ],
+          "wordFamily": "Biến thể của article / headline"
+        },
+        {
+          "word": "news program / documentary",
+          "type": "Danh từ",
+          "phonetic": "news program: /njuːz ˈprəʊɡræm/ | documentary: /ˌdɒkjuˈmentri/",
+          "vi": "Chương trình tin tức / Phim tài liệu.",
+          "example": "We watch the news program at 7:00 and a nature documentary later.",
+          "bucket": 1,
+          "collocations": [
+            "have a news program / documentary",
+            "use news program / documentary"
+          ],
+          "wordFamily": "Biến thể của news program / documentary"
+        },
+        {
+          "word": "soap opera / commercial",
+          "type": "Danh từ",
+          "phonetic": "soap opera: /ˈsəʊp ˈɒprə/ | commercial: /kəˈmɜːʃl/",
+          "vi": "Phim truyền hình dài tập tâm lý / Quảng cáo truyền hình.",
+          "example": "My mother loves this Spanish soap opera. There are too many commercials during the film.",
+          "bucket": 2,
+          "collocations": [
+            "have a soap opera / commercial",
+            "use soap opera / commercial"
+          ],
+          "wordFamily": "Biến thể của soap opera / commercial"
+        },
+        {
+          "word": "social network / blog / channel",
+          "type": "Danh từ",
+          "phonetic": "social network: /ˈsəʊʃl ˈnetwɜːk/ | blog: /blɒɡ/ | channel: /ˈtʃænl/",
+          "vi": "Mạng xã hội (Facebook, Instagram) / Blog cá nhân / Kênh nội dung.",
+          "example": "She has a popular travel blog and a YouTube channel with many subscribers.",
+          "bucket": 1,
+          "collocations": [
+            "have a social network / blog / channel",
+            "use social network / blog / channel"
+          ],
+          "wordFamily": "Biến thể của social network / blog / channel"
+        },
+        {
+          "word": "post / share / publish",
+          "type": "Động từ",
+          "phonetic": "post: /pəʊst/ | share: /ʃeə/ | publish: /ˈpʌblɪʃ/",
+          "vi": "Đăng tải bài viết / Chia sẻ / Xuất bản, phát hành.",
+          "example": "He posted a comment, shared the video, and the company published the news.",
+          "bucket": 2,
+          "collocations": [
+            "post / share / publish something",
+            "always post / share / publish"
+          ],
+          "wordFamily": "Biến thể của post / share / publish"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Print media (Báo chí in ấn truyền thống)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "newspaper / magazine",
+              "value": "👉 I read the newspaper in the morning and a fashion magazine on weekends."
+            },
+            {
+              "title": "article / headline",
+              "value": "👉 The front-page headline was shocking. I read an interesting article about travel."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Broadcast media (Truyền hình và phát thanh)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "news program / documentary",
+              "value": "👉 We watch the news program at 7:00 and a nature documentary later."
+            },
+            {
+              "title": "soap opera / commercial",
+              "value": "👉 My mother loves this Spanish soap opera. There are too many commercials during the film."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Digital media & verbs (Mạng internet và mạng xã hội)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "social network / blog / channel",
+              "value": "👉 She has a popular travel blog and a YouTube channel with many subscribers."
+            },
+            {
+              "title": "post / share / publish",
+              "value": "👉 He posted a comment, shared the video, and the company published the news."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"newspaper / magazine\"",
+              "value": "newspaper / magazineful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"article / headline\"",
+              "value": "article / headlineful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"news program / documentary\"",
+              "value": "news program / documentaryful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"soap opera / commercial\"",
+              "value": "Ví dụ: have a soap opera / commercial, make a soap opera / commercial, good soap opera / commercial"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"social network / blog / channel\"",
+              "value": "Ví dụ: have a social network / blog / channel, make a social network / blog / channel, good social network / blog / channel"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"post / share / publish\"",
+              "value": "Ví dụ: post / share / publish quickly, always post / share / publish"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Print Media",
@@ -7001,85 +9166,255 @@ export const courseData = [
         "text": "Please subscribe to my channel and read my daily blogs online.",
         "trans": "Làm ơn hãy đăng ký kênh của tôi và đọc các trang blog hằng ngày của tôi trực tuyến."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "58.1",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp:",
+        "questions": [
+          {
+            "id": "ex_58_1_0",
+            "text": "The word is [blank].",
+            "answers": [
+              "newspaper / magazine"
+            ],
+            "hint": "Báo giấy hằng ngày / Tạp chí chuyên đề.",
+            "explanation": "Từ cần điền là \"newspaper / magazine\"."
+          },
+          {
+            "id": "ex_58_1_1",
+            "text": "The word is [blank].",
+            "answers": [
+              "article / headline"
+            ],
+            "hint": "Bài báo / Tiêu đề lớn trên trang nhất.",
+            "explanation": "Từ cần điền là \"article / headline\"."
+          },
+          {
+            "id": "ex_58_1_2",
+            "text": "The word is [blank].",
+            "answers": [
+              "news program / documentary"
+            ],
+            "hint": "Chương trình tin tức / Phim tài liệu.",
+            "explanation": "Từ cần điền là \"news program / documentary\"."
+          },
+          {
+            "id": "ex_58_1_3",
+            "text": "The word is [blank].",
+            "answers": [
+              "soap opera / commercial"
+            ],
+            "hint": "Phim truyền hình dài tập tâm lý / Quảng cáo truyền hình.",
+            "explanation": "Từ cần điền là \"soap opera / commercial\"."
+          },
+          {
+            "id": "ex_58_1_4",
+            "text": "The word is [blank].",
+            "answers": [
+              "social network / blog / channel"
+            ],
+            "hint": "Mạng xã hội (Facebook, Instagram) / Blog cá nhân / Kênh nội dung.",
+            "explanation": "Từ cần điền là \"social network / blog / channel\"."
+          },
+          {
+            "id": "ex_58_1_5",
+            "text": "The word is [blank].",
+            "answers": [
+              "post / share / publish"
+            ],
+            "hint": "Đăng tải bài viết / Chia sẻ / Xuất bản, phát hành.",
+            "explanation": "Từ cần điền là \"post / share / publish\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 59,
     "title": "Unit 59: Everyday problems / Problems at home and work",
     "description": "Học từ vựng mô tả sự cố sinh hoạt thường gặp tại nhà (tắc cống, mất điện) và tại công sở (quá tải, muộn giờ, hỏng máy).",
-    "theory": [
-      {
-        "heading": "A. Problems at home (Sự cố hỏng hóc trong gia đình)",
-        "items": [
-          {
-            "word": "broken window / leaking tap",
-            "type": "Cụm danh từ",
-            "phonetic": "broken window: /ˈbrəʊkən ˈwɪndəʊ/ | leaking tap: /ˈliːkɪŋ tæp/",
-            "vi": "Cửa kính bị vỡ / Vòi nước rò rỉ chảy giọt.",
-            "example": "We have a broken window in the bedroom and a leaking tap in the kitchen."
-          },
-          {
-            "word": "power cut / untidy room",
-            "type": "Cụm danh từ",
-            "phonetic": "power cut: /ˈpaʊə kʌt/ | untidy room: /ʌnˈtaɪdi ruːm/",
-            "vi": "Sự cố mất điện / Căn phòng bừa bộn.",
-            "example": "There was a power cut last night and the room was untidy because of dark."
-          },
-          {
-            "word": "lost keys / clogged toilet",
-            "type": "Cụm danh từ",
-            "phonetic": "lost keys: /lɒst kiːz/ | clogged toilet: /ˈklɒɡd ˈtɔɪlət/",
-            "vi": "Chìa khóa bị thất lạc / Bồn cầu bị tắc nghẽn.",
-            "example": "I have lost keys and cannot enter, plus the toilet is clogged."
-          }
-        ]
-      },
-      {
-        "heading": "B. Problems at work (Trục trặc tại nơi làm việc)",
-        "items": [
-          {
-            "word": "too much work / stress",
-            "type": "Cụm danh từ",
-            "phonetic": "too much work: /tuː mʌtʃ wɜːk/ | stress: /stres/",
-            "vi": "Quá tải nhiều việc / Căng thẳng mệt mỏi.",
-            "example": "I have too much work today and suffer from stress."
-          },
-          {
-            "word": "bad mood / late for work",
-            "type": "Cụm từ",
-            "phonetic": "bad mood: /bæd muːd/ | late for work: /leɪt fɔː wɜːk/",
-            "vi": "Tâm trạng tồi tệ, bực bội / Đi làm muộn.",
-            "example": "He is in a bad mood because he was late for work this morning."
-          },
-          {
-            "word": "computer crash / missed deadline",
-            "type": "Cụm danh từ",
-            "phonetic": "computer crash: /kəmˈpjuːtə kræʃ/ | missed deadline: /mɪst ˈdedlaɪn/",
-            "vi": "Máy tính bị treo hỏng / Bị trễ hạn nộp báo cáo.",
-            "example": "My computer crashed and I missed the project deadline."
-          }
-        ]
-      },
-      {
-        "heading": "C. Solutions & Fixes (Các từ vựng về sửa chữa sự cố)",
-        "items": [
-          {
-            "word": "repair / fix",
-            "type": "Động từ",
-            "phonetic": "/rɪˈper/ /fɪks/",
-            "vi": "Sửa chữa, khắc phục sự cố hỏng hóc.",
-            "example": "We need a plumber to fix the leaking tap and repair the toilet."
-          },
-          {
-            "word": "plumber / electrician / mechanic",
-            "type": "Danh từ",
-            "phonetic": "plumber: /ˈplʌmə/ | electrician: /ɪˌlekˈtrɪʃn/ | mechanic: /mɪˈkænɪk/",
-            "vi": "Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí.",
-            "example": "Call a plumber for the pipes, an electrician for the power, and a mechanic for the car."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "broken window / leaking tap",
+          "type": "Cụm danh từ",
+          "phonetic": "broken window: /ˈbrəʊkən ˈwɪndəʊ/ | leaking tap: /ˈliːkɪŋ tæp/",
+          "vi": "Cửa kính bị vỡ / Vòi nước rò rỉ chảy giọt.",
+          "example": "We have a broken window in the bedroom and a leaking tap in the kitchen.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của broken window / leaking tap"
+        },
+        {
+          "word": "power cut / untidy room",
+          "type": "Cụm danh từ",
+          "phonetic": "power cut: /ˈpaʊə kʌt/ | untidy room: /ʌnˈtaɪdi ruːm/",
+          "vi": "Sự cố mất điện / Căn phòng bừa bộn.",
+          "example": "There was a power cut last night and the room was untidy because of dark.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của power cut / untidy room"
+        },
+        {
+          "word": "lost keys / clogged toilet",
+          "type": "Cụm danh từ",
+          "phonetic": "lost keys: /lɒst kiːz/ | clogged toilet: /ˈklɒɡd ˈtɔɪlət/",
+          "vi": "Chìa khóa bị thất lạc / Bồn cầu bị tắc nghẽn.",
+          "example": "I have lost keys and cannot enter, plus the toilet is clogged.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của lost keys / clogged toilet"
+        },
+        {
+          "word": "too much work / stress",
+          "type": "Cụm danh từ",
+          "phonetic": "too much work: /tuː mʌtʃ wɜːk/ | stress: /stres/",
+          "vi": "Quá tải nhiều việc / Căng thẳng mệt mỏi.",
+          "example": "I have too much work today and suffer from stress.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của too much work / stress"
+        },
+        {
+          "word": "bad mood / late for work",
+          "type": "Cụm từ",
+          "phonetic": "bad mood: /bæd muːd/ | late for work: /leɪt fɔː wɜːk/",
+          "vi": "Tâm trạng tồi tệ, bực bội / Đi làm muộn.",
+          "example": "He is in a bad mood because he was late for work this morning.",
+          "bucket": 1,
+          "collocations": [],
+          "wordFamily": "Biến thể của bad mood / late for work"
+        },
+        {
+          "word": "computer crash / missed deadline",
+          "type": "Cụm danh từ",
+          "phonetic": "computer crash: /kəmˈpjuːtə kræʃ/ | missed deadline: /mɪst ˈdedlaɪn/",
+          "vi": "Máy tính bị treo hỏng / Bị trễ hạn nộp báo cáo.",
+          "example": "My computer crashed and I missed the project deadline.",
+          "bucket": 2,
+          "collocations": [],
+          "wordFamily": "Biến thể của computer crash / missed deadline"
+        },
+        {
+          "word": "repair / fix",
+          "type": "Động từ",
+          "phonetic": "/rɪˈper/ /fɪks/",
+          "vi": "Sửa chữa, khắc phục sự cố hỏng hóc.",
+          "example": "We need a plumber to fix the leaking tap and repair the toilet.",
+          "bucket": 1,
+          "collocations": [
+            "repair / fix something",
+            "always repair / fix"
+          ],
+          "wordFamily": "Biến thể của repair / fix"
+        },
+        {
+          "word": "plumber / electrician / mechanic",
+          "type": "Danh từ",
+          "phonetic": "plumber: /ˈplʌmə/ | electrician: /ɪˌlekˈtrɪʃn/ | mechanic: /mɪˈkænɪk/",
+          "vi": "Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí.",
+          "example": "Call a plumber for the pipes, an electrician for the power, and a mechanic for the car.",
+          "bucket": 2,
+          "collocations": [
+            "have a plumber / electrician / mechanic",
+            "use plumber / electrician / mechanic"
+          ],
+          "wordFamily": "Biến thể của plumber / electrician / mechanic"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Problems at home (Sự cố hỏng hóc trong gia đình)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "broken window / leaking tap",
+              "value": "👉 We have a broken window in the bedroom and a leaking tap in the kitchen."
+            },
+            {
+              "title": "power cut / untidy room",
+              "value": "👉 There was a power cut last night and the room was untidy because of dark."
+            },
+            {
+              "title": "lost keys / clogged toilet",
+              "value": "👉 I have lost keys and cannot enter, plus the toilet is clogged."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Problems at work (Trục trặc tại nơi làm việc)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "too much work / stress",
+              "value": "👉 I have too much work today and suffer from stress."
+            },
+            {
+              "title": "bad mood / late for work",
+              "value": "👉 He is in a bad mood because he was late for work this morning."
+            },
+            {
+              "title": "computer crash / missed deadline",
+              "value": "👉 My computer crashed and I missed the project deadline."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Solutions & Fixes (Các từ vựng về sửa chữa sự cố)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "repair / fix",
+              "value": "👉 We need a plumber to fix the leaking tap and repair the toilet."
+            },
+            {
+              "title": "plumber / electrician / mechanic",
+              "value": "👉 Call a plumber for the pipes, an electrician for the power, and a mechanic for the car."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"broken window / leaking tap\"",
+              "value": "Các dạng từ loại khác của \"broken window / leaking tap\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"power cut / untidy room\"",
+              "value": "Các dạng từ loại khác của \"power cut / untidy room\" đang được cập nhật."
+            },
+            {
+              "title": "Họ từ (Word Family) của \"lost keys / clogged toilet\"",
+              "value": "Các dạng từ loại khác của \"lost keys / clogged toilet\" đang được cập nhật."
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"too much work / stress\"",
+              "value": "Cụm từ liên quan đến too much work / stress"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"bad mood / late for work\"",
+              "value": "Cụm từ liên quan đến bad mood / late for work"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"computer crash / missed deadline\"",
+              "value": "Cụm từ liên quan đến computer crash / missed deadline"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Home Problems",
@@ -7595,85 +9930,419 @@ export const courseData = [
         "text": "He is in a bad mood because he has too much work and stress.",
         "trans": "Anh ấy đang có tâm trạng tồi tệ vì anh ấy có quá nhiều công việc và căng thẳng."
       }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "59.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_59_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "broken window / leaking tap"
+            ],
+            "hint": "Cửa kính bị vỡ / Vòi nước rò rỉ chảy giọt.",
+            "explanation": "Từ cần điền là \"broken window / leaking tap\", mang nghĩa là \"Cửa kính bị vỡ / Vòi nước rò rỉ chảy giọt.\"."
+          },
+          {
+            "id": "ex_59_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "power cut / untidy room"
+            ],
+            "hint": "Sự cố mất điện / Căn phòng bừa bộn.",
+            "explanation": "Từ cần điền là \"power cut / untidy room\", mang nghĩa là \"Sự cố mất điện / Căn phòng bừa bộn.\"."
+          },
+          {
+            "id": "ex_59_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "lost keys / clogged toilet"
+            ],
+            "hint": "Chìa khóa bị thất lạc / Bồn cầu bị tắc nghẽn.",
+            "explanation": "Từ cần điền là \"lost keys / clogged toilet\", mang nghĩa là \"Chìa khóa bị thất lạc / Bồn cầu bị tắc nghẽn.\"."
+          },
+          {
+            "id": "ex_59_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "too much work / stress"
+            ],
+            "hint": "Quá tải nhiều việc / Căng thẳng mệt mỏi.",
+            "explanation": "Từ cần điền là \"too much work / stress\", mang nghĩa là \"Quá tải nhiều việc / Căng thẳng mệt mỏi.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "59.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_59_2_0",
+            "text": "bad mood / late for work",
+            "options": [
+              "Sửa chữa, khắc phục sự cố hỏng hóc.",
+              "Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí.",
+              "Máy tính bị treo hỏng / Bị trễ hạn nộp báo cáo.",
+              "Tâm trạng tồi tệ, bực bội / Đi làm muộn."
+            ],
+            "answer": "Tâm trạng tồi tệ, bực bội / Đi làm muộn.",
+            "explanation": "Từ \"bad mood / late for work\" có nghĩa chính xác là \"Tâm trạng tồi tệ, bực bội / Đi làm muộn.\"."
+          },
+          {
+            "id": "ex_59_2_1",
+            "text": "computer crash / missed deadline",
+            "options": [
+              "Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí.",
+              "Sửa chữa, khắc phục sự cố hỏng hóc.",
+              "Máy tính bị treo hỏng / Bị trễ hạn nộp báo cáo.",
+              "Tâm trạng tồi tệ, bực bội / Đi làm muộn."
+            ],
+            "answer": "Máy tính bị treo hỏng / Bị trễ hạn nộp báo cáo.",
+            "explanation": "Từ \"computer crash / missed deadline\" có nghĩa chính xác là \"Máy tính bị treo hỏng / Bị trễ hạn nộp báo cáo.\"."
+          },
+          {
+            "id": "ex_59_2_2",
+            "text": "repair / fix",
+            "options": [
+              "Sửa chữa, khắc phục sự cố hỏng hóc.",
+              "Máy tính bị treo hỏng / Bị trễ hạn nộp báo cáo.",
+              "Tâm trạng tồi tệ, bực bội / Đi làm muộn.",
+              "Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí."
+            ],
+            "answer": "Sửa chữa, khắc phục sự cố hỏng hóc.",
+            "explanation": "Từ \"repair / fix\" có nghĩa chính xác là \"Sửa chữa, khắc phục sự cố hỏng hóc.\"."
+          },
+          {
+            "id": "ex_59_2_3",
+            "text": "plumber / electrician / mechanic",
+            "options": [
+              "Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí.",
+              "Sửa chữa, khắc phục sự cố hỏng hóc.",
+              "Máy tính bị treo hỏng / Bị trễ hạn nộp báo cáo.",
+              "Tâm trạng tồi tệ, bực bội / Đi làm muộn."
+            ],
+            "answer": "Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí.",
+            "explanation": "Từ \"plumber / electrician / mechanic\" có nghĩa chính xác là \"Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "59.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_59_3_0",
+            "word": "broken window / leaking tap",
+            "category": "Topic A",
+            "explanation": "Từ \"broken window / leaking tap\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_59_3_1",
+            "word": "power cut / untidy room",
+            "category": "Topic B",
+            "explanation": "Từ \"power cut / untidy room\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_59_3_2",
+            "word": "lost keys / clogged toilet",
+            "category": "Topic A",
+            "explanation": "Từ \"lost keys / clogged toilet\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_59_3_3",
+            "word": "too much work / stress",
+            "category": "Topic B",
+            "explanation": "Từ \"too much work / stress\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_59_3_4",
+            "word": "bad mood / late for work",
+            "category": "Topic A",
+            "explanation": "Từ \"bad mood / late for work\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_59_3_5",
+            "word": "computer crash / missed deadline",
+            "category": "Topic B",
+            "explanation": "Từ \"computer crash / missed deadline\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "59.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_59_4_0",
+            "original": "I really like lost keys / clogged toilets.",
+            "correct": "I have lost keys and cannot enter, plus the toilet is clogged.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"lost keys / clogged toilet\" thay vì \"lost keys / clogged toilets\"."
+          },
+          {
+            "id": "ex_59_4_1",
+            "original": "I really like too much work / stres.",
+            "correct": "I have too much work today and suffer from stress.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"too much work / stress\" thay vì \"too much work / stres\"."
+          }
+        ]
+      },
+      {
+        "exNum": "59.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_59_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "bad mood / late for work"
+            ],
+            "hint": "Tâm trạng tồi tệ, bực bội / Đi làm muộn.",
+            "explanation": "Từ cần điền là \"bad mood / late for work\"."
+          },
+          {
+            "id": "ex_59_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "computer crash / missed deadline"
+            ],
+            "hint": "Máy tính bị treo hỏng / Bị trễ hạn nộp báo cáo.",
+            "explanation": "Từ cần điền là \"computer crash / missed deadline\"."
+          },
+          {
+            "id": "ex_59_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "repair / fix"
+            ],
+            "hint": "Sửa chữa, khắc phục sự cố hỏng hóc.",
+            "explanation": "Từ cần điền là \"repair / fix\"."
+          },
+          {
+            "id": "ex_59_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "plumber / electrician / mechanic"
+            ],
+            "hint": "Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí.",
+            "explanation": "Từ cần điền là \"plumber / electrician / mechanic\"."
+          }
+        ]
+      }
     ]
   },
   {
     "id": 60,
     "title": "Unit 60: Global problems",
     "description": "Học từ vựng về các thiên tai tàn khốc trên thế giới (earthquake, flood), vấn đề môi trường và xã hội toàn cầu, cùng cách diễn đạt ý thức bảo vệ hành tinh.",
-    "theory": [
-      {
-        "heading": "A. Natural disasters (Thiên tai tàn khốc)",
-        "items": [
-          {
-            "word": "hurricane / storm",
-            "type": "Danh từ",
-            "phonetic": "hurricane: /ˈhʌrɪkən/ | storm: /stɔːm/",
-            "vi": "Cuồng phong, bão nhiệt đới lớn / Cơn bão kèm sấm chớp.",
-            "example": "The hurricane destroyed many wooden houses on the coast."
-          },
-          {
-            "word": "earthquake / forest fire",
-            "type": "Danh từ",
-            "phonetic": "earthquake: /ˈɜːθkweɪk/ | forest fire: /ˈfɒrɪst ˈfaɪə/",
-            "vi": "Động đất / Cháy rừng diện rộng.",
-            "example": "The earthquake damaged buildings. The forest fire burned the trees."
-          },
-          {
-            "word": "flood / drought",
-            "type": "Danh từ",
-            "phonetic": "/flʌd/ /draʊt/",
-            "vi": "Lũ lụt / Hạn hán kéo dài.",
-            "example": "The heavy rain caused a flood. The crops died during the long drought."
-          }
-        ]
-      },
-      {
-        "heading": "B. Social & Environmental problems (Vấn đề môi trường và xã hội)",
-        "items": [
-          {
-            "word": "pollution / global warming",
-            "type": "Danh từ",
-            "phonetic": "pollution: /pəˈluːʃn/ | global warming: /ˈɡləʊbl ˈwɔːmɪŋ/",
-            "vi": "Sự ô nhiễm / Sự nóng lên toàn cầu.",
-            "example": "Air pollution is serious in cities. Global warming is melting ice caps."
-          },
-          {
-            "word": "war / strike",
-            "type": "Danh từ",
-            "phonetic": "war: /wɔː/ | strike: /straɪk/",
-            "vi": "Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.",
-            "example": "The war caused terrible suffering. Bus drivers are on strike today."
-          },
-          {
-            "word": "poverty / hunger",
-            "type": "Danh từ",
-            "phonetic": "poverty: /ˈpɒvəti/ | hunger: /ˈhʌŋɡə/",
-            "vi": "Cảnh nghèo đói / Sự đói khát.",
-            "example": "Many children die of hunger. The charity works to reduce poverty."
-          }
-        ]
-      },
-      {
-        "heading": "C. Environmental action verbs (Động từ hành động vì trái đất)",
-        "items": [
-          {
-            "word": "destroy / damage",
-            "type": "Động từ",
-            "phonetic": "destroy: /dɪˈstrɔɪ/ | damage: /ˈdæmɪdʒ/",
-            "vi": "Phá hủy hoàn toàn / Làm tổn hại, hư hỏng.",
-            "example": "The flood destroyed the bridge and damaged houses."
-          },
-          {
-            "word": "protect / save / recycle",
-            "type": "Động từ",
-            "phonetic": "protect: /prəˈtekt/ | save: /seɪv/ | recycle: /ˌriːˈsaɪkl/",
-            "vi": "Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải.",
-            "example": "We must protect the environment, save energy, and recycle plastic waste."
-          }
-        ]
-      }
-    ],
+    "theory": {
+      "coreVocab": [
+        {
+          "word": "hurricane / storm",
+          "type": "Danh từ",
+          "phonetic": "hurricane: /ˈhʌrɪkən/ | storm: /stɔːm/",
+          "vi": "Cuồng phong, bão nhiệt đới lớn / Cơn bão kèm sấm chớp.",
+          "example": "The hurricane destroyed many wooden houses on the coast.",
+          "bucket": 1,
+          "collocations": [
+            "have a hurricane / storm",
+            "use hurricane / storm"
+          ],
+          "wordFamily": "Biến thể của hurricane / storm"
+        },
+        {
+          "word": "earthquake / forest fire",
+          "type": "Danh từ",
+          "phonetic": "earthquake: /ˈɜːθkweɪk/ | forest fire: /ˈfɒrɪst ˈfaɪə/",
+          "vi": "Động đất / Cháy rừng diện rộng.",
+          "example": "The earthquake damaged buildings. The forest fire burned the trees.",
+          "bucket": 2,
+          "collocations": [
+            "have a earthquake / forest fire",
+            "use earthquake / forest fire"
+          ],
+          "wordFamily": "Biến thể của earthquake / forest fire"
+        },
+        {
+          "word": "flood / drought",
+          "type": "Danh từ",
+          "phonetic": "/flʌd/ /draʊt/",
+          "vi": "Lũ lụt / Hạn hán kéo dài.",
+          "example": "The heavy rain caused a flood. The crops died during the long drought.",
+          "bucket": 1,
+          "collocations": [
+            "have a flood / drought",
+            "use flood / drought"
+          ],
+          "wordFamily": "Biến thể của flood / drought"
+        },
+        {
+          "word": "pollution / global warming",
+          "type": "Danh từ",
+          "phonetic": "pollution: /pəˈluːʃn/ | global warming: /ˈɡləʊbl ˈwɔːmɪŋ/",
+          "vi": "Sự ô nhiễm / Sự nóng lên toàn cầu.",
+          "example": "Air pollution is serious in cities. Global warming is melting ice caps.",
+          "bucket": 2,
+          "collocations": [
+            "have a pollution / global warming",
+            "use pollution / global warming"
+          ],
+          "wordFamily": "Biến thể của pollution / global warming"
+        },
+        {
+          "word": "war / strike",
+          "type": "Danh từ",
+          "phonetic": "war: /wɔː/ | strike: /straɪk/",
+          "vi": "Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.",
+          "example": "The war caused terrible suffering. Bus drivers are on strike today.",
+          "bucket": 1,
+          "collocations": [
+            "have a war / strike",
+            "use war / strike"
+          ],
+          "wordFamily": "Biến thể của war / strike"
+        },
+        {
+          "word": "poverty / hunger",
+          "type": "Danh từ",
+          "phonetic": "poverty: /ˈpɒvəti/ | hunger: /ˈhʌŋɡə/",
+          "vi": "Cảnh nghèo đói / Sự đói khát.",
+          "example": "Many children die of hunger. The charity works to reduce poverty.",
+          "bucket": 2,
+          "collocations": [
+            "have a poverty / hunger",
+            "use poverty / hunger"
+          ],
+          "wordFamily": "Biến thể của poverty / hunger"
+        },
+        {
+          "word": "destroy / damage",
+          "type": "Động từ",
+          "phonetic": "destroy: /dɪˈstrɔɪ/ | damage: /ˈdæmɪdʒ/",
+          "vi": "Phá hủy hoàn toàn / Làm tổn hại, hư hỏng.",
+          "example": "The flood destroyed the bridge and damaged houses.",
+          "bucket": 1,
+          "collocations": [
+            "destroy / damage something",
+            "always destroy / damage"
+          ],
+          "wordFamily": "Biến thể của destroy / damage"
+        },
+        {
+          "word": "protect / save / recycle",
+          "type": "Động từ",
+          "phonetic": "protect: /prəˈtekt/ | save: /seɪv/ | recycle: /ˌriːˈsaɪkl/",
+          "vi": "Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải.",
+          "example": "We must protect the environment, save energy, and recycle plastic waste.",
+          "bucket": 2,
+          "collocations": [
+            "protect / save / recycle something",
+            "always protect / save / recycle"
+          ],
+          "wordFamily": "Biến thể của protect / save / recycle"
+        }
+      ],
+      "practicalUsage": [
+        {
+          "heading": "💬 Thực hành: A. Natural disasters (Thiên tai tàn khốc)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "hurricane / storm",
+              "value": "👉 The hurricane destroyed many wooden houses on the coast."
+            },
+            {
+              "title": "earthquake / forest fire",
+              "value": "👉 The earthquake damaged buildings. The forest fire burned the trees."
+            },
+            {
+              "title": "flood / drought",
+              "value": "👉 The heavy rain caused a flood. The crops died during the long drought."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: B. Social & Environmental problems (Vấn đề môi trường và xã hội)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "pollution / global warming",
+              "value": "👉 Air pollution is serious in cities. Global warming is melting ice caps."
+            },
+            {
+              "title": "war / strike",
+              "value": "👉 The war caused terrible suffering. Bus drivers are on strike today."
+            },
+            {
+              "title": "poverty / hunger",
+              "value": "👉 Many children die of hunger. The charity works to reduce poverty."
+            }
+          ]
+        },
+        {
+          "heading": "💬 Thực hành: C. Environmental action verbs (Động từ hành động vì trái đất)",
+          "intro": "Các mẫu câu thông dụng:",
+          "details": [
+            {
+              "title": "destroy / damage",
+              "value": "👉 The flood destroyed the bridge and damaged houses."
+            },
+            {
+              "title": "protect / save / recycle",
+              "value": "👉 We must protect the environment, save energy, and recycle plastic waste."
+            }
+          ]
+        }
+      ],
+      "discoveryCorner": [
+        {
+          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
+          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
+          "details": [
+            {
+              "title": "Họ từ (Word Family) của \"hurricane / storm\"",
+              "value": "hurricane / stormful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"earthquake / forest fire\"",
+              "value": "earthquake / forest fireful (Tính từ)"
+            },
+            {
+              "title": "Họ từ (Word Family) của \"flood / drought\"",
+              "value": "flood / droughtful (Tính từ)"
+            }
+          ]
+        },
+        {
+          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
+          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
+          "details": [
+            {
+              "title": "Cụm từ (Collocations) với \"pollution / global warming\"",
+              "value": "Ví dụ: have a pollution / global warming, make a pollution / global warming, good pollution / global warming"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"war / strike\"",
+              "value": "Ví dụ: have a war / strike, make a war / strike, good war / strike"
+            },
+            {
+              "title": "Cụm từ (Collocations) với \"poverty / hunger\"",
+              "value": "Ví dụ: have a poverty / hunger, make a poverty / hunger, good poverty / hunger"
+            }
+          ]
+        }
+      ]
+    },
     "dragDrop": {
       "buckets": [
         "Natural Disasters",
@@ -8188,6 +10857,215 @@ export const courseData = [
       {
         "text": "Global warming is causing dangerous climate change and melting polar ice.",
         "trans": "Sự nóng lên toàn cầu đang gây ra biến đổi khí hậu nguy hiểm và làm tan băng ở cực."
+      }
+    ],
+    "textbookExercises": [
+      {
+        "exNum": "60.1",
+        "type": "fill_in_blanks",
+        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
+        "questions": [
+          {
+            "id": "ex_60_1_0",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "hurricane / storm"
+            ],
+            "hint": "Cuồng phong, bão nhiệt đới lớn / Cơn bão kèm sấm chớp.",
+            "explanation": "Từ cần điền là \"hurricane / storm\", mang nghĩa là \"Cuồng phong, bão nhiệt đới lớn / Cơn bão kèm sấm chớp.\"."
+          },
+          {
+            "id": "ex_60_1_1",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "earthquake / forest fire"
+            ],
+            "hint": "Động đất / Cháy rừng diện rộng.",
+            "explanation": "Từ cần điền là \"earthquake / forest fire\", mang nghĩa là \"Động đất / Cháy rừng diện rộng.\"."
+          },
+          {
+            "id": "ex_60_1_2",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "flood / drought"
+            ],
+            "hint": "Lũ lụt / Hạn hán kéo dài.",
+            "explanation": "Từ cần điền là \"flood / drought\", mang nghĩa là \"Lũ lụt / Hạn hán kéo dài.\"."
+          },
+          {
+            "id": "ex_60_1_3",
+            "text": "The correct word is [blank].",
+            "answers": [
+              "pollution / global warming"
+            ],
+            "hint": "Sự ô nhiễm / Sự nóng lên toàn cầu.",
+            "explanation": "Từ cần điền là \"pollution / global warming\", mang nghĩa là \"Sự ô nhiễm / Sự nóng lên toàn cầu.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "60.2",
+        "type": "matching",
+        "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
+        "questions": [
+          {
+            "id": "ex_60_2_0",
+            "text": "war / strike",
+            "options": [
+              "Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.",
+              "Cảnh nghèo đói / Sự đói khát.",
+              "Phá hủy hoàn toàn / Làm tổn hại, hư hỏng.",
+              "Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải."
+            ],
+            "answer": "Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.",
+            "explanation": "Từ \"war / strike\" có nghĩa chính xác là \"Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.\"."
+          },
+          {
+            "id": "ex_60_2_1",
+            "text": "poverty / hunger",
+            "options": [
+              "Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải.",
+              "Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.",
+              "Phá hủy hoàn toàn / Làm tổn hại, hư hỏng.",
+              "Cảnh nghèo đói / Sự đói khát."
+            ],
+            "answer": "Cảnh nghèo đói / Sự đói khát.",
+            "explanation": "Từ \"poverty / hunger\" có nghĩa chính xác là \"Cảnh nghèo đói / Sự đói khát.\"."
+          },
+          {
+            "id": "ex_60_2_2",
+            "text": "destroy / damage",
+            "options": [
+              "Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.",
+              "Phá hủy hoàn toàn / Làm tổn hại, hư hỏng.",
+              "Cảnh nghèo đói / Sự đói khát.",
+              "Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải."
+            ],
+            "answer": "Phá hủy hoàn toàn / Làm tổn hại, hư hỏng.",
+            "explanation": "Từ \"destroy / damage\" có nghĩa chính xác là \"Phá hủy hoàn toàn / Làm tổn hại, hư hỏng.\"."
+          },
+          {
+            "id": "ex_60_2_3",
+            "text": "protect / save / recycle",
+            "options": [
+              "Cảnh nghèo đói / Sự đói khát.",
+              "Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.",
+              "Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải.",
+              "Phá hủy hoàn toàn / Làm tổn hại, hư hỏng."
+            ],
+            "answer": "Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải.",
+            "explanation": "Từ \"protect / save / recycle\" có nghĩa chính xác là \"Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải.\"."
+          }
+        ]
+      },
+      {
+        "exNum": "60.3",
+        "type": "categorization",
+        "instruction": "Phân loại các từ vựng sau vào đúng nhóm chủ đề của bài học:",
+        "categories": [
+          "Topic A",
+          "Topic B"
+        ],
+        "questions": [
+          {
+            "id": "ex_60_3_0",
+            "word": "hurricane / storm",
+            "category": "Topic A",
+            "explanation": "Từ \"hurricane / storm\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_60_3_1",
+            "word": "earthquake / forest fire",
+            "category": "Topic B",
+            "explanation": "Từ \"earthquake / forest fire\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_60_3_2",
+            "word": "flood / drought",
+            "category": "Topic A",
+            "explanation": "Từ \"flood / drought\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_60_3_3",
+            "word": "pollution / global warming",
+            "category": "Topic B",
+            "explanation": "Từ \"pollution / global warming\" thuộc nhóm \"Topic B\"."
+          },
+          {
+            "id": "ex_60_3_4",
+            "word": "war / strike",
+            "category": "Topic A",
+            "explanation": "Từ \"war / strike\" thuộc nhóm \"Topic A\"."
+          },
+          {
+            "id": "ex_60_3_5",
+            "word": "poverty / hunger",
+            "category": "Topic B",
+            "explanation": "Từ \"poverty / hunger\" thuộc nhóm \"Topic B\"."
+          }
+        ]
+      },
+      {
+        "exNum": "60.4",
+        "type": "error_correction",
+        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
+        "questions": [
+          {
+            "id": "ex_60_4_0",
+            "original": "I really like flood / droughts.",
+            "correct": "The heavy rain caused a flood. The crops died during the long drought.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"flood / drought\" thay vì \"flood / droughts\"."
+          },
+          {
+            "id": "ex_60_4_1",
+            "original": "I really like pollution / global warmings.",
+            "correct": "Air pollution is serious in cities. Global warming is melting ice caps.",
+            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"pollution / global warming\" thay vì \"pollution / global warmings\"."
+          }
+        ]
+      },
+      {
+        "exNum": "60.5",
+        "type": "fill_in_blanks",
+        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
+        "questions": [
+          {
+            "id": "ex_60_5_0",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "war / strike"
+            ],
+            "hint": "Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.",
+            "explanation": "Từ cần điền là \"war / strike\"."
+          },
+          {
+            "id": "ex_60_5_1",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "poverty / hunger"
+            ],
+            "hint": "Cảnh nghèo đói / Sự đói khát.",
+            "explanation": "Từ cần điền là \"poverty / hunger\"."
+          },
+          {
+            "id": "ex_60_5_2",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "destroy / damage"
+            ],
+            "hint": "Phá hủy hoàn toàn / Làm tổn hại, hư hỏng.",
+            "explanation": "Từ cần điền là \"destroy / damage\"."
+          },
+          {
+            "id": "ex_60_5_3",
+            "text": "This [blank] is very important.",
+            "answers": [
+              "protect / save / recycle"
+            ],
+            "hint": "Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải.",
+            "explanation": "Từ cần điền là \"protect / save / recycle\"."
+          }
+        ]
       }
     ]
   }
