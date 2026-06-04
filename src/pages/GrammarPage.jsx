@@ -4,6 +4,12 @@ import SketchnoteTheory from '../components/grammar/SketchnoteTheory';
 import SentenceBuilder from '../components/grammar/SentenceBuilder';
 import AiAssistant from '../components/grammar/AiAssistant';
 import QuizEngine from '../components/grammar/QuizEngine';
+import FillBlanksExercise from '../components/grammar/FillBlanksExercise';
+import ErrorCorrectionExercise from '../components/grammar/ErrorCorrectionExercise';
+import TransformationExercise from '../components/grammar/TransformationExercise';
+import MatchingExercise from '../components/grammar/MatchingExercise';
+import TrueFalseExercise from '../components/grammar/TrueFalseExercise';
+import { BookOpen, Puzzle, Bot, PenTool, PenLine, AlertTriangle, Repeat, Link2, HelpCircle } from 'lucide-react';
 
 const GrammarPage = ({ topic, setXp, completeMilestone }) => {
   const [tab, setTab] = useState('theory');
@@ -15,39 +21,57 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
 
   if (!topic) return null;
 
+  const tabs = [
+    { id: 'theory', label: 'Lý Thuyết', icon: BookOpen, color: 'bg-cyan-500' },
+    { id: 'sentence', label: 'Xếp Câu', icon: Puzzle, color: 'bg-amber-500' },
+    { id: 'exercise', label: 'Trắc Nghiệm', icon: PenTool, color: 'bg-emerald-500' },
+    { id: 'fillblanks', label: 'Điền Từ', icon: PenLine, color: 'bg-blue-500', data: topic.fillBlanks },
+    { id: 'errorcorrection', label: 'Sửa Lỗi', icon: AlertTriangle, color: 'bg-orange-500', data: topic.errorCorrection },
+    { id: 'transformation', label: 'Viết Lại', icon: Repeat, color: 'bg-purple-500', data: topic.transformation },
+    { id: 'matching', label: 'Nối Câu', icon: Link2, color: 'bg-teal-500', data: topic.matching },
+    { id: 'truefalse', label: 'Đúng/Sai', icon: HelpCircle, color: 'bg-rose-500', data: topic.trueFalse },
+    { id: 'ai', label: 'Gia Sư AI', icon: Bot, color: 'bg-yellow-500' },
+  ];
+
+  // Filter tabs that have data (theory, sentence, exercise, ai always show)
+  const alwaysShow = ['theory', 'sentence', 'exercise', 'ai'];
+  const availableTabs = tabs.filter(t => alwaysShow.includes(t.id) || (t.data && t.data.length > 0));
+
   return (
     <div className="max-w-4xl mx-auto animate-in fade-in dark:text-slate-100 transition-colors duration-300">
-      <div className={`${topic.color} dark:bg-slate-900 dark:text-slate-100 dark:border-slate-700 border-[4px] border-slate-800 rounded-[3rem] p-8 md:p-10 mb-10 shadow-[12px_12px_0_0_#1e293b] dark:shadow-[12px_12px_0_0_#020617]`}>
-         <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-800 dark:text-slate-100">{topic.title}</h2>
+      <div className={`${topic.color} dark:bg-slate-900 dark:text-slate-100 dark:border-slate-700 border-[4px] border-slate-800 rounded-[3rem] p-8 md:p-10 mb-8 shadow-[12px_12px_0_0_#1e293b] dark:shadow-[12px_12px_0_0_#020617]`}>
+         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-slate-800 dark:text-slate-100">{topic.title}</h2>
+         {topic.category && (
+           <p className="text-sm font-bold text-slate-600 dark:text-slate-400 mt-2 opacity-75">
+             📂 {topic.category} · Cấp độ {topic.level}
+           </p>
+         )}
       </div>
       
-      <div className="flex overflow-x-auto gap-3 mb-10 pb-2 scrollbar-hide shrink-0">
-         <button 
-           onClick={() => setTab('theory')} 
-           className={`font-black px-6 py-4 text-lg rounded-2xl border-[4px] border-slate-800 dark:border-slate-700 whitespace-nowrap transition-all shadow-[4px_4px_0px_0px_#1e293b] dark:shadow-[4px_4px_0px_0px_#020617] cursor-pointer ${tab === 'theory' ? 'bg-slate-800 dark:bg-slate-700 text-white translate-y-1 shadow-none' : 'bg-white dark:bg-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750'}`}
-         >
-           Lý Thuyết
-         </button>
-         <button 
-           onClick={() => setTab('sentence')} 
-           className={`font-black px-6 py-4 text-lg rounded-2xl border-[4px] border-slate-800 dark:border-slate-700 whitespace-nowrap transition-all shadow-[4px_4px_0px_0px_#1e293b] dark:shadow-[4px_4px_0px_0px_#020617] cursor-pointer ${tab === 'sentence' ? 'bg-slate-800 dark:bg-slate-700 text-white translate-y-1 shadow-none' : 'bg-white dark:bg-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750'}`}
-         >
-           Xếp Câu
-         </button>
-         <button 
-           onClick={() => setTab('ai')} 
-           className={`font-black px-6 py-4 text-lg rounded-2xl border-[4px] border-slate-800 dark:border-slate-700 whitespace-nowrap transition-all shadow-[4px_4px_0px_0px_#1e293b] dark:shadow-[4px_4px_0px_0px_#020617] cursor-pointer ${tab === 'ai' ? 'bg-yellow-300 dark:bg-yellow-450 dark:text-slate-900 translate-y-1 shadow-none' : 'bg-white dark:bg-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750'}`}
-         >
-           Gia Sư AI
-         </button>
-         <button 
-           onClick={() => setTab('exercise')} 
-           className={`font-black px-6 py-4 text-lg rounded-2xl border-[4px] border-slate-800 dark:border-slate-700 whitespace-nowrap transition-all shadow-[4px_4px_0px_0px_#1e293b] dark:shadow-[4px_4px_0px_0px_#020617] cursor-pointer ${tab === 'exercise' ? 'bg-slate-800 dark:bg-slate-700 text-white translate-y-1 shadow-none' : 'bg-white dark:bg-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750'}`}
-         >
-           Làm Test
-         </button>
+      {/* Scrollable tabs */}
+      <div className="flex overflow-x-auto gap-2 md:gap-3 mb-8 pb-2 scrollbar-hide shrink-0 -mx-2 px-2">
+        {availableTabs.map(t => {
+          const Icon = t.icon;
+          const isActive = tab === t.id;
+          return (
+            <button 
+              key={t.id}
+              onClick={() => setTab(t.id)} 
+              className={`font-black px-4 py-3 text-sm md:text-base rounded-2xl border-[3px] md:border-[4px] border-slate-800 dark:border-slate-700 whitespace-nowrap transition-all shadow-[3px_3px_0px_0px_#1e293b] dark:shadow-[3px_3px_0px_0px_#020617] cursor-pointer flex items-center gap-1.5 md:gap-2 ${
+                isActive 
+                  ? `${t.id === 'ai' ? 'bg-yellow-300 dark:bg-yellow-450 dark:text-slate-900' : 'bg-slate-800 dark:bg-slate-700 text-white'} translate-y-1 shadow-none` 
+                  : 'bg-white dark:bg-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750'
+              }`}
+            >
+              <Icon size={16} className={isActive ? '' : 'opacity-60'} />
+              <span className="hidden sm:inline">{t.label}</span>
+              <span className="sm:hidden">{t.label.split(' ')[0]}</span>
+            </button>
+          );
+        })}
       </div>
 
+      {/* Content */}
       {tab === 'theory' && topic.theory.map((s, i) => (
         <SketchnoteTheory key={i} section={s} idx={i} />
       ))}
@@ -66,6 +90,41 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
           exercises={topic.exercises} 
           setGlobalProgress={setXp} 
           onComplete={() => completeMilestone(topic.id, 40)}
+        />
+      )}
+      {tab === 'fillblanks' && topic.fillBlanks && (
+        <FillBlanksExercise
+          exercises={topic.fillBlanks}
+          setGlobalProgress={setXp}
+          onComplete={() => completeMilestone(topic.id, 30)}
+        />
+      )}
+      {tab === 'errorcorrection' && topic.errorCorrection && (
+        <ErrorCorrectionExercise
+          exercises={topic.errorCorrection}
+          setGlobalProgress={setXp}
+          onComplete={() => completeMilestone(topic.id, 30)}
+        />
+      )}
+      {tab === 'transformation' && topic.transformation && (
+        <TransformationExercise
+          exercises={topic.transformation}
+          setGlobalProgress={setXp}
+          onComplete={() => completeMilestone(topic.id, 35)}
+        />
+      )}
+      {tab === 'matching' && topic.matching && (
+        <MatchingExercise
+          exercises={topic.matching}
+          setGlobalProgress={setXp}
+          onComplete={() => completeMilestone(topic.id, 25)}
+        />
+      )}
+      {tab === 'truefalse' && topic.trueFalse && (
+        <TrueFalseExercise
+          exercises={topic.trueFalse}
+          setGlobalProgress={setXp}
+          onComplete={() => completeMilestone(topic.id, 25)}
         />
       )}
     </div>

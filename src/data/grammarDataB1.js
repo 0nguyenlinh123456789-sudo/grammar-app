@@ -249,6 +249,60 @@ export const grammarDataB1 = [
         ],
         "a": "do"
       }
+    ],
+    "fillBlanks": [
+      { "q": "She always _____ to school on time.", "a": "goes", "trans": "Cô ấy luôn đến trường đúng giờ." },
+      { "q": "They _____ football every weekend.", "a": "play", "trans": "Họ chơi bóng đá mỗi cuối tuần." },
+      { "q": "My mother _____ cooking Italian food.", "a": "loves", "trans": "Mẹ tôi thích nấu đồ Ý." },
+      { "q": "The Earth _____ around the Sun.", "a": "moves", "trans": "Trái Đất quay quanh Mặt Trời." },
+      { "q": "Water _____ at 100 degrees Celsius.", "a": "boils", "trans": "Nước sôi ở 100 độ C." },
+      { "q": "He _____ like vegetables at all.", "a": "doesn't", "trans": "Anh ấy hoàn toàn không thích rau." },
+      { "q": "The train _____ at 6:30 every morning.", "a": "leaves", "trans": "Tàu khởi hành lúc 6:30 mỗi sáng." },
+      { "q": "I _____ to the gym three times a week.", "a": "go", "trans": "Tôi đến phòng gym ba lần một tuần." },
+      { "q": "She never _____ late for class.", "a": "arrives", "trans": "Cô ấy không bao giờ đến lớp muộn." },
+      { "q": "We _____ in a small apartment near the park.", "a": "live", "trans": "Chúng tôi sống trong một căn hộ nhỏ gần công viên." }
+    ],
+    "errorCorrection": [
+      { "sentence": "He don't like pizza very much.", "errorWord": "don't", "correction": "doesn't", "explanation": "Với He/She/It, dùng 'doesn't' thay vì 'don't'.", "trans": "Anh ấy không thích pizza lắm." },
+      { "sentence": "She studys English every day.", "errorWord": "studys", "correction": "studies", "explanation": "Phụ âm + Y → bỏ Y thêm -IES: study → studies.", "trans": "Cô ấy học tiếng Anh mỗi ngày." },
+      { "sentence": "Does she likes chocolate?", "errorWord": "likes", "correction": "like", "explanation": "Sau Does, động từ ở dạng nguyên thể (không thêm -s).", "trans": "Cô ấy có thích sô-cô-la không?" },
+      { "sentence": "They plays tennis on Sundays.", "errorWord": "plays", "correction": "play", "explanation": "They là ngôi số nhiều, động từ không thêm -s/-es.", "trans": "Họ chơi tennis vào Chủ nhật." },
+      { "sentence": "I am go to school every day.", "errorWord": "am", "correction": "(bỏ 'am')", "explanation": "Hiện tại đơn không dùng 'am/is/are' trước động từ thường. Đúng: I go to school.", "trans": "Tôi đi học mỗi ngày." },
+      { "sentence": "The sun rise in the east.", "errorWord": "rise", "correction": "rises", "explanation": "The sun là ngôi thứ 3 số ít, cần thêm -s: rises.", "trans": "Mặt trời mọc ở hướng đông." },
+      { "sentence": "Do your father work in a hospital?", "errorWord": "Do", "correction": "Does", "explanation": "Your father = He (ngôi thứ 3 số ít) → dùng Does.", "trans": "Bố bạn có làm ở bệnh viện không?" },
+      { "sentence": "She have two brothers and a sister.", "errorWord": "have", "correction": "has", "explanation": "She (ngôi thứ 3 số ít) → has.", "trans": "Cô ấy có hai anh em trai và một chị em gái." }
+    ],
+    "transformation": [
+      { "original": "She drinks coffee every morning.", "instruction": "Chuyển sang câu phủ định.", "keyword": "doesn't", "a": "She doesn't drink coffee every morning." },
+      { "original": "They play football on Sundays.", "instruction": "Chuyển sang câu nghi vấn.", "keyword": "Do", "a": "Do they play football on Sundays?" },
+      { "original": "He goes to work by bus.", "instruction": "Chuyển sang câu phủ định.", "keyword": "doesn't", "a": "He doesn't go to work by bus." },
+      { "original": "I like ice cream.", "instruction": "Chuyển sang câu nghi vấn với 'Do'.", "keyword": "Do", "a": "Do you like ice cream?" },
+      { "original": "The train leaves at 7 AM.", "instruction": "Chuyển sang câu phủ định.", "keyword": "doesn't", "a": "The train doesn't leave at 7 AM." },
+      { "original": "We don't eat meat.", "instruction": "Chuyển sang câu khẳng định.", "keyword": "", "a": "We eat meat." },
+      { "original": "Does he speak French?", "instruction": "Chuyển sang câu khẳng định.", "keyword": "", "a": "He speaks French." },
+      { "original": "My sister watches TV every evening.", "instruction": "Chuyển sang câu nghi vấn.", "keyword": "Does", "a": "Does your sister watch TV every evening?" }
+    ],
+    "matching": [
+      {
+        "pairs": [
+          { "left": "She always _____ to school on time.", "right": "goes" },
+          { "left": "They _____ football every weekend.", "right": "play" },
+          { "left": "Water _____ at 100°C.", "right": "boils" },
+          { "left": "He _____ like coffee.", "right": "doesn't" },
+          { "left": "_____ you speak English?", "right": "Do" },
+          { "left": "The sun _____ in the east.", "right": "rises" }
+        ]
+      }
+    ],
+    "trueFalse": [
+      { "sentence": "She go to school every day.", "isCorrect": false, "correction": "She goes to school every day.", "explanation": "She (ngôi 3 số ít) → goes (thêm -es).", "trans": "Cô ấy đi học mỗi ngày." },
+      { "sentence": "Water boils at 100 degrees Celsius.", "isCorrect": true, "explanation": "Câu đúng - diễn tả sự thật khoa học (chân lý).", "trans": "Nước sôi ở 100 độ C." },
+      { "sentence": "He doesn't likes pizza.", "isCorrect": false, "correction": "He doesn't like pizza.", "explanation": "Sau doesn't, động từ ở dạng nguyên thể (không thêm -s).", "trans": "Anh ấy không thích pizza." },
+      { "sentence": "I usually drink coffee in the morning.", "isCorrect": true, "explanation": "Câu đúng - dùng hiện tại đơn với trạng từ 'usually' chỉ thói quen.", "trans": "Tôi thường uống cà phê vào buổi sáng." },
+      { "sentence": "Does they live in London?", "isCorrect": false, "correction": "Do they live in London?", "explanation": "They (số nhiều) → dùng Do, không phải Does.", "trans": "Họ có sống ở London không?" },
+      { "sentence": "The movie starts at 8 PM tonight.", "isCorrect": true, "explanation": "Câu đúng - dùng hiện tại đơn cho lịch trình cố định.", "trans": "Bộ phim bắt đầu lúc 8 giờ tối nay." },
+      { "sentence": "My brother play guitar very well.", "isCorrect": false, "correction": "My brother plays guitar very well.", "explanation": "My brother = He (ngôi 3 số ít) → plays.", "trans": "Anh trai tôi chơi guitar rất giỏi." },
+      { "sentence": "They don't eat meat on Fridays.", "isCorrect": true, "explanation": "Câu đúng - phủ định với They + don't + V nguyên thể.", "trans": "Họ không ăn thịt vào thứ Sáu." }
     ]
   },
   {
@@ -497,6 +551,58 @@ export const grammarDataB1 = [
         ],
         "a": "is preparing"
       }
+    ],
+    "fillBlanks": [
+      { "q": "Look! The cat _____ up the tree.", "a": "is climbing", "trans": "Nhìn kìa! Con mèo đang trèo lên cây." },
+      { "q": "She _____ a book at the moment.", "a": "is reading", "trans": "Cô ấy đang đọc sách lúc này." },
+      { "q": "They _____ to music right now.", "a": "are listening", "trans": "Họ đang nghe nhạc ngay bây giờ." },
+      { "q": "I _____ my homework now. Don't disturb me.", "a": "am doing", "trans": "Tôi đang làm bài tập. Đừng làm phiền tôi." },
+      { "q": "The children _____ in the pool now.", "a": "are swimming", "trans": "Bọn trẻ đang bơi trong hồ." },
+      { "q": "Be quiet! The baby _____.", "a": "is sleeping", "trans": "Im lặng! Em bé đang ngủ." },
+      { "q": "We _____ dinner with our boss tonight.", "a": "are having", "trans": "Tối nay chúng tôi ăn tối với sếp." },
+      { "q": "It _____ outside. Take an umbrella!", "a": "is raining", "trans": "Trời đang mưa bên ngoài. Mang ô đi!" }
+    ],
+    "errorCorrection": [
+      { "sentence": "She is cook dinner in the kitchen.", "errorWord": "cook", "correction": "cooking", "explanation": "Thì tiếp diễn: am/is/are + V-ing. cook → cooking.", "trans": "Cô ấy đang nấu bữa tối trong bếp." },
+      { "sentence": "They are listen to music right now.", "errorWord": "listen", "correction": "listening", "explanation": "Thì tiếp diễn cần V-ing: listen → listening.", "trans": "Họ đang nghe nhạc ngay bây giờ." },
+      { "sentence": "He is runing very fast.", "errorWord": "runing", "correction": "running", "explanation": "Gấp đôi phụ âm cuối: run → running (1 nguyên âm + 1 phụ âm).", "trans": "Anh ấy đang chạy rất nhanh." },
+      { "sentence": "I am knowing the answer.", "errorWord": "knowing", "correction": "know", "explanation": "'Know' là stative verb, không dùng ở thì tiếp diễn. Đúng: I know the answer.", "trans": "Tôi biết câu trả lời." },
+      { "sentence": "Look! The baby is sleep.", "errorWord": "sleep", "correction": "sleeping", "explanation": "Thì tiếp diễn: is + V-ing. sleep → sleeping.", "trans": "Nhìn kìa! Em bé đang ngủ." },
+      { "sentence": "We is watching a movie.", "errorWord": "is", "correction": "are", "explanation": "We → are (không phải is). We are watching...", "trans": "Chúng tôi đang xem phim." },
+      { "sentence": "She are dancing beautifully.", "errorWord": "are", "correction": "is", "explanation": "She → is (không phải are). She is dancing...", "trans": "Cô ấy đang nhảy đẹp." },
+      { "sentence": "I am loveing this song.", "errorWord": "loveing", "correction": "loving", "explanation": "'Love' là stative verb, thường không dùng tiếp diễn. Nếu dùng: bỏ -e rồi thêm -ing: love → loving.", "trans": "Tôi yêu bài hát này." }
+    ],
+    "transformation": [
+      { "original": "She is cooking dinner.", "instruction": "Chuyển sang câu phủ định.", "keyword": "not", "a": "She is not cooking dinner." },
+      { "original": "They are playing football.", "instruction": "Chuyển sang câu nghi vấn.", "keyword": "Are", "a": "Are they playing football?" },
+      { "original": "He is not studying now.", "instruction": "Chuyển sang câu khẳng định.", "keyword": "", "a": "He is studying now." },
+      { "original": "I watch TV now.", "instruction": "Sửa lại dùng thì Hiện tại tiếp diễn.", "keyword": "am watching", "a": "I am watching TV now." },
+      { "original": "The children are swimming in the pool.", "instruction": "Chuyển sang câu nghi vấn.", "keyword": "Are", "a": "Are the children swimming in the pool?" },
+      { "original": "We are having dinner.", "instruction": "Chuyển sang câu phủ định.", "keyword": "not", "a": "We are not having dinner." },
+      { "original": "Is she coming tonight?", "instruction": "Chuyển sang câu khẳng định.", "keyword": "", "a": "She is coming tonight." },
+      { "original": "It rains heavily now.", "instruction": "Sửa lại dùng thì Hiện tại tiếp diễn.", "keyword": "is raining", "a": "It is raining heavily now." }
+    ],
+    "matching": [
+      {
+        "pairs": [
+          { "left": "Look! The cat _____ up the tree.", "right": "is climbing" },
+          { "left": "The children _____ in the pool.", "right": "are swimming" },
+          { "left": "I _____ my homework now.", "right": "am doing" },
+          { "left": "She _____ dinner right now.", "right": "is cooking" },
+          { "left": "We _____ for the bus.", "right": "are waiting" },
+          { "left": "It _____ outside.", "right": "is raining" }
+        ]
+      }
+    ],
+    "trueFalse": [
+      { "sentence": "She is cooking dinner right now.", "isCorrect": true, "explanation": "Câu đúng - dùng hiện tại tiếp diễn cho hành động đang xảy ra.", "trans": "Cô ấy đang nấu bữa tối ngay bây giờ." },
+      { "sentence": "I am understand the lesson.", "isCorrect": false, "correction": "I understand the lesson.", "explanation": "'Understand' là stative verb, không dùng ở thì tiếp diễn.", "trans": "Tôi hiểu bài học." },
+      { "sentence": "Look! The children are playing outside.", "isCorrect": true, "explanation": "Câu đúng - dùng Present Continuous với 'Look!' cho hành động đang xảy ra.", "trans": "Nhìn kìa! Bọn trẻ đang chơi bên ngoài." },
+      { "sentence": "He is always lose his keys.", "isCorrect": false, "correction": "He is always losing his keys.", "explanation": "Phàn nàn thói quen xấu: is always + V-ing. lose → losing.", "trans": "Anh ấy luôn làm mất chìa khóa." },
+      { "sentence": "They are listening to music at the moment.", "isCorrect": true, "explanation": "Câu đúng - 'at the moment' là dấu hiệu của thì tiếp diễn.", "trans": "Họ đang nghe nhạc lúc này." },
+      { "sentence": "We are have lunch now.", "isCorrect": false, "correction": "We are having lunch now.", "explanation": "Tiếp diễn: are + V-ing. have → having.", "trans": "Chúng tôi đang ăn trưa." },
+      { "sentence": "My sister is learning to drive this month.", "isCorrect": true, "explanation": "Câu đúng - hành động tạm thời đang diễn ra xung quanh thời điểm nói.", "trans": "Chị tôi đang học lái xe tháng này." },
+      { "sentence": "The baby is sleep in the bedroom.", "isCorrect": false, "correction": "The baby is sleeping in the bedroom.", "explanation": "Cần V-ing sau is: sleep → sleeping.", "trans": "Em bé đang ngủ trong phòng ngủ." }
     ]
   },
   {
@@ -741,6 +847,49 @@ export const grammarDataB1 = [
         ],
         "a": "understand"
       }
+    ],
+    "fillBlanks": [
+      { "q": "She _____ (drink) coffee every morning but right now she _____ (drink) tea.", "a": "drinks/is drinking", "trans": "Cô ấy uống cà phê mỗi sáng nhưng ngay lúc này cô ấy đang uống trà." },
+      { "q": "Look! The baby _____. (sleep)", "a": "is sleeping", "trans": "Nhìn kìa! Em bé đang ngủ." },
+      { "q": "He usually _____ to work by bus. (go)", "a": "goes", "trans": "Anh ấy thường đi làm bằng xe buýt." },
+      { "q": "They _____ tennis every Saturday. (play)", "a": "play", "trans": "Họ chơi tennis mỗi thứ Bảy." },
+      { "q": "Be quiet! I _____ to concentrate. (try)", "a": "am trying", "trans": "Im lặng! Tôi đang cố tập trung." },
+      { "q": "Water _____ at 100°C. (boil)", "a": "boils", "trans": "Nước sôi ở 100 độ C." },
+      { "q": "She _____ a new dress for the party tonight. (wear)", "a": "is wearing", "trans": "Cô ấy đang mặc váy mới cho buổi tiệc tối nay." },
+      { "q": "I _____ this book is very interesting. (think)", "a": "think", "trans": "Tôi nghĩ cuốn sách này rất thú vị." }
+    ],
+    "errorCorrection": [
+      { "sentence": "I am wanting a cup of coffee.", "errorWord": "wanting", "correction": "want", "explanation": "'Want' là stative verb, không dùng tiếp diễn.", "trans": "Tôi muốn một cốc cà phê." },
+      { "sentence": "She is work in a bank every day.", "errorWord": "work", "correction": "works/working", "explanation": "Nếu diễn tả thói quen: works (HTĐ). Nếu đang làm: is working (HTTD).", "trans": "Cô ấy làm việc ở ngân hàng mỗi ngày." },
+      { "sentence": "Look! It rains outside.", "errorWord": "rains", "correction": "is raining", "explanation": "'Look!' báo hiệu hành động đang xảy ra → dùng HTTD.", "trans": "Nhìn kìa! Trời đang mưa bên ngoài." },
+      { "sentence": "He is believing in ghosts.", "errorWord": "believing", "correction": "believes", "explanation": "'Believe' là stative verb → dùng HTĐ.", "trans": "Anh ấy tin vào ma." },
+      { "sentence": "I usually am going to the gym.", "errorWord": "am going", "correction": "go", "explanation": "'Usually' chỉ thói quen → dùng HTĐ.", "trans": "Tôi thường đi phòng gym." },
+      { "sentence": "She cooks dinner right now.", "errorWord": "cooks", "correction": "is cooking", "explanation": "'Right now' chỉ thời điểm hiện tại → HTTD.", "trans": "Cô ấy đang nấu bữa tối ngay bây giờ." }
+    ],
+    "transformation": [
+      { "original": "She drinks tea every morning. (now)", "instruction": "Viết lại dùng thì hiện tại tiếp diễn.", "keyword": "is drinking", "a": "She is drinking tea now." },
+      { "original": "He is reading a book at the moment.", "instruction": "Viết lại dùng thì hiện tại đơn với 'every day'.", "keyword": "reads", "a": "He reads a book every day." },
+      { "original": "They play football on Sundays.", "instruction": "Viết lại dùng 'right now'.", "keyword": "are playing", "a": "They are playing football right now." },
+      { "original": "The train leaves at 6 AM every day.", "instruction": "Chuyển sang câu phủ định.", "keyword": "doesn't", "a": "The train doesn't leave at 6 AM every day." }
+    ],
+    "matching": [
+      {
+        "pairs": [
+          { "left": "She _____ coffee every morning.", "right": "drinks (HTĐ - thói quen)" },
+          { "left": "Look! She _____ tea now.", "right": "is drinking (HTTD - đang xảy ra)" },
+          { "left": "Water _____ at 100°C.", "right": "boils (HTĐ - chân lý)" },
+          { "left": "He _____ a new car this week.", "right": "is driving (HTTD - tạm thời)" },
+          { "left": "I _____ you are right.", "right": "think (HTĐ - stative verb)" }
+        ]
+      }
+    ],
+    "trueFalse": [
+      { "sentence": "I am knowing the answer.", "isCorrect": false, "correction": "I know the answer.", "explanation": "'Know' là stative verb, không dùng tiếp diễn.", "trans": "Tôi biết câu trả lời." },
+      { "sentence": "She usually walks to school.", "isCorrect": true, "explanation": "Đúng - 'usually' + HTĐ chỉ thói quen.", "trans": "Cô ấy thường đi bộ đến trường." },
+      { "sentence": "Look! The cat is climbing the tree.", "isCorrect": true, "explanation": "Đúng - 'Look!' + HTTD cho hành động đang xảy ra.", "trans": "Nhìn! Con mèo đang trèo cây." },
+      { "sentence": "He is seeming tired today.", "isCorrect": false, "correction": "He seems tired today.", "explanation": "'Seem' là stative verb.", "trans": "Anh ấy có vẻ mệt hôm nay." },
+      { "sentence": "We are having a great time right now.", "isCorrect": true, "explanation": "'Have' nghĩa 'trải qua' có thể dùng tiếp diễn.", "trans": "Chúng tôi đang có khoảng thời gian tuyệt vời." },
+      { "sentence": "The sun rises in the east.", "isCorrect": true, "explanation": "HTĐ cho sự thật tự nhiên.", "trans": "Mặt trời mọc ở hướng đông." }
     ]
   },
   {
@@ -989,6 +1138,50 @@ export const grammarDataB1 = [
         ],
         "a": "did"
       }
+    ],
+    "fillBlanks": [
+      { "q": "She _____ to Paris last summer.", "a": "went", "trans": "Cô ấy đã đi Paris hè năm ngoái." },
+      { "q": "They _____ a delicious dinner yesterday.", "a": "cooked", "trans": "Họ đã nấu bữa tối ngon hôm qua." },
+      { "q": "He _____ the bus this morning.", "a": "missed", "trans": "Anh ấy lỡ xe buýt sáng nay." },
+      { "q": "I _____ a strange noise last night.", "a": "heard", "trans": "Tôi nghe thấy tiếng lạ đêm qua." },
+      { "q": "We _____ at the hotel for three nights.", "a": "stayed", "trans": "Chúng tôi đã ở khách sạn ba đêm." },
+      { "q": "The movie _____ at 8 PM and _____ at 10 PM.", "a": "started/ended", "trans": "Phim bắt đầu lúc 8 giờ và kết thúc lúc 10 giờ." },
+      { "q": "She _____ her keys on the table.", "a": "left", "trans": "Cô ấy để quên chìa khóa trên bàn." },
+      { "q": "_____ you _____ the news yesterday?", "a": "Did/watch", "trans": "Bạn có xem tin tức hôm qua không?" }
+    ],
+    "errorCorrection": [
+      { "sentence": "She goed to school yesterday.", "errorWord": "goed", "correction": "went", "explanation": "'Go' là bất quy tắc: go → went → gone.", "trans": "Cô ấy đã đi học hôm qua." },
+      { "sentence": "He didn't went to the party.", "errorWord": "went", "correction": "go", "explanation": "Sau didn't, dùng V nguyên thể.", "trans": "Anh ấy không đi tiệc." },
+      { "sentence": "Did she came home late?", "errorWord": "came", "correction": "come", "explanation": "Sau Did, dùng V nguyên thể.", "trans": "Cô ấy có về nhà muộn không?" },
+      { "sentence": "I readed the book last week.", "errorWord": "readed", "correction": "read", "explanation": "'Read' bất quy tắc: read → read → read (phát âm /red/).", "trans": "Tôi đã đọc cuốn sách tuần trước." },
+      { "sentence": "They buyed a new car last month.", "errorWord": "buyed", "correction": "bought", "explanation": "'Buy' bất quy tắc: buy → bought → bought.", "trans": "Họ mua xe mới tháng trước." },
+      { "sentence": "We was happy to see you.", "errorWord": "was", "correction": "were", "explanation": "We → were (không phải was).", "trans": "Chúng tôi vui khi gặp bạn." }
+    ],
+    "transformation": [
+      { "original": "She goes to school every day.", "instruction": "Viết lại ở quá khứ đơn với 'yesterday'.", "keyword": "went", "a": "She went to school yesterday." },
+      { "original": "They watched TV last night.", "instruction": "Chuyển sang câu phủ định.", "keyword": "didn't", "a": "They didn't watch TV last night." },
+      { "original": "He bought a new phone.", "instruction": "Chuyển sang câu nghi vấn.", "keyword": "Did", "a": "Did he buy a new phone?" },
+      { "original": "I didn't eat breakfast this morning.", "instruction": "Chuyển sang câu khẳng định.", "keyword": "", "a": "I ate breakfast this morning." }
+    ],
+    "matching": [
+      {
+        "pairs": [
+          { "left": "go", "right": "went" },
+          { "left": "buy", "right": "bought" },
+          { "left": "eat", "right": "ate" },
+          { "left": "see", "right": "saw" },
+          { "left": "write", "right": "wrote" },
+          { "left": "take", "right": "took" }
+        ]
+      }
+    ],
+    "trueFalse": [
+      { "sentence": "She goed to Paris last year.", "isCorrect": false, "correction": "She went to Paris last year.", "explanation": "Go bất quy tắc: went.", "trans": "Cô ấy đã đi Paris năm ngoái." },
+      { "sentence": "They watched a movie last night.", "isCorrect": true, "explanation": "Đúng - watch → watched (thêm -ed).", "trans": "Họ xem phim đêm qua." },
+      { "sentence": "Did he went to the store?", "isCorrect": false, "correction": "Did he go to the store?", "explanation": "Sau Did dùng V nguyên thể.", "trans": "Anh ấy có đi cửa hàng không?" },
+      { "sentence": "I didn't know the answer.", "isCorrect": true, "explanation": "Đúng - didn't + V nguyên thể.", "trans": "Tôi không biết câu trả lời." },
+      { "sentence": "We were very tired after the trip.", "isCorrect": true, "explanation": "Đúng - We + were.", "trans": "Chúng tôi rất mệt sau chuyến đi." },
+      { "sentence": "He readed three books last month.", "isCorrect": false, "correction": "He read three books last month.", "explanation": "Read bất quy tắc: read → read.", "trans": "Anh ấy đọc ba cuốn sách tháng trước." }
     ]
   },
   {
@@ -1233,6 +1426,45 @@ export const grammarDataB1 = [
         ],
         "a": "was riding"
       }
+    ],
+    "fillBlanks": [
+      { "q": "I _____ (cook) when the phone rang.", "a": "was cooking", "trans": "Tôi đang nấu ăn thì điện thoại reo." },
+      { "q": "They _____ (watch) TV at 9 PM last night.", "a": "were watching", "trans": "Họ đang xem TV lúc 9 giờ tối hôm qua." },
+      { "q": "She _____ (walk) to school when it started to rain.", "a": "was walking", "trans": "Cô ấy đang đi bộ đến trường thì trời bắt đầu mưa." },
+      { "q": "While he _____ (sleep), someone knocked on the door.", "a": "was sleeping", "trans": "Trong khi anh ấy đang ngủ, ai đó gõ cửa." },
+      { "q": "We _____ (study) all day yesterday.", "a": "were studying", "trans": "Chúng tôi học cả ngày hôm qua." },
+      { "q": "The kids _____ (play) in the garden when their mother called.", "a": "were playing", "trans": "Bọn trẻ đang chơi trong vườn thì mẹ gọi." }
+    ],
+    "errorCorrection": [
+      { "sentence": "She was cook when I arrived.", "errorWord": "cook", "correction": "cooking", "explanation": "Quá khứ tiếp diễn: was/were + V-ing.", "trans": "Cô ấy đang nấu khi tôi đến." },
+      { "sentence": "They was watching TV at 8 PM.", "errorWord": "was", "correction": "were", "explanation": "They → were.", "trans": "Họ đang xem TV lúc 8 giờ tối." },
+      { "sentence": "While he slept, the phone rang.", "errorWord": "slept", "correction": "was sleeping", "explanation": "'While' + QK tiếp diễn (hành động đang diễn ra).", "trans": "Trong khi anh ấy đang ngủ, điện thoại reo." },
+      { "sentence": "I were reading when you called.", "errorWord": "were", "correction": "was", "explanation": "I → was.", "trans": "Tôi đang đọc sách khi bạn gọi." },
+      { "sentence": "She was walking and she was falling down.", "errorWord": "was falling", "correction": "fell", "explanation": "Hành động ngắn cắt ngang → QK đơn: fell.", "trans": "Cô ấy đang đi bộ thì ngã." }
+    ],
+    "transformation": [
+      { "original": "She cooked dinner. The phone rang.", "instruction": "Nối hai câu dùng 'when'.", "keyword": "was cooking", "a": "She was cooking dinner when the phone rang." },
+      { "original": "They studied. It started to rain.", "instruction": "Nối hai câu dùng 'while'.", "keyword": "were studying", "a": "While they were studying, it started to rain." },
+      { "original": "He was sleeping at 10 PM.", "instruction": "Chuyển sang câu nghi vấn.", "keyword": "Was", "a": "Was he sleeping at 10 PM?" },
+      { "original": "I was not reading at that time.", "instruction": "Chuyển sang câu khẳng định.", "keyword": "", "a": "I was reading at that time." }
+    ],
+    "matching": [
+      {
+        "pairs": [
+          { "left": "I _____ TV when the lights went out.", "right": "was watching" },
+          { "left": "They _____ football at 5 PM.", "right": "were playing" },
+          { "left": "She _____ a book all afternoon.", "right": "was reading" },
+          { "left": "We _____ dinner when you arrived.", "right": "were having" },
+          { "left": "He _____ fast when the police stopped him.", "right": "was driving" }
+        ]
+      }
+    ],
+    "trueFalse": [
+      { "sentence": "She was cooking when I arrived.", "isCorrect": true, "explanation": "Đúng - QKTD (was cooking) cho hành động đang diễn ra + QKĐ (arrived) cắt ngang.", "trans": "Cô ấy đang nấu ăn khi tôi đến." },
+      { "sentence": "They was watching TV at 9 PM.", "isCorrect": false, "correction": "They were watching TV at 9 PM.", "explanation": "They + were.", "trans": "Họ đang xem TV lúc 9 giờ." },
+      { "sentence": "While I was reading, the phone rang.", "isCorrect": true, "explanation": "Đúng - While + QKTD, QKĐ.", "trans": "Trong khi tôi đang đọc, điện thoại reo." },
+      { "sentence": "He was walk home when it started to rain.", "isCorrect": false, "correction": "He was walking home when it started to rain.", "explanation": "Cần V-ing: walking.", "trans": "Anh ấy đang đi bộ về nhà thì trời mưa." },
+      { "sentence": "We were studying all evening yesterday.", "isCorrect": true, "explanation": "Đúng - QKTD cho hành động kéo dài.", "trans": "Chúng tôi học cả tối hôm qua." }
     ]
   },
   {
@@ -1481,6 +1713,50 @@ export const grammarDataB1 = [
         ],
         "a": "have lost"
       }
+    ],
+    "fillBlanks": [
+      { "q": "I _____ (visit) Japan three times.", "a": "have visited", "trans": "Tôi đã đến Nhật ba lần." },
+      { "q": "She _____ (live) here since 2015.", "a": "has lived", "trans": "Cô ấy đã sống ở đây từ 2015." },
+      { "q": "They _____ (not finish) their project yet.", "a": "haven't finished", "trans": "Họ vẫn chưa hoàn thành dự án." },
+      { "q": "_____ you ever _____ sushi?", "a": "Have/eaten", "trans": "Bạn đã từng ăn sushi chưa?" },
+      { "q": "He _____ just _____ home.", "a": "has/arrived", "trans": "Anh ấy vừa mới về nhà." },
+      { "q": "We _____ (know) each other for 10 years.", "a": "have known", "trans": "Chúng tôi đã biết nhau 10 năm." },
+      { "q": "She _____ already _____ the email.", "a": "has/sent", "trans": "Cô ấy đã gửi email rồi." },
+      { "q": "I _____ never _____ a ghost.", "a": "have/seen", "trans": "Tôi chưa bao giờ thấy ma." }
+    ],
+    "errorCorrection": [
+      { "sentence": "She has went to London.", "errorWord": "went", "correction": "gone", "explanation": "HTHT dùng V3 (past participle): go → gone.", "trans": "Cô ấy đã đi London." },
+      { "sentence": "I have lived here since 5 years.", "errorWord": "since", "correction": "for", "explanation": "'5 years' là khoảng thời gian → dùng FOR.", "trans": "Tôi đã sống ở đây 5 năm." },
+      { "sentence": "He have eaten lunch already.", "errorWord": "have", "correction": "has", "explanation": "He (ngôi 3 số ít) → has.", "trans": "Anh ấy đã ăn trưa rồi." },
+      { "sentence": "They has finished the project.", "errorWord": "has", "correction": "have", "explanation": "They (số nhiều) → have.", "trans": "Họ đã hoàn thành dự án." },
+      { "sentence": "I have saw that movie.", "errorWord": "saw", "correction": "seen", "explanation": "HTHT dùng V3: see → seen.", "trans": "Tôi đã xem phim đó." },
+      { "sentence": "She has already finish her homework.", "errorWord": "finish", "correction": "finished", "explanation": "HTHT: has + V3/V-ed: finished.", "trans": "Cô ấy đã làm xong bài tập." }
+    ],
+    "transformation": [
+      { "original": "She started living here in 2015.", "instruction": "Viết lại dùng HTHT với 'since'.", "keyword": "has lived", "a": "She has lived here since 2015." },
+      { "original": "I have never been to Japan.", "instruction": "Chuyển sang câu nghi vấn với 'ever'.", "keyword": "Have", "a": "Have you ever been to Japan?" },
+      { "original": "He has already eaten lunch.", "instruction": "Chuyển sang câu phủ định với 'yet'.", "keyword": "hasn't", "a": "He hasn't eaten lunch yet." },
+      { "original": "They knew each other 10 years ago.", "instruction": "Viết lại dùng HTHT với 'for'.", "keyword": "have known", "a": "They have known each other for 10 years." }
+    ],
+    "matching": [
+      {
+        "pairs": [
+          { "left": "I have lived here _____ 2015.", "right": "since (mốc thời gian)" },
+          { "left": "She has worked here _____ 5 years.", "right": "for (khoảng thời gian)" },
+          { "left": "go → gone →", "right": "V3 (past participle)" },
+          { "left": "have/has + not + V3 =", "right": "câu phủ định HTHT" },
+          { "left": "Have/Has + S + V3? =", "right": "câu nghi vấn HTHT" },
+          { "left": "just, already, yet =", "right": "dấu hiệu HTHT" }
+        ]
+      }
+    ],
+    "trueFalse": [
+      { "sentence": "She has went to London.", "isCorrect": false, "correction": "She has gone to London.", "explanation": "Go → V3: gone.", "trans": "Cô ấy đã đi London." },
+      { "sentence": "I have lived here for 10 years.", "isCorrect": true, "explanation": "Đúng - for + khoảng thời gian.", "trans": "Tôi đã sống ở đây 10 năm." },
+      { "sentence": "He hasn't finished his homework yet.", "isCorrect": true, "explanation": "Đúng - haven't/hasn't + V3 + yet.", "trans": "Anh ấy vẫn chưa làm xong bài." },
+      { "sentence": "They have knew each other since 2010.", "isCorrect": false, "correction": "They have known each other since 2010.", "explanation": "Know → V3: known.", "trans": "Họ đã biết nhau từ 2010." },
+      { "sentence": "Have you ever been to Japan?", "isCorrect": true, "explanation": "Đúng - cấu trúc HTHT với 'ever' hỏi kinh nghiệm.", "trans": "Bạn đã từng đến Nhật chưa?" },
+      { "sentence": "I have just finish my work.", "isCorrect": false, "correction": "I have just finished my work.", "explanation": "Cần V3/V-ed: finished.", "trans": "Tôi vừa làm xong việc." }
     ]
   },
   {
@@ -6093,6 +6369,244 @@ export const grammarDataB1 = [
         ],
         "a": "in an office in Hanoi"
       }
+    ]
+  },
+  {
+    "id": "b1_26",
+    "title": "26. Phrasal Verbs Cơ Bản",
+    "level": "B1",
+    "category": "Vocabulary & Grammar",
+    "color": "bg-violet-200",
+    "theory": [
+      {
+        "h": "I. Phrasal Verb là gì?",
+        "c": "👉 Phrasal verb = Động từ + Giới từ/Trạng từ → tạo nghĩa MỚI khác hoàn toàn:\n→ look (nhìn) + after → look after (chăm sóc)\n→ turn (quay) + on → turn on (bật)\n→ give (cho) + up → give up (từ bỏ)\n\n📌 Phrasal verb rất phổ biến trong giao tiếp hàng ngày!"
+      },
+      {
+        "h": "II. Phân loại",
+        "c": "1️⃣ TÁCH ĐƯỢC (Separable): Tân ngữ có thể đặt giữa hoặc sau\n→ Turn ON the light. = Turn the light ON. = Turn it ON.\n⚠️ Nếu tân ngữ là đại từ (it, them...) → BẮT BUỘC đặt giữa:\n→ Turn it on. ✅ Turn on it. ❌\n\n2️⃣ KHÔNG TÁCH ĐƯỢC (Inseparable): Tân ngữ luôn đặt SAU\n→ Look after the baby. ✅ Look the baby after. ❌\n→ Run into a friend. ✅ (Tình cờ gặp)"
+      },
+      {
+        "h": "III. 20 Phrasal Verbs Quan Trọng Nhất",
+        "c": "🔹 get up (thức dậy) · give up (từ bỏ) · look after (chăm sóc)\n🔹 turn on/off (bật/tắt) · put on (mặc vào) · take off (cởi ra)\n🔹 find out (phát hiện) · look for (tìm kiếm) · run out of (hết)\n🔹 come back (quay lại) · go on (tiếp tục) · set up (thiết lập)\n🔹 pick up (đón/nhặt) · bring up (nuôi dạy) · break down (hỏng)\n🔹 look forward to (mong chờ) · get along with (hòa hợp)\n🔹 put off (hoãn lại) · carry on (tiếp tục) · work out (tập thể dục/giải quyết)"
+      },
+      {
+        "h": "IV. Ví dụ trong câu",
+        "c": "🌟 I get up at 7 AM every day. (Tôi thức dậy lúc 7 giờ mỗi ngày.)\n🌟 Can you turn off the TV? (Bạn tắt TV được không?)\n🌟 She gave up smoking last year. (Cô ấy bỏ hút thuốc năm ngoái.)\n🌟 We ran out of milk. (Chúng tôi hết sữa rồi.)\n🌟 I'm looking forward to the holiday! (Tôi mong chờ kỳ nghỉ!)"
+      }
+    ],
+    "sentenceGame": [
+      { "en": "Can you turn off the lights?", "vi": "Bạn có thể tắt đèn không?", "words": ["Can", "you", "turn", "off", "the", "lights", "?"] },
+      { "en": "She gave up smoking last year.", "vi": "Cô ấy bỏ hút thuốc năm ngoái.", "words": ["She", "gave", "up", "smoking", "last", "year", "."] },
+      { "en": "I am looking for my keys.", "vi": "Tôi đang tìm chìa khóa.", "words": ["I", "am", "looking", "for", "my", "keys", "."] },
+      { "en": "We ran out of milk yesterday.", "vi": "Chúng tôi hết sữa hôm qua.", "words": ["We", "ran", "out", "of", "milk", "yesterday", "."] },
+      { "en": "He looks after his grandmother.", "vi": "Anh ấy chăm sóc bà.", "words": ["He", "looks", "after", "his", "grandmother", "."] }
+    ],
+    "exercises": [
+      { "q": "Can you _______ the TV? I want to watch the news.", "opts": ["turn on", "turn in", "turn up", "turn away"], "a": "turn on" },
+      { "q": "She _______ smoking because it was bad for her health.", "opts": ["gave up", "gave in", "gave out", "gave away"], "a": "gave up" },
+      { "q": "I need to _______ my wallet. I can't find it.", "opts": ["look for", "look after", "look into", "look up"], "a": "look for" },
+      { "q": "We have _______ sugar. Can you buy some?", "opts": ["run out of", "run into", "run over", "run away"], "a": "run out of" },
+      { "q": "Please _______ your coat. It's cold outside.", "opts": ["put on", "put off", "put up", "put out"], "a": "put on" },
+      { "q": "I _______ an old friend at the supermarket.", "opts": ["ran into", "ran out of", "ran over", "ran up"], "a": "ran into" },
+      { "q": "The car _______ on the highway.", "opts": ["broke down", "broke up", "broke in", "broke off"], "a": "broke down" },
+      { "q": "She _______ her children alone after the divorce.", "opts": ["brought up", "brought in", "brought out", "brought down"], "a": "brought up" },
+      { "q": "I'm _______ to meeting you.", "opts": ["looking forward", "looking after", "looking for", "looking up"], "a": "looking forward" },
+      { "q": "Don't _______ the meeting. We need to discuss this today.", "opts": ["put off", "put on", "put up", "put out"], "a": "put off" }
+    ],
+    "fillBlanks": [
+      { "q": "Please turn _____ the light. It's too dark.", "a": "on", "trans": "Làm ơn bật đèn lên. Tối quá." },
+      { "q": "She looks _____ her younger brother every afternoon.", "a": "after", "trans": "Cô ấy chăm sóc em trai mỗi chiều." },
+      { "q": "We need to find _____ the truth.", "a": "out", "trans": "Chúng tôi cần tìm ra sự thật." },
+      { "q": "I get _____ at 6 AM every morning.", "a": "up", "trans": "Tôi thức dậy lúc 6 giờ sáng mỗi ngày." },
+      { "q": "He gave _____ his dream of becoming a singer.", "a": "up", "trans": "Anh ấy từ bỏ giấc mơ trở thành ca sĩ." },
+      { "q": "Put _____ your shoes before entering the house.", "a": "off", "trans": "Cởi giày ra trước khi vào nhà." },
+      { "q": "I ran _____ of money before the end of the month.", "a": "out", "trans": "Tôi hết tiền trước cuối tháng." },
+      { "q": "She is looking _____ a new job.", "a": "for", "trans": "Cô ấy đang tìm việc mới." }
+    ],
+    "errorCorrection": [
+      { "sentence": "Can you turn on it?", "errorWord": "it", "correction": "turn it on", "explanation": "Đại từ (it, them) phải đặt GIỮA phrasal verb tách được: turn it on.", "trans": "Bạn bật nó lên được không?" },
+      { "sentence": "She looks the baby after.", "errorWord": "after", "correction": "looks after the baby", "explanation": "'Look after' không tách được: tân ngữ đặt SAU.", "trans": "Cô ấy chăm sóc em bé." },
+      { "sentence": "He gave up it.", "errorWord": "it", "correction": "gave it up", "explanation": "Đại từ phải đặt giữa: gave it up.", "trans": "Anh ấy từ bỏ nó." },
+      { "sentence": "I am looking forward to meet you.", "errorWord": "meet", "correction": "meeting", "explanation": "'Look forward to' + V-ing (to ở đây là giới từ).", "trans": "Tôi mong được gặp bạn." }
+    ],
+    "transformation": [
+      { "original": "She stopped smoking.", "instruction": "Viết lại dùng phrasal verb 'give up'.", "keyword": "gave up", "a": "She gave up smoking." },
+      { "original": "Can you extinguish the fire?", "instruction": "Viết lại dùng phrasal verb 'put out'.", "keyword": "put out", "a": "Can you put out the fire?" },
+      { "original": "I discovered the secret.", "instruction": "Viết lại dùng 'find out'.", "keyword": "found out", "a": "I found out the secret." },
+      { "original": "The machine stopped working.", "instruction": "Viết lại dùng 'break down'.", "keyword": "broke down", "a": "The machine broke down." }
+    ],
+    "matching": [
+      {
+        "pairs": [
+          { "left": "turn on", "right": "bật" },
+          { "left": "give up", "right": "từ bỏ" },
+          { "left": "look after", "right": "chăm sóc" },
+          { "left": "run out of", "right": "hết (cạn)" },
+          { "left": "look for", "right": "tìm kiếm" },
+          { "left": "break down", "right": "hỏng/sụp đổ" }
+        ]
+      }
+    ],
+    "trueFalse": [
+      { "sentence": "Can you turn on it?", "isCorrect": false, "correction": "Can you turn it on?", "explanation": "Đại từ đặt giữa phrasal verb tách được.", "trans": "Bạn bật nó lên được không?" },
+      { "sentence": "She gave up smoking last year.", "isCorrect": true, "explanation": "Đúng - give up + V-ing/danh từ.", "trans": "Cô ấy bỏ thuốc năm ngoái." },
+      { "sentence": "I'm looking forward to seeing you.", "isCorrect": true, "explanation": "Đúng - look forward to + V-ing.", "trans": "Tôi mong được gặp bạn." },
+      { "sentence": "She looks after the baby.", "isCorrect": true, "explanation": "Đúng - look after (không tách được).", "trans": "Cô ấy chăm sóc em bé." },
+      { "sentence": "He ran into of sugar.", "isCorrect": false, "correction": "He ran out of sugar.", "explanation": "'Hết' = run out of, không phải 'ran into'.", "trans": "Anh ấy hết đường." }
+    ]
+  },
+  {
+    "id": "b1_27",
+    "title": "27. Câu Hỏi Gián Tiếp (Embedded Questions)",
+    "level": "B1",
+    "category": "Sentence Structure",
+    "color": "bg-sky-200",
+    "theory": [
+      {
+        "h": "I. Câu Hỏi Gián Tiếp là gì?",
+        "c": "👉 Câu hỏi gián tiếp = Đặt câu hỏi trong một câu khác → LỊCH SỰ hơn:\n\n❌ Trực tiếp: Where is the bank? (Ngân hàng ở đâu?)\n✅ Gián tiếp: Could you tell me where the bank is? (Bạn có thể cho tôi biết ngân hàng ở đâu không?)\n\n📌 Câu hỏi gián tiếp KHÔNG đảo ngữ!"
+      },
+      {
+        "h": "II. Cấu trúc",
+        "c": "🔹 Với từ hỏi (WH-words):\nDo you know + WHERE she LIVES? ✅\nDo you know + WHERE DOES she LIVE? ❌\n\n🔹 Với câu hỏi Yes/No → thêm IF/WHETHER:\nDo you know IF he IS coming? ✅\nDo you know IF IS he coming? ❌\n\n📌 Mẫu câu phổ biến:\n• Can you tell me...?\n• Do you know...?\n• I wonder...\n• Could you explain...?\n• I'm not sure..."
+      },
+      {
+        "h": "III. So sánh Trực tiếp vs Gián tiếp",
+        "c": "🔄 Where does she work? → Do you know where she works?\n🔄 What time is it? → Could you tell me what time it is?\n🔄 Is he coming? → Do you know if he is coming?\n🔄 When did they leave? → I wonder when they left.\n🔄 How much does it cost? → Can you tell me how much it costs?\n\n⚠️ LỖI THƯỜNG GẶP: Do you know where is the bank? ❌\n✅ ĐÚNG: Do you know where the bank is?"
+      }
+    ],
+    "sentenceGame": [
+      { "en": "Could you tell me where the station is?", "vi": "Bạn có thể cho tôi biết ga tàu ở đâu không?", "words": ["Could", "you", "tell", "me", "where", "the", "station", "is", "?"] },
+      { "en": "Do you know if she is coming?", "vi": "Bạn có biết cô ấy có đến không?", "words": ["Do", "you", "know", "if", "she", "is", "coming", "?"] },
+      { "en": "I wonder where he went.", "vi": "Tôi tự hỏi anh ấy đã đi đâu.", "words": ["I", "wonder", "where", "he", "went", "."] },
+      { "en": "Can you tell me how much it costs?", "vi": "Bạn cho tôi biết nó giá bao nhiêu?", "words": ["Can", "you", "tell", "me", "how", "much", "it", "costs", "?"] }
+    ],
+    "exercises": [
+      { "q": "Could you tell me where _______?", "opts": ["the bank is", "is the bank", "the bank does", "does the bank"], "a": "the bank is" },
+      { "q": "Do you know if _______?", "opts": ["she is coming", "is she coming", "she coming is", "does she coming"], "a": "she is coming" },
+      { "q": "I wonder what time _______.", "opts": ["it is", "is it", "does it", "it does"], "a": "it is" },
+      { "q": "Can you tell me how much _______?", "opts": ["this costs", "does this cost", "this does cost", "costs this"], "a": "this costs" },
+      { "q": "Do you know when _______?", "opts": ["the train leaves", "does the train leave", "the train does leave", "leaves the train"], "a": "the train leaves" },
+      { "q": "I'm not sure where _______.", "opts": ["he lives", "does he live", "he does live", "lives he"], "a": "he lives" },
+      { "q": "Could you explain why _______ late?", "opts": ["you are", "are you", "you do", "do you"], "a": "you are" },
+      { "q": "Do you know whether _______ finished?", "opts": ["he has", "has he", "he have", "have he"], "a": "he has" }
+    ],
+    "fillBlanks": [
+      { "q": "Could you tell me where the post office _____?", "a": "is", "trans": "Bạn cho tôi biết bưu điện ở đâu?" },
+      { "q": "Do you know if she _____ coming to the party?", "a": "is", "trans": "Bạn biết cô ấy có đến tiệc không?" },
+      { "q": "I wonder what time the movie _____.", "a": "starts", "trans": "Tôi tự hỏi phim bắt đầu lúc mấy giờ." },
+      { "q": "Can you tell me how _____ get to the airport?", "a": "I can/to", "trans": "Bạn cho tôi biết làm sao đến sân bay?" },
+      { "q": "I'm not sure whether he _____ the truth.", "a": "told", "trans": "Tôi không chắc anh ấy có nói thật không." },
+      { "q": "Do you know how much the ticket _____?", "a": "costs", "trans": "Bạn biết vé giá bao nhiêu không?" }
+    ],
+    "errorCorrection": [
+      { "sentence": "Do you know where is the bank?", "errorWord": "is", "correction": "the bank is", "explanation": "Câu hỏi gián tiếp KHÔNG đảo ngữ: where the bank is.", "trans": "Bạn biết ngân hàng ở đâu không?" },
+      { "sentence": "Can you tell me what time does the train leave?", "errorWord": "does", "correction": "the train leaves", "explanation": "Bỏ trợ động từ does: what time the train leaves.", "trans": "Bạn cho tôi biết tàu đi lúc mấy giờ?" },
+      { "sentence": "I wonder where did he go.", "errorWord": "did", "correction": "he went", "explanation": "Bỏ trợ động từ did: where he went.", "trans": "Tôi tự hỏi anh ấy đã đi đâu." },
+      { "sentence": "Could you explain why are you late?", "errorWord": "are", "correction": "you are", "explanation": "Không đảo ngữ: why you are late.", "trans": "Bạn giải thích tại sao bạn đến muộn?" }
+    ],
+    "transformation": [
+      { "original": "Where is the nearest hospital?", "instruction": "Viết lại lịch sự hơn: 'Could you tell me...'", "keyword": "Could you tell me", "a": "Could you tell me where the nearest hospital is?" },
+      { "original": "What time does the movie start?", "instruction": "Viết lại: 'Do you know...'", "keyword": "Do you know", "a": "Do you know what time the movie starts?" },
+      { "original": "Is she coming to the party?", "instruction": "Viết lại: 'Do you know if...'", "keyword": "if", "a": "Do you know if she is coming to the party?" },
+      { "original": "How much does this cost?", "instruction": "Viết lại: 'Can you tell me...'", "keyword": "Can you tell me", "a": "Can you tell me how much this costs?" }
+    ],
+    "matching": [
+      {
+        "pairs": [
+          { "left": "Where is the bank?", "right": "...where the bank is" },
+          { "left": "What time does it start?", "right": "...what time it starts" },
+          { "left": "Is she coming?", "right": "...if she is coming" },
+          { "left": "Why did he leave?", "right": "...why he left" },
+          { "left": "How much does it cost?", "right": "...how much it costs" }
+        ]
+      }
+    ],
+    "trueFalse": [
+      { "sentence": "Do you know where is the bank?", "isCorrect": false, "correction": "Do you know where the bank is?", "explanation": "Không đảo ngữ trong embedded question.", "trans": "Bạn biết ngân hàng ở đâu không?" },
+      { "sentence": "Could you tell me what time it is?", "isCorrect": true, "explanation": "Đúng - trật tự: what time + S + V.", "trans": "Bạn cho tôi biết mấy giờ rồi?" },
+      { "sentence": "I wonder if she is happy.", "isCorrect": true, "explanation": "Đúng - dùng 'if' cho câu hỏi Yes/No gián tiếp.", "trans": "Tôi tự hỏi cô ấy có vui không." },
+      { "sentence": "Can you tell me how much does it cost?", "isCorrect": false, "correction": "Can you tell me how much it costs?", "explanation": "Bỏ 'does', dùng: how much it costs.", "trans": "Bạn cho biết giá bao nhiêu?" },
+      { "sentence": "I'm not sure whether he has finished.", "isCorrect": true, "explanation": "Đúng - whether + S + V (không đảo ngữ).", "trans": "Tôi không chắc anh ấy đã xong chưa." }
+    ]
+  },
+  {
+    "id": "b1_28",
+    "title": "28. Both/Either/Neither",
+    "level": "B1",
+    "category": "Sentence Structure",
+    "color": "bg-lime-200",
+    "theory": [
+      {
+        "h": "I. BOTH...AND (cả...và)",
+        "c": "👉 BOTH A AND B = Cả A và B (khẳng định cả hai)\n→ Both Tom and Jerry are here. (Cả Tom và Jerry đều ở đây.)\n→ She speaks both English and French. (Cô ấy nói cả tiếng Anh và tiếng Pháp.)\n\n📌 BOTH + danh từ số nhiều + V số nhiều:\n→ Both books are interesting. ✅\n→ Both of them are students. ✅"
+      },
+      {
+        "h": "II. EITHER...OR (hoặc...hoặc)",
+        "c": "👉 EITHER A OR B = Hoặc A hoặc B (chọn 1 trong 2)\n→ Either you or I am wrong. (Hoặc bạn hoặc tôi sai.)\n→ You can have either tea or coffee. (Bạn có thể uống trà hoặc cà phê.)\n\n📌 Chia động từ theo chủ ngữ GẦN NHẤT:\n→ Either he or they ARE coming. ✅\n→ Either they or he IS coming. ✅"
+      },
+      {
+        "h": "III. NEITHER...NOR (không...cũng không)",
+        "c": "👉 NEITHER A NOR B = Không A cũng không B (phủ định cả hai)\n→ Neither Tom nor Jerry is here. (Cả Tom lẫn Jerry đều không ở đây.)\n→ She speaks neither English nor French. (Cô ấy không nói tiếng Anh cũng không nói tiếng Pháp.)\n\n⚠️ NEITHER đã mang nghĩa phủ định, KHÔNG thêm NOT:\n→ Neither of them is wrong. ✅\n→ Neither of them is not wrong. ❌"
+      },
+      {
+        "h": "IV. Tóm tắt & So sánh",
+        "c": "📊 SO SÁNH:\n• BOTH...AND = ✅ + ✅ (cả hai đều)\n• EITHER...OR = ✅ hoặc ✅ (một trong hai)\n• NEITHER...NOR = ❌ + ❌ (không cái nào)\n\n🌟 VÍ DỤ:\n→ Both coffee and tea are popular. (Cả cà phê và trà đều phổ biến.)\n→ You can drink either coffee or tea. (Bạn uống cà phê hoặc trà.)\n→ I drink neither coffee nor tea. (Tôi không uống cà phê cũng không uống trà.)"
+      }
+    ],
+    "sentenceGame": [
+      { "en": "Both Tom and Jerry are my friends.", "vi": "Cả Tom và Jerry đều là bạn tôi.", "words": ["Both", "Tom", "and", "Jerry", "are", "my", "friends", "."] },
+      { "en": "Either you or I am wrong.", "vi": "Hoặc bạn hoặc tôi sai.", "words": ["Either", "you", "or", "I", "am", "wrong", "."] },
+      { "en": "Neither coffee nor tea is available.", "vi": "Không có cà phê cũng không có trà.", "words": ["Neither", "coffee", "nor", "tea", "is", "available", "."] },
+      { "en": "She speaks both English and French.", "vi": "Cô ấy nói cả tiếng Anh và tiếng Pháp.", "words": ["She", "speaks", "both", "English", "and", "French", "."] }
+    ],
+    "exercises": [
+      { "q": "_______ Tom _______ Jerry came to the party. (= cả hai đều đến)", "opts": ["Both...and", "Either...or", "Neither...nor", "Not only...but"], "a": "Both...and" },
+      { "q": "You can have _______ tea _______ coffee. (= chọn 1 trong 2)", "opts": ["either...or", "both...and", "neither...nor", "not...and"], "a": "either...or" },
+      { "q": "_______ she _______ her sister was at home. (= cả hai đều không)", "opts": ["Neither...nor", "Both...and", "Either...or", "Whether...or"], "a": "Neither...nor" },
+      { "q": "Both books _______ interesting.", "opts": ["are", "is", "was", "has"], "a": "are" },
+      { "q": "Neither Tom nor Jerry _______ here.", "opts": ["is", "are", "were", "have"], "a": "is" },
+      { "q": "Either she or they _______ responsible.", "opts": ["are", "is", "was", "has"], "a": "are" },
+      { "q": "I like _______ cats _______ dogs. (= thích cả hai)", "opts": ["both...and", "either...or", "neither...nor", "not...but"], "a": "both...and" },
+      { "q": "_______ of the answers is correct. (= không cái nào đúng)", "opts": ["Neither", "Both", "Either", "Each"], "a": "Neither" }
+    ],
+    "fillBlanks": [
+      { "q": "Both English _____ French are spoken in Canada.", "a": "and", "trans": "Cả tiếng Anh và tiếng Pháp đều được nói ở Canada." },
+      { "q": "Either you _____ he must do it.", "a": "or", "trans": "Hoặc bạn hoặc anh ấy phải làm." },
+      { "q": "Neither Tom _____ Jerry passed the exam.", "a": "nor", "trans": "Cả Tom lẫn Jerry đều không đậu." },
+      { "q": "_____ of the students were absent today.", "a": "Both", "trans": "Cả hai học sinh đều vắng hôm nay." },
+      { "q": "I can speak _____ English and Spanish.", "a": "both", "trans": "Tôi nói được cả tiếng Anh và tiếng Tây Ban Nha." },
+      { "q": "_____ of the movies was interesting.", "a": "Neither", "trans": "Cả hai phim đều không hay." }
+    ],
+    "errorCorrection": [
+      { "sentence": "Both Tom and Jerry is here.", "errorWord": "is", "correction": "are", "explanation": "Both...and + V số nhiều: are.", "trans": "Cả Tom và Jerry đều ở đây." },
+      { "sentence": "Neither of them are not wrong.", "errorWord": "not", "correction": "(bỏ 'not')", "explanation": "Neither đã phủ định, không thêm not.", "trans": "Cả hai đều không sai." },
+      { "sentence": "Either tea nor coffee is fine.", "errorWord": "nor", "correction": "or", "explanation": "Either đi với OR, không phải NOR.", "trans": "Trà hoặc cà phê đều được." },
+      { "sentence": "Both of them is students.", "errorWord": "is", "correction": "are", "explanation": "Both + V số nhiều.", "trans": "Cả hai đều là học sinh." }
+    ],
+    "transformation": [
+      { "original": "She doesn't like coffee. She doesn't like tea.", "instruction": "Nối dùng 'Neither...nor'.", "keyword": "Neither", "a": "She likes neither coffee nor tea." },
+      { "original": "He speaks English. He speaks French.", "instruction": "Nối dùng 'Both...and'.", "keyword": "Both", "a": "He speaks both English and French." },
+      { "original": "You can take the bus. You can take the train.", "instruction": "Nối dùng 'Either...or'.", "keyword": "Either", "a": "You can take either the bus or the train." }
+    ],
+    "matching": [
+      {
+        "pairs": [
+          { "left": "Both...and", "right": "cả...và (cả hai đều)" },
+          { "left": "Either...or", "right": "hoặc...hoặc (1 trong 2)" },
+          { "left": "Neither...nor", "right": "không...cũng không" },
+          { "left": "Both + V", "right": "số nhiều (are/were)" },
+          { "left": "Neither + V", "right": "số ít (is/was)" }
+        ]
+      }
+    ],
+    "trueFalse": [
+      { "sentence": "Both Tom and Jerry are my friends.", "isCorrect": true, "explanation": "Đúng - Both...and + V số nhiều.", "trans": "Cả Tom và Jerry đều là bạn tôi." },
+      { "sentence": "Neither of them are wrong.", "isCorrect": false, "correction": "Neither of them is wrong.", "explanation": "Neither of + V số ít.", "trans": "Cả hai đều không sai." },
+      { "sentence": "Either you or I am responsible.", "isCorrect": true, "explanation": "Đúng - Either...or chia V theo chủ ngữ gần nhất (I → am).", "trans": "Hoặc bạn hoặc tôi chịu trách nhiệm." },
+      { "sentence": "She speaks both English or French.", "isCorrect": false, "correction": "She speaks both English and French.", "explanation": "Both đi với AND, không phải OR.", "trans": "Cô ấy nói cả tiếng Anh và tiếng Pháp." },
+      { "sentence": "Neither he nor she was at the meeting.", "isCorrect": true, "explanation": "Đúng - Neither...nor + V chia theo chủ ngữ gần nhất.", "trans": "Cả anh ấy lẫn cô ấy đều không dự họp." }
     ]
   }
 ];

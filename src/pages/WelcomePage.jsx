@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
+import MascotLuna from '../components/common/MascotLuna';
 
 const WelcomePage = ({ 
   xp, 
@@ -21,8 +22,9 @@ const WelcomePage = ({
   theme,
   setTheme
 }) => {
-  const [activeTab, setActiveTab] = useState('all'); // 'all', 'beginner', 'intermediate', 'advanced'
+  const [activeTab, setActiveTab] = useState('all'); // 'all', 'starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+  const [lunaVisible, setLunaVisible] = useState(true);
 
   // Flatten milestones to calculate progress & next target
   const allMilestones = roadmapData.flatMap(level => 
@@ -56,17 +58,19 @@ const WelcomePage = ({
       setOxfordUnitId(milestone.targetId);
     } else if (milestone.type === 'vstep') {
       setAppMode('vocab');
-      setActiveVocabCategory('VSTEP');
+      setActiveVocabCategory('TOPIC');
       setVstepTopicId(milestone.targetId);
     }
   };
 
   // Rank name based on completed milestones
   const getRankName = (count) => {
-    if (count >= 24) return 'Bậc Thầy Ngữ Pháp (Grandmaster)';
-    if (count >= 16) return 'Chiến Binh Tiếng Anh (Expert)';
-    if (count >= 8) return 'Kẻ Chinh Phục (Explorer)';
-    return 'Tân Binh Ngữ Pháp (Beginner)';
+    if (count >= 30) return '🏆 Bậc Thầy (C2 Master)';
+    if (count >= 22) return '🌟 Chuyên Gia (C1 Expert)';
+    if (count >= 15) return '⭐ Chiến Binh (B2 Warrior)';
+    if (count >= 8)  return '🌿 Người Khám Phá (B1 Explorer)';
+    if (count >= 3)  return '🌱 Tân Binh (A2 Starter)';
+    return '👶 Mới Bắt Đầu (A1 Beginner)';
   };
 
   const getMilestoneTypeBadge = (type) => {
@@ -76,10 +80,34 @@ const WelcomePage = ({
       case 'oxford':
         return <span className="bg-red-100 dark:bg-red-950/40 text-red-800 dark:text-red-400 border-2 border-slate-800 dark:border-slate-700 px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider flex items-center gap-1 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]"><Flame size={12}/> Oxford Vocab</span>;
       case 'vstep':
-        return <span className="bg-indigo-100 dark:bg-indigo-950/40 text-indigo-800 dark:text-indigo-400 border-2 border-slate-800 dark:border-slate-700 px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider flex items-center gap-1 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]"><Compass size={12}/> VSTEP Vocab</span>;
+        return <span className="bg-indigo-100 dark:bg-indigo-950/40 text-indigo-800 dark:text-indigo-400 border-2 border-slate-800 dark:border-slate-700 px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider flex items-center gap-1 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]"><Compass size={12}/> Từ Vựng</span>;
       default:
         return null;
     }
+  };
+
+  // Exam badge tags
+  const getExamBadge = (exam = []) => {
+    if (!exam || exam.length === 0) return null;
+    const colors = {
+      'IELTS': 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 border-blue-400',
+      'VSTEP': 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 border-green-400',
+      'TOEIC': 'bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 border-orange-400',
+      'Business': 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 border-purple-400',
+    };
+    return (
+      <div className="flex flex-wrap gap-1 mt-1">
+        {exam.slice(0, 3).map((tag, i) => {
+          const colorKey = Object.keys(colors).find(k => tag.includes(k));
+          const colorClass = colorKey ? colors[colorKey] : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-400';
+          return (
+            <span key={i} className={`text-[10px] font-black px-1.5 py-0.5 rounded-md border ${colorClass}`}>
+              {tag}
+            </span>
+          );
+        })}
+      </div>
+    );
   };
 
   return (
@@ -198,9 +226,11 @@ const WelcomePage = ({
       <div className="flex gap-2 mb-8 overflow-x-auto pb-2 scrollbar-hide shrink-0">
         {[
           { id: 'all', title: 'TẤT CẢ LỘ TRÌNH', count: totalMilestonesCount },
-          { id: 'beginner', title: 'SƠ CẤP (A1-A2)', count: roadmapData[0].milestones.length },
-          { id: 'intermediate', title: 'TRUNG CẤP (B1-B2)', count: roadmapData[1].milestones.length },
-          { id: 'advanced', title: 'CAO CẤP (C1-C2)', count: roadmapData[2].milestones.length }
+          { id: 'starter', title: '🌱 A1 Starter', count: roadmapData[0]?.milestones.length || 0 },
+          { id: 'elementary', title: '🌿 A2 Sơ Cấp', count: roadmapData[1]?.milestones.length || 0 },
+          { id: 'intermediate', title: '⭐ B1 Trung Cấp', count: roadmapData[2]?.milestones.length || 0 },
+          { id: 'upper_intermediate', title: '🌟 B2 Trung Cao', count: roadmapData[3]?.milestones.length || 0 },
+          { id: 'advanced', title: '🏆 C1/C2 Cao Cấp', count: roadmapData[4]?.milestones.length || 0 },
         ].map(tab => (
           <button 
             key={tab.id}
@@ -231,13 +261,20 @@ const WelcomePage = ({
               
               {/* Level Divider Header */}
               {activeTab === 'all' && (
-                <div className="relative z-10 flex items-center gap-3 bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 px-6 py-4 rounded-3xl shadow-[5px_5px_0_0_#1e293b] dark:shadow-[5px_5px_0_0_#020617] -ml-6 md:-ml-10">
-                  <div className="bg-slate-900 dark:bg-slate-800 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black text-xl shrink-0 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]">
-                    {level.level === 'beginner' ? 'I' : level.level === 'intermediate' ? 'II' : 'III'}
+                <div className={`relative z-10 flex items-center gap-3 bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 px-6 py-4 rounded-3xl shadow-[5px_5px_0_0_#1e293b] dark:shadow-[5px_5px_0_0_#020617] -ml-6 md:-ml-10`}>
+                  <div className="bg-slate-900 dark:bg-slate-800 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black text-xl shrink-0">
+                    {level.icon || ['I','II','III','IV','V'][levelIdx] || levelIdx + 1}
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-xl md:text-2xl font-black uppercase text-slate-900 dark:text-slate-100 leading-tight">{level.levelTitle}</h3>
-                    <p className="text-slate-400 dark:text-slate-500 font-bold text-xs md:text-sm mt-0.5">{level.levelDesc}</p>
+                    <p className="text-slate-500 dark:text-slate-400 font-bold text-xs md:text-sm mt-0.5">{level.levelDesc}</p>
+                    {level.targetAudience && (
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        {level.targetAudience.map((aud, i) => (
+                          <span key={i} className="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-600 px-2 py-0.5 rounded-full font-bold">{aud}</span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
@@ -300,8 +337,10 @@ const WelcomePage = ({
                             </div>
                             <h4 className="text-xl md:text-2xl font-black text-slate-900 dark:text-slate-100 flex items-center gap-2 leading-tight">
                               {m.title}
+                              {m.kids && <span className="text-base">👶</span>}
                             </h4>
                             <p className="text-slate-500 dark:text-slate-400 font-bold text-xs md:text-sm leading-relaxed">{m.desc}</p>
+                            {getExamBadge(m.exam)}
                           </div>
                           
                           <div className="shrink-0 flex sm:flex-col items-end gap-2 justify-between">

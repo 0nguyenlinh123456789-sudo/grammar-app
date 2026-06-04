@@ -1,4 +1,6 @@
 // File: VocabData.js
+import vocabExtendedData from './vocabExtendedData';
+import vocabMoreData from './vocabMoreData';
 
 const vocabData = [
   {
@@ -149,9 +151,9 @@ Bob từ bỏ việc lái xe và thử dùng Phương tiện công cộng (Publi
 Cuối cùng, Bob đi tham quan (sightseeing). Anh có một lịch trình (itinerary) nghiêm ngặt đầy Cuộc phiêu lưu (Adventure). Anh tham gia một Chuyến tham quan có hướng dẫn (Guided tour) với một hướng dẫn viên du lịch (tour guide) (hay đơn giản là Hướng dẫn viên (Guide)) vui tính để Thăm/Ghé thăm (Visit) thành phố. Suốt Chuyến du lịch (Tour) và Chuyến tham quan (Excursion), anh cư xử như một Du khách (Tourist) điển hình. Anh thử Đạp xe (Cycle) trên chiếc Xe đạp (Bicycle) thuê, rồi đổi sang một chiếc Xe scooter (Scooter) và một chiếc Xe máy (Motorbike) phóng nhanh, nhưng bị phạt vì không đội Mũ bảo hiểm (Helmet). Anh băng qua một Cây cầu (Bridge) rộng lớn bằng cách Đi bộ (On foot) vì không biết xem Bản đồ (Map). Anh đến bến cảng (harbour) để đi một chuyến Phà (Ferry) và một Con thuyền (Boat) nhỏ. Anh thậm chí còn đặt một chiếc Du thuyền (Yacht) sang trọng và thấy một Con tàu lớn (Ship) khổng lồ chuẩn bị Chèo thuyền/Nhổ neo (Sail) cho một chuyến hải trình (voyage) dài. Anh kết thúc chuyến đi (journey) tuyệt vời bằng giấc ngủ trong một chiếc Xe nhà lưu động (Caravan) ấm cúng. Anh tự hứa sẽ không bao giờ Hủy bỏ (Cancel) một chuyến đi nào nữa!`
   },
   {
-    id: 'health-medical',
-    title: '🏥 Sức Khỏe & Y Tế',
-    description: 'Từ vựng tiếng Anh chuyên sâu về cơ thể, bệnh lý, phòng khám và chăm sóc sức khỏe.',
+    id: 'health-basics',
+    title: '🩺 Sức Khỏe Cơ Bản',
+    description: 'Từ vựng tiếng Anh cơ bản về sức khỏe, cơ thể, bệnh lý thường gặp và phòng khám.',
     words: [
       { en: 'Fat', type: '(n)', vi: 'Chất béo', ipa: '/fæt/', example: 'Fast food contains a lot of unhealthy fat.', viExample: 'Thức ăn nhanh chứa rất nhiều chất béo không lành mạnh.' },
       { en: 'Medical', type: '(adj)', vi: 'Thuộc y khoa', ipa: '/ˈmedɪkl/', example: 'She is a medical student at the local university.', viExample: 'Cô ấy là một sinh viên y khoa tại trường đại học địa phương.' },
@@ -1192,8 +1194,235 @@ Hôm nay, chúng tôi đi ngắm cảnh. Chúng tôi thăm một Lâu đài (Cas
 
 📖 PHẦN 4: VUI CHƠI VÀ TIỆN ÍCH (SHOPPING & NIGHTLIFE)
 Khu Trung tâm thành phố (Downtown) Trung tâm (Center) vô cùng Nhộn nhịp (Bustling) với bầu không khí Mang tính quốc tế, đa văn hóa (Cosmopolitan). Về đêm, Cuộc sống về đêm (Nightlife) thật tuyệt vời, với Quảng cáo (Advertisement) neon ở mọi Góc đường (Corner). Một Người hay dạo phố (Boulevardier) rất thích tản bộ quanh đây. Tôi đến Chợ (Market) và Khu chợ (Marketplace) mua đồ ăn vặt từ Người bán hàng (Vendor) đường phố, sau đó ghé thăm một Cửa hàng bách hóa (Department store) Hiện đại (Modern) và Trung tâm thương mại (Shopping mall) vì nó rất Thuận tiện (Convenient). Chúng tôi ăn tối ở Nhà hàng (Restaurant) sang trọng gần Cảng (Harbor), rồi xem phim tại Rạp chiếu phim (Cinema). Bạn tôi làm việc tại Văn phòng (Office) gần Tòa thị chính (City hall) nơi Thị trưởng (Mayor) làm việc, và ở tại một Khách sạn (Hotel) sang trọng. Ngày mai, anh ấy sẽ đến Bưu điện (Post office), thăm người bạn ốm ở Bệnh viện (Hospital), và sau đó chơi thể thao ở Phòng tập thể dục (Gym) và Sân vận động (Stadium) trong vùng Thuộc đô thị lớn (Metropolitan) tuyệt đẹp này.`
+  },
+  {
+    id: 'family-relationships',
+    title: '👨‍👩‍👧‍👦 Gia Đình & Các Mối Quan Hệ',
+    description: 'Từ vựng về thành viên gia đình, mối quan hệ, và các giai đoạn cuộc sống.',
+    words: [
+      { en: 'parents', type: '(n)', vi: 'bố mẹ', ipa: '/ˈpeərənts/', example: 'My parents live in the countryside.', viExample: 'Bố mẹ tôi sống ở vùng nông thôn.' },
+      { en: 'sibling', type: '(n)', vi: 'anh chị em ruột', ipa: '/ˈsɪblɪŋ/', example: 'Do you have any siblings?', viExample: 'Bạn có anh chị em không?' },
+      { en: 'grandparents', type: '(n)', vi: 'ông bà', ipa: '/ˈɡrænpeərənts/', example: 'I visit my grandparents every weekend.', viExample: 'Tôi đến thăm ông bà mỗi cuối tuần.' },
+      { en: 'cousin', type: '(n)', vi: 'anh chị em họ', ipa: '/ˈkʌzn/', example: 'My cousin is the same age as me.', viExample: 'Anh họ tôi cùng tuổi với tôi.' },
+      { en: 'uncle', type: '(n)', vi: 'chú/bác/cậu', ipa: '/ˈʌŋkl/', example: 'My uncle works as a doctor.', viExample: 'Chú tôi là bác sĩ.' },
+      { en: 'aunt', type: '(n)', vi: 'cô/dì/mợ', ipa: '/ɑːnt/', example: 'Aunt Mary always brings gifts for us.', viExample: 'Dì Mary luôn mang quà cho chúng tôi.' },
+      { en: 'nephew', type: '(n)', vi: 'cháu trai (con của anh chị em)', ipa: '/ˈnefjuː/', example: 'My nephew is learning to walk.', viExample: 'Cháu trai tôi đang tập đi.' },
+      { en: 'niece', type: '(n)', vi: 'cháu gái (con của anh chị em)', ipa: '/niːs/', example: 'My niece loves drawing pictures.', viExample: 'Cháu gái tôi thích vẽ tranh.' },
+      { en: 'spouse', type: '(n)', vi: 'vợ/chồng', ipa: '/spaʊs/', example: 'You should discuss it with your spouse.', viExample: 'Bạn nên bàn bạc với vợ/chồng.' },
+      { en: 'fiancé', type: '(n)', vi: 'vị hôn phu/hôn thê', ipa: '/fiˈɒnseɪ/', example: 'She introduced her fiancé to her parents.', viExample: 'Cô ấy giới thiệu hôn phu với bố mẹ.' },
+      { en: 'relative', type: '(n)', vi: 'họ hàng', ipa: '/ˈrelətɪv/', example: 'We have many relatives in the south.', viExample: 'Chúng tôi có nhiều họ hàng ở miền nam.' },
+      { en: 'stepmother', type: '(n)', vi: 'mẹ kế', ipa: '/ˈstepmʌðər/', example: 'His stepmother is very kind.', viExample: 'Mẹ kế của anh ấy rất tốt bụng.' },
+      { en: 'half-brother', type: '(n)', vi: 'anh/em trai cùng cha khác mẹ', ipa: '/ˈhɑːf brʌðər/', example: 'I have a half-brother from my father\'s side.', viExample: 'Tôi có một anh em cùng cha khác mẹ.' },
+      { en: 'adopt', type: '(v)', vi: 'nhận nuôi', ipa: '/əˈdɒpt/', example: 'They decided to adopt a child.', viExample: 'Họ quyết định nhận nuôi một đứa trẻ.' },
+      { en: 'upbringing', type: '(n)', vi: 'sự nuôi dạy', ipa: '/ˈʌpbrɪŋɪŋ/', example: 'She had a strict upbringing.', viExample: 'Cô ấy được nuôi dạy nghiêm khắc.' },
+      { en: 'generation', type: '(n)', vi: 'thế hệ', ipa: '/ˌdʒenəˈreɪʃn/', example: 'Three generations live under one roof.', viExample: 'Ba thế hệ sống dưới một mái nhà.' },
+      { en: 'ancestor', type: '(n)', vi: 'tổ tiên', ipa: '/ˈænsestər/', example: 'Our ancestors came from the north.', viExample: 'Tổ tiên chúng tôi đến từ miền bắc.' },
+      { en: 'descendant', type: '(n)', vi: 'con cháu/hậu duệ', ipa: '/dɪˈsendənt/', example: 'She is a descendant of a royal family.', viExample: 'Cô ấy là hậu duệ của một gia đình hoàng tộc.' },
+      { en: 'toddler', type: '(n)', vi: 'trẻ mới biết đi', ipa: '/ˈtɒdlər/', example: 'The toddler is learning new words every day.', viExample: 'Đứa trẻ mới biết đi đang học từ mới mỗi ngày.' },
+      { en: 'teenager', type: '(n)', vi: 'thiếu niên', ipa: '/ˈtiːneɪdʒər/', example: 'Teenagers often want more independence.', viExample: 'Thiếu niên thường muốn được tự lập hơn.' },
+      { en: 'elderly', type: '(adj)', vi: 'cao tuổi', ipa: '/ˈeldəli/', example: 'We should respect elderly people.', viExample: 'Chúng ta nên tôn trọng người cao tuổi.' },
+      { en: 'childhood', type: '(n)', vi: 'tuổi thơ', ipa: '/ˈtʃaɪldhʊd/', example: 'She had a happy childhood.', viExample: 'Cô ấy có một tuổi thơ hạnh phúc.' },
+      { en: 'retire', type: '(v)', vi: 'nghỉ hưu', ipa: '/rɪˈtaɪər/', example: 'My father will retire next year.', viExample: 'Bố tôi sẽ nghỉ hưu năm tới.' },
+      { en: 'wedding', type: '(n)', vi: 'đám cưới', ipa: '/ˈwedɪŋ/', example: 'The wedding was held in a beautiful garden.', viExample: 'Đám cưới được tổ chức trong một khu vườn đẹp.' },
+      { en: 'divorce', type: '(n/v)', vi: 'ly hôn', ipa: '/dɪˈvɔːs/', example: 'The divorce was difficult for the children.', viExample: 'Việc ly hôn rất khó khăn cho con cái.' }
+    ],
+    storyEn: `📖 PART 1: MY BIG FAMILY
+My parents raised four children in a small house. I have two siblings – an older brother and a younger sister. Every summer, we visit our grandparents in the countryside, where many relatives gather together. My uncle and aunt always bring their children, my cousins, and we play all day. My nephew, the son of my older brother, is just a toddler learning to walk.
+
+📖 PART 2: GROWING UP
+My childhood was filled with joy. As a teenager, I wanted independence but my parents gave me a strict upbringing. Now I appreciate their guidance. My grandmother often tells stories about our ancestors and how each generation shaped our family. My grandfather will retire next year after 40 years of working. My cousin just introduced her fiancé to the family – the wedding is planned for spring!`,
+    storyVi: `📖 PHẦN 1: GIA ĐÌNH LỚN CỦA TÔI
+Bố mẹ (Parents) tôi nuôi bốn đứa con trong một ngôi nhà nhỏ. Tôi có hai Anh chị em ruột (Sibling) – một anh trai và một em gái. Mỗi mùa hè, chúng tôi đến thăm Ông bà (Grandparents) ở nông thôn, nơi nhiều Họ hàng (Relatives) tụ họp. Chú (Uncle) và Dì (Aunt) tôi luôn mang theo con cái, những Anh chị em họ (Cousins) của tôi, và chúng tôi chơi cả ngày. Cháu trai (Nephew) tôi, con trai anh cả, mới là Trẻ mới biết đi (Toddler) đang tập bước đi.
+
+📖 PHẦN 2: LỚN LÊN
+Tuổi thơ (Childhood) tôi tràn đầy niềm vui. Khi là Thiếu niên (Teenager), tôi muốn tự lập nhưng bố mẹ đã cho tôi một Sự nuôi dạy (Upbringing) nghiêm khắc. Giờ tôi biết ơn sự hướng dẫn của họ. Bà tôi thường kể chuyện về Tổ tiên (Ancestors) và cách mỗi Thế hệ (Generation) đã định hình gia đình. Ông tôi sẽ Nghỉ hưu (Retire) năm tới sau 40 năm làm việc. Chị họ (Cousin) vừa giới thiệu Hôn phu (Fiancé) với gia đình – Đám cưới (Wedding) dự kiến vào mùa xuân!`
+  },
+  {
+    id: 'food-cooking',
+    title: '🍔 Thức Ăn & Nấu Nướng',
+    description: 'Từ vựng về các loại thực phẩm, phương pháp nấu ăn, dụng cụ nhà bếp.',
+    words: [
+      { en: 'ingredient', type: '(n)', vi: 'nguyên liệu', ipa: '/ɪnˈɡriːdiənt/', example: 'The recipe requires fresh ingredients.', viExample: 'Công thức cần nguyên liệu tươi.' },
+      { en: 'recipe', type: '(n)', vi: 'công thức nấu ăn', ipa: '/ˈresəpi/', example: 'She followed the recipe step by step.', viExample: 'Cô ấy làm theo công thức từng bước.' },
+      { en: 'boil', type: '(v)', vi: 'luộc/đun sôi', ipa: '/bɔɪl/', example: 'Boil the water before adding pasta.', viExample: 'Đun sôi nước trước khi cho mì vào.' },
+      { en: 'fry', type: '(v)', vi: 'chiên/rán', ipa: '/fraɪ/', example: 'Fry the onions until golden brown.', viExample: 'Chiên hành cho đến khi vàng giòn.' },
+      { en: 'bake', type: '(v)', vi: 'nướng (lò)', ipa: '/beɪk/', example: 'She loves to bake cakes on weekends.', viExample: 'Cô ấy thích nướng bánh vào cuối tuần.' },
+      { en: 'grill', type: '(v)', vi: 'nướng (trực tiếp)', ipa: '/ɡrɪl/', example: 'Let\'s grill some burgers for dinner.', viExample: 'Hãy nướng vài cái bánh hamburger cho bữa tối.' },
+      { en: 'stir', type: '(v)', vi: 'khuấy', ipa: '/stɜːr/', example: 'Stir the soup every five minutes.', viExample: 'Khuấy súp mỗi năm phút.' },
+      { en: 'chop', type: '(v)', vi: 'cắt/thái', ipa: '/tʃɒp/', example: 'Chop the vegetables into small pieces.', viExample: 'Cắt rau thành miếng nhỏ.' },
+      { en: 'peel', type: '(v)', vi: 'gọt vỏ', ipa: '/piːl/', example: 'Peel the potatoes before cooking.', viExample: 'Gọt vỏ khoai tây trước khi nấu.' },
+      { en: 'slice', type: '(v)', vi: 'cắt lát', ipa: '/slaɪs/', example: 'Slice the bread thinly.', viExample: 'Cắt bánh mì thành lát mỏng.' },
+      { en: 'appetizer', type: '(n)', vi: 'món khai vị', ipa: '/ˈæpɪtaɪzər/', example: 'We ordered soup as an appetizer.', viExample: 'Chúng tôi gọi súp làm món khai vị.' },
+      { en: 'dessert', type: '(n)', vi: 'món tráng miệng', ipa: '/dɪˈzɜːrt/', example: 'The chocolate cake was the best dessert.', viExample: 'Bánh sô-cô-la là món tráng miệng ngon nhất.' },
+      { en: 'seasoning', type: '(n)', vi: 'gia vị', ipa: '/ˈsiːznɪŋ/', example: 'Add seasoning to taste.', viExample: 'Thêm gia vị vừa khẩu vị.' },
+      { en: 'roast', type: '(v)', vi: 'quay/nướng', ipa: '/rəʊst/', example: 'We roast chicken every Sunday.', viExample: 'Chúng tôi quay gà mỗi Chủ nhật.' },
+      { en: 'steam', type: '(v)', vi: 'hấp', ipa: '/stiːm/', example: 'Steam the fish for 10 minutes.', viExample: 'Hấp cá trong 10 phút.' },
+      { en: 'raw', type: '(adj)', vi: 'sống/chưa nấu', ipa: '/rɔː/', example: 'Don\'t eat raw chicken.', viExample: 'Đừng ăn thịt gà sống.' },
+      { en: 'nutritious', type: '(adj)', vi: 'bổ dưỡng', ipa: '/njuːˈtrɪʃəs/', example: 'Vegetables are very nutritious.', viExample: 'Rau rất bổ dưỡng.' },
+      { en: 'leftovers', type: '(n)', vi: 'đồ ăn thừa', ipa: '/ˈleftəʊvərz/', example: 'We had leftovers for lunch the next day.', viExample: 'Chúng tôi ăn đồ ăn thừa cho bữa trưa hôm sau.' },
+      { en: 'portion', type: '(n)', vi: 'khẩu phần', ipa: '/ˈpɔːʃn/', example: 'The restaurant serves large portions.', viExample: 'Nhà hàng phục vụ khẩu phần lớn.' },
+      { en: 'cuisine', type: '(n)', vi: 'ẩm thực', ipa: '/kwɪˈziːn/', example: 'Vietnamese cuisine is famous worldwide.', viExample: 'Ẩm thực Việt Nam nổi tiếng thế giới.' }
+    ],
+    storyEn: `📖 PART 1: COOKING CLASS
+Today I joined a cooking class to learn a new recipe. The chef taught us how to chop vegetables, peel potatoes, and slice bread properly. First, we had to boil water for the pasta, then fry onions in olive oil. The most important thing was adding the right seasoning.
+
+📖 PART 2: SUNDAY DINNER
+Every Sunday, my family prepares a big dinner. Mom likes to roast chicken while Dad grills burgers. I help by stirring the soup and baking a cake for dessert. We always start with an appetizer. The cuisine at home is simple but very nutritious. We never waste food – any leftovers become tomorrow's lunch!`,
+    storyVi: `📖 PHẦN 1: LỚP HỌC NẤU ĂN
+Hôm nay tôi tham gia lớp học nấu ăn để học Công thức (Recipe) mới. Đầu bếp dạy chúng tôi cách Cắt (Chop) rau, Gọt vỏ (Peel) khoai tây, và Cắt lát (Slice) bánh mì đúng cách. Đầu tiên, chúng tôi Luộc (Boil) nước cho mì pasta, rồi Chiên (Fry) hành trong dầu ô-liu. Điều quan trọng nhất là thêm Gia vị (Seasoning) phù hợp.
+
+📖 PHẦN 2: BỮA TỐI CHỦ NHẬT
+Mỗi Chủ nhật, gia đình tôi chuẩn bị bữa tối lớn. Mẹ thích Quay (Roast) gà trong khi bố Nướng (Grill) hamburger. Tôi giúp Khuấy (Stir) súp và Nướng bánh (Bake) cho Món tráng miệng (Dessert). Chúng tôi luôn bắt đầu bằng Món khai vị (Appetizer). Ẩm thực (Cuisine) ở nhà đơn giản nhưng rất Bổ dưỡng (Nutritious). Chúng tôi không bao giờ lãng phí – Đồ ăn thừa (Leftovers) sẽ thành bữa trưa ngày mai!`
+  },
+  {
+    id: 'emotions-personality',
+    title: '😊 Cảm Xúc & Tính Cách',
+    description: 'Từ vựng về cảm xúc, tính cách, trạng thái tâm lý.',
+    words: [
+      { en: 'anxious', type: '(adj)', vi: 'lo lắng', ipa: '/ˈæŋkʃəs/', example: 'She feels anxious before exams.', viExample: 'Cô ấy cảm thấy lo lắng trước kỳ thi.' },
+      { en: 'confident', type: '(adj)', vi: 'tự tin', ipa: '/ˈkɒnfɪdənt/', example: 'He is confident about his abilities.', viExample: 'Anh ấy tự tin về khả năng của mình.' },
+      { en: 'frustrated', type: '(adj)', vi: 'thất vọng/nản lòng', ipa: '/frʌˈstreɪtɪd/', example: 'She was frustrated by the slow internet.', viExample: 'Cô ấy nản lòng vì internet chậm.' },
+      { en: 'grateful', type: '(adj)', vi: 'biết ơn', ipa: '/ˈɡreɪtfl/', example: 'I am grateful for your help.', viExample: 'Tôi biết ơn sự giúp đỡ của bạn.' },
+      { en: 'jealous', type: '(adj)', vi: 'ghen tị', ipa: '/ˈdʒeləs/', example: 'He is jealous of his friend\'s success.', viExample: 'Anh ấy ghen tị với thành công của bạn.' },
+      { en: 'patient', type: '(adj)', vi: 'kiên nhẫn', ipa: '/ˈpeɪʃnt/', example: 'Good teachers are always patient.', viExample: 'Giáo viên giỏi luôn kiên nhẫn.' },
+      { en: 'stubborn', type: '(adj)', vi: 'cứng đầu', ipa: '/ˈstʌbən/', example: 'He is too stubborn to change his mind.', viExample: 'Anh ấy quá cứng đầu để thay đổi ý kiến.' },
+      { en: 'generous', type: '(adj)', vi: 'hào phóng', ipa: '/ˈdʒenərəs/', example: 'She is very generous with her time.', viExample: 'Cô ấy rất hào phóng với thời gian.' },
+      { en: 'embarrassed', type: '(adj)', vi: 'xấu hổ/ngại', ipa: '/ɪmˈbærəst/', example: 'He felt embarrassed when he fell.', viExample: 'Anh ấy xấu hổ khi bị ngã.' },
+      { en: 'relieved', type: '(adj)', vi: 'nhẹ nhõm', ipa: '/rɪˈliːvd/', example: 'She was relieved when the results were good.', viExample: 'Cô ấy nhẹ nhõm khi kết quả tốt.' },
+      { en: 'optimistic', type: '(adj)', vi: 'lạc quan', ipa: '/ˌɒptɪˈmɪstɪk/', example: 'She is optimistic about the future.', viExample: 'Cô ấy lạc quan về tương lai.' },
+      { en: 'pessimistic', type: '(adj)', vi: 'bi quan', ipa: '/ˌpesɪˈmɪstɪk/', example: 'Don\'t be so pessimistic!', viExample: 'Đừng bi quan thế!' },
+      { en: 'curious', type: '(adj)', vi: 'tò mò', ipa: '/ˈkjʊəriəs/', example: 'Children are naturally curious.', viExample: 'Trẻ em bẩm sinh hay tò mò.' },
+      { en: 'enthusiastic', type: '(adj)', vi: 'nhiệt tình', ipa: '/ɪnˌθjuːziˈæstɪk/', example: 'The students were enthusiastic about the project.', viExample: 'Học sinh rất nhiệt tình với dự án.' },
+      { en: 'moody', type: '(adj)', vi: 'hay thay đổi tâm trạng', ipa: '/ˈmuːdi/', example: 'Teenagers can be quite moody.', viExample: 'Thanh thiếu niên có thể hay thay đổi tâm trạng.' },
+      { en: 'sympathetic', type: '(adj)', vi: 'thông cảm', ipa: '/ˌsɪmpəˈθetɪk/', example: 'She was sympathetic about my problems.', viExample: 'Cô ấy thông cảm cho vấn đề của tôi.' },
+      { en: 'overwhelmed', type: '(adj)', vi: 'bị choáng ngợp', ipa: '/ˌəʊvəˈwelmd/', example: 'I feel overwhelmed by all the work.', viExample: 'Tôi cảm thấy choáng ngợp vì quá nhiều công việc.' },
+      { en: 'courageous', type: '(adj)', vi: 'dũng cảm', ipa: '/kəˈreɪdʒəs/', example: 'She made a courageous decision.', viExample: 'Cô ấy đã đưa ra quyết định dũng cảm.' },
+      { en: 'compassionate', type: '(adj)', vi: 'nhân ái', ipa: '/kəmˈpæʃənət/', example: 'A doctor should be compassionate.', viExample: 'Bác sĩ nên nhân ái.' },
+      { en: 'homesick', type: '(adj)', vi: 'nhớ nhà', ipa: '/ˈhəʊmsɪk/', example: 'She felt homesick during her first week abroad.', viExample: 'Cô ấy nhớ nhà trong tuần đầu ở nước ngoài.' }
+    ],
+    storyEn: `📖 PART 1: A ROLLER COASTER OF EMOTIONS
+When I first moved abroad, I felt anxious and homesick. Everything was new and overwhelming. But my neighbor was so generous and sympathetic that she helped me settle in. I was grateful for her kindness. Slowly, I became more confident and optimistic about my new life.
+
+📖 PART 2: LEARNING ABOUT MYSELF
+My teacher said I was curious and enthusiastic, but sometimes too stubborn. When I made mistakes, I felt embarrassed, but my patient classmates always encouraged me. Sometimes I was frustrated with difficult tasks, but when I finally succeeded, I felt relieved and proud. I learned to be courageous – even when I was jealous of others' progress, I stayed compassionate and focused on my own journey.`,
+    storyVi: `📖 PHẦN 1: TÀU LƯỢN SIÊU TỐC CẢM XÚC
+Khi tôi chuyển ra nước ngoài, tôi cảm thấy Lo lắng (Anxious) và Nhớ nhà (Homesick). Mọi thứ đều mới và Choáng ngợp (Overwhelming). Nhưng hàng xóm rất Hào phóng (Generous) và Thông cảm (Sympathetic), giúp tôi ổn định. Tôi Biết ơn (Grateful) lòng tốt của cô ấy. Dần dần, tôi Tự tin (Confident) và Lạc quan (Optimistic) hơn.
+
+📖 PHẦN 2: HIỂU VỀ CHÍNH MÌNH
+Giáo viên nói tôi Tò mò (Curious) và Nhiệt tình (Enthusiastic), nhưng đôi khi quá Cứng đầu (Stubborn). Khi mắc lỗi, tôi Xấu hổ (Embarrassed), nhưng bạn cùng lớp Kiên nhẫn (Patient) luôn động viên. Đôi khi tôi Nản lòng (Frustrated) với bài khó, nhưng khi thành công, tôi cảm thấy Nhẹ nhõm (Relieved). Tôi học cách Dũng cảm (Courageous) – dù Ghen tị (Jealous) với tiến bộ của người khác, tôi vẫn Nhân ái (Compassionate) và tập trung vào hành trình của mình.`
+  },
+  {
+    id: 'animals-pets',
+    title: '🐾 Động Vật & Thú Cưng',
+    description: 'Từ vựng về các loài động vật, thú cưng, và hành động của động vật.',
+    words: [
+      { en: 'puppy', type: '(n)', vi: 'chó con', ipa: '/ˈpʌpi/', example: 'The puppy was playing in the garden.', viExample: 'Con chó con đang chơi trong vườn.' },
+      { en: 'kitten', type: '(n)', vi: 'mèo con', ipa: '/ˈkɪtn/', example: 'The kitten loves chasing butterflies.', viExample: 'Con mèo con thích đuổi bướm.' },
+      { en: 'breed', type: '(n/v)', vi: 'giống/nhân giống', ipa: '/briːd/', example: 'What breed is your dog?', viExample: 'Con chó của bạn thuộc giống gì?' },
+      { en: 'feed', type: '(v)', vi: 'cho ăn', ipa: '/fiːd/', example: 'Don\'t forget to feed the cat.', viExample: 'Đừng quên cho mèo ăn.' },
+      { en: 'bark', type: '(v)', vi: 'sủa', ipa: '/bɑːk/', example: 'The dog barks at strangers.', viExample: 'Con chó sủa người lạ.' },
+      { en: 'purr', type: '(v)', vi: 'kêu "gừ gừ" (mèo)', ipa: '/pɜːr/', example: 'The cat purrs when it\'s happy.', viExample: 'Con mèo kêu gừ gừ khi vui.' },
+      { en: 'pet', type: '(v)', vi: 'vuốt ve', ipa: '/pet/', example: 'Can I pet your dog?', viExample: 'Tôi có thể vuốt ve con chó của bạn không?' },
+      { en: 'tail', type: '(n)', vi: 'đuôi', ipa: '/teɪl/', example: 'The dog wagged its tail happily.', viExample: 'Con chó vẫy đuôi vui vẻ.' },
+      { en: 'claw', type: '(n)', vi: 'móng vuốt', ipa: '/klɔː/', example: 'The cat\'s claws are sharp.', viExample: 'Móng vuốt mèo rất sắc.' },
+      { en: 'feather', type: '(n)', vi: 'lông vũ', ipa: '/ˈfeðər/', example: 'The parrot has colorful feathers.', viExample: 'Con vẹt có bộ lông vũ nhiều màu.' },
+      { en: 'fur', type: '(n)', vi: 'lông (thú)', ipa: '/fɜːr/', example: 'The rabbit has soft white fur.', viExample: 'Con thỏ có bộ lông trắng mềm.' },
+      { en: 'mammal', type: '(n)', vi: 'động vật có vú', ipa: '/ˈmæml/', example: 'Dogs and cats are mammals.', viExample: 'Chó và mèo là động vật có vú.' },
+      { en: 'reptile', type: '(n)', vi: 'bò sát', ipa: '/ˈreptaɪl/', example: 'Snakes are reptiles.', viExample: 'Rắn là loài bò sát.' },
+      { en: 'habitat', type: '(n)', vi: 'môi trường sống', ipa: '/ˈhæbɪtæt/', example: 'Forests are the natural habitat of many animals.', viExample: 'Rừng là môi trường sống tự nhiên của nhiều loài.' },
+      { en: 'endangered', type: '(adj)', vi: 'có nguy cơ tuyệt chủng', ipa: '/ɪnˈdeɪndʒərd/', example: 'Tigers are an endangered species.', viExample: 'Hổ là loài có nguy cơ tuyệt chủng.' },
+      { en: 'wildlife', type: '(n)', vi: 'động vật hoang dã', ipa: '/ˈwaɪldlaɪf/', example: 'We should protect wildlife.', viExample: 'Chúng ta nên bảo vệ động vật hoang dã.' },
+      { en: 'veterinarian', type: '(n)', vi: 'bác sĩ thú y', ipa: '/ˌvetərɪˈneəriən/', example: 'Take the dog to the veterinarian.', viExample: 'Mang con chó đến bác sĩ thú y.' },
+      { en: 'migrate', type: '(v)', vi: 'di cư', ipa: '/maɪˈɡreɪt/', example: 'Birds migrate south in winter.', viExample: 'Chim di cư về phía nam vào mùa đông.' },
+      { en: 'predator', type: '(n)', vi: 'thú săn mồi', ipa: '/ˈpredətər/', example: 'Lions are apex predators.', viExample: 'Sư tử là thú săn mồi đầu bảng.' },
+      { en: 'prey', type: '(n)', vi: 'con mồi', ipa: '/preɪ/', example: 'The eagle caught its prey.', viExample: 'Con đại bàng bắt được con mồi.' }
+    ],
+    storyEn: `📖 PART 1: MY FIRST PET
+When I was a child, my parents got me a puppy. It was a golden retriever breed with soft fur. I loved to pet it and watch it wag its tail. It would bark at strangers but purr... well, only cats purr! I had to feed it twice a day and take it to the veterinarian regularly.
+
+📖 PART 2: WILD KINGDOM
+At school, we learned about wildlife. Some animals are endangered because humans destroy their habitat. Birds migrate south in winter, using feathers to fly thousands of kilometers. Predators like lions hunt prey in the wild. Mammals like dolphins are intelligent, while reptiles like turtles have claws for digging. We must protect all creatures!`,
+    storyVi: `📖 PHẦN 1: THÚ CƯNG ĐẦU TIÊN
+Khi tôi còn nhỏ, bố mẹ mua cho tôi một Chó con (Puppy). Nó thuộc Giống (Breed) golden retriever với bộ Lông (Fur) mềm mại. Tôi thích Vuốt ve (Pet) nó và xem nó vẫy Đuôi (Tail). Nó Sủa (Bark) người lạ nhưng kêu gừ gừ... à, chỉ mèo mới Kêu gừ gừ (Purr)! Tôi phải Cho ăn (Feed) hai lần/ngày và đưa đến Bác sĩ thú y (Veterinarian) định kỳ.
+
+📖 PHẦN 2: VƯƠNG QUỐC HOANG DÃ
+Ở trường, chúng tôi học về Động vật hoang dã (Wildlife). Một số loài Có nguy cơ tuyệt chủng (Endangered) vì con người phá hủy Môi trường sống (Habitat). Chim Di cư (Migrate) về phía nam vào mùa đông, dùng Lông vũ (Feathers) bay hàng nghìn km. Thú săn mồi (Predators) như sư tử săn Con mồi (Prey) trong tự nhiên. Động vật có vú (Mammals) như cá heo rất thông minh, trong khi Bò sát (Reptiles) như rùa có Móng vuốt (Claws) để đào. Chúng ta phải bảo vệ mọi sinh vật!`
+  },
+  {
+    id: 'weather-seasons',
+    title: '🌦️ Thời Tiết & Mùa',
+    description: 'Từ vựng về thời tiết, khí hậu, mùa và hiện tượng tự nhiên.',
+    words: [
+      { en: 'forecast', type: '(n)', vi: 'dự báo thời tiết', ipa: '/ˈfɔːkɑːst/', example: 'The weather forecast says it will rain.', viExample: 'Dự báo thời tiết nói trời sẽ mưa.' },
+      { en: 'temperature', type: '(n)', vi: 'nhiệt độ', ipa: '/ˈtemprətʃər/', example: 'The temperature dropped to zero.', viExample: 'Nhiệt độ giảm xuống 0 độ.' },
+      { en: 'humid', type: '(adj)', vi: 'ẩm ướt', ipa: '/ˈhjuːmɪd/', example: 'It is very humid in summer.', viExample: 'Mùa hè rất ẩm ướt.' },
+      { en: 'breeze', type: '(n)', vi: 'gió nhẹ', ipa: '/briːz/', example: 'A cool breeze blew from the sea.', viExample: 'Một cơn gió nhẹ mát thổi từ biển.' },
+      { en: 'drought', type: '(n)', vi: 'hạn hán', ipa: '/draʊt/', example: 'The drought lasted for three months.', viExample: 'Hạn hán kéo dài ba tháng.' },
+      { en: 'flood', type: '(n)', vi: 'lũ lụt', ipa: '/flʌd/', example: 'Heavy rain caused flooding.', viExample: 'Mưa lớn gây ra lũ lụt.' },
+      { en: 'thunder', type: '(n)', vi: 'sấm', ipa: '/ˈθʌndər/', example: 'The thunder scared the dog.', viExample: 'Tiếng sấm làm con chó sợ.' },
+      { en: 'lightning', type: '(n)', vi: 'sét', ipa: '/ˈlaɪtnɪŋ/', example: 'Lightning struck the tree.', viExample: 'Sét đánh trúng cây.' },
+      { en: 'rainbow', type: '(n)', vi: 'cầu vồng', ipa: '/ˈreɪnbəʊ/', example: 'We saw a beautiful rainbow after the rain.', viExample: 'Chúng tôi thấy cầu vồng đẹp sau cơn mưa.' },
+      { en: 'foggy', type: '(adj)', vi: 'có sương mù', ipa: '/ˈfɒɡi/', example: 'It was foggy this morning.', viExample: 'Sáng nay có sương mù.' },
+      { en: 'chilly', type: '(adj)', vi: 'se lạnh', ipa: '/ˈtʃɪli/', example: 'The mornings are getting chilly.', viExample: 'Buổi sáng bắt đầu se lạnh.' },
+      { en: 'scorching', type: '(adj)', vi: 'nóng bỏng', ipa: '/ˈskɔːtʃɪŋ/', example: 'It was a scorching hot day.', viExample: 'Đó là một ngày nóng bỏng.' },
+      { en: 'blizzard', type: '(n)', vi: 'bão tuyết', ipa: '/ˈblɪzərd/', example: 'The blizzard blocked all the roads.', viExample: 'Bão tuyết chặn tất cả các con đường.' },
+      { en: 'hail', type: '(n)', vi: 'mưa đá', ipa: '/heɪl/', example: 'The hail damaged the car.', viExample: 'Mưa đá làm hỏng xe.' },
+      { en: 'overcast', type: '(adj)', vi: 'u ám/nhiều mây', ipa: '/ˌəʊvəˈkɑːst/', example: 'The sky is overcast today.', viExample: 'Bầu trời hôm nay u ám.' },
+      { en: 'sunshine', type: '(n)', vi: 'ánh nắng', ipa: '/ˈsʌnʃaɪn/', example: 'We need more sunshine.', viExample: 'Chúng tôi cần thêm ánh nắng.' },
+      { en: 'frost', type: '(n)', vi: 'sương giá', ipa: '/frɒst/', example: 'There was frost on the ground.', viExample: 'Có sương giá trên mặt đất.' },
+      { en: 'hurricane', type: '(n)', vi: 'bão lớn', ipa: '/ˈhʌrɪkən/', example: 'The hurricane destroyed many houses.', viExample: 'Bão lớn phá hủy nhiều ngôi nhà.' },
+      { en: 'mild', type: '(adj)', vi: 'ôn hòa', ipa: '/maɪld/', example: 'Spring weather is usually mild.', viExample: 'Thời tiết mùa xuân thường ôn hòa.' },
+      { en: 'monsoon', type: '(n)', vi: 'mùa mưa/gió mùa', ipa: '/mɒnˈsuːn/', example: 'The monsoon season brings heavy rain.', viExample: 'Mùa mưa mang đến mưa lớn.' }
+    ],
+    storyEn: `📖 PART 1: FOUR SEASONS
+Spring brings mild temperatures and gentle breezes. Summer can be scorching and humid. We check the weather forecast every morning. Autumn is my favorite – chilly mornings with beautiful sunshine. Winter brings frost, and sometimes even a blizzard.
+
+📖 PART 2: EXTREME WEATHER
+Last year, our city experienced a terrible drought followed by a flood. During a thunderstorm, lightning struck a tree near our house. We could hear the thunder for hours. The sky was overcast for days, foggy in the mornings. Then a rainbow appeared, and everyone felt hopeful again.`,
+    storyVi: `📖 PHẦN 1: BỐN MÙA
+Mùa xuân mang đến Nhiệt độ (Temperature) Ôn hòa (Mild) và Gió nhẹ (Breeze) dịu dàng. Mùa hè có thể Nóng bỏng (Scorching) và Ẩm ướt (Humid). Chúng tôi kiểm tra Dự báo thời tiết (Forecast) mỗi sáng. Mùa thu là mùa tôi yêu thích – buổi sáng Se lạnh (Chilly) với Ánh nắng (Sunshine) đẹp. Mùa đông mang Sương giá (Frost), đôi khi cả Bão tuyết (Blizzard).
+
+📖 PHẦN 2: THỜI TIẾT CỰC ĐOAN
+Năm ngoái, thành phố trải qua Hạn hán (Drought) kinh khủng rồi Lũ lụt (Flood). Trong cơn giông, Sét (Lightning) đánh trúng cây gần nhà. Chúng tôi nghe Sấm (Thunder) hàng giờ. Bầu trời U ám (Overcast) nhiều ngày, Có sương mù (Foggy) vào sáng. Rồi Cầu vồng (Rainbow) xuất hiện, ai cũng lại thấy hy vọng.`
+  },
+  {
+    id: 'technology-internet',
+    title: '💻 Công Nghệ & Internet',
+    description: 'Từ vựng về thiết bị công nghệ, mạng xã hội, và thuật ngữ kỹ thuật số.',
+    words: [
+      { en: 'device', type: '(n)', vi: 'thiết bị', ipa: '/dɪˈvaɪs/', example: 'This device connects to the internet.', viExample: 'Thiết bị này kết nối với internet.' },
+      { en: 'software', type: '(n)', vi: 'phần mềm', ipa: '/ˈsɒftweər/', example: 'We need to update the software.', viExample: 'Chúng ta cần cập nhật phần mềm.' },
+      { en: 'hardware', type: '(n)', vi: 'phần cứng', ipa: '/ˈhɑːdweər/', example: 'The hardware is outdated.', viExample: 'Phần cứng đã lỗi thời.' },
+      { en: 'download', type: '(v)', vi: 'tải xuống', ipa: '/ˈdaʊnləʊd/', example: 'Download the app from the store.', viExample: 'Tải ứng dụng từ cửa hàng.' },
+      { en: 'upload', type: '(v)', vi: 'tải lên', ipa: '/ˌʌpˈləʊd/', example: 'Upload the photos to the cloud.', viExample: 'Tải ảnh lên đám mây.' },
+      { en: 'password', type: '(n)', vi: 'mật khẩu', ipa: '/ˈpɑːswɜːd/', example: 'Choose a strong password.', viExample: 'Chọn một mật khẩu mạnh.' },
+      { en: 'browse', type: '(v)', vi: 'duyệt web', ipa: '/braʊz/', example: 'I browse the internet for news.', viExample: 'Tôi duyệt web để đọc tin.' },
+      { en: 'notification', type: '(n)', vi: 'thông báo', ipa: '/ˌnəʊtɪfɪˈkeɪʃn/', example: 'I got a notification from the app.', viExample: 'Tôi nhận được thông báo từ ứng dụng.' },
+      { en: 'backup', type: '(n/v)', vi: 'sao lưu', ipa: '/ˈbækʌp/', example: 'Always backup your important files.', viExample: 'Luôn sao lưu các tệp quan trọng.' },
+      { en: 'virus', type: '(n)', vi: 'vi-rút (máy tính)', ipa: '/ˈvaɪrəs/', example: 'A virus damaged my computer.', viExample: 'Vi-rút đã làm hỏng máy tính.' },
+      { en: 'streaming', type: '(n)', vi: 'phát trực tuyến', ipa: '/ˈstriːmɪŋ/', example: 'Streaming services are very popular.', viExample: 'Dịch vụ phát trực tuyến rất phổ biến.' },
+      { en: 'algorithm', type: '(n)', vi: 'thuật toán', ipa: '/ˈælɡərɪðəm/', example: 'Social media uses algorithms to show content.', viExample: 'Mạng xã hội dùng thuật toán để hiển thị nội dung.' },
+      { en: 'cybersecurity', type: '(n)', vi: 'an ninh mạng', ipa: '/ˌsaɪbəsɪˈkjʊərəti/', example: 'Cybersecurity is very important for businesses.', viExample: 'An ninh mạng rất quan trọng cho doanh nghiệp.' },
+      { en: 'artificial intelligence', type: '(n)', vi: 'trí tuệ nhân tạo', ipa: '/ˌɑːtɪfɪʃl ɪnˈtelɪdʒəns/', example: 'Artificial intelligence is changing the world.', viExample: 'Trí tuệ nhân tạo đang thay đổi thế giới.' },
+      { en: 'cloud computing', type: '(n)', vi: 'điện toán đám mây', ipa: '/klaʊd kəmˈpjuːtɪŋ/', example: 'Many companies use cloud computing.', viExample: 'Nhiều công ty sử dụng điện toán đám mây.' },
+      { en: 'data', type: '(n)', vi: 'dữ liệu', ipa: '/ˈdeɪtə/', example: 'Big data helps businesses make decisions.', viExample: 'Dữ liệu lớn giúp doanh nghiệp ra quyết định.' },
+      { en: 'bandwidth', type: '(n)', vi: 'băng thông', ipa: '/ˈbændwɪdθ/', example: 'We need more bandwidth for video calls.', viExample: 'Chúng tôi cần thêm băng thông cho cuộc gọi video.' },
+      { en: 'encrypt', type: '(v)', vi: 'mã hóa', ipa: '/ɪnˈkrɪpt/', example: 'The message is encrypted for security.', viExample: 'Tin nhắn được mã hóa để bảo mật.' },
+      { en: 'startup', type: '(n)', vi: 'công ty khởi nghiệp', ipa: '/ˈstɑːtʌp/', example: 'She works at a tech startup.', viExample: 'Cô ấy làm việc ở công ty khởi nghiệp công nghệ.' },
+      { en: 'virtual reality', type: '(n)', vi: 'thực tế ảo', ipa: '/ˈvɜːtʃuəl riˈæləti/', example: 'Virtual reality is used in gaming and education.', viExample: 'Thực tế ảo được dùng trong giải trí và giáo dục.' }
+    ],
+    storyEn: `📖 PART 1: DIGITAL LIFE
+Every morning, I check notifications on my device. I browse the internet for news, download new apps, and upload photos to the cloud. My password is very strong because cybersecurity is important. I always backup my files in case a virus damages my computer.
+
+📖 PART 2: THE FUTURE IS HERE
+Artificial intelligence is changing how we live. Cloud computing lets us store data anywhere. Streaming services have replaced traditional TV. Social media algorithms decide what we see. Virtual reality is used in gaming and education. Startups are building the future, but we need better bandwidth and encryption to stay safe.`,
+    storyVi: `📖 PHẦN 1: CUỘC SỐNG SỐ
+Mỗi sáng, tôi kiểm tra Thông báo (Notifications) trên Thiết bị (Device). Tôi Duyệt web (Browse) để đọc tin, Tải xuống (Download) ứng dụng mới, và Tải lên (Upload) ảnh lên đám mây. Mật khẩu (Password) của tôi rất mạnh vì An ninh mạng (Cybersecurity) quan trọng. Tôi luôn Sao lưu (Backup) tệp phòng Vi-rút (Virus) làm hỏng máy.
+
+📖 PHẦN 2: TƯƠNG LAI ĐÃ ĐẾN
+Trí tuệ nhân tạo (AI) đang thay đổi cách sống. Điện toán đám mây (Cloud computing) lưu Dữ liệu (Data) mọi nơi. Phát trực tuyến (Streaming) thay TV. Thuật toán (Algorithms) mạng xã hội quyết định nội dung. Thực tế ảo (Virtual reality) dùng trong game và giáo dục. Công ty khởi nghiệp (Startups) xây tương lai, nhưng cần Băng thông (Bandwidth) tốt hơn và Mã hóa (Encryption) để an toàn.`
   }
 ];
 
 // Dòng này cực kỳ quan trọng để xuất dữ liệu ra ngoài
-export default vocabData;
+export default [...vocabData, ...vocabExtendedData];

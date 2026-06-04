@@ -60,7 +60,7 @@ import ScannerPage from './pages/ScannerPage';
 export default function App() {
   // Navigation & Mode states
   const [appMode, setAppMode] = useState('grammar'); // 'grammar', 'vocab', 'scanner'
-  const [activeVocabCategory, setActiveVocabCategory] = useState('VSTEP'); // 'VSTEP', 'OXFORD'
+  const [activeVocabCategory, setActiveVocabCategory] = useState('TOPIC'); // 'TOPIC', 'OXFORD'
   
   // Topic/Unit states
   const [topicId, setTopicId] = useState(null); // Active grammar topic ID
@@ -283,7 +283,7 @@ export default function App() {
         );
 
       case 'vocab':
-        if (activeVocabCategory === 'VSTEP') {
+        if (activeVocabCategory === 'TOPIC') {
           return (
             <VocabVstepPage 
               activeTopic={selectedVstepTopic} 

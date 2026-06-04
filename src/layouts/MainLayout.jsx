@@ -114,13 +114,13 @@ const MainLayout = ({
              {isVocabMenuOpen && (
                <div className="flex flex-col gap-2 ml-6 mt-1 animate-in fade-in slide-in-from-top-2">
                  <button
-                   onClick={() => { 
-                     setActiveVocabCategory("VSTEP"); 
-                     selectMode('vocab');
-                   }}
-                   className={`p-2 font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl transition-all flex justify-center items-center text-center gap-2 cursor-pointer ${activeVocabCategory === 'VSTEP' && appMode === 'vocab' ? 'bg-yellow-300 dark:bg-yellow-400 dark:text-slate-950 shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'}`}
+                    onClick={() => { 
+                      setActiveVocabCategory("TOPIC"); 
+                      selectMode('vocab');
+                    }}
+                    className={`p-2 font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl transition-all flex justify-center items-center text-center gap-2 cursor-pointer ${activeVocabCategory === 'TOPIC' && appMode === 'vocab' ? 'bg-yellow-300 dark:bg-yellow-400 dark:text-slate-950 shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'}`}
                  >
-                   <BookMarked size={18} className="text-blue-500 dark:text-blue-400" /> VSTEP
+                    <BookMarked size={18} className="text-blue-500 dark:text-blue-400" /> CHỦ ĐỀ
                  </button>
                  <button
                    onClick={() => { 
@@ -192,9 +192,9 @@ const MainLayout = ({
             )}
 
             {/* VSTEP TOPICS LIST */}
-            {appMode === 'vocab' && activeVocabCategory === 'VSTEP' && (
+            {appMode === 'vocab' && activeVocabCategory === 'TOPIC' && (
               <>
-                <div className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest pl-2 mb-2 mt-4">Từ Vựng VSTEP</div>
+                <div className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest pl-2 mb-2 mt-4">Từ Vựng Theo Chủ Đề</div>
                 
                 <div className="relative mb-4">
                   <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 pointer-events-none" />
