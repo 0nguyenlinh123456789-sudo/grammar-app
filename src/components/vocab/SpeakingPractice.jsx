@@ -2,17 +2,47 @@
 import React, { useState, useEffect } from 'react';
 import { Mic, Sparkles, XCircle, Volume2 } from 'lucide-react';
 
-const SpeakingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio }) => {
+const SpeakingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio, onWordChange }) => {
   const [isListening, setIsListening] = useState(false);
   const [spokenText, setSpokenText] = useState('');
   const [speakStatus, setSpeakStatus] = useState(null); // 'correct', 'wrong', null
+  const [tempIndex, setTempIndex] = useState(currentWordIndex + 1);
 
   // Reset states when word changes
   useEffect(() => {
     setIsListening(false);
     setSpokenText('');
     setSpeakStatus(null);
+    setTempIndex(currentWordIndex + 1);
   }, [currentWordIndex]);
+
+  const handleIndexChange = (e) => {
+    setTempIndex(e.target.value);
+  };
+
+  const commitIndex = () => {
+    let val = parseInt(tempIndex, 10);
+    if (isNaN(val) || val < 1) {
+      val = 1;
+    } else if (val > totalWords) {
+      val = totalWords;
+    }
+    setTempIndex(val);
+    if (onWordChange) {
+      onWordChange(val - 1);
+    }
+  };
+
+  const handleIndexBlur = () => {
+    commitIndex();
+  };
+
+  const handleIndexKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      commitIndex();
+      e.target.blur();
+    }
+  };
 
   const startListening = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -62,8 +92,19 @@ const SpeakingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio
 
   return (
     <div className="w-full flex flex-col items-center animate-fade-in">
-      <div className="bg-purple-100 border-4 border-black px-6 py-2 rounded-full font-black text-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] mb-6 text-purple-800">
-        Luyện Phát Âm: Từ {currentWordIndex + 1} / {totalWords}
+      <div className="bg-purple-100 border-4 border-black px-6 py-2 rounded-full font-black text-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] mb-6 text-purple-800 flex items-center justify-center gap-1.5">
+        <span>Luyện Phát Âm: Từ</span>
+        <input
+          type="number"
+          min={1}
+          max={totalWords}
+          value={tempIndex}
+          onChange={handleIndexChange}
+          onBlur={handleIndexBlur}
+          onKeyDown={handleIndexKeyDown}
+          className="w-16 text-center bg-yellow-50 dark:bg-slate-700 border-2 border-black dark:border-slate-500 rounded-lg font-black text-slate-800 dark:text-white py-0 px-1 focus:outline-none focus:bg-yellow-100 dark:focus:bg-slate-600 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+        />
+        <span>/ {totalWords}</span>
       </div>
       
       <div className="w-full max-w-3xl bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[10px_10px_0_0_rgba(0,0,0,1)] text-center flex flex-col items-center">

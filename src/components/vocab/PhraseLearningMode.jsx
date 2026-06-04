@@ -2,7 +2,7 @@
 // Teaches vocabulary through collocations, phrases, and a sentence-builder mini-game
 
 import { useState } from 'react';
-import { Zap, ChevronLeft, ChevronRight, Shuffle, CheckCircle, XCircle } from 'lucide-react';
+import { Zap, ChevronLeft, ChevronRight, Shuffle, CheckCircle, XCircle, Volume2 } from 'lucide-react';
 
 const PhraseLearningMode = ({ activeTopic, playAudio, currentWordIndex, onWordChange }) => {
   const [gameMode, setGameMode] = useState('browse'); // 'browse' | 'quiz'
@@ -155,7 +155,14 @@ const PhraseLearningMode = ({ activeTopic, playAudio, currentWordIndex, onWordCh
         </h3>
         <div className="space-y-3">
           {sentencePatterns.map((s, i) => (
-            <div key={i} className={`border-2 rounded-xl p-4 ${s.color}`}>
+            <div key={i} className={`border-2 rounded-xl p-4 relative pr-12 ${s.color}`}>
+              <button
+                onClick={(e) => { e.stopPropagation(); playAudio(s.pattern); }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-slate-700/80 p-2 rounded-full border-2 border-black/20 hover:bg-white dark:hover:bg-slate-700 cursor-pointer text-slate-700 dark:text-slate-200 transition-all flex items-center justify-center hover:scale-110 active:scale-95"
+                title="Nghe câu mẫu"
+              >
+                <Volume2 size={16} />
+              </button>
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-black px-2 py-0.5 bg-black text-white rounded-full">{s.label}</span>
               </div>

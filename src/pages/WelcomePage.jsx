@@ -1,4 +1,3 @@
-// File: src/pages/WelcomePage.jsx
 import React, { useState } from 'react';
 import { roadmapData } from '../data/roadmapData';
 import { 
@@ -20,7 +19,7 @@ const WelcomePage = ({
   resetRoadmap,
   streak = 0,
   theme,
-  setTheme
+  setTheme,
 }) => {
   const [activeTab, setActiveTab] = useState('all'); // 'all', 'starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
@@ -133,7 +132,7 @@ const WelcomePage = ({
               </div>
               <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none text-slate-900 dark:text-slate-100 mt-2">LỘ TRÌNH</h2>
               <p className="font-bold text-sm md:text-base text-slate-500 dark:text-slate-400 italic bg-slate-50 dark:bg-slate-800 p-3 rounded-2xl border-2 border-slate-200 dark:border-slate-750 relative mt-2 bubble-arrow-left leading-relaxed">
-                "Cùng tớ học tiếng Anh nhé! 🐰✨"
+                "Cùng tớ học tiếng Anh nhé! 🦦✨"
               </p>
             </div>
           </div>
@@ -161,16 +160,15 @@ const WelcomePage = ({
             </div>
 
             {/* Actions Column */}
-            <div className="flex flex-col gap-3 flex-1 sm:flex-initial justify-between">
+           <div className="flex flex-col gap-3 flex-1 sm:flex-initial justify-between">
                <button
-                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                 onClick={() => setTheme && setTheme(theme === 'light' ? 'dark' : 'light')}
                  className="flex-1 min-h-[64px] px-6 font-black border-4 border-slate-800 dark:border-slate-700 rounded-3xl bg-indigo-50 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-800 dark:text-indigo-300 text-sm flex justify-center items-center gap-2 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] cursor-pointer transition-all"
                >
-                 {theme === 'light' ? (
-                   <><Moon size={18} className="text-indigo-600 dark:text-indigo-400" /> CHẾ ĐỘ TỐI</>
-                 ) : (
-                   <><Sun size={18} className="text-yellow-500 animate-spin-slow" /> CHẾ ĐỘ SÁNG</>
-                 )}
+                 {theme === 'light'
+                   ? <><Moon size={18} className="text-indigo-500" /> CHẾ ĐỘ TỐI</>
+                   : <><Sun size={18} className="text-yellow-400" /> CHẾ ĐỘ SÁNG</>
+                 }
                </button>
                <button
                  onClick={() => setIsResetModalOpen(true)}
@@ -289,7 +287,7 @@ const WelcomePage = ({
                   return (
                     <div 
                       key={m.id} 
-                      className={`relative flex gap-6 items-start z-10 group ${
+                      className={`relative flex gap-6 items-center z-10 group ${
                         isActive ? 'scale-[1.01] transition-transform' : ''
                       }`}
                     >

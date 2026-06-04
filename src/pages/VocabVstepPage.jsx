@@ -10,12 +10,12 @@ import ActionScenarioMode from '../components/vocab/ActionScenarioMode';
 import MascotLuna from '../components/common/MascotLuna';
 
 const MODES = [
-  { key: 'flashcard', label: 'Nhận Diện', step: 1, icon: Layers,    color: 'bg-blue-400', hoverColor: 'hover:bg-blue-50 dark:hover:bg-blue-900/30', activeText: 'text-white', inactiveIcon: 'text-blue-500' },
-  { key: 'phrases',   label: 'Cụm Câu',  step: 2, icon: Zap,        color: 'bg-yellow-400', hoverColor: 'hover:bg-yellow-50 dark:hover:bg-yellow-900/30', activeText: 'text-slate-900', inactiveIcon: 'text-yellow-500' },
-  { key: 'scenario',  label: 'Hành Động',step: 3, icon: Drama,      color: 'bg-purple-400', hoverColor: 'hover:bg-purple-50 dark:hover:bg-purple-900/30', activeText: 'text-white', inactiveIcon: 'text-purple-500' },
-  { key: 'story',     label: 'Câu Chuyện',step:4, icon: BookOpen,   color: 'bg-green-400', hoverColor: 'hover:bg-green-50 dark:hover:bg-green-900/30', activeText: 'text-white', inactiveIcon: 'text-green-600' },
-  { key: 'writing',   label: 'Luyện Viết',step: 5, icon: PenTool,   color: 'bg-orange-400', hoverColor: 'hover:bg-orange-50 dark:hover:bg-orange-900/30', activeText: 'text-white', inactiveIcon: 'text-orange-500' },
-  { key: 'speaking',  label: 'Luyện Nói', step: 6, icon: Mic,       color: 'bg-pink-400', hoverColor: 'hover:bg-pink-50 dark:hover:bg-pink-900/30', activeText: 'text-white', inactiveIcon: 'text-pink-500' },
+  { key: 'flashcard', label: 'Nhận Diện', step: 1, icon: () => <span className="text-xl leading-none">🐰</span>, color: 'bg-blue-400', hoverColor: 'hover:bg-blue-50 dark:hover:bg-blue-900/30', activeText: 'text-white', inactiveIcon: '' },
+  { key: 'phrases',   label: 'Cụm Câu',  step: 2, icon: () => <span className="text-xl leading-none">⚡</span>, color: 'bg-yellow-400', hoverColor: 'hover:bg-yellow-50 dark:hover:bg-yellow-900/30', activeText: 'text-slate-900', inactiveIcon: '' },
+  { key: 'scenario',  label: 'Hành Động',step: 3, icon: () => <span className="text-xl leading-none">🎬</span>, color: 'bg-purple-400', hoverColor: 'hover:bg-purple-50 dark:hover:bg-purple-900/30', activeText: 'text-white', inactiveIcon: '' },
+  { key: 'story',     label: 'Câu Chuyện',step:4, icon: () => <span className="text-xl leading-none">⛺</span>, color: 'bg-green-400', hoverColor: 'hover:bg-green-50 dark:hover:bg-green-900/30', activeText: 'text-white', inactiveIcon: '' },
+  { key: 'writing',   label: 'Luyện Viết',step: 5, icon: () => <span className="text-xl leading-none">✍️</span>, color: 'bg-orange-400', hoverColor: 'hover:bg-orange-50 dark:hover:bg-orange-900/30', activeText: 'text-white', inactiveIcon: '' },
+  { key: 'speaking',  label: 'Luyện Nói', step: 6, icon: () => <span className="text-xl leading-none">🎤</span>, color: 'bg-pink-400', hoverColor: 'hover:bg-pink-50 dark:hover:bg-pink-900/30', activeText: 'text-white', inactiveIcon: '' },
 ];
 
 const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], completeMilestone }) => {
@@ -64,10 +64,10 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
   // Progress bar
   const progress = Math.round(((currentWordIndex + 1) / totalWords) * 100);
 
-  const needsWordNav = !['story', 'scenario'].includes(learningMode);
+  const needsWordNav = ['writing', 'speaking'].includes(learningMode);
 
   return (
-    <div className="w-full h-full max-w-6xl mx-auto flex flex-col items-center justify-start pb-20">
+    <div className="w-full h-full max-w-5xl mx-auto flex flex-col items-center justify-start pb-20">
 
       {/* HEADER SECTION */}
       <div className="mb-6 text-center w-full max-w-3xl flex flex-col items-center gap-3">
@@ -95,19 +95,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
           {activeTopic.description}
         </p>
 
-        {/* Progress bar */}
-        <div className="w-full max-w-md">
-          <div className="flex justify-between text-xs font-black text-slate-500 dark:text-slate-400 mb-1">
-            <span>Từ {currentWordIndex + 1}/{totalWords}</span>
-            <span>{progress}% hoàn thành</span>
-          </div>
-          <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden border-2 border-black">
-            <div
-              className="h-full bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full transition-all duration-500"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
+
 
         {/* Complete button */}
         <div className="mt-2">
@@ -152,7 +140,9 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
               <span className={`text-[10px] ${isActive ? 'opacity-80' : 'text-slate-400 dark:text-slate-500'}`}>
                 Bước {mode.step}
               </span>
-              <Icon size={16} className={isActive ? mode.activeText : mode.inactiveIcon} />
+              <div className={isActive ? mode.activeText : mode.inactiveIcon}>
+                <Icon />
+              </div>
               <span className="leading-tight text-center">{mode.label}</span>
             </button>
           );
@@ -168,6 +158,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
           playAudio={playAudio}
           onNext={handleNextWord}
           onPrev={handlePrevWord}
+          onWordChange={setCurrentWordIndex}
         />
       )}
 
@@ -188,48 +179,56 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
       )}
 
       {learningMode === 'story' && (
-        <div className="w-full max-w-4xl animate-fade-in space-y-6">
-          {/* Story image panel header */}
-          <div className="bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl p-4 text-white border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] flex items-center gap-4">
-            <div className="text-4xl">{activeTopic.title.match(/^[^\s]+/)?.[0] || '📖'}</div>
-            <div>
-              <h2 className="font-black text-xl">Câu Chuyện Nhớ Từ</h2>
-              <p className="text-white/80 text-sm font-bold">Tất cả {totalWords} từ xuất hiện trong câu chuyện này!</p>
-            </div>
-            <button
-              onClick={() => playAudio(activeTopic.storyEn)}
-              className="ml-auto bg-white/20 border-2 border-white/50 rounded-xl px-4 py-2 font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition-all"
-            >
-              <Volume2 size={16} /> Nghe
-            </button>
+        !activeTopic.storyEn ? (
+          <div className="w-full max-w-4xl p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
+            <p className="text-3xl mb-4">📖🚧</p>
+            <p className="text-xl">Dữ liệu Câu Chuyện cho chủ đề này đang được biên soạn!</p>
+            <p className="text-sm mt-2 font-normal opacity-70">Hãy thử lại sau nhé.</p>
           </div>
+        ) : (
+          <div className="w-full max-w-4xl animate-fade-in space-y-6">
+            {/* Story image panel header */}
+            <div className="bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl p-4 text-white border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] flex items-center gap-4">
+              <div className="text-4xl">{activeTopic.title.match(/^[^\s]+/)?.[0] || '📖'}</div>
+              <div>
+                <h2 className="font-black text-xl">Câu Chuyện Nhớ Từ</h2>
+                <p className="text-white/80 text-sm font-bold">Tất cả {totalWords} từ xuất hiện trong câu chuyện này!</p>
+              </div>
+              <button
+                onClick={() => playAudio(activeTopic.storyEn)}
+                className="ml-auto bg-white/20 border-2 border-white/50 rounded-xl px-4 py-2 font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition-all"
+              >
+                <Volume2 size={16} /> Nghe
+              </button>
+            </div>
 
-          {/* English story */}
-          <div className="bg-white dark:bg-slate-800 border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)]">
-            <h3 className="text-xl font-black mb-6 bg-green-300 dark:bg-green-800 dark:text-white inline-flex items-center gap-2 px-4 py-2 border-2 border-black rounded-lg transform -rotate-1">
-              <BookOpen size={20} /> 📖 Story (English)
-            </h3>
-            <div className="text-lg md:text-xl leading-loose font-medium text-slate-800 dark:text-slate-100 story-text">
-              <StoryWithHighlights
-                storyText={activeTopic.storyEn}
-                vocabList={activeTopic.words}
-              />
+            {/* English story */}
+            <div className="bg-white dark:bg-slate-800 border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)]">
+              <h3 className="text-xl font-black mb-6 bg-green-300 dark:bg-green-800 dark:text-white inline-flex items-center gap-2 px-4 py-2 border-2 border-black rounded-lg transform -rotate-1">
+                <BookOpen size={20} /> 📖 Story (English)
+              </h3>
+              <div className="text-lg md:text-xl leading-loose font-medium text-slate-800 dark:text-slate-100 story-text">
+                <StoryWithHighlights
+                  storyText={activeTopic.storyEn}
+                  vocabList={activeTopic.words}
+                />
+              </div>
             </div>
-          </div>
 
-          {/* Vietnamese translation */}
-          <div className="bg-slate-800 dark:bg-slate-900 border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)] text-white">
-            <h3 className="text-xl font-black mb-6 bg-red-400 text-black inline-flex items-center gap-2 px-4 py-2 border-2 border-black rounded-lg transform rotate-1">
-              <Globe size={20} /> 🇻🇳 Bản Dịch
-            </h3>
-            <div className="text-lg md:text-xl leading-relaxed font-medium story-text-vi">
-              <StoryWithHighlights
-                storyText={activeTopic.storyVi}
-                vocabList={activeTopic.words}
-              />
+            {/* Vietnamese translation */}
+            <div className="bg-slate-800 dark:bg-slate-900 border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)] text-white">
+              <h3 className="text-xl font-black mb-6 bg-red-400 text-black inline-flex items-center gap-2 px-4 py-2 border-2 border-black rounded-lg transform rotate-1">
+                <Globe size={20} /> 🇻🇳 Bản Dịch
+              </h3>
+              <div className="text-lg md:text-xl leading-relaxed font-medium story-text-vi">
+                <StoryWithHighlights
+                  storyText={activeTopic.storyVi}
+                  vocabList={activeTopic.words}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        )
       )}
 
       {learningMode === 'writing' && (
@@ -238,6 +237,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
           totalWords={totalWords}
           currentWord={currentWord}
           playAudio={playAudio}
+          onWordChange={setCurrentWordIndex}
         />
       )}
 
@@ -247,6 +247,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
           totalWords={totalWords}
           currentWord={currentWord}
           playAudio={playAudio}
+          onWordChange={setCurrentWordIndex}
         />
       )}
 

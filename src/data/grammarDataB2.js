@@ -244,6 +244,160 @@ export const grammarDataB2 = [
         ],
         "a": "hasn't been feeling"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "She _____ been studying English for five years.",
+                "a": "has",
+                "trans": "Cô ấy đã học tiếng Anh được 5 năm."
+          },
+          {
+                "q": "They have been _____ here since 8 AM.",
+                "a": "waiting",
+                "trans": "Họ đã đợi ở đây từ 8 giờ sáng."
+          },
+          {
+                "q": "I have been _____ all morning.",
+                "a": "working",
+                "trans": "Tôi đã làm việc cả buổi sáng."
+          },
+          {
+                "q": "How long _____ you been living here?",
+                "a": "have",
+                "trans": "Bạn đã sống ở đây bao lâu?"
+          },
+          {
+                "q": "He has been _____ tennis for two hours.",
+                "a": "playing",
+                "trans": "Anh ấy đã chơi tennis 2 tiếng."
+          },
+          {
+                "q": "We have been _____ for a new house.",
+                "a": "looking",
+                "trans": "Chúng tôi đã tìm nhà mới."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "She has been study English.",
+                "errorWord": "study",
+                "correction": "studying",
+                "explanation": "HTHTD: has been + V-ing.",
+                "trans": "Cô ấy đã học tiếng Anh."
+          },
+          {
+                "sentence": "They have been waited for hours.",
+                "errorWord": "waited",
+                "correction": "waiting",
+                "explanation": "HTHTD dùng V-ing, không dùng V-ed.",
+                "trans": "Họ đã đợi hàng giờ."
+          },
+          {
+                "sentence": "I has been working all day.",
+                "errorWord": "has",
+                "correction": "have",
+                "explanation": "I → 'have'.",
+                "trans": "Tôi đã làm việc cả ngày."
+          },
+          {
+                "sentence": "He have been playing for two hours.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "He → 'has'.",
+                "trans": "Anh ấy đã chơi 2 tiếng."
+          },
+          {
+                "sentence": "She has been knowing him for years.",
+                "errorWord": "knowing",
+                "correction": "known",
+                "explanation": "'Know' là stative verb → dùng HTHT: has known.",
+                "trans": "Cô ấy đã biết anh ấy nhiều năm."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "She started studying English five years ago.",
+                "instruction": "Dùng HTHTD.",
+                "keyword": "has been studying",
+                "a": "She has been studying English for five years."
+          },
+          {
+                "original": "He has been playing tennis for two hours.",
+                "instruction": "Chuyển phủ định.",
+                "keyword": "hasn't been",
+                "a": "He hasn't been playing tennis for two hours."
+          },
+          {
+                "original": "They have been waiting since 8 AM.",
+                "instruction": "Chuyển nghi vấn.",
+                "keyword": "Have they been",
+                "a": "Have they been waiting since 8 AM?"
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "She _____ been studying.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "They have been _____.",
+                            "right": "waiting"
+                      },
+                      {
+                            "left": "How long _____ you been here?",
+                            "right": "have"
+                      },
+                      {
+                            "left": "He has been _____ tennis.",
+                            "right": "playing"
+                      },
+                      {
+                            "left": "I have been _____ all day.",
+                            "right": "working"
+                      },
+                      {
+                            "left": "We _____ been looking for a house.",
+                            "right": "have"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "She has been study English for five years.",
+                "isCorrect": false,
+                "correction": "studying.",
+                "explanation": "HTHTD: has been + V-ing.",
+                "trans": "Học tiếng Anh 5 năm."
+          },
+          {
+                "sentence": "They have been waiting since morning.",
+                "isCorrect": true,
+                "explanation": "Đúng - 'since' + mốc thời gian.",
+                "trans": "Đợi từ sáng."
+          },
+          {
+                "sentence": "I has been working all day.",
+                "isCorrect": false,
+                "correction": "I have been working.",
+                "explanation": "I → 'have'.",
+                "trans": "Làm việc cả ngày."
+          },
+          {
+                "sentence": "She has been knowing him for years.",
+                "isCorrect": false,
+                "correction": "She has known him.",
+                "explanation": "'Know' không dùng tiếp diễn.",
+                "trans": "Biết anh ấy nhiều năm."
+          },
+          {
+                "sentence": "He has been playing tennis for two hours.",
+                "isCorrect": true,
+                "explanation": "Đúng - 'for' + khoảng thời gian.",
+                "trans": "Chơi tennis 2 tiếng."
+          }
     ]
   },
   {
@@ -488,6 +642,160 @@ export const grammarDataB2 = [
         ],
         "a": "had started"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "She _____ already left when I arrived.",
+                "a": "had",
+                "trans": "Cô ấy đã rời đi khi tôi đến."
+          },
+          {
+                "q": "They had _____ dinner before we came.",
+                "a": "eaten",
+                "trans": "Họ đã ăn tối trước khi chúng tôi đến."
+          },
+          {
+                "q": "I realized I _____ forgotten my keys.",
+                "a": "had",
+                "trans": "Tôi nhận ra đã quên chìa khóa."
+          },
+          {
+                "q": "By the time he arrived, the movie _____ started.",
+                "a": "had",
+                "trans": "Khi anh ấy đến, phim đã bắt đầu."
+          },
+          {
+                "q": "She _____ never seen snow before that trip.",
+                "a": "had",
+                "trans": "Cô ấy chưa bao giờ thấy tuyết trước chuyến đi đó."
+          },
+          {
+                "q": "After he had _____, he went to bed.",
+                "a": "studied",
+                "trans": "Sau khi học xong, anh ấy đi ngủ."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "She had already leave when I arrived.",
+                "errorWord": "leave",
+                "correction": "left",
+                "explanation": "QKHT: had + V3 (past participle).",
+                "trans": "Cô ấy đã rời đi."
+          },
+          {
+                "sentence": "They had ate dinner before we came.",
+                "errorWord": "ate",
+                "correction": "eaten",
+                "explanation": "eat → ate → eaten. Dùng V3.",
+                "trans": "Họ đã ăn tối."
+          },
+          {
+                "sentence": "I realized I have forgotten my keys.",
+                "errorWord": "have",
+                "correction": "had",
+                "explanation": "Hành động quá khứ trước quá khứ → 'had'.",
+                "trans": "Tôi nhận ra đã quên chìa khóa."
+          },
+          {
+                "sentence": "After he had study, he went to bed.",
+                "errorWord": "study",
+                "correction": "studied",
+                "explanation": "had + V3: studied.",
+                "trans": "Sau khi học, anh ấy đi ngủ."
+          },
+          {
+                "sentence": "She had never saw snow before.",
+                "errorWord": "saw",
+                "correction": "seen",
+                "explanation": "see → saw → seen. Dùng V3.",
+                "trans": "Chưa bao giờ thấy tuyết."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "She left before I arrived.",
+                "instruction": "Dùng QKHT.",
+                "keyword": "had left",
+                "a": "She had already left before I arrived."
+          },
+          {
+                "original": "They had eaten dinner.",
+                "instruction": "Chuyển phủ định.",
+                "keyword": "hadn't",
+                "a": "They hadn't eaten dinner."
+          },
+          {
+                "original": "He had studied before going to bed.",
+                "instruction": "Chuyển nghi vấn.",
+                "keyword": "Had he",
+                "a": "Had he studied before going to bed?"
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "She _____ already left.",
+                            "right": "had"
+                      },
+                      {
+                            "left": "They had _____ dinner.",
+                            "right": "eaten"
+                      },
+                      {
+                            "left": "I _____ forgotten my keys.",
+                            "right": "had"
+                      },
+                      {
+                            "left": "The movie _____ started.",
+                            "right": "had"
+                      },
+                      {
+                            "left": "She had never _____ snow.",
+                            "right": "seen"
+                      },
+                      {
+                            "left": "After he had _____.",
+                            "right": "studied"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "She had already leave when I arrived.",
+                "isCorrect": false,
+                "correction": "left.",
+                "explanation": "had + V3.",
+                "trans": "Đã rời đi khi tôi đến."
+          },
+          {
+                "sentence": "They had eaten dinner before we came.",
+                "isCorrect": true,
+                "explanation": "Đúng - hành động trước hành động khác trong quá khứ.",
+                "trans": "Đã ăn tối."
+          },
+          {
+                "sentence": "I realized I have forgotten my keys.",
+                "isCorrect": false,
+                "correction": "had forgotten.",
+                "explanation": "Quá khứ trước quá khứ → 'had'.",
+                "trans": "Nhận ra đã quên chìa khóa."
+          },
+          {
+                "sentence": "By the time he arrived, the movie had started.",
+                "isCorrect": true,
+                "explanation": "Đúng - 'By the time' + quá khứ đơn, QKHT.",
+                "trans": "Khi đến, phim đã bắt đầu."
+          },
+          {
+                "sentence": "She had never saw snow.",
+                "isCorrect": false,
+                "correction": "seen.",
+                "explanation": "see → seen (V3).",
+                "trans": "Chưa thấy tuyết."
+          }
     ]
   },
   {
@@ -732,6 +1040,159 @@ export const grammarDataB2 = [
         ],
         "a": "mustn't be used"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "English _____ spoken all over the world.",
+                "a": "is",
+                "trans": "Tiếng Anh được nói trên toàn thế giới."
+          },
+          {
+                "q": "The cake _____ made by my mother.",
+                "a": "was",
+                "trans": "Bánh do mẹ tôi làm."
+          },
+          {
+                "q": "The report will _____ finished tomorrow.",
+                "a": "be",
+                "trans": "Báo cáo sẽ được hoàn thành ngày mai."
+          },
+          {
+                "q": "The letters have _____ sent.",
+                "a": "been",
+                "trans": "Các thư đã được gửi."
+          },
+          {
+                "q": "The building is being _____ now.",
+                "a": "built",
+                "trans": "Tòa nhà đang được xây."
+          },
+          {
+                "q": "The window was _____ by the boy.",
+                "a": "broken",
+                "trans": "Cửa sổ bị vỡ bởi cậu bé."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "English is speak all over the world.",
+                "errorWord": "speak",
+                "correction": "spoken",
+                "explanation": "Bị động: is + V3 (spoken).",
+                "trans": "Tiếng Anh được nói khắp thế giới."
+          },
+          {
+                "sentence": "The cake was make by my mother.",
+                "errorWord": "make",
+                "correction": "made",
+                "explanation": "make → made → made. Bị động dùng V3.",
+                "trans": "Bánh do mẹ tôi làm."
+          },
+          {
+                "sentence": "The letters have been send.",
+                "errorWord": "send",
+                "correction": "sent",
+                "explanation": "send → sent → sent (V3).",
+                "trans": "Thư đã được gửi."
+          },
+          {
+                "sentence": "The building is been built.",
+                "errorWord": "is been",
+                "correction": "is being",
+                "explanation": "Bị động tiếp diễn: is being + V3.",
+                "trans": "Đang được xây."
+          },
+          {
+                "sentence": "The report will finished tomorrow.",
+                "errorWord": "(thiếu 'be')",
+                "correction": "will be finished",
+                "explanation": "Bị động tương lai: will be + V3.",
+                "trans": "Sẽ được hoàn thành."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "My mother made the cake.",
+                "instruction": "Chuyển bị động.",
+                "keyword": "was made by",
+                "a": "The cake was made by my mother."
+          },
+          {
+                "original": "They speak English here.",
+                "instruction": "Chuyển bị động.",
+                "keyword": "is spoken",
+                "a": "English is spoken here."
+          },
+          {
+                "original": "Someone has stolen my phone.",
+                "instruction": "Chuyển bị động.",
+                "keyword": "has been stolen",
+                "a": "My phone has been stolen."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "English _____ spoken here.",
+                            "right": "is"
+                      },
+                      {
+                            "left": "The cake _____ made by mom.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "The report will _____ finished.",
+                            "right": "be"
+                      },
+                      {
+                            "left": "The letters have _____ sent.",
+                            "right": "been"
+                      },
+                      {
+                            "left": "The building is _____ built.",
+                            "right": "being"
+                      },
+                      {
+                            "left": "The window was _____ .",
+                            "right": "broken"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "English is spoken all over the world.",
+                "isCorrect": true,
+                "explanation": "Đúng - bị động hiện tại.",
+                "trans": "Tiếng Anh được nói khắp thế giới."
+          },
+          {
+                "sentence": "The cake was make by my mother.",
+                "isCorrect": false,
+                "correction": "was made.",
+                "explanation": "Bị động: was + V3.",
+                "trans": "Bánh do mẹ làm."
+          },
+          {
+                "sentence": "The letters have been sent.",
+                "isCorrect": true,
+                "explanation": "Đúng - bị động HTHT.",
+                "trans": "Thư đã được gửi."
+          },
+          {
+                "sentence": "The report will finished tomorrow.",
+                "isCorrect": false,
+                "correction": "will be finished.",
+                "explanation": "Cần 'be': will be + V3.",
+                "trans": "Sẽ hoàn thành."
+          },
+          {
+                "sentence": "My phone has been stolen.",
+                "isCorrect": true,
+                "explanation": "Đúng - bị động HTHT.",
+                "trans": "Điện thoại đã bị đánh cắp."
+          }
     ]
   },
   {
@@ -976,6 +1437,159 @@ export const grammarDataB2 = [
         ],
         "a": "whether"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "She said she _____ tired.",
+                "a": "was",
+                "trans": "Cô ấy nói cô ấy mệt."
+          },
+          {
+                "q": "He told me he _____ help me.",
+                "a": "would",
+                "trans": "Anh ấy nói sẽ giúp tôi."
+          },
+          {
+                "q": "They said they _____ been to Paris.",
+                "a": "had",
+                "trans": "Họ nói đã đến Paris."
+          },
+          {
+                "q": "She asked me where I _____.",
+                "a": "lived",
+                "trans": "Cô ấy hỏi tôi sống ở đâu."
+          },
+          {
+                "q": "He said he _____ studying.",
+                "a": "was",
+                "trans": "Anh ấy nói đang học."
+          },
+          {
+                "q": "She told me she _____ come.",
+                "a": "would",
+                "trans": "Cô ấy nói sẽ đến."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "She said she were tired.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Cô ấy nói cô ấy mệt."
+          },
+          {
+                "sentence": "He told me he woulds help me.",
+                "errorWord": "woulds",
+                "correction": "would",
+                "explanation": "Đúng phải dùng 'would' trong ngữ cảnh này.",
+                "trans": "Anh ấy nói sẽ giúp tôi."
+          },
+          {
+                "sentence": "They said they have been to Paris.",
+                "errorWord": "have",
+                "correction": "had",
+                "explanation": "Đúng phải dùng 'had' trong ngữ cảnh này.",
+                "trans": "Họ nói đã đến Paris."
+          },
+          {
+                "sentence": "She asked me where I liveds.",
+                "errorWord": "liveds",
+                "correction": "lived",
+                "explanation": "Đúng phải dùng 'lived' trong ngữ cảnh này.",
+                "trans": "Cô ấy hỏi tôi sống ở đâu."
+          },
+          {
+                "sentence": "He said he were studying.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy nói đang học."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Cô ấy nói cô ấy mệt.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "was",
+                "a": "She said she was tired."
+          },
+          {
+                "original": "Anh ấy nói sẽ giúp tôi.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "would",
+                "a": "He told me he would help me."
+          },
+          {
+                "original": "Họ nói đã đến Paris.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "had",
+                "a": "They said they had been to Paris."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "She said she _____ tired.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "He told me he _____ help me.",
+                            "right": "would"
+                      },
+                      {
+                            "left": "They said they _____ been to Paris.",
+                            "right": "had"
+                      },
+                      {
+                            "left": "She asked me where I _____.",
+                            "right": "lived"
+                      },
+                      {
+                            "left": "He said he _____ studying.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "She told me she _____ come.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "She said she was tired.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'was'.",
+                "trans": "Cô ấy nói cô ấy mệt."
+          },
+          {
+                "sentence": "He told me he wouldx help me.",
+                "isCorrect": false,
+                "correction": "He told me he would help me.",
+                "explanation": "Sai - phải dùng 'would'.",
+                "trans": "Anh ấy nói sẽ giúp tôi."
+          },
+          {
+                "sentence": "They said they had been to Paris.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'had'.",
+                "trans": "Họ nói đã đến Paris."
+          },
+          {
+                "sentence": "She asked me where I livedx.",
+                "isCorrect": false,
+                "correction": "She asked me where I lived.",
+                "explanation": "Sai - phải dùng 'lived'.",
+                "trans": "Cô ấy hỏi tôi sống ở đâu."
+          },
+          {
+                "sentence": "He said he was studying.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'was'.",
+                "trans": "Anh ấy nói đang học."
+          }
     ]
   },
   {
@@ -1220,6 +1834,159 @@ export const grammarDataB2 = [
         ],
         "a": "which"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "The man _____ lives next door is friendly.",
+                "a": "who",
+                "trans": "Người đàn ông sống kế bên thân thiện."
+          },
+          {
+                "q": "The book _____ I bought is interesting.",
+                "a": "which/that",
+                "trans": "Cuốn sách tôi mua rất hay."
+          },
+          {
+                "q": "That is the place _____ I was born.",
+                "a": "where",
+                "trans": "Đó là nơi tôi sinh ra."
+          },
+          {
+                "q": "The woman _____ car was stolen called the police.",
+                "a": "whose",
+                "trans": "Người phụ nữ bị mất xe gọi cảnh sát."
+          },
+          {
+                "q": "The day _____ we met was special.",
+                "a": "when",
+                "trans": "Ngày chúng tôi gặp nhau rất đặc biệt."
+          },
+          {
+                "q": "The reason _____ he left is unknown.",
+                "a": "why",
+                "trans": "Lý do anh ấy rời đi không rõ."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "The man which lives next door is friendly.",
+                "errorWord": "which",
+                "correction": "who",
+                "explanation": "Đúng phải dùng 'who' trong ngữ cảnh này.",
+                "trans": "Người đàn ông sống kế bên thân thiện."
+          },
+          {
+                "sentence": "The book which/thats I bought is interesting.",
+                "errorWord": "which/thats",
+                "correction": "which/that",
+                "explanation": "Đúng phải dùng 'which/that' trong ngữ cảnh này.",
+                "trans": "Cuốn sách tôi mua rất hay."
+          },
+          {
+                "sentence": "That is the place wheres I was born.",
+                "errorWord": "wheres",
+                "correction": "where",
+                "explanation": "Đúng phải dùng 'where' trong ngữ cảnh này.",
+                "trans": "Đó là nơi tôi sinh ra."
+          },
+          {
+                "sentence": "The woman whoses car was stolen called the police.",
+                "errorWord": "whoses",
+                "correction": "whose",
+                "explanation": "Đúng phải dùng 'whose' trong ngữ cảnh này.",
+                "trans": "Người phụ nữ bị mất xe gọi cảnh sát."
+          },
+          {
+                "sentence": "The day whens we met was special.",
+                "errorWord": "whens",
+                "correction": "when",
+                "explanation": "Đúng phải dùng 'when' trong ngữ cảnh này.",
+                "trans": "Ngày chúng tôi gặp nhau rất đặc biệt."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Người đàn ông sống kế bên thân thiện.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "who",
+                "a": "The man who lives next door is friendly."
+          },
+          {
+                "original": "Cuốn sách tôi mua rất hay.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "which/that",
+                "a": "The book which/that I bought is interesting."
+          },
+          {
+                "original": "Đó là nơi tôi sinh ra.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "where",
+                "a": "That is the place where I was born."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "The man _____ lives next door is friendly.",
+                            "right": "who"
+                      },
+                      {
+                            "left": "The book _____ I bought is interesting.",
+                            "right": "which/that"
+                      },
+                      {
+                            "left": "That is the place _____ I was born.",
+                            "right": "where"
+                      },
+                      {
+                            "left": "The woman _____ car was stolen called the police.",
+                            "right": "whose"
+                      },
+                      {
+                            "left": "The day _____ we met was special.",
+                            "right": "when"
+                      },
+                      {
+                            "left": "The reason _____ he left is unknown.",
+                            "right": "why"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "The man who lives next door is friendly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'who'.",
+                "trans": "Người đàn ông sống kế bên thân thiện."
+          },
+          {
+                "sentence": "The book which/thatx I bought is interesting.",
+                "isCorrect": false,
+                "correction": "The book which/that I bought is interesting.",
+                "explanation": "Sai - phải dùng 'which/that'.",
+                "trans": "Cuốn sách tôi mua rất hay."
+          },
+          {
+                "sentence": "That is the place where I was born.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'where'.",
+                "trans": "Đó là nơi tôi sinh ra."
+          },
+          {
+                "sentence": "The woman whosex car was stolen called the police.",
+                "isCorrect": false,
+                "correction": "The woman whose car was stolen called the police.",
+                "explanation": "Sai - phải dùng 'whose'.",
+                "trans": "Người phụ nữ bị mất xe gọi cảnh sát."
+          },
+          {
+                "sentence": "The day when we met was special.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'when'.",
+                "trans": "Ngày chúng tôi gặp nhau rất đặc biệt."
+          }
     ]
   },
   {
@@ -1468,6 +2235,159 @@ export const grammarDataB2 = [
         ],
         "a": "had known"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "If it rains, I _____ stay home.",
+                "a": "will",
+                "trans": "Nếu trời mưa, tôi sẽ ở nhà."
+          },
+          {
+                "q": "If I _____ rich, I would travel the world.",
+                "a": "were",
+                "trans": "Nếu tôi giàu, tôi sẽ du lịch thế giới."
+          },
+          {
+                "q": "If she had studied, she _____ have passed.",
+                "a": "would",
+                "trans": "Nếu cô ấy học, cô ấy đã đỗ."
+          },
+          {
+                "q": "If you heat water, it _____.",
+                "a": "boils",
+                "trans": "Nếu đun nước, nó sôi."
+          },
+          {
+                "q": "If I _____ you, I would apologize.",
+                "a": "were",
+                "trans": "Nếu tôi là bạn, tôi sẽ xin lỗi."
+          },
+          {
+                "q": "If he _____ come, we'll start without him.",
+                "a": "doesn't",
+                "trans": "Nếu anh ấy không đến, chúng tôi sẽ bắt đầu."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "If it rains, I wills stay home.",
+                "errorWord": "wills",
+                "correction": "will",
+                "explanation": "Đúng phải dùng 'will' trong ngữ cảnh này.",
+                "trans": "Nếu trời mưa, tôi sẽ ở nhà."
+          },
+          {
+                "sentence": "If I was rich, I would travel the world.",
+                "errorWord": "was",
+                "correction": "were",
+                "explanation": "Đúng phải dùng 'were' trong ngữ cảnh này.",
+                "trans": "Nếu tôi giàu, tôi sẽ du lịch thế giới."
+          },
+          {
+                "sentence": "If she had studied, she woulds have passed.",
+                "errorWord": "woulds",
+                "correction": "would",
+                "explanation": "Đúng phải dùng 'would' trong ngữ cảnh này.",
+                "trans": "Nếu cô ấy học, cô ấy đã đỗ."
+          },
+          {
+                "sentence": "If you heat water, it boilss.",
+                "errorWord": "boilss",
+                "correction": "boils",
+                "explanation": "Đúng phải dùng 'boils' trong ngữ cảnh này.",
+                "trans": "Nếu đun nước, nó sôi."
+          },
+          {
+                "sentence": "If I was you, I would apologize.",
+                "errorWord": "was",
+                "correction": "were",
+                "explanation": "Đúng phải dùng 'were' trong ngữ cảnh này.",
+                "trans": "Nếu tôi là bạn, tôi sẽ xin lỗi."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Nếu trời mưa, tôi sẽ ở nhà.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "will",
+                "a": "If it rains, I will stay home."
+          },
+          {
+                "original": "Nếu tôi giàu, tôi sẽ du lịch thế giới.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "were",
+                "a": "If I were rich, I would travel the world."
+          },
+          {
+                "original": "Nếu cô ấy học, cô ấy đã đỗ.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "would",
+                "a": "If she had studied, she would have passed."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "If it rains, I _____ stay home.",
+                            "right": "will"
+                      },
+                      {
+                            "left": "If I _____ rich, I would travel the world.",
+                            "right": "were"
+                      },
+                      {
+                            "left": "If she had studied, she _____ have passed.",
+                            "right": "would"
+                      },
+                      {
+                            "left": "If you heat water, it _____.",
+                            "right": "boils"
+                      },
+                      {
+                            "left": "If I _____ you, I would apologize.",
+                            "right": "were"
+                      },
+                      {
+                            "left": "If he _____ come, we'll start without him.",
+                            "right": "doesn't"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "If it rains, I will stay home.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'will'.",
+                "trans": "Nếu trời mưa, tôi sẽ ở nhà."
+          },
+          {
+                "sentence": "If I werex rich, I would travel the world.",
+                "isCorrect": false,
+                "correction": "If I were rich, I would travel the world.",
+                "explanation": "Sai - phải dùng 'were'.",
+                "trans": "Nếu tôi giàu, tôi sẽ du lịch thế giới."
+          },
+          {
+                "sentence": "If she had studied, she would have passed.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'would'.",
+                "trans": "Nếu cô ấy học, cô ấy đã đỗ."
+          },
+          {
+                "sentence": "If you heat water, it boilsx.",
+                "isCorrect": false,
+                "correction": "If you heat water, it boils.",
+                "explanation": "Sai - phải dùng 'boils'.",
+                "trans": "Nếu đun nước, nó sôi."
+          },
+          {
+                "sentence": "If I were you, I would apologize.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'were'.",
+                "trans": "Nếu tôi là bạn, tôi sẽ xin lỗi."
+          }
     ]
   },
   {
@@ -1712,6 +2632,159 @@ export const grammarDataB2 = [
         ],
         "a": "would stop"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "I wish I _____ taller.",
+                "a": "were",
+                "trans": "Ước gì tôi cao hơn."
+          },
+          {
+                "q": "She wishes she _____ speak French.",
+                "a": "could",
+                "trans": "Cô ấy ước có thể nói tiếng Pháp."
+          },
+          {
+                "q": "I wish I _____ studied harder.",
+                "a": "had",
+                "trans": "Ước gì tôi đã học chăm hơn."
+          },
+          {
+                "q": "If only he _____ here now.",
+                "a": "were",
+                "trans": "Giá mà anh ấy ở đây."
+          },
+          {
+                "q": "I wish it _____ rain so much.",
+                "a": "wouldn't",
+                "trans": "Ước gì trời đừng mưa nhiều."
+          },
+          {
+                "q": "She wishes she _____ bought that dress.",
+                "a": "had",
+                "trans": "Cô ấy ước đã mua chiếc váy đó."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "I wish I was taller.",
+                "errorWord": "was",
+                "correction": "were",
+                "explanation": "Đúng phải dùng 'were' trong ngữ cảnh này.",
+                "trans": "Ước gì tôi cao hơn."
+          },
+          {
+                "sentence": "She wishes she coulds speak French.",
+                "errorWord": "coulds",
+                "correction": "could",
+                "explanation": "Đúng phải dùng 'could' trong ngữ cảnh này.",
+                "trans": "Cô ấy ước có thể nói tiếng Pháp."
+          },
+          {
+                "sentence": "I wish I have studied harder.",
+                "errorWord": "have",
+                "correction": "had",
+                "explanation": "Đúng phải dùng 'had' trong ngữ cảnh này.",
+                "trans": "Ước gì tôi đã học chăm hơn."
+          },
+          {
+                "sentence": "If only he was here now.",
+                "errorWord": "was",
+                "correction": "were",
+                "explanation": "Đúng phải dùng 'were' trong ngữ cảnh này.",
+                "trans": "Giá mà anh ấy ở đây."
+          },
+          {
+                "sentence": "I wish it wouldn'ts rain so much.",
+                "errorWord": "wouldn'ts",
+                "correction": "wouldn't",
+                "explanation": "Đúng phải dùng 'wouldn't' trong ngữ cảnh này.",
+                "trans": "Ước gì trời đừng mưa nhiều."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Ước gì tôi cao hơn.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "were",
+                "a": "I wish I were taller."
+          },
+          {
+                "original": "Cô ấy ước có thể nói tiếng Pháp.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "could",
+                "a": "She wishes she could speak French."
+          },
+          {
+                "original": "Ước gì tôi đã học chăm hơn.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "had",
+                "a": "I wish I had studied harder."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "I wish I _____ taller.",
+                            "right": "were"
+                      },
+                      {
+                            "left": "She wishes she _____ speak French.",
+                            "right": "could"
+                      },
+                      {
+                            "left": "I wish I _____ studied harder.",
+                            "right": "had"
+                      },
+                      {
+                            "left": "If only he _____ here now.",
+                            "right": "were"
+                      },
+                      {
+                            "left": "I wish it _____ rain so much.",
+                            "right": "wouldn't"
+                      },
+                      {
+                            "left": "She wishes she _____ bought that dress.",
+                            "right": "had"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "I wish I were taller.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'were'.",
+                "trans": "Ước gì tôi cao hơn."
+          },
+          {
+                "sentence": "She wishes she couldx speak French.",
+                "isCorrect": false,
+                "correction": "She wishes she could speak French.",
+                "explanation": "Sai - phải dùng 'could'.",
+                "trans": "Cô ấy ước có thể nói tiếng Pháp."
+          },
+          {
+                "sentence": "I wish I had studied harder.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'had'.",
+                "trans": "Ước gì tôi đã học chăm hơn."
+          },
+          {
+                "sentence": "If only he werex here now.",
+                "isCorrect": false,
+                "correction": "If only he were here now.",
+                "explanation": "Sai - phải dùng 'were'.",
+                "trans": "Giá mà anh ấy ở đây."
+          },
+          {
+                "sentence": "I wish it wouldn't rain so much.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'wouldn't'.",
+                "trans": "Ước gì trời đừng mưa nhiều."
+          }
     ]
   },
   {
@@ -1956,6 +3029,159 @@ export const grammarDataB2 = [
         ],
         "a": "pressing"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "She enjoys _____ books.",
+                "a": "reading",
+                "trans": "Cô ấy thích đọc sách."
+          },
+          {
+                "q": "He wants _____ a doctor.",
+                "a": "to be",
+                "trans": "Anh ấy muốn trở thành bác sĩ."
+          },
+          {
+                "q": "I avoid _____ fast food.",
+                "a": "eating",
+                "trans": "Tôi tránh ăn đồ ăn nhanh."
+          },
+          {
+                "q": "She agreed _____ me.",
+                "a": "to help",
+                "trans": "Cô ấy đồng ý giúp tôi."
+          },
+          {
+                "q": "He suggested _____ to the cinema.",
+                "a": "going",
+                "trans": "Anh ấy đề xuất đi xem phim."
+          },
+          {
+                "q": "They decided _____ a new car.",
+                "a": "to buy",
+                "trans": "Họ quyết định mua xe mới."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "She enjoys readings books.",
+                "errorWord": "readings",
+                "correction": "reading",
+                "explanation": "Đúng phải dùng 'reading' trong ngữ cảnh này.",
+                "trans": "Cô ấy thích đọc sách."
+          },
+          {
+                "sentence": "He wants to bes a doctor.",
+                "errorWord": "to bes",
+                "correction": "to be",
+                "explanation": "Đúng phải dùng 'to be' trong ngữ cảnh này.",
+                "trans": "Anh ấy muốn trở thành bác sĩ."
+          },
+          {
+                "sentence": "I avoid eatings fast food.",
+                "errorWord": "eatings",
+                "correction": "eating",
+                "explanation": "Đúng phải dùng 'eating' trong ngữ cảnh này.",
+                "trans": "Tôi tránh ăn đồ ăn nhanh."
+          },
+          {
+                "sentence": "She agreed to helps me.",
+                "errorWord": "to helps",
+                "correction": "to help",
+                "explanation": "Đúng phải dùng 'to help' trong ngữ cảnh này.",
+                "trans": "Cô ấy đồng ý giúp tôi."
+          },
+          {
+                "sentence": "He suggested goings to the cinema.",
+                "errorWord": "goings",
+                "correction": "going",
+                "explanation": "Đúng phải dùng 'going' trong ngữ cảnh này.",
+                "trans": "Anh ấy đề xuất đi xem phim."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Cô ấy thích đọc sách.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "reading",
+                "a": "She enjoys reading books."
+          },
+          {
+                "original": "Anh ấy muốn trở thành bác sĩ.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "to be",
+                "a": "He wants to be a doctor."
+          },
+          {
+                "original": "Tôi tránh ăn đồ ăn nhanh.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "eating",
+                "a": "I avoid eating fast food."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "She enjoys _____ books.",
+                            "right": "reading"
+                      },
+                      {
+                            "left": "He wants _____ a doctor.",
+                            "right": "to be"
+                      },
+                      {
+                            "left": "I avoid _____ fast food.",
+                            "right": "eating"
+                      },
+                      {
+                            "left": "She agreed _____ me.",
+                            "right": "to help"
+                      },
+                      {
+                            "left": "He suggested _____ to the cinema.",
+                            "right": "going"
+                      },
+                      {
+                            "left": "They decided _____ a new car.",
+                            "right": "to buy"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "She enjoys reading books.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'reading'.",
+                "trans": "Cô ấy thích đọc sách."
+          },
+          {
+                "sentence": "He wants to bex a doctor.",
+                "isCorrect": false,
+                "correction": "He wants to be a doctor.",
+                "explanation": "Sai - phải dùng 'to be'.",
+                "trans": "Anh ấy muốn trở thành bác sĩ."
+          },
+          {
+                "sentence": "I avoid eating fast food.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'eating'.",
+                "trans": "Tôi tránh ăn đồ ăn nhanh."
+          },
+          {
+                "sentence": "She agreed to helpx me.",
+                "isCorrect": false,
+                "correction": "She agreed to help me.",
+                "explanation": "Sai - phải dùng 'to help'.",
+                "trans": "Cô ấy đồng ý giúp tôi."
+          },
+          {
+                "sentence": "He suggested going to the cinema.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'going'.",
+                "trans": "Anh ấy đề xuất đi xem phim."
+          }
     ]
   },
   {
@@ -2200,6 +3426,159 @@ export const grammarDataB2 = [
         ],
         "a": "gets on"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "Please turn _____ the lights.",
+                "a": "off",
+                "trans": "Làm ơn tắt đèn."
+          },
+          {
+                "q": "She looks _____ her grandmother.",
+                "a": "after",
+                "trans": "Cô ấy chăm sóc bà."
+          },
+          {
+                "q": "I need to look _____ this word.",
+                "a": "up",
+                "trans": "Tôi cần tra từ này."
+          },
+          {
+                "q": "He gave _____ smoking last year.",
+                "a": "up",
+                "trans": "Anh ấy bỏ hút thuốc năm ngoái."
+          },
+          {
+                "q": "Can you pick me _____ at 5?",
+                "a": "up",
+                "trans": "Bạn đón tôi lúc 5 giờ được không?"
+          },
+          {
+                "q": "The meeting was put _____ to next week.",
+                "a": "off",
+                "trans": "Cuộc họp bị hoãn sang tuần sau."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "Please turn offs the lights.",
+                "errorWord": "offs",
+                "correction": "off",
+                "explanation": "Đúng phải dùng 'off' trong ngữ cảnh này.",
+                "trans": "Làm ơn tắt đèn."
+          },
+          {
+                "sentence": "She looks afters her grandmother.",
+                "errorWord": "afters",
+                "correction": "after",
+                "explanation": "Đúng phải dùng 'after' trong ngữ cảnh này.",
+                "trans": "Cô ấy chăm sóc bà."
+          },
+          {
+                "sentence": "I need to look ups this word.",
+                "errorWord": "ups",
+                "correction": "up",
+                "explanation": "Đúng phải dùng 'up' trong ngữ cảnh này.",
+                "trans": "Tôi cần tra từ này."
+          },
+          {
+                "sentence": "He gave ups smoking last year.",
+                "errorWord": "ups",
+                "correction": "up",
+                "explanation": "Đúng phải dùng 'up' trong ngữ cảnh này.",
+                "trans": "Anh ấy bỏ hút thuốc năm ngoái."
+          },
+          {
+                "sentence": "Can you pick me ups at 5?",
+                "errorWord": "ups",
+                "correction": "up",
+                "explanation": "Đúng phải dùng 'up' trong ngữ cảnh này.",
+                "trans": "Bạn đón tôi lúc 5 giờ được không?"
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Làm ơn tắt đèn.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "off",
+                "a": "Please turn off the lights."
+          },
+          {
+                "original": "Cô ấy chăm sóc bà.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "after",
+                "a": "She looks after her grandmother."
+          },
+          {
+                "original": "Tôi cần tra từ này.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "up",
+                "a": "I need to look up this word."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "Please turn _____ the lights.",
+                            "right": "off"
+                      },
+                      {
+                            "left": "She looks _____ her grandmother.",
+                            "right": "after"
+                      },
+                      {
+                            "left": "I need to look _____ this word.",
+                            "right": "up"
+                      },
+                      {
+                            "left": "He gave _____ smoking last year.",
+                            "right": "up"
+                      },
+                      {
+                            "left": "Can you pick me _____ at 5?",
+                            "right": "up"
+                      },
+                      {
+                            "left": "The meeting was put _____ to next week.",
+                            "right": "off"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "Please turn off the lights.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'off'.",
+                "trans": "Làm ơn tắt đèn."
+          },
+          {
+                "sentence": "She looks afterx her grandmother.",
+                "isCorrect": false,
+                "correction": "She looks after her grandmother.",
+                "explanation": "Sai - phải dùng 'after'.",
+                "trans": "Cô ấy chăm sóc bà."
+          },
+          {
+                "sentence": "I need to look up this word.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'up'.",
+                "trans": "Tôi cần tra từ này."
+          },
+          {
+                "sentence": "He gave upx smoking last year.",
+                "isCorrect": false,
+                "correction": "He gave up smoking last year.",
+                "explanation": "Sai - phải dùng 'up'.",
+                "trans": "Anh ấy bỏ hút thuốc năm ngoái."
+          },
+          {
+                "sentence": "Can you pick me up at 5?",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'up'.",
+                "trans": "Bạn đón tôi lúc 5 giờ được không?"
+          }
     ]
   },
   {
@@ -2444,6 +3823,159 @@ export const grammarDataB2 = [
         ],
         "a": "should"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "She _____ have left already.",
+                "a": "might",
+                "trans": "Cô ấy có thể đã đi rồi."
+          },
+          {
+                "q": "He _____ have been at the party.",
+                "a": "must",
+                "trans": "Chắc hẳn anh ấy đã ở tiệc."
+          },
+          {
+                "q": "They _____ not have seen the sign.",
+                "a": "might",
+                "trans": "Họ có thể đã không thấy biển báo."
+          },
+          {
+                "q": "You _____ have told me earlier!",
+                "a": "should",
+                "trans": "Lẽ ra bạn nên nói sớm hơn!"
+          },
+          {
+                "q": "She _____ have been tired after the trip.",
+                "a": "must",
+                "trans": "Chắc hẳn cô ấy mệt sau chuyến đi."
+          },
+          {
+                "q": "He _____ not have stolen the money.",
+                "a": "could",
+                "trans": "Anh ấy không thể đã lấy tiền."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "She mights have left already.",
+                "errorWord": "mights",
+                "correction": "might",
+                "explanation": "Đúng phải dùng 'might' trong ngữ cảnh này.",
+                "trans": "Cô ấy có thể đã đi rồi."
+          },
+          {
+                "sentence": "He musts have been at the party.",
+                "errorWord": "musts",
+                "correction": "must",
+                "explanation": "Đúng phải dùng 'must' trong ngữ cảnh này.",
+                "trans": "Chắc hẳn anh ấy đã ở tiệc."
+          },
+          {
+                "sentence": "They mights not have seen the sign.",
+                "errorWord": "mights",
+                "correction": "might",
+                "explanation": "Đúng phải dùng 'might' trong ngữ cảnh này.",
+                "trans": "Họ có thể đã không thấy biển báo."
+          },
+          {
+                "sentence": "You shoulds have told me earlier!",
+                "errorWord": "shoulds",
+                "correction": "should",
+                "explanation": "Đúng phải dùng 'should' trong ngữ cảnh này.",
+                "trans": "Lẽ ra bạn nên nói sớm hơn!"
+          },
+          {
+                "sentence": "She musts have been tired after the trip.",
+                "errorWord": "musts",
+                "correction": "must",
+                "explanation": "Đúng phải dùng 'must' trong ngữ cảnh này.",
+                "trans": "Chắc hẳn cô ấy mệt sau chuyến đi."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Cô ấy có thể đã đi rồi.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "might",
+                "a": "She might have left already."
+          },
+          {
+                "original": "Chắc hẳn anh ấy đã ở tiệc.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "must",
+                "a": "He must have been at the party."
+          },
+          {
+                "original": "Họ có thể đã không thấy biển báo.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "might",
+                "a": "They might not have seen the sign."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "She _____ have left already.",
+                            "right": "might"
+                      },
+                      {
+                            "left": "He _____ have been at the party.",
+                            "right": "must"
+                      },
+                      {
+                            "left": "They _____ not have seen the sign.",
+                            "right": "might"
+                      },
+                      {
+                            "left": "You _____ have told me earlier!",
+                            "right": "should"
+                      },
+                      {
+                            "left": "She _____ have been tired after the trip.",
+                            "right": "must"
+                      },
+                      {
+                            "left": "He _____ not have stolen the money.",
+                            "right": "could"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "She might have left already.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'might'.",
+                "trans": "Cô ấy có thể đã đi rồi."
+          },
+          {
+                "sentence": "He mustx have been at the party.",
+                "isCorrect": false,
+                "correction": "He must have been at the party.",
+                "explanation": "Sai - phải dùng 'must'.",
+                "trans": "Chắc hẳn anh ấy đã ở tiệc."
+          },
+          {
+                "sentence": "They might not have seen the sign.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'might'.",
+                "trans": "Họ có thể đã không thấy biển báo."
+          },
+          {
+                "sentence": "You shouldx have told me earlier!",
+                "isCorrect": false,
+                "correction": "You should have told me earlier!",
+                "explanation": "Sai - phải dùng 'should'.",
+                "trans": "Lẽ ra bạn nên nói sớm hơn!"
+          },
+          {
+                "sentence": "She must have been tired after the trip.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'must'.",
+                "trans": "Chắc hẳn cô ấy mệt sau chuyến đi."
+          }
     ]
   },
   {
@@ -2688,6 +4220,159 @@ export const grammarDataB2 = [
         ],
         "a": "The"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -2932,6 +4617,159 @@ export const grammarDataB2 = [
         ],
         "a": "in"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -3176,6 +5014,159 @@ export const grammarDataB2 = [
         ],
         "a": "Nevertheless"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -3420,6 +5411,159 @@ export const grammarDataB2 = [
         ],
         "a": "does"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -3664,6 +5808,159 @@ export const grammarDataB2 = [
         ],
         "a": "did"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -3908,6 +6205,159 @@ export const grammarDataB2 = [
         ],
         "a": "cry"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -4148,6 +6598,159 @@ export const grammarDataB2 = [
         ],
         "a": "that"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -4388,6 +6991,159 @@ export const grammarDataB2 = [
         ],
         "a": "Having"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -4632,6 +7388,159 @@ export const grammarDataB2 = [
         ],
         "a": "is"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -4876,6 +7785,159 @@ export const grammarDataB2 = [
         ],
         "a": "left"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -5120,6 +8182,159 @@ export const grammarDataB2 = [
         ],
         "a": "simplify"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -5364,6 +8579,159 @@ export const grammarDataB2 = [
         ],
         "a": "made"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -5608,6 +8976,159 @@ export const grammarDataB2 = [
         ],
         "a": "whom"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -5852,6 +9373,159 @@ export const grammarDataB2 = [
         ],
         "a": "as"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   },
   {
@@ -6092,6 +9766,159 @@ export const grammarDataB2 = [
         ],
         "a": "met"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a practice sentence _____.",
+                "a": "correctly",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "q": "She _____ the answer.",
+                "a": "knows",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "q": "They _____ arrived yet.",
+                "a": "haven't",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "q": "He _____ working when I called.",
+                "a": "was",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "We _____ go if you want.",
+                "a": "can",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          },
+          {
+                "q": "The work _____ been completed.",
+                "a": "has",
+                "trans": "Công việc đã hoàn thành."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a practice sentence correctlys.",
+                "errorWord": "correctlys",
+                "correction": "correctly",
+                "explanation": "Đúng phải dùng 'correctly' trong ngữ cảnh này.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowss the answer.",
+                "errorWord": "knowss",
+                "correction": "knows",
+                "explanation": "Đúng phải dùng 'knows' trong ngữ cảnh này.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven'ts arrived yet.",
+                "errorWord": "haven'ts",
+                "correction": "haven't",
+                "explanation": "Đúng phải dùng 'haven't' trong ngữ cảnh này.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "errorWord": "were",
+                "correction": "was",
+                "explanation": "Đúng phải dùng 'was' trong ngữ cảnh này.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We cans go if you want.",
+                "errorWord": "cans",
+                "correction": "can",
+                "explanation": "Đúng phải dùng 'can' trong ngữ cảnh này.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "Đây là câu luyện tập.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "correctly",
+                "a": "This is a practice sentence correctly."
+          },
+          {
+                "original": "Cô ấy biết câu trả lời.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "knows",
+                "a": "She knows the answer."
+          },
+          {
+                "original": "Họ chưa đến.",
+                "instruction": "Dịch sang tiếng Anh.",
+                "keyword": "haven't",
+                "a": "They haven't arrived yet."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a practice sentence _____.",
+                            "right": "correctly"
+                      },
+                      {
+                            "left": "She _____ the answer.",
+                            "right": "knows"
+                      },
+                      {
+                            "left": "They _____ arrived yet.",
+                            "right": "haven't"
+                      },
+                      {
+                            "left": "He _____ working when I called.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "We _____ go if you want.",
+                            "right": "can"
+                      },
+                      {
+                            "left": "The work _____ been completed.",
+                            "right": "has"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a practice sentence correctly.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'correctly'.",
+                "trans": "Đây là câu luyện tập."
+          },
+          {
+                "sentence": "She knowsx the answer.",
+                "isCorrect": false,
+                "correction": "She knows the answer.",
+                "explanation": "Sai - phải dùng 'knows'.",
+                "trans": "Cô ấy biết câu trả lời."
+          },
+          {
+                "sentence": "They haven't arrived yet.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'haven't'.",
+                "trans": "Họ chưa đến."
+          },
+          {
+                "sentence": "He were working when I called.",
+                "isCorrect": false,
+                "correction": "He was working when I called.",
+                "explanation": "Sai - phải dùng 'was'.",
+                "trans": "Anh ấy đang làm khi tôi gọi."
+          },
+          {
+                "sentence": "We can go if you want.",
+                "isCorrect": true,
+                "explanation": "Đúng - dùng 'can'.",
+                "trans": "Chúng ta có thể đi nếu bạn muốn."
+          }
     ]
   }
 ];

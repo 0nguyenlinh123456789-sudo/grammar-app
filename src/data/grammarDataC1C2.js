@@ -189,6 +189,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "complaining"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "By the time she arrived, the meeting _____ already started.",
+                "a": "had",
+                "trans": "Khi cô ấy đến, cuộc họp đã bắt đầu."
+          },
+          {
+                "q": "He _____ been working here for ten years by next month.",
+                "a": "will have",
+                "trans": "Đến tháng sau anh ấy sẽ làm ở đây được 10 năm."
+          },
+          {
+                "q": "She _____ studying when the phone rang.",
+                "a": "was",
+                "trans": "Cô ấy đang học khi chuông reo."
+          },
+          {
+                "q": "They _____ lived in Paris before moving to London.",
+                "a": "had",
+                "trans": "Họ đã sống ở Paris trước khi chuyển đến London."
+          },
+          {
+                "q": "I _____ been waiting for you all morning.",
+                "a": "have",
+                "trans": "Tôi đã đợi bạn cả buổi sáng."
+          },
+          {
+                "q": "By 2030, technology _____ have transformed education.",
+                "a": "will",
+                "trans": "Đến 2030, công nghệ sẽ đã thay đổi giáo dục."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "By the time she arrived, the meeting have already started.",
+                "errorWord": "have",
+                "correction": "had",
+                "explanation": "Trong ngữ cảnh này phải dùng 'had'.",
+                "trans": "Khi cô ấy đến, cuộc họp đã bắt đầu."
+          },
+          {
+                "sentence": "He will have been working here for ten years by next month.",
+                "errorWord": "will have",
+                "correction": "will have",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have'.",
+                "trans": "Đến tháng sau anh ấy sẽ làm ở đây được 10 năm."
+          },
+          {
+                "sentence": "She is studying when the phone rang.",
+                "errorWord": "is",
+                "correction": "was",
+                "explanation": "Trong ngữ cảnh này phải dùng 'was'.",
+                "trans": "Cô ấy đang học khi chuông reo."
+          },
+          {
+                "sentence": "They have lived in Paris before moving to London.",
+                "errorWord": "have",
+                "correction": "had",
+                "explanation": "Trong ngữ cảnh này phải dùng 'had'.",
+                "trans": "Họ đã sống ở Paris trước khi chuyển đến London."
+          },
+          {
+                "sentence": "I have been waiting for you all morning.",
+                "errorWord": "have",
+                "correction": "have",
+                "explanation": "Trong ngữ cảnh này phải dùng 'have'.",
+                "trans": "Tôi đã đợi bạn cả buổi sáng."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "By the time she arrived, the meeting had already started.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "had",
+                "a": "By the time she arrived, the meeting had already started."
+          },
+          {
+                "original": "He will have been working here for ten years by next month.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have",
+                "a": "He will have been working here for ten years by next month."
+          },
+          {
+                "original": "She was studying when the phone rang.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "was",
+                "a": "She was studying when the phone rang."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "By the time she arrived, the meeting _____ already started.",
+                            "right": "had"
+                      },
+                      {
+                            "left": "He _____ been working here for ten years by next month.",
+                            "right": "will have"
+                      },
+                      {
+                            "left": "She _____ studying when the phone rang.",
+                            "right": "was"
+                      },
+                      {
+                            "left": "They _____ lived in Paris before moving to London.",
+                            "right": "had"
+                      },
+                      {
+                            "left": "I _____ been waiting for you all morning.",
+                            "right": "have"
+                      },
+                      {
+                            "left": "By 2030, technology _____ have transformed education.",
+                            "right": "will"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "By the time she arrived, the meeting had already started.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Khi cô ấy đến, cuộc họp đã bắt đầu."
+          },
+          {
+                "sentence": "He will havex been working here for ten years by next month.",
+                "isCorrect": false,
+                "correction": "He will have been working here for ten years by next month.",
+                "explanation": "Sai - phải dùng 'will have'.",
+                "trans": "Đến tháng sau anh ấy sẽ làm ở đây được 10 năm."
+          },
+          {
+                "sentence": "She was studying when the phone rang.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Cô ấy đang học khi chuông reo."
+          },
+          {
+                "sentence": "They have lived in Paris before moving to London.",
+                "isCorrect": false,
+                "correction": "They had lived in Paris before moving to London.",
+                "explanation": "Sai - phải dùng 'had'.",
+                "trans": "Họ đã sống ở Paris trước khi chuyển đến London."
+          },
+          {
+                "sentence": "I have been waiting for you all morning.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Tôi đã đợi bạn cả buổi sáng."
+          }
     ]
   },
   {
@@ -378,6 +531,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "will have built"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This time next week, I _____ be lying on the beach.",
+                "a": "will",
+                "trans": "Giờ này tuần sau tôi sẽ đang nằm trên bãi biển."
+          },
+          {
+                "q": "By the end of the year, she _____ have graduated.",
+                "a": "will",
+                "trans": "Đến cuối năm, cô ấy sẽ đã tốt nghiệp."
+          },
+          {
+                "q": "The train _____ due to arrive at 6 PM.",
+                "a": "is",
+                "trans": "Tàu dự kiến đến lúc 6 giờ chiều."
+          },
+          {
+                "q": "They _____ about to announce the results.",
+                "a": "are",
+                "trans": "Họ sắp công bố kết quả."
+          },
+          {
+                "q": "She _____ on the verge of quitting her job.",
+                "a": "is",
+                "trans": "Cô ấy sắp bỏ việc."
+          },
+          {
+                "q": "By next month, we _____ have been married for 20 years.",
+                "a": "will",
+                "trans": "Đến tháng sau, chúng tôi sẽ cưới được 20 năm."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This time next week, I would be lying on the beach.",
+                "errorWord": "would",
+                "correction": "will",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will'.",
+                "trans": "Giờ này tuần sau tôi sẽ đang nằm trên bãi biển."
+          },
+          {
+                "sentence": "By the end of the year, she would have graduated.",
+                "errorWord": "would",
+                "correction": "will",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will'.",
+                "trans": "Đến cuối năm, cô ấy sẽ đã tốt nghiệp."
+          },
+          {
+                "sentence": "The train is due to arrive at 6 PM.",
+                "errorWord": "is",
+                "correction": "is",
+                "explanation": "Trong ngữ cảnh này phải dùng 'is'.",
+                "trans": "Tàu dự kiến đến lúc 6 giờ chiều."
+          },
+          {
+                "sentence": "They are about to announce the results.",
+                "errorWord": "are",
+                "correction": "are",
+                "explanation": "Trong ngữ cảnh này phải dùng 'are'.",
+                "trans": "Họ sắp công bố kết quả."
+          },
+          {
+                "sentence": "She is on the verge of quitting her job.",
+                "errorWord": "is",
+                "correction": "is",
+                "explanation": "Trong ngữ cảnh này phải dùng 'is'.",
+                "trans": "Cô ấy sắp bỏ việc."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This time next week, I will be lying on the beach.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will",
+                "a": "This time next week, I will be lying on the beach."
+          },
+          {
+                "original": "By the end of the year, she will have graduated.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will",
+                "a": "By the end of the year, she will have graduated."
+          },
+          {
+                "original": "The train is due to arrive at 6 PM.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "is",
+                "a": "The train is due to arrive at 6 PM."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This time next week, I _____ be lying on the beach.",
+                            "right": "will"
+                      },
+                      {
+                            "left": "By the end of the year, she _____ have graduated.",
+                            "right": "will"
+                      },
+                      {
+                            "left": "The train _____ due to arrive at 6 PM.",
+                            "right": "is"
+                      },
+                      {
+                            "left": "They _____ about to announce the results.",
+                            "right": "are"
+                      },
+                      {
+                            "left": "She _____ on the verge of quitting her job.",
+                            "right": "is"
+                      },
+                      {
+                            "left": "By next month, we _____ have been married for 20 years.",
+                            "right": "will"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This time next week, I will be lying on the beach.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Giờ này tuần sau tôi sẽ đang nằm trên bãi biển."
+          },
+          {
+                "sentence": "By the end of the year, she willx have graduated.",
+                "isCorrect": false,
+                "correction": "By the end of the year, she will have graduated.",
+                "explanation": "Sai - phải dùng 'will'.",
+                "trans": "Đến cuối năm, cô ấy sẽ đã tốt nghiệp."
+          },
+          {
+                "sentence": "The train is due to arrive at 6 PM.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Tàu dự kiến đến lúc 6 giờ chiều."
+          },
+          {
+                "sentence": "They arex about to announce the results.",
+                "isCorrect": false,
+                "correction": "They are about to announce the results.",
+                "explanation": "Sai - phải dùng 'are'.",
+                "trans": "Họ sắp công bố kết quả."
+          },
+          {
+                "sentence": "She is on the verge of quitting her job.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Cô ấy sắp bỏ việc."
+          }
     ]
   },
   {
@@ -567,6 +873,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "do"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "_____ had I arrived than it started raining.",
+                "a": "No sooner",
+                "trans": "Vừa mới đến thì trời mưa."
+          },
+          {
+                "q": "Not only _____ she sing, but she also dances.",
+                "a": "does",
+                "trans": "Cô ấy không chỉ hát mà còn nhảy."
+          },
+          {
+                "q": "Seldom _____ I seen such beauty.",
+                "a": "have",
+                "trans": "Hiếm khi tôi thấy vẻ đẹp như vậy."
+          },
+          {
+                "q": "Never _____ he been so angry.",
+                "a": "has",
+                "trans": "Chưa bao giờ anh ấy tức giận như vậy."
+          },
+          {
+                "q": "_____ no circumstances should you open this door.",
+                "a": "Under",
+                "trans": "Trong bất kỳ trường hợp nào cũng không được mở cửa này."
+          },
+          {
+                "q": "Only then _____ I realize my mistake.",
+                "a": "did",
+                "trans": "Chỉ lúc đó tôi mới nhận ra sai lầm."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "No sooner had I arrived than it started raining.",
+                "errorWord": "No sooner",
+                "correction": "No sooner",
+                "explanation": "Trong ngữ cảnh này phải dùng 'No sooner'.",
+                "trans": "Vừa mới đến thì trời mưa."
+          },
+          {
+                "sentence": "Not only do she sing, but she also dances.",
+                "errorWord": "do",
+                "correction": "does",
+                "explanation": "Trong ngữ cảnh này phải dùng 'does'.",
+                "trans": "Cô ấy không chỉ hát mà còn nhảy."
+          },
+          {
+                "sentence": "Seldom have I seen such beauty.",
+                "errorWord": "have",
+                "correction": "have",
+                "explanation": "Trong ngữ cảnh này phải dùng 'have'.",
+                "trans": "Hiếm khi tôi thấy vẻ đẹp như vậy."
+          },
+          {
+                "sentence": "Never have he been so angry.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Chưa bao giờ anh ấy tức giận như vậy."
+          },
+          {
+                "sentence": "Under no circumstances should you open this door.",
+                "errorWord": "Under",
+                "correction": "Under",
+                "explanation": "Trong ngữ cảnh này phải dùng 'Under'.",
+                "trans": "Trong bất kỳ trường hợp nào cũng không được mở cửa này."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "No sooner had I arrived than it started raining.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "No sooner",
+                "a": "No sooner had I arrived than it started raining."
+          },
+          {
+                "original": "Not only does she sing, but she also dances.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "does",
+                "a": "Not only does she sing, but she also dances."
+          },
+          {
+                "original": "Seldom have I seen such beauty.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "have",
+                "a": "Seldom have I seen such beauty."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "_____ had I arrived than it started raining.",
+                            "right": "No sooner"
+                      },
+                      {
+                            "left": "Not only _____ she sing, but she also dances.",
+                            "right": "does"
+                      },
+                      {
+                            "left": "Seldom _____ I seen such beauty.",
+                            "right": "have"
+                      },
+                      {
+                            "left": "Never _____ he been so angry.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "_____ no circumstances should you open this door.",
+                            "right": "Under"
+                      },
+                      {
+                            "left": "Only then _____ I realize my mistake.",
+                            "right": "did"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "No sooner had I arrived than it started raining.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Vừa mới đến thì trời mưa."
+          },
+          {
+                "sentence": "Not only doesx she sing, but she also dances.",
+                "isCorrect": false,
+                "correction": "Not only does she sing, but she also dances.",
+                "explanation": "Sai - phải dùng 'does'.",
+                "trans": "Cô ấy không chỉ hát mà còn nhảy."
+          },
+          {
+                "sentence": "Seldom have I seen such beauty.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Hiếm khi tôi thấy vẻ đẹp như vậy."
+          },
+          {
+                "sentence": "Never have he been so angry.",
+                "isCorrect": false,
+                "correction": "Never has he been so angry.",
+                "explanation": "Sai - phải dùng 'has'.",
+                "trans": "Chưa bao giờ anh ấy tức giận như vậy."
+          },
+          {
+                "sentence": "Under no circumstances should you open this door.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Trong bất kỳ trường hợp nào cũng không được mở cửa này."
+          }
     ]
   },
   {
@@ -756,6 +1215,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "be able to"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "She _____ have left already; her car is gone.",
+                "a": "must",
+                "trans": "Chắc hẳn cô ấy đã đi; xe không còn."
+          },
+          {
+                "q": "He _____ not have known about the meeting.",
+                "a": "might",
+                "trans": "Có thể anh ấy không biết về cuộc họp."
+          },
+          {
+                "q": "You _____ have told me earlier!",
+                "a": "should",
+                "trans": "Lẽ ra bạn nên nói sớm hơn!"
+          },
+          {
+                "q": "They _____ have arrived by now.",
+                "a": "should",
+                "trans": "Giờ này lẽ ra họ đã đến."
+          },
+          {
+                "q": "She _____ have been working when I called.",
+                "a": "must",
+                "trans": "Chắc hẳn cô ấy đang làm khi tôi gọi."
+          },
+          {
+                "q": "He _____ not have stolen the money; he was with me.",
+                "a": "could",
+                "trans": "Anh ấy không thể đã lấy tiền; anh ấy ở với tôi."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "She might have left already; her car is gone.",
+                "errorWord": "might",
+                "correction": "must",
+                "explanation": "Trong ngữ cảnh này phải dùng 'must'.",
+                "trans": "Chắc hẳn cô ấy đã đi; xe không còn."
+          },
+          {
+                "sentence": "He might not have known about the meeting.",
+                "errorWord": "might",
+                "correction": "might",
+                "explanation": "Trong ngữ cảnh này phải dùng 'might'.",
+                "trans": "Có thể anh ấy không biết về cuộc họp."
+          },
+          {
+                "sentence": "You should have told me earlier!",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra bạn nên nói sớm hơn!"
+          },
+          {
+                "sentence": "They should have arrived by now.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Giờ này lẽ ra họ đã đến."
+          },
+          {
+                "sentence": "She might have been working when I called.",
+                "errorWord": "might",
+                "correction": "must",
+                "explanation": "Trong ngữ cảnh này phải dùng 'must'.",
+                "trans": "Chắc hẳn cô ấy đang làm khi tôi gọi."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "She must have left already; her car is gone.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "must",
+                "a": "She must have left already; her car is gone."
+          },
+          {
+                "original": "He might not have known about the meeting.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "might",
+                "a": "He might not have known about the meeting."
+          },
+          {
+                "original": "You should have told me earlier!",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "You should have told me earlier!"
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "She _____ have left already; her car is gone.",
+                            "right": "must"
+                      },
+                      {
+                            "left": "He _____ not have known about the meeting.",
+                            "right": "might"
+                      },
+                      {
+                            "left": "You _____ have told me earlier!",
+                            "right": "should"
+                      },
+                      {
+                            "left": "They _____ have arrived by now.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "She _____ have been working when I called.",
+                            "right": "must"
+                      },
+                      {
+                            "left": "He _____ not have stolen the money; he was with me.",
+                            "right": "could"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "She must have left already; her car is gone.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Chắc hẳn cô ấy đã đi; xe không còn."
+          },
+          {
+                "sentence": "He mightx not have known about the meeting.",
+                "isCorrect": false,
+                "correction": "He might not have known about the meeting.",
+                "explanation": "Sai - phải dùng 'might'.",
+                "trans": "Có thể anh ấy không biết về cuộc họp."
+          },
+          {
+                "sentence": "You should have told me earlier!",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra bạn nên nói sớm hơn!"
+          },
+          {
+                "sentence": "They shouldx have arrived by now.",
+                "isCorrect": false,
+                "correction": "They should have arrived by now.",
+                "explanation": "Sai - phải dùng 'should'.",
+                "trans": "Giờ này lẽ ra họ đã đến."
+          },
+          {
+                "sentence": "She must have been working when I called.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Chắc hẳn cô ấy đang làm khi tôi gọi."
+          }
     ]
   },
   {
@@ -945,6 +1557,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "stay"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "She demanded that he _____ on time.",
+                "a": "be",
+                "trans": "Cô ấy yêu cầu anh ấy phải đúng giờ."
+          },
+          {
+                "q": "It is essential that everyone _____ present.",
+                "a": "be",
+                "trans": "Mọi người cần phải có mặt."
+          },
+          {
+                "q": "I suggest that she _____ a doctor.",
+                "a": "see",
+                "trans": "Tôi đề nghị cô ấy đi khám bác sĩ."
+          },
+          {
+                "q": "If only I _____ known earlier.",
+                "a": "had",
+                "trans": "Giá mà tôi biết sớm hơn."
+          },
+          {
+                "q": "It's time we _____ going.",
+                "a": "got",
+                "trans": "Đã đến lúc chúng ta đi."
+          },
+          {
+                "q": "I wish I _____ speak Japanese.",
+                "a": "could",
+                "trans": "Ước gì tôi nói được tiếng Nhật."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "She demanded that he is on time.",
+                "errorWord": "is",
+                "correction": "be",
+                "explanation": "Trong ngữ cảnh này phải dùng 'be'.",
+                "trans": "Cô ấy yêu cầu anh ấy phải đúng giờ."
+          },
+          {
+                "sentence": "It is essential that everyone is present.",
+                "errorWord": "is",
+                "correction": "be",
+                "explanation": "Trong ngữ cảnh này phải dùng 'be'.",
+                "trans": "Mọi người cần phải có mặt."
+          },
+          {
+                "sentence": "I suggest that she see a doctor.",
+                "errorWord": "see",
+                "correction": "see",
+                "explanation": "Trong ngữ cảnh này phải dùng 'see'.",
+                "trans": "Tôi đề nghị cô ấy đi khám bác sĩ."
+          },
+          {
+                "sentence": "If only I have known earlier.",
+                "errorWord": "have",
+                "correction": "had",
+                "explanation": "Trong ngữ cảnh này phải dùng 'had'.",
+                "trans": "Giá mà tôi biết sớm hơn."
+          },
+          {
+                "sentence": "It's time we got going.",
+                "errorWord": "got",
+                "correction": "got",
+                "explanation": "Trong ngữ cảnh này phải dùng 'got'.",
+                "trans": "Đã đến lúc chúng ta đi."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "She demanded that he be on time.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "be",
+                "a": "She demanded that he be on time."
+          },
+          {
+                "original": "It is essential that everyone be present.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "be",
+                "a": "It is essential that everyone be present."
+          },
+          {
+                "original": "I suggest that she see a doctor.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "see",
+                "a": "I suggest that she see a doctor."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "She demanded that he _____ on time.",
+                            "right": "be"
+                      },
+                      {
+                            "left": "It is essential that everyone _____ present.",
+                            "right": "be"
+                      },
+                      {
+                            "left": "I suggest that she _____ a doctor.",
+                            "right": "see"
+                      },
+                      {
+                            "left": "If only I _____ known earlier.",
+                            "right": "had"
+                      },
+                      {
+                            "left": "It's time we _____ going.",
+                            "right": "got"
+                      },
+                      {
+                            "left": "I wish I _____ speak Japanese.",
+                            "right": "could"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "She demanded that he be on time.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Cô ấy yêu cầu anh ấy phải đúng giờ."
+          },
+          {
+                "sentence": "It is essential that everyone bex present.",
+                "isCorrect": false,
+                "correction": "It is essential that everyone be present.",
+                "explanation": "Sai - phải dùng 'be'.",
+                "trans": "Mọi người cần phải có mặt."
+          },
+          {
+                "sentence": "I suggest that she see a doctor.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Tôi đề nghị cô ấy đi khám bác sĩ."
+          },
+          {
+                "sentence": "If only I have known earlier.",
+                "isCorrect": false,
+                "correction": "If only I had known earlier.",
+                "explanation": "Sai - phải dùng 'had'.",
+                "trans": "Giá mà tôi biết sớm hơn."
+          },
+          {
+                "sentence": "It's time we got going.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đã đến lúc chúng ta đi."
+          }
     ]
   },
   {
@@ -1134,6 +1899,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "to"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -1323,6 +2241,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "to do"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -1512,6 +2583,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "to type"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -1701,6 +2925,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "are"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -1890,6 +3267,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "so"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -2079,6 +3609,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "utterly"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -2268,6 +3951,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "mule"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -2457,6 +4293,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "of"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -2646,6 +4635,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "to study"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -2835,6 +4977,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "to be"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -3020,6 +5315,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "on"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -3209,6 +5657,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "nutshell"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -3398,6 +5999,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "up"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -3587,6 +6341,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "up"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -3776,6 +6683,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "fiercely"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -3965,6 +7025,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "empirical"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -4154,6 +7367,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "tree"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -4343,6 +7709,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "board"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -4532,6 +8051,159 @@ export const grammarDataC1C2 = [
         ],
         "a": ", who"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   },
   {
@@ -4776,6 +8448,159 @@ export const grammarDataC1C2 = [
         ],
         "a": "more"
       }
+    ],
+    "fillBlanks": [
+          {
+                "q": "This is a C1/C2 level practice _____.",
+                "a": "sentence",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "q": "She _____ the report by tomorrow.",
+                "a": "will have finished",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "q": "They _____ have been more careful.",
+                "a": "should",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "q": "Not until he left _____ I realize the truth.",
+                "a": "did",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "q": "The proposal _____ been rejected.",
+                "a": "has",
+                "trans": "Đề xuất đã bị từ chối."
+          },
+          {
+                "q": "Had I known, I _____ have helped.",
+                "a": "would",
+                "trans": "Nếu tôi biết, tôi đã giúp."
+          }
+    ],
+    "errorCorrection": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "errorWord": "sentence",
+                "correction": "sentence",
+                "explanation": "Trong ngữ cảnh này phải dùng 'sentence'.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finished the report by tomorrow.",
+                "errorWord": "will have finished",
+                "correction": "will have finished",
+                "explanation": "Trong ngữ cảnh này phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "errorWord": "should",
+                "correction": "should",
+                "explanation": "Trong ngữ cảnh này phải dùng 'should'.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left do I realize the truth.",
+                "errorWord": "do",
+                "correction": "did",
+                "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal have been rejected.",
+                "errorWord": "have",
+                "correction": "has",
+                "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
+    ],
+    "transformation": [
+          {
+                "original": "This is a C1/C2 level practice sentence.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "sentence",
+                "a": "This is a C1/C2 level practice sentence."
+          },
+          {
+                "original": "She will have finished the report by tomorrow.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "will have finished",
+                "a": "She will have finished the report by tomorrow."
+          },
+          {
+                "original": "They should have been more careful.",
+                "instruction": "Viết lại câu giữ nguyên nghĩa.",
+                "keyword": "should",
+                "a": "They should have been more careful."
+          }
+    ],
+    "matching": [
+          {
+                "pairs": [
+                      {
+                            "left": "This is a C1/C2 level practice _____.",
+                            "right": "sentence"
+                      },
+                      {
+                            "left": "She _____ the report by tomorrow.",
+                            "right": "will have finished"
+                      },
+                      {
+                            "left": "They _____ have been more careful.",
+                            "right": "should"
+                      },
+                      {
+                            "left": "Not until he left _____ I realize the truth.",
+                            "right": "did"
+                      },
+                      {
+                            "left": "The proposal _____ been rejected.",
+                            "right": "has"
+                      },
+                      {
+                            "left": "Had I known, I _____ have helped.",
+                            "right": "would"
+                      }
+                ]
+          }
+    ],
+    "trueFalse": [
+          {
+                "sentence": "This is a C1/C2 level practice sentence.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đây là câu luyện tập cấp C1/C2."
+          },
+          {
+                "sentence": "She will have finishedx the report by tomorrow.",
+                "isCorrect": false,
+                "correction": "She will have finished the report by tomorrow.",
+                "explanation": "Sai - phải dùng 'will have finished'.",
+                "trans": "Cô ấy sẽ hoàn thành báo cáo vào ngày mai."
+          },
+          {
+                "sentence": "They should have been more careful.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Lẽ ra họ nên cẩn thận hơn."
+          },
+          {
+                "sentence": "Not until he left didx I realize the truth.",
+                "isCorrect": false,
+                "correction": "Not until he left did I realize the truth.",
+                "explanation": "Sai - phải dùng 'did'.",
+                "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
+          },
+          {
+                "sentence": "The proposal has been rejected.",
+                "isCorrect": true,
+                "explanation": "Đúng.",
+                "trans": "Đề xuất đã bị từ chối."
+          }
     ]
   }
 ];

@@ -6,20 +6,20 @@ import { useState, useEffect } from 'react';
 
 const LUNA_MESSAGES = {
   welcome: [
-    "Chào mừng bạn đến với Grammar Pro! 🎉 Tôi là Luna, cú mèo dẫn đường của bạn!",
-    "Học tiếng Anh mỗi ngày giúp não bộ phát triển! Hãy bắt đầu nào! 🦉",
-    "Hôm nay chúng ta học gì nhỉ? Tôi luôn ở đây hỗ trợ bạn! ✨",
+    "Chào mừng bạn đến với Grammar Pro! 🎉 Tớ là Luna, chú chuột lang nước (capybara) dẫn đường siêu đáng yêu của bạn!",
+    "Học tiếng Anh mỗi ngày giúp não bộ phát triển! Hãy bắt đầu nào! ✨",
+    "Hôm nay chúng ta học gì nhỉ? Tớ luôn ở đây hỗ trợ bạn! 💖",
   ],
   correct: [
     "Xuất sắc lắm! 🌟 Bạn làm tốt lắm!",
     "Chính xác! 🎯 Tiếp tục phát huy nhé!",
     "Tuyệt vời! 🏆 Não bộ của bạn đang phát triển đấy!",
-    "Đúng rồi! 🦉 Tôi biết bạn làm được mà!",
+    "Đúng rồi! 🦦 Tớ biết bạn làm được mà!",
   ],
   wrong: [
     "Ôi không sao! 💪 Sai để học, thử lại nhé!",
     "Gần đúng rồi! 🤔 Xem lại lý thuyết nhé!",
-    "Đừng nản! 🦉 Mỗi lần sai là một bước tiến!",
+    "Đừng nản! 🦦 Mỗi lần sai là một bước tiến!",
     "Không sao! 😊 Người giỏi cũng đã từng sai nhiều lần!",
   ],
   vocab: [
@@ -39,11 +39,11 @@ const LUNA_MESSAGES = {
     "Làm sai? Không sao! Não bạn đang học đấy! 🧠",
   ],
   idle: [
-    "🦉 Hú hú... Bạn đang ở đây à?",
+    "🦦 Nhóp nhép... Bạn đang ở đây à?",
     "Cùng học một bài ngắn nhé? Chỉ 5 phút thôi! ⏱️",
     "Mỗi ngày một từ mới = 365 từ mỗi năm! 📈",
   ],
-  loading: ["Đang tải... Tôi đang pha trà đợi bạn! ☕"],
+  loading: ["Đang tải... Tớ đang gặm cỏ đợi cậu! 🌿"],
 };
 
 const LUNA_MOODS = {
@@ -53,27 +53,43 @@ const LUNA_MOODS = {
   thinking: 'animate-mascot-wiggle',
 };
 
-// The actual Luna SVG owl drawing
-const LunaSVG = ({ size = 80, mood = 'idle' }) => {
-  const eyeStyle = mood === 'thinking' ? '😵' : mood === 'happy' || mood === 'celebrate' ? '😄' : '🦉';
+const CAPYBARA_IMAGES = {
+  idle: '/capybara_neutral.png',
+  thinking: '/capybara_studying.png',
+  happy: '/capybara_success.png',
+  celebrate: '/capybara_success.png',
+  wrong: '/capybara_failed.png',
+};
+
+// The Capybara Image component — white background removed via mix-blend-multiply
+// In dark mode, a warm light wrapper is added so the multiply blending still works
+const CapybaraImage = ({ size = 80, mood = 'idle' }) => {
+  const src = CAPYBARA_IMAGES[mood] || CAPYBARA_IMAGES.idle;
   
   return (
     <div 
-      className={`relative select-none ${LUNA_MOODS[mood] || LUNA_MOODS.idle}`}
-      style={{ width: size, height: size, fontSize: size * 0.85 }}
-      role="img"
-      aria-label="Luna the Owl mascot"
+      className={`relative select-none flex items-center justify-center ${LUNA_MOODS[mood] || LUNA_MOODS.idle}`}
+      style={{ width: size, height: size }}
     >
-      <span style={{ fontSize: size * 0.85, lineHeight: 1, display: 'block', textAlign: 'center' }}>
-        {eyeStyle}
-      </span>
+      {/* Circular sticker badge wrapper — bg removes white PNG background via mix-blend-multiply */}
+      <div 
+        className="w-full h-full flex items-center justify-center border-[3px] border-slate-800 dark:border-slate-700 bg-[#fffbeb] dark:bg-[#fef9c3] shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#000] transition-all duration-300"
+        style={{ borderRadius: '50%', padding: '6px', overflow: 'hidden' }}
+      >
+        <img 
+          src={src} 
+          alt="Luna the Capybara mascot" 
+          className="w-full h-full object-contain pointer-events-none mix-blend-multiply"
+          draggable={false}
+        />
+      </div>
       {/* Graduation cap decoration */}
       {(mood === 'happy' || mood === 'celebrate') && (
         <span 
           style={{ 
-            position: 'absolute', top: -size * 0.18, left: '50%', 
+            position: 'absolute', top: -size * 0.1, left: '50%', 
             transform: 'translateX(-50%)', 
-            fontSize: size * 0.45,
+            fontSize: size * 0.35,
             lineHeight: 1,
           }}
         >
@@ -83,8 +99,8 @@ const LunaSVG = ({ size = 80, mood = 'idle' }) => {
       {/* Stars when celebrating */}
       {mood === 'celebrate' && (
         <>
-          <span style={{ position: 'absolute', top: -4, right: -8, fontSize: size * 0.25 }}>⭐</span>
-          <span style={{ position: 'absolute', bottom: 0, left: -8, fontSize: size * 0.2 }}>✨</span>
+          <span style={{ position: 'absolute', top: -4, right: -4, fontSize: size * 0.25 }}>⭐</span>
+          <span style={{ position: 'absolute', bottom: 0, left: -4, fontSize: size * 0.2 }}>✨</span>
         </>
       )}
     </div>
@@ -189,10 +205,10 @@ const MascotLuna = ({
         className="relative z-10 cursor-pointer focus:outline-none rounded-full 
           hover:scale-110 transition-transform duration-200 active:scale-95
           drop-shadow-lg"
-        title="Click để nghe lời khuyên từ Luna! 🦉"
-        aria-label="Luna the mascot owl - click for tips"
+        title="Click để nghe lời khuyên từ Luna! 🦦"
+        aria-label="Luna the mascot capybara - click for tips"
       >
-        <LunaSVG size={size} mood={currentMood} />
+        <CapybaraImage size={size} mood={currentMood} />
       </button>
 
       {/* Right bubble */}

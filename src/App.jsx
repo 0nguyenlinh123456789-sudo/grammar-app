@@ -56,6 +56,7 @@ import GrammarPage from './pages/GrammarPage';
 import VocabVstepPage from './pages/VocabVstepPage';
 import VocabOxfordPage from './pages/VocabOxfordPage';
 import ScannerPage from './pages/ScannerPage';
+import GamesPage from './pages/GamesPage';
 
 export default function App() {
   // Navigation & Mode states
@@ -304,6 +305,15 @@ export default function App() {
 
       case 'scanner':
         return <ScannerPage />;
+
+      case 'games':
+        return (
+          <GamesPage
+            activeTopic={selectedVstepTopic}
+            playAudio={playAudio}
+            completeMilestone={completeMilestone}
+          />
+        );
 
       default:
         return (

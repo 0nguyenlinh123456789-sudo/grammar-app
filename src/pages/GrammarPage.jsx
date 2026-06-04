@@ -33,9 +33,8 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
     { id: 'ai', label: 'Gia Sư AI', icon: Bot, color: 'bg-yellow-500' },
   ];
 
-  // Filter tabs that have data (theory, sentence, exercise, ai always show)
-  const alwaysShow = ['theory', 'sentence', 'exercise', 'ai'];
-  const availableTabs = tabs.filter(t => alwaysShow.includes(t.id) || (t.data && t.data.length > 0));
+  // Hiển thị TẤT CẢ các tab (kể cả khi chưa có dữ liệu) để fix lỗi người dùng tưởng button không hiển thị
+  const availableTabs = tabs;
 
   return (
     <div className="max-w-4xl mx-auto animate-in fade-in dark:text-slate-100 transition-colors duration-300">
@@ -92,40 +91,75 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
           onComplete={() => completeMilestone(topic.id, 40)}
         />
       )}
-      {tab === 'fillblanks' && topic.fillBlanks && (
-        <FillBlanksExercise
-          exercises={topic.fillBlanks}
-          setGlobalProgress={setXp}
-          onComplete={() => completeMilestone(topic.id, 30)}
-        />
+      {tab === 'fillblanks' && (
+        topic.fillBlanks && topic.fillBlanks.length > 0 ? (
+          <FillBlanksExercise
+            exercises={topic.fillBlanks}
+            setGlobalProgress={setXp}
+            onComplete={() => completeMilestone(topic.id, 30)}
+          />
+        ) : (
+          <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
+            <p className="text-2xl mb-2">🚧</p>
+            Dữ liệu dạng bài này đang được cập nhật...
+          </div>
+        )
       )}
-      {tab === 'errorcorrection' && topic.errorCorrection && (
-        <ErrorCorrectionExercise
-          exercises={topic.errorCorrection}
-          setGlobalProgress={setXp}
-          onComplete={() => completeMilestone(topic.id, 30)}
-        />
+      {tab === 'errorcorrection' && (
+        topic.errorCorrection && topic.errorCorrection.length > 0 ? (
+          <ErrorCorrectionExercise
+            exercises={topic.errorCorrection}
+            setGlobalProgress={setXp}
+            onComplete={() => completeMilestone(topic.id, 30)}
+          />
+        ) : (
+          <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
+            <p className="text-2xl mb-2">🚧</p>
+            Dữ liệu dạng bài này đang được cập nhật...
+          </div>
+        )
       )}
-      {tab === 'transformation' && topic.transformation && (
-        <TransformationExercise
-          exercises={topic.transformation}
-          setGlobalProgress={setXp}
-          onComplete={() => completeMilestone(topic.id, 35)}
-        />
+      {tab === 'transformation' && (
+        topic.transformation && topic.transformation.length > 0 ? (
+          <TransformationExercise
+            exercises={topic.transformation}
+            setGlobalProgress={setXp}
+            onComplete={() => completeMilestone(topic.id, 35)}
+          />
+        ) : (
+          <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
+            <p className="text-2xl mb-2">🚧</p>
+            Dữ liệu dạng bài này đang được cập nhật...
+          </div>
+        )
       )}
-      {tab === 'matching' && topic.matching && (
-        <MatchingExercise
-          exercises={topic.matching}
-          setGlobalProgress={setXp}
-          onComplete={() => completeMilestone(topic.id, 25)}
-        />
+      {tab === 'matching' && (
+        topic.matching && topic.matching.length > 0 ? (
+          <MatchingExercise
+            exercises={topic.matching}
+            setGlobalProgress={setXp}
+            onComplete={() => completeMilestone(topic.id, 25)}
+          />
+        ) : (
+          <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
+            <p className="text-2xl mb-2">🚧</p>
+            Dữ liệu dạng bài này đang được cập nhật...
+          </div>
+        )
       )}
-      {tab === 'truefalse' && topic.trueFalse && (
-        <TrueFalseExercise
-          exercises={topic.trueFalse}
-          setGlobalProgress={setXp}
-          onComplete={() => completeMilestone(topic.id, 25)}
-        />
+      {tab === 'truefalse' && (
+        topic.trueFalse && topic.trueFalse.length > 0 ? (
+          <TrueFalseExercise
+            exercises={topic.trueFalse}
+            setGlobalProgress={setXp}
+            onComplete={() => completeMilestone(topic.id, 25)}
+          />
+        ) : (
+          <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
+            <p className="text-2xl mb-2">🚧</p>
+            Dữ liệu dạng bài này đang được cập nhật...
+          </div>
+        )
       )}
     </div>
   );

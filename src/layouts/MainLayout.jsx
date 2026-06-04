@@ -1,6 +1,6 @@
 // File: src/layouts/MainLayout.jsx
 import React, { useState } from 'react';
-import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, Sun, Moon, RotateCcw, AlertTriangle, Sparkles } from 'lucide-react';
+import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, Sun, Moon, RotateCcw, AlertTriangle, Sparkles, Gamepad2 } from 'lucide-react';
 import ScholarBunny from '../components/common/ScholarBunny';
 
 const MainLayout = ({
@@ -34,6 +34,19 @@ const MainLayout = ({
   const [vstepSearch, setVstepSearch] = useState('');
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [activeGrammarLevel, setActiveGrammarLevel] = useState('B1');
+  const [openVocabGroups, setOpenVocabGroups] = useState({ vstep: true, daily: false, ielts: false, beginner: false, entertainment: false });
+
+  const vocabCategoryGroups = [
+    { id: 'vstep', label: '📚 Chủ đề thi VSTEP', color: 'bg-blue-400 dark:bg-blue-600' },
+    { id: 'daily', label: '🗣️ Giao tiếp Hằng ngày', color: 'bg-green-400 dark:bg-green-600' },
+    { id: 'ielts', label: '🎯 Chủ đề thi IELTS', color: 'bg-red-400 dark:bg-red-600' },
+    { id: 'beginner', label: '🌱 Người mới bắt đầu', color: 'bg-amber-400 dark:bg-amber-600' },
+    { id: 'entertainment', label: '🎭 Giải trí & Nghệ thuật', color: 'bg-purple-400 dark:bg-purple-600' },
+  ];
+
+  const toggleVocabGroup = (groupId) => {
+    setOpenVocabGroups(prev => ({ ...prev, [groupId]: !prev[groupId] }));
+  };
 
   const selectMode = (mode) => {
     setAppMode(mode);
@@ -141,6 +154,13 @@ const MainLayout = ({
            >
              <Camera size={20} /> QUÉT AI
            </button>
+
+           <button 
+             onClick={() => selectMode('games')}
+             className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'games' ? 'bg-violet-400 dark:bg-violet-500 text-white shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] hover:bg-violet-50 dark:hover:bg-violet-900/30'}`}
+           >
+             GAMES
+           </button>
          
          </div>
 
@@ -152,18 +172,19 @@ const MainLayout = ({
               <>
                 
                 {/* Grammar Level Tabs */}
-                <div className="flex gap-1.5 mb-3 mt-2">
+                <div className="flex flex-col gap-2 mb-3 mt-2">
                   {grammarLevels.map(level => (
                     <button
                       key={level.id}
                       onClick={() => setActiveGrammarLevel(level.id)}
-                      className={`flex-1 p-2 text-xs font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl transition-all cursor-pointer ${
+                      className={`w-full p-2.5 text-left text-xs font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl transition-all cursor-pointer flex items-center justify-between ${
                         activeGrammarLevel === level.id
-                          ? `${level.color} text-white shadow-none translate-y-0.5`
-                          : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'
+                          ? `${level.color} text-white shadow-none translate-x-1`
+                          : 'bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-200 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'
                       }`}
                     >
-                      {level.label}
+                      <span>{level.label}</span>
+                      {activeGrammarLevel === level.id && <span className="text-[9px] bg-black/20 px-1.5 py-0.5 rounded-md font-bold uppercase">Đang chọn</span>}
                     </button>
                   ))}
                 </div>
@@ -191,7 +212,7 @@ const MainLayout = ({
               </>
             )}
 
-            {/* VSTEP TOPICS LIST */}
+            {/* VSTEP TOPICS LIST - Grouped by Category */}
             {appMode === 'vocab' && activeVocabCategory === 'TOPIC' && (
               <>
                 <div className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest pl-2 mb-2 mt-4">Từ Vựng Theo Chủ Đề</div>
@@ -207,22 +228,79 @@ const MainLayout = ({
                   />
                 </div>
 
-                {filteredVstepTopics.length > 0 ? (
-                  filteredVstepTopics.map(t => (
-                    <button 
-                      key={t.id} 
-                      onClick={() => {
-                        setVstepTopicId(t.id); 
-                        setMenuOpen(false);
-                      }} 
-                      className={`w-full text-left font-bold p-4 border-[4px] border-slate-800 dark:border-slate-700 rounded-2xl transition-all mb-2 flex flex-col gap-1 cursor-pointer ${vstepTopicId === t.id ? 'bg-yellow-200 dark:bg-yellow-450 dark:text-slate-950 translate-x-2 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617]' : 'bg-white dark:bg-slate-850 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]'}`}
-                    >
-                      <span className="text-sm md:text-base leading-tight font-black">{t.title}</span>
-                      <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{t.words.length} từ vựng</span>
-                    </button>
-                  ))
+                {vstepSearch.trim() ? (
+                  /* When searching, show flat filtered list */
+                  filteredVstepTopics.length > 0 ? (
+                    filteredVstepTopics.map(t => {
+                      const levelClass = t.level ? `topic-level-${t.level.split('-')[0].toLowerCase().replace(' ','')}` : '';
+                      const isActive = vstepTopicId === t.id;
+                      return (
+                        <button 
+                          key={t.id} 
+                          onClick={() => {
+                            setVstepTopicId(t.id); 
+                            setMenuOpen(false);
+                          }} 
+                          className={`w-full text-left font-bold p-3.5 border-[4px] border-slate-800 dark:border-slate-700 rounded-2xl transition-all mb-2 flex flex-col gap-1.5 cursor-pointer ${isActive ? 'bg-yellow-200 dark:bg-yellow-600/40 dark:text-yellow-100 translate-x-2 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617] border-yellow-500 dark:border-yellow-500' : 'bg-white dark:bg-slate-800 dark:text-slate-100 hover:bg-yellow-50 dark:hover:bg-slate-700 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]'}`}
+                        >
+                          <span className="text-sm md:text-base leading-tight font-black dark:text-slate-100">{t.title}</span>
+                          <div className="flex items-center gap-1.5 flex-wrap">
+                            <span className="text-xs font-black text-slate-600 dark:text-slate-200 bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded-md">{t.words.length} từ</span>
+                            {t.level && <span className={`topic-level-badge ${levelClass}`}>{t.level}</span>}
+                          </div>
+                        </button>
+                      );
+                    })
+                  ) : (
+                    <p className="text-sm font-bold text-slate-400 dark:text-slate-500 text-center py-4">Không tìm thấy chủ đề nào!</p>
+                  )
                 ) : (
-                  <p className="text-sm font-bold text-slate-400 dark:text-slate-500 text-center py-4">Không tìm thấy chủ đề nào!</p>
+                  /* When NOT searching, show grouped category view */
+                  vocabCategoryGroups.map(group => {
+                    const groupTopics = vstepTopics.filter(t => (t.category || 'vstep') === group.id);
+                    if (groupTopics.length === 0) return null;
+                    const isOpen = openVocabGroups[group.id];
+                    return (
+                      <div key={group.id} className="mb-3">
+                        <button
+                          onClick={() => toggleVocabGroup(group.id)}
+                          className={`w-full p-3 font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-between cursor-pointer ${isOpen ? `${group.color} text-white shadow-none` : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'}`}
+                        >
+                          <span className="text-sm">{group.label}</span>
+                          <div className="flex items-center gap-2">
+                            <span className={`text-xs font-black px-2 py-0.5 rounded-full ${isOpen ? 'bg-black/20 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>
+                              {groupTopics.length}
+                            </span>
+                            <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                          </div>
+                        </button>
+                        {isOpen && (
+                          <div className="ml-3 mt-2 space-y-2 animate-in fade-in slide-in-from-top-2">
+                            {groupTopics.map(t => {
+                              const levelClass = t.level ? `topic-level-${t.level.split('-')[0].toLowerCase().replace(' ','')}` : '';
+                              const isActive = vstepTopicId === t.id;
+                              return (
+                                <button 
+                                  key={t.id} 
+                                  onClick={() => {
+                                    setVstepTopicId(t.id); 
+                                    setMenuOpen(false);
+                                  }} 
+                                  className={`w-full text-left font-bold p-3 border-[3px] border-slate-800 dark:border-slate-700 rounded-xl transition-all flex flex-col gap-1 cursor-pointer ${isActive ? 'bg-yellow-200 dark:bg-yellow-600/40 dark:text-yellow-100 translate-x-2 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617] border-yellow-500 dark:border-yellow-500' : 'bg-white dark:bg-slate-800 dark:text-slate-100 hover:bg-yellow-50 dark:hover:bg-slate-700 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]'}`}
+                                >
+                                  <span className="text-sm leading-tight font-black dark:text-slate-100">{t.title}</span>
+                                  <div className="flex items-center gap-1.5 flex-wrap">
+                                    <span className="text-[10px] font-black text-slate-600 dark:text-slate-200 bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded-md">{t.words.length} từ</span>
+                                    {t.level && <span className={`topic-level-badge ${levelClass}`}>{t.level}</span>}
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })
                 )}
               </>
             )}
@@ -288,8 +366,7 @@ const MainLayout = ({
          </div>
 
 
-
-      </aside>
+       </aside>
 
       {/* --- MAIN CONTENT PANEL --- */}
       <main className="flex-1 p-4 md:p-10 h-screen overflow-y-auto bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:20px_20px] dark:bg-slate-950 transition-colors duration-300 custom-scrollbar">
