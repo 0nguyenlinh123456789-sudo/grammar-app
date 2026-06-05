@@ -2630,7 +2630,7 @@ const vocabMoreData = [
   },
   {
     "id": "arts-entertainment",
-    "category": "entertainment",
+    "category": "daily",
     "title": "🎨 Nghệ Thuật & Giải Trí",
     "description": "Từ vựng nghệ thuật, âm nhạc, điện ảnh, văn học — hay gặp trong IELTS Reading và Speaking. Đủ để thảo luận về văn hóa và giải trí.",
     "level": "B1-C1",

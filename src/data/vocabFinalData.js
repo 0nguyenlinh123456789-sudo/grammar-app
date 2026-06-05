@@ -2,7 +2,7 @@
 const vocabFinalData = [
   {
     "id": "sports-fitness",
-    "category": "entertainment",
+    "category": "daily",
     "title": "⚽ Thể Thao & Sức Khỏe Thể Chất",
     "description": "Từ vựng thể thao từ A đến Z — từ môn thể thao phổ biến đến chuyên ngành. Thiết yếu cho IELTS Speaking Part 1 và đàm thoại hàng ngày.",
     "level": "A2-B2",

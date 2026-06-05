@@ -34,14 +34,13 @@ const MainLayout = ({
   const [vstepSearch, setVstepSearch] = useState('');
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [activeGrammarLevel, setActiveGrammarLevel] = useState('B1');
-  const [openVocabGroups, setOpenVocabGroups] = useState({ vstep: true, daily: false, ielts: false, beginner: false, entertainment: false });
+  const [openVocabGroups, setOpenVocabGroups] = useState({ vstep: true, daily: false, ielts: false, beginner: false });
 
   const vocabCategoryGroups = [
     { id: 'vstep', label: '📚 Chủ đề thi VSTEP', color: 'bg-blue-400 dark:bg-blue-600' },
     { id: 'daily', label: '🗣️ Giao tiếp Hằng ngày', color: 'bg-green-400 dark:bg-green-600' },
     { id: 'ielts', label: '🎯 Chủ đề thi IELTS', color: 'bg-red-400 dark:bg-red-600' },
     { id: 'beginner', label: '🌱 Người mới bắt đầu', color: 'bg-amber-400 dark:bg-amber-600' },
-    { id: 'entertainment', label: '🎭 Giải trí & Nghệ thuật', color: 'bg-purple-400 dark:bg-purple-600' },
   ];
 
   const toggleVocabGroup = (groupId) => {

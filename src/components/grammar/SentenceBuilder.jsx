@@ -3,13 +3,29 @@ import React, { useState, useEffect } from 'react';
 import { Target, ChevronRight } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 
-const SentenceBuilder = ({ sentences, setGlobalProgress, onComplete }) => {
+const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
   const [avail, setAvail] = useState([]);
   const [sel, setSel] = useState([]);
   const [correct, setCorrect] = useState(null);
-  const sentencesLen = sentences?.length || 0;
-  const curr = sentences && sentencesLen > 0 ? sentences[qIdx] : null;
+
+  // Normalize sentences to support both formats:
+  // Format A: { id, text, trans } (b1_01 to b1_25)
+  // Format B: { en, vi, words } (b1_26 to b1_28)
+  const sentences = (rawSentences || []).map((s, idx) => {
+    if (s.text && s.trans) return s; // Already Format A
+    if (s.en) {
+      return {
+        id: s.id || idx + 1,
+        text: s.en.replace(/[?.!,]$/g, '').trim(), // Remove trailing punctuation for word matching
+        trans: s.vi || '',
+      };
+    }
+    return s; // fallback
+  });
+
+  const sentencesLen = sentences.length;
+  const curr = sentencesLen > 0 ? sentences[qIdx] : null;
 
   useEffect(() => {
     if (sentencesLen > 0 && qIdx === sentencesLen && onComplete) {
@@ -18,7 +34,7 @@ const SentenceBuilder = ({ sentences, setGlobalProgress, onComplete }) => {
   }, [qIdx, onComplete, sentencesLen]);
 
   useEffect(() => {
-    if (curr) { 
+    if (curr && curr.text) { 
       setAvail(curr.text.split(' ').sort(() => Math.random() - 0.5).map((w, i) => ({ id: i, w }))); 
       setSel([]); 
       setCorrect(null); 

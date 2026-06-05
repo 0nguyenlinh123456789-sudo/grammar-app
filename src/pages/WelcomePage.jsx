@@ -335,7 +335,6 @@ const WelcomePage = ({
                             </div>
                             <h4 className="text-xl md:text-2xl font-black text-slate-900 dark:text-slate-100 flex items-center gap-2 leading-tight">
                               {m.title}
-                              {m.kids && <span className="text-base">👶</span>}
                             </h4>
                             <p className="text-slate-500 dark:text-slate-400 font-bold text-xs md:text-sm leading-relaxed">{m.desc}</p>
                             {getExamBadge(m.exam)}

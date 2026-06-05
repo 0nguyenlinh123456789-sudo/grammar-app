@@ -1,5 +1,5 @@
 // File: src/components/vocab/PhraseLearningMode.jsx
-// Teaches vocabulary through collocations, phrases, and a sentence-builder mini-game
+// Teaches vocabulary through collocations, phrases, and exam-ready sentence patterns
 
 import { useState } from 'react';
 import { Zap, ChevronLeft, ChevronRight, Shuffle, CheckCircle, XCircle, Volume2 } from 'lucide-react';
@@ -25,72 +25,136 @@ const PhraseLearningMode = ({ activeTopic, playAudio, currentWordIndex, onWordCh
       return phrases.filter(p => p.word === word.en).slice(0, 5);
     }
 
-    // Auto-generate common collocations based on word type
-    const collocationPatterns = {
-      '(v)': [
-        { phrase: `${word.en} quickly`, vi: `${word.vi} nhanh chóng`, use: 'Adverb modifier' },
-        { phrase: `${word.en} carefully`, vi: `${word.vi} cẩn thận`, use: 'Adverb modifier' },
-        { phrase: `can ${word.en}`, vi: `có thể ${word.vi}`, use: 'Modal verb' },
-        { phrase: `${word.en} together`, vi: `cùng nhau ${word.vi}`, use: 'Collaborative action' },
-        { phrase: `begin to ${word.en}`, vi: `bắt đầu ${word.vi}`, use: 'Verb + infinitive' },
-      ],
-      '(n)': [
-        { phrase: `a large ${word.en}`, vi: `một ${word.vi} lớn`, use: 'Size adjective' },
-        { phrase: `the main ${word.en}`, vi: `${word.vi} chính`, use: 'Main noun' },
-        { phrase: `several ${word.en}s`, vi: `nhiều ${word.vi}`, use: 'Plural' },
-        { phrase: `${word.en} problem`, vi: `vấn đề ${word.vi}`, use: 'Noun compound' },
-        { phrase: `modern ${word.en}`, vi: `${word.vi} hiện đại`, use: 'Adjective + noun' },
-      ],
-      '(adj)': [
-        { phrase: `very ${word.en}`, vi: `rất ${word.vi}`, use: 'Intensifier' },
-        { phrase: `quite ${word.en}`, vi: `khá ${word.vi}`, use: 'Degree adverb' },
-        { phrase: `${word.en} enough`, vi: `đủ ${word.vi}`, use: 'Sufficiency' },
-        { phrase: `not ${word.en} at all`, vi: `không ${word.vi} chút nào`, use: 'Negation emphasis' },
-        { phrase: `extremely ${word.en}`, vi: `cực kỳ ${word.vi}`, use: 'Strong emphasis' },
-      ],
-      '(adv)': [
-        { phrase: `${word.en} speaking`, vi: `nói thẳng/rõ`, use: 'Discourse marker' },
-        { phrase: `${word.en} possible`, vi: `nếu có thể`, use: 'With adjective' },
-        { phrase: `as ${word.en} as possible`, vi: `càng...càng tốt`, use: 'Comparison max' },
-        { phrase: `${word.en} after`, vi: `ngay sau đó`, use: 'Time sequence' },
-        { phrase: `not ${word.en}`, vi: `không...`, use: 'Negation' },
-      ],
-    };
+    // Auto-generate natural collocations based on word type
+    const wordType = (word.type || '(n)').toLowerCase();
+    
+    if (wordType.includes('v')) {
+      return [
+        { phrase: `${word.en} effectively`, vi: `${word.vi} hiệu quả`, use: 'Trạng từ bổ nghĩa' },
+        { phrase: `need to ${word.en}`, vi: `cần ${word.vi}`, use: 'Cấu trúc need + to V' },
+        { phrase: `try to ${word.en}`, vi: `cố gắng ${word.vi}`, use: 'Cấu trúc try + to V' },
+        { phrase: `be able to ${word.en}`, vi: `có thể ${word.vi}`, use: 'Cấu trúc be able to + V' },
+        { phrase: `decide to ${word.en}`, vi: `quyết định ${word.vi}`, use: 'Cấu trúc decide + to V' },
+      ];
+    }
+    
+    if (wordType.includes('adj')) {
+      return [
+        { phrase: `extremely ${word.en}`, vi: `cực kỳ ${word.vi}`, use: 'Nhấn mạnh tính từ (IELTS Band 7+)' },
+        { phrase: `become ${word.en}`, vi: `trở nên ${word.vi}`, use: 'Linking verb + adj' },
+        { phrase: `remain ${word.en}`, vi: `vẫn ${word.vi}`, use: 'Linking verb + adj' },
+        { phrase: `increasingly ${word.en}`, vi: `ngày càng ${word.vi}`, use: 'Trạng từ mức độ (Academic)' },
+        { phrase: `relatively ${word.en}`, vi: `tương đối ${word.vi}`, use: 'Hedging language (IELTS Writing)' },
+      ];
+    }
+    
+    if (wordType.includes('adv')) {
+      return [
+        { phrase: `${word.en} speaking`, vi: `nói một cách ${word.vi}`, use: 'Discourse marker' },
+        { phrase: `quite ${word.en}`, vi: `khá ${word.vi}`, use: 'Bổ nghĩa trạng từ' },
+        { phrase: `more ${word.en}`, vi: `${word.vi} hơn`, use: 'So sánh hơn' },
+        { phrase: `act ${word.en}`, vi: `hành động ${word.vi}`, use: 'V + adv' },
+        { phrase: `${word.en} enough`, vi: `đủ ${word.vi}`, use: 'Adv + enough' },
+      ];
+    }
 
-    const wordType = word.type || '(n)';
-    const matchKey = Object.keys(collocationPatterns).find(k => wordType.includes(k.replace('(','').replace(')',''))) ? wordType : '(n)';
-    return collocationPatterns[matchKey] || collocationPatterns['(n)'];
+    // Default: noun patterns
+    return [
+      { phrase: `a significant ${word.en}`, vi: `một ${word.vi} đáng kể`, use: 'Adj + Noun (Academic)' },
+      { phrase: `the main ${word.en}`, vi: `${word.vi} chính`, use: 'Xác định danh từ' },
+      { phrase: `a lack of ${word.en}`, vi: `sự thiếu ${word.vi}`, use: 'Cụm danh từ (IELTS Writing)' },
+      { phrase: `the importance of ${word.en}`, vi: `tầm quan trọng của ${word.vi}`, use: 'Abstract noun phrase' },
+      { phrase: `${word.en} and its impact`, vi: `${word.vi} và tác động của nó`, use: 'Noun phrase mở rộng' },
+    ];
   };
 
-  // IELTS/TOEIC sentence patterns
+  // Complete, practical exam sentence patterns
   const getSentencePatterns = (word) => {
     if (!word) return [];
-    return [
-      {
-        label: 'IELTS Academic',
-        pattern: `The ${word.en} plays a crucial role in...`,
-        vi: `${word.vi} đóng vai trò quan trọng trong...`,
-        color: 'bg-blue-100 dark:bg-blue-900/40 border-blue-400',
-      },
-      {
-        label: 'TOEIC Business',
-        pattern: `Please ensure the ${word.en} is...`,
-        vi: `Vui lòng đảm bảo ${word.vi} là...`,
-        color: 'bg-emerald-100 dark:bg-emerald-900/40 border-emerald-400',
-      },
-      {
-        label: 'VSTEP Speaking',
-        pattern: `In my opinion, ${word.en} is very...`,
-        vi: `Theo tôi, ${word.vi} rất...`,
-        color: 'bg-purple-100 dark:bg-purple-900/40 border-purple-400',
-      },
-      {
-        label: 'Giao tiếp hàng ngày',
-        pattern: word.example || `I often use ${word.en} when...`,
-        vi: word.viExample || `Tôi thường dùng ${word.vi} khi...`,
-        color: 'bg-yellow-100 dark:bg-yellow-900/40 border-yellow-400',
-      },
-    ];
+    
+    const wordType = (word.type || '(n)').toLowerCase();
+    const en = word.en;
+    const vi = word.vi;
+
+    // Use existing example if available
+    const realExample = word.example && word.viExample ? {
+      label: '💬 Câu mẫu thực tế',
+      pattern: word.example,
+      vi: word.viExample,
+      color: 'bg-emerald-100 dark:bg-emerald-900/40 border-emerald-400',
+    } : null;
+
+    const patterns = [];
+
+    if (realExample) patterns.push(realExample);
+
+    if (wordType.includes('v')) {
+      patterns.push(
+        {
+          label: '📝 IELTS Writing Task 2',
+          pattern: `It is essential to ${en} in order to achieve long-term success.`,
+          vi: `Việc ${vi} là rất cần thiết để đạt được thành công lâu dài.`,
+          color: 'bg-blue-100 dark:bg-blue-900/40 border-blue-400',
+        },
+        {
+          label: '🗣️ VSTEP Speaking',
+          pattern: `In my daily life, I usually ${en} whenever I have the opportunity.`,
+          vi: `Trong cuộc sống hàng ngày, tôi thường ${vi} bất cứ khi nào có cơ hội.`,
+          color: 'bg-purple-100 dark:bg-purple-900/40 border-purple-400',
+        },
+        {
+          label: '💼 TOEIC Business',
+          pattern: `The management team decided to ${en} the new policy immediately.`,
+          vi: `Ban lãnh đạo quyết định ${vi} chính sách mới ngay lập tức.`,
+          color: 'bg-amber-100 dark:bg-amber-900/40 border-amber-400',
+        }
+      );
+    } else if (wordType.includes('adj')) {
+      patterns.push(
+        {
+          label: '📝 IELTS Writing Task 2',
+          pattern: `This issue has become increasingly ${en} in modern society.`,
+          vi: `Vấn đề này ngày càng trở nên ${vi} trong xã hội hiện đại.`,
+          color: 'bg-blue-100 dark:bg-blue-900/40 border-blue-400',
+        },
+        {
+          label: '🗣️ VSTEP Speaking',
+          pattern: `I think being ${en} is one of the most important qualities a person can have.`,
+          vi: `Tôi nghĩ ${vi} là một trong những phẩm chất quan trọng nhất mà một người có thể có.`,
+          color: 'bg-purple-100 dark:bg-purple-900/40 border-purple-400',
+        },
+        {
+          label: '💼 TOEIC Business',
+          pattern: `The results of the survey were quite ${en}, surprising many in the industry.`,
+          vi: `Kết quả khảo sát khá ${vi}, khiến nhiều người trong ngành ngạc nhiên.`,
+          color: 'bg-amber-100 dark:bg-amber-900/40 border-amber-400',
+        }
+      );
+    } else {
+      // Noun patterns
+      patterns.push(
+        {
+          label: '📝 IELTS Writing Task 2',
+          pattern: `The role of ${en} in shaping our future cannot be underestimated.`,
+          vi: `Vai trò của ${vi} trong việc định hình tương lai của chúng ta không thể bị đánh giá thấp.`,
+          color: 'bg-blue-100 dark:bg-blue-900/40 border-blue-400',
+        },
+        {
+          label: '🗣️ VSTEP Speaking',
+          pattern: `I believe that ${en} is something everyone should pay more attention to.`,
+          vi: `Tôi tin rằng ${vi} là điều mà mọi người nên chú ý hơn.`,
+          color: 'bg-purple-100 dark:bg-purple-900/40 border-purple-400',
+        },
+        {
+          label: '💼 TOEIC Business',
+          pattern: `Our company places great emphasis on ${en} to ensure customer satisfaction.`,
+          vi: `Công ty chúng tôi rất coi trọng ${vi} để đảm bảo sự hài lòng của khách hàng.`,
+          color: 'bg-amber-100 dark:bg-amber-900/40 border-amber-400',
+        }
+      );
+    }
+
+    return patterns;
   };
 
   if (!currentWord) return <div className="p-8 text-center text-slate-400">Đang tải...</div>;
@@ -107,6 +171,11 @@ const PhraseLearningMode = ({ activeTopic, playAudio, currentWordIndex, onWordCh
             <div className="text-4xl font-black">{currentWord.en}</div>
             <div className="text-blue-200 font-bold text-lg mt-1">{currentWord.ipa}</div>
             <div className="text-white/90 font-bold text-xl mt-1">{currentWord.vi}</div>
+            {currentWord.synonyms && (
+              <div className="text-blue-200 text-sm font-medium mt-2">
+                <span className="text-white/70">Đồng nghĩa:</span> {currentWord.synonyms}
+              </div>
+            )}
           </div>
           <div className="text-right">
             <div className="text-sm text-blue-200 font-bold mb-1">Từ</div>
@@ -151,8 +220,11 @@ const PhraseLearningMode = ({ activeTopic, playAudio, currentWordIndex, onWordCh
       {/* SECTION 2: Sentence Patterns for Exams */}
       <div className="bg-white dark:bg-slate-800 border-4 border-black rounded-2xl p-6 shadow-[6px_6px_0_0_rgba(0,0,0,1)]">
         <h3 className="text-xl font-black mb-4 text-slate-800 dark:text-slate-100 flex items-center gap-2">
-          <span>📝</span> Mẫu Câu Thi Cử
+          <span>📝</span> Mẫu Câu Thi Cử Hoàn Chỉnh
         </h3>
+        <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-4 -mt-2">
+          Những mẫu câu hoàn chỉnh bạn có thể dùng ngay trong bài thi IELTS, VSTEP, TOEIC
+        </p>
         <div className="space-y-3">
           {sentencePatterns.map((s, i) => (
             <div key={i} className={`border-2 rounded-xl p-4 relative pr-12 ${s.color}`}>
