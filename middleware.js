@@ -9,7 +9,7 @@ export default function middleware(request) {
   // ==========================================
   // THIẾT LẬP MẬT KHẨU CỦA BẠN TẠI ĐÂY
   // ==========================================
-  const myCurrentPassword = "englishlearning2026"; 
+  const myCurrentPassword = "english2026"; 
 
   if (basicAuth) {
     // Giải mã thông tin người dùng nhập vào
