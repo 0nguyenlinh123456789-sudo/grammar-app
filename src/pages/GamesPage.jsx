@@ -2,6 +2,9 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Trophy, RefreshCw, Volume2, Shuffle, Gamepad2, Zap, Mic, BookOpen, PenLine, Headphones, Timer, ChevronRight, CheckCircle2, XCircle } from 'lucide-react';
 import MascotLuna from '../components/common/MascotLuna';
+import { escapeRegExp, isSpeechMatch } from '../utils/textUtils';
+import { playCorrect, playWrong } from '../utils/sound';
+import { recordReview } from '../utils/srs';
 
 const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const cleanVi = (vi = '') => vi.replace(/[🎭🎨🎯🏠🏥💼🌿🌍💻✈️🌦️⚽🍎🛒🧠❤️🔬🐾🏪📊🌐]/gu, '').trim();
@@ -98,10 +101,12 @@ function WordMatchGame({ words, playAudio, onScore }) {
 // ═══════════════════════════════════════════════════════════
 // GAME 2: GHÉP CHỮ (Word Scramble) — Viết / Đánh vần
 // ═══════════════════════════════════════════════════════════
-function scramble(w) {
+function scramble(w, tries = 0) {
   const a = w.split('');
   for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-  return a.join('') === w && a.length > 1 ? scramble(w) : a.join('');
+  // Reshuffle if we happened to land on the original order — but cap the
+  // retries so a word made of identical letters (e.g. "aaa") can't loop forever.
+  return a.join('') === w && a.length > 1 && tries < 10 ? scramble(w, tries + 1) : a.join('');
 }
 
 function WordScrambleGame({ words, playAudio, onScore }) {
@@ -221,7 +226,7 @@ function FillBlankGame({ words, playAudio, onScore }) {
   };
 
   if (!cur) return null;
-  const blank = (cur.example || `______ = ${cleanVi(cur.vi)}`).replace(new RegExp(`\\b${cur.en}\\b`, 'gi'), '______');
+  const blank = (cur.example || `______ = ${cleanVi(cur.vi)}`).replace(new RegExp(`\\b${escapeRegExp(cur.en)}\\b`, 'gi'), '______');
   const isLast = idx >= pool.length - 1 && selected !== null;
 
   return (
@@ -299,6 +304,7 @@ function DictationGame({ words, playAudio, onScore }) {
     if (!cur) return;
     if (playAudio) playAudio(cur.en);
     else if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(cur.en);
       u.lang = 'en-US'; u.rate = 0.85;
       window.speechSynthesis.speak(u);
@@ -310,6 +316,7 @@ function DictationGame({ words, playAudio, onScore }) {
   const speakSlow = () => {
     if (!cur) return;
     if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(cur.en);
       u.lang = 'en-US'; u.rate = 0.55;
       window.speechSynthesis.speak(u);
@@ -393,30 +400,58 @@ function PronunciationGame({ words, playAudio, onScore }) {
   const [practiced, setPracticed] = useState([]);
   const [score, setScore] = useState(0);
   const [showTip, setShowTip] = useState(false);
+  const [listening, setListening] = useState(false);
+  const [heard, setHeard] = useState('');
+  const [result, setResult] = useState(null); // 'correct' | 'wrong' | null
+  const sttSupported = typeof window !== 'undefined' && (window.SpeechRecognition || window.webkitSpeechRecognition);
 
   const init = useCallback(() => {
     const p = [...words].filter(w => w.ipa).sort(() => Math.random() - 0.5).slice(0, 10);
     setPool(p.length >= 5 ? p : [...words].sort(() => Math.random() - 0.5).slice(0, 10));
     setIdx(0); setPracticed([]); setScore(0); setShowTip(false);
+    setListening(false); setHeard(''); setResult(null);
   }, [words]);
   useEffect(() => { init(); }, [init]);
   const cur = pool[idx];
 
   const speak = () => {
-    if (playAudio) playAudio(cur.en);
-    else if (window.speechSynthesis) {
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(cur.en);
       u.lang = 'en-US'; u.rate = 0.8;
       window.speechSynthesis.speak(u);
-    }
+    } else if (playAudio) playAudio(cur.en);
   };
 
-  const confirm = () => {
-    const ns = score + 8;
+  const advance = (pts) => {
+    const ns = score + pts;
     setScore(ns);
-    setPracticed(p => [...p, idx]);
-    if (idx >= pool.length - 1) { onScore && onScore(ns); return; }
-    setTimeout(() => { setIdx(i => i + 1); setShowTip(false); }, 400);
+    setPracticed(p => p.includes(idx) ? p : [...p, idx]);
+    if (idx >= pool.length - 1) { setTimeout(() => onScore && onScore(ns), 900); return; }
+    setTimeout(() => { setIdx(i => i + 1); setShowTip(false); setHeard(''); setResult(null); }, 1100);
+  };
+
+  // Real speech recognition: award more XP for an accurate reading.
+  const startListening = () => {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) { advance(8); return; } // fallback: honor-system credit
+    const rec = new SR();
+    rec.lang = 'en-US';
+    rec.interimResults = false;
+    rec.maxAlternatives = 1;
+    rec.onstart = () => { setListening(true); setHeard(''); setResult(null); };
+    rec.onresult = (e) => {
+      const transcript = e.results[0][0].transcript;
+      setHeard(transcript);
+      const ok = isSpeechMatch(transcript, cur.en);
+      setResult(ok ? 'correct' : 'wrong');
+      if (ok) playCorrect(); else playWrong();
+      recordReview(cur, ok);
+      advance(ok ? 12 : 3); // reward correct pronunciation; small credit for trying
+    };
+    rec.onerror = () => { setListening(false); };
+    rec.onend = () => setListening(false);
+    rec.start();
   };
 
   if (!cur) return null;
@@ -469,15 +504,29 @@ function PronunciationGame({ words, playAudio, onScore }) {
         </div>
 
         <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3 mb-4 text-sm font-bold text-blue-700 dark:text-blue-300">
-          🗣️ Đọc to từ <span className="font-black text-blue-900 dark:text-blue-100">"{cur.en}"</span> theo phiên âm IPA rồi bấm xác nhận
+          {sttSupported
+            ? <>🎤 Bấm micro rồi <span className="font-black text-blue-900 dark:text-blue-100">đọc to "{cur.en}"</span> — AI sẽ chấm phát âm của bạn</>
+            : <>🗣️ Trình duyệt không hỗ trợ thu âm. Hãy đọc to <span className="font-black">"{cur.en}"</span> rồi bấm xác nhận</>}
         </div>
 
-        <button onClick={confirm} disabled={done}
-          className={`w-full py-3.5 rounded-2xl border-3 font-black text-lg transition-all cursor-pointer ${
+        {/* AI heard + result */}
+        {heard && (
+          <div className={`rounded-xl p-3 mb-4 font-bold ${result === 'correct' ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300' : 'bg-rose-100 dark:bg-rose-900/40 text-rose-800 dark:text-rose-300'}`}>
+            <span className="text-xs uppercase opacity-70">AI nghe thấy:</span> "{heard}"
+            <div className="mt-1">{result === 'correct' ? '✅ Phát âm chuẩn! +12 XP' : '💪 Gần rồi, nghe mẫu và thử lại nhé (+3 XP)'}</div>
+          </div>
+        )}
+
+        <button onClick={startListening} disabled={done || listening}
+          className={`w-full py-3.5 rounded-2xl border-3 font-black text-lg transition-all cursor-pointer flex items-center justify-center gap-2 ${
             done ? 'bg-emerald-300 dark:bg-emerald-700 border-emerald-600 text-white scale-95'
-            : 'bg-emerald-400 hover:bg-emerald-500 border-emerald-700 text-white shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] active:shadow-none active:translate-y-1'
+            : listening ? 'bg-rose-500 border-rose-700 text-white animate-pulse'
+            : 'bg-rose-400 hover:bg-rose-500 border-rose-700 text-white shadow-[4px_4px_0_0_rgba(0,0,0,0.8)] active:shadow-none active:translate-y-1'
           }`}
-        >{done ? '✓ Đã luyện!' : '✅ Tôi đã đọc xong!'}</button>
+        >
+          <Mic size={20} className={listening ? 'animate-pulse' : ''}/>
+          {done ? '✓ Đã luyện!' : listening ? 'Đang nghe... đọc to lên!' : (sttSupported ? 'Bấm & Đọc To' : 'Tôi đã đọc xong!')}
+        </button>
       </div>
     </div>
   );

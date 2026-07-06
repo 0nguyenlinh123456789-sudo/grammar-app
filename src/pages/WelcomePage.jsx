@@ -1,29 +1,41 @@
 import React, { useState } from 'react';
 import { roadmapData } from '../data/roadmapData';
-import { 
-  Trophy, CheckCircle2, Lock, Play, Compass, Award, 
-  Zap, BookOpen, Flame, Sparkles, AlertCircle, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun
+import {
+  Trophy, CheckCircle2, Lock, Play, Compass, Award,
+  Zap, BookOpen, Flame, Sparkles, AlertCircle, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
+  Brain, Target, Volume2, VolumeX
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
 import MascotLuna from '../components/common/MascotLuna';
+import SrsReview from '../components/vocab/SrsReview';
+import { getDueCount } from '../utils/srs';
+import { isMuted, setMuted } from '../utils/sound';
 
-const WelcomePage = ({ 
-  xp, 
-  completedMilestones = [], 
-  setTopicId, 
-  setAppMode, 
-  setActiveVocabCategory, 
-  setOxfordUnitId, 
+const WelcomePage = ({
+  xp,
+  completedMilestones = [],
+  setTopicId,
+  setAppMode,
+  setActiveVocabCategory,
+  setOxfordUnitId,
   setVstepTopicId,
   resetRoadmap,
   streak = 0,
+  bestStreak = 0,
+  dailyStats = { lessons: 0, xp: 0 },
+  dailyGoal = 1,
+  playAudio,
   theme,
   setTheme,
 }) => {
   const [activeTab, setActiveTab] = useState('all'); // 'all', 'starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [lunaVisible, setLunaVisible] = useState(true);
+  const [showReview, setShowReview] = useState(false);
+  const [muted, setMutedState] = useState(isMuted());
+  const dueCount = getDueCount();
+  const dailyDone = (dailyStats?.lessons || 0) >= dailyGoal;
 
   // Flatten milestones to calculate progress & next target
   const allMilestones = roadmapData.flatMap(level => 
@@ -85,6 +97,23 @@ const WelcomePage = ({
     }
   };
 
+  // Which of the 4 skills a milestone trains. Vocab topics now train all four
+  // (Listening/Speaking/Reading/Writing modes); grammar trains Reading+Writing.
+  const getSkillBadges = (type) => {
+    const skills = type === 'vstep'
+      ? [['🎧', 'Nghe'], ['🗣️', 'Nói'], ['📖', 'Đọc'], ['✍️', 'Viết']]
+      : [['📖', 'Đọc'], ['✍️', 'Viết']];
+    return (
+      <div className="flex flex-wrap gap-1 mt-1.5">
+        {skills.map(([icon, label]) => (
+          <span key={label} className="text-[10px] font-black px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-600">
+            {icon} {label}
+          </span>
+        ))}
+      </div>
+    );
+  };
+
   // Exam badge tags
   const getExamBadge = (exam = []) => {
     if (!exam || exam.length === 0) return null;
@@ -109,9 +138,32 @@ const WelcomePage = ({
     );
   };
 
+  // Achievement badges — derived purely from existing progress stats.
+  const achievements = [
+    { id: 'first', icon: '🎯', label: 'Chặng đầu tiên', unlocked: completedCount >= 1 },
+    { id: 'five', icon: '🖐️', label: '5 chặng', unlocked: completedCount >= 5 },
+    { id: 'ten', icon: '💪', label: '10 chặng', unlocked: completedCount >= 10 },
+    { id: 'twenty', icon: '🚀', label: '20 chặng', unlocked: completedCount >= 20 },
+    { id: 'all', icon: '👑', label: 'Hoàn tất lộ trình', unlocked: completedCount >= totalMilestonesCount && totalMilestonesCount > 0 },
+    { id: 'streak3', icon: '🔥', label: 'Chuỗi 3 ngày', unlocked: bestStreak >= 3 },
+    { id: 'streak7', icon: '⚡', label: 'Chuỗi 7 ngày', unlocked: bestStreak >= 7 },
+    { id: 'streak30', icon: '🏅', label: 'Chuỗi 30 ngày', unlocked: bestStreak >= 30 },
+    { id: 'xp500', icon: '💎', label: '500 XP', unlocked: xp >= 500 },
+    { id: 'xp1000', icon: '🌟', label: '1000 XP', unlocked: xp >= 1000 },
+  ];
+  const unlockedCount = achievements.filter(a => a.unlocked).length;
+
+  const toggleMute = () => {
+    const next = !muted;
+    setMuted(next);
+    setMutedState(next);
+  };
+
   return (
     <div className="max-w-5xl mx-auto pb-24 font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
-      
+
+      {showReview && <SrsReview onClose={() => setShowReview(false)} playAudio={playAudio} />}
+
       {/* --- HERO DASHBOARD CARD --- */}
       <div className="bg-white dark:bg-slate-900 border-[4px] border-slate-800 dark:border-slate-700 rounded-[2.5rem] p-6 md:p-8 shadow-[10px_10px_0_0_#1c293b] dark:shadow-[10px_10px_0_0_#020617] mb-10 mt-4 relative overflow-hidden">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 z-10 relative">
@@ -155,6 +207,7 @@ const WelcomePage = ({
                  <div>
                    <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Chuỗi Học Tập</p>
                    <p className="text-2xl font-black text-slate-900 dark:text-slate-100 leading-none mt-1">{streak} <span className="text-sm text-rose-500">Ngày</span></p>
+                   {bestStreak > 0 && <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 mt-0.5">🏆 Kỷ lục: {bestStreak} ngày</p>}
                  </div>
                </div>
             </div>
@@ -220,6 +273,72 @@ const WelcomePage = ({
         </div>
       )}
  
+      {/* --- DAILY GOAL + SPACED REPETITION REVIEW --- */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+        {/* Daily goal card */}
+        <div className={`border-4 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] transition-all ${dailyDone ? 'bg-emerald-50 dark:bg-emerald-950/20 border-emerald-500' : 'bg-white dark:bg-slate-900 border-slate-800 dark:border-slate-700'}`}>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <Target size={26} className={dailyDone ? 'text-emerald-500' : 'text-blue-500'} />
+              <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Mục tiêu hôm nay</h3>
+            </div>
+            <button onClick={toggleMute} title={muted ? 'Bật âm thanh' : 'Tắt âm thanh'} className="w-9 h-9 rounded-xl border-3 border-slate-800 dark:border-slate-600 bg-white dark:bg-slate-800 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+              {muted ? <VolumeX size={18} className="text-slate-400" /> : <Volume2 size={18} className="text-blue-500" />}
+            </button>
+          </div>
+          {dailyDone ? (
+            <p className="font-black text-emerald-600 dark:text-emerald-400 flex items-center gap-2"><CheckCircle2 size={20} /> Đã đạt mục tiêu! Hôm nay bạn học {dailyStats.lessons} chặng (+{dailyStats.xp} XP). Tuyệt vời! 🎉</p>
+          ) : (
+            <>
+              <p className="font-bold text-slate-500 dark:text-slate-400 text-sm mb-2">Hoàn thành {dailyGoal} chặng hôm nay để giữ chuỗi học tập 🔥</p>
+              <div className="border-3 border-slate-800 dark:border-slate-600 bg-slate-100 dark:bg-slate-800 h-6 rounded-full overflow-hidden">
+                <div className="bg-blue-400 h-full rounded-full transition-all flex items-center justify-end pr-2" style={{ width: `${Math.min(100, ((dailyStats.lessons || 0) / dailyGoal) * 100)}%` }}>
+                  <span className="text-[10px] font-black text-slate-900">{dailyStats.lessons || 0}/{dailyGoal}</span>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Spaced repetition review card */}
+        <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="bg-violet-100 dark:bg-violet-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+              <Brain size={28} className="text-violet-600 dark:text-violet-400" />
+            </div>
+            <div>
+              <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Ôn Tập Từ</h3>
+              <p className="font-bold text-slate-500 dark:text-slate-400 text-sm">
+                {dueCount > 0 ? <><span className="text-violet-600 dark:text-violet-400 font-black">{dueCount} từ</span> cần ôn hôm nay</> : 'Chưa có từ nào cần ôn'}
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => setShowReview(true)}
+            className={`shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 transition-all cursor-pointer ${dueCount > 0 ? 'bg-violet-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-violet-500 animate-pulse' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}
+          >
+            ÔN NGAY
+          </button>
+        </div>
+      </div>
+
+      {/* --- ACHIEVEMENTS / BADGES --- */}
+      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10">
+        <div className="flex items-center gap-2 mb-4">
+          <Award size={24} className="text-yellow-500" />
+          <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Huy Hiệu Thành Tích</h3>
+          <span className="ml-auto text-sm font-black bg-yellow-300 dark:bg-yellow-500 text-slate-900 px-3 py-1 rounded-full border-2 border-slate-800">{unlockedCount}/{achievements.length}</span>
+        </div>
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
+          {achievements.map(a => (
+            <div key={a.id} title={a.label} className={`flex flex-col items-center gap-1 p-3 rounded-2xl border-3 transition-all ${a.unlocked ? 'bg-yellow-50 dark:bg-yellow-950/20 border-yellow-400' : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 opacity-50 grayscale'}`}>
+              <span className="text-3xl">{a.unlocked ? a.icon : '🔒'}</span>
+              <span className="text-[10px] font-black text-center text-slate-600 dark:text-slate-300 leading-tight">{a.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* --- LEVEL TABS --- */}
       <div className="flex gap-2 mb-8 overflow-x-auto pb-2 scrollbar-hide shrink-0">
         {[
@@ -337,6 +456,7 @@ const WelcomePage = ({
                               {m.title}
                             </h4>
                             <p className="text-slate-500 dark:text-slate-400 font-bold text-xs md:text-sm leading-relaxed">{m.desc}</p>
+                            {getSkillBadges(m.type)}
                             {getExamBadge(m.exam)}
                           </div>
                           

@@ -7,15 +7,18 @@ import WritingPractice from '../components/vocab/WritingPractice';
 import SpeakingPractice from '../components/vocab/SpeakingPractice';
 import PhraseLearningMode from '../components/vocab/PhraseLearningMode';
 import ActionScenarioMode from '../components/vocab/ActionScenarioMode';
+import ListeningComprehension from '../components/vocab/ListeningComprehension';
+import ReadingComprehension from '../components/vocab/ReadingComprehension';
 import MascotLuna from '../components/common/MascotLuna';
 
 const MODES = [
   { key: 'flashcard', label: 'Nhận Diện', step: 1, icon: () => <span className="text-xl leading-none">🐰</span>, color: 'bg-blue-400', hoverColor: 'hover:bg-blue-50 dark:hover:bg-blue-900/30', activeText: 'text-white', inactiveIcon: '' },
   { key: 'phrases',   label: 'Cụm Câu',  step: 2, icon: () => <span className="text-xl leading-none">⚡</span>, color: 'bg-yellow-400', hoverColor: 'hover:bg-yellow-50 dark:hover:bg-yellow-900/30', activeText: 'text-slate-900', inactiveIcon: '' },
-  { key: 'scenario',  label: 'Hành Động',step: 3, icon: () => <span className="text-xl leading-none">🎬</span>, color: 'bg-purple-400', hoverColor: 'hover:bg-purple-50 dark:hover:bg-purple-900/30', activeText: 'text-white', inactiveIcon: '' },
-  { key: 'story',     label: 'Câu Chuyện',step:4, icon: () => <span className="text-xl leading-none">⛺</span>, color: 'bg-green-400', hoverColor: 'hover:bg-green-50 dark:hover:bg-green-900/30', activeText: 'text-white', inactiveIcon: '' },
-  { key: 'writing',   label: 'Luyện Viết',step: 5, icon: () => <span className="text-xl leading-none">✍️</span>, color: 'bg-orange-400', hoverColor: 'hover:bg-orange-50 dark:hover:bg-orange-900/30', activeText: 'text-white', inactiveIcon: '' },
-  { key: 'speaking',  label: 'Luyện Nói', step: 6, icon: () => <span className="text-xl leading-none">🎤</span>, color: 'bg-pink-400', hoverColor: 'hover:bg-pink-50 dark:hover:bg-pink-900/30', activeText: 'text-white', inactiveIcon: '' },
+  { key: 'listening', label: 'Nghe Hiểu',step: 3, icon: () => <span className="text-xl leading-none">🎧</span>, color: 'bg-cyan-400', hoverColor: 'hover:bg-cyan-50 dark:hover:bg-cyan-900/30', activeText: 'text-white', inactiveIcon: '' },
+  { key: 'scenario',  label: 'Hành Động',step: 4, icon: () => <span className="text-xl leading-none">🎬</span>, color: 'bg-purple-400', hoverColor: 'hover:bg-purple-50 dark:hover:bg-purple-900/30', activeText: 'text-white', inactiveIcon: '' },
+  { key: 'story',     label: 'Câu Chuyện',step:5, icon: () => <span className="text-xl leading-none">⛺</span>, color: 'bg-green-400', hoverColor: 'hover:bg-green-50 dark:hover:bg-green-900/30', activeText: 'text-white', inactiveIcon: '' },
+  { key: 'writing',   label: 'Luyện Viết',step: 6, icon: () => <span className="text-xl leading-none">✍️</span>, color: 'bg-orange-400', hoverColor: 'hover:bg-orange-50 dark:hover:bg-orange-900/30', activeText: 'text-white', inactiveIcon: '' },
+  { key: 'speaking',  label: 'Luyện Nói', step: 7, icon: () => <span className="text-xl leading-none">🎤</span>, color: 'bg-pink-400', hoverColor: 'hover:bg-pink-50 dark:hover:bg-pink-900/30', activeText: 'text-white', inactiveIcon: '' },
 ];
 
 const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], completeMilestone }) => {
@@ -119,8 +122,8 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
         </div>
       </div>
 
-      {/* MODE CONTROLS — 6 Tabs */}
-      <div className="w-full max-w-3xl grid grid-cols-3 md:grid-cols-6 gap-2 mb-6">
+      {/* MODE CONTROLS — 7 Tabs (đủ 4 kỹ năng: Nghe/Nói/Đọc/Viết) */}
+      <div className="w-full max-w-3xl grid grid-cols-4 md:grid-cols-7 gap-2 mb-6">
         {MODES.map((mode) => {
           const Icon = mode.icon;
           const isActive = learningMode === mode.key;
@@ -168,6 +171,13 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
           playAudio={playAudio}
           currentWordIndex={currentWordIndex}
           onWordChange={setCurrentWordIndex}
+        />
+      )}
+
+      {learningMode === 'listening' && (
+        <ListeningComprehension
+          activeTopic={activeTopic}
+          playAudio={playAudio}
         />
       )}
 
@@ -227,6 +237,9 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
                 />
               </div>
             </div>
+
+            {/* Reading comprehension check after the story */}
+            <ReadingComprehension words={activeTopic.words} />
           </div>
         )
       )}

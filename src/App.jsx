@@ -1,5 +1,5 @@
 // File: src/App.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 
 // Data layer
 import { parsedGrammarData, grammarLevels } from './data/grammarData';
@@ -50,13 +50,22 @@ const courseData = [
 // Layout layer
 import MainLayout from './layouts/MainLayout';
 
-// Page/Route layer
-import WelcomePage from './pages/WelcomePage';
-import GrammarPage from './pages/GrammarPage';
-import VocabVstepPage from './pages/VocabVstepPage';
-import VocabOxfordPage from './pages/VocabOxfordPage';
-import ScannerPage from './pages/ScannerPage';
-import GamesPage from './pages/GamesPage';
+// Page/Route layer — lazy-loaded so each route ships as its own chunk and the
+// initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
+const WelcomePage = lazy(() => import('./pages/WelcomePage'));
+const GrammarPage = lazy(() => import('./pages/GrammarPage'));
+const VocabVstepPage = lazy(() => import('./pages/VocabVstepPage'));
+const VocabOxfordPage = lazy(() => import('./pages/VocabOxfordPage'));
+const ScannerPage = lazy(() => import('./pages/ScannerPage'));
+const GamesPage = lazy(() => import('./pages/GamesPage'));
+
+// Fallback shown briefly while a route chunk loads.
+const RouteLoader = () => (
+  <div className="flex items-center justify-center py-24 text-slate-400 font-black text-lg gap-3">
+    <span className="inline-block w-6 h-6 border-4 border-slate-300 border-t-slate-600 rounded-full animate-spin"></span>
+    Đang tải...
+  </div>
+);
 
 export default function App() {
   // Navigation & Mode states
@@ -114,6 +123,23 @@ export default function App() {
     return localStorage.getItem('lastActiveDate') || '';
   });
 
+  // Best (longest) streak ever achieved
+  const [bestStreak, setBestStreak] = useState(() => {
+    const saved = localStorage.getItem('bestStreak');
+    return saved ? parseInt(saved, 10) : 0;
+  });
+
+  // Daily goal tracking: how many lessons + XP earned today
+  const [dailyStats, setDailyStats] = useState(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('dailyStats') || 'null');
+      const todayStr = new Date().toDateString();
+      if (saved && saved.date === todayStr) return saved;
+    } catch (e) { /* ignore */ }
+    return { date: new Date().toDateString(), lessons: 0, xp: 0 };
+  });
+  const DAILY_GOAL = 1; // hoàn thành ít nhất 1 chặng mỗi ngày
+
   // Persist XP and completed milestones to localStorage
   useEffect(() => {
     localStorage.setItem('xp', xp.toString());
@@ -131,6 +157,19 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('lastActiveDate', lastActiveDate);
   }, [lastActiveDate]);
+
+  useEffect(() => {
+    localStorage.setItem('bestStreak', bestStreak.toString());
+  }, [bestStreak]);
+
+  useEffect(() => {
+    localStorage.setItem('dailyStats', JSON.stringify(dailyStats));
+  }, [dailyStats]);
+
+  // Keep bestStreak in sync whenever the current streak sets a new record
+  useEffect(() => {
+    if (streak > bestStreak) setBestStreak(streak);
+  }, [streak, bestStreak]);
 
   // Check if streak is broken on mount
   useEffect(() => {
@@ -200,10 +239,14 @@ export default function App() {
     setCompletedMilestones([]);
     setStreak(0);
     setLastActiveDate('');
+    const freshDaily = { date: new Date().toDateString(), lessons: 0, xp: 0 };
+    setDailyStats(freshDaily);
     localStorage.setItem('xp', '0');
     localStorage.setItem('completedMilestones', JSON.stringify([]));
     localStorage.setItem('streak', '0');
     localStorage.setItem('lastActiveDate', '');
+    localStorage.setItem('dailyStats', JSON.stringify(freshDaily));
+    // Note: bestStreak is a lifetime record — intentionally not reset.
   };
 
   // Computed selections
@@ -229,10 +272,16 @@ export default function App() {
     if (!completedMilestones.includes(id)) {
       setCompletedMilestones(prev => [...prev, id]);
       setXp(prev => prev + xpBonus);
-      
+
       // Update Daily Streak
       const today = new Date();
       const todayStr = today.toDateString();
+
+      // Update today's goal stats (reset if it's a new day)
+      setDailyStats(prev => {
+        const base = prev.date === todayStr ? prev : { date: todayStr, lessons: 0, xp: 0 };
+        return { ...base, lessons: base.lessons + 1, xp: base.xp + xpBonus };
+      });
       
       if (lastActiveDate !== todayStr) {
         if (lastActiveDate) {
@@ -278,6 +327,10 @@ export default function App() {
             setVstepTopicId={setVstepTopicId}
             resetRoadmap={resetRoadmap}
             streak={streak}
+            bestStreak={bestStreak}
+            dailyStats={dailyStats}
+            dailyGoal={DAILY_GOAL}
+            playAudio={playAudio}
             theme={theme}
             setTheme={setTheme}
           />
@@ -328,6 +381,12 @@ export default function App() {
             setVstepTopicId={setVstepTopicId}
             resetRoadmap={resetRoadmap}
             streak={streak}
+            bestStreak={bestStreak}
+            dailyStats={dailyStats}
+            dailyGoal={DAILY_GOAL}
+            playAudio={playAudio}
+            theme={theme}
+            setTheme={setTheme}
           />
         );
     }
@@ -359,7 +418,9 @@ export default function App() {
       resetRoadmap={resetRoadmap}
       streak={streak}
     >
-      {renderContent()}
+      <Suspense fallback={<RouteLoader />}>
+        {renderContent()}
+      </Suspense>
     </MainLayout>
   );
 }

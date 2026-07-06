@@ -1,5 +1,5 @@
 // File: src/components/grammar/QuizEngine.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PenTool, ChevronRight, Sparkles } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 
@@ -8,6 +8,9 @@ const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
   const [sel, setSel] = useState(null);
   const [status, setStatus] = useState('idle');
   const [score, setScore] = useState(0);
+  // Remember which questions have already granted global XP so replaying the
+  // quiz ("Làm Lại") can't farm unlimited XP. Persists across replays.
+  const awardedRef = useRef(new Set());
   
   const exercisesLen = exercises?.length || 0;
 
@@ -19,11 +22,15 @@ const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
     }
   }, [qIdx, onComplete, exercisesLen]);
 
-  const check = () => { 
-    if (sel === curr.a) { 
-      setStatus('true'); 
-      setScore(s => s + 1); 
-      setGlobalProgress(p => p + 1); 
+  const check = () => {
+    if (sel === curr.a) {
+      setStatus('true');
+      setScore(s => s + 1);
+      // Only award global XP the first time each question is answered correctly.
+      if (setGlobalProgress && !awardedRef.current.has(qIdx)) {
+        awardedRef.current.add(qIdx);
+        setGlobalProgress(p => p + 1);
+      }
     } else {
       setStatus('false'); 
     }

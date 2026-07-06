@@ -1,6 +1,7 @@
 // File: src/components/vocab/SpeakingPractice.jsx
 import React, { useState, useEffect } from 'react';
 import { Mic, Sparkles, XCircle, Volume2 } from 'lucide-react';
+import { isSpeechMatch } from '../../utils/textUtils';
 
 const SpeakingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio, onWordChange }) => {
   const [isListening, setIsListening] = useState(false);
@@ -67,11 +68,11 @@ const SpeakingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio
       setSpokenText(transcript);
       
       const targetWord = currentWord.en.toLowerCase().trim();
-      
-      // Flexibly check accuracy
-      if (transcript.includes(targetWord) || targetWord.includes(transcript)) {
+
+      // Accuracy check based on similarity, not naive substring (which made
+      // short words like "go"/"an" match almost any utterance).
+      if (isSpeechMatch(transcript, targetWord)) {
         setSpeakStatus('correct');
-        playAudio("Excellent!", 'en-US');
       } else {
         setSpeakStatus('wrong');
       }

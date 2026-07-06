@@ -1,5 +1,6 @@
 // File: src/components/vocab/StoryWithHighlights.jsx
 import React from 'react';
+import { buildVocabRegex } from '../../utils/textUtils';
 
 const StoryWithHighlights = ({ storyText, vocabList }) => {
   if (!storyText || !vocabList) return null;
@@ -7,9 +8,14 @@ const StoryWithHighlights = ({ storyText, vocabList }) => {
   // 1. Lấy danh sách các từ tiếng Anh
   const wordsToHighlight = vocabList.map((w) => w.en);
 
-  // 2. Tạo bộ lọc tìm kiếm chính xác từng từ (không bị dính vào code HTML)
-  // Ký tự \b giúp chỉ tìm từ đứng độc lập
-  const regex = new RegExp(`\\b(${wordsToHighlight.join('|')})\\b`, 'gi');
+  // 2. Tạo bộ lọc tìm kiếm chính xác từng từ (đã escape ký tự đặc biệt để
+  //    không làm sập trang khi từ vựng chứa ( ) . + ? ...). Cụm từ dài ưu tiên trước.
+  const regex = buildVocabRegex(wordsToHighlight);
+
+  // Nếu không có từ hợp lệ để bôi vàng, hiển thị nguyên văn.
+  if (!regex) {
+    return <div className="whitespace-pre-wrap leading-relaxed">{storyText}</div>;
+  }
 
   // 3. Cắt đoạn văn thành các phần nhỏ
   const textParts = storyText.split(regex);

@@ -74,7 +74,7 @@ const ImageScanner = () => {
     try {
       // Khởi tạo AI với Key của người dùng
       const genAI = new GoogleGenerativeAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-3.1-flash-lite" });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
       const imagePart = await fileToGenerativePart(image.file);
 
       const prompt = `

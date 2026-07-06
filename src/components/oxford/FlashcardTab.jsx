@@ -3,7 +3,21 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw, Volume2, Snail } from 'lucide-react';
 
 const FlashcardTab = ({ unitData }) => {
-    const allWords = unitData.words || (unitData.theory ? unitData.theory.flatMap(section => section.items || []).filter(Boolean) : []);
+    // Derive flashcard words. `theory` may be either an array of sections OR an
+    // object with coreVocab / practicalUsage / discoveryCorner arrays (the shape
+    // TheoryTab expects). Handle both so this never crashes with .flatMap.
+    const deriveWords = () => {
+        if (Array.isArray(unitData.words)) return unitData.words;
+        const t = unitData.theory;
+        if (!t) return [];
+        if (Array.isArray(t)) return t.flatMap(section => section.items || []).filter(Boolean);
+        return [
+            ...(t.coreVocab || []),
+            ...(t.practicalUsage || []),
+            ...(t.discoveryCorner || []),
+        ].filter(Boolean);
+    };
+    const allWords = deriveWords();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [jumpVal, setJumpVal] = useState(1);
