@@ -174,12 +174,20 @@ function LessonViewer({ course, lesson, onBack, onPrev, onNext, hasPrev, hasNext
 
 // ---------- course (lesson list) ----------
 function CourseView({ chang, course, onBack, onOpenLesson, done }) {
+  const d = doneCount(course.lessons, done);
+  const pct = course.lessons.length ? Math.round((d / course.lessons.length) * 100) : 0;
+  const nextIdx = course.lessons.findIndex((l) => !done.includes(l.id));
+  const allDone = nextIdx === -1;
   return (
     <div className="max-w-3xl mx-auto space-y-5">
       <button onClick={onBack} className="flex items-center gap-2 font-black text-slate-500 hover:text-slate-800 dark:hover:text-white"><ArrowLeft size={18} /> {chang.title}</button>
       <div className={`${card} p-5`}>
         <h1 className="text-2xl font-black text-slate-800 dark:text-white">{course.title}</h1>
-        <p className="text-sm font-bold text-slate-400">{course.tag} · {doneCount(course.lessons, done)}/{course.lessons.length} đã học</p>
+        <p className="text-sm font-bold text-slate-400 mb-3">{course.tag} · {d}/{course.lessons.length} đã học</p>
+        <div className="h-2.5 rounded-full bg-slate-200 dark:bg-slate-700 border-2 border-slate-800 overflow-hidden mb-3"><div className={`h-full ${COLORS[chang.color] || 'bg-cyan-400'}`} style={{ width: `${pct}%` }} /></div>
+        <button onClick={() => onOpenLesson(allDone ? 0 : nextIdx)} className="flex items-center gap-2 px-4 py-2.5 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 font-black text-sm bg-yellow-300 text-slate-900 shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#020617] hover:translate-y-0.5 transition-transform">
+          <PlayCircle size={18} /> {allDone ? 'Ôn lại từ đầu' : d > 0 ? `Học tiếp: Bài ${nextIdx + 1}` : 'Bắt đầu học'}
+        </button>
       </div>
       <div className="space-y-3">
         {course.lessons.map((l, i) => {
