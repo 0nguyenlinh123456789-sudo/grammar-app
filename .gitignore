@@ -25,3 +25,5 @@ dist-ssr
 
 # IELTS foundation media (8GB, extracted from zip — served locally, not committed)
 public/ielts-foundation/
+# IELTS PREP study materials (PDF/PNG, extracted from IELTS PREP.zip — served locally)
+public/ielts-prep/

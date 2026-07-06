@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import ieltsFoundationData from '../data/ieltsFoundationData';
 import ieltsRoadmap from '../data/ieltsRoadmap';
+import ieltsPrepData from '../data/ieltsPrepData';
 
 // ---------- helpers ----------
 function stripJunk(s) {
@@ -42,6 +43,8 @@ const TYPE = {
   tp:       { label: 'Chủ đề',       icon: MessageCircle, cls: 'bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 border-teal-400' },
   di:       { label: 'Nghe chép',    icon: Volume2,       cls: 'bg-cyan-100 dark:bg-cyan-900/40 text-cyan-700 dark:text-cyan-300 border-cyan-400' },
   bn:       { label: 'Bonus',        icon: Sparkles,      cls: 'bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-300 border-yellow-400' },
+  doc:      { label: 'Tài liệu',     icon: FileText,      cls: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 border-emerald-400' },
+  gallery:  { label: 'Thẻ hình',     icon: ImageIcon,     cls: 'bg-fuchsia-100 dark:bg-fuchsia-900/40 text-fuchsia-700 dark:text-fuchsia-300 border-fuchsia-400' },
 };
 function TypeBadge({ type }) {
   const m = TYPE[type] || TYPE.lesson; const Icon = m.icon;
@@ -117,6 +120,22 @@ const ROADMAP = ieltsRoadmap.map((chang) => ({
   }),
 }));
 
+// Extra chặng built from the "IELTS PREP.zip" study materials (real PDF/PNG).
+const PREP_CHANG = {
+  id: 'chang-prep', title: 'Chặng 5: Tài liệu IELTS Band 7+', icon: '📚', color: 'violet',
+  desc: '30 chủ điểm ngữ pháp, 200 chủ đề từ vựng Band 7+, từ vựng Speaking/Writing/Listening — tài liệu PDF & thẻ hình học trực tiếp trong app.',
+  courses: ieltsPrepData.map((c) => ({
+    id: c.id, title: c.title, tag: c.tag,
+    lessons: c.lessons.map((l, li) => ({
+      id: `ir-chang-prep-${c.id}-${li}`,
+      title: l.title,
+      type: (l.images && l.images.length) ? 'gallery' : 'doc',
+      videos: [], audios: [], pdfs: l.pdfs || [], images: l.images || [], docs: l.docs || [],
+    })),
+  })),
+};
+if (PREP_CHANG.courses.length) ROADMAP.push(PREP_CHANG);
+
 const allLessons = (chang) => chang.courses.flatMap((c) => c.lessons);
 const doneCount = (lessons, done) => lessons.filter((l) => done.includes(l.id)).length;
 
@@ -187,6 +206,7 @@ function LessonViewer({ course, lesson, onBack, onPrev, onNext, hasPrev, hasNext
   const [vIdx, setVIdx] = useState(0);
   const video = lesson.videos[vIdx];
   const hasVideo = lesson.videos.length > 0;
+  const hasMedia = hasVideo || lesson.pdfs.length + lesson.audios.length + lesson.images.length + lesson.docs.length > 0;
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <button onClick={onBack} className="flex items-center gap-2 font-black text-slate-500 hover:text-slate-800 dark:hover:text-white"><ArrowLeft size={18} /> {course.title}</button>
@@ -245,7 +265,7 @@ function LessonViewer({ course, lesson, onBack, onPrev, onNext, hasPrev, hasNext
       )}
 
       <TypeGuide type={lesson.type} />
-      {!hasVideo && <ResourceLinks lesson={lesson} courseTitle={course.title} />}
+      {!hasMedia && <ResourceLinks lesson={lesson} courseTitle={course.title} />}
 
       <div className="flex items-center justify-between gap-3 pt-4 flex-wrap">
         <button onClick={onPrev} disabled={!hasPrev} className="flex items-center gap-1 px-4 py-3 font-black rounded-xl border-4 border-slate-800 dark:border-slate-600 bg-white dark:bg-slate-800 dark:text-slate-200 disabled:opacity-30 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] disabled:shadow-none"><ChevronLeft size={18} /> Trước</button>
@@ -269,6 +289,7 @@ function CourseView({ chang, course, onBack, onOpenLesson, done }) {
         {course.lessons.map((l, i) => {
           const isDone = done.includes(l.id);
           const hasVideo = l.videos.length > 0;
+          const hasDoc = !hasVideo && (l.pdfs.length + l.images.length + l.audios.length + l.docs.length) > 0;
           return (
             <button key={l.id} onClick={() => onOpenLesson(i)} className={`w-full text-left flex items-center gap-4 p-4 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-[5px_5px_0_0_#1e293b] dark:shadow-[5px_5px_0_0_#020617] hover:translate-x-0.5 transition-transform`}>
               <span className={`shrink-0 w-9 h-9 flex items-center justify-center rounded-full border-[3px] border-slate-800 font-black ${isDone ? 'bg-green-400 text-slate-900' : `${COLORS[chang.color] || 'bg-cyan-400'} text-slate-900`}`}>{isDone ? <CheckCircle2 size={18} /> : i + 1}</span>
@@ -276,6 +297,7 @@ function CourseView({ chang, course, onBack, onOpenLesson, done }) {
                 <span className="flex items-center gap-2 flex-wrap mb-0.5">
                   <TypeBadge type={l.type} />
                   {hasVideo && <span className="text-[10px] font-black text-green-600 dark:text-green-400 inline-flex items-center gap-0.5"><PlayCircle size={11} /> Có video</span>}
+                  {hasDoc && <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 inline-flex items-center gap-0.5"><FileText size={11} /> Có tài liệu</span>}
                 </span>
                 <span className="block font-black text-slate-800 dark:text-white">{l.title}</span>
               </span>
