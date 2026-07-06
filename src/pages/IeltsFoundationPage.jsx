@@ -13,6 +13,7 @@ import {
 import ieltsFoundationData from '../data/ieltsFoundationData';
 import ieltsRoadmap from '../data/ieltsRoadmap';
 import ieltsPrepData from '../data/ieltsPrepData';
+import ieltsAdvancedData from '../data/ieltsAdvancedData';
 
 // ---------- helpers ----------
 function stripJunk(s) {
@@ -99,26 +100,65 @@ function matchMedia(index, roadmapTitle, roadmapType) {
   return bestScore >= 1 ? best : null;
 }
 
-// Expand the roadmap once, attaching stable ids + matched media.
-const ROADMAP = ieltsRoadmap.map((chang) => ({
-  ...chang,
-  courses: chang.courses.map((course) => {
+// ---------- real lecture media (Chặng 2/3/4 → extracted archives) ----------
+// Unlike Chặng 1's per-lesson matchMedia (verified 100%), these modules can't be
+// safely matched 1:1 to the screenshot roadmap (flat 1.mp4… files, mismatched
+// titles). So we APPEND every real lesson to the correct course — lossless: no
+// video is hidden and none is mis-attached. Some Trung Cấp skills (Ngữ pháp / Phát
+// âm / Từ vựng) weren't in the roadmap screenshots at all → added as new courses.
+const advById = Object.fromEntries(ieltsAdvancedData.map((m) => [m.id, m]));
+// course id → module id (append the module's lessons after the roadmap lessons)
+const APPEND_TO_COURSE = {
+  'c2-listening': 'ielts-listening-co-ban', 'c2-reading': 'ielts-reading-co-ban',
+  'c2-speaking': 'ielts-speaking-co-ban-plus', 'c2-writing': 'ielts-writing-co-ban-plus-2',
+  'c3-speaking': 'ielts-speaking-trung-cap', 'c3-writing': 'ielts-writing-trung-cap',
+  'c4-listening': 'ielts-listening-chuyen-sau', 'c4-reading': 'ielts-reading-chuyen-sau',
+  'c4-speaking': 'ielts-speaking-chuyen-sau', 'c4-writing': 'ielts-writing-chuyen-sau',
+  'c4-ngu-phap': 'ngu-phap-nang-cao', 'c4-phat-am': 'phat-am-nang-cao', 'c4-tu-vung': 'tu-vung-nang-cao',
+};
+// chặng id → new courses built purely from a media module (missing from screenshots)
+const NEW_COURSES = {
+  'chang-3': [
+    { id: 'c3-ngu-phap', title: 'IELTS Ngữ pháp Trung cấp', module: 'ngu-phap-trung-cap' },
+    { id: 'c3-phat-am', title: 'IELTS Phát âm Trung cấp', module: 'phat-am-trung-cap' },
+    { id: 'c3-tu-vung', title: 'IELTS Từ vựng Trung cấp', module: 'tu-vung-trung-cap' },
+  ],
+};
+const mediaType = (title) => { const c = classifyMedia(title); return c === 'final' ? 'test' : c; };
+function mediaLessons(changId, courseId, moduleId) {
+  const m = advById[moduleId];
+  if (!m) return [];
+  return m.lessons.map((raw, li) => ({
+    id: `ir-${changId}-${courseId}-m-${li}`,
+    title: raw.title, type: mediaType(raw.title),
+    videos: raw.videos || [], audios: raw.audios || [], pdfs: raw.pdfs || [],
+    images: raw.images || [], docs: raw.docs || [],
+  }));
+}
+
+// Expand the roadmap once, attaching stable ids + matched/appended media.
+const ROADMAP = ieltsRoadmap.map((chang) => {
+  const courses = chang.courses.map((course) => {
     const index = course.mediaModuleId ? buildMediaIndex(course.mediaModuleId) : null;
-    return {
-      ...course,
-      lessons: course.lessons.map(([title, code], li) => {
-        const type = code || 'lesson';
-        const media = matchMedia(index, title, type);
-        return {
-          id: `ir-${chang.id}-${course.id}-${li}`,
-          title, type,
-          videos: media?.videos || [], audios: media?.audios || [], pdfs: media?.pdfs || [],
-          images: media?.images || [], docs: media?.docs || [],
-        };
-      }),
-    };
-  }),
-}));
+    const roadLessons = course.lessons.map(([title, code], li) => {
+      const type = code || 'lesson';
+      const media = matchMedia(index, title, type);
+      return {
+        id: `ir-${chang.id}-${course.id}-${li}`,
+        title, type,
+        videos: media?.videos || [], audios: media?.audios || [], pdfs: media?.pdfs || [],
+        images: media?.images || [], docs: media?.docs || [],
+      };
+    });
+    const extra = APPEND_TO_COURSE[course.id] ? mediaLessons(chang.id, course.id, APPEND_TO_COURSE[course.id]) : [];
+    return { ...course, lessons: [...roadLessons, ...extra] };
+  });
+  const added = (NEW_COURSES[chang.id] || []).map((nc) => {
+    const lessons = mediaLessons(chang.id, nc.id, nc.module);
+    return { id: nc.id, title: nc.title, tag: `${lessons.length} video bài giảng`, lessons };
+  }).filter((c) => c.lessons.length);
+  return { ...chang, courses: [...courses, ...added] };
+});
 
 // Extra chặng built from the "IELTS PREP.zip" study materials (real PDF/PNG).
 const PREP_CHANG = {
