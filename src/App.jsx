@@ -3,49 +3,34 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 
 // Data layer
 import { parsedGrammarData, grammarLevels } from './data/grammarData';
-import { courseData as courseDataPart1 } from './data/oxfordData';
-import { courseData as courseDataPart2 } from './data/oxfordDataPart2';
-import { courseData as courseDataPart3 } from './data/oxfordDataPart3';
-import { courseData as courseDataPreInt } from './data/oxfordPreIntData';
-import { courseData51_75 as courseDataPreIntPart3 } from './data/oxfordPreIntData51_75';
-import { courseData76_100 as courseDataPreIntPart4 } from './data/oxfordPreIntData76_100';
-import { courseData1_25 as courseDataAdvancedPart1 } from './data/oxfordAdvancedData1_25';
-import { courseData26_50 as courseDataAdvancedPart2 } from './data/oxfordAdvancedData26_50';
-import { courseData51_75 as courseDataAdvancedPart3 } from './data/oxfordAdvancedData51_75';
-import { courseData76_100 as courseDataAdvancedPart4 } from './data/oxfordAdvancedData76_100';
 import vocabVstepData from './data/vocabVstepData';
-import { roadmapData } from './data/roadmapData';
+// NOTE: Oxford data (~9MB, the biggest data set) is NOT imported eagerly. It is
+// dynamically loaded only when the learner opens the Oxford vocab section, so it
+// no longer bloats the initial page load. See loadOxfordBooks() below.
 
-const elementaryUnits = [...courseDataPart1, ...courseDataPart2, ...courseDataPart3];
-const preIntUnits = [...courseDataPreInt, ...courseDataPreIntPart3, ...courseDataPreIntPart4];
-const advancedUnits = [...courseDataAdvancedPart1, ...courseDataAdvancedPart2, ...courseDataAdvancedPart3, ...courseDataAdvancedPart4];
-
-const oxfordBooks = [
-  {
-    id: 'elementary',
-    title: 'English Vocabulary in Use - Elementary',
-    description: 'Giáo trình từ vựng Oxford cấp độ Cơ bản (60 Units)',
-    units: elementaryUnits
-  },
-  {
-    id: 'pre_intermediate',
-    title: 'English Vocabulary in Use - Pre-Intermediate & Intermediate',
-    description: 'Giáo trình từ vựng Oxford cấp độ Trung cấp (100 Units)',
-    units: preIntUnits
-  },
-  {
-    id: 'advanced',
-    title: 'English Vocabulary in Use - Advanced',
-    description: 'Giáo trình từ vựng Oxford cấp độ Cao cấp, dành cho IELTS 7.0+ và C1-C2 (100 Units)',
-    units: advancedUnits
-  }
-];
-
-const courseData = [
-  ...elementaryUnits,
-  ...preIntUnits,
-  ...advancedUnits
-];
+// Dynamically import and assemble the Oxford books. Called on demand.
+async function loadOxfordBooks() {
+  const [p1, p2, p3, pi, pi3, pi4, a1, a2, a3, a4] = await Promise.all([
+    import('./data/oxfordData'),
+    import('./data/oxfordDataPart2'),
+    import('./data/oxfordDataPart3'),
+    import('./data/oxfordPreIntData'),
+    import('./data/oxfordPreIntData51_75'),
+    import('./data/oxfordPreIntData76_100'),
+    import('./data/oxfordAdvancedData1_25'),
+    import('./data/oxfordAdvancedData26_50'),
+    import('./data/oxfordAdvancedData51_75'),
+    import('./data/oxfordAdvancedData76_100'),
+  ]);
+  const elementaryUnits = [...p1.courseData, ...p2.courseData, ...p3.courseData];
+  const preIntUnits = [...pi.courseData, ...pi3.courseData51_75, ...pi4.courseData76_100];
+  const advancedUnits = [...a1.courseData1_25, ...a2.courseData26_50, ...a3.courseData51_75, ...a4.courseData76_100];
+  return [
+    { id: 'elementary', title: 'English Vocabulary in Use - Elementary', description: 'Giáo trình từ vựng Oxford cấp độ Cơ bản (60 Units)', units: elementaryUnits },
+    { id: 'pre_intermediate', title: 'English Vocabulary in Use - Pre-Intermediate & Intermediate', description: 'Giáo trình từ vựng Oxford cấp độ Trung cấp (100 Units)', units: preIntUnits },
+    { id: 'advanced', title: 'English Vocabulary in Use - Advanced', description: 'Giáo trình từ vựng Oxford cấp độ Cao cấp, dành cho IELTS 7.0+ và C1-C2 (100 Units)', units: advancedUnits },
+  ];
+}
 
 // Layout layer
 import MainLayout from './layouts/MainLayout';
@@ -79,10 +64,13 @@ export default function App() {
     if (savedUnitId && savedUnitId !== 'null') {
       return isNaN(savedUnitId) ? savedUnitId : parseInt(savedUnitId, 10);
     }
-    const savedBook = localStorage.getItem('activeOxfordBookId') || 'elementary';
-    const book = oxfordBooks.find(b => b.id === savedBook) || oxfordBooks[0];
-    return book.units[0]?.id || 1;
+    return null; // resolved to the first unit once Oxford data loads
   }); // Active Oxford unit ID
+
+  // Oxford books are lazy-loaded (large data set). Empty until the learner opens
+  // the Oxford section for the first time.
+  const [oxfordBooks, setOxfordBooks] = useState([]);
+  const [oxfordLoaded, setOxfordLoaded] = useState(false);
   const [vstepTopicId, setVstepTopicId] = useState('travel-transport'); // Active VSTEP topic ID
   
   // Oxford Book State
@@ -198,6 +186,29 @@ export default function App() {
     localStorage.setItem('oxfordUnitId', oxfordUnitId);
   }, [oxfordUnitId]);
 
+  // Lazy-load the (large) Oxford data the first time the learner opens it.
+  useEffect(() => {
+    if (appMode === 'vocab' && activeVocabCategory === 'OXFORD' && !oxfordLoaded) {
+      let cancelled = false;
+      loadOxfordBooks().then(books => {
+        if (cancelled) return;
+        setOxfordBooks(books);
+        setOxfordLoaded(true);
+      });
+      return () => { cancelled = true; };
+    }
+  }, [appMode, activeVocabCategory, oxfordLoaded]);
+
+  // Once Oxford data is loaded, make sure the selected unit actually exists.
+  useEffect(() => {
+    if (oxfordLoaded && oxfordBooks.length) {
+      const book = oxfordBooks.find(b => b.id === activeOxfordBookId) || oxfordBooks[0];
+      const exists = book.units.some(u => u.id === oxfordUnitId);
+      if (!exists) setOxfordUnitId(book.units[0]?.id ?? null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [oxfordLoaded]);
+
   // Persist and Apply Theme
   useEffect(() => {
     localStorage.setItem('theme', theme);
@@ -251,8 +262,10 @@ export default function App() {
 
   // Computed selections
   const selectedGrammarTopic = parsedGrammarData.find(t => t.id === topicId);
-  const selectedBook = oxfordBooks.find(b => b.id === activeOxfordBookId) || oxfordBooks[0];
-  const selectedOxfordUnit = selectedBook.units.find(u => u.id === oxfordUnitId) || selectedBook.units[0];
+  const selectedBook = oxfordBooks.find(b => b.id === activeOxfordBookId) || oxfordBooks[0] || null;
+  const selectedOxfordUnit = selectedBook
+    ? (selectedBook.units.find(u => u.id === oxfordUnitId) || selectedBook.units[0])
+    : null;
   const selectedVstepTopic = vocabVstepData.find(t => t.id === vstepTopicId);
 
   // Global Speech Synthesis Helper
@@ -347,9 +360,10 @@ export default function App() {
             />
           );
         } else {
+          if (!oxfordLoaded || !selectedOxfordUnit) return <RouteLoader />;
           return (
-            <VocabOxfordPage 
-              selectedUnit={selectedOxfordUnit} 
+            <VocabOxfordPage
+              selectedUnit={selectedOxfordUnit}
               completedMilestones={completedMilestones}
               completeMilestone={completeMilestone}
             />
@@ -408,8 +422,9 @@ export default function App() {
       vstepTopics={vocabVstepData}
       parsedGrammarData={parsedGrammarData}
       grammarLevels={grammarLevels}
-      courseData={selectedBook.units}
+      courseData={selectedBook?.units || []}
       oxfordBooks={oxfordBooks}
+      oxfordLoaded={oxfordLoaded}
       activeOxfordBookId={activeOxfordBookId}
       setActiveOxfordBookId={setActiveOxfordBookId}
       completedMilestones={completedMilestones}

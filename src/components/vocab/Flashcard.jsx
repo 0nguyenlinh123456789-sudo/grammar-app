@@ -1,6 +1,8 @@
 // File: src/components/vocab/Flashcard.jsx
 import React, { useState, useEffect } from 'react';
 import { RotateCcw, Volume2, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { recordReview } from '../../utils/srs';
+import { playCorrect, playWrong } from '../../utils/sound';
 
 // Quick motivational hints shown above the card (lighter version without a mascot)
 const CARD_HINTS = [
@@ -59,10 +61,12 @@ const Flashcard = ({ currentWordIndex, totalWords, currentWord, playAudio, onNex
   };
 
   const handleKnew = () => {
+    if (currentWord) { recordReview(currentWord, true); playCorrect(); }
     setTimeout(() => onNext && onNext(), 400);
   };
 
   const handleDidntKnow = () => {
+    if (currentWord) { recordReview(currentWord, false); playWrong(); }
     setTimeout(() => onNext && onNext(), 400);
   };
 

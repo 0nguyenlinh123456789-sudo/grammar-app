@@ -20,6 +20,7 @@ const MainLayout = ({
   grammarLevels = [],
   courseData,
   oxfordBooks = [],
+  oxfordLoaded = true,
   activeOxfordBookId = 'elementary',
   setActiveOxfordBookId,
   completedMilestones = [],
@@ -305,7 +306,13 @@ const MainLayout = ({
             )}
 
             {/* OXFORD VOCAB UNITS LIST */}
-            {appMode === 'vocab' && activeVocabCategory === 'OXFORD' && (
+            {appMode === 'vocab' && activeVocabCategory === 'OXFORD' && !oxfordLoaded && (
+              <div className="flex items-center justify-center gap-3 py-10 text-slate-400 font-black">
+                <span className="inline-block w-5 h-5 border-4 border-slate-300 border-t-slate-600 rounded-full animate-spin"></span>
+                Đang tải giáo trình Oxford...
+              </div>
+            )}
+            {appMode === 'vocab' && activeVocabCategory === 'OXFORD' && oxfordLoaded && (
               <>
                 <div className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest pl-2 mb-2 mt-4">
                   Chọn Giáo Trình

@@ -131,6 +131,13 @@ const vocabData = [
     "level": "A2-B1",
     "title": "✈️ Du Lịch & Giao Thông",
     "description": "Từ vựng tiếng Anh về phương tiện di chuyển, sân bay, biển báo và những chuyến đi.",
+    "comprehension": [
+      { "en": "The flight to London was delayed by two hours because of the bad weather.", "q": "Vì sao chuyến bay bị hoãn?", "options": ["Vì thời tiết xấu", "Vì máy bay hỏng", "Vì hết nhiên liệu", "Vì tài xế đến muộn"], "answer": 0 },
+      { "en": "Excuse me, could you tell me which platform the train to Paris leaves from?", "q": "Người nói đang muốn biết điều gì?", "options": ["Sân ga nào tàu đi Paris khởi hành", "Giá vé tàu đi Paris", "Mấy giờ tàu đến", "Tàu có wifi không"], "answer": 0 },
+      { "en": "If you leave your bag on the bus, go to the lost property office to get it back.", "q": "Nên làm gì nếu bỏ quên túi trên xe buýt?", "options": ["Đến quầy hành lý thất lạc", "Gọi cảnh sát ngay", "Mua túi mới", "Chờ ở bến xe"], "answer": 0 },
+      { "en": "We spent the whole morning sightseeing around the old town before lunch.", "q": "Họ đã làm gì vào buổi sáng?", "options": ["Đi tham quan phố cổ", "Ăn trưa sớm", "Đặt vé máy bay", "Nghỉ trong khách sạn"], "answer": 0 },
+      { "en": "The car stopped at the traffic lights and waited for the signal to turn green.", "q": "Chiếc xe dừng lại ở đâu?", "options": ["Ở đèn giao thông", "Ở trạm xăng", "Ở bãi đỗ xe", "Ở sân bay"], "answer": 0 }
+    ],
     "words": [
       {
         "en": "ticket",

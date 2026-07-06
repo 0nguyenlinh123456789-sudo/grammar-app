@@ -1,33 +1,24 @@
 // File: src/components/vocab/ReadingComprehension.jsx
-// Reading-comprehension check: read an English sentence, pick its correct
-// Vietnamese meaning. Text-only (no audio) to train the Reading skill.
-// Built from existing vocab data (example / viExample).
+// Reading-comprehension check: read an English sentence/passage, then answer a
+// question. Uses hand-authored questions (topic.comprehension) when present,
+// otherwise auto-generates from vocab example sentences. Text-only (no audio).
 import React, { useState, useEffect, useCallback } from 'react';
 import { BookOpen, CheckCircle2, XCircle, RefreshCw, Trophy } from 'lucide-react';
 import { playCorrect, playWrong, playComplete } from '../../utils/sound';
 import { recordReview } from '../../utils/srs';
+import { buildComprehension } from '../../utils/comprehension';
 
-const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
-
-const ReadingComprehension = ({ words = [] }) => {
+const ReadingComprehension = ({ words = [], authored }) => {
   const [pool, setPool] = useState([]);
   const [idx, setIdx] = useState(0);
-  const [options, setOptions] = useState([]);
   const [selected, setSelected] = useState(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
 
-  const buildOptions = useCallback((correct, all) => {
-    const distractors = shuffle(all.filter((w) => w.viExample && w.viExample !== correct.viExample)).slice(0, 3);
-    return shuffle([correct, ...distractors]);
-  }, []);
-
   const init = useCallback(() => {
-    const usable = words.filter((w) => w.example && w.viExample);
-    const p = shuffle(usable).slice(0, 8);
-    setPool(p); setIdx(0); setScore(0); setSelected(null); setFinished(false);
-    if (p.length) setOptions(buildOptions(p[0], usable));
-  }, [words, buildOptions]);
+    setPool(buildComprehension({ words, authored, limit: 8 }));
+    setIdx(0); setScore(0); setSelected(null); setFinished(false);
+  }, [words, authored]);
 
   useEffect(() => { init(); }, [init]);
 
@@ -36,20 +27,16 @@ const ReadingComprehension = ({ words = [] }) => {
   const choose = (opt) => {
     if (selected !== null) return;
     setSelected(opt);
-    const correct = opt.viExample === cur.viExample;
+    const correct = !!opt.correct;
     if (correct) { setScore((s) => s + 10); playCorrect(); } else { playWrong(); }
-    recordReview(cur, correct);
+    if (cur.word) recordReview(cur.word, correct);
     setTimeout(() => {
-      if (idx < pool.length - 1) {
-        const ni = idx + 1;
-        setIdx(ni); setSelected(null);
-        const usable = words.filter((w) => w.example && w.viExample);
-        setOptions(buildOptions(pool[ni], usable));
-      } else { playComplete(); setFinished(true); }
+      if (idx < pool.length - 1) { setIdx(idx + 1); setSelected(null); }
+      else { playComplete(); setFinished(true); }
     }, 1300);
   };
 
-  if (pool.length < 4) return null; // need enough sentences for a fair quiz
+  if (pool.length < 4) return null; // need enough questions for a fair quiz
 
   if (finished) {
     const pct = Math.round((score / (pool.length * 10)) * 100);
@@ -73,25 +60,24 @@ const ReadingComprehension = ({ words = [] }) => {
       <div className="flex gap-1 w-full my-4">
         {pool.map((_, i) => <div key={i} className={`flex-1 h-2 rounded-full ${i < idx ? 'bg-emerald-400' : i === idx ? 'bg-sky-400 animate-pulse' : 'bg-slate-200 dark:bg-slate-700'}`} />)}
       </div>
-      <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Đọc câu sau và chọn nghĩa tiếng Việt đúng:</p>
-      <p className="text-xl md:text-2xl font-black text-slate-800 dark:text-slate-100 mb-5 leading-snug">"{cur.example}"</p>
+      <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Đọc và trả lời: {cur.prompt}</p>
+      <p className="text-xl md:text-2xl font-black text-slate-800 dark:text-slate-100 mb-5 leading-snug">"{cur.showText}"</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {options.map((opt, i) => {
-          const isCorrect = opt.viExample === cur.viExample;
+        {cur.options.map((opt, i) => {
           const isChosen = selected === opt;
           let cls = 'bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 border-black dark:border-slate-600';
           if (selected !== null) {
-            if (isCorrect) cls = 'bg-emerald-200 dark:bg-emerald-900/50 border-emerald-600 text-emerald-900 dark:text-emerald-200';
+            if (opt.correct) cls = 'bg-emerald-200 dark:bg-emerald-900/50 border-emerald-600 text-emerald-900 dark:text-emerald-200';
             else if (isChosen) cls = 'bg-rose-200 dark:bg-rose-900/50 border-rose-600 text-rose-900 dark:text-rose-200';
             else cls = 'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 opacity-60';
           }
           return (
             <button key={i} onClick={() => choose(opt)} disabled={selected !== null}
               className={`text-left p-4 rounded-2xl border-4 font-bold text-base shadow-[3px_3px_0_0_rgba(0,0,0,0.8)] transition-all flex items-center gap-2 ${cls} ${selected === null ? 'cursor-pointer active:translate-y-0.5' : 'cursor-default'}`}>
-              {selected !== null && isCorrect && <CheckCircle2 size={18} className="shrink-0 text-emerald-600" />}
-              {selected !== null && isChosen && !isCorrect && <XCircle size={18} className="shrink-0 text-rose-600" />}
-              {opt.viExample}
+              {selected !== null && opt.correct && <CheckCircle2 size={18} className="shrink-0 text-emerald-600" />}
+              {selected !== null && isChosen && !opt.correct && <XCircle size={18} className="shrink-0 text-rose-600" />}
+              {opt.text}
             </button>
           );
         })}

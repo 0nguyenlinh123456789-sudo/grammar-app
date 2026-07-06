@@ -1,6 +1,8 @@
 // File: src/components/vocab/WritingPractice.jsx
 import React, { useState, useEffect } from 'react';
 import { CheckCircle2, XCircle, Eye } from 'lucide-react';
+import { recordReview } from '../../utils/srs';
+import { playCorrect, playWrong } from '../../utils/sound';
 
 const WritingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio, onWordChange }) => {
   const [writingInput, setWritingInput] = useState('');
@@ -53,11 +55,15 @@ const WritingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio,
 
   const checkWriting = (e) => {
     e.preventDefault();
-    if (writingInput.trim().toLowerCase() === currentWord.en.toLowerCase()) {
+    const correct = writingInput.trim().toLowerCase() === currentWord.en.toLowerCase();
+    recordReview(currentWord, correct);
+    if (correct) {
       setWritingStatus('correct');
-      playAudio(currentWord.en, 'en-US'); 
+      playCorrect();
+      playAudio(currentWord.en, 'en-US');
     } else {
       setWritingStatus('wrong');
+      playWrong();
     }
   };
 
