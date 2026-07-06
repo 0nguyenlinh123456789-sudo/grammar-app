@@ -97,34 +97,42 @@ const ANIMALS = {
   },
 };
 
+// Accessories the buddy earns as it grows (feeding/streak tiers).
+const DECO_MK = {
+  scarf: '<text x="50" y="82" font-size="15" text-anchor="middle">🧣</text>',
+  cap: '<text x="50" y="20" font-size="17" text-anchor="middle">🧢</text>',
+  crown: '<text x="50" y="18" font-size="18" text-anchor="middle">👑</text>',
+};
+
 // ---------- base svg ----------
-export function ChibiSvg({ species = 'cat', mood = 'idle', size = 80, cap = false, locked = false }) {
+export function ChibiSvg({ species = 'cat', mood = 'idle', size = 80, cap = false, locked = false, deco = null }) {
   const id = 'c' + useId().replace(/[^a-zA-Z0-9]/g, '');
   const happy = mood === 'happy' || mood === 'celebrate';
   const draw = (ANIMALS[species] || ANIMALS.cat)(happy && !locked, id);
   const shadow = '<ellipse cx="50" cy="93" rx="28" ry="4.5" fill="#000" opacity="0.10"/>';
   const capMk = cap ? '<text x="50" y="18" font-size="20" text-anchor="middle">🎓</text>' : '';
+  const decoMk = !locked && deco ? (DECO_MK[deco] || '') : '';
   const sparkle = mood === 'celebrate' ? '<text x="10" y="26" font-size="15">✨</text><text x="78" y="24" font-size="15">⭐</text>' : '';
   const lockMk = locked ? '<circle cx="72" cy="30" r="12" fill="#fff" stroke="#94a3b8" stroke-width="2"/><text x="72" y="35" font-size="13" text-anchor="middle">🔒</text>' : '';
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} role="img" aria-label={`${species} chibi`}
       className={`select-none pointer-events-none overflow-visible ${locked ? 'grayscale opacity-45' : ''}`}
-      dangerouslySetInnerHTML={{ __html: shadow + draw + capMk + sparkle + lockMk }} />
+      dangerouslySetInnerHTML={{ __html: shadow + draw + capMk + decoMk + sparkle + lockMk }} />
   );
 }
 
 // ---------- animated badge ----------
 const MOOD_ANIM = { idle: 'animate-mascot-float', happy: 'animate-mascot-bounce', celebrate: 'animate-mascot-celebrate', wiggle: 'animate-mascot-wiggle' };
-export function ChibiBadge({ species, mood = 'idle', size = 80, cap = false, locked = false, className = '', onClick }) {
+export function ChibiBadge({ species, mood = 'idle', size = 80, cap = false, locked = false, deco = null, className = '', onClick }) {
   return (
     <span className={`inline-flex ${locked ? '' : (MOOD_ANIM[mood] || MOOD_ANIM.idle)} ${onClick ? 'cursor-pointer hover:scale-110 transition-transform' : ''} ${className}`} onClick={onClick} style={{ willChange: 'transform' }}>
-      <ChibiSvg species={species} mood={mood} size={size} cap={cap} locked={locked} />
+      <ChibiSvg species={species} mood={mood} size={size} cap={cap} locked={locked} deco={deco} />
     </span>
   );
 }
 
 // ---------- speech-bubble coach ----------
-export function ChibiCoach({ species = 'cat', message, mood = 'idle', size = 74, direction = 'right', className = '' }) {
+export function ChibiCoach({ species = 'cat', message, mood = 'idle', size = 74, deco = null, direction = 'right', className = '' }) {
   const [show, setShow] = useState(false);
   useEffect(() => { const t = setTimeout(() => setShow(true), 400); return () => clearTimeout(t); }, [message]);
   const bubble = message && show && (
@@ -135,7 +143,7 @@ export function ChibiCoach({ species = 'cat', message, mood = 'idle', size = 74,
   return (
     <div className={`inline-flex items-center ${className}`}>
       {direction === 'left' && bubble}
-      <ChibiBadge species={species} mood={mood} size={size} />
+      <ChibiBadge species={species} mood={mood} size={size} deco={deco} />
       {direction === 'right' && bubble}
     </div>
   );

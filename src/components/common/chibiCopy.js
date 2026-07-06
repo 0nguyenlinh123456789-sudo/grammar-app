@@ -49,6 +49,28 @@ export function petProgress(p, { lessons = 0, streak = 0 }) {
   return 1;
 }
 
+// ---------- feeding / evolution ----------
+// Every lesson = 1 apple 🍎; a study streak feeds the buddy faster. The buddy
+// "levels up" and puts on an accessory as it grows — a reason to keep the streak.
+const TIERS = [
+  { min: 0, deco: null, label: 'Bé con' },
+  { min: 8, deco: 'scarf', label: 'Chăm chỉ' },
+  { min: 20, deco: 'cap', label: 'Học giả' },
+  { min: 45, deco: 'crown', label: 'Bậc thầy' },
+];
+export function petTier({ lessons = 0, streak = 0 }) {
+  const score = lessons + streak * 2; // apples + streak bonus
+  let cur = TIERS[0], next = null;
+  for (const t of TIERS) {
+    if (score >= t.min) cur = t;
+    else { next = t; break; }
+  }
+  const need = next ? next.min - score : 0;
+  const span = next ? next.min - cur.min : 1;
+  const progress = next ? Math.min(1, (score - cur.min) / span) : 1;
+  return { ...cur, score, apples: lessons, next, need, progress };
+}
+
 // ---------- English word of the day (the pet teaches you) ----------
 export const WORDS = [
   { w: 'improve', ipa: '/ɪmˈpruːv/', vi: 'cải thiện', ex: 'I want to improve my English.' },

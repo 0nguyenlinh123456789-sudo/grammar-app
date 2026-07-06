@@ -11,16 +11,15 @@ import {
   BookOpen, Map, PenSquare, Mic, Edit3, Video, Search, MessageCircle, Sparkles,
 } from 'lucide-react';
 import { ROADMAP } from '../data/buildIeltsRoadmap';
-import { ChibiBadge, ChibiCoach, ChibiCelebration } from '../components/common/ChibiAnimals';
-import { praiseLine, greetLine, PETS, petUnlocked, petHint, petProgress, wordOfDay } from '../components/common/chibiCopy';
+import { ChibiCoach, ChibiCelebration, ChibiBadge } from '../components/common/ChibiAnimals';
+import { praiseLine, greetLine, PETS, wordOfDay, petTier } from '../components/common/chibiCopy';
+import PetZoo from '../components/common/PetZoo';
 import { playComplete } from '../utils/sound';
 
 // Each chặng has its own cute animal buddy; Mochi the cat is the roaming coach.
 const CHANG_SPECIES = { 'chang-1': 'chick', 'chang-2': 'bunny', 'chang-3': 'hamster', 'chang-4': 'bear' };
 const speciesFor = (changId) => CHANG_SPECIES[changId] || 'cat';
 const COACH = 'cat';
-// How many IELTS lessons the learner has finished (drives the pet-zoo unlocks).
-const ieltsDoneCount = (done) => done.filter((id) => typeof id === 'string' && id.startsWith('ir-')).length;
 
 const TYPE = {
   lesson:   { label: 'Bài giảng',    icon: BookOpen,      cls: 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 border-blue-400' },
@@ -258,18 +257,19 @@ function ChangView({ chang, onBack, onOpenCourse, done }) {
   );
 }
 
-// ---------- daily buddy banner (streak + goal + English word of the day) ----------
-function DailyBuddy({ streak = 0, dailyStats, dailyGoal = 1 }) {
+// ---------- daily buddy banner (streak + goal + word of day + feeding) ----------
+function DailyBuddy({ streak = 0, dailyStats, dailyGoal = 1, lessons = 0 }) {
   const todayLessons = dailyStats?.lessons || 0;
   const goalMet = todayLessons >= dailyGoal;
   const word = useMemo(() => wordOfDay(), []);
+  const tier = petTier({ lessons, streak });
   const greeting = useMemo(() => (goalMet
     ? `Hôm nay cậu học ${todayLessons} bài rồi — quá đỉnh! Giữ phong độ nhé! 🎉`
     : greetLine()), [goalMet, todayLessons]);
   return (
     <div className={`${card} p-4 space-y-3`}>
       <div className="flex items-center gap-3">
-        <ChibiCoach species={COACH} message={greeting} mood={goalMet ? 'happy' : 'idle'} size={72} />
+        <ChibiCoach species={COACH} message={greeting} mood={goalMet ? 'happy' : 'idle'} deco={tier.deco} size={72} />
         <div className="ml-auto flex gap-2 shrink-0">
           <div className="text-center px-3 py-2 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 bg-orange-100 dark:bg-orange-900/40">
             <div className="text-lg font-black leading-none text-orange-600 dark:text-orange-300">🔥 {streak}</div>
@@ -280,6 +280,15 @@ function DailyBuddy({ streak = 0, dailyStats, dailyGoal = 1 }) {
             <div className="text-[10px] font-black text-slate-500 dark:text-slate-400 mt-0.5">mục tiêu ngày</div>
           </div>
         </div>
+      </div>
+      {/* feeding / evolution */}
+      <div className="rounded-xl border-[3px] border-slate-800 dark:border-slate-600 bg-rose-50 dark:bg-rose-900/25 px-3.5 py-2.5">
+        <div className="flex items-center justify-between text-xs font-black text-slate-700 dark:text-slate-200 mb-1">
+          <span>🍎 Cho Mochi ăn · Cấp: {tier.label}</span>
+          <span className="text-slate-400">{tier.apples} táo</span>
+        </div>
+        <div className="h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden"><div className="h-full bg-rose-400" style={{ width: `${Math.round(tier.progress * 100)}%` }} /></div>
+        <p className="text-[11px] font-bold text-slate-400 mt-1">{tier.next ? `Học thêm ${tier.need} bài để Mochi lên cấp ${tier.next.label} ${tier.next.deco === 'crown' ? '👑' : tier.next.deco === 'cap' ? '🧢' : '🧣'}` : 'Mochi đã đạt cấp cao nhất — Bậc thầy 👑!'}</p>
       </div>
       <div className="rounded-xl border-[3px] border-slate-800 dark:border-slate-600 bg-sky-50 dark:bg-sky-900/30 px-3.5 py-2.5">
         <div className="flex items-baseline gap-2 flex-wrap">
@@ -294,42 +303,6 @@ function DailyBuddy({ streak = 0, dailyStats, dailyGoal = 1 }) {
   );
 }
 
-// ---------- "Vườn thú" — collect a cute pet for every study milestone ----------
-function PetZoo({ done, streak = 0 }) {
-  const lessons = ieltsDoneCount(done);
-  const stat = { lessons, streak };
-  const owned = PETS.filter((p) => petUnlocked(p, stat)).length;
-  const next = PETS.find((p) => !petUnlocked(p, stat));
-  return (
-    <div className={`${card} p-5`}>
-      <div className="flex items-center justify-between gap-2 mb-1">
-        <h2 className="flex items-center gap-2 font-black text-slate-800 dark:text-white"><span className="text-xl">🏡</span> Vườn thú của cậu</h2>
-        <span className="text-xs font-black text-slate-400">{owned}/{PETS.length} bạn</span>
-      </div>
-      <p className="text-xs font-bold text-slate-400 mb-4">
-        {next ? `Học thêm để mở khoá 🐾 ${next.name} — ${petHint(next)}!` : 'Cậu đã sưu tầm hết tất cả các bạn thú! 🏆'}
-      </p>
-      <div className="grid grid-cols-4 gap-3">
-        {PETS.map((p) => {
-          const got = petUnlocked(p, stat);
-          const prog = Math.round(petProgress(p, stat) * 100);
-          return (
-            <div key={p.species} className={`flex flex-col items-center text-center p-2 rounded-2xl border-[3px] ${got ? 'border-slate-800 dark:border-slate-600 bg-yellow-50 dark:bg-slate-900/40' : 'border-dashed border-slate-300 dark:border-slate-700'}`}>
-              <ChibiBadge species={p.species} mood={got ? 'happy' : 'idle'} size={56} locked={!got} />
-              <span className={`mt-1 text-xs font-black leading-tight ${got ? 'text-slate-800 dark:text-white' : 'text-slate-400'}`}>{got ? p.name : '???'}</span>
-              {got ? (
-                <span className="text-[9px] font-bold text-slate-400 leading-tight">{p.en}</span>
-              ) : (
-                <div className="w-full mt-1 h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden"><div className="h-full bg-pink-400" style={{ width: `${prog}%` }} /></div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 // ---------- home (chặng grid) ----------
 function Home({ onOpenChang, done, streak, dailyStats, dailyGoal }) {
   return (
@@ -338,7 +311,7 @@ function Home({ onOpenChang, done, streak, dailyStats, dailyGoal }) {
         <h1 className="text-3xl md:text-4xl font-black text-slate-800 dark:text-white flex items-center justify-center gap-3"><GraduationCap className="text-pink-500" size={34} /> IELTS Nền Tảng</h1>
         <p className="font-bold text-slate-400">Lộ trình 4 chặng: Nền Tảng → Cơ Bản → Trung Cấp → Chuyên Sâu</p>
       </div>
-      <DailyBuddy streak={streak} dailyStats={dailyStats} dailyGoal={dailyGoal} />
+      <DailyBuddy streak={streak} dailyStats={dailyStats} dailyGoal={dailyGoal} lessons={done.length} />
       <PetZoo done={done} streak={streak} />
       <div className="grid sm:grid-cols-2 gap-5">
         {ROADMAP.map((chang, idx) => {
@@ -381,9 +354,8 @@ export default function IeltsFoundationPage({ completedMilestones = [], complete
     if (completeMilestone) completeMilestone(id, 25);
     if (already) return;
     playComplete();
-    const isIelts = typeof id === 'string' && id.startsWith('ir-');
-    const newCount = ieltsDoneCount(completedMilestones) + (isIelts ? 1 : 0);
-    const unlocked = isIelts ? PETS.find((p) => p.unlock.lessons === newCount) : null;
+    const newCount = completedMilestones.length + 1; // apples app-wide (any cluster)
+    const unlocked = PETS.find((p) => p.unlock.lessons === newCount);
     setCelebrate(unlocked ? { species: unlocked.species, unlocked } : { species: speciesFor(changId) });
   };
 

@@ -10,6 +10,7 @@ import ActionScenarioMode from '../components/vocab/ActionScenarioMode';
 import ListeningComprehension from '../components/vocab/ListeningComprehension';
 import ReadingComprehension from '../components/vocab/ReadingComprehension';
 import MascotLuna from '../components/common/MascotLuna';
+import { ChibiBadge } from '../components/common/ChibiAnimals';
 
 const MODES = [
   { key: 'flashcard', label: 'Nhận Diện', step: 1, icon: () => <span className="text-xl leading-none">🐰</span>, color: 'bg-blue-400', hoverColor: 'hover:bg-blue-50 dark:hover:bg-blue-900/30', activeText: 'text-white', inactiveIcon: '' },
@@ -89,6 +90,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
             <Rocket size={32} className="text-indigo-600 dark:text-indigo-400" />
             {activeTopic.title.replace(/^[^\s]+\s/, '')}
           </h1>
+          <ChibiBadge species="bunny" mood="idle" size={60} className="flex-shrink-0 hidden sm:inline-flex" />
         </div>
 
         {/* Description */}

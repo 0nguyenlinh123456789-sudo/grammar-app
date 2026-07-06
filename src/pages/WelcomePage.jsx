@@ -8,6 +8,7 @@ import {
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
 import MascotLuna from '../components/common/MascotLuna';
+import PetZoo from '../components/common/PetZoo';
 import SrsReview from '../components/vocab/SrsReview';
 import { getDueCount } from '../utils/srs';
 import { isMuted, setMuted } from '../utils/sound';
@@ -321,6 +322,9 @@ const WelcomePage = ({
           </button>
         </div>
       </div>
+
+      {/* --- VƯỜN THÚ (bộ sưu tập thú cưng, mở khoá bằng việc học) --- */}
+      <PetZoo done={completedMilestones} streak={streak} className="mb-10" />
 
       {/* --- ACHIEVEMENTS / BADGES --- */}
       <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10">

@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Trophy, RefreshCw, Volume2, Shuffle, Gamepad2, Zap, Mic, BookOpen, PenLine, Headphones, Timer, ChevronRight, CheckCircle2, XCircle } from 'lucide-react';
 import MascotLuna from '../components/common/MascotLuna';
+import { ChibiBadge } from '../components/common/ChibiAnimals';
 import { escapeRegExp, isSpeechMatch } from '../utils/textUtils';
 import { playCorrect, playWrong } from '../utils/sound';
 import { recordReview } from '../utils/srs';
@@ -726,6 +727,7 @@ const GamesPage = ({ activeTopic, playAudio, completeMilestone }) => {
       <div className="bg-gradient-to-br from-violet-600 via-purple-700 to-indigo-800 border-4 border-black rounded-[1.75rem] p-5 md:p-7 shadow-[8px_8px_0_0_rgba(0,0,0,1)] mb-6 mt-4 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-1 right-2 z-10 hidden sm:block"><ChibiBadge species="bee" mood="idle" size={54} /></div>
         <div className="flex items-center gap-4 relative z-10">
           <div className="shrink-0">
             <MascotLuna mood="celebrate" size={72} showBubble={false} />
