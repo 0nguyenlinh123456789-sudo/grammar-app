@@ -11,6 +11,14 @@ import {
   BookOpen, Map, PenSquare, Mic, Edit3, Video, Search, MessageCircle, Sparkles,
 } from 'lucide-react';
 import { ROADMAP } from '../data/buildIeltsRoadmap';
+import { ChibiBadge, ChibiCoach, ChibiCelebration } from '../components/common/ChibiAnimals';
+import { praiseLine, greetLine } from '../components/common/chibiCopy';
+import { playComplete } from '../utils/sound';
+
+// Each chặng has its own cute animal buddy; the fox is the roaming coach.
+const CHANG_SPECIES = { 'chang-1': 'chick', 'chang-2': 'penguin', 'chang-3': 'cat', 'chang-4': 'panda' };
+const speciesFor = (changId) => CHANG_SPECIES[changId] || 'fox';
+const COACH = 'fox';
 
 const TYPE = {
   lesson:   { label: 'Bài giảng',    icon: BookOpen,      cls: 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 border-blue-400' },
@@ -182,7 +190,10 @@ function CourseView({ chang, course, onBack, onOpenLesson, done }) {
     <div className="max-w-3xl mx-auto space-y-5">
       <button onClick={onBack} className="flex items-center gap-2 font-black text-slate-500 hover:text-slate-800 dark:hover:text-white"><ArrowLeft size={18} /> {chang.title}</button>
       <div className={`${card} p-5`}>
-        <h1 className="text-2xl font-black text-slate-800 dark:text-white">{course.title}</h1>
+        <div className="flex items-center gap-3 mb-1">
+          <ChibiBadge species={speciesFor(chang.id)} mood={allDone ? 'happy' : 'idle'} size={48} className="shrink-0" />
+          <h1 className="text-2xl font-black text-slate-800 dark:text-white">{course.title}</h1>
+        </div>
         <p className="text-sm font-bold text-slate-400 mb-3">{course.tag} · {d}/{course.lessons.length} đã học</p>
         <div className="h-2.5 rounded-full bg-slate-200 dark:bg-slate-700 border-2 border-slate-800 overflow-hidden mb-3"><div className={`h-full ${COLORS[chang.color] || 'bg-cyan-400'}`} style={{ width: `${pct}%` }} /></div>
         <button onClick={() => onOpenLesson(allDone ? 0 : nextIdx)} className="flex items-center gap-2 px-4 py-2.5 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 font-black text-sm bg-yellow-300 text-slate-900 shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#020617] hover:translate-y-0.5 transition-transform">
@@ -220,9 +231,9 @@ function ChangView({ chang, onBack, onOpenCourse, done }) {
     <div className="max-w-3xl mx-auto space-y-5">
       <button onClick={onBack} className="flex items-center gap-2 font-black text-slate-500 hover:text-slate-800 dark:hover:text-white"><ArrowLeft size={18} /> Tất cả lộ trình</button>
       <div className={`${card} p-5 flex items-start gap-4`}>
-        <span className={`w-14 h-14 shrink-0 flex items-center justify-center text-3xl rounded-2xl ${COLORS[chang.color] || 'bg-cyan-400'} border-4 border-slate-800`}>{chang.icon}</span>
+        <ChibiBadge species={speciesFor(chang.id)} mood="idle" size={64} className="shrink-0" />
         <div>
-          <h1 className="text-2xl font-black text-slate-800 dark:text-white">{chang.title}</h1>
+          <h1 className="text-2xl font-black text-slate-800 dark:text-white">{chang.icon} {chang.title}</h1>
           <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mt-1">{chang.desc}</p>
         </div>
       </div>
@@ -245,21 +256,46 @@ function ChangView({ chang, onBack, onOpenCourse, done }) {
   );
 }
 
+// ---------- daily buddy banner (streak + goal) ----------
+function DailyBuddy({ streak = 0, dailyStats, dailyGoal = 1 }) {
+  const todayLessons = dailyStats?.lessons || 0;
+  const goalMet = todayLessons >= dailyGoal;
+  const greeting = useMemo(() => (goalMet
+    ? `Hôm nay cậu học ${todayLessons} bài rồi — quá đỉnh! Giữ phong độ nhé! 🎉`
+    : greetLine()), [goalMet, todayLessons]);
+  return (
+    <div className={`${card} p-4 flex items-center gap-3`}>
+      <ChibiCoach species={COACH} message={greeting} mood={goalMet ? 'happy' : 'idle'} size={72} />
+      <div className="ml-auto flex gap-2 shrink-0">
+        <div className="text-center px-3 py-2 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 bg-orange-100 dark:bg-orange-900/40">
+          <div className="text-lg font-black leading-none text-orange-600 dark:text-orange-300">🔥 {streak}</div>
+          <div className="text-[10px] font-black text-slate-500 dark:text-slate-400 mt-0.5">ngày liên tiếp</div>
+        </div>
+        <div className={`text-center px-3 py-2 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 ${goalMet ? 'bg-green-200 dark:bg-green-900/50' : 'bg-yellow-100 dark:bg-yellow-900/40'}`}>
+          <div className="text-lg font-black leading-none text-slate-800 dark:text-white">{goalMet ? '✓' : `${todayLessons}/${dailyGoal}`}</div>
+          <div className="text-[10px] font-black text-slate-500 dark:text-slate-400 mt-0.5">mục tiêu ngày</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ---------- home (chặng grid) ----------
-function Home({ onOpenChang, done }) {
+function Home({ onOpenChang, done, streak, dailyStats, dailyGoal }) {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="text-center space-y-2">
         <h1 className="text-3xl md:text-4xl font-black text-slate-800 dark:text-white flex items-center justify-center gap-3"><GraduationCap className="text-pink-500" size={34} /> IELTS Nền Tảng</h1>
         <p className="font-bold text-slate-400">Lộ trình 4 chặng: Nền Tảng → Cơ Bản → Trung Cấp → Chuyên Sâu</p>
       </div>
+      <DailyBuddy streak={streak} dailyStats={dailyStats} dailyGoal={dailyGoal} />
       <div className="grid sm:grid-cols-2 gap-5">
         {ROADMAP.map((chang, idx) => {
           const ls = allLessons(chang); const d = doneCount(ls, done); const pct = ls.length ? Math.round((d / ls.length) * 100) : 0;
           return (
             <button key={chang.id} onClick={() => onOpenChang(chang.id)} className={`text-left p-5 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-[6px_6px_0_0_#1e293b] dark:shadow-[6px_6px_0_0_#020617] hover:-translate-y-0.5 transition-transform`}>
               <div className="flex items-center gap-3 mb-3">
-                <span className={`w-12 h-12 flex items-center justify-center text-2xl rounded-2xl ${COLORS[chang.color] || 'bg-cyan-400'} border-4 border-slate-800`}>{chang.icon}</span>
+                <ChibiBadge species={speciesFor(chang.id)} mood="idle" size={56} />
                 <div>
                   <span className="text-xs font-black text-slate-400">CHẶNG {idx + 1}</span>
                   <h2 className="font-black text-lg leading-tight text-slate-800 dark:text-white">{chang.title.replace(/^Chặng \d+: /, '')}</h2>
@@ -276,18 +312,31 @@ function Home({ onOpenChang, done }) {
   );
 }
 
-export default function IeltsFoundationPage({ completedMilestones = [], completeMilestone }) {
+export default function IeltsFoundationPage({ completedMilestones = [], completeMilestone, streak = 0, dailyStats, dailyGoal = 1 }) {
   const [changId, setChangId] = useState(null);
   const [courseId, setCourseId] = useState(null);
   const [lessonIdx, setLessonIdx] = useState(null);
+  const [celebrate, setCelebrate] = useState(null); // { species } while the cheer overlay is up
 
   const chang = useMemo(() => ROADMAP.find((c) => c.id === changId) || null, [changId]);
   const course = useMemo(() => chang?.courses.find((c) => c.id === courseId) || null, [chang, courseId]);
   const lesson = course && lessonIdx != null ? course.lessons[lessonIdx] : null;
 
+  // Mark done → reward: cheer overlay + sound (global confetti already fires in App).
+  const handleComplete = (id) => {
+    const already = completedMilestones.includes(id);
+    if (completeMilestone) completeMilestone(id, 25);
+    if (!already) { playComplete(); setCelebrate({ species: speciesFor(changId) }); }
+  };
+
+  const overlay = celebrate && (
+    <ChibiCelebration species={celebrate.species} title={praiseLine()} subtitle="+25 XP · Cố lên nào!" onClose={() => setCelebrate(null)} />
+  );
+
   if (lesson) {
     return (
       <div className="p-4 md:p-8">
+        {overlay}
         <LessonViewer
           course={course} lesson={lesson}
           onBack={() => setLessonIdx(null)}
@@ -295,12 +344,12 @@ export default function IeltsFoundationPage({ completedMilestones = [], complete
           onNext={() => setLessonIdx((i) => Math.min(course.lessons.length - 1, i + 1))}
           hasPrev={lessonIdx > 0} hasNext={lessonIdx < course.lessons.length - 1}
           isDone={completedMilestones.includes(lesson.id)}
-          onComplete={(id) => completeMilestone && completeMilestone(id, 25)}
+          onComplete={handleComplete}
         />
       </div>
     );
   }
-  if (course) return <div className="p-4 md:p-8"><CourseView chang={chang} course={course} onBack={() => setCourseId(null)} onOpenLesson={(i) => setLessonIdx(i)} done={completedMilestones} /></div>;
+  if (course) return <div className="p-4 md:p-8">{overlay}<CourseView chang={chang} course={course} onBack={() => setCourseId(null)} onOpenLesson={(i) => setLessonIdx(i)} done={completedMilestones} /></div>;
   if (chang) return <div className="p-4 md:p-8"><ChangView chang={chang} onBack={() => setChangId(null)} onOpenCourse={(id) => { setCourseId(id); setLessonIdx(null); }} done={completedMilestones} /></div>;
-  return <div className="p-4 md:p-8"><Home onOpenChang={(id) => { setChangId(id); setCourseId(null); setLessonIdx(null); }} done={completedMilestones} /></div>;
+  return <div className="p-4 md:p-8"><Home onOpenChang={(id) => { setChangId(id); setCourseId(null); setLessonIdx(null); }} done={completedMilestones} streak={streak} dailyStats={dailyStats} dailyGoal={dailyGoal} /></div>;
 }

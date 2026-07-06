@@ -379,6 +379,9 @@ export default function App() {
           <IeltsFoundationPage
             completedMilestones={completedMilestones}
             completeMilestone={completeMilestone}
+            streak={streak}
+            dailyStats={dailyStats}
+            dailyGoal={DAILY_GOAL}
           />
         );
 
