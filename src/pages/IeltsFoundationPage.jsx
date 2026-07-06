@@ -1,39 +1,16 @@
 // File: src/pages/IeltsFoundationPage.jsx
-// Renders the full PrepEdu-style IELTS roadmap (Chặng → Khoá → Bài) from
-// src/data/ieltsRoadmap.js. Lessons that exist in the extracted media library
-// (Chặng 1, from ieltsFoundationData.js) play their real video/exercises; every
-// other lesson shows a one-click "find resources" (YouTube/Google) helper so the
-// learner can pull a matching video/exercise for that exact topic.
+// Renders the assembled IELTS roadmap (Chặng → Khoá → Bài). All data assembly —
+// matching Chặng-1 media, the Chặng-2/3/4 real-video spine, the Chặng-5 fold-up,
+// filler removal and stable ids — lives in src/data/buildIeltsRoadmap.js; this
+// file is pure UI. Lessons with bundled media play it inline; the rest show a
+// one-click "find resources" (YouTube/Google) helper for that exact topic.
 import { useState, useMemo } from 'react';
 import {
   PlayCircle, Volume2, FileText, Image as ImageIcon, Download,
   ChevronLeft, ChevronRight, CheckCircle2, GraduationCap, ArrowLeft,
   BookOpen, Map, PenSquare, Mic, Edit3, Video, Search, MessageCircle, Sparkles,
 } from 'lucide-react';
-import ieltsFoundationData from '../data/ieltsFoundationData';
-import ieltsRoadmap from '../data/ieltsRoadmap';
-import ieltsPrepData from '../data/ieltsPrepData';
-import ieltsAdvancedData from '../data/ieltsAdvancedData';
-
-// ---------- helpers ----------
-function stripJunk(s) {
-  return String(s || '')
-    .replace(/[\u2400-\u243F]/g, '')
-    // eslint-disable-next-line no-control-regex -- intentionally stripping control chars
-    .replace(/[\u0000-\u001F\u0080-\u009F]/g, '')
-    .replace(/[\u200B-\u200F\uFEFF]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-// Normalize Vietnamese text for fuzzy matching (strip diacritics + punctuation).
-function normVi(s) {
-  return stripJunk(s).toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036F]/g, '')
-    .replace(/đ/g, 'd')
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .replace(/\s+/g, ' ').trim();
-}
-const firstNum = (s) => { const m = String(s).match(/\d+/); return m ? m[0] : null; };
+import { ROADMAP } from '../data/buildIeltsRoadmap';
 
 const TYPE = {
   lesson:   { label: 'Bài giảng',    icon: BookOpen,      cls: 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 border-blue-400' },
@@ -54,127 +31,6 @@ function TypeBadge({ type }) {
 
 const COLORS = { green: 'bg-green-400', cyan: 'bg-cyan-400', yellow: 'bg-yellow-400', pink: 'bg-pink-400', blue: 'bg-blue-400', violet: 'bg-violet-400' };
 const card = 'border-4 border-slate-800 dark:border-slate-700 rounded-2xl bg-white dark:bg-slate-800 shadow-[6px_6px_0_0_#1e293b] dark:shadow-[6px_6px_0_0_#020617]';
-
-// ---------- media matching (Chặng 1 → extracted zip) ----------
-// Only truly generic words are stopped, so content words (giới từ, phát âm...) survive.
-const STOP = new Set(['bai','lesson','phan','mini','minitest','test','kiem','tra','khoa','cuoi','final','mind','map','maps','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']);
-function coreWords(s) { return normVi(s).split(' ').filter((w) => w && !STOP.has(w)); }
-// Mind-map number = the number after "map" (folder names like "Lesson 3_ Mind map 1"
-// have two numbers — the lesson number and the map number; we want the latter).
-function mapNum(s) { const t = normVi(s); const m = t.match(/maps?\s*(\d+)/) || t.match(/tu duy\s*(\d+)/); return m ? m[1] : firstNum(s); }
-function classifyMedia(raw) {
-  const t = normVi(raw);
-  if (/final/.test(t) || /cuoi khoa/.test(t)) return 'final';
-  if (/mini ?test|minitest|kiem tra/.test(t)) return 'test';
-  if (/mind ?map|so do tu duy/.test(t)) return 'mm';
-  return 'lesson';
-}
-function buildMediaIndex(moduleId) {
-  const mod = ieltsFoundationData.find((m) => m.id === moduleId);
-  if (!mod) return null;
-  return mod.lessons.map((l) => ({ ...l, cls: classifyMedia(l.title), num: firstNum(l.title), mmNum: mapNum(l.title), core: coreWords(l.title) }));
-}
-function matchMedia(index, roadmapTitle, roadmapType) {
-  if (!index) return null;
-  const num = firstNum(roadmapTitle);
-  const isFinal = /cuối khoá|cuối khóa|final/i.test(roadmapTitle);
-  if (roadmapType === 'test') {
-    if (isFinal) return index.find((x) => x.cls === 'final') || null;
-    return index.find((x) => x.cls === 'test' && x.num === num) || null;
-  }
-  if (roadmapType === 'mm') { const mn = mapNum(roadmapTitle); return index.find((x) => x.cls === 'mm' && x.mmNum === mn) || null; }
-  if (roadmapType === 'di') return index.find((x) => x.num === num) || null;
-  // Intro lessons ("giới thiệu / mở đầu / tổng quan") must match another intro,
-  // not just any lesson sharing a stray word.
-  const isIntro = (s) => /gioi thieu|mo dau|tong quan/.test(normVi(s));
-  const roadIntro = isIntro(roadmapTitle);
-  const words = coreWords(roadmapTitle);
-  if (!words.length) return null;
-  let best = null, bestScore = 0;
-  for (const x of index) {
-    if (x.cls !== 'lesson') continue;
-    if (roadIntro !== isIntro(x.title)) continue;
-    const overlap = x.core.filter((w) => words.includes(w)).length;
-    if (overlap > bestScore) { bestScore = overlap; best = x; }
-  }
-  return bestScore >= 1 ? best : null;
-}
-
-// ---------- real lecture media (Chặng 2/3/4 → extracted archives) ----------
-// Unlike Chặng 1's per-lesson matchMedia (verified 100%), these modules can't be
-// safely matched 1:1 to the screenshot roadmap (flat 1.mp4… files, mismatched
-// titles). So we APPEND every real lesson to the correct course — lossless: no
-// video is hidden and none is mis-attached. Some Trung Cấp skills (Ngữ pháp / Phát
-// âm / Từ vựng) weren't in the roadmap screenshots at all → added as new courses.
-const advById = Object.fromEntries(ieltsAdvancedData.map((m) => [m.id, m]));
-// course id → module id (append the module's lessons after the roadmap lessons)
-const APPEND_TO_COURSE = {
-  'c2-listening': 'ielts-listening-co-ban', 'c2-reading': 'ielts-reading-co-ban',
-  'c2-speaking': 'ielts-speaking-co-ban-plus', 'c2-writing': 'ielts-writing-co-ban-plus-2',
-  'c3-speaking': 'ielts-speaking-trung-cap', 'c3-writing': 'ielts-writing-trung-cap',
-  'c4-listening': 'ielts-listening-chuyen-sau', 'c4-reading': 'ielts-reading-chuyen-sau',
-  'c4-speaking': 'ielts-speaking-chuyen-sau', 'c4-writing': 'ielts-writing-chuyen-sau',
-  'c4-ngu-phap': 'ngu-phap-nang-cao', 'c4-phat-am': 'phat-am-nang-cao', 'c4-tu-vung': 'tu-vung-nang-cao',
-};
-// chặng id → new courses built purely from a media module (missing from screenshots)
-const NEW_COURSES = {
-  'chang-3': [
-    { id: 'c3-ngu-phap', title: 'IELTS Ngữ pháp Trung cấp', module: 'ngu-phap-trung-cap' },
-    { id: 'c3-phat-am', title: 'IELTS Phát âm Trung cấp', module: 'phat-am-trung-cap' },
-    { id: 'c3-tu-vung', title: 'IELTS Từ vựng Trung cấp', module: 'tu-vung-trung-cap' },
-  ],
-};
-const mediaType = (title) => { const c = classifyMedia(title); return c === 'final' ? 'test' : c; };
-function mediaLessons(changId, courseId, moduleId) {
-  const m = advById[moduleId];
-  if (!m) return [];
-  return m.lessons.map((raw, li) => ({
-    id: `ir-${changId}-${courseId}-m-${li}`,
-    title: raw.title, type: mediaType(raw.title),
-    videos: raw.videos || [], audios: raw.audios || [], pdfs: raw.pdfs || [],
-    images: raw.images || [], docs: raw.docs || [],
-  }));
-}
-
-// Expand the roadmap once, attaching stable ids + matched/appended media.
-const ROADMAP = ieltsRoadmap.map((chang) => {
-  const courses = chang.courses.map((course) => {
-    const index = course.mediaModuleId ? buildMediaIndex(course.mediaModuleId) : null;
-    const roadLessons = course.lessons.map(([title, code], li) => {
-      const type = code || 'lesson';
-      const media = matchMedia(index, title, type);
-      return {
-        id: `ir-${chang.id}-${course.id}-${li}`,
-        title, type,
-        videos: media?.videos || [], audios: media?.audios || [], pdfs: media?.pdfs || [],
-        images: media?.images || [], docs: media?.docs || [],
-      };
-    });
-    const extra = APPEND_TO_COURSE[course.id] ? mediaLessons(chang.id, course.id, APPEND_TO_COURSE[course.id]) : [];
-    return { ...course, lessons: [...roadLessons, ...extra] };
-  });
-  const added = (NEW_COURSES[chang.id] || []).map((nc) => {
-    const lessons = mediaLessons(chang.id, nc.id, nc.module);
-    return { id: nc.id, title: nc.title, tag: `${lessons.length} video bài giảng`, lessons };
-  }).filter((c) => c.lessons.length);
-  return { ...chang, courses: [...courses, ...added] };
-});
-
-// Extra chặng built from the "IELTS PREP.zip" study materials (real PDF/PNG).
-const PREP_CHANG = {
-  id: 'chang-prep', title: 'Chặng 5: Tài liệu IELTS Band 7+', icon: '📚', color: 'violet',
-  desc: '30 chủ điểm ngữ pháp, 200 chủ đề từ vựng Band 7+, từ vựng Speaking/Writing/Listening — tài liệu PDF & thẻ hình học trực tiếp trong app.',
-  courses: ieltsPrepData.map((c) => ({
-    id: c.id, title: c.title, tag: c.tag,
-    lessons: c.lessons.map((l, li) => ({
-      id: `ir-chang-prep-${c.id}-${li}`,
-      title: l.title,
-      type: (l.images && l.images.length) ? 'gallery' : 'doc',
-      videos: [], audios: [], pdfs: l.pdfs || [], images: l.images || [], docs: l.docs || [],
-    })),
-  })),
-};
-if (PREP_CHANG.courses.length) ROADMAP.push(PREP_CHANG);
 
 const allLessons = (chang) => chang.courses.flatMap((c) => c.lessons);
 const doneCount = (lessons, done) => lessons.filter((l) => done.includes(l.id)).length;
