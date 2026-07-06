@@ -43,6 +43,7 @@ const VocabVstepPage = lazy(() => import('./pages/VocabVstepPage'));
 const VocabOxfordPage = lazy(() => import('./pages/VocabOxfordPage'));
 const ScannerPage = lazy(() => import('./pages/ScannerPage'));
 const GamesPage = lazy(() => import('./pages/GamesPage'));
+const IeltsFoundationPage = lazy(() => import('./pages/IeltsFoundationPage'));
 
 // Fallback shown briefly while a route chunk loads.
 const RouteLoader = () => (
@@ -372,6 +373,14 @@ export default function App() {
 
       case 'scanner':
         return <ScannerPage />;
+
+      case 'ielts-foundation':
+        return (
+          <IeltsFoundationPage
+            completedMilestones={completedMilestones}
+            completeMilestone={completeMilestone}
+          />
+        );
 
       case 'games':
         return (

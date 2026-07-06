@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# IELTS foundation media (8GB, extracted from zip — served locally, not committed)
+public/ielts-foundation/
