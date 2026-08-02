@@ -6,6 +6,8 @@ import { buildComprehension } from '../src/utils/comprehension.js';
 import { buildVocabRegex, escapeRegExp, isSpeechMatch, levenshtein, similarity } from '../src/utils/textUtils.js';
 import { AiServiceError, requestAi } from '../src/utils/aiClient.js';
 import { createLearningBackup, restoreLearningBackup } from '../src/utils/backup.js';
+import { parseImageVocabulary } from '../src/utils/imageVocabulary.js';
+import { buildRequest } from '../functions/api/ai.js';
 
 test('writing scorer handles empty and well-formed answers', () => {
   const empty = scoreWriting('   ');
@@ -113,4 +115,28 @@ test('learning progress can be exported and restored safely', () => {
 test('invalid backup files are rejected', () => {
   const storage = { setItem: () => assert.fail('invalid backup must not write') };
   assert.throws(() => restoreLearningBackup('{"version":99}', storage), /invalid-backup/);
+});
+
+test('image AI request validates encoded data before sending it upstream', () => {
+  const parts = buildRequest('image-vocabulary', {
+    imageData: 'aGVsbG8=',
+    mimeType: 'image/png',
+  });
+  assert.equal(parts[1].inlineData.data, 'aGVsbG8=');
+  assert.throws(
+    () => buildRequest('image-vocabulary', { imageData: 'not base64!', mimeType: 'image/png' }),
+    /invalid-image/,
+  );
+  assert.throws(
+    () => buildRequest('image-vocabulary', { imageData: 'AAAA'.repeat(1_398_102 + 1), mimeType: 'image/png' }),
+    /image-too-large/,
+  );
+});
+
+test('image vocabulary response is normalized and incomplete data is rejected', () => {
+  const result = parseImageVocabulary('```json\n{"word":" cat ","ipa":"/kæt/","meaning":"con mèo","phrases":["pet cat"],"sentences":[{"en":"It is a cat.","vi":"Đó là một con mèo."}]}\n```');
+  assert.equal(result.word, 'cat');
+  assert.equal(result.sentences.length, 1);
+  assert.throws(() => parseImageVocabulary('{"word":"cat"}'), /chưa đầy đủ/);
+  assert.throws(() => parseImageVocabulary('not json'), /không đọc được/);
 });

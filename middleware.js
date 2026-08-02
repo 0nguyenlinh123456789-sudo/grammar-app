@@ -1,5 +1,3 @@
-/* global process */
-
 export const config = {
   // Dòng này báo cho Vercel biết: Bật khóa cho tất cả các trang trên web
   matcher: '/(.*)', 

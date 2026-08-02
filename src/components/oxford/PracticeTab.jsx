@@ -12,9 +12,7 @@ const PracticeTab = ({ unitData }) => {
     const [score, setScore] = useState(null);
 
     useEffect(() => {
-        if (unitData?.speaking) {
-            setSpeakItem(unitData.speaking[0]);
-        }
+        setSpeakItem(unitData?.speaking?.[0] || null);
         setUserText("");
         setFeedback("");
         setScore(null);

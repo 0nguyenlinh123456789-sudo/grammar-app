@@ -1,0 +1,4 @@
+has \u200B escape: True
+has \u0300 escape: True
+has \u0111 escape: True
+literal U+2400 gone: True

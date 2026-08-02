@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Camera, ShieldCheck, ImagePlus, Loader2, Sparkles, Layers, FileText, Languages } from 'lucide-react';
 import { requestAi } from '../utils/aiClient';
+import { parseImageVocabulary } from '../utils/imageVocabulary';
+
+const SUPPORTED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif']);
 
 const ImageScanner = () => {
   // State quản lý Ảnh và Kết quả
@@ -16,8 +19,8 @@ const ImageScanner = () => {
     if (!file) return;
 
     const maxImageBytes = 4 * 1024 * 1024;
-    if (!file.type.startsWith('image/')) {
-      setError('Vui lòng chọn tệp hình ảnh hợp lệ.');
+    if (!SUPPORTED_IMAGE_TYPES.has(file.type.toLowerCase())) {
+      setError('Chỉ hỗ trợ ảnh JPG, PNG, WebP hoặc GIF.');
       e.target.value = '';
       return;
     }
@@ -27,15 +30,13 @@ const ImageScanner = () => {
       return;
     }
 
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage({ dataUrl: reader.result, file: file });
-        setResult(null); // Reset kết quả cũ nếu chọn ảnh mới
-      };
-      reader.onerror = () => setError('Không thể đọc tệp ảnh. Vui lòng thử lại.');
-      reader.readAsDataURL(file);
-    }
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImage({ dataUrl: reader.result, file });
+      setResult(null); // Reset kết quả cũ nếu chọn ảnh mới
+    };
+    reader.onerror = () => setError('Không thể đọc tệp ảnh. Vui lòng thử lại.');
+    reader.readAsDataURL(file);
   };
 
   const fileToBase64 = (file) => new Promise((resolve, reject) => {
@@ -58,11 +59,7 @@ const ImageScanner = () => {
         mimeType: image.file.type,
       });
       
-      // Làm sạch dữ liệu trả về và ép kiểu JSON
-      const cleanJson = text.replace(/```json/g, '').replace(/```/g, '').trim();
-      const parsedResult = JSON.parse(cleanJson);
-      
-      setResult(parsedResult);
+      setResult(parseImageVocabulary(text));
     } catch (err) {
       console.error(err);
       setError(err?.message || 'Chưa thể phân tích ảnh. Vui lòng thử lại sau.');
@@ -87,7 +84,7 @@ const ImageScanner = () => {
       <div className="flex flex-col items-center gap-4">
           <label className="cursor-pointer bg-[#60a5fa] dark:bg-blue-600 border-[3px] border-black dark:border-slate-700 px-8 py-3 rounded-xl font-bold text-lg text-white hover:bg-[#3b82f6] dark:hover:bg-blue-500 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] active:shadow-none active:translate-y-1 active:translate-x-1 flex items-center gap-2">
             <ImagePlus size={20} /> Chọn Ảnh Cần Quét
-            <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
+            <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" className="hidden" onChange={handleImageUpload} />
           </label>
 
           {image && (

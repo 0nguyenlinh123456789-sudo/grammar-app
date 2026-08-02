@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.git/
+.claude/
+scratch/
+src/temp_docx/
+temp_docx.zip
+public/ielts-foundation/
+public/ielts-prep/
+generate*.js

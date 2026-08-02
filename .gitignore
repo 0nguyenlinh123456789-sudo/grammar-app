@@ -27,3 +27,4 @@ dist-ssr
 public/ielts-foundation/
 # IELTS PREP study materials (PDF/PNG, extracted from IELTS PREP.zip — served locally)
 public/ielts-prep/
+.vercel
