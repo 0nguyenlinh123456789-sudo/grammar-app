@@ -1,5 +1,5 @@
 // File: src/App.jsx
-import { useState, useEffect, Suspense, lazy } from 'react';
+import { useState, useEffect, useRef, Suspense, lazy } from 'react';
 
 // Data layer
 import { clearVocabProgress } from './utils/learningProgress';
@@ -132,6 +132,12 @@ export default function App() {
       return [];
     }
   });
+  // Keep milestone awarding atomic across rapid clicks and child callbacks.
+  // A state closure can lag behind when several exercises finish in one tick.
+  const completedMilestonesRef = useRef(completedMilestones);
+  useEffect(() => {
+    completedMilestonesRef.current = completedMilestones;
+  }, [completedMilestones]);
 
   // Daily Streak States
   const [streak, setStreak] = useState(() => {
@@ -142,6 +148,10 @@ export default function App() {
   const [lastActiveDate, setLastActiveDate] = useState(() => {
     return localStorage.getItem('lastActiveDate') || '';
   });
+  const lastActiveDateRef = useRef(lastActiveDate);
+  useEffect(() => {
+    lastActiveDateRef.current = lastActiveDate;
+  }, [lastActiveDate]);
 
   // Best (longest) streak ever achieved
   const [bestStreak, setBestStreak] = useState(() => {
@@ -317,8 +327,10 @@ export default function App() {
   const resetRoadmap = () => {
     setXp(0);
     setCompletedMilestones([]);
+    completedMilestonesRef.current = [];
     setStreak(0);
     setLastActiveDate('');
+    lastActiveDateRef.current = '';
     const freshDaily = { date: new Date().toDateString(), lessons: 0, xp: 0 };
     setDailyStats(freshDaily);
     localStorage.setItem('xp', '0');
@@ -352,40 +364,41 @@ export default function App() {
   };
 
   const completeMilestone = (id, xpBonus = 20) => {
-    if (!completedMilestones.includes(id)) {
-      setCompletedMilestones(prev => [...prev, id]);
-      setXp(prev => prev + xpBonus);
+    if (!id || completedMilestonesRef.current.includes(id)) return;
+    completedMilestonesRef.current = [...completedMilestonesRef.current, id];
+    setCompletedMilestones(prev => prev.includes(id) ? prev : [...prev, id]);
+    setXp(prev => prev + xpBonus);
 
-      // Update Daily Streak
-      const today = new Date();
-      const todayStr = today.toDateString();
+    // Update Daily Streak
+    const today = new Date();
+    const todayStr = today.toDateString();
 
-      // Update today's goal stats (reset if it's a new day)
-      setDailyStats(prev => {
-        const base = prev.date === todayStr ? prev : { date: todayStr, lessons: 0, xp: 0 };
-        return { ...base, lessons: base.lessons + 1, xp: base.xp + xpBonus };
-      });
-      
-      if (lastActiveDate !== todayStr) {
-        if (lastActiveDate) {
-          const lastDate = new Date(lastActiveDate);
-          const d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-          const d2 = new Date(lastDate.getFullYear(), lastDate.getMonth(), lastDate.getDate());
-          const diffDays = Math.round((d1 - d2) / (1000 * 60 * 60 * 24));
-          
-          if (diffDays === 1) {
-            setStreak(prev => prev + 1);
-          } else {
-            setStreak(1);
-          }
+    // Update today's goal stats (reset if it's a new day)
+    setDailyStats(prev => {
+      const base = prev.date === todayStr ? prev : { date: todayStr, lessons: 0, xp: 0 };
+      return { ...base, lessons: base.lessons + 1, xp: base.xp + xpBonus };
+    });
+
+    if (lastActiveDateRef.current !== todayStr) {
+      if (lastActiveDateRef.current) {
+        const lastDate = new Date(lastActiveDateRef.current);
+        const d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const d2 = new Date(lastDate.getFullYear(), lastDate.getMonth(), lastDate.getDate());
+        const diffDays = Math.round((d1 - d2) / (1000 * 60 * 60 * 24));
+
+        if (diffDays === 1) {
+          setStreak(prev => prev + 1);
         } else {
           setStreak(1);
         }
-        setLastActiveDate(todayStr);
+      } else {
+        setStreak(1);
       }
-      
-      triggerConfetti();
+      lastActiveDateRef.current = todayStr;
+      setLastActiveDate(todayStr);
     }
+
+    triggerConfetti();
   };
 
   // Render view coordinator (State-based Router)

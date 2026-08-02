@@ -716,7 +716,9 @@ const GamesPage = ({ activeTopic, playAudio, completeMilestone }) => {
   const handleScore = (pts) => {
     setTotalScore(s => s + pts);
     setMedals(m => ({ ...m, [activeGame]: Math.max(m[activeGame] || 0, pts) }));
-    completeMilestone && completeMilestone(`game-${activeGame}-${Date.now()}`, pts);
+    // A game completion is a one-time milestone. Date-based IDs allowed
+    // replaying the same game to mint unlimited roadmap XP.
+    completeMilestone && completeMilestone(`game-${activeGame}`, pts);
   };
 
   const switchGame = (id) => { setActiveGame(id); setGameKey(k => k + 1); };
