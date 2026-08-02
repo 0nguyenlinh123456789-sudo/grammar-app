@@ -1,0 +1,13 @@
+{
+  "name": "Grammar Pro - Học tiếng Anh",
+  "short_name": "Grammar Pro",
+  "description": "Lộ trình ngữ pháp, từ vựng, IELTS và luyện tập tiếng Anh cá nhân hóa.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff9e8",
+  "theme_color": "#facc15",
+  "lang": "vi",
+  "icons": [
+    { "src": "/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

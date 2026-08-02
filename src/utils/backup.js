@@ -3,7 +3,7 @@ const BACKUP_VERSION = 1;
 export const LEARNING_STORAGE_KEYS = [
   'xp', 'completedMilestones', 'streak', 'lastActiveDate', 'bestStreak',
   'dailyStats', 'activeOxfordBookId', 'oxfordUnitId', 'theme', 'soundMuted',
-  'srsStore_v1', 'vocabLearningProgressV1', 'learningActivityV1',
+  'srsStore_v1', 'vocabLearningProgressV1', 'learningActivityV1', 'dailyGoalV1', 'placementResultV1', 'learningSyncUpdatedAtV1',
 ];
 
 export function createLearningBackup(storage = localStorage) {

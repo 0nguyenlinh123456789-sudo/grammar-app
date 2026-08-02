@@ -1,4 +1,5 @@
 import { buildRequest, getRequestError } from '../functions/api/ai.js';
+import { AccessConfigError, requireLearner } from '../src/server/accessCore.js';
 
 const MODEL = 'gemini-2.5-flash';
 
@@ -8,6 +9,20 @@ export default async function handler(request, response) {
 
   if (request.method !== 'POST') {
     return response.status(405).json({ code: 'method-not-allowed', message: 'Phương thức không được hỗ trợ.' });
+  }
+  try {
+    const session = await requireLearner(request);
+    if (!session) {
+      return response.status(401).json({ code: 'access-required', message: 'Phiên truy cập đã hết hạn. Hãy nhập lại mã truy cập.' });
+    }
+    if (session.record.plan === 'standard') {
+      return response.status(403).json({ code: 'premium-required', message: 'Tính năng AI dành cho gói Premium. Hãy liên hệ người bán để nâng cấp.' });
+    }
+  } catch (error) {
+    if (error instanceof AccessConfigError) {
+      return response.status(503).json({ code: 'access-not-configured', message: 'Hệ thống mã truy cập chưa được cấu hình.' });
+    }
+    return response.status(503).json({ code: 'access-unavailable', message: 'Chưa thể kiểm tra quyền truy cập lúc này.' });
   }
   if (!process.env.GEMINI_API_KEY) {
     return response.status(503).json({ code: 'not-configured', message: 'Tính năng AI nâng cao chưa được cấu hình.' });

@@ -3,7 +3,7 @@ import { roadmapData } from '../data/roadmapData';
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
-  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3
+  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
@@ -13,6 +13,10 @@ import { getDueCount } from '../utils/srs';
 import { isMuted, setMuted } from '../utils/sound';
 import { createLearningBackup, restoreLearningBackup } from '../utils/backup';
 import { buildActivityWindow } from '../utils/activityHistory';
+import { countGoalDays, DAILY_GOAL_OPTIONS } from '../utils/dailyGoal';
+import PlacementTest from '../components/placement/PlacementTest';
+import { recommendationFromPlacement } from '../utils/placement';
+import LearningReport from '../components/progress/LearningReport';
 
 const WelcomePage = ({
   xp,
@@ -28,6 +32,9 @@ const WelcomePage = ({
   dailyStats = { lessons: 0, xp: 0 },
   activityHistory = [],
   dailyGoal = 1,
+  setDailyGoal,
+  placementResult = null,
+  setPlacementResult,
   playAudio,
   theme,
   setTheme,
@@ -35,6 +42,7 @@ const WelcomePage = ({
   const [activeTab, setActiveTab] = useState('all'); // 'all', 'starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [showReview, setShowReview] = useState(false);
+  const [showPlacement, setShowPlacement] = useState(false);
   const [muted, setMutedState] = useState(isMuted());
   const [backupMessage, setBackupMessage] = useState('');
   const backupInputRef = useRef(null);
@@ -44,6 +52,8 @@ const WelcomePage = ({
   const maxDailyXp = Math.max(1, ...recentActivity.map((entry) => entry.xp));
   const weeklyLessons = recentActivity.reduce((sum, entry) => sum + entry.lessons, 0);
   const weeklyXp = recentActivity.reduce((sum, entry) => sum + entry.xp, 0);
+  const weeklyGoalDays = countGoalDays(recentActivity, dailyGoal);
+  const recommendation = recommendationFromPlacement(placementResult);
 
   // Flatten milestones to calculate progress & next target
   const allMilestones = roadmapData.flatMap(level => 
@@ -199,6 +209,7 @@ const WelcomePage = ({
     <div className="max-w-5xl mx-auto pb-24 font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
 
       {showReview && <SrsReview onClose={() => setShowReview(false)} playAudio={playAudio} />}
+      {showPlacement && <PlacementTest onClose={() => setShowPlacement(false)} onComplete={(result) => { setPlacementResult?.(result); setShowPlacement(false); }} />}
 
       {/* --- HERO DASHBOARD CARD --- */}
       <div className="bg-white dark:bg-slate-900 border-[4px] border-slate-800 dark:border-slate-700 rounded-[2.5rem] p-6 md:p-8 shadow-[10px_10px_0_0_#1c293b] dark:shadow-[10px_10px_0_0_#020617] mb-10 mt-4 relative overflow-hidden">
@@ -294,7 +305,13 @@ const WelcomePage = ({
         </div>
       </div>
  
-      {/* --- QUICK RESUME CARD (NEXT GOAL) --- */}
+       {/* --- PERSONALIZED PLACEMENT CARD --- */}
+       <section className="mb-10 bg-indigo-50 dark:bg-indigo-950/30 border-4 border-indigo-700 dark:border-indigo-500 rounded-3xl p-5 shadow-[6px_6px_0_0_#312e81] dark:shadow-[6px_6px_0_0_#020617] flex flex-col md:flex-row md:items-center justify-between gap-4">
+         <div><p className="text-xs font-black uppercase tracking-widest text-indigo-600 dark:text-indigo-300">Lộ trình thông minh</p><h3 className="text-xl font-black mt-1">{recommendation.title}</h3><p className="text-sm font-bold text-slate-600 dark:text-slate-300 mt-1">{recommendation.body}</p></div>
+         <button onClick={() => setShowPlacement(true)} className="shrink-0 px-5 py-3 rounded-2xl bg-white dark:bg-slate-900 border-3 border-slate-900 font-black shadow-[3px_3px_0_0_#312e81]">{placementResult ? 'LÀM LẠI TEST' : 'LÀM TEST 5 PHÚT'} <ArrowRight className="inline ml-1" size={17} /></button>
+       </section>
+
+       {/* --- QUICK RESUME CARD (NEXT GOAL) --- */}
       {nextMilestone && (
         <div className="bg-[#f0f9ff] dark:bg-slate-900 border-[4px] border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[8px_8px_0_0_#1c293b] dark:shadow-[8px_8px_0_0_#020617] mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex items-center gap-4">
@@ -323,7 +340,7 @@ const WelcomePage = ({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
         {/* Daily goal card */}
         <div className={`border-4 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] transition-all ${dailyDone ? 'bg-emerald-50 dark:bg-emerald-950/20 border-emerald-500' : 'bg-white dark:bg-slate-900 border-slate-800 dark:border-slate-700'}`}>
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between gap-3 mb-3">
             <div className="flex items-center gap-2">
               <Target size={26} className={dailyDone ? 'text-emerald-500' : 'text-blue-500'} />
               <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Mục tiêu hôm nay</h3>
@@ -336,7 +353,7 @@ const WelcomePage = ({
             <p className="font-black text-emerald-600 dark:text-emerald-400 flex items-center gap-2"><CheckCircle2 size={20} /> Đã đạt mục tiêu! Hôm nay bạn học {dailyStats.lessons} chặng (+{dailyStats.xp} XP). Tuyệt vời! 🎉</p>
           ) : (
             <>
-              <p className="font-bold text-slate-500 dark:text-slate-400 text-sm mb-2">Hoàn thành {dailyGoal} chặng hôm nay để giữ chuỗi học tập 🔥</p>
+              <p className="font-bold text-slate-500 dark:text-slate-400 text-sm mb-2">Hoàn thành {dailyGoal} chặng hôm nay để xây nhịp học đều đặn 🔥</p>
               <div className="border-3 border-slate-800 dark:border-slate-600 bg-slate-100 dark:bg-slate-800 h-6 rounded-full overflow-hidden">
                 <div className="bg-blue-400 h-full rounded-full transition-all flex items-center justify-end pr-2" style={{ width: `${Math.min(100, ((dailyStats.lessons || 0) / dailyGoal) * 100)}%` }}>
                   <span className="text-[10px] font-black text-slate-900">{dailyStats.lessons || 0}/{dailyGoal}</span>
@@ -344,6 +361,30 @@ const WelcomePage = ({
               </div>
             </>
           )}
+          <div className="mt-5 pt-4 border-t-2 border-dashed border-slate-200 dark:border-slate-700">
+            <div className="flex items-center gap-2 mb-2.5">
+              <SlidersHorizontal size={16} className="text-slate-500 dark:text-slate-400" />
+              <p className="text-xs font-black uppercase tracking-wide text-slate-500 dark:text-slate-400">Chọn nhịp mỗi ngày</p>
+            </div>
+            <div className="grid grid-cols-4 gap-2" aria-label="Chọn số chặng mục tiêu mỗi ngày">
+              {DAILY_GOAL_OPTIONS.map((goal) => (
+                <button
+                  key={goal}
+                  type="button"
+                  onClick={() => setDailyGoal?.(goal)}
+                  aria-pressed={dailyGoal === goal}
+                  aria-label={`${goal} chặng mỗi ngày`}
+                  className={`min-h-10 rounded-xl border-3 font-black text-sm cursor-pointer transition-all ${dailyGoal === goal
+                    ? 'bg-blue-400 border-slate-800 dark:border-blue-300 text-slate-950 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#93c5fd] -translate-y-0.5'
+                    : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:border-blue-400'
+                  }`}
+                >
+                  {goal}
+                </button>
+              ))}
+            </div>
+            <p className="mt-2 text-[11px] font-bold text-slate-400 dark:text-slate-500">Mục tiêu được lưu trên thiết bị và không ảnh hưởng chuỗi đã đạt.</p>
+          </div>
         </div>
 
         {/* Spaced repetition review card */}
@@ -377,19 +418,19 @@ const WelcomePage = ({
             </div>
             <div>
               <h3 id="weekly-insights-title" className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Nhịp học 7 ngày</h3>
-              <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{weeklyLessons} chặng · +{weeklyXp} XP</p>
+              <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{weeklyLessons} chặng · +{weeklyXp} XP · {weeklyGoalDays}/7 ngày đạt mục tiêu</p>
             </div>
           </div>
-          <p className="text-xs font-bold text-slate-500 dark:text-slate-400">Mỗi cột thể hiện XP trong ngày</p>
+          <p className="text-xs font-bold text-slate-500 dark:text-slate-400">Cột xanh: đạt ít nhất {dailyGoal} chặng</p>
         </div>
-        <div className="grid grid-cols-7 gap-2 h-40 items-end" role="img" aria-label={`Biểu đồ 7 ngày: ${weeklyLessons} chặng, ${weeklyXp} XP`}>
+        <div className="grid grid-cols-7 gap-2 h-40 items-end" role="img" aria-label={`Biểu đồ 7 ngày: ${weeklyLessons} chặng, ${weeklyXp} XP, ${weeklyGoalDays} ngày đạt mục tiêu`}>
           {recentActivity.map((entry) => {
             const height = entry.xp > 0 ? Math.max(12, Math.round((entry.xp / maxDailyXp) * 100)) : 4;
             const dayLabel = new Intl.DateTimeFormat('vi-VN', { weekday: 'short' }).format(new Date(`${entry.date}T12:00:00`));
             return (
               <div key={entry.date} className="h-full flex flex-col justify-end items-center gap-1.5 min-w-0" title={`${entry.date}: ${entry.lessons} chặng, ${entry.xp} XP`}>
                 <span className="text-[10px] font-black text-violet-600 dark:text-violet-400">{entry.xp || ''}</span>
-                <div className={`w-full max-w-12 rounded-t-xl border-2 border-b-0 border-slate-800 dark:border-slate-600 transition-all ${entry.xp > 0 ? 'bg-violet-400 dark:bg-violet-600' : 'bg-slate-100 dark:bg-slate-800'}`} style={{ height: `${height}%` }} />
+                <div className={`w-full max-w-12 rounded-t-xl border-2 border-b-0 border-slate-800 dark:border-slate-600 transition-all ${entry.lessons >= dailyGoal ? 'bg-emerald-400 dark:bg-emerald-600' : entry.xp > 0 ? 'bg-violet-400 dark:bg-violet-600' : 'bg-slate-100 dark:bg-slate-800'}`} style={{ height: `${height}%` }} />
                 <span className="text-[10px] font-black text-slate-500 dark:text-slate-400 capitalize">{dayLabel}</span>
               </div>
             );
@@ -397,6 +438,8 @@ const WelcomePage = ({
         </div>
         {weeklyLessons === 0 && <p className="mt-4 text-center text-sm font-bold text-slate-500 dark:text-slate-400">Hoàn thành một chặng để bắt đầu tạo nhịp học của bạn.</p>}
       </section>
+
+      <LearningReport placementResult={placementResult} weeklyLessons={weeklyLessons} weeklyXp={weeklyXp} completionPercentage={completionPercentage} />
 
       {/* --- VƯỜN THÚ (bộ sưu tập thú cưng, mở khoá bằng việc học) --- */}
       <PetZoo done={completedMilestones} streak={streak} className="mb-10" />

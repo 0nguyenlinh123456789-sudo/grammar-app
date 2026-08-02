@@ -23,7 +23,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['middleware.js', 'vite.config.js', 'functions/**/*.js', 'api/**/*.js'],
+    files: ['vite.config.js', 'functions/**/*.js', 'api/**/*.js', 'src/server/**/*.js', 'tests/**/*.js'],
     languageOptions: {
       globals: globals.node,
     },

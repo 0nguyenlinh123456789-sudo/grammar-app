@@ -30,6 +30,8 @@ const MainLayout = ({
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [activeGrammarLevel, setActiveGrammarLevel] = useState('B1');
   const [openVocabGroups, setOpenVocabGroups] = useState({ vstep: true, daily: false, ielts: false, beginner: false });
+  const [globalSearch, setGlobalSearch] = useState('');
+  const [isGlobalSearchOpen, setIsGlobalSearchOpen] = useState(false);
 
   const vocabCategoryGroups = [
     { id: 'vstep', label: '📚 Chủ đề thi VSTEP', color: 'bg-blue-400 dark:bg-blue-600' },
@@ -52,6 +54,20 @@ const MainLayout = ({
     t.title.toLowerCase().includes(vstepSearch.toLowerCase()) || 
     t.description.toLowerCase().includes(vstepSearch.toLowerCase())
   );
+
+  const searchTerm = globalSearch.trim().toLowerCase();
+  const globalResults = searchTerm ? [
+    ...(parsedGrammarData || []).filter((item) => `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'grammar', resultLabel: 'Ngữ pháp' })),
+    ...vstepTopics.filter((item) => `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'vocab', resultLabel: 'Từ vựng' })),
+    ...(courseData || []).filter((item) => `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'oxford', resultLabel: 'Oxford' })),
+  ].slice(0, 12) : [];
+
+  const selectSearchResult = (result) => {
+    if (result.resultType === 'grammar') { setTopicId(result.id); selectMode('grammar'); }
+    if (result.resultType === 'vocab') { setVstepTopicId(result.id); setActiveVocabCategory('TOPIC'); selectMode('vocab'); }
+    if (result.resultType === 'oxford') { setOxfordUnitId(result.id); setActiveVocabCategory('OXFORD'); selectMode('vocab'); }
+    setGlobalSearch(''); setIsGlobalSearchOpen(false);
+  };
 
 
 
@@ -90,9 +106,17 @@ const MainLayout = ({
          
 
          {/* --- NAVIGATION TOGGLES --- */}
-         <div className="flex flex-col gap-2 p-4 border-b-[4px] border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0">
-           
-           <button 
+          <div className="flex flex-col gap-2 p-4 border-b-[4px] border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0">
+            <button onClick={() => setIsGlobalSearchOpen((value) => !value)} aria-expanded={isGlobalSearchOpen} className="p-3 font-black border-3 border-blue-500 rounded-xl bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 flex items-center justify-center gap-2 cursor-pointer"><Search size={19} /> TÌM TRONG KHÓA HỌC</button>
+            {isGlobalSearchOpen && <div className="relative">
+              <Search size={17} className="absolute left-3 top-3.5 text-slate-400" />
+              <input autoFocus value={globalSearch} onChange={(event) => setGlobalSearch(event.target.value)} onKeyDown={(event) => { if (event.key === 'Escape') setIsGlobalSearchOpen(false); }} placeholder="Ví dụ: thì hiện tại, travel..." className="w-full h-11 pl-9 pr-3 rounded-xl border-3 border-slate-800 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 font-bold text-sm outline-none focus:ring-3 focus:ring-blue-200" />
+              {searchTerm && <div className="absolute z-50 left-0 right-0 top-12 bg-white dark:bg-slate-900 border-3 border-slate-800 dark:border-slate-600 rounded-xl shadow-[4px_4px_0_0_#1e293b] max-h-72 overflow-y-auto p-1">
+                {globalResults.length ? globalResults.map((result) => <button key={`${result.resultType}-${result.id}`} onClick={() => selectSearchResult(result)} className="w-full text-left p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-800 cursor-pointer"><span className="block text-sm font-black truncate">{result.title}</span><span className="text-[10px] font-black uppercase text-blue-600">{result.resultLabel}</span></button>) : <p className="p-3 text-xs font-bold text-slate-500">Không tìm thấy bài phù hợp.</p>}
+              </div>}
+            </div>}
+
+            <button
              onClick={() => {
                setTopicId(null);
                selectMode('home');

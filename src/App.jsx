@@ -4,6 +4,8 @@ import { useState, useEffect, useRef, Suspense, lazy } from 'react';
 // Data layer
 import { clearVocabProgress } from './utils/learningProgress';
 import { addLearningActivity, normalizeActivityHistory, localDateKey } from './utils/activityHistory';
+import { normalizeDailyGoal } from './utils/dailyGoal';
+import { syncLearningProgress } from './utils/progressSync';
 // NOTE: Oxford data (~9MB, the biggest data set) is NOT imported eagerly. It is
 // dynamically loaded only when the learner opens the Oxford vocab section, so it
 // no longer bloats the initial page load. See loadOxfordBooks() below.
@@ -169,7 +171,40 @@ export default function App() {
     } catch { /* ignore */ }
     return { date: new Date().toDateString(), lessons: 0, xp: 0 };
   });
-  const DAILY_GOAL = 1; // hoàn thành ít nhất 1 chặng mỗi ngày
+  const [dailyGoal, setDailyGoal] = useState(() => (
+    normalizeDailyGoal(localStorage.getItem('dailyGoalV1'))
+  ));
+  const [placementResult, setPlacementResult] = useState(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('placementResultV1') || 'null');
+      return saved && typeof saved === 'object' ? saved : null;
+    } catch { return null; }
+  });
+
+  useEffect(() => {
+    let syncing = false;
+    const runSync = async () => {
+      if (syncing || navigator.onLine === false) return;
+      syncing = true;
+      try {
+        const result = await syncLearningProgress();
+        if (result.status === 'restored') window.location.reload();
+      } catch {
+        // Offline/local-only learning remains fully usable when sync is unavailable.
+      } finally { syncing = false; }
+    };
+    const onVisible = () => { if (document.visibilityState === 'hidden') runSync(); };
+    const onOnline = () => runSync();
+    runSync();
+    const timer = window.setInterval(runSync, 60_000);
+    document.addEventListener('visibilitychange', onVisible);
+    window.addEventListener('online', onOnline);
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener('visibilitychange', onVisible);
+      window.removeEventListener('online', onOnline);
+    };
+  }, []);
   const [activityHistory, setActivityHistory] = useState(() => {
     try {
       return normalizeActivityHistory(JSON.parse(localStorage.getItem('learningActivityV1') || '[]'));
@@ -207,6 +242,19 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('learningActivityV1', JSON.stringify(activityHistory));
   }, [activityHistory]);
+
+  useEffect(() => {
+    localStorage.setItem('dailyGoalV1', dailyGoal.toString());
+  }, [dailyGoal]);
+
+  useEffect(() => {
+    if (placementResult) localStorage.setItem('placementResultV1', JSON.stringify(placementResult));
+    else localStorage.removeItem('placementResultV1');
+  }, [placementResult]);
+
+  useEffect(() => {
+    localStorage.setItem('learningSyncUpdatedAtV1', String(Date.now()));
+  }, [xp, completedMilestones, streak, lastActiveDate, bestStreak, dailyStats, activityHistory, dailyGoal, placementResult]);
 
   // Keep bestStreak in sync whenever the current streak sets a new record
   useEffect(() => {
@@ -449,7 +497,10 @@ export default function App() {
             bestStreak={bestStreak}
             dailyStats={dailyStats}
             activityHistory={activityHistory}
-            dailyGoal={DAILY_GOAL}
+            dailyGoal={dailyGoal}
+            setDailyGoal={setDailyGoal}
+            placementResult={placementResult}
+            setPlacementResult={setPlacementResult}
             playAudio={playAudio}
             theme={theme}
             setTheme={setTheme}
@@ -495,7 +546,9 @@ export default function App() {
             streak={streak}
             dailyStats={dailyStats}
             activityHistory={activityHistory}
-            dailyGoal={DAILY_GOAL}
+            dailyGoal={dailyGoal}
+            placementResult={placementResult}
+            setPlacementResult={setPlacementResult}
           />
         );
 
@@ -529,7 +582,10 @@ export default function App() {
             bestStreak={bestStreak}
             dailyStats={dailyStats}
             activityHistory={activityHistory}
-            dailyGoal={DAILY_GOAL}
+            dailyGoal={dailyGoal}
+            setDailyGoal={setDailyGoal}
+            placementResult={placementResult}
+            setPlacementResult={setPlacementResult}
             playAudio={playAudio}
             theme={theme}
             setTheme={setTheme}
