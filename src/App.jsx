@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, Suspense, lazy } from 'react';
 
 // Data layer
 import { clearVocabProgress } from './utils/learningProgress';
+import { addLearningActivity, normalizeActivityHistory, localDateKey } from './utils/activityHistory';
 // NOTE: Oxford data (~9MB, the biggest data set) is NOT imported eagerly. It is
 // dynamically loaded only when the learner opens the Oxford vocab section, so it
 // no longer bloats the initial page load. See loadOxfordBooks() below.
@@ -169,6 +170,13 @@ export default function App() {
     return { date: new Date().toDateString(), lessons: 0, xp: 0 };
   });
   const DAILY_GOAL = 1; // hoàn thành ít nhất 1 chặng mỗi ngày
+  const [activityHistory, setActivityHistory] = useState(() => {
+    try {
+      return normalizeActivityHistory(JSON.parse(localStorage.getItem('learningActivityV1') || '[]'));
+    } catch {
+      return [];
+    }
+  });
 
   // Persist XP and completed milestones to localStorage
   useEffect(() => {
@@ -195,6 +203,10 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('dailyStats', JSON.stringify(dailyStats));
   }, [dailyStats]);
+
+  useEffect(() => {
+    localStorage.setItem('learningActivityV1', JSON.stringify(activityHistory));
+  }, [activityHistory]);
 
   // Keep bestStreak in sync whenever the current streak sets a new record
   useEffect(() => {
@@ -333,11 +345,13 @@ export default function App() {
     lastActiveDateRef.current = '';
     const freshDaily = { date: new Date().toDateString(), lessons: 0, xp: 0 };
     setDailyStats(freshDaily);
+    setActivityHistory([]);
     localStorage.setItem('xp', '0');
     localStorage.setItem('completedMilestones', JSON.stringify([]));
     localStorage.setItem('streak', '0');
     localStorage.setItem('lastActiveDate', '');
     localStorage.setItem('dailyStats', JSON.stringify(freshDaily));
+    localStorage.setItem('learningActivityV1', JSON.stringify([]));
     clearVocabProgress();
     // Note: bestStreak is a lifetime record — intentionally not reset.
   };
@@ -378,6 +392,11 @@ export default function App() {
       const base = prev.date === todayStr ? prev : { date: todayStr, lessons: 0, xp: 0 };
       return { ...base, lessons: base.lessons + 1, xp: base.xp + xpBonus };
     });
+    setActivityHistory(prev => addLearningActivity(prev, {
+      date: localDateKey(today),
+      lessons: 1,
+      xp: xpBonus,
+    }));
 
     if (lastActiveDateRef.current !== todayStr) {
       if (lastActiveDateRef.current) {
@@ -429,6 +448,7 @@ export default function App() {
             streak={streak}
             bestStreak={bestStreak}
             dailyStats={dailyStats}
+            activityHistory={activityHistory}
             dailyGoal={DAILY_GOAL}
             playAudio={playAudio}
             theme={theme}
@@ -474,6 +494,7 @@ export default function App() {
             completeMilestone={completeMilestone}
             streak={streak}
             dailyStats={dailyStats}
+            activityHistory={activityHistory}
             dailyGoal={DAILY_GOAL}
           />
         );
@@ -507,6 +528,7 @@ export default function App() {
             streak={streak}
             bestStreak={bestStreak}
             dailyStats={dailyStats}
+            activityHistory={activityHistory}
             dailyGoal={DAILY_GOAL}
             playAudio={playAudio}
             theme={theme}

@@ -3,7 +3,7 @@ import { roadmapData } from '../data/roadmapData';
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
-  Brain, Target, Volume2, VolumeX, Download, Upload
+  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
@@ -12,6 +12,7 @@ import SrsReview from '../components/vocab/SrsReview';
 import { getDueCount } from '../utils/srs';
 import { isMuted, setMuted } from '../utils/sound';
 import { createLearningBackup, restoreLearningBackup } from '../utils/backup';
+import { buildActivityWindow } from '../utils/activityHistory';
 
 const WelcomePage = ({
   xp,
@@ -25,6 +26,7 @@ const WelcomePage = ({
   streak = 0,
   bestStreak = 0,
   dailyStats = { lessons: 0, xp: 0 },
+  activityHistory = [],
   dailyGoal = 1,
   playAudio,
   theme,
@@ -38,6 +40,10 @@ const WelcomePage = ({
   const backupInputRef = useRef(null);
   const dueCount = getDueCount();
   const dailyDone = (dailyStats?.lessons || 0) >= dailyGoal;
+  const recentActivity = buildActivityWindow(activityHistory, 7);
+  const maxDailyXp = Math.max(1, ...recentActivity.map((entry) => entry.xp));
+  const weeklyLessons = recentActivity.reduce((sum, entry) => sum + entry.lessons, 0);
+  const weeklyXp = recentActivity.reduce((sum, entry) => sum + entry.xp, 0);
 
   // Flatten milestones to calculate progress & next target
   const allMilestones = roadmapData.flatMap(level => 
@@ -361,6 +367,36 @@ const WelcomePage = ({
           </button>
         </div>
       </div>
+
+      {/* --- 7-DAY LEARNING INSIGHTS --- */}
+      <section className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10" aria-labelledby="weekly-insights-title">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-2xl bg-violet-100 dark:bg-violet-950/40 border-3 border-slate-800 dark:border-slate-700 flex items-center justify-center">
+              <BarChart3 size={24} className="text-violet-600 dark:text-violet-400" />
+            </div>
+            <div>
+              <h3 id="weekly-insights-title" className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Nhịp học 7 ngày</h3>
+              <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{weeklyLessons} chặng · +{weeklyXp} XP</p>
+            </div>
+          </div>
+          <p className="text-xs font-bold text-slate-500 dark:text-slate-400">Mỗi cột thể hiện XP trong ngày</p>
+        </div>
+        <div className="grid grid-cols-7 gap-2 h-40 items-end" role="img" aria-label={`Biểu đồ 7 ngày: ${weeklyLessons} chặng, ${weeklyXp} XP`}>
+          {recentActivity.map((entry) => {
+            const height = entry.xp > 0 ? Math.max(12, Math.round((entry.xp / maxDailyXp) * 100)) : 4;
+            const dayLabel = new Intl.DateTimeFormat('vi-VN', { weekday: 'short' }).format(new Date(`${entry.date}T12:00:00`));
+            return (
+              <div key={entry.date} className="h-full flex flex-col justify-end items-center gap-1.5 min-w-0" title={`${entry.date}: ${entry.lessons} chặng, ${entry.xp} XP`}>
+                <span className="text-[10px] font-black text-violet-600 dark:text-violet-400">{entry.xp || ''}</span>
+                <div className={`w-full max-w-12 rounded-t-xl border-2 border-b-0 border-slate-800 dark:border-slate-600 transition-all ${entry.xp > 0 ? 'bg-violet-400 dark:bg-violet-600' : 'bg-slate-100 dark:bg-slate-800'}`} style={{ height: `${height}%` }} />
+                <span className="text-[10px] font-black text-slate-500 dark:text-slate-400 capitalize">{dayLabel}</span>
+              </div>
+            );
+          })}
+        </div>
+        {weeklyLessons === 0 && <p className="mt-4 text-center text-sm font-bold text-slate-500 dark:text-slate-400">Hoàn thành một chặng để bắt đầu tạo nhịp học của bạn.</p>}
+      </section>
 
       {/* --- VƯỜN THÚ (bộ sưu tập thú cưng, mở khoá bằng việc học) --- */}
       <PetZoo done={completedMilestones} streak={streak} className="mb-10" />

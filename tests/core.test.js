@@ -8,6 +8,7 @@ import { AiServiceError, requestAi } from '../src/utils/aiClient.js';
 import { createLearningBackup, restoreLearningBackup } from '../src/utils/backup.js';
 import { parseImageVocabulary } from '../src/utils/imageVocabulary.js';
 import { buildRequest } from '../functions/api/ai.js';
+import { addLearningActivity, buildActivityWindow, normalizeActivityHistory } from '../src/utils/activityHistory.js';
 
 test('writing scorer handles empty and well-formed answers', () => {
   const empty = scoreWriting('   ');
@@ -139,4 +140,25 @@ test('image vocabulary response is normalized and incomplete data is rejected', 
   assert.equal(result.sentences.length, 1);
   assert.throws(() => parseImageVocabulary('{"word":"cat"}'), /chưa đầy đủ/);
   assert.throws(() => parseImageVocabulary('not json'), /không đọc được/);
+});
+
+test('learning activity accumulates by day and builds a continuous seven-day window', () => {
+  let history = addLearningActivity([], { date: '2026-08-01', lessons: 1, xp: 20 });
+  history = addLearningActivity(history, { date: '2026-08-01', lessons: 2, xp: 30 });
+  assert.deepEqual(history, [{ date: '2026-08-01', lessons: 3, xp: 50 }]);
+
+  const window = buildActivityWindow(history, 7, new Date(2026, 7, 2, 12));
+  assert.equal(window.length, 7);
+  assert.equal(window.at(-2).date, '2026-08-01');
+  assert.equal(window.at(-2).xp, 50);
+  assert.equal(window.at(-1).date, '2026-08-02');
+  assert.equal(window.at(-1).xp, 0);
+});
+
+test('learning activity normalization rejects malformed and negative values', () => {
+  assert.deepEqual(normalizeActivityHistory(null), []);
+  assert.deepEqual(normalizeActivityHistory([
+    { date: 'bad-date', lessons: 4, xp: 10 },
+    { date: '2026-08-02', lessons: -2, xp: '15' },
+  ]), [{ date: '2026-08-02', lessons: 0, xp: 15 }]);
 });
