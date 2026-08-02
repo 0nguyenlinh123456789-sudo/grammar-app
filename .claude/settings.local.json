@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /d)",
+      "Bash(unzip -l \"1. IELTS NỀN TẢNG.zip\")",
+      "Bash(awk '{$1=$2=$3=\"\"; print $0}')",
+      "Bash(grep '/$')",
+      "Bash(sed 's/^ *//')",
+      "Read(//tmp/**)",
+      "Bash(grep -iE '\\\\.mp4$')",
+      "Bash(awk '{s+=$1} END {print NR\" videos, \"s/1024/1024\" MB total\"}')",
+      "Bash(node scratch/gen_manifest.cjs)",
+      "Bash(node --input-type=module -e ' *)"
+    ]
+  }
+}
