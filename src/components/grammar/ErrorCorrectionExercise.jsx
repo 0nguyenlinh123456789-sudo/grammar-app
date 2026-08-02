@@ -1,5 +1,5 @@
 // File: src/components/grammar/ErrorCorrectionExercise.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AlertTriangle, ChevronRight, Sparkles, RotateCcw, CheckCircle2, XCircle } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 

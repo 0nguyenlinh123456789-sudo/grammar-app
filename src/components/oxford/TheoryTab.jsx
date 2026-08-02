@@ -1,5 +1,5 @@
 // File: src/components/oxford/TheoryTab.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Volume2, Snail, BookOpen, MessageSquare, Lightbulb } from 'lucide-react';
 
 const TheoryTab = ({ unitData }) => {

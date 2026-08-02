@@ -2,7 +2,7 @@
 // Spaced-repetition review session (modal). Shows due cards one at a time as a
 // flashcard; the learner self-rates "Nhớ" (remembered) or "Quên" (forgot),
 // which reschedules the card via the Leitner store.
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Volume2, X, RotateCcw, Brain, PartyPopper } from 'lucide-react';
 import { getDueCards, recordReview } from '../../utils/srs';
 import { playCorrect, playWrong, playComplete } from '../../utils/sound';

@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import { useRef, useState } from 'react';
 import { roadmapData } from '../data/roadmapData';
 import {
-  Trophy, CheckCircle2, Lock, Play, Compass, Award,
-  Zap, BookOpen, Flame, Sparkles, AlertCircle, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
-  Brain, Target, Volume2, VolumeX
+  Trophy, CheckCircle2, Play, Compass, Award,
+  Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
+  Brain, Target, Volume2, VolumeX, Download, Upload
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
-import MascotLuna from '../components/common/MascotLuna';
 import PetZoo from '../components/common/PetZoo';
 import SrsReview from '../components/vocab/SrsReview';
 import { getDueCount } from '../utils/srs';
 import { isMuted, setMuted } from '../utils/sound';
+import { createLearningBackup, restoreLearningBackup } from '../utils/backup';
 
 const WelcomePage = ({
   xp,
@@ -32,9 +32,10 @@ const WelcomePage = ({
 }) => {
   const [activeTab, setActiveTab] = useState('all'); // 'all', 'starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
-  const [lunaVisible, setLunaVisible] = useState(true);
   const [showReview, setShowReview] = useState(false);
   const [muted, setMutedState] = useState(isMuted());
+  const [backupMessage, setBackupMessage] = useState('');
+  const backupInputRef = useRef(null);
   const dueCount = getDueCount();
   const dailyDone = (dailyStats?.lessons || 0) >= dailyGoal;
 
@@ -160,6 +161,34 @@ const WelcomePage = ({
     setMutedState(next);
   };
 
+  const downloadBackup = () => {
+    const backup = createLearningBackup();
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `grammar-pro-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+    setBackupMessage('Đã tải bản sao lưu tiến độ.');
+  };
+
+  const importBackup = async (event) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) {
+      setBackupMessage('Tệp sao lưu quá lớn.');
+      return;
+    }
+    try {
+      restoreLearningBackup(await file.text());
+      window.location.reload();
+    } catch {
+      setBackupMessage('Tệp sao lưu không hợp lệ hoặc không có dữ liệu học tập.');
+    }
+  };
+
   return (
     <div className="max-w-5xl mx-auto pb-24 font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
 
@@ -230,6 +259,16 @@ const WelcomePage = ({
                >
                  <RotateCcw size={18} /> RESET LỘ TRÌNH
                </button>
+               <div className="grid grid-cols-2 gap-2">
+                 <button onClick={downloadBackup} className="min-h-12 px-3 font-black border-3 border-slate-800 dark:border-slate-700 rounded-2xl bg-emerald-100 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 flex justify-center items-center gap-1.5 shadow-[3px_3px_0_0_#1e293b] text-xs">
+                   <Download size={16} /> SAO LƯU
+                 </button>
+                 <button onClick={() => backupInputRef.current?.click()} className="min-h-12 px-3 font-black border-3 border-slate-800 dark:border-slate-700 rounded-2xl bg-blue-100 dark:bg-blue-950/30 text-blue-800 dark:text-blue-300 flex justify-center items-center gap-1.5 shadow-[3px_3px_0_0_#1e293b] text-xs">
+                   <Upload size={16} /> KHÔI PHỤC
+                 </button>
+                 <input ref={backupInputRef} type="file" accept="application/json,.json" onChange={importBackup} className="hidden" />
+               </div>
+               {backupMessage && <p role="status" className="text-xs font-bold text-center text-slate-600 dark:text-slate-300">{backupMessage}</p>}
             </div>
           </div>
         </div>
@@ -402,7 +441,7 @@ const WelcomePage = ({
  
               {/* Milestones in Level */}
               <div className="space-y-6">
-                {level.milestones.map((m, mIdx) => {
+                {level.milestones.map((m) => {
                   const absoluteIdx = allMilestones.findIndex(item => item.id === m.id) + 1;
                   const isDone = completedMilestones.includes(m.targetId);
                   const isActive = nextMilestone && nextMilestone.id === m.id;
@@ -496,11 +535,11 @@ const WelcomePage = ({
 
       {/* --- CONFIRM RESET ROADMAP MODAL --- */}
       {isResetModalOpen && (
-        <div className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div role="dialog" aria-modal="true" aria-labelledby="welcome-reset-title" className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 md:p-8 max-w-md w-full shadow-[8px_8px_0_0_#1e293b] dark:shadow-[8px_8px_0_0_#000] animate-in zoom-in-95">
             <div className="flex items-center gap-3 text-rose-500 mb-4">
               <AlertTriangle size={32} className="animate-bounce text-rose-500" />
-              <h3 className="text-2xl font-black uppercase tracking-tight text-slate-800 dark:text-slate-100">Xác nhận làm mới</h3>
+              <h3 id="welcome-reset-title" className="text-2xl font-black uppercase tracking-tight text-slate-800 dark:text-slate-100">Xác nhận làm mới</h3>
             </div>
             
             <p className="font-bold text-slate-600 dark:text-slate-350 leading-relaxed mb-6 text-sm">

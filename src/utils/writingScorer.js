@@ -103,23 +103,10 @@ export function scoreWriting(text, opts = {}) {
   return { score, level, tips, praises, usedTargets };
 }
 
-// Ask Gemini for richer feedback. Returns the AI text, or throws on failure so
-// the caller can fall back to the offline scorer.
-export async function scoreWritingWithAI(text, { apiKey, topicTitle = '' } = {}) {
-  if (!apiKey) throw new Error('no-api-key');
-  const prompt = `Bạn là giáo viên tiếng Anh. Học viên đang luyện viết${topicTitle ? ` chủ đề "${topicTitle}"` : ''}.
-Bài làm: "${text}".
-Hãy phản hồi NGẮN GỌN bằng tiếng Việt gồm: (1) Điểm /10, (2) Lỗi ngữ pháp/chính tả nếu có và cách sửa, (3) Một câu mẫu hay hơn. Không dùng markdown.`;
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
-    }
-  );
-  const data = await res.json();
-  const out = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!out) throw new Error('empty-ai-response');
-  return out;
+// Ask the server-side AI proxy for richer feedback. The provider credential
+// never reaches the browser and the offline scorer remains available.
+export async function scoreWritingWithAI(text, { topicTitle = '' } = {}) {
+  const { requestAi } = await import('./aiClient');
+  const data = await requestAi('writing', { text, topicTitle });
+  return data.text;
 }

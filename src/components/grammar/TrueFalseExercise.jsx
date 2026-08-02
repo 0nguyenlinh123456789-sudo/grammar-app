@@ -1,5 +1,5 @@
 // File: src/components/grammar/TrueFalseExercise.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { CircleCheck, CircleX, ChevronRight, Sparkles, RotateCcw, CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 

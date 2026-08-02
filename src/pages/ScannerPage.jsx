@@ -1,69 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import { Camera, Key, CheckCircle2, ImagePlus, Loader2, Sparkles, Layers, FileText, Languages } from 'lucide-react';
+import { useState } from 'react';
+import { Camera, ShieldCheck, ImagePlus, Loader2, Sparkles, Layers, FileText, Languages } from 'lucide-react';
+import { requestAi } from '../utils/aiClient';
 
 const ImageScanner = () => {
-  // State quản lý API Key
-  const [apiKey, setApiKey] = useState('');
-  const [isKeySaved, setIsKeySaved] = useState(false);
-
   // State quản lý Ảnh và Kết quả
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
 
-  // 1. Kiểm tra API Key đã lưu trong trình duyệt khi vừa mở web
-  useEffect(() => {
-    const savedKey = localStorage.getItem('MY_GEMINI_API_KEY');
-    if (savedKey) {
-      setApiKey(savedKey);
-      setIsKeySaved(true);
-    }
-  }, []);
-
-  // 2. Lưu API Key vào máy người dùng
-  const handleSaveKey = () => {
-    if (!apiKey.trim()) {
-      alert('Vui lòng nhập API Key trước khi lưu!');
-      return;
-    }
-    localStorage.setItem('MY_GEMINI_API_KEY', apiKey);
-    setIsKeySaved(true);
-  };
-
-  // 3. Xóa API Key
-  const handleRemoveKey = () => {
-    localStorage.removeItem('MY_GEMINI_API_KEY');
-    setApiKey('');
-    setIsKeySaved(false);
-    setResult(null);
-  };
-
-  // 4. Xử lý tải ảnh lên
+  // Xử lý tải ảnh lên
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
+    setError('');
+    if (!file) return;
+
+    const maxImageBytes = 4 * 1024 * 1024;
+    if (!file.type.startsWith('image/')) {
+      setError('Vui lòng chọn tệp hình ảnh hợp lệ.');
+      e.target.value = '';
+      return;
+    }
+    if (file.size > maxImageBytes) {
+      setError('Ảnh quá lớn. Vui lòng chọn ảnh nhỏ hơn 4 MB.');
+      e.target.value = '';
+      return;
+    }
+
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setImage({ dataUrl: reader.result, file: file });
         setResult(null); // Reset kết quả cũ nếu chọn ảnh mới
       };
+      reader.onerror = () => setError('Không thể đọc tệp ảnh. Vui lòng thử lại.');
       reader.readAsDataURL(file);
     }
   };
 
-  // 5. Chuyển file ảnh thành định dạng AI hiểu được
-  const fileToGenerativePart = async (file) => {
-    const base64EncodedDataPromise = new Promise((resolve) => {
+  const fileToBase64 = (file) => new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onloadend = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
       reader.readAsDataURL(file);
-    });
-    return {
-      inlineData: { data: await base64EncodedDataPromise, mimeType: file.type },
-    };
-  };
+  });
 
   // 6. Gửi dữ liệu cho AI xử lý
   const analyzeImage = async () => {
@@ -72,37 +52,20 @@ const ImageScanner = () => {
     setError('');
 
     try {
-      // Khởi tạo AI với Key của người dùng
-      const genAI = new GoogleGenerativeAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-      const imagePart = await fileToGenerativePart(image.file);
-
-      const prompt = `
-        You are an English teacher. Look at this image, identify the main object or action. 
-        Return ONLY a JSON object with this exact structure (do not use markdown formatting like \`\`\`json):
-        {
-          "word": "English word",
-          "ipa": "/phonetic transcription/",
-          "meaning": "Vietnamese meaning",
-          "phrases": ["Phrase 1 with translation", "Phrase 2 with translation"],
-          "sentences": [
-            {"en": "Example sentence 1 in English", "vi": "Vietnamese translation 1"},
-            {"en": "Example sentence 2 in English", "vi": "Vietnamese translation 2"}
-          ]
-        }
-      `;
-
-      const resultAI = await model.generateContent([prompt, imagePart]);
-      const responseText = resultAI.response.text();
+      const imageData = await fileToBase64(image.file);
+      const { text } = await requestAi('image-vocabulary', {
+        imageData,
+        mimeType: image.file.type,
+      });
       
       // Làm sạch dữ liệu trả về và ép kiểu JSON
-      const cleanJson = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+      const cleanJson = text.replace(/```json/g, '').replace(/```/g, '').trim();
       const parsedResult = JSON.parse(cleanJson);
       
       setResult(parsedResult);
     } catch (err) {
       console.error(err);
-      setError('Lỗi phân tích! Vui lòng kiểm tra lại API Key xem có chính xác không, hoặc thử ảnh khác.');
+      setError(err?.message || 'Chưa thể phân tích ảnh. Vui lòng thử lại sau.');
     } finally {
       setLoading(false);
     }
@@ -114,48 +77,14 @@ const ImageScanner = () => {
         <Camera size={32} className="text-indigo-600 dark:text-indigo-400 animate-pulse" /> Quét Ảnh Bằng AI
       </h2>
 
-      {/* --- KHU VỰC NHẬP API KEY --- */}
-      {!isKeySaved ? (
-        <div className="mb-8 p-5 border-[3px] border-black dark:border-slate-750 rounded-xl bg-[#fef08a] dark:bg-yellow-950/20 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#000]">
-          <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-slate-800 dark:text-yellow-300">
-            <Key size={20} className="text-yellow-600 dark:text-yellow-450" /> Nhập API Key để bắt đầu:
-          </h3>
-          <p className="text-sm mb-3 text-gray-700 dark:text-slate-300 font-medium">
-            Mỗi người dùng cần tự nhập Google AI Key của mình (Miễn phí). Key chỉ lưu trên trình duyệt của bạn, hoàn toàn bảo mật.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-2">
-            <input 
-              type="password" 
-              value={apiKey}
-              onChange={(e) => setApiKey(e.target.value)}
-              placeholder="Dán API Key (AIzaSy...) vào đây"
-              className="flex-1 border-[3px] border-black dark:border-slate-600 px-4 py-2 rounded-lg font-medium outline-none bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:bg-[#f8fafc] dark:focus:bg-slate-750"
-            />
-            <button 
-              onClick={handleSaveKey} 
-              className="bg-[#4ade80] dark:bg-green-600 hover:bg-[#22c55e] dark:hover:bg-green-500 text-black dark:text-white font-bold px-6 py-2 rounded-lg border-[3px] border-black dark:border-slate-650 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_#000] active:shadow-none active:translate-y-1 active:translate-x-1 transition-all cursor-pointer"
-            >
-              Lưu Key
-            </button>
-          </div>
-        </div>
-      ) : (
-        <div className="mb-6 flex flex-col sm:flex-row gap-3 justify-between items-center p-4 border-[3px] border-black dark:border-slate-700 rounded-xl bg-[#bbf7d0] dark:bg-green-950/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)]">
-          <span className="font-bold text-green-800 dark:text-green-300 flex items-center gap-2 text-sm md:text-base">
-            <CheckCircle2 size={18} className="text-green-700 dark:text-green-400" /> Đã kết nối API Key thành công!
-          </span>
-          <button 
-            onClick={handleRemoveKey}
-            className="text-xs font-black bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-200 px-4 py-1.5 border-2 border-black dark:border-slate-600 rounded-lg hover:bg-red-100 dark:hover:bg-red-950/30 transition-colors cursor-pointer shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:shadow-none"
-          >
-            Đổi/Xóa Key
-          </button>
-        </div>
-      )}
+      <div className="mb-6 flex items-center gap-3 p-4 border-[3px] border-black dark:border-slate-700 rounded-xl bg-[#bbf7d0] dark:bg-green-950/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)]">
+        <ShieldCheck size={20} className="shrink-0 text-green-700 dark:text-green-400" />
+        <span className="font-bold text-green-800 dark:text-green-300 text-sm md:text-base">
+          Ảnh được gửi qua máy chủ bảo mật; khóa AI không được lưu trong trình duyệt.
+        </span>
+      </div>
 
-      {/* --- KHU VỰC QUÉT ẢNH (Chỉ hiện khi đã lưu Key) --- */}
-      {isKeySaved && (
-        <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4">
           <label className="cursor-pointer bg-[#60a5fa] dark:bg-blue-600 border-[3px] border-black dark:border-slate-700 px-8 py-3 rounded-xl font-bold text-lg text-white hover:bg-[#3b82f6] dark:hover:bg-blue-500 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] active:shadow-none active:translate-y-1 active:translate-x-1 flex items-center gap-2">
             <ImagePlus size={20} /> Chọn Ảnh Cần Quét
             <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
@@ -182,8 +111,7 @@ const ImageScanner = () => {
               )}
             </button>
           )}
-        </div>
-      )}
+      </div>
 
       {error && (
         <div className="mt-6 font-bold text-center bg-red-200 dark:bg-red-950/20 border-[3px] border-black dark:border-red-900/40 p-3 rounded-xl text-red-700 dark:text-red-300">

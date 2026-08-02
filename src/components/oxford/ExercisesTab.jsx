@@ -1,6 +1,6 @@
 // File: src/components/oxford/ExercisesTab.jsx
-import React, { useState, useEffect } from 'react';
-import { Volume2, Award, RotateCcw, HelpCircle, Check, X, Sparkles, BookOpen, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Volume2, Award, RotateCcw, HelpCircle, Check, X, Sparkles, ArrowRight } from 'lucide-react';
 import ScholarBunny from '../common/ScholarBunny';
 
 export default function ExercisesTab({ unitData }) {
@@ -55,7 +55,7 @@ export default function ExercisesTab({ unitData }) {
     };
 
     const cleanStr = (str) => {
-        return str ? str.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "").replace(/\s+/g, " ") : "";
+        return str ? str.trim().toLowerCase().replace(/[.,/#!$%^&*;:{}=_`~()?-]/g, "").replace(/\s+/g, " ") : "";
     };
 
     const handleCheckAnswers = () => {

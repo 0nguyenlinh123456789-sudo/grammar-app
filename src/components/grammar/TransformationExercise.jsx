@@ -1,5 +1,5 @@
 // File: src/components/grammar/TransformationExercise.jsx
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Repeat, ChevronRight, Sparkles, RotateCcw, CheckCircle2, XCircle, Lightbulb } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 

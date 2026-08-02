@@ -1,5 +1,5 @@
 // File: src/components/grammar/MatchingExercise.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link2, ChevronRight, Sparkles, RotateCcw, CheckCircle2, XCircle } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 
@@ -11,7 +11,6 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const [shuffledRight, setShuffledRight] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
-  const [setsDone, setSetsDone] = useState(0);
 
   const exercisesLen = exercises?.length || 0;
 
@@ -28,7 +27,7 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
       setSelectedRight(null);
       setShowResults(false);
     }
-  }, [qIdx, curr?.pairs?.length]);
+  }, [curr]);
 
   useEffect(() => {
     if (exercisesLen > 0 && qIdx === exercisesLen && onComplete) {
@@ -72,7 +71,6 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
     const correctCount = matches.filter(m => m.correct).length;
     setScore(prev => prev + correctCount);
     setGlobalProgress(p => p + correctCount);
-    setSetsDone(prev => prev + 1);
   };
 
   const next = () => {
@@ -81,8 +79,6 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
 
   const allMatched = curr ? matches.length === curr.pairs.length : false;
 
-  const isLeftMatched = (idx) => matches.some(m => m.leftIdx === idx);
-  const isRightMatched = (idx) => matches.some(m => m.rightIdx === idx);
   const getMatchForLeft = (idx) => matches.find(m => m.leftIdx === idx);
   const getMatchForRight = (idx) => matches.find(m => m.rightIdx === idx);
 
@@ -117,7 +113,7 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
             style={{ width: `${percentage}%` }}
           />
         </div>
-        <Btn3D onClick={() => { setQIdx(0); setScore(0); setSetsDone(0); }} className="text-lg">
+        <Btn3D onClick={() => { setQIdx(0); setScore(0); }} className="text-lg">
           <RotateCcw size={18} className="mr-2" /> Làm Lại
         </Btn3D>
       </div>

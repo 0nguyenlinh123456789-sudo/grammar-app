@@ -1,5 +1,5 @@
 // File: src/pages/GrammarPage.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import SketchnoteTheory from '../components/grammar/SketchnoteTheory';
 import SentenceBuilder from '../components/grammar/SentenceBuilder';
 import AiAssistant from '../components/grammar/AiAssistant';
@@ -34,7 +34,11 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
   ];
 
   // Hiển thị TẤT CẢ các tab (kể cả khi chưa có dữ liệu) để fix lỗi người dùng tưởng button không hiển thị
-  const availableTabs = tabs;
+  // Chỉ hiển thị dạng bài có dữ liệu; các tab nền tảng luôn khả dụng.
+  const availableTabs = tabs.filter((t) => {
+    if (['theory', 'sentence', 'ai'].includes(t.id)) return true;
+    return Array.isArray(t.data) && t.data.length > 0;
+  });
 
   return (
     <div className="max-w-4xl mx-auto animate-in fade-in dark:text-slate-100 transition-colors duration-300">
@@ -56,6 +60,9 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
             <button 
               key={t.id}
               onClick={() => setTab(t.id)} 
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`grammar-panel-${t.id}`}
               className={`font-black px-4 py-3 text-sm md:text-base rounded-2xl border-[3px] md:border-[4px] border-slate-800 dark:border-slate-700 whitespace-nowrap transition-all shadow-[3px_3px_0px_0px_#1e293b] dark:shadow-[3px_3px_0px_0px_#020617] cursor-pointer flex items-center gap-1.5 md:gap-2 ${
                 isActive 
                   ? `${t.id === 'ai' ? 'bg-yellow-300 dark:bg-yellow-450 dark:text-slate-900' : 'bg-slate-800 dark:bg-slate-700 text-white'} translate-y-1 shadow-none` 
@@ -71,6 +78,7 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
       </div>
 
       {/* Content */}
+      <div id={`grammar-panel-${tab}`} role="tabpanel" aria-live="polite">
       {tab === 'theory' && topic.theory.map((s, i) => (
         <SketchnoteTheory key={i} section={s} idx={i} />
       ))}
@@ -161,6 +169,7 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
           </div>
         )
       )}
+      </div>
     </div>
   );
 };

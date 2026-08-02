@@ -1,28 +1,15 @@
 // File: src/components/oxford/PracticeTab.jsx
-import React, { useState, useEffect } from 'react';
-import { Key, Edit3, Mic, Volume2, Shuffle, Snail } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ShieldCheck, Edit3, Mic, Volume2, Shuffle, Snail } from 'lucide-react';
+import { requestAi } from '../../utils/aiClient';
 
 const PracticeTab = ({ unitData }) => {
-    const [apiKey, setApiKey] = useState("");
     const [userText, setUserText] = useState("");
     const [feedback, setFeedback] = useState("");
     const [loading, setLoading] = useState(false);
     const [speakItem, setSpeakItem] = useState(null);
     const [isRec, setIsRec] = useState(false);
     const [score, setScore] = useState(null);
-
-    // Sync API Key with localStorage on mount
-    useEffect(() => {
-        const savedKey = localStorage.getItem('MY_GEMINI_API_KEY');
-        if (savedKey) {
-            setApiKey(savedKey);
-        }
-    }, []);
-
-    const handleApiKeyChange = (val) => {
-        setApiKey(val);
-        localStorage.setItem('MY_GEMINI_API_KEY', val);
-    };
 
     useEffect(() => {
         if (unitData?.speaking) {
@@ -31,24 +18,22 @@ const PracticeTab = ({ unitData }) => {
         setUserText("");
         setFeedback("");
         setScore(null);
-    }, [unitData?.id]);
+    }, [unitData]);
 
     const checkWriting = async () => {
-        if (!apiKey) return alert("Vui lòng nhập Gemini API Key phía trên để AI chấm bài.");
+        if (!userText.trim()) return;
         setLoading(true);
-        const prompt = `Bạn là giáo viên tiếng Anh chấm bài thuộc Unit: ${unitData.title}. Học viên viết câu này để áp dụng bài học: "${userText}". Hãy chấm điểm, sửa lỗi ngữ pháp/từ vựng chi tiết bằng tiếng Việt. Cuối cùng cho 1 câu mẫu tương tự tự nhiên hơn.`;
         try {
-            const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+            const { text } = await requestAi('writing', {
+                text: userText,
+                topicTitle: unitData.title,
             });
-            const data = await res.json();
-            setFeedback(data?.candidates?.[0]?.content?.parts?.[0]?.text || "Lỗi phản hồi từ AI.");
-        } catch { 
-            setFeedback("Lỗi kết nối hoặc API Key không hợp lệ."); 
+            setFeedback(text);
+        } catch (error) {
+            setFeedback(error?.message || "Dịch vụ chấm bài hiện chưa sẵn sàng. Vui lòng thử lại sau.");
+        } finally {
+            setLoading(false);
         }
-        setLoading(false);
     };
 
     const handleRecord = () => {
@@ -83,15 +68,8 @@ const PracticeTab = ({ unitData }) => {
 
     return (
         <div className="space-y-8 animate-in fade-in pb-10 mt-6">
-            <div className="bg-slate-800 text-white rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-4 border-slate-900 shadow-[6px_6px_0_0_#1e293b]">
-                <div className="font-bold flex items-center gap-2"><Key className="text-yellow-400"/> Cài Gemini API Key:</div>
-                <input 
-                  type="password" 
-                  value={apiKey} 
-                  onChange={e=>handleApiKeyChange(e.target.value)} 
-                  placeholder="Nhập Key vào đây..." 
-                  className="bg-slate-700 p-3 rounded-2xl outline-none w-full sm:w-1/2 border-4 border-slate-600 focus:border-cyan-400 text-white"
-                />
+            <div className="bg-emerald-100 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-200 rounded-3xl p-5 border-4 border-emerald-700 dark:border-emerald-600 shadow-[5px_5px_0_0_#047857]">
+                <div className="font-bold flex items-center gap-2"><ShieldCheck className="text-emerald-700 dark:text-emerald-400"/> Chấm bài qua máy chủ bảo mật; bạn không cần nhập API key.</div>
             </div>
 
             <div className="bg-white rounded-3xl border-4 border-slate-800 p-8 shadow-[8px_8px_0_0_#1e293b]">

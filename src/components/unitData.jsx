@@ -1,5 +1,5 @@
 // File: src/components/unitData.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BookOpen, Gamepad2, PenTool, Edit3, Keyboard, Layers, Sparkles } from 'lucide-react';
 
 // Sub-components

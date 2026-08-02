@@ -2,7 +2,7 @@
 // Reading-comprehension check: read an English sentence/passage, then answer a
 // question. Uses hand-authored questions (topic.comprehension) when present,
 // otherwise auto-generates from vocab example sentences. Text-only (no audio).
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { BookOpen, CheckCircle2, XCircle, RefreshCw, Trophy } from 'lucide-react';
 import { playCorrect, playWrong, playComplete } from '../../utils/sound';
 import { recordReview } from '../../utils/srs';

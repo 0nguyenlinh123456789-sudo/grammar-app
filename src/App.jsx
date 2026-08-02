@@ -1,35 +1,46 @@
 // File: src/App.jsx
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 
 // Data layer
-import { parsedGrammarData, grammarLevels } from './data/grammarData';
-import vocabVstepData from './data/vocabVstepData';
+import { clearVocabProgress } from './utils/learningProgress';
 // NOTE: Oxford data (~9MB, the biggest data set) is NOT imported eagerly. It is
 // dynamically loaded only when the learner opens the Oxford vocab section, so it
 // no longer bloats the initial page load. See loadOxfordBooks() below.
 
-// Dynamically import and assemble the Oxford books. Called on demand.
-async function loadOxfordBooks() {
-  const [p1, p2, p3, pi, pi3, pi4, a1, a2, a3, a4] = await Promise.all([
-    import('./data/oxfordData'),
-    import('./data/oxfordDataPart2'),
-    import('./data/oxfordDataPart3'),
-    import('./data/oxfordPreIntData'),
-    import('./data/oxfordPreIntData51_75'),
-    import('./data/oxfordPreIntData76_100'),
-    import('./data/oxfordAdvancedData1_25'),
-    import('./data/oxfordAdvancedData26_50'),
-    import('./data/oxfordAdvancedData51_75'),
-    import('./data/oxfordAdvancedData76_100'),
+const OXFORD_BOOKS = [
+  { id: 'elementary', title: 'English Vocabulary in Use - Elementary', description: 'Giáo trình từ vựng Oxford cấp độ Cơ bản (60 Units)', units: [] },
+  { id: 'pre_intermediate', title: 'English Vocabulary in Use - Pre-Intermediate & Intermediate', description: 'Giáo trình từ vựng Oxford cấp độ Trung cấp (100 Units)', units: [] },
+  { id: 'advanced', title: 'English Vocabulary in Use - Advanced', description: 'Giáo trình từ vựng Oxford cấp độ Cao cấp, dành cho IELTS 7.0+ và C1-C2 (100 Units)', units: [] },
+];
+
+async function loadOxfordBook(bookId) {
+  if (bookId === 'elementary') {
+    const [p1, p2, p3] = await Promise.all([
+      import('./data/oxfordData'), import('./data/oxfordDataPart2'), import('./data/oxfordDataPart3'),
+    ]);
+    return [...p1.courseData, ...p2.courseData, ...p3.courseData];
+  }
+  if (bookId === 'pre_intermediate') {
+    const [p1, p2, p3] = await Promise.all([
+      import('./data/oxfordPreIntData'), import('./data/oxfordPreIntData51_75'), import('./data/oxfordPreIntData76_100'),
+    ]);
+    return [...p1.courseData, ...p2.courseData51_75, ...p3.courseData76_100];
+  }
+  const [p1, p2, p3, p4] = await Promise.all([
+    import('./data/oxfordAdvancedData1_25'), import('./data/oxfordAdvancedData26_50'),
+    import('./data/oxfordAdvancedData51_75'), import('./data/oxfordAdvancedData76_100'),
   ]);
-  const elementaryUnits = [...p1.courseData, ...p2.courseData, ...p3.courseData];
-  const preIntUnits = [...pi.courseData, ...pi3.courseData51_75, ...pi4.courseData76_100];
-  const advancedUnits = [...a1.courseData1_25, ...a2.courseData26_50, ...a3.courseData51_75, ...a4.courseData76_100];
-  return [
-    { id: 'elementary', title: 'English Vocabulary in Use - Elementary', description: 'Giáo trình từ vựng Oxford cấp độ Cơ bản (60 Units)', units: elementaryUnits },
-    { id: 'pre_intermediate', title: 'English Vocabulary in Use - Pre-Intermediate & Intermediate', description: 'Giáo trình từ vựng Oxford cấp độ Trung cấp (100 Units)', units: preIntUnits },
-    { id: 'advanced', title: 'English Vocabulary in Use - Advanced', description: 'Giáo trình từ vựng Oxford cấp độ Cao cấp, dành cho IELTS 7.0+ và C1-C2 (100 Units)', units: advancedUnits },
-  ];
+  return [...p1.courseData1_25, ...p2.courseData26_50, ...p3.courseData51_75, ...p4.courseData76_100];
+}
+
+async function loadVstepTopics() {
+  const module = await import('./data/vocabVstepData');
+  return module.default;
+}
+
+async function loadGrammarCatalog() {
+  const module = await import('./data/grammarData');
+  return { topics: module.parsedGrammarData, levels: module.grammarLevels };
 }
 
 // Layout layer
@@ -53,10 +64,25 @@ const RouteLoader = () => (
   </div>
 );
 
+const DataLoadError = ({ message, onRetry }) => (
+  <div className="max-w-lg mx-auto mt-16 p-6 text-center bg-white dark:bg-slate-900 border-4 border-rose-500 rounded-3xl shadow-[6px_6px_0_0_#be123c]">
+    <p className="text-3xl mb-2" aria-hidden="true">⚠️</p>
+    <h2 className="text-xl font-black text-slate-800 dark:text-slate-100 mb-2">Không thể tải dữ liệu</h2>
+    <p className="text-sm font-bold text-slate-600 dark:text-slate-300 mb-5">{message}</p>
+    <button onClick={onRetry} className="px-5 py-2.5 bg-yellow-300 text-slate-900 border-3 border-slate-800 rounded-xl font-black shadow-[3px_3px_0_0_#1e293b] active:translate-y-0.5 active:shadow-none">
+      Thử lại
+    </button>
+  </div>
+);
+
 export default function App() {
   // Navigation & Mode states
-  const [appMode, setAppMode] = useState('grammar'); // 'grammar', 'vocab', 'scanner'
+  const [appMode, setAppMode] = useState('home');
   const [activeVocabCategory, setActiveVocabCategory] = useState('TOPIC'); // 'TOPIC', 'OXFORD'
+  const [parsedGrammarData, setParsedGrammarData] = useState([]);
+  const [grammarLevels, setGrammarLevels] = useState([]);
+  const [grammarLoaded, setGrammarLoaded] = useState(false);
+  const [grammarLoadError, setGrammarLoadError] = useState('');
   
   // Topic/Unit states
   const [topicId, setTopicId] = useState(null); // Active grammar topic ID
@@ -70,15 +96,20 @@ export default function App() {
 
   // Oxford books are lazy-loaded (large data set). Empty until the learner opens
   // the Oxford section for the first time.
-  const [oxfordBooks, setOxfordBooks] = useState([]);
-  const [oxfordLoaded, setOxfordLoaded] = useState(false);
+  const [oxfordBooks, setOxfordBooks] = useState(OXFORD_BOOKS);
+  const [loadedOxfordBookIds, setLoadedOxfordBookIds] = useState([]);
+  const [oxfordLoadError, setOxfordLoadError] = useState('');
   const [vstepTopicId, setVstepTopicId] = useState('travel-transport'); // Active VSTEP topic ID
+  const [vstepTopics, setVstepTopics] = useState([]);
+  const [vstepLoaded, setVstepLoaded] = useState(false);
+  const [vstepLoadError, setVstepLoadError] = useState('');
   
   // Oxford Book State
   const [activeOxfordBookId, setActiveOxfordBookId] = useState(() => {
     const savedBook = localStorage.getItem('activeOxfordBookId');
-    return savedBook ? savedBook : 'elementary';
+    return OXFORD_BOOKS.some((book) => book.id === savedBook) ? savedBook : 'elementary';
   });
+  const oxfordLoaded = loadedOxfordBookIds.includes(activeOxfordBookId);
 
   // Theme mode state
   const [theme, setTheme] = useState(() => {
@@ -97,7 +128,7 @@ export default function App() {
       const saved = localStorage.getItem('completedMilestones');
       const parsed = saved ? JSON.parse(saved) : [];
       return Array.isArray(parsed) ? parsed : [];
-    } catch (e) {
+    } catch {
       return [];
     }
   });
@@ -124,7 +155,7 @@ export default function App() {
       const saved = JSON.parse(localStorage.getItem('dailyStats') || 'null');
       const todayStr = new Date().toDateString();
       if (saved && saved.date === todayStr) return saved;
-    } catch (e) { /* ignore */ }
+    } catch { /* ignore */ }
     return { date: new Date().toDateString(), lessons: 0, xp: 0 };
   });
   const DAILY_GOAL = 1; // hoàn thành ít nhất 1 chặng mỗi ngày
@@ -163,8 +194,6 @@ export default function App() {
   // Check if streak is broken on mount
   useEffect(() => {
     const today = new Date();
-    const todayStr = today.toDateString();
-    
     if (lastActiveDate) {
       const lastDate = new Date(lastActiveDate);
       const d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
@@ -182,23 +211,63 @@ export default function App() {
     localStorage.setItem('activeOxfordBookId', activeOxfordBookId);
   }, [activeOxfordBookId]);
 
+  useEffect(() => {
+    setOxfordLoadError('');
+  }, [activeOxfordBookId]);
+
   // Persist Oxford Unit ID choice
   useEffect(() => {
     localStorage.setItem('oxfordUnitId', oxfordUnitId);
   }, [oxfordUnitId]);
 
-  // Lazy-load the (large) Oxford data the first time the learner opens it.
+  // Load only the selected Oxford book. Other books stay out of the network
+  // request until the learner explicitly switches to them.
   useEffect(() => {
-    if (appMode === 'vocab' && activeVocabCategory === 'OXFORD' && !oxfordLoaded) {
+    if (appMode === 'vocab' && activeVocabCategory === 'OXFORD' && !oxfordLoaded && !oxfordLoadError) {
       let cancelled = false;
-      loadOxfordBooks().then(books => {
+      loadOxfordBook(activeOxfordBookId).then(units => {
         if (cancelled) return;
-        setOxfordBooks(books);
-        setOxfordLoaded(true);
+        setOxfordBooks((books) => books.map((book) => (
+          book.id === activeOxfordBookId ? { ...book, units } : book
+        )));
+        setLoadedOxfordBookIds((ids) => ids.includes(activeOxfordBookId) ? ids : [...ids, activeOxfordBookId]);
+      }).catch(() => {
+        if (!cancelled) setOxfordLoadError('Không tải được bộ sách Oxford đã chọn. Hãy kiểm tra kết nối rồi thử lại.');
       });
       return () => { cancelled = true; };
     }
-  }, [appMode, activeVocabCategory, oxfordLoaded]);
+  }, [appMode, activeVocabCategory, activeOxfordBookId, oxfordLoaded, oxfordLoadError]);
+
+  // Load the large VSTEP catalog only when a feature needs topic words.
+  useEffect(() => {
+    const needsVstepData = (appMode === 'vocab' && activeVocabCategory === 'TOPIC') || appMode === 'games';
+    if (!needsVstepData || vstepLoaded || vstepLoadError) return;
+
+    let cancelled = false;
+    loadVstepTopics().then((topics) => {
+      if (cancelled) return;
+      setVstepTopics(topics);
+      setVstepLoaded(true);
+    }).catch(() => {
+      if (!cancelled) setVstepLoadError('Không tải được kho từ vựng VSTEP. Hãy kiểm tra kết nối rồi thử lại.');
+    });
+    return () => { cancelled = true; };
+  }, [appMode, activeVocabCategory, vstepLoaded, vstepLoadError]);
+
+  useEffect(() => {
+    if (appMode !== 'grammar' || grammarLoaded || grammarLoadError) return;
+
+    let cancelled = false;
+    loadGrammarCatalog().then(({ topics, levels }) => {
+      if (cancelled) return;
+      setParsedGrammarData(topics);
+      setGrammarLevels(levels);
+      setGrammarLoaded(true);
+    }).catch(() => {
+      if (!cancelled) setGrammarLoadError('Không tải được dữ liệu ngữ pháp. Hãy kiểm tra kết nối rồi thử lại.');
+    });
+    return () => { cancelled = true; };
+  }, [appMode, grammarLoaded, grammarLoadError]);
 
   // Once Oxford data is loaded, make sure the selected unit actually exists.
   useEffect(() => {
@@ -207,8 +276,7 @@ export default function App() {
       const exists = book.units.some(u => u.id === oxfordUnitId);
       if (!exists) setOxfordUnitId(book.units[0]?.id ?? null);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [oxfordLoaded]);
+  }, [oxfordLoaded, activeOxfordBookId, oxfordBooks, oxfordUnitId]);
 
   // Persist and Apply Theme
   useEffect(() => {
@@ -258,6 +326,7 @@ export default function App() {
     localStorage.setItem('streak', '0');
     localStorage.setItem('lastActiveDate', '');
     localStorage.setItem('dailyStats', JSON.stringify(freshDaily));
+    clearVocabProgress();
     // Note: bestStreak is a lifetime record — intentionally not reset.
   };
 
@@ -267,7 +336,7 @@ export default function App() {
   const selectedOxfordUnit = selectedBook
     ? (selectedBook.units.find(u => u.id === oxfordUnitId) || selectedBook.units[0])
     : null;
-  const selectedVstepTopic = vocabVstepData.find(t => t.id === vstepTopicId);
+  const selectedVstepTopic = vstepTopics.find(t => t.id === vstepTopicId);
 
   // Global Speech Synthesis Helper
   const playAudio = (text, lang = 'en-US') => {
@@ -323,6 +392,10 @@ export default function App() {
   const renderContent = () => {
     switch (appMode) {
       case 'grammar':
+        if (grammarLoadError) {
+          return <DataLoadError message={grammarLoadError} onRetry={() => setGrammarLoadError('')} />;
+        }
+        if (!grammarLoaded) return <RouteLoader />;
         return topicId ? (
           <GrammarPage 
             topic={selectedGrammarTopic} 
@@ -352,6 +425,10 @@ export default function App() {
 
       case 'vocab':
         if (activeVocabCategory === 'TOPIC') {
+          if (vstepLoadError) {
+            return <DataLoadError message={vstepLoadError} onRetry={() => setVstepLoadError('')} />;
+          }
+          if (!vstepLoaded) return <RouteLoader />;
           return (
             <VocabVstepPage 
               activeTopic={selectedVstepTopic} 
@@ -361,6 +438,9 @@ export default function App() {
             />
           );
         } else {
+          if (oxfordLoadError) {
+            return <DataLoadError message={oxfordLoadError} onRetry={() => setOxfordLoadError('')} />;
+          }
           if (!oxfordLoaded || !selectedOxfordUnit) return <RouteLoader />;
           return (
             <VocabOxfordPage
@@ -386,6 +466,10 @@ export default function App() {
         );
 
       case 'games':
+        if (vstepLoadError) {
+          return <DataLoadError message={vstepLoadError} onRetry={() => setVstepLoadError('')} />;
+        }
+        if (!vstepLoaded) return <RouteLoader />;
         return (
           <GamesPage
             activeTopic={selectedVstepTopic}
@@ -394,6 +478,7 @@ export default function App() {
           />
         );
 
+      case 'home':
       default:
         return (
           <WelcomePage 
@@ -431,7 +516,7 @@ export default function App() {
       setOxfordUnitId={selectOxfordUnit}
       vstepTopicId={vstepTopicId}
       setVstepTopicId={setVstepTopicId}
-      vstepTopics={vocabVstepData}
+      vstepTopics={vstepTopics}
       parsedGrammarData={parsedGrammarData}
       grammarLevels={grammarLevels}
       courseData={selectedBook?.units || []}

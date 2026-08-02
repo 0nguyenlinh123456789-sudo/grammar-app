@@ -1,5 +1,4 @@
 // File: src/components/vocab/StoryWithHighlights.jsx
-import React from 'react';
 import { buildVocabRegex } from '../../utils/textUtils';
 
 const StoryWithHighlights = ({ storyText, vocabList }) => {

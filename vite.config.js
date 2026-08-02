@@ -14,12 +14,8 @@ export default defineConfig({
         // browser can download them in parallel.
         manualChunks(id) {
           if (id.includes('node_modules')) return 'vendor';
-          if (id.includes('/src/data/')) {
-            // Keep Oxford data in its own chunk so it stays lazy (only loaded
-            // via dynamic import when the learner opens the Oxford section).
-            if (/oxford/i.test(id)) return 'oxford-data';
-            return 'lesson-data';
-          }
+          // Lesson data follows its dynamic import boundaries so each Oxford
+          // book and lazy course can be fetched independently.
         },
       },
     },

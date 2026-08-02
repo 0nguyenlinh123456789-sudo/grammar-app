@@ -1,5 +1,5 @@
 // File: src/components/vocab/WritingPractice.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { CheckCircle2, XCircle, Eye } from 'lucide-react';
 import { recordReview } from '../../utils/srs';
 import { playCorrect, playWrong } from '../../utils/sound';

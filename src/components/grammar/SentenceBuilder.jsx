@@ -1,5 +1,5 @@
 // File: src/components/grammar/SentenceBuilder.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Target, ChevronRight } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 

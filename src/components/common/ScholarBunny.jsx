@@ -1,4 +1,3 @@
-import React from 'react';
 
 // Mapping of component state to transparent PNG images
 const STATE_IMAGES = {

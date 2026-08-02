@@ -1,5 +1,5 @@
 // File: src/components/vocab/SpeakingPractice.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Mic, Sparkles, XCircle, Volume2 } from 'lucide-react';
 import { isSpeechMatch } from '../../utils/textUtils';
 

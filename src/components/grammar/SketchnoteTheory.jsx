@@ -1,6 +1,6 @@
 // File: src/components/grammar/SketchnoteTheory.jsx
-import React, { useState } from 'react';
-import { BookMarked, ChevronDown, ArrowRight, Sparkles, Key, AlertTriangle } from 'lucide-react';
+import { useState } from 'react';
+import { BookMarked, ChevronDown, ArrowRight, Key, AlertTriangle } from 'lucide-react';
 
 const SketchnoteTheory = ({ section, idx }) => {
   const [open, setOpen] = useState(idx === 0);

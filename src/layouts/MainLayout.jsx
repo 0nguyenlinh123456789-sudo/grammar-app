@@ -1,10 +1,8 @@
 // File: src/layouts/MainLayout.jsx
-import React, { useState } from 'react';
-import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, Sun, Moon, RotateCcw, AlertTriangle, Sparkles, Gamepad2, GraduationCap } from 'lucide-react';
-import ScholarBunny from '../components/common/ScholarBunny';
+import { useState } from 'react';
+import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, AlertTriangle, GraduationCap } from 'lucide-react';
 
 const MainLayout = ({
-  xp,
   appMode,
   setAppMode,
   topicId,
@@ -15,7 +13,7 @@ const MainLayout = ({
   setOxfordUnitId,
   vstepTopicId,
   setVstepTopicId,
-  vstepTopics,
+  vstepTopics = [],
   parsedGrammarData,
   grammarLevels = [],
   courseData,
@@ -23,11 +21,7 @@ const MainLayout = ({
   oxfordLoaded = true,
   activeOxfordBookId = 'elementary',
   setActiveOxfordBookId,
-  completedMilestones = [],
-  theme = 'light',
-  setTheme,
   resetRoadmap,
-  streak = 0,
   children
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -63,6 +57,12 @@ const MainLayout = ({
 
   return (
     <div className="min-h-screen bg-[#f4f0ec] dark:bg-slate-950 flex flex-col md:flex-row font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
+      <a
+        href="#main-content"
+        className="fixed left-3 top-3 z-[100] -translate-y-24 focus:translate-y-0 bg-yellow-300 text-slate-950 border-3 border-slate-900 rounded-xl px-4 py-2 font-black shadow-[3px_3px_0_0_#1e293b]"
+      >
+        Bỏ qua điều hướng
+      </a>
       
       {/* --- MOBILE HEADER --- */}
       <div className="md:hidden bg-white dark:bg-slate-900 border-b-4 border-slate-800 dark:border-slate-700 p-4 flex justify-between items-center sticky top-0 z-30 shadow-md">
@@ -71,6 +71,9 @@ const MainLayout = ({
         </div>
         <button 
           onClick={() => setMenuOpen(!menuOpen)} 
+          aria-label={menuOpen ? 'Đóng menu điều hướng' : 'Mở menu điều hướng'}
+          aria-expanded={menuOpen}
+          aria-controls="main-navigation"
           className="border-2 border-slate-800 dark:border-slate-700 p-1 rounded-lg shadow-sm bg-white dark:bg-slate-800 dark:text-slate-100 animate-bounce-slow"
         >
           <Menu/>
@@ -78,7 +81,7 @@ const MainLayout = ({
       </div>
 
       {/* --- SIDEBAR --- */}
-      <aside className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:sticky top-0 left-0 h-screen w-80 md:w-96 bg-[#fdfbf7] dark:bg-slate-900 border-r-[4px] border-slate-800 dark:border-slate-700 z-40 transition-transform flex flex-col shadow-[4px_0_0_0_#1e293b] dark:shadow-[4px_0_0_0_#090d16]`}>
+      <aside id="main-navigation" aria-label="Điều hướng chính" className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:sticky top-0 left-0 h-screen w-80 md:w-96 bg-[#fdfbf7] dark:bg-slate-900 border-r-[4px] border-slate-800 dark:border-slate-700 z-40 transition-transform flex flex-col shadow-[4px_0_0_0_#1e293b] dark:shadow-[4px_0_0_0_#090d16]`}>
          
          <div className="p-6 border-b-[4px] border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-900 font-black text-2xl hidden md:flex items-center gap-3 dark:text-slate-100">
            <img src="/logo.svg" alt="Grammar Pro Logo" className="w-12 h-12 rounded-xl border-[3px] border-slate-800 shadow-[3px_3px_0px_0px_#1e293b] p-1 bg-[#fdfbf7] dark:bg-slate-800" /> 
@@ -92,9 +95,9 @@ const MainLayout = ({
            <button 
              onClick={() => {
                setTopicId(null);
-               selectMode('grammar');
+               selectMode('home');
              }}
-             className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'grammar' && !topicId ? 'bg-cyan-300 dark:bg-cyan-400 dark:text-slate-950 shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'}`}
+             className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'home' ? 'bg-cyan-300 dark:bg-cyan-400 dark:text-slate-950 shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-750'}`}
            >
              <Home size={20} className="text-cyan-600 dark:text-cyan-400" /> LỘ TRÌNH
            </button>
@@ -382,17 +385,17 @@ const MainLayout = ({
        </aside>
 
       {/* --- MAIN CONTENT PANEL --- */}
-      <main className="flex-1 p-4 md:p-10 h-screen overflow-y-auto bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:20px_20px] dark:bg-slate-950 transition-colors duration-300 custom-scrollbar">
+      <main id="main-content" tabIndex={-1} className="flex-1 p-4 md:p-10 h-screen overflow-y-auto bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:20px_20px] dark:bg-slate-950 transition-colors duration-300 custom-scrollbar">
         {children}
       </main>
 
       {/* --- CONFIRM RESET ROADMAP MODAL --- */}
       {isResetModalOpen && (
-        <div className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div role="dialog" aria-modal="true" aria-labelledby="reset-roadmap-title" className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 md:p-8 max-w-md w-full shadow-[8px_8px_0_0_#1e293b] dark:shadow-[8px_8px_0_0_#000] animate-in zoom-in-95">
             <div className="flex items-center gap-3 text-rose-500 mb-4">
               <AlertTriangle size={32} className="animate-bounce text-rose-500" />
-              <h3 className="text-2xl font-black uppercase tracking-tight text-slate-800 dark:text-slate-100">Xác nhận làm mới</h3>
+              <h3 id="reset-roadmap-title" className="text-2xl font-black uppercase tracking-tight text-slate-800 dark:text-slate-100">Xác nhận làm mới</h3>
             </div>
             
             <p className="font-bold text-slate-600 dark:text-slate-350 leading-relaxed mb-6 text-sm">

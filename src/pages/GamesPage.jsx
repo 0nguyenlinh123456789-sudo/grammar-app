@@ -1,14 +1,13 @@
 // File: src/pages/GamesPage.jsx — 6 Interactive English Games (4 Skills: Nghe/Nói/Đọc/Viết)
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Trophy, RefreshCw, Volume2, Shuffle, Gamepad2, Zap, Mic, BookOpen, PenLine, Headphones, Timer, ChevronRight, CheckCircle2, XCircle } from 'lucide-react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { RefreshCw, Volume2, Shuffle, Zap, Mic, Timer } from 'lucide-react';
 import MascotLuna from '../components/common/MascotLuna';
 import { ChibiBadge } from '../components/common/ChibiAnimals';
 import { escapeRegExp, isSpeechMatch } from '../utils/textUtils';
 import { playCorrect, playWrong } from '../utils/sound';
 import { recordReview } from '../utils/srs';
 
-const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
-const cleanVi = (vi = '') => vi.replace(/[🎭🎨🎯🏠🏥💼🌿🌍💻✈️🌦️⚽🍎🛒🧠❤️🔬🐾🏪📊🌐]/gu, '').trim();
+const cleanVi = (vi = '') => vi.replace(/\p{Extended_Pictographic}|\uFE0F/gu, '').trim();
 
 // ═══════════════════════════════════════════════════════════
 // GAME 1: GHÉP ĐÔI (Word Match) — Từ vựng / Đọc hiểu
@@ -536,7 +535,7 @@ function PronunciationGame({ words, playAudio, onScore }) {
 // ═══════════════════════════════════════════════════════════
 // GAME 6: QUIZ TỐC ĐỘ (Speed Quiz) — Đọc nhanh / Phản xạ
 // ═══════════════════════════════════════════════════════════
-function SpeedQuizGame({ words, playAudio, onScore }) {
+function SpeedQuizGame({ words, onScore }) {
   const [pool, setPool] = useState([]);
   const [idx, setIdx] = useState(0);
   const [options, setOptions] = useState([]);
@@ -548,9 +547,12 @@ function SpeedQuizGame({ words, playAudio, onScore }) {
   const [correct, setCorrect] = useState(0);
   const [mode, setMode] = useState('en-to-vi'); // 'en-to-vi' | 'vi-to-en'
   const timerRef = useRef(null);
+  const onScoreRef = useRef(onScore);
+  const scoreReportedRef = useRef(false);
+
+  useEffect(() => { onScoreRef.current = onScore; }, [onScore]);
 
   const makeOpts = useCallback((cur, all, m) => {
-    const key = m === 'en-to-vi' ? 'vi' : 'en';
     const answer = m === 'en-to-vi' ? cleanVi(cur.vi) : cur.en;
     const wrong = all.filter(w => w.en !== cur.en).sort(() => Math.random() - 0.5).slice(0, 3).map(w => m === 'en-to-vi' ? cleanVi(w.vi) : w.en);
     return [...wrong, answer].sort(() => Math.random() - 0.5);
@@ -558,6 +560,7 @@ function SpeedQuizGame({ words, playAudio, onScore }) {
 
   const init = useCallback((m = mode) => {
     const p = [...words].sort(() => Math.random() - 0.5).slice(0, 30);
+    scoreReportedRef.current = false;
     setPool(p); setIdx(0); setOptions(makeOpts(p[0], words, m)); setSelected(null); setScore(0); setTimer(60); setGameOver(false); setStarted(false); setCorrect(0);
   }, [words, makeOpts, mode]);
 
@@ -586,7 +589,13 @@ function SpeedQuizGame({ words, playAudio, onScore }) {
     }, 600);
   };
 
-  useEffect(() => { if (gameOver) { clearInterval(timerRef.current); onScore && onScore(score); } }, [gameOver]);
+  useEffect(() => {
+    if (gameOver && !scoreReportedRef.current) {
+      scoreReportedRef.current = true;
+      clearInterval(timerRef.current);
+      onScoreRef.current?.(score);
+    }
+  }, [gameOver, score]);
 
   const cur = pool[idx];
   if (!cur) return null;

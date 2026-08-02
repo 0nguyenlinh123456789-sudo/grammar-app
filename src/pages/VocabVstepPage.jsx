@@ -1,6 +1,6 @@
 // File: src/pages/VocabVstepPage.jsx
 import { useState, useEffect } from 'react';
-import { Rocket, Layers, BookOpen, PenTool, Mic, Volume2, Globe, ChevronLeft, ChevronRight, Zap, Drama } from 'lucide-react';
+import { Rocket, BookOpen, Volume2, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 import StoryWithHighlights from '../components/vocab/StoryWithHighlights';
 import Flashcard from '../components/vocab/Flashcard';
 import WritingPractice from '../components/vocab/WritingPractice';
@@ -11,6 +11,7 @@ import ListeningComprehension from '../components/vocab/ListeningComprehension';
 import ReadingComprehension from '../components/vocab/ReadingComprehension';
 import MascotLuna from '../components/common/MascotLuna';
 import { ChibiBadge } from '../components/common/ChibiAnimals';
+import { loadVocabProgress, saveVocabProgress } from '../utils/learningProgress';
 
 const MODES = [
   { key: 'flashcard', label: 'Nhận Diện', step: 1, icon: () => <span className="text-xl leading-none">🐰</span>, color: 'bg-blue-400', hoverColor: 'hover:bg-blue-50 dark:hover:bg-blue-900/30', activeText: 'text-white', inactiveIcon: '' },
@@ -23,15 +24,30 @@ const MODES = [
 ];
 
 const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], completeMilestone }) => {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [initialProgress] = useState(() => loadVocabProgress(activeTopic?.id));
+  const [currentWordIndex, setCurrentWordIndex] = useState(initialProgress.currentWordIndex);
   const [learningMode, setLearningMode] = useState('flashcard');
   const [mascotMood, setMascotMood] = useState('idle');
   const [mascotContext, setMascotContext] = useState('vocab');
+  const [visitedModes, setVisitedModes] = useState(() => new Set(initialProgress.visitedModes));
+  const [studiedWordIndexes, setStudiedWordIndexes] = useState(() => new Set(initialProgress.studiedWordIndexes));
+  const [progressTopicId, setProgressTopicId] = useState(activeTopic?.id || null);
 
   useEffect(() => {
-    setCurrentWordIndex(0);
+    if (!activeTopic?.id) return;
+    const saved = loadVocabProgress(activeTopic.id);
+    const wordCount = activeTopic.words?.length || 1;
+    setCurrentWordIndex(Math.min(Math.max(saved.currentWordIndex, 0), wordCount - 1));
     setLearningMode('flashcard');
-  }, [activeTopic?.id]);
+    setVisitedModes(new Set(saved.visitedModes));
+    setStudiedWordIndexes(new Set(saved.studiedWordIndexes.filter((index) => index < wordCount)));
+    setProgressTopicId(activeTopic.id);
+  }, [activeTopic]);
+
+  useEffect(() => {
+    if (!activeTopic?.id || progressTopicId !== activeTopic.id) return;
+    saveVocabProgress(activeTopic.id, { currentWordIndex, visitedModes, studiedWordIndexes });
+  }, [activeTopic?.id, currentWordIndex, progressTopicId, studiedWordIndexes, visitedModes]);
 
   if (!activeTopic) {
     return (
@@ -46,10 +62,17 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
   const isCompleted = completedMilestones.includes(activeTopic.id);
   const totalWords = activeTopic.words.length;
 
-  const handleNextWord = () => setCurrentWordIndex((prev) => (prev + 1) % totalWords);
-  const handlePrevWord = () => setCurrentWordIndex((prev) => (prev === 0 ? totalWords - 1 : prev - 1));
+  const handleWordChange = (nextIndex) => {
+    const normalizedIndex = ((nextIndex % totalWords) + totalWords) % totalWords;
+    setCurrentWordIndex(normalizedIndex);
+    setStudiedWordIndexes((previous) => new Set(previous).add(normalizedIndex));
+  };
+
+  const handleNextWord = () => handleWordChange(currentWordIndex + 1);
+  const handlePrevWord = () => handleWordChange(currentWordIndex - 1);
 
   const handleComplete = () => {
+    if (!canComplete) return;
     completeMilestone(activeTopic.id, 20);
     setMascotMood('celebrate');
     setMascotContext('correct');
@@ -59,14 +82,22 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
 
   const handleModeChange = (modeKey) => {
     setLearningMode(modeKey);
+    setVisitedModes((previous) => new Set(previous).add(modeKey));
     if (modeKey === 'phrases') { setMascotContext('vocab'); setMascotMood('happy'); }
     else if (modeKey === 'scenario') { setMascotContext('grammar'); setMascotMood('thinking'); }
     else if (modeKey === 'story') { setMascotContext('vocab'); setMascotMood('idle'); }
     else { setMascotContext('vocab'); setMascotMood('idle'); }
   };
 
-  // Progress bar
-  const progress = Math.round(((currentWordIndex + 1) / totalWords) * 100);
+  const requiredWordCount = Math.min(totalWords, Math.max(5, Math.ceil(totalWords * 0.3)));
+  const requiredModeCount = Math.min(4, MODES.length);
+  const wordRequirementMet = studiedWordIndexes.size >= requiredWordCount;
+  const modeRequirementMet = visitedModes.size >= requiredModeCount;
+  const canComplete = wordRequirementMet && modeRequirementMet;
+  const learningProgress = Math.round((
+    Math.min(studiedWordIndexes.size / requiredWordCount, 1) * 0.6
+    + Math.min(visitedModes.size / requiredModeCount, 1) * 0.4
+  ) * 100);
 
   const needsWordNav = ['writing', 'speaking'].includes(learningMode);
 
@@ -111,15 +142,38 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
               ✓ ĐÃ HOÀN THÀNH CHẶNG NÀY (+20 XP)
             </div>
           ) : (
+            <div className="w-full max-w-xl space-y-2">
+            <div className="text-left rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white/80 dark:bg-slate-800/80 p-3">
+              <div className="flex items-center justify-between text-xs font-black mb-2">
+                <span>Tiến độ đủ điều kiện hoàn thành</span>
+                <span>{learningProgress}%</span>
+              </div>
+              <div className="h-2.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden mb-2">
+                <div className="h-full bg-emerald-400 transition-all" style={{ width: `${learningProgress}%` }} />
+              </div>
+              <p className="text-xs font-bold text-slate-600 dark:text-slate-300">
+                {wordRequirementMet ? '✓' : '○'} Đã học {studiedWordIndexes.size}/{requiredWordCount} từ cần thiết
+                <span className="mx-2">·</span>
+                {modeRequirementMet ? '✓' : '○'} Đã trải nghiệm {visitedModes.size}/{requiredModeCount} chế độ
+              </p>
+            </div>
             <button
               onClick={handleComplete}
-              className="animate-pulse-glow inline-flex items-center gap-2 px-6 py-2 bg-yellow-300 dark:bg-yellow-500 
+              disabled={!canComplete}
+              aria-describedby="vocab-completion-requirements"
+              className={`inline-flex items-center justify-center gap-2 px-6 py-2 w-full
                 text-slate-900 font-black border-[3px] border-slate-800 dark:border-slate-600 rounded-xl 
-                shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-yellow-400 active:translate-y-0.5 
-                active:shadow-none transition-all cursor-pointer text-sm"
+                transition-all text-sm ${canComplete
+                  ? 'animate-pulse-glow bg-yellow-300 dark:bg-yellow-500 shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-yellow-400 active:translate-y-0.5 active:shadow-none cursor-pointer'
+                  : 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 cursor-not-allowed opacity-80'
+                }`}
             >
-              🌟 ĐÁNH DẤU HOÀN THÀNH (+20 XP)
+              {canComplete ? '🌟 HOÀN THÀNH CHỦ ĐỀ (+20 XP)' : '🔒 HỌC THÊM ĐỂ MỞ KHÓA HOÀN THÀNH'}
             </button>
+            <span id="vocab-completion-requirements" className="sr-only">
+              Cần học ít nhất {requiredWordCount} từ và trải nghiệm {requiredModeCount} chế độ.
+            </span>
+            </div>
           )}
         </div>
       </div>
@@ -163,7 +217,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
           playAudio={playAudio}
           onNext={handleNextWord}
           onPrev={handlePrevWord}
-          onWordChange={setCurrentWordIndex}
+          onWordChange={handleWordChange}
         />
       )}
 
@@ -172,7 +226,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
           activeTopic={activeTopic}
           playAudio={playAudio}
           currentWordIndex={currentWordIndex}
-          onWordChange={setCurrentWordIndex}
+          onWordChange={handleWordChange}
         />
       )}
 
@@ -252,7 +306,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
           totalWords={totalWords}
           currentWord={currentWord}
           playAudio={playAudio}
-          onWordChange={setCurrentWordIndex}
+          onWordChange={handleWordChange}
         />
       )}
 
@@ -262,7 +316,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
           totalWords={totalWords}
           currentWord={currentWord}
           playAudio={playAudio}
-          onWordChange={setCurrentWordIndex}
+          onWordChange={handleWordChange}
         />
       )}
 

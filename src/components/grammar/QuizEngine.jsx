@@ -1,5 +1,5 @@
 // File: src/components/grammar/QuizEngine.jsx
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { PenTool, ChevronRight, Sparkles } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 

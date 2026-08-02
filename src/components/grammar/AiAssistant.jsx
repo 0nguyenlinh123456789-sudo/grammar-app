@@ -1,12 +1,11 @@
 // File: src/components/grammar/AiAssistant.jsx
-import { useState, useEffect } from 'react';
-import { Key, Edit3, Mic, Volume2, Shuffle } from 'lucide-react';
+import { useState } from 'react';
+import { ShieldCheck, Edit3, Mic, Volume2, Shuffle } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 import { scoreWriting, scoreWritingWithAI } from '../../utils/writingScorer';
 
 const AiAssistant = ({ topic, sentences }) => {
   const safeSentences = Array.isArray(sentences) ? sentences.filter(s => s && s.text) : [];
-  const [apiKey, setApiKey] = useState("");
   const [userText, setUserText] = useState("");
   const [feedback, setFeedback] = useState("");
   const [offlineResult, setOfflineResult] = useState(null);
@@ -15,33 +14,19 @@ const AiAssistant = ({ topic, sentences }) => {
   const [isRec, setIsRec] = useState(false);
   const [score, setScore] = useState(null);
 
-  // Sync API Key with localStorage on mount
-  useEffect(() => {
-    const savedKey = localStorage.getItem('MY_GEMINI_API_KEY');
-    if (savedKey) {
-      setApiKey(savedKey);
-    }
-  }, []);
-
-  const handleApiKeyChange = (val) => {
-    setApiKey(val);
-    localStorage.setItem('MY_GEMINI_API_KEY', val);
-  };
-
   const checkWriting = async () => {
     if (!userText.trim()) return;
     // 1. Always give instant offline feedback (works without any API key).
     setOfflineResult(scoreWriting(userText));
     setFeedback("");
-    // 2. If the learner supplied a Gemini key, enrich with AI feedback too.
-    if (apiKey) {
-      setLoading(true);
-      try {
-        const aiText = await scoreWritingWithAI(userText, { apiKey, topicTitle: topic?.title });
-        setFeedback(aiText);
-      } catch {
-        setFeedback("(Không lấy được nhận xét AI — có thể API Key sai hoặc lỗi mạng. Bạn vẫn có kết quả chấm nhanh phía trên.)");
-      }
+    // 2. Enrich with server-side AI feedback; credentials stay on the server.
+    setLoading(true);
+    try {
+      const aiText = await scoreWritingWithAI(userText, { topicTitle: topic?.title });
+      setFeedback(aiText);
+    } catch (error) {
+      setFeedback(error?.message || "Không lấy được nhận xét AI. Bạn vẫn có kết quả chấm nhanh phía trên.");
+    } finally {
       setLoading(false);
     }
   };
@@ -67,9 +52,8 @@ const AiAssistant = ({ topic, sentences }) => {
 
   return (
     <div className="space-y-8 animate-in fade-in pb-12">
-      <div className="bg-slate-800 text-white rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-[4px] border-slate-900 shadow-[6px_6px_0px_0px_#1e293b]">
-        <div className="font-bold flex items-center gap-2"><Key className="text-yellow-400"/> Gemini API Key <span className="text-slate-400 font-normal">(Tuỳ chọn — có key sẽ được AI chấm sâu hơn):</span></div>
-        <input type="password" value={apiKey} onChange={e=>handleApiKeyChange(e.target.value)} placeholder="Không có key vẫn chấm được..." className="bg-slate-700 p-3 rounded-2xl outline-none w-full sm:w-1/2 border-[4px] border-slate-600 focus:border-cyan-400 text-white"/>
+      <div className="bg-emerald-100 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-200 rounded-3xl p-5 border-[4px] border-emerald-700 dark:border-emerald-600 shadow-[5px_5px_0_0_#047857]">
+        <div className="font-bold flex items-center gap-2"><ShieldCheck className="text-emerald-700 dark:text-emerald-400"/> AI được gọi qua máy chủ bảo mật; bạn không cần nhập API key.</div>
       </div>
 
       <div className="bg-white rounded-3xl border-[4px] border-slate-800 p-8 shadow-[8px_8px_0px_0px_#1e293b]">
@@ -99,7 +83,7 @@ const AiAssistant = ({ topic, sentences }) => {
             )}
           </div>
         )}
-        {/* Richer AI feedback (only when key present) */}
+        {/* Richer feedback from the server-side AI proxy. */}
         {feedback && <div className="mt-4 bg-indigo-50 p-8 rounded-3xl border-[4px] border-slate-800 font-bold whitespace-pre-wrap leading-relaxed text-lg shadow-[4px_4px_0px_0px_#1e293b]"><div className="text-sm text-indigo-500 mb-2 uppercase font-black">🤖 Nhận xét từ AI Gemini</div>{feedback}</div>}
       </div>
 

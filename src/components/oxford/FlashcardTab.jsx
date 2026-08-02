@@ -1,5 +1,5 @@
 // File: src/components/oxford/FlashcardTab.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw, Volume2, Snail } from 'lucide-react';
 
 const FlashcardTab = ({ unitData }) => {

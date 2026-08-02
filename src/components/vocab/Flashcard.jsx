@@ -1,29 +1,17 @@
 // File: src/components/vocab/Flashcard.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { RotateCcw, Volume2, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { recordReview } from '../../utils/srs';
 import { playCorrect, playWrong } from '../../utils/sound';
 
-// Quick motivational hints shown above the card (lighter version without a mascot)
-const CARD_HINTS = [
-  '💭 Nhấn vào thẻ để xem nghĩa!',
-  '🌟 Thử đoán trước khi lật nhé!',
-  '📚 Tập phát âm rồi mới lật!',
-  '✅ Đọc to câu ví dụ một lần!',
-];
-
-const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
-
 const Flashcard = ({ currentWordIndex, totalWords, currentWord, playAudio, onNext, onPrev, onWordChange }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [hint, setHint] = useState(getRandom(CARD_HINTS));
   const [marked, setMarked] = useState(false);
   const [tempIndex, setTempIndex] = useState(currentWordIndex + 1);
 
   // Reset flip + state when word changes
   useEffect(() => {
     setIsFlipped(false);
-    setHint(getRandom(CARD_HINTS));
     setMarked(false);
     setTempIndex(currentWordIndex + 1);
   }, [currentWordIndex]);
@@ -69,9 +57,6 @@ const Flashcard = ({ currentWordIndex, totalWords, currentWord, playAudio, onNex
     if (currentWord) { recordReview(currentWord, false); playWrong(); }
     setTimeout(() => onNext && onNext(), 400);
   };
-
-  // Determine background color for back card based on topic (using emoji in vi)
-  const wordEmoji = currentWord?.vi?.match(/[\u{1F300}-\u{1FFFF}]/u)?.[0] || '';
 
   return (
     <div className="w-full flex flex-col items-center animate-fade-in">

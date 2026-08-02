@@ -2,7 +2,7 @@
 // Real listening-comprehension practice: hear an English sentence, then answer
 // a question about it. Uses hand-authored questions (topic.comprehension) when
 // present, otherwise auto-generates from vocab example sentences.
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Volume2, Snail, RefreshCw, CheckCircle2, XCircle, Headphones, Trophy } from 'lucide-react';
 import { playCorrect, playWrong, playComplete } from '../../utils/sound';
 import { recordReview } from '../../utils/srs';
@@ -26,7 +26,7 @@ const ListeningComprehension = ({ activeTopic, playAudio }) => {
     setFinished(false);
     setRevealText(false);
     autoPlayedRef.current = -1;
-  }, [activeTopic?.id]);
+  }, [activeTopic]);
 
   useEffect(() => { init(); }, [init]);
 

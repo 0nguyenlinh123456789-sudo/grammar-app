@@ -1,5 +1,5 @@
 // File: src/components/oxford/QuizTab.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { PenTool, RotateCcw, Sparkles } from 'lucide-react';
 
 const QuizTab = ({ unitData }) => {

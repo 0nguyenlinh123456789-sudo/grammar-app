@@ -1,5 +1,4 @@
 // File: src/components/common/Btn3D.jsx
-import React from 'react';
 
 const Btn3D = ({ onClick, disabled, className, children, color = 'bg-white', shadow = 'border-slate-800' }) => (
   <button 

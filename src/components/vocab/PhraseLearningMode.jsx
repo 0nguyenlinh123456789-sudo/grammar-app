@@ -1,16 +1,9 @@
 // File: src/components/vocab/PhraseLearningMode.jsx
 // Teaches vocabulary through collocations, phrases, and exam-ready sentence patterns
 
-import { useState } from 'react';
-import { Zap, ChevronLeft, ChevronRight, Shuffle, CheckCircle, XCircle, Volume2 } from 'lucide-react';
+import { Zap, ChevronLeft, ChevronRight, Volume2 } from 'lucide-react';
 
 const PhraseLearningMode = ({ activeTopic, playAudio, currentWordIndex, onWordChange }) => {
-  const [gameMode, setGameMode] = useState('browse'); // 'browse' | 'quiz'
-  const [quizIndex, setQuizIndex] = useState(0);
-  const [selected, setSelected] = useState(null);
-  const [score, setScore] = useState(0);
-  const [showResult, setShowResult] = useState(false);
-
   const words = activeTopic?.words || [];
   const phrases = activeTopic?.phrases || [];
   
