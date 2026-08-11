@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { PenLine, ChevronRight, Sparkles, Lightbulb, RotateCcw, CheckCircle2, XCircle } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
+import { recordError } from '../../utils/errorBank';
 
 const FillBlanksExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -44,6 +45,8 @@ const FillBlanksExercise = ({ exercises, setGlobalProgress, onComplete }) => {
     } else {
       setStatus('wrong');
       setAttempts(prev => prev + 1);
+      // First miss on this question feeds the error bank (Học từ lỗi sai).
+      if (attempts === 0) recordError({ skill: 'grammar', prompt: curr.q, answer: curr.a, chosen: answer });
     }
   };
 

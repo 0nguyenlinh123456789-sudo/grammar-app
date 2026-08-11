@@ -10,7 +10,9 @@ import ScholarBunny from '../components/common/ScholarBunny';
 import PetZoo from '../components/common/PetZoo';
 import SrsReview from '../components/vocab/SrsReview';
 import WordNotebook from '../components/vocab/WordNotebook';
+import ErrorReview from '../components/progress/ErrorReview';
 import { getDueCount, getTotalCount } from '../utils/srs';
+import { getDueErrorCount, getErrorCount } from '../utils/errorBank';
 import { isMuted, setMuted } from '../utils/sound';
 import { freezesLeft, frozeToday } from '../utils/streakFreeze';
 import { downloadAchievementCard } from '../utils/shareCard';
@@ -49,6 +51,9 @@ const WelcomePage = ({
   const [muted, setMutedState] = useState(isMuted());
   const [backupMessage, setBackupMessage] = useState('');
   const [showNotebook, setShowNotebook] = useState(false);
+  const [showErrorReview, setShowErrorReview] = useState(false);
+  const dueErrors = getDueErrorCount();
+  const totalErrors = getErrorCount();
 
   // The onboarding wizard fires this event when the learner picks
   // "LÀM TEST NGAY" — the placement modal lives here, not in App.
@@ -222,6 +227,7 @@ const WelcomePage = ({
 
       {showReview && <SrsReview onClose={() => setShowReview(false)} playAudio={playAudio} />}
       {showNotebook && <WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} />}
+      {showErrorReview && <ErrorReview onClose={() => setShowErrorReview(false)} />}
       {showPlacement && <PlacementTest onClose={() => setShowPlacement(false)} onComplete={(result) => { setPlacementResult?.(result); setShowPlacement(false); }} />}
 
       {/* --- HERO DASHBOARD CARD --- */}
@@ -439,6 +445,31 @@ const WelcomePage = ({
             ÔN NGAY
           </button>
         </div>
+      </div>
+
+      {/* --- ERROR BANK: học từ lỗi sai --- */}
+      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="bg-rose-100 dark:bg-rose-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+            <span className="text-2xl" aria-hidden="true">🩹</span>
+          </div>
+          <div>
+            <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Học Từ Lỗi Sai</h3>
+            <p className="font-bold text-slate-500 dark:text-slate-400 text-sm">
+              {dueErrors > 0
+                ? <><span className="text-rose-600 dark:text-rose-400 font-black">{dueErrors} câu sai</span> đến hạn ôn lại hôm nay</>
+                : totalErrors > 0
+                  ? `${totalErrors} câu đang chờ tới lịch ôn (3 → 7 → 14 ngày)`
+                  : 'Câu làm sai trong bài tập sẽ tự quay lại đây để bạn sửa tận gốc'}
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowErrorReview(true)}
+          className={`shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 transition-all cursor-pointer ${dueErrors > 0 ? 'bg-rose-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-rose-500 animate-pulse' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}
+        >
+          SỬA LỖI
+        </button>
       </div>
 
       {/* --- 7-DAY LEARNING INSIGHTS --- */}
