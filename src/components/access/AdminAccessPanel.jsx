@@ -156,7 +156,7 @@ export default function AdminAccessPanel() {
     <main className="min-h-screen bg-[#f7f3e8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         <header className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mb-7">
-          <div><p className="text-xs font-black text-blue-600 uppercase tracking-[0.2em]">Grammar Pro · Owner Console</p><h1 className="text-3xl md:text-5xl font-black mt-1">Quản lý quyền truy cập</h1><p className="font-bold text-slate-500 mt-2">Cấp mã, kiểm soát thiết bị và vô hiệu hóa quyền theo thời gian thực.</p></div>
+          <div><p className="text-xs font-black text-blue-600 uppercase tracking-[0.2em]">Bunny English · Owner Console</p><h1 className="text-3xl md:text-5xl font-black mt-1">Quản lý quyền truy cập</h1><p className="font-bold text-slate-500 mt-2">Cấp mã, kiểm soát thiết bị và vô hiệu hóa quyền theo thời gian thực.</p></div>
           <div className="flex flex-wrap gap-2">
             <button onClick={exportCsv} className="px-4 py-3 rounded-xl border-3 border-slate-800 bg-white dark:bg-slate-800 font-black flex items-center gap-2"><Download size={17} /> Xuất CSV</button>
             <button onClick={loadCodes} className="px-4 py-3 rounded-xl border-3 border-slate-800 bg-white dark:bg-slate-800 font-black flex items-center gap-2"><RefreshCw size={17} /> Làm mới</button>

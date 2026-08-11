@@ -1,5 +1,5 @@
-const CACHE_NAME = 'grammar-pro-shell-v1';
-const SHELL = ['/', '/index.html', '/logo.svg', '/manifest.webmanifest'];
+const CACHE_NAME = 'bunny-english-shell-v1';
+const SHELL = ['/', '/index.html', '/bunny_logo.png', '/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(SHELL)).then(() => self.skipWaiting()));

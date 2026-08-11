@@ -1,12 +1,12 @@
 // File: src/components/common/MascotLuna.jsx
-// Luna the Owl — App mascot for Grammar Pro
+// Luna — App mascot for Bunny English
 // Animated, context-aware, works in both light and dark mode
 
 import { useState, useEffect } from 'react';
 
 const LUNA_MESSAGES = {
   welcome: [
-    "Chào mừng bạn đến với Grammar Pro! 🎉 Tớ là Luna, chú chuột lang nước (capybara) dẫn đường siêu đáng yêu của bạn!",
+    "Chào mừng bạn đến với Bunny English! 🎉 Tớ là Luna, chú chuột lang nước (capybara) dẫn đường siêu đáng yêu của bạn!",
     "Học tiếng Anh mỗi ngày giúp não bộ phát triển! Hãy bắt đầu nào! ✨",
     "Hôm nay chúng ta học gì nhỉ? Tớ luôn ở đây hỗ trợ bạn! 💖",
   ],

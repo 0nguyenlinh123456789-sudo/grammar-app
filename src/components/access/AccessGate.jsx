@@ -97,7 +97,7 @@ function ProtectedApp({ children }) {
     <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-yellow-300/40 blur-3xl" /><div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-blue-300/30 blur-3xl" />
     <section className="relative w-full max-w-5xl grid lg:grid-cols-[1.05fr_0.95fr] bg-white dark:bg-slate-900 border-4 border-slate-900 dark:border-slate-700 rounded-[2.25rem] overflow-hidden shadow-[12px_12px_0_0_#1e293b]">
       <div className="p-7 md:p-10 bg-gradient-to-br from-blue-500 to-indigo-700 text-white">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border-2 border-white/60 bg-white/15 text-xs font-black uppercase tracking-widest"><Sparkles size={15} /> Grammar Pro Premium</div>
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border-2 border-white/60 bg-white/15 text-xs font-black uppercase tracking-widest"><Sparkles size={15} /> Bunny English Premium</div>
         <h1 className="text-4xl md:text-5xl font-black leading-tight mt-6">Học tiếng Anh<br />có lộ trình rõ ràng.</h1>
         <p className="mt-4 text-blue-100 font-bold leading-relaxed">Một tài khoản mở toàn bộ kho ngữ pháp, từ vựng, IELTS, luyện phát âm, trò chơi và trợ lý AI.</p>
         <ul className="mt-7 space-y-3">{['Lộ trình từ cơ bản đến C1–C2', 'Theo dõi XP, chuỗi học và tiến độ 7 ngày', 'Ôn từ thông minh theo lịch SRS', 'Dữ liệu học đồng bộ theo mã truy cập'].map((item) => <li key={item} className="flex items-center gap-3 font-black text-sm"><CheckCircle2 className="text-yellow-300 shrink-0" size={20} />{item}</li>)}</ul>
@@ -124,7 +124,7 @@ function PricingModal({ onClose }) {
   const [copied, setCopied] = useState(false);
   const salesUrl = import.meta.env.VITE_SALES_URL;
   const requestPlan = async (plan) => {
-    const message = `Tôi muốn đăng ký Grammar Pro - gói ${plan}. Vui lòng gửi thông tin thanh toán và mã truy cập.`;
+    const message = `Tôi muốn đăng ký Bunny English - gói ${plan}. Vui lòng gửi thông tin thanh toán và mã truy cập.`;
     if (salesUrl) window.open(salesUrl, '_blank', 'noopener,noreferrer');
     else { await navigator.clipboard?.writeText(message); setCopied(true); setTimeout(() => setCopied(false), 1800); }
   };

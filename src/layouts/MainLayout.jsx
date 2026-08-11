@@ -81,7 +81,7 @@ const MainLayout = ({
 
 
   return (
-    <div className="min-h-screen bg-[#f4f0ec] dark:bg-slate-950 flex flex-col md:flex-row font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
+    <div className="min-h-screen bg-[#f4f0ec] dark:bg-slate-950 flex flex-col lg:flex-row font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
       <a
         href="#main-content"
         className="fixed left-3 top-3 z-[100] -translate-y-24 focus:translate-y-0 bg-yellow-300 text-slate-950 border-3 border-slate-900 rounded-xl px-4 py-2 font-black shadow-[3px_3px_0_0_#1e293b]"
@@ -89,10 +89,10 @@ const MainLayout = ({
         Bỏ qua điều hướng
       </a>
       
-      {/* --- MOBILE HEADER --- */}
-      <div className="md:hidden bg-white dark:bg-slate-900 border-b-4 border-slate-800 dark:border-slate-700 p-4 flex justify-between items-center sticky top-0 z-30 shadow-md">
+      {/* --- MOBILE / TABLET HEADER --- */}
+      <div className="lg:hidden bg-white dark:bg-slate-900 border-b-4 border-slate-800 dark:border-slate-700 p-4 flex justify-between items-center sticky top-0 z-30 shadow-md">
         <div className="font-black text-xl flex items-center gap-2 dark:text-slate-100">
-          <img src="/logo.svg" alt="Grammar Pro Logo" className="w-8 h-8 rounded-lg border-2 border-slate-800 shadow-[2px_2px_0px_0px_#1e293b] p-0.5 bg-[#fdfbf7] dark:bg-slate-800" /> Grammar Pro
+          <img src="/bunny_logo.png" alt="Bunny English Logo" className="w-8 h-8 rounded-lg border-2 border-slate-800 shadow-[2px_2px_0px_0px_#1e293b] p-0.5 bg-[#fdfbf7] dark:bg-slate-800 object-contain" /> Bunny English
         </div>
         <button 
           onClick={() => setMenuOpen(!menuOpen)} 
@@ -105,12 +105,21 @@ const MainLayout = ({
         </button>
       </div>
 
-      {/* --- SIDEBAR --- */}
-      <aside id="main-navigation" aria-label="Điều hướng chính" className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:sticky top-0 left-0 h-screen w-80 md:w-96 bg-[#fdfbf7] dark:bg-slate-900 border-r-[4px] border-slate-800 dark:border-slate-700 z-40 transition-transform flex flex-col shadow-[4px_0_0_0_#1e293b] dark:shadow-[4px_0_0_0_#090d16]`}>
+      {/* --- MOBILE / TABLET MENU BACKDROP --- */}
+      {menuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-30"
+          onClick={() => setMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* --- SIDEBAR (drawer on mobile/tablet, docked from lg up) --- */}
+      <aside id="main-navigation" aria-label="Điều hướng chính" className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:sticky top-0 left-0 h-screen w-72 sm:w-80 lg:w-80 xl:w-96 bg-[#fdfbf7] dark:bg-slate-900 border-r-[4px] border-slate-800 dark:border-slate-700 z-40 transition-transform flex flex-col shadow-[4px_0_0_0_#1e293b] dark:shadow-[4px_0_0_0_#090d16]`}>
          
-         <div className="p-6 border-b-[4px] border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-900 font-black text-2xl hidden md:flex items-center gap-3 dark:text-slate-100">
-           <img src="/logo.svg" alt="Grammar Pro Logo" className="w-12 h-12 rounded-xl border-[3px] border-slate-800 shadow-[3px_3px_0px_0px_#1e293b] p-1 bg-[#fdfbf7] dark:bg-slate-800" /> 
-           Grammar Pro
+         <div className="p-6 border-b-[4px] border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-900 font-black text-2xl hidden lg:flex items-center gap-3 dark:text-slate-100">
+           <img src="/bunny_logo.png" alt="Bunny English Logo" className="w-12 h-12 rounded-xl border-[3px] border-slate-800 shadow-[3px_3px_0px_0px_#1e293b] p-1 bg-[#fdfbf7] dark:bg-slate-800 object-contain" />
+           Bunny English
          </div>
          
 
@@ -428,7 +437,7 @@ const MainLayout = ({
        </aside>
 
       {/* --- MAIN CONTENT PANEL --- */}
-      <main id="main-content" tabIndex={-1} className="flex-1 p-4 md:p-10 h-screen overflow-y-auto bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:20px_20px] dark:bg-slate-950 transition-colors duration-300 custom-scrollbar">
+      <main id="main-content" tabIndex={-1} className="flex-1 min-w-0 p-4 md:p-8 lg:p-6 xl:p-10 lg:h-screen overflow-x-hidden lg:overflow-y-auto bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:20px_20px] dark:bg-slate-950 transition-colors duration-300 custom-scrollbar">
         {children}
       </main>
 

@@ -183,7 +183,7 @@ const WelcomePage = ({
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `grammar-pro-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    link.download = `bunny-english-backup-${new Date().toISOString().slice(0, 10)}.json`;
     link.click();
     URL.revokeObjectURL(url);
     setBackupMessage('Đã tải bản sao lưu tiến độ.');
@@ -213,7 +213,7 @@ const WelcomePage = ({
 
       {/* --- HERO DASHBOARD CARD --- */}
       <div className="bg-white dark:bg-slate-900 border-[4px] border-slate-800 dark:border-slate-700 rounded-[2.5rem] p-6 md:p-8 shadow-[10px_10px_0_0_#1c293b] dark:shadow-[10px_10px_0_0_#020617] mb-10 mt-4 relative overflow-hidden">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 z-10 relative">
+        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6 z-10 relative">
           <div className="flex items-center gap-5">
             {/* Bunny Mascot inside Hero */}
             <div className="hidden sm:flex relative shrink-0 select-none mr-4 lg:mr-6 w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 items-center justify-center">
@@ -231,14 +231,14 @@ const WelcomePage = ({
               </div>
               <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none text-slate-900 dark:text-slate-100 mt-2">LỘ TRÌNH</h2>
               <p className="font-bold text-sm md:text-base text-slate-500 dark:text-slate-400 italic bg-slate-50 dark:bg-slate-800 p-3 rounded-2xl border-2 border-slate-200 dark:border-slate-750 relative mt-2 bubble-arrow-left leading-relaxed">
-                "Cùng tớ học tiếng Anh nhé! 🦦✨"
+                "Cùng tớ học tiếng Anh nhé! 🐰✨"
               </p>
             </div>
           </div>
  
-          <div className="flex flex-col xl:flex-row gap-4 w-full md:w-auto items-stretch shrink-0">
+          <div className="flex flex-col sm:flex-row gap-4 w-full xl:w-auto items-stretch">
             {/* Stats Column */}
-            <div className="flex flex-col gap-3 flex-1 sm:flex-initial">
+            <div className="flex flex-col gap-3 flex-1 min-w-0">
                {/* Progress / XP Card */}
                <div className="bg-amber-50 dark:bg-slate-800 border-4 border-slate-800 dark:border-slate-700 px-5 py-3 rounded-3xl shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] flex items-center gap-4">
                  <Trophy size={36} className="text-yellow-500 fill-yellow-300 shrink-0" />
@@ -260,7 +260,7 @@ const WelcomePage = ({
             </div>
 
             {/* Actions Column */}
-           <div className="flex flex-col gap-3 flex-1 sm:flex-initial justify-between">
+           <div className="flex flex-col gap-3 flex-1 min-w-0 justify-between">
                <button
                  onClick={() => setTheme && setTheme(theme === 'light' ? 'dark' : 'light')}
                  className="flex-1 min-h-[64px] px-6 font-black border-4 border-slate-800 dark:border-slate-700 rounded-3xl bg-indigo-50 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-800 dark:text-indigo-300 text-sm flex justify-center items-center gap-2 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] cursor-pointer transition-all"

@@ -39,6 +39,13 @@
   color-scheme: light;
   color: #0f172a;
 }
+
+/* Wide cards/tables must scroll inside their own container — the page itself
+   must never scroll sideways, especially on phones. */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 :root.dark {
   color-scheme: dark;
   color: #f1f5f9;
