@@ -18,6 +18,7 @@ import {
 } from '../src/server/accessCore.js';
 import { placementQuestions } from '../src/data/placementQuestions.js';
 import { recommendationFromPlacement, scorePlacement } from '../src/utils/placement.js';
+import { scoreMockTest, toIeltsBand, toVstepScore, weakestSection } from '../src/utils/mockTest.js';
 import { createProgressSnapshot } from '../src/utils/progressSync.js';
 import { AccessResponseError, readAccessResponse } from '../src/utils/apiResponse.js';
 import accessHandler from '../api/access.js';
@@ -428,4 +429,38 @@ test('progress snapshots only include approved learning keys', () => {
   assert.equal(snapshot.xp, '40');
   assert.equal(snapshot.placementResultV1, '{"score":80}');
   assert.equal('password' in snapshot, false);
+});
+
+test('mock test scoring converts to VSTEP and IELTS scales and flags weak sections', () => {
+  const test20 = {
+    id: 'vstep-b1b2',
+    questions: [
+      { id: 'a', section: 'grammar', options: ['x', 'y'], answer: 0 },
+      { id: 'b', section: 'grammar', options: ['x', 'y'], answer: 1 },
+      { id: 'c', section: 'reading', options: ['x', 'y'], answer: 0 },
+      { id: 'd', section: 'reading', options: ['x', 'y'], answer: 0 },
+    ],
+  };
+  const result = scoreMockTest(test20, { a: 0, b: 0, c: 0, d: 0 });
+  assert.equal(result.correct, 3);
+  assert.equal(result.percent, 75);
+  assert.equal(result.scale.type, 'vstep');
+  assert.equal(result.scale.score, 7.5);
+  assert.equal(result.scale.level, 'B2');
+  assert.equal(result.wrong.length, 1);
+  assert.equal(result.wrong[0].id, 'b');
+  assert.equal(weakestSection(result.sections), 'grammar');
+
+  const ielts = scoreMockTest({ id: 'ielts-mini', questions: test20.questions }, { a: 0, b: 1, c: 0, d: 0 });
+  assert.equal(ielts.percent, 100);
+  assert.equal(ielts.scale.type, 'ielts');
+  assert.equal(ielts.scale.band, 8);
+});
+
+test('band conversion stays inside the published ranges', () => {
+  assert.equal(toIeltsBand(0).band, 4);
+  assert.equal(toIeltsBand(100).band, 8);
+  assert.equal(toVstepScore(0).level, 'A2');
+  assert.equal(toVstepScore(40).level, 'B1');
+  assert.equal(toVstepScore(90).level, 'C1');
 });

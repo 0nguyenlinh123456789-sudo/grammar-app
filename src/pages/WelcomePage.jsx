@@ -3,7 +3,7 @@ import { roadmapData } from '../data/roadmapData';
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
-  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal
+  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal, GraduationCap
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
@@ -11,6 +11,8 @@ import PetZoo from '../components/common/PetZoo';
 import SrsReview from '../components/vocab/SrsReview';
 import WordNotebook from '../components/vocab/WordNotebook';
 import ErrorReview from '../components/progress/ErrorReview';
+import MockTest from '../components/progress/MockTest';
+import { loadMockHistory } from '../utils/mockTest';
 import { getDueCount, getTotalCount } from '../utils/srs';
 import { getDueErrorCount, getErrorCount } from '../utils/errorBank';
 import { isMuted, setMuted } from '../utils/sound';
@@ -52,6 +54,8 @@ const WelcomePage = ({
   const [backupMessage, setBackupMessage] = useState('');
   const [showNotebook, setShowNotebook] = useState(false);
   const [showErrorReview, setShowErrorReview] = useState(false);
+  const [showMockTest, setShowMockTest] = useState(false);
+  const lastMock = loadMockHistory()[0] || null;
   const dueErrors = getDueErrorCount();
   const totalErrors = getErrorCount();
 
@@ -228,6 +232,7 @@ const WelcomePage = ({
       {showReview && <SrsReview onClose={() => setShowReview(false)} playAudio={playAudio} />}
       {showNotebook && <WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} />}
       {showErrorReview && <ErrorReview onClose={() => setShowErrorReview(false)} />}
+      {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
       {showPlacement && <PlacementTest onClose={() => setShowPlacement(false)} onComplete={(result) => { setPlacementResult?.(result); setShowPlacement(false); }} />}
 
       {/* --- HERO DASHBOARD CARD --- */}
@@ -445,6 +450,29 @@ const WelcomePage = ({
             ÔN NGAY
           </button>
         </div>
+      </div>
+
+      {/* --- MOCK TEST: thi thử VSTEP / IELTS --- */}
+      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="bg-emerald-100 dark:bg-emerald-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+            <GraduationCap size={28} className="text-emerald-600 dark:text-emerald-400" />
+          </div>
+          <div>
+            <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Thi Thử VSTEP / IELTS</h3>
+            <p className="font-bold text-slate-500 dark:text-slate-400 text-sm">
+              {lastMock
+                ? <>Gần nhất: <span className="text-emerald-600 dark:text-emerald-400 font-black">{lastMock.scale.type === 'ielts' ? `Band ${lastMock.scale.band}` : `${lastMock.scale.score}/10`}</span> ({lastMock.percent}% · {lastMock.testName})</>
+                : 'Đề mini 20 câu có đếm giờ, quy đổi band và phân tích từng kỹ năng'}
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowMockTest(true)}
+          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-emerald-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-emerald-500 transition-all cursor-pointer"
+        >
+          {lastMock ? 'THI LẠI' : 'THI THỬ NGAY'}
+        </button>
       </div>
 
       {/* --- ERROR BANK: học từ lỗi sai --- */}
