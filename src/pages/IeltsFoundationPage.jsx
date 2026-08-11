@@ -268,16 +268,16 @@ function DailyBuddy({ streak = 0, dailyStats, dailyGoal = 1, lessons = 0 }) {
     : greetLine()), [goalMet, todayLessons]);
   return (
     <div className={`${card} p-4 space-y-3`}>
-      <div className="flex items-center gap-3">
-        <ChibiCoach species={COACH} message={greeting} mood={goalMet ? 'happy' : 'idle'} deco={tier.deco} size={72} />
-        <div className="ml-auto flex gap-2 shrink-0">
-          <div className="text-center px-3 py-2 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 bg-orange-100 dark:bg-orange-900/40">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+        <ChibiCoach species={COACH} message={greeting} mood={goalMet ? 'happy' : 'idle'} deco={tier.deco} size={72} className="min-w-0" />
+        <div className="sm:ml-auto flex gap-2 shrink-0">
+          <div className="flex-1 sm:flex-initial text-center px-3 py-2 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 bg-orange-100 dark:bg-orange-900/40">
             <div className="text-lg font-black leading-none text-orange-600 dark:text-orange-300">🔥 {streak}</div>
-            <div className="text-[10px] font-black text-slate-500 dark:text-slate-400 mt-0.5">ngày liên tiếp</div>
+            <div className="text-[10px] font-black text-slate-500 dark:text-slate-400 mt-0.5 whitespace-nowrap">ngày liên tiếp</div>
           </div>
-          <div className={`text-center px-3 py-2 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 ${goalMet ? 'bg-green-200 dark:bg-green-900/50' : 'bg-yellow-100 dark:bg-yellow-900/40'}`}>
+          <div className={`flex-1 sm:flex-initial text-center px-3 py-2 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 ${goalMet ? 'bg-green-200 dark:bg-green-900/50' : 'bg-yellow-100 dark:bg-yellow-900/40'}`}>
             <div className="text-lg font-black leading-none text-slate-800 dark:text-white">{goalMet ? '✓' : `${todayLessons}/${dailyGoal}`}</div>
-            <div className="text-[10px] font-black text-slate-500 dark:text-slate-400 mt-0.5">mục tiêu ngày</div>
+            <div className="text-[10px] font-black text-slate-500 dark:text-slate-400 mt-0.5 whitespace-nowrap">mục tiêu ngày</div>
           </div>
         </div>
       </div>

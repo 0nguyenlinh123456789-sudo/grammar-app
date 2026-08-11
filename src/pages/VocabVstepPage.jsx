@@ -108,20 +108,26 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
       <div className="mb-6 text-center w-full max-w-3xl flex flex-col items-center gap-3">
         {/* Topic title with Luna */}
         <div className="flex items-center gap-4 w-full justify-center">
-          <MascotLuna
-            mood={mascotMood}
-            context={mascotContext}
-            size={64}
-            direction="right"
-            className="flex-shrink-0"
-          />
-          <h1 className="text-2xl md:text-4xl font-black text-slate-800 dark:text-white uppercase tracking-tight 
-            border-b-8 border-black dark:border-slate-500 inline-flex items-center justify-center gap-3 pb-2 mb-2 
+          {/* Mascots live in wrappers because their own root classes hardcode
+              inline-flex, which defeats a `hidden` put directly on them.
+              Hidden on phones: Luna's bubble overlaps the topic title there. */}
+          <div className="hidden sm:block shrink-0">
+            <MascotLuna
+              mood={mascotMood}
+              context={mascotContext}
+              size={64}
+              direction="right"
+            />
+          </div>
+          <h1 className="text-2xl md:text-4xl font-black text-slate-800 dark:text-white uppercase tracking-tight
+            border-b-8 border-black dark:border-slate-500 inline-flex items-center justify-center gap-3 pb-2 mb-2
             bg-white dark:bg-slate-800 px-6 rounded-2xl shadow-[6px_6px_0_0_rgba(0,0,0,1)]">
             <Rocket size={32} className="text-indigo-600 dark:text-indigo-400" />
             {activeTopic.title.replace(/^[^\s]+\s/, '')}
           </h1>
-          <ChibiBadge species="bunny" mood="idle" size={60} className="flex-shrink-0 hidden sm:inline-flex" />
+          <div className="hidden sm:block shrink-0">
+            <ChibiBadge species="bunny" mood="idle" size={60} />
+          </div>
         </div>
 
         {/* Description */}
