@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle2, Clock3, KeyRound, Laptop, LogOut, ShieldCheck, Sparkles } from 'lucide-react';
 import AdminAccessPanel from './AdminAccessPanel';
+import PolicyDialog from '../common/PolicyDialog';
 import { readAccessResponse } from '../../utils/apiResponse';
 
 const DEVICE_KEY = 'grammarDeviceIdV1';
@@ -55,6 +56,7 @@ function ProtectedApp({ children }) {
   const [code, setCode] = useState('');
   const [busy, setBusy] = useState(false);
   const [showPricing, setShowPricing] = useState(false);
+  const [showPolicy, setShowPolicy] = useState(false);
 
   const verify = useCallback(async (silent = false) => {
     try {
@@ -114,9 +116,13 @@ function ProtectedApp({ children }) {
         <button disabled={busy || state.status === 'config'} className="mt-5 h-15 rounded-2xl bg-yellow-300 text-slate-950 border-4 border-slate-900 font-black shadow-[5px_5px_0_0_#1e293b] flex items-center justify-center gap-2 disabled:opacity-50">{busy ? 'ĐANG KÍCH HOẠT...' : <>MỞ KHÓA KHÓA HỌC <ArrowRight size={20} /></>}</button>
         <div className="grid grid-cols-2 gap-3 mt-6 text-xs font-black text-slate-500"><span className="flex items-center gap-2"><ShieldCheck size={17} className="text-emerald-500" /> Kết nối bảo mật</span><span className="flex items-center gap-2"><Laptop size={17} className="text-blue-500" /> Kiểm soát thiết bị</span></div>
         <a href="/?admin=access" className="mt-7 text-center text-xs font-black text-slate-400 hover:text-blue-600">Dành cho quản trị viên</a>
+        <button type="button" onClick={() => setShowPolicy(true)} className="mt-2 text-center text-[11px] font-bold text-slate-400 hover:text-blue-600 cursor-pointer">
+          Điều khoản · Bảo mật · Hoàn tiền
+        </button>
       </form>
     </section>
     {showPricing && <PricingModal onClose={() => setShowPricing(false)} />}
+    {showPolicy && <PolicyDialog onClose={() => setShowPolicy(false)} />}
   </main>;
 }
 

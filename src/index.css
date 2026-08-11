@@ -1,3 +1,6 @@
+/* Self-hosted Outfit + Inter (variable, woff2 in public/fonts) — no Google
+   Fonts CDN dependency, faster first paint and full offline support. */
+@import './fonts.css';
 @import "tailwindcss";
 
 @theme {

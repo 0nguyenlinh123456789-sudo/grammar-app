@@ -189,7 +189,18 @@ const AiKeyDialog = ({ onClose }) => {
           </div>
         </form>
 
-        <p className="mt-5 text-xs font-bold text-slate-500 dark:text-slate-400 leading-relaxed">
+        <details className="mt-5 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-3">
+          <summary className="cursor-pointer text-xs font-black uppercase tracking-wide text-slate-500 dark:text-slate-400">
+            ❓ Gặp khó? 3 tình huống thường gặp
+          </summary>
+          <ul className="mt-3 space-y-2.5 text-xs font-bold text-slate-600 dark:text-slate-300 leading-relaxed">
+            <li><strong>Không thấy nút "Create API key":</strong> hãy đăng nhập Google trước, sau đó vào lại đường link. Nếu trang hỏi đồng ý điều khoản, bấm chấp nhận rồi nút tạo key sẽ hiện ra.</li>
+            <li><strong>Sợ mất phí:</strong> gói miễn phí của Google không cần thẻ ngân hàng. Hết lượt miễn phí trong ngày thì AI tạm nghỉ, không bao giờ tự trừ tiền.</li>
+            <li><strong>Key báo không hợp lệ:</strong> kiểm tra đã sao chép đủ chuỗi bắt đầu bằng <code className="font-mono">AIza</code> (không dính dấu cách ở đầu/cuối). Bấm <strong>KIỂM TRA KEY</strong> để xác nhận hoạt động.</li>
+          </ul>
+        </details>
+
+        <p className="mt-4 text-xs font-bold text-slate-500 dark:text-slate-400 leading-relaxed">
           Không có key thì mọi phần học vẫn dùng bình thường; chỉ hai tính năng cần AI là <strong>Gia sư Writing</strong> và <strong>Quét ảnh</strong> sẽ tạm nghỉ. Nếu dùng máy chung, hãy bấm <strong>XÓA</strong> khi học xong.
         </p>
       </div>

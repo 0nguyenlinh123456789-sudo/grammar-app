@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Camera, ShieldCheck, ImagePlus, Loader2, Sparkles, Layers, FileText, Languages, KeyRound } from 'lucide-react';
+import { Camera, ShieldCheck, ImagePlus, Loader2, Sparkles, Layers, FileText, Languages, KeyRound, BookmarkPlus, BookmarkCheck } from 'lucide-react';
 import { requestAi } from '../utils/aiClient';
 import { hasGeminiKey, openAiKeySettings, subscribeGeminiKey } from '../utils/aiKey';
 import { parseImageVocabulary } from '../utils/imageVocabulary';
+import { addWord, hasWord } from '../utils/srs';
 
 const KEY_ERROR_CODES = new Set(['missing-key', 'invalid-key']);
 
@@ -16,6 +17,7 @@ const ImageScanner = () => {
   const [error, setError] = useState('');
   const [errorCode, setErrorCode] = useState('');
   const [keyReady, setKeyReady] = useState(hasGeminiKey);
+  const [savedToSrs, setSavedToSrs] = useState(false);
 
   useEffect(() => subscribeGeminiKey(() => setKeyReady(hasGeminiKey())), []);
 
@@ -67,7 +69,9 @@ const ImageScanner = () => {
         mimeType: image.file.type,
       });
       
-      setResult(parseImageVocabulary(text));
+      const parsed = parseImageVocabulary(text);
+      setResult(parsed);
+      setSavedToSrs(hasWord({ en: parsed.word }));
     } catch (err) {
       console.error(err);
       setError(err?.message || 'Chưa thể phân tích ảnh. Vui lòng thử lại sau.');
@@ -151,6 +155,32 @@ const ImageScanner = () => {
               {result.ipa}
             </span>
             <p className="text-2xl font-bold text-[#ef4444] dark:text-red-400 mt-5 uppercase tracking-wide">{result.meaning}</p>
+
+            {/* Close the loop: a scanned word can go straight into the SRS
+                review deck, so it comes back in "Ôn Tập Từ" on the roadmap. */}
+            <button
+              onClick={() => {
+                if (savedToSrs) return;
+                addWord({
+                  en: result.word,
+                  vi: result.meaning,
+                  ipa: result.ipa,
+                  example: result.sentences?.[0]?.en || '',
+                  viExample: result.sentences?.[0]?.vi || '',
+                });
+                setSavedToSrs(true);
+              }}
+              disabled={savedToSrs}
+              className={`mt-5 mx-auto px-6 py-3 rounded-2xl border-[3px] border-black dark:border-slate-600 font-black flex items-center gap-2 transition-all ${
+                savedToSrs
+                  ? 'bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 cursor-default'
+                  : 'bg-violet-400 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] hover:bg-violet-500 active:shadow-none active:translate-y-1 cursor-pointer'
+              }`}
+            >
+              {savedToSrs
+                ? <><BookmarkCheck size={20} /> ĐÃ CÓ TRONG BỘ ÔN TẬP</>
+                : <><BookmarkPlus size={20} /> LƯU VÀO ÔN TẬP TỪ</>}
+            </button>
           </div>
 
           <hr className="border-black dark:border-slate-700 border-t-[3px] my-6" />

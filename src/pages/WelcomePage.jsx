@@ -11,6 +11,7 @@ import PetZoo from '../components/common/PetZoo';
 import SrsReview from '../components/vocab/SrsReview';
 import { getDueCount } from '../utils/srs';
 import { isMuted, setMuted } from '../utils/sound';
+import { freezesLeft, frozeToday } from '../utils/streakFreeze';
 import { createLearningBackup, restoreLearningBackup } from '../utils/backup';
 import { buildActivityWindow } from '../utils/activityHistory';
 import { countGoalDays, DAILY_GOAL_OPTIONS } from '../utils/dailyGoal';
@@ -254,7 +255,11 @@ const WelcomePage = ({
                  <div>
                    <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Chuỗi Học Tập</p>
                    <p className="text-2xl font-black text-slate-900 dark:text-slate-100 leading-none mt-1">{streak} <span className="text-sm text-rose-500">Ngày</span></p>
-                   {bestStreak > 0 && <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 mt-0.5">🏆 Kỷ lục: {bestStreak} ngày</p>}
+                   <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 mt-0.5">
+                     {bestStreak > 0 && <>🏆 Kỷ lục: {bestStreak} ngày · </>}
+                     <span title="Nghỉ lỡ 1 ngày sẽ tự dùng 1 lần đóng băng để giữ chuỗi. Mỗi tháng có 2 lần.">🧊 Đóng băng: {freezesLeft()}/2</span>
+                   </p>
+                   {frozeToday() && <p className="text-[10px] font-black text-sky-600 dark:text-sky-400 mt-0.5">🧊 Chuỗi của bạn vừa được cứu hôm nay!</p>}
                  </div>
                </div>
             </div>
@@ -290,8 +295,20 @@ const WelcomePage = ({
           </div>
         </div>
  
+        {/* One-tap resume: jump straight into the next milestone */}
+        {nextMilestone && (
+          <button
+            onClick={() => launchMilestone(nextMilestone)}
+            className="mt-6 w-full py-4 px-5 bg-yellow-300 dark:bg-yellow-450 text-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl font-black text-base md:text-lg shadow-[5px_5px_0_0_#1e293b] dark:shadow-[5px_5px_0_0_#020617] hover:bg-yellow-400 hover:translate-y-0.5 hover:shadow-[3px_3px_0_0_#1e293b] transition-all cursor-pointer flex items-center justify-center gap-2.5"
+          >
+            <Zap size={22} className="fill-slate-900 shrink-0" />
+            <span className="truncate">HỌC 15 PHÚT HÔM NAY — {nextMilestone.title}</span>
+            <ArrowRight size={20} className="shrink-0" />
+          </button>
+        )}
+
         {/* Progress bar with sliding bouncing bunny */}
-        <div className="mt-8 border-4 border-slate-800 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 h-10 rounded-3xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#020617] relative flex items-center p-1">
+        <div className="mt-6 border-4 border-slate-800 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 h-10 rounded-3xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#020617] relative flex items-center p-1">
           <div 
             className="bg-emerald-400 h-full rounded-2xl transition-all duration-500 flex items-center justify-end relative pr-8 min-w-[3rem]" 
             style={{ width: `${Math.max(completionPercentage, 8)}%` }}

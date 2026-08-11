@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, AlertTriangle, GraduationCap, KeyRound } from 'lucide-react';
 import AiKeyDialog from '../components/common/AiKeyDialog';
+import PolicyDialog from '../components/common/PolicyDialog';
 import { hasGeminiKey, subscribeGeminiKey, subscribeOpenAiKeySettings } from '../utils/aiKey';
 import { SHOW_IELTS_FOUNDATION } from '../utils/localOnly';
 
@@ -36,6 +37,7 @@ const MainLayout = ({
   const [globalSearch, setGlobalSearch] = useState('');
   const [isGlobalSearchOpen, setIsGlobalSearchOpen] = useState(false);
   const [isAiKeyOpen, setIsAiKeyOpen] = useState(false);
+  const [isPolicyOpen, setIsPolicyOpen] = useState(false);
   const [hasAiKey, setHasAiKey] = useState(hasGeminiKey);
 
   // The AI features are bring-your-own-key, so any screen can ask the layout to
@@ -235,6 +237,13 @@ const MainLayout = ({
              <span className={`text-[10px] px-2 py-0.5 rounded-full border-2 ${hasAiKey ? 'bg-emerald-100 border-emerald-500 text-emerald-700' : 'bg-amber-100 border-amber-500 text-amber-700'}`}>
                {hasAiKey ? 'ĐÃ CÓ' : 'CHƯA CÓ'}
              </span>
+           </button>
+
+           <button
+             onClick={() => { setIsPolicyOpen(true); setMenuOpen(false); }}
+             className="text-[11px] font-bold text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer text-center pt-1"
+           >
+             Điều khoản · Bảo mật · Hoàn tiền
            </button>
 
          </div>
@@ -456,6 +465,9 @@ const MainLayout = ({
 
       {/* --- BRING-YOUR-OWN GEMINI KEY --- */}
       {isAiKeyOpen && <AiKeyDialog onClose={() => setIsAiKeyOpen(false)} />}
+
+      {/* --- TERMS / PRIVACY / REFUND --- */}
+      {isPolicyOpen && <PolicyDialog onClose={() => setIsPolicyOpen(false)} />}
 
       {/* --- CONFIRM RESET ROADMAP MODAL --- */}
       {isResetModalOpen && (

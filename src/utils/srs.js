@@ -70,3 +70,29 @@ export function getDueCount() {
 export function getTotalCount() {
   return Object.keys(load()).length;
 }
+
+// Add a word straight into the review deck (box 1, due today) without marking
+// it wrong. Used by the AI scanner and any "save this word" button. Returns
+// false when the word is already in the deck so callers can show "đã lưu".
+export function addWord(word) {
+  const k = keyOf(word);
+  if (!k) return false;
+  const store = load();
+  if (store[k]) return false;
+  store[k] = {
+    en: word.en,
+    vi: word.vi || '',
+    ipa: word.ipa || '',
+    example: word.example || '',
+    viExample: word.viExample || '',
+    box: 1,
+    due: todayNum(),
+    updated: todayNum(),
+  };
+  save(store);
+  return true;
+}
+
+export function hasWord(word) {
+  return Boolean(load()[keyOf(word)]);
+}

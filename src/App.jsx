@@ -49,6 +49,7 @@ async function loadGrammarCatalog() {
 // Layout layer
 import MainLayout from './layouts/MainLayout';
 import { SHOW_IELTS_FOUNDATION } from './utils/localOnly';
+import { tryConsumeFreezes } from './utils/streakFreeze';
 
 // Page/Route layer — lazy-loaded so each route ships as its own chunk and the
 // initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
@@ -262,7 +263,9 @@ export default function App() {
     if (streak > bestStreak) setBestStreak(streak);
   }, [streak, bestStreak]);
 
-  // Check if streak is broken on mount
+  // Check if streak is broken on mount. Before resetting, try to spend the
+  // monthly "streak freeze" budget (one freeze per missed day) so a short slip
+  // doesn't wipe a long streak — see src/utils/streakFreeze.js.
   useEffect(() => {
     const today = new Date();
     if (lastActiveDate) {
@@ -270,11 +273,19 @@ export default function App() {
       const d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
       const d2 = new Date(lastDate.getFullYear(), lastDate.getMonth(), lastDate.getDate());
       const diffDays = Math.round((d1 - d2) / (1000 * 60 * 60 * 24));
-      
+
       if (diffDays > 1) {
-        setStreak(0);
+        const missedDays = diffDays - 1;
+        const rescue = streak > 0 ? tryConsumeFreezes(missedDays) : { saved: false };
+        if (rescue.saved) {
+          // Move the anchor to today so the same gap isn't re-judged tomorrow.
+          setLastActiveDate(today.toDateString());
+        } else {
+          setStreak(0);
+        }
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastActiveDate]);
 
   // Persist Oxford Book choice
