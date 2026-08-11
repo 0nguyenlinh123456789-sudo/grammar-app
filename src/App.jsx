@@ -48,6 +48,7 @@ async function loadGrammarCatalog() {
 
 // Layout layer
 import MainLayout from './layouts/MainLayout';
+import { SHOW_IELTS_FOUNDATION } from './utils/localOnly';
 
 // Page/Route layer — lazy-loaded so each route ships as its own chunk and the
 // initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
@@ -539,6 +540,12 @@ export default function App() {
         return <ScannerPage />;
 
       case 'ielts-foundation':
+        // Local-only section (owner's private course) — never reachable on the
+        // deployed site, even if the mode is set some other way.
+        if (!SHOW_IELTS_FOUNDATION) {
+          setAppMode('home');
+          return <RouteLoader />;
+        }
         return (
           <IeltsFoundationPage
             completedMilestones={completedMilestones}

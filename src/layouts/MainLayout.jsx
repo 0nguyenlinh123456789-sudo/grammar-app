@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, AlertTriangle, GraduationCap, KeyRound } from 'lucide-react';
 import AiKeyDialog from '../components/common/AiKeyDialog';
 import { hasGeminiKey, subscribeGeminiKey, subscribeOpenAiKeySettings } from '../utils/aiKey';
+import { SHOW_IELTS_FOUNDATION } from '../utils/localOnly';
 
 const MainLayout = ({
   appMode,
@@ -215,12 +216,14 @@ const MainLayout = ({
              GAMES
            </button>
 
-           <button
-             onClick={() => selectMode('ielts-foundation')}
-             className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'ielts-foundation' ? 'bg-pink-400 dark:bg-pink-500 text-white shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] hover:bg-pink-50 dark:hover:bg-pink-900/30'}`}
-           >
-             <GraduationCap size={20} className="text-pink-500 dark:text-pink-300" /> IELTS NỀN TẢNG
-           </button>
+           {SHOW_IELTS_FOUNDATION && (
+             <button
+               onClick={() => selectMode('ielts-foundation')}
+               className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'ielts-foundation' ? 'bg-pink-400 dark:bg-pink-500 text-white shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] hover:bg-pink-50 dark:hover:bg-pink-900/30'}`}
+             >
+               <GraduationCap size={20} className="text-pink-500 dark:text-pink-300" /> IELTS NỀN TẢNG
+             </button>
+           )}
 
            <button
              onClick={() => { setIsAiKeyOpen(true); setMenuOpen(false); }}
