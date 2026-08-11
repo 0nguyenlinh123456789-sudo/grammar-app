@@ -115,16 +115,27 @@ export default async function handler(request, response) {
     }
 
     if (body.action === 'update') {
-      if (body.status && ['active', 'paused'].includes(body.status)) record.status = body.status;
+      // Bumping `version` invalidates every signed session for this code, so it
+      // is reserved for changes meant to kick devices off. Extending a paid
+      // subscription is the opposite of that and must keep learners signed in.
+      let revokeSessions = false;
+      if (body.status && ['active', 'paused'].includes(body.status)) {
+        revokeSessions = revokeSessions || record.status !== body.status;
+        record.status = body.status;
+      }
       if (body.extendDays) {
         const days = Math.max(1, Math.min(3650, Number.parseInt(body.extendDays, 10) || 0));
         const base = record.expiresAt && new Date(record.expiresAt).getTime() > Date.now() ? new Date(record.expiresAt).getTime() : Date.now();
         record.expiresAt = new Date(base + days * 86_400_000).toISOString();
       }
-      if (body.resetDevices === true) record.devices = {};
-      if (body.maxDevices) record.maxDevices = Math.max(1, Math.min(10, Number.parseInt(body.maxDevices, 10) || record.maxDevices));
+      if (body.resetDevices === true) { record.devices = {}; revokeSessions = true; }
+      if (body.maxDevices) {
+        const maxDevices = Math.max(1, Math.min(10, Number.parseInt(body.maxDevices, 10) || record.maxDevices));
+        revokeSessions = revokeSessions || maxDevices < record.maxDevices;
+        record.maxDevices = maxDevices;
+      }
       record.updatedAt = new Date().toISOString();
-      record.version += 1;
+      if (revokeSessions) record.version += 1;
       await writeAccessRecord(env, codeHash, record);
       await writeAudit(env, record.status === 'paused' ? 'pause' : 'update', record, { codeHash, extendDays: body.extendDays || null, resetDevices: body.resetDevices === true });
       return jsonResponse(response, 200, { record: { ...publicRecord(record), codeHash } });

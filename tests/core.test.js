@@ -283,6 +283,13 @@ test('access lifecycle creates, activates and remotely revokes a customer code',
     assert.equal(verified.statusCode, 200);
     assert.equal(verified.payload.access.customer, 'Khách A');
 
+    // Extending a subscription must never sign the paying learner out.
+    const extended = await call(accessAdminHandler, { method: 'POST', headers: { cookie: adminCookie }, body: { action: 'update', codeHash: created.payload.record.codeHash, extendDays: 30 } });
+    assert.equal(extended.statusCode, 200);
+    assert.ok(new Date(extended.payload.record.expiresAt) > new Date(created.payload.record.expiresAt));
+    const stillActive = await call(accessHandler, { method: 'GET', headers: { cookie: learnerCookie } });
+    assert.equal(stillActive.statusCode, 200);
+
     const paused = await call(accessAdminHandler, { method: 'POST', headers: { cookie: adminCookie }, body: { action: 'update', codeHash: created.payload.record.codeHash, status: 'paused' } });
     assert.equal(paused.statusCode, 200);
     const revoked = await call(accessHandler, { method: 'GET', headers: { cookie: learnerCookie } });
