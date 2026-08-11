@@ -31,6 +31,8 @@ npm run build     # dựng bản production — lỗi build là lỗi chặn dep
 
 ## Deploy
 
+- **Địa chỉ web thật (production): https://grammar-app-gray.vercel.app**
+  ⚠️ `grammar-app.vercel.app` (không có `-gray`) là ứng dụng của người khác — đừng nhầm khi kiểm tra.
 - Push lên nhánh `main` của GitHub → **Vercel tự build và deploy** (không cần thao tác thêm).
 - Kiểm tra deploy thành công: Vercel Dashboard → Deployments, hoặc
   `curl -s https://api.github.com/repos/0nguyenlinh123456789-sudo/grammar-app/commits/<sha>/status`.
