@@ -37,7 +37,12 @@
       "Bash(grep -o \"admin=access.\\\\{0,300\\\\}\" dist/assets/index-BxoD4_XE.js)",
       "Bash(npx vercel *)",
       "Bash(grep -vE \"^$|update|npm i -g|╭|│|╰|─\")",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git push *)",
+      "Bash(curl -s -o /dev/null -w 'trang chu=%{http_code} ' https://grammar-app-gray.vercel.app/)",
+      "Bash(curl -s -w 'api_access=%{http_code}\\\\n' https://grammar-app-gray.vercel.app/api/access)",
+      "Bash(curl -s -w '\\\\nstatus=%{http_code} type=%{content_type}\\\\n' https://grammar-app-gray.vercel.app/api/access-admin)",
+      "Bash(curl -s https://grammar-app-gray.vercel.app/?admin=access)"
     ]
   }
 }

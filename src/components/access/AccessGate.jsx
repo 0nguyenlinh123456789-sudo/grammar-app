@@ -15,7 +15,14 @@ function getDeviceId() {
 }
 
 async function requestAccess(options = {}, { requireAuth = true } = {}) {
-  const response = await fetch('/api/access', { credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, ...options });
+  let response;
+  try {
+    response = await fetch('/api/access', { credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, ...options });
+  } catch {
+    const error = new Error('Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.');
+    error.status = 0;
+    throw error;
+  }
   // Fail closed: the app unlocks only on our own JSON saying `authenticated:
   // true` with an access record attached. See src/utils/apiResponse.js.
   return readAccessResponse(response, { requireAuth, requireFields: requireAuth ? ['access'] : [] });

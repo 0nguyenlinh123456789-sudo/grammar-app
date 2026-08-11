@@ -8,11 +8,20 @@ import { readAccessResponse } from '../../utils/apiResponse';
 // Fail closed like the learner gate: a 200 that is not our JSON (an SPA
 // fallback page, a static file) must never open the owner console.
 const apiRequest = async (options = {}, { requireAuth = false } = {}) => {
-  const response = await fetch('/api/access-admin', {
-    credentials: 'same-origin',
-    headers: { 'Content-Type': 'application/json' },
-    ...options,
-  });
+  let response;
+  try {
+    response = await fetch('/api/access-admin', {
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      ...options,
+    });
+  } catch {
+    // fetch() rejects on offline, DNS and blocked requests — surface that in
+    // Vietnamese instead of the browser's "Failed to fetch".
+    const error = new Error('Không kết nối được máy chủ quản trị. Kiểm tra mạng rồi thử lại.');
+    error.status = 0;
+    throw error;
+  }
   return readAccessResponse(response, { requireAuth, fallbackMessage: 'Không thể kết nối máy chủ.' });
 };
 
@@ -41,8 +50,12 @@ export default function AdminAccessPanel() {
       setAudit(data.audit || []);
       setAuthenticated(true);
     } catch (error) {
-      if (error.status === 401) setAuthenticated(false);
-      else setMessage(error.message);
+      // Any failure means "not signed in", so always fall through to the login
+      // form. Leaving `authenticated` null here used to strand the owner on the
+      // full-page spinner with no field to type into whenever the probe failed
+      // for a reason other than 401 (offline, blocked request, Redis down).
+      setAuthenticated(false);
+      if (error.status !== 401) setMessage(error.message || 'Không thể kết nối máy chủ quản trị.');
     }
   };
 
