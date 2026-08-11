@@ -4,6 +4,8 @@
 // is available the caller can additionally request AI feedback — this offline
 // scorer always works so writing practice is never blocked behind a key.
 
+import { recordError } from './errorBank.js';
+
 const COMMON_MISSPELLINGS = {
   recieve: 'receive', teh: 'the', wich: 'which', becuase: 'because',
   definately: 'definitely', seperate: 'separate', occured: 'occurred',
@@ -71,6 +73,12 @@ export function scoreWriting(text, opts = {}) {
   if (misspelled.length) {
     score -= 10 * misspelled.length;
     tips.push('Lỗi chính tả: ' + misspelled.join(', ') + '.');
+    // Each misspelling becomes an error-bank card so it resurfaces on the
+    // 3/7/14-day ladder ("Học từ lỗi sai" on the roadmap).
+    for (const pair of misspelled) {
+      const [wrong, right] = pair.split(' → ');
+      recordError({ skill: 'writing', prompt: `Viết đúng chính tả từ ${wrong}`, answer: (right || '').replace(/"/g, ''), chosen: (wrong || '').replace(/"/g, '') });
+    }
   }
 
   // 6. Double spaces / repeated words.

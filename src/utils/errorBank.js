@@ -14,7 +14,12 @@ function todayNum() {
   return Math.floor(new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime() / 86400000);
 }
 
+// localStorage may not exist (node tests import writingScorer → errorBank);
+// in that case the bank silently no-ops.
+const storageAvailable = typeof localStorage !== 'undefined';
+
 function load() {
+  if (!storageAvailable) return {};
   try {
     const parsed = JSON.parse(localStorage.getItem(KEY) || '{}');
     return parsed && typeof parsed === 'object' ? parsed : {};
@@ -22,6 +27,7 @@ function load() {
 }
 
 function save(store) {
+  if (!storageAvailable) return;
   try { localStorage.setItem(KEY, JSON.stringify(store)); } catch { /* ignore */ }
 }
 

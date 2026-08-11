@@ -131,6 +131,7 @@ function WordScrambleGame({ words, playAudio, onScore }) {
     if (!input.trim() || !cur) return;
     const ok = input.trim().toLowerCase() === cur.en.toLowerCase();
     setFeedback(ok ? 'correct' : 'wrong');
+    recordReview(cur, ok); // wrong spellings re-enter the SRS deck
     if (ok) {
       const ns = score + 10 + (streak >= 2 ? 5 : 0);
       setScore(ns); setStreak(s => s + 1);
@@ -329,6 +330,7 @@ function DictationGame({ words, playAudio, onScore }) {
     if (!input.trim() || !cur) return;
     const ok = input.trim().toLowerCase() === cur.en.toLowerCase();
     setFeedback(ok ? 'correct' : 'wrong');
+    recordReview(cur, ok); // dictation misses re-enter the SRS deck
     if (ok) {
       const ns = score + 12 + (streak >= 2 ? 6 : 0);
       setScore(ns); setStreak(s => s + 1);

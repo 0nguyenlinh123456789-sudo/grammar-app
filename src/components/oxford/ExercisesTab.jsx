@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Volume2, Award, RotateCcw, HelpCircle, Check, X, Sparkles, ArrowRight } from 'lucide-react';
 import ScholarBunny from '../common/ScholarBunny';
+import { recordError } from '../../utils/errorBank';
 
 export default function ExercisesTab({ unitData }) {
     const [activeExIdx, setActiveExIdx] = useState(0);
@@ -64,29 +65,36 @@ export default function ExercisesTab({ unitData }) {
         let currentScore = 0;
         let currentTotal = 0;
 
+        // Wrong answers feed the error bank ("Học từ lỗi sai" on the roadmap).
+        const miss = (prompt, answer, chosen) => recordError({ skill: 'vocab', prompt, answer, chosen: chosen || '' });
+
         if (currentEx.type === 'fill_in_blanks') {
             currentEx.questions.forEach(q => {
                 currentTotal++;
                 const isCorrect = q.answers.some(ans => cleanStr(ans) === cleanStr(userAnswers[q.id]));
                 if (isCorrect) currentScore++;
+                else miss(q.text, q.answers[0], userAnswers[q.id]);
             });
         } else if (currentEx.type === 'error_correction') {
             currentEx.questions.forEach(q => {
                 currentTotal++;
                 const isCorrect = cleanStr(userAnswers[q.id]) === cleanStr(q.correct);
                 if (isCorrect) currentScore++;
+                else miss(q.text || q.incorrect, q.correct, userAnswers[q.id]);
             });
         } else if (currentEx.type === 'matching') {
             currentEx.questions.forEach(q => {
                 currentTotal++;
                 const isCorrect = userAnswers[q.id] === q.answer;
                 if (isCorrect) currentScore++;
+                else miss(q.text, q.answer, userAnswers[q.id]);
             });
         } else if (currentEx.type === 'categorization') {
             currentEx.questions.forEach(q => {
                 currentTotal++;
                 const isCorrect = userAnswers[q.word] === q.category;
                 if (isCorrect) currentScore++;
+                else miss(`"${q.word}" thuộc nhóm nào?`, q.category, userAnswers[q.word]);
             });
         }
 
