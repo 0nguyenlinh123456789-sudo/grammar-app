@@ -42,6 +42,12 @@ Sau khi đổi `ACCESS_SESSION_SECRET`, mọi học viên và quản trị viên
 
 Ứng dụng kiểm tra lại phiên khi mở trang, khi quay lại tab và định kỳ 5 phút. API AI kiểm tra quyền ở mọi request.
 
+Cả trang học lẫn bảng quản trị đều **fail closed**: chỉ mở khóa khi `/api/access` (hoặc `/api/access-admin`) trả về đúng JSON có `authenticated: true`. Nếu host trả về trang HTML với mã 200 cho `/api/*` (kiểu SPA fallback), giao diện coi như chưa đăng nhập thay vì mở toang.
+
+## Khóa AI thuộc về học viên
+
+Máy chủ không giữ `GEMINI_API_KEY` nữa. Học viên tự dán key Google AI Studio trong app; key nằm ở `localStorage` của họ và đi kèm header `x-gemini-key` trong từng request tới `/api/ai`. Máy chủ chỉ kiểm tra định dạng key, dùng một lần rồi bỏ. Vì học viên tự trả phí AI nên không còn giới hạn AI theo gói.
+
 Tiến độ học đã có đồng bộ nền qua `/api/progress`: khi học viên đổi thiết bị, bản sao mới hơn trên server được khôi phục; nếu bản cục bộ mới hơn, hệ thống ghi lại lên server. Dữ liệu cục bộ vẫn được giữ làm fallback khi offline.
 
 Ứng dụng production cũng đăng ký PWA service worker (`public/sw.js`), cache phần vỏ ứng dụng và các tài nguyên đã truy cập. Các request `/api/*` không bao giờ được cache để tránh dùng phiên hoặc dữ liệu quản trị cũ.
@@ -50,9 +56,9 @@ Tiến độ học đã có đồng bộ nền qua `/api/progress`: khi học vi
 
 | Gói | Thời hạn gợi ý | Thiết bị | AI |
 | --- | --- | --- | --- |
-| Standard | 30–90 ngày | 1 | Không |
-| Premium | 90–365 ngày | 1–3 | Có |
-| Trọn đời | Không hết hạn | 2–5 | Có |
+| Standard | 30–90 ngày | 1 | Có, bằng key riêng của học viên |
+| Premium | 90–365 ngày | 1–3 | Có, bằng key riêng của học viên |
+| Trọn đời | Không hết hạn | 2–5 | Có, bằng key riêng của học viên |
 
 Các gói, giá và cam kết hỗ trợ cần được trình bày rõ trong điều khoản bán hàng.
 

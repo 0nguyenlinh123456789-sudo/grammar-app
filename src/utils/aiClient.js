@@ -1,4 +1,8 @@
+import { AI_KEY_HEADER, getGeminiKey, isValidGeminiKey } from './aiKey.js';
+
 const AI_ENDPOINT = '/api/ai';
+
+export const MISSING_KEY_MESSAGE = 'Bạn chưa thêm API key Gemini của mình. Mở "KHÓA AI (API KEY)" ở menu bên trái để dán key miễn phí từ Google AI Studio.';
 
 export class AiServiceError extends Error {
   constructor(message, code = 'ai-error') {
@@ -8,7 +12,16 @@ export class AiServiceError extends Error {
   }
 }
 
-export async function requestAi(mode, payload, { signal } = {}) {
+/**
+ * Call the AI proxy with the learner's own Gemini key.
+ *
+ * `apiKey` is only passed explicitly by tests and callers that already hold a
+ * key; normal UI code relies on the key saved in this browser.
+ */
+export async function requestAi(mode, payload, { signal, apiKey } = {}) {
+  const key = apiKey ?? getGeminiKey();
+  if (!isValidGeminiKey(key)) throw new AiServiceError(MISSING_KEY_MESSAGE, 'missing-key');
+
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort('timeout'), 30000);
   const abortFromCaller = () => controller.abort(signal?.reason);
@@ -19,7 +32,8 @@ export async function requestAi(mode, payload, { signal } = {}) {
   try {
     response = await fetch(AI_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json', [AI_KEY_HEADER]: key },
       body: JSON.stringify({ mode, payload }),
       signal: controller.signal,
     });

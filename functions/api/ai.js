@@ -1,5 +1,43 @@
 const MODEL = 'gemini-2.5-flash';
 const MAX_TEXT_LENGTH = 6000;
+
+// Learners bring their own Google AI Studio key. It arrives on this header,
+// is used for exactly one upstream call and is never stored or logged.
+export const AI_KEY_HEADER = 'x-gemini-key';
+export const GEMINI_KEY_PATTERN = /^[A-Za-z0-9_-]{20,120}$/;
+
+export const MISSING_KEY_RESPONSE = {
+  code: 'missing-key',
+  message: 'Bạn chưa thêm API key Gemini của mình. Mở "KHÓA AI (API KEY)" ở menu bên trái để dán key miễn phí từ Google AI Studio.',
+};
+
+/** Returns the caller's key, or '' when it is absent or malformed. */
+export function readGeminiKey(value) {
+  const key = String(value ?? '').trim();
+  return GEMINI_KEY_PATTERN.test(key) ? key : '';
+}
+
+export function geminiEndpoint(key) {
+  return `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${encodeURIComponent(key)}`;
+}
+
+/**
+ * Turn an upstream Gemini status into advice the learner can act on. With
+ * bring-your-own-key, a rejected key or an exhausted quota is the learner's to
+ * fix, so it must not be flattened into a generic "try again later".
+ *
+ * @returns {[code: string, message: string, status: number]}
+ */
+export function describeProviderFailure(upstreamStatus) {
+  if (upstreamStatus === 400 || upstreamStatus === 401 || upstreamStatus === 403) {
+    return ['invalid-key', 'API key Gemini không hợp lệ hoặc chưa được cấp quyền. Hãy kiểm tra lại key trong mục "KHÓA AI (API KEY)".', 400];
+  }
+  if (upstreamStatus === 429) {
+    return ['quota-exceeded', 'Key Gemini của bạn đã hết hạn mức miễn phí trong hôm nay. Hãy chờ ít phút hoặc dùng key khác.', 429];
+  }
+  return ['provider-error', 'AI chưa thể xử lý yêu cầu này. Hãy thử lại sau.', 502];
+}
+
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 const MAX_IMAGE_BASE64_LENGTH = 4 * Math.ceil(MAX_IMAGE_BYTES / 3);
 
@@ -52,10 +90,9 @@ Phản hồi ngắn gọn bằng tiếng Việt gồm: (1) điểm /10, (2) lỗ
   throw new Error('unsupported-mode');
 }
 
-export async function onRequestPost({ request, env }) {
-  if (!env.GEMINI_API_KEY) {
-    return json({ code: 'not-configured', message: 'Tính năng AI nâng cao chưa được cấu hình.' }, 503);
-  }
+export async function onRequestPost({ request }) {
+  const apiKey = readGeminiKey(request.headers.get(AI_KEY_HEADER));
+  if (!apiKey) return json(MISSING_KEY_RESPONSE, 400);
 
   const contentLength = Number(request.headers.get('content-length') || 0);
   if (contentLength > 6 * 1024 * 1024) {
@@ -77,7 +114,7 @@ export async function onRequestPost({ request, env }) {
     let upstream;
     try {
       upstream = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${env.GEMINI_API_KEY}`,
+        geminiEndpoint(apiKey),
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -97,7 +134,8 @@ export async function onRequestPost({ request, env }) {
     }
     const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
     if (!upstream.ok || !text) {
-      return json({ code: 'provider-error', message: 'AI chưa thể xử lý yêu cầu này. Hãy thử lại sau.' }, 502);
+      const [code, message, status] = describeProviderFailure(upstream.status);
+      return json({ code, message }, status);
     }
 
     return json({ text });

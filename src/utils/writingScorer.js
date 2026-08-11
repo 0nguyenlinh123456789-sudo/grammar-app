@@ -103,10 +103,10 @@ export function scoreWriting(text, opts = {}) {
   return { score, level, tips, praises, usedTargets };
 }
 
-// Ask the server-side AI proxy for richer feedback. The provider credential
-// never reaches the browser and the offline scorer remains available.
+// Ask the AI proxy for richer feedback using the learner's own Gemini key.
+// The offline scorer above stays available when no key has been added.
 export async function scoreWritingWithAI(text, { topicTitle = '' } = {}) {
-  const { requestAi } = await import('./aiClient');
+  const { requestAi } = await import('./aiClient.js');
   const data = await requestAi('writing', { text, topicTitle });
   return data.text;
 }

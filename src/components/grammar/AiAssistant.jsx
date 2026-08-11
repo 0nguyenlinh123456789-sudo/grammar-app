@@ -1,6 +1,7 @@
 // File: src/components/grammar/AiAssistant.jsx
 import { useState } from 'react';
-import { ShieldCheck, Edit3, Mic, Volume2, Shuffle } from 'lucide-react';
+import { Edit3, Mic, Volume2, Shuffle } from 'lucide-react';
+import AiKeyBanner from '../common/AiKeyBanner';
 import Btn3D from '../common/Btn3D';
 import { scoreWriting, scoreWritingWithAI } from '../../utils/writingScorer';
 
@@ -10,6 +11,7 @@ const AiAssistant = ({ topic, sentences }) => {
   const [feedback, setFeedback] = useState("");
   const [offlineResult, setOfflineResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [aiErrorCode, setAiErrorCode] = useState('');
   const [speakingSent, setSpeakingSent] = useState(safeSentences[0] || null);
   const [isRec, setIsRec] = useState(false);
   const [score, setScore] = useState(null);
@@ -21,11 +23,13 @@ const AiAssistant = ({ topic, sentences }) => {
     setFeedback("");
     // 2. Enrich with server-side AI feedback; credentials stay on the server.
     setLoading(true);
+    setAiErrorCode("");
     try {
       const aiText = await scoreWritingWithAI(userText, { topicTitle: topic?.title });
       setFeedback(aiText);
     } catch (error) {
       setFeedback(error?.message || "Không lấy được nhận xét AI. Bạn vẫn có kết quả chấm nhanh phía trên.");
+      setAiErrorCode(error?.code || "");
     } finally {
       setLoading(false);
     }
@@ -52,9 +56,7 @@ const AiAssistant = ({ topic, sentences }) => {
 
   return (
     <div className="space-y-8 animate-in fade-in pb-12">
-      <div className="bg-emerald-100 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-200 rounded-3xl p-5 border-[4px] border-emerald-700 dark:border-emerald-600 shadow-[5px_5px_0_0_#047857]">
-        <div className="font-bold flex items-center gap-2"><ShieldCheck className="text-emerald-700 dark:text-emerald-400"/> AI được gọi qua máy chủ bảo mật; bạn không cần nhập API key.</div>
-      </div>
+      <AiKeyBanner feature="Gia sư Writing" errorCode={aiErrorCode} />
 
       <div className="bg-white rounded-3xl border-[4px] border-slate-800 p-8 shadow-[8px_8px_0px_0px_#1e293b]">
         <h3 className="text-3xl font-black mb-4 flex items-center gap-3"><Edit3 className="text-indigo-600 bg-indigo-100 p-2 rounded-xl border-[4px] border-slate-800"/> Gia Sư Writing</h3>

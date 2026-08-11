@@ -1,6 +1,8 @@
 // File: src/layouts/MainLayout.jsx
-import { useState } from 'react';
-import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, AlertTriangle, GraduationCap } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, AlertTriangle, GraduationCap, KeyRound } from 'lucide-react';
+import AiKeyDialog from '../components/common/AiKeyDialog';
+import { hasGeminiKey, subscribeGeminiKey, subscribeOpenAiKeySettings } from '../utils/aiKey';
 
 const MainLayout = ({
   appMode,
@@ -32,6 +34,13 @@ const MainLayout = ({
   const [openVocabGroups, setOpenVocabGroups] = useState({ vstep: true, daily: false, ielts: false, beginner: false });
   const [globalSearch, setGlobalSearch] = useState('');
   const [isGlobalSearchOpen, setIsGlobalSearchOpen] = useState(false);
+  const [isAiKeyOpen, setIsAiKeyOpen] = useState(false);
+  const [hasAiKey, setHasAiKey] = useState(hasGeminiKey);
+
+  // The AI features are bring-your-own-key, so any screen can ask the layout to
+  // open this dialog (see openAiKeySettings) and the badge tracks the key state.
+  useEffect(() => subscribeGeminiKey(() => setHasAiKey(hasGeminiKey())), []);
+  useEffect(() => subscribeOpenAiKeySettings(() => { setIsAiKeyOpen(true); setMenuOpen(false); }), []);
 
   const vocabCategoryGroups = [
     { id: 'vstep', label: '📚 Chủ đề thi VSTEP', color: 'bg-blue-400 dark:bg-blue-600' },
@@ -194,6 +203,16 @@ const MainLayout = ({
              className={`p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${appMode === 'ielts-foundation' ? 'bg-pink-400 dark:bg-pink-500 text-white shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] hover:bg-pink-50 dark:hover:bg-pink-900/30'}`}
            >
              <GraduationCap size={20} className="text-pink-500 dark:text-pink-300" /> IELTS NỀN TẢNG
+           </button>
+
+           <button
+             onClick={() => { setIsAiKeyOpen(true); setMenuOpen(false); }}
+             className="p-3 font-black border-3 border-slate-800 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#020617] hover:bg-yellow-50 dark:hover:bg-slate-750 transition-all flex items-center justify-center gap-2 cursor-pointer text-sm"
+           >
+             <KeyRound size={18} className="text-yellow-600 dark:text-yellow-400" /> KHÓA AI (API KEY)
+             <span className={`text-[10px] px-2 py-0.5 rounded-full border-2 ${hasAiKey ? 'bg-emerald-100 border-emerald-500 text-emerald-700' : 'bg-amber-100 border-amber-500 text-amber-700'}`}>
+               {hasAiKey ? 'ĐÃ CÓ' : 'CHƯA CÓ'}
+             </span>
            </button>
 
          </div>
@@ -412,6 +431,9 @@ const MainLayout = ({
       <main id="main-content" tabIndex={-1} className="flex-1 p-4 md:p-10 h-screen overflow-y-auto bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:20px_20px] dark:bg-slate-950 transition-colors duration-300 custom-scrollbar">
         {children}
       </main>
+
+      {/* --- BRING-YOUR-OWN GEMINI KEY --- */}
+      {isAiKeyOpen && <AiKeyDialog onClose={() => setIsAiKeyOpen(false)} />}
 
       {/* --- CONFIRM RESET ROADMAP MODAL --- */}
       {isResetModalOpen && (

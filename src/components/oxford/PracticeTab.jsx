@@ -1,12 +1,14 @@
 // File: src/components/oxford/PracticeTab.jsx
 import { useState, useEffect } from 'react';
-import { ShieldCheck, Edit3, Mic, Volume2, Shuffle, Snail } from 'lucide-react';
+import { Edit3, Mic, Volume2, Shuffle, Snail } from 'lucide-react';
+import AiKeyBanner from '../common/AiKeyBanner';
 import { requestAi } from '../../utils/aiClient';
 
 const PracticeTab = ({ unitData }) => {
     const [userText, setUserText] = useState("");
     const [feedback, setFeedback] = useState("");
     const [loading, setLoading] = useState(false);
+    const [aiErrorCode, setAiErrorCode] = useState("");
     const [speakItem, setSpeakItem] = useState(null);
     const [isRec, setIsRec] = useState(false);
     const [score, setScore] = useState(null);
@@ -21,6 +23,7 @@ const PracticeTab = ({ unitData }) => {
     const checkWriting = async () => {
         if (!userText.trim()) return;
         setLoading(true);
+        setAiErrorCode("");
         try {
             const { text } = await requestAi('writing', {
                 text: userText,
@@ -29,6 +32,7 @@ const PracticeTab = ({ unitData }) => {
             setFeedback(text);
         } catch (error) {
             setFeedback(error?.message || "Dịch vụ chấm bài hiện chưa sẵn sàng. Vui lòng thử lại sau.");
+            setAiErrorCode(error?.code || "");
         } finally {
             setLoading(false);
         }
@@ -66,9 +70,7 @@ const PracticeTab = ({ unitData }) => {
 
     return (
         <div className="space-y-8 animate-in fade-in pb-10 mt-6">
-            <div className="bg-emerald-100 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-200 rounded-3xl p-5 border-4 border-emerald-700 dark:border-emerald-600 shadow-[5px_5px_0_0_#047857]">
-                <div className="font-bold flex items-center gap-2"><ShieldCheck className="text-emerald-700 dark:text-emerald-400"/> Chấm bài qua máy chủ bảo mật; bạn không cần nhập API key.</div>
-            </div>
+            <AiKeyBanner feature="Chấm bài viết" errorCode={aiErrorCode} />
 
             <div className="bg-white rounded-3xl border-4 border-slate-800 p-8 shadow-[8px_8px_0_0_#1e293b]">
                 <h3 className="text-2xl font-black mb-4 flex items-center gap-3"><Edit3 className="text-indigo-600"/> Gia Sư Writing</h3>

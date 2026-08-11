@@ -1,7 +1,10 @@
-import { useState } from 'react';
-import { Camera, ShieldCheck, ImagePlus, Loader2, Sparkles, Layers, FileText, Languages } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Camera, ShieldCheck, ImagePlus, Loader2, Sparkles, Layers, FileText, Languages, KeyRound } from 'lucide-react';
 import { requestAi } from '../utils/aiClient';
+import { hasGeminiKey, openAiKeySettings, subscribeGeminiKey } from '../utils/aiKey';
 import { parseImageVocabulary } from '../utils/imageVocabulary';
+
+const KEY_ERROR_CODES = new Set(['missing-key', 'invalid-key']);
 
 const SUPPORTED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif']);
 
@@ -11,6 +14,10 @@ const ImageScanner = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
+  const [errorCode, setErrorCode] = useState('');
+  const [keyReady, setKeyReady] = useState(hasGeminiKey);
+
+  useEffect(() => subscribeGeminiKey(() => setKeyReady(hasGeminiKey())), []);
 
   // Xử lý tải ảnh lên
   const handleImageUpload = (e) => {
@@ -51,6 +58,7 @@ const ImageScanner = () => {
     if (!image) return;
     setLoading(true);
     setError('');
+    setErrorCode('');
 
     try {
       const imageData = await fileToBase64(image.file);
@@ -63,6 +71,7 @@ const ImageScanner = () => {
     } catch (err) {
       console.error(err);
       setError(err?.message || 'Chưa thể phân tích ảnh. Vui lòng thử lại sau.');
+      setErrorCode(err?.code || '');
     } finally {
       setLoading(false);
     }
@@ -74,12 +83,24 @@ const ImageScanner = () => {
         <Camera size={32} className="text-indigo-600 dark:text-indigo-400 animate-pulse" /> Quét Ảnh Bằng AI
       </h2>
 
-      <div className="mb-6 flex items-center gap-3 p-4 border-[3px] border-black dark:border-slate-700 rounded-xl bg-[#bbf7d0] dark:bg-green-950/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)]">
-        <ShieldCheck size={20} className="shrink-0 text-green-700 dark:text-green-400" />
-        <span className="font-bold text-green-800 dark:text-green-300 text-sm md:text-base">
-          Ảnh được gửi qua máy chủ bảo mật; khóa AI không được lưu trong trình duyệt.
-        </span>
-      </div>
+      {keyReady ? (
+        <div className="mb-6 flex items-center gap-3 p-4 border-[3px] border-black dark:border-slate-700 rounded-xl bg-[#bbf7d0] dark:bg-green-950/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)]">
+          <ShieldCheck size={20} className="shrink-0 text-green-700 dark:text-green-400" />
+          <span className="font-bold text-green-800 dark:text-green-300 text-sm md:text-base">
+            Ảnh chỉ được gửi tới Google Gemini bằng API key của chính bạn.
+          </span>
+        </div>
+      ) : (
+        <div className="mb-6 flex flex-col sm:flex-row sm:items-center gap-3 p-4 border-[3px] border-black dark:border-amber-900/40 rounded-xl bg-amber-100 dark:bg-amber-950/20">
+          <KeyRound size={20} className="shrink-0 text-amber-700 dark:text-amber-400" />
+          <span className="font-bold text-amber-900 dark:text-amber-200 text-sm md:text-base flex-1">
+            Tính năng này cần API key Gemini của riêng bạn (miễn phí).
+          </span>
+          <button onClick={openAiKeySettings} className="shrink-0 px-4 py-2 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm">
+            THÊM API KEY
+          </button>
+        </div>
+      )}
 
       <div className="flex flex-col items-center gap-4">
           <label className="cursor-pointer bg-[#60a5fa] dark:bg-blue-600 border-[3px] border-black dark:border-slate-700 px-8 py-3 rounded-xl font-bold text-lg text-white hover:bg-[#3b82f6] dark:hover:bg-blue-500 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] active:shadow-none active:translate-y-1 active:translate-x-1 flex items-center gap-2">
@@ -113,6 +134,11 @@ const ImageScanner = () => {
       {error && (
         <div className="mt-6 font-bold text-center bg-red-200 dark:bg-red-950/20 border-[3px] border-black dark:border-red-900/40 p-3 rounded-xl text-red-700 dark:text-red-300">
           {error}
+          {KEY_ERROR_CODES.has(errorCode) && (
+            <button onClick={openAiKeySettings} className="mt-3 mx-auto px-4 py-2 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm flex items-center gap-2">
+              <KeyRound size={16} /> MỞ CÀI ĐẶT API KEY
+            </button>
+          )}
         </div>
       )}
 

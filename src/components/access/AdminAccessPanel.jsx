@@ -3,20 +3,17 @@ import {
   AlertTriangle, Check, Clock3, Copy, Download, KeyRound, Laptop,
   LockKeyhole, LogOut, Pause, Play, Plus, RefreshCw, Search, ShieldCheck, Trash2,
 } from 'lucide-react';
+import { readAccessResponse } from '../../utils/apiResponse';
 
-const apiRequest = async (options = {}) => {
+// Fail closed like the learner gate: a 200 that is not our JSON (an SPA
+// fallback page, a static file) must never open the owner console.
+const apiRequest = async (options = {}, { requireAuth = false } = {}) => {
   const response = await fetch('/api/access-admin', {
     credentials: 'same-origin',
     headers: { 'Content-Type': 'application/json' },
     ...options,
   });
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    const error = new Error(data.message || 'Không thể kết nối máy chủ.');
-    error.status = response.status;
-    throw error;
-  }
-  return data;
+  return readAccessResponse(response, { requireAuth, fallbackMessage: 'Không thể kết nối máy chủ.' });
 };
 
 const formatDate = (value) => value
@@ -39,7 +36,7 @@ export default function AdminAccessPanel() {
 
   const loadCodes = async () => {
     try {
-      const data = await apiRequest();
+      const data = await apiRequest({}, { requireAuth: true });
       setCodes(data.codes || []);
       setAudit(data.audit || []);
       setAuthenticated(true);
@@ -55,7 +52,7 @@ export default function AdminAccessPanel() {
     event.preventDefault();
     setBusy('login'); setMessage('');
     try {
-      await apiRequest({ method: 'POST', body: JSON.stringify({ action: 'login', secret }) });
+      await apiRequest({ method: 'POST', body: JSON.stringify({ action: 'login', secret }) }, { requireAuth: true });
       setSecret('');
       await loadCodes();
     } catch (error) { setMessage(error.message); }

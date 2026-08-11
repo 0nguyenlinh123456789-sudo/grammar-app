@@ -7,7 +7,9 @@ import { buildVocabRegex, escapeRegExp, isSpeechMatch, levenshtein, similarity }
 import { AiServiceError, requestAi } from '../src/utils/aiClient.js';
 import { createLearningBackup, restoreLearningBackup } from '../src/utils/backup.js';
 import { parseImageVocabulary } from '../src/utils/imageVocabulary.js';
-import { buildRequest } from '../functions/api/ai.js';
+import {
+  AI_KEY_HEADER, buildRequest, describeProviderFailure, geminiEndpoint, readGeminiKey,
+} from '../functions/api/ai.js';
 import { addLearningActivity, buildActivityWindow, normalizeActivityHistory } from '../src/utils/activityHistory.js';
 import { countGoalDays, normalizeDailyGoal } from '../src/utils/dailyGoal.js';
 import {
@@ -17,6 +19,7 @@ import {
 import { placementQuestions } from '../src/data/placementQuestions.js';
 import { recommendationFromPlacement, scorePlacement } from '../src/utils/placement.js';
 import { createProgressSnapshot } from '../src/utils/progressSync.js';
+import { AccessResponseError, readAccessResponse } from '../src/utils/apiResponse.js';
 import accessHandler from '../api/access.js';
 import accessAdminHandler from '../api/access-admin.js';
 
@@ -79,6 +82,8 @@ test('comprehension falls back to vocabulary examples', () => {
   }
 });
 
+const TEST_GEMINI_KEY = 'AIzaSyTestKey0123456789abcdefghijklmno';
+
 test('AI client returns parsed server data', async () => {
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async () => new Response(JSON.stringify({ text: 'Nhận xét tốt.' }), {
@@ -86,7 +91,7 @@ test('AI client returns parsed server data', async () => {
     headers: { 'Content-Type': 'application/json' },
   });
   try {
-    const result = await requestAi('writing', { text: 'I study English.' });
+    const result = await requestAi('writing', { text: 'I study English.' }, { apiKey: TEST_GEMINI_KEY });
     assert.equal(result.text, 'Nhận xét tốt.');
   } finally {
     globalThis.fetch = originalFetch;
@@ -95,18 +100,107 @@ test('AI client returns parsed server data', async () => {
 
 test('AI client exposes structured API errors', async () => {
   const originalFetch = globalThis.fetch;
-  globalThis.fetch = async () => new Response(JSON.stringify({ code: 'not-configured', message: 'AI chưa cấu hình.' }), {
-    status: 503,
+  globalThis.fetch = async () => new Response(JSON.stringify({ code: 'invalid-key', message: 'Key không hợp lệ.' }), {
+    status: 400,
     headers: { 'Content-Type': 'application/json' },
   });
   try {
     await assert.rejects(
-      requestAi('writing', { text: 'I study English.' }),
-      (error) => error instanceof AiServiceError && error.code === 'not-configured',
+      requestAi('writing', { text: 'I study English.' }, { apiKey: TEST_GEMINI_KEY }),
+      (error) => error instanceof AiServiceError && error.code === 'invalid-key',
     );
   } finally {
     globalThis.fetch = originalFetch;
   }
+});
+
+test('AI client forwards the learner key and refuses to call without one', async () => {
+  const originalFetch = globalThis.fetch;
+  let seenHeaders = null;
+  globalThis.fetch = async (_url, options) => {
+    seenHeaders = options.headers;
+    return new Response(JSON.stringify({ text: 'ok' }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+  };
+  try {
+    await requestAi('writing', { text: 'I study English.' }, { apiKey: TEST_GEMINI_KEY });
+    assert.equal(seenHeaders[AI_KEY_HEADER], TEST_GEMINI_KEY);
+
+    // No key stored and none passed in: the request must never leave the browser.
+    seenHeaders = null;
+    await assert.rejects(
+      requestAi('writing', { text: 'I study English.' }),
+      (error) => error instanceof AiServiceError && error.code === 'missing-key',
+    );
+    assert.equal(seenHeaders, null);
+
+    await assert.rejects(
+      requestAi('writing', { text: 'I study English.' }, { apiKey: 'short&key' }),
+      (error) => error.code === 'missing-key',
+    );
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('server rejects malformed keys and never interpolates them raw', () => {
+  assert.equal(readGeminiKey(TEST_GEMINI_KEY), TEST_GEMINI_KEY);
+  assert.equal(readGeminiKey(` ${TEST_GEMINI_KEY} `), TEST_GEMINI_KEY);
+  assert.equal(readGeminiKey(''), '');
+  assert.equal(readGeminiKey(undefined), '');
+  assert.equal(readGeminiKey('too-short'), '');
+  // Query-injection attempts must be rejected outright, not merely escaped.
+  assert.equal(readGeminiKey('AIzaSyValidLooking0123456789&model=evil'), '');
+  assert.ok(geminiEndpoint(TEST_GEMINI_KEY).endsWith(`?key=${TEST_GEMINI_KEY}`));
+
+  assert.equal(describeProviderFailure(403)[0], 'invalid-key');
+  assert.equal(describeProviderFailure(429)[0], 'quota-exceeded');
+  assert.equal(describeProviderFailure(500)[2], 502);
+});
+
+test('access screens fail closed when /api is not really an API', async () => {
+  const jsonResponse = (body, status = 200) => new Response(JSON.stringify(body), {
+    status, headers: { 'Content-Type': 'application/json' },
+  });
+
+  // Observed on a static host / Vite dev: /api/access answers 200 with the
+  // handler source or the SPA shell. Neither may be read as a session.
+  const sourceLeak = new Response('export default async function handler() {}', {
+    status: 200, headers: { 'Content-Type': 'text/javascript' },
+  });
+  await assert.rejects(
+    readAccessResponse(sourceLeak, { requireAuth: true, requireFields: ['access'] }),
+    (error) => error instanceof AccessResponseError && error.code === 'invalid-response',
+  );
+
+  const spaFallback = new Response('<!doctype html><div id="root"></div>', {
+    status: 200, headers: { 'Content-Type': 'text/html' },
+  });
+  await assert.rejects(
+    readAccessResponse(spaFallback, { requireAuth: true }),
+    (error) => error.code === 'invalid-response',
+  );
+
+  // Valid JSON that simply does not say yes.
+  await assert.rejects(
+    readAccessResponse(jsonResponse({ authenticated: false }), { requireAuth: true }),
+    (error) => error.code === 'unauthenticated' && error.status === 401,
+  );
+  await assert.rejects(
+    readAccessResponse(jsonResponse({ authenticated: true }), { requireAuth: true, requireFields: ['access'] }),
+    (error) => error.code === 'invalid-response',
+  );
+  await assert.rejects(
+    readAccessResponse(jsonResponse({ code: 'expired', message: 'Mã đã hết hạn.' }, 403), {}),
+    (error) => error.code === 'expired' && error.message === 'Mã đã hết hạn.',
+  );
+
+  // The one shape that unlocks the app, plus logout which needs no session.
+  const granted = await readAccessResponse(
+    jsonResponse({ authenticated: true, access: { plan: 'premium' } }),
+    { requireAuth: true, requireFields: ['access'] },
+  );
+  assert.equal(granted.access.plan, 'premium');
+  assert.equal((await readAccessResponse(jsonResponse({ ok: true }))).ok, true);
 });
 
 test('learning progress can be exported and restored safely', () => {
@@ -290,10 +384,25 @@ test('access lifecycle creates, activates and remotely revokes a customer code',
     const stillActive = await call(accessHandler, { method: 'GET', headers: { cookie: learnerCookie } });
     assert.equal(stillActive.statusCode, 200);
 
+    // The browser gate unlocks only on `authenticated === true` plus an access
+    // payload, so every denial must lack both.
+    const anonymous = await call(accessHandler, { method: 'GET' });
+    assert.equal(anonymous.statusCode, 401);
+    assert.equal(anonymous.payload.authenticated, false);
+    assert.equal(anonymous.payload.access, undefined);
+
     const paused = await call(accessAdminHandler, { method: 'POST', headers: { cookie: adminCookie }, body: { action: 'update', codeHash: created.payload.record.codeHash, status: 'paused' } });
     assert.equal(paused.statusCode, 200);
     const revoked = await call(accessHandler, { method: 'GET', headers: { cookie: learnerCookie } });
     assert.equal(revoked.statusCode, 401);
+    assert.equal(revoked.payload.authenticated, false);
+
+    // Admin listing carries the same positive signal the console requires.
+    const listed = await call(accessAdminHandler, { method: 'GET', headers: { cookie: adminCookie } });
+    assert.equal(listed.payload.authenticated, true);
+    const anonymousAdmin = await call(accessAdminHandler, { method: 'GET' });
+    assert.equal(anonymousAdmin.statusCode, 401);
+    assert.equal(anonymousAdmin.payload.authenticated, false);
   } finally {
     globalThis.fetch = originalFetch;
     const restore = (name, value) => value === undefined ? delete process.env[name] : process.env[name] = value;

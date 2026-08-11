@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle2, Clock3, KeyRound, Laptop, LogOut, ShieldCheck, Sparkles } from 'lucide-react';
 import AdminAccessPanel from './AdminAccessPanel';
+import { readAccessResponse } from '../../utils/apiResponse';
 
 const DEVICE_KEY = 'grammarDeviceIdV1';
 
@@ -13,23 +14,33 @@ function getDeviceId() {
   return value;
 }
 
-async function requestAccess(options = {}) {
+async function requestAccess(options = {}, { requireAuth = true } = {}) {
   const response = await fetch('/api/access', { credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, ...options });
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    const error = new Error(data.message || 'Không thể kết nối hệ thống cấp quyền.');
-    error.code = data.code;
-    error.status = response.status;
-    throw error;
-  }
-  return data;
+  // Fail closed: the app unlocks only on our own JSON saying `authenticated:
+  // true` with an access record attached. See src/utils/apiResponse.js.
+  return readAccessResponse(response, { requireAuth, requireFields: requireAuth ? ['access'] : [] });
 }
+
+// `npm run dev` skips the activation screen so the app is workable without a
+// Redis-backed API. Set VITE_FORCE_ACCESS_GATE=1 in .env to exercise the real
+// gate locally. Production builds always go through ProtectedApp.
+const DEV_BYPASS = import.meta.env.DEV && import.meta.env.VITE_FORCE_ACCESS_GATE !== '1';
 
 export default function AccessGate({ children }) {
   const params = new URLSearchParams(window.location.search);
   if (params.get('admin') === 'access') return <AdminAccessPanel />;
-  if (import.meta.env.DEV) return children;
+  if (DEV_BYPASS) return <>{children}<DevBypassNotice /></>;
   return <ProtectedApp>{children}</ProtectedApp>;
+}
+
+function DevBypassNotice() {
+  const [hidden, setHidden] = useState(false);
+  if (hidden) return null;
+  return <aside className="fixed bottom-3 left-3 z-[100] max-w-xs flex items-start gap-2 bg-amber-300 text-slate-900 border-2 border-slate-900 rounded-2xl px-3 py-2 shadow-lg">
+    <KeyRound size={16} className="shrink-0 mt-0.5" />
+    <p className="text-[11px] font-black leading-snug">CHẾ ĐỘ DEV: cổng mã truy cập đang tắt. Bản deploy vẫn yêu cầu mã. Đặt VITE_FORCE_ACCESS_GATE=1 để bật thử.</p>
+    <button onClick={() => setHidden(true)} aria-label="Ẩn thông báo" className="shrink-0 font-black leading-none">×</button>
+  </aside>;
 }
 
 function ProtectedApp({ children }) {
@@ -68,7 +79,7 @@ function ProtectedApp({ children }) {
   };
 
   const logout = async () => {
-    await requestAccess({ method: 'POST', body: JSON.stringify({ action: 'logout' }) }).catch(() => {});
+    await requestAccess({ method: 'POST', body: JSON.stringify({ action: 'logout' }) }, { requireAuth: false }).catch(() => {});
     setState({ status: 'locked', access: null, message: '' });
   };
 
@@ -111,7 +122,7 @@ function PricingModal({ onClose }) {
     else { await navigator.clipboard?.writeText(message); setCopied(true); setTimeout(() => setCopied(false), 1800); }
   };
   const plans = [
-    { name: 'Standard', caption: 'Bắt đầu có định hướng', color: 'bg-slate-100', features: ['Toàn bộ lộ trình ngữ pháp & từ vựng', 'SRS và báo cáo tiến độ', '1 thiết bị'], action: 'MUA STANDARD' },
+    { name: 'Standard', caption: 'Bắt đầu có định hướng', color: 'bg-slate-100', features: ['Toàn bộ lộ trình ngữ pháp & từ vựng', 'SRS và báo cáo tiến độ', 'Trợ lý AI bằng API key miễn phí của bạn', '1 thiết bị'], action: 'MUA STANDARD' },
     { name: 'Premium', caption: 'Lựa chọn phổ biến', color: 'bg-yellow-200', features: ['Tất cả Standard', 'Trợ lý AI viết/nói/ảnh', 'Placement test & chứng nhận', 'Tối đa 3 thiết bị'], action: 'MUA PREMIUM', popular: true },
     { name: 'Trọn đời', caption: 'Đầu tư một lần', color: 'bg-indigo-200', features: ['Tất cả Premium', 'Không hết hạn', 'Ưu tiên hỗ trợ cập nhật', 'Tối đa 5 thiết bị'], action: 'MUA TRỌN ĐỜI' },
   ];
