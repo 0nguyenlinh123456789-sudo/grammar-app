@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, AlertTriangle, GraduationCap, KeyRound } from 'lucide-react';
 import AiKeyDialog from '../components/common/AiKeyDialog';
 import PolicyDialog from '../components/common/PolicyDialog';
+import BottomTabBar from '../components/common/BottomTabBar';
+import BunnyChat from '../components/common/BunnyChat';
 import { hasGeminiKey, subscribeGeminiKey, subscribeOpenAiKeySettings } from '../utils/aiKey';
 import { SHOW_IELTS_FOUNDATION } from '../utils/localOnly';
 
@@ -461,7 +463,21 @@ const MainLayout = ({
       {/* --- MAIN CONTENT PANEL --- */}
       <main id="main-content" tabIndex={-1} className="flex-1 min-w-0 p-4 md:p-8 lg:p-6 xl:p-10 lg:h-screen overflow-x-hidden lg:overflow-y-auto bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:20px_20px] dark:bg-slate-950 transition-colors duration-300 custom-scrollbar">
         {children}
+        {/* Keep content clear of the fixed bottom tab bar on phone/tablet */}
+        <div className="h-20 lg:hidden" aria-hidden="true" />
       </main>
+
+      {/* --- PHONE/TABLET BOTTOM NAV + BUNNY AI --- */}
+      <BottomTabBar
+        appMode={appMode}
+        onSelect={(mode) => {
+          if (mode === 'grammar' && !topicId) setTopicId('b1_01');
+          if (mode === 'home') setTopicId(null);
+          selectMode(mode);
+        }}
+        onMenu={() => setMenuOpen(true)}
+      />
+      <BunnyChat />
 
       {/* --- BRING-YOUR-OWN GEMINI KEY --- */}
       {isAiKeyOpen && <AiKeyDialog onClose={() => setIsAiKeyOpen(false)} />}

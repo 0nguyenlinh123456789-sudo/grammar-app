@@ -73,6 +73,13 @@ Bài làm của học viên: "${text}"
 Phản hồi ngắn gọn bằng tiếng Việt gồm: (1) điểm /10, (2) lỗi ngữ pháp/chính tả và cách sửa, (3) một câu mẫu tự nhiên hơn. Không dùng markdown.` }];
   }
 
+  if (mode === 'chat') {
+    const question = cleanText(payload.question, 800);
+    if (!question) throw new Error('empty-input');
+    const history = cleanText(payload.history, 1500);
+    return [{ text: `Bạn là Bunny — thỏ gia sư tiếng Anh thân thiện của ứng dụng Bunny English. Trả lời NGẮN GỌN bằng tiếng Việt (tối đa 120 từ), kèm ví dụ tiếng Anh có nghĩa tiếng Việt khi phù hợp. Chỉ trả lời các chủ đề học tiếng Anh (ngữ pháp, từ vựng, phát âm, cách học); nếu bị hỏi ngoài lề, nhẹ nhàng lái về việc học. Không dùng markdown.${history ? `\nHội thoại trước:\n${history}` : ''}\nHọc viên hỏi: "${question}"` }];
+  }
+
   if (mode === 'image-vocabulary') {
     const imageData = String(payload.imageData || '').trim();
     const mimeType = cleanText(payload.mimeType, 80);
