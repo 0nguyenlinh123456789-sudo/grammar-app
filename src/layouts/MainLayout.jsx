@@ -99,14 +99,14 @@ const MainLayout = ({
             <p className="text-[9px] font-black uppercase tracking-[0.22em] text-slate-400 dark:text-slate-500">Học tiếng Anh mỗi ngày</p>
           </div>
         </div>
-        <button 
-          onClick={() => setMenuOpen(!menuOpen)} 
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Đóng menu điều hướng' : 'Mở menu điều hướng'}
           aria-expanded={menuOpen}
           aria-controls="main-navigation"
-          className="border-2 border-slate-800 dark:border-slate-700 p-1 rounded-lg shadow-sm bg-white dark:bg-slate-800 dark:text-slate-100 animate-bounce-slow"
+          className="shrink-0 w-11 h-11 flex items-center justify-center border-3 border-slate-800 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800 dark:text-slate-100 shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#020617] active:translate-y-0.5 active:shadow-none transition-all cursor-pointer"
         >
-          <Menu/>
+          <Menu size={24} />
         </button>
       </div>
 
@@ -122,7 +122,9 @@ const MainLayout = ({
       {/* --- SIDEBAR (drawer on mobile/tablet, docked from lg up) --- */}
       <aside id="main-navigation" aria-label="Điều hướng chính" className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:sticky top-0 left-0 h-screen w-72 sm:w-80 lg:w-80 xl:w-96 bg-[#fdfbf7] dark:bg-slate-900 border-r-[4px] border-slate-800 dark:border-slate-700 z-40 transition-transform flex flex-col shadow-[4px_0_0_0_#1e293b] dark:shadow-[4px_0_0_0_#090d16]`}>
          
-         <div className="px-6 py-5 border-b-[4px] border-slate-800 dark:border-slate-700 bg-gradient-to-br from-white via-pink-50/70 to-yellow-50/60 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center gap-4 shrink-0">
+         {/* Brand header: desktop only — on phone/tablet the top bar already
+             carries the bunny + name, a second one in the drawer is redundant */}
+         <div className="px-6 py-5 border-b-[4px] border-slate-800 dark:border-slate-700 bg-gradient-to-br from-white via-pink-50/70 to-yellow-50/60 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 hidden lg:flex items-center gap-4 shrink-0">
            <img src="/bunny_logo.png" alt="Bunny English" className="w-16 h-16 lg:w-20 lg:h-20 object-contain drop-shadow-[3px_4px_0_rgba(30,41,59,0.18)] hover:scale-105 transition-transform select-none" draggable={false} />
            <div className="leading-none">
              <p className="font-black text-2xl lg:text-3xl tracking-tight text-slate-900 dark:text-slate-100">Bunny</p>
