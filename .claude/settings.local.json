@@ -48,7 +48,10 @@
       "Bash(node probe.mjs 9333 \"https://grammar-app-gray.vercel.app/?admin=access\" \"#admin-secret\")",
       "Bash(node probe2.mjs 9333 \"https://grammar-app-gray.vercel.app/?admin=access\")",
       "Bash(node probe.mjs 9333 \"http://localhost:5188/?admin=access\" \"#admin-secret\")",
-      "Bash(node probe.mjs 9333 \"http://localhost:5188/\" \"#access-code\")"
+      "Bash(node probe.mjs 9333 \"http://localhost:5188/\" \"#access-code\")",
+      "Bash(node probe.mjs 9334 \"https://grammar-app-gray.vercel.app/?admin=access\" \"#admin-secret\")",
+      "Bash(powershell -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''chrome.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*remote-debugging-port=933*'\\\\'' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }; Get-CimInstance Win32_Process -Filter \"Name='\\\\''node.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*preview*5188*'\\\\'' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }')",
+      "Bash(rm -rf \"C:/Users/HUYNHN~1/AppData/Local/Temp/claude/D--HocCode-grammar-app/d61443b8-61a7-4f61-bf79-c8961261f9be/scratchpad/chrome-profile\" \"C:/Users/HUYNHN~1/AppData/Local/Temp/claude/D--HocCode-grammar-app/d61443b8-61a7-4f61-bf79-c8961261f9be/scratchpad/chrome-fresh\")"
     ]
   }
 }

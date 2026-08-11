@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $src = [System.Drawing.Image]::FromFile\\('d:\\\\HocCode\\\\grammar-app\\\\public\\\\bunny_neutral.png'\\); $bmp = New-Object System.Drawing.Bitmap\\(256,256\\); $g = [System.Drawing.Graphics]::FromImage\\($bmp\\); $g.InterpolationMode='HighQualityBicubic'; $g.SmoothingMode='HighQuality'; $g.PixelOffsetMode='HighQuality'; $g.DrawImage\\($src,0,0,256,256\\); $g.Dispose\\(\\); $src.Dispose\\(\\); $bmp.Save\\('d:\\\\HocCode\\\\grammar-app\\\\public\\\\bunny_logo.png',[System.Drawing.Imaging.ImageFormat]::Png\\); $bmp.Dispose\\(\\); \\(Get-Item 'd:\\\\HocCode\\\\grammar-app\\\\public\\\\bunny_logo.png'\\).Length)",
+      "PowerShell(npm run build 2>&1)",
+      "Bash(npx eslint *)",
+      "Bash(curl -s https://api.github.com/repos/0nguyenlinh123456789-sudo/grammar-app/commits/d9a3ccb/status)",
+      "Bash(npm run dev -- --port 5199 > /tmp/vite.log 2>&1 & *)",
+      "PowerShell($edge = \"C:\\\\Program Files \\(x86\\)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\"; if\\(-not \\(Test-Path $edge\\)\\){ $edge = \"C:\\\\Program Files\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\" }; $out = \"C:\\\\Users\\\\HUYNHN~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--HocCode-grammar-app\\\\166237df-9ec4-40dd-a0d1-a97597cec9fc\\\\scratchpad\\\\shot_mobile.png\"; & $edge --headless=new --disable-gpu --screenshot=$out --window-size=390,900 --virtual-time-budget=9000 --hide-scrollbars http://localhost:5200/ 2>$null; Start-Sleep 2; \\(Get-Item $out\\).Length)",
+      "PowerShell(@\\(\"C:\\\\Program Files \\(x86\\)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\",\"C:\\\\Program Files\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\",\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\",\"C:\\\\Program Files \\(x86\\)\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\",\"$env:LOCALAPPDATA\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"\\) | ForEach-Object { \"$_ : $\\(Test-Path $_\\)\" })"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
+    ]
+  }
+}
