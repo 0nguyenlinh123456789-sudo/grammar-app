@@ -41,6 +41,20 @@ async function loadVstepTopics() {
   return module.default;
 }
 
+// Warm the two biggest lesson chunks while the browser is idle on the home
+// screen, so the first tap on Từ vựng/Ngữ pháp/Games opens instantly.
+// Skipped on data-saver connections; failures are harmless (the normal
+// on-demand load still runs when the user navigates).
+function prefetchLessonDataWhenIdle() {
+  if (typeof navigator !== 'undefined' && navigator.connection?.saveData) return;
+  const warm = () => {
+    import('./data/vocabVstepData').catch(() => {});
+    import('./data/grammarData').catch(() => {});
+  };
+  if ('requestIdleCallback' in window) window.requestIdleCallback(warm, { timeout: 8000 });
+  else setTimeout(warm, 3500);
+}
+
 async function loadGrammarCatalog() {
   const module = await import('./data/grammarData');
   return { topics: module.parsedGrammarData, levels: module.grammarLevels };
@@ -187,6 +201,8 @@ export default function App() {
 
   // First-run wizard (welcome → goal → placement offer), shown once.
   const [showOnboarding, setShowOnboarding] = useState(needsOnboarding);
+
+  useEffect(() => { prefetchLessonDataWhenIdle(); }, []);
 
   useEffect(() => {
     let syncing = false;
