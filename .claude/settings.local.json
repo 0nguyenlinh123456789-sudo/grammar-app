@@ -42,7 +42,13 @@
       "Bash(curl -s -o /dev/null -w 'trang chu=%{http_code} ' https://grammar-app-gray.vercel.app/)",
       "Bash(curl -s -w 'api_access=%{http_code}\\\\n' https://grammar-app-gray.vercel.app/api/access)",
       "Bash(curl -s -w '\\\\nstatus=%{http_code} type=%{content_type}\\\\n' https://grammar-app-gray.vercel.app/api/access-admin)",
-      "Bash(curl -s https://grammar-app-gray.vercel.app/?admin=access)"
+      "Bash(curl -s https://grammar-app-gray.vercel.app/?admin=access)",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Bash(node -e \"console.log\\('WebSocket global:', typeof WebSocket\\)\")",
+      "Bash(node probe.mjs 9333 \"https://grammar-app-gray.vercel.app/?admin=access\" \"#admin-secret\")",
+      "Bash(node probe2.mjs 9333 \"https://grammar-app-gray.vercel.app/?admin=access\")",
+      "Bash(node probe.mjs 9333 \"http://localhost:5188/?admin=access\" \"#admin-secret\")",
+      "Bash(node probe.mjs 9333 \"http://localhost:5188/\" \"#access-code\")"
     ]
   }
 }

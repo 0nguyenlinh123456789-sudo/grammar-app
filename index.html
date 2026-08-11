@@ -5,7 +5,11 @@
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#facc15" />
-    <meta name="color-scheme" content="light dark" />
+    <!-- Dark mode is class-based (.dark on <html>, toggled in App.jsx), so the
+         document must declare "light" here. Advertising "light dark" made the
+         browser paint default text white on dark-mode systems while the app
+         still drew light backgrounds — invisible text on the access screens. -->
+    <meta name="color-scheme" content="light" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="manifest" href="/manifest.webmanifest" />

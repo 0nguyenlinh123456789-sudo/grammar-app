@@ -137,14 +137,14 @@ export default function AdminAccessPanel() {
   if (authenticated === null) return <FullPageLoader />;
 
   if (!authenticated) return (
-    <main className="min-h-screen bg-[#f7f3e8] dark:bg-slate-950 flex items-center justify-center p-5">
+    <main className="min-h-screen bg-[#f7f3e8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex items-center justify-center p-5">
       <form onSubmit={login} className="w-full max-w-md bg-white dark:bg-slate-900 border-4 border-slate-900 dark:border-slate-700 rounded-[2rem] p-7 shadow-[9px_9px_0_0_#1e293b]">
         <div className="w-16 h-16 rounded-2xl bg-amber-300 border-4 border-slate-900 flex items-center justify-center mb-5"><LockKeyhole size={30} /></div>
         <p className="text-xs font-black tracking-[0.2em] text-amber-600 uppercase">Khu vực chủ sở hữu</p>
         <h1 className="text-3xl font-black text-slate-900 dark:text-white mt-1">Quản lý mã truy cập</h1>
         <p className="text-sm font-bold text-slate-500 mt-2">Nhập khóa quản trị được cấu hình trên máy chủ. Khóa này không được lưu trong trình duyệt.</p>
         <label className="block mt-6 text-xs font-black uppercase text-slate-500" htmlFor="admin-secret">Khóa quản trị</label>
-        <input id="admin-secret" type="password" autoComplete="current-password" value={secret} onChange={(event) => setSecret(event.target.value)} className="mt-2 w-full h-14 px-4 rounded-2xl border-3 border-slate-800 bg-slate-50 dark:bg-slate-800 dark:text-white font-bold outline-none focus:ring-4 focus:ring-amber-200" required />
+        <input id="admin-secret" type="password" autoComplete="current-password" value={secret} onChange={(event) => setSecret(event.target.value)} className="mt-2 w-full h-14 px-4 rounded-2xl border-3 border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white caret-slate-900 dark:caret-white font-bold outline-none focus:ring-4 focus:ring-amber-200" required />
         {message && <p role="alert" className="mt-3 text-sm font-bold text-rose-600">{message}</p>}
         <button disabled={busy === 'login'} className="mt-5 w-full h-14 rounded-2xl bg-slate-900 text-white border-3 border-slate-900 font-black shadow-[4px_4px_0_0_#fbbf24] disabled:opacity-60">{busy === 'login' ? 'ĐANG KIỂM TRA...' : 'MỞ BẢNG QUẢN TRỊ'}</button>
         <a href="/" className="block text-center mt-5 text-sm font-black text-slate-500 hover:text-blue-600">← Về trang học</a>

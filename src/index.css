@@ -31,6 +31,19 @@
 /* Enable class-based dark mode selector in Tailwind v4 */
 @variant dark (&:where(.dark, .dark *));
 
+/* Never inherit the browser's dark-system defaults. Dark mode is opt-in via the
+   .dark class, so a document without it must be painted light explicitly —
+   otherwise a dark-mode OS gives every unstyled element white text on the
+   light backgrounds the app draws. */
+:root {
+  color-scheme: light;
+  color: #0f172a;
+}
+:root.dark {
+  color-scheme: dark;
+  color: #f1f5f9;
+}
+
 /* ==========================================================================
    DARK MODE - Comprehensive Overrides
    Fixes: text visibility, card backgrounds, borders
