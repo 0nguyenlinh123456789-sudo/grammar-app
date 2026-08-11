@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { roadmapData } from '../data/roadmapData';
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
@@ -9,9 +9,11 @@ import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
 import PetZoo from '../components/common/PetZoo';
 import SrsReview from '../components/vocab/SrsReview';
-import { getDueCount } from '../utils/srs';
+import WordNotebook from '../components/vocab/WordNotebook';
+import { getDueCount, getTotalCount } from '../utils/srs';
 import { isMuted, setMuted } from '../utils/sound';
 import { freezesLeft, frozeToday } from '../utils/streakFreeze';
+import { downloadAchievementCard } from '../utils/shareCard';
 import { createLearningBackup, restoreLearningBackup } from '../utils/backup';
 import { buildActivityWindow } from '../utils/activityHistory';
 import { countGoalDays, DAILY_GOAL_OPTIONS } from '../utils/dailyGoal';
@@ -46,6 +48,15 @@ const WelcomePage = ({
   const [showPlacement, setShowPlacement] = useState(false);
   const [muted, setMutedState] = useState(isMuted());
   const [backupMessage, setBackupMessage] = useState('');
+  const [showNotebook, setShowNotebook] = useState(false);
+
+  // The onboarding wizard fires this event when the learner picks
+  // "LÀM TEST NGAY" — the placement modal lives here, not in App.
+  useEffect(() => {
+    const open = () => setShowPlacement(true);
+    window.addEventListener('bunny:open-placement', open);
+    return () => window.removeEventListener('bunny:open-placement', open);
+  }, []);
   const backupInputRef = useRef(null);
   const dueCount = getDueCount();
   const dailyDone = (dailyStats?.lessons || 0) >= dailyGoal;
@@ -210,6 +221,7 @@ const WelcomePage = ({
     <div className="max-w-5xl mx-auto pb-24 font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
 
       {showReview && <SrsReview onClose={() => setShowReview(false)} playAudio={playAudio} />}
+      {showNotebook && <WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} />}
       {showPlacement && <PlacementTest onClose={() => setShowPlacement(false)} onComplete={(result) => { setPlacementResult?.(result); setShowPlacement(false); }} />}
 
       {/* --- HERO DASHBOARD CARD --- */}
@@ -415,6 +427,9 @@ const WelcomePage = ({
               <p className="font-bold text-slate-500 dark:text-slate-400 text-sm">
                 {dueCount > 0 ? <><span className="text-violet-600 dark:text-violet-400 font-black">{dueCount} từ</span> cần ôn hôm nay</> : 'Chưa có từ nào cần ôn'}
               </p>
+              <button onClick={() => setShowNotebook(true)} className="mt-1 text-xs font-black text-violet-600 dark:text-violet-400 hover:underline cursor-pointer">
+                📔 Sổ tay của tôi ({getTotalCount()} từ)
+              </button>
             </div>
           </div>
           <button
@@ -463,10 +478,20 @@ const WelcomePage = ({
 
       {/* --- ACHIEVEMENTS / BADGES --- */}
       <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10">
-        <div className="flex items-center gap-2 mb-4">
+        <div className="flex items-center gap-2 mb-4 flex-wrap">
           <Award size={24} className="text-yellow-500" />
           <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Huy Hiệu Thành Tích</h3>
           <span className="ml-auto text-sm font-black bg-yellow-300 dark:bg-yellow-500 text-slate-900 px-3 py-1 rounded-full border-2 border-slate-800">{unlockedCount}/{achievements.length}</span>
+          <button
+            onClick={() => downloadAchievementCard({
+              rank: getRankName(completedCount), xp, streak,
+              completed: completedCount, total: totalMilestonesCount, badges: unlockedCount,
+            })}
+            title="Tải ảnh thành tích để chia sẻ Facebook/Zalo"
+            className="text-xs font-black px-3 py-1.5 rounded-xl border-2 border-slate-800 dark:border-slate-600 bg-sky-100 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 shadow-[2px_2px_0_0_#1e293b] hover:bg-sky-200 cursor-pointer"
+          >
+            📸 CHIA SẺ
+          </button>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
           {achievements.map(a => (

@@ -50,6 +50,8 @@ async function loadGrammarCatalog() {
 import MainLayout from './layouts/MainLayout';
 import { SHOW_IELTS_FOUNDATION } from './utils/localOnly';
 import { tryConsumeFreezes } from './utils/streakFreeze';
+import OnboardingWizard from './components/common/OnboardingWizard';
+import { needsOnboarding } from './utils/onboarding';
 
 // Page/Route layer — lazy-loaded so each route ships as its own chunk and the
 // initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
@@ -182,6 +184,9 @@ export default function App() {
       return saved && typeof saved === 'object' ? saved : null;
     } catch { return null; }
   });
+
+  // First-run wizard (welcome → goal → placement offer), shown once.
+  const [showOnboarding, setShowOnboarding] = useState(needsOnboarding);
 
   useEffect(() => {
     let syncing = false;
@@ -613,6 +618,21 @@ export default function App() {
   };
 
   return (
+    <>
+    {showOnboarding && (
+      <OnboardingWizard
+        dailyGoal={dailyGoal}
+        setDailyGoal={setDailyGoal}
+        onFinish={(openPlacement) => {
+          setShowOnboarding(false);
+          if (openPlacement) {
+            setAppMode('home');
+            // WelcomePage listens for this and opens the placement test.
+            setTimeout(() => window.dispatchEvent(new Event('bunny:open-placement')), 350);
+          }
+        }}
+      />
+    )}
     <MainLayout
       xp={xp}
       appMode={appMode}
@@ -643,5 +663,6 @@ export default function App() {
         {renderContent()}
       </Suspense>
     </MainLayout>
+    </>
   );
 }

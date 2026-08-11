@@ -96,3 +96,16 @@ export function addWord(word) {
 export function hasWord(word) {
   return Boolean(load()[keyOf(word)]);
 }
+
+// Every card in the deck, newest activity first — powers the "Sổ tay" view.
+export function getAllCards() {
+  return Object.values(load()).sort((a, b) => (b.updated ?? 0) - (a.updated ?? 0));
+}
+
+export function removeWord(word) {
+  const k = keyOf(word);
+  if (!k) return;
+  const store = load();
+  delete store[k];
+  save(store);
+}
