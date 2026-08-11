@@ -91,8 +91,12 @@ const MainLayout = ({
       
       {/* --- MOBILE / TABLET HEADER --- */}
       <div className="lg:hidden bg-white dark:bg-slate-900 border-b-4 border-slate-800 dark:border-slate-700 p-4 flex justify-between items-center sticky top-0 z-30 shadow-md">
-        <div className="font-black text-xl flex items-center gap-2 dark:text-slate-100">
-          <img src="/bunny_logo.png" alt="Bunny English Logo" className="w-8 h-8 rounded-lg border-2 border-slate-800 shadow-[2px_2px_0px_0px_#1e293b] p-0.5 bg-[#fdfbf7] dark:bg-slate-800 object-contain" /> Bunny English
+        <div className="flex items-center gap-2.5">
+          <img src="/bunny_logo.png" alt="Bunny English" className="w-11 h-11 object-contain drop-shadow-[2px_3px_0_rgba(30,41,59,0.18)] select-none" draggable={false} />
+          <div className="leading-tight">
+            <p className="font-black text-xl tracking-tight text-slate-900 dark:text-slate-100">Bunny <span className="text-pink-500">English</span></p>
+            <p className="text-[9px] font-black uppercase tracking-[0.22em] text-slate-400 dark:text-slate-500">Học tiếng Anh mỗi ngày</p>
+          </div>
         </div>
         <button 
           onClick={() => setMenuOpen(!menuOpen)} 
@@ -117,9 +121,13 @@ const MainLayout = ({
       {/* --- SIDEBAR (drawer on mobile/tablet, docked from lg up) --- */}
       <aside id="main-navigation" aria-label="Điều hướng chính" className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:sticky top-0 left-0 h-screen w-72 sm:w-80 lg:w-80 xl:w-96 bg-[#fdfbf7] dark:bg-slate-900 border-r-[4px] border-slate-800 dark:border-slate-700 z-40 transition-transform flex flex-col shadow-[4px_0_0_0_#1e293b] dark:shadow-[4px_0_0_0_#090d16]`}>
          
-         <div className="p-6 border-b-[4px] border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-900 font-black text-2xl hidden lg:flex items-center gap-3 dark:text-slate-100">
-           <img src="/bunny_logo.png" alt="Bunny English Logo" className="w-12 h-12 rounded-xl border-[3px] border-slate-800 shadow-[3px_3px_0px_0px_#1e293b] p-1 bg-[#fdfbf7] dark:bg-slate-800 object-contain" />
-           Bunny English
+         <div className="px-6 py-5 border-b-[4px] border-slate-800 dark:border-slate-700 bg-gradient-to-br from-white via-pink-50/70 to-yellow-50/60 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center gap-4 shrink-0">
+           <img src="/bunny_logo.png" alt="Bunny English" className="w-16 h-16 lg:w-20 lg:h-20 object-contain drop-shadow-[3px_4px_0_rgba(30,41,59,0.18)] hover:scale-105 transition-transform select-none" draggable={false} />
+           <div className="leading-none">
+             <p className="font-black text-2xl lg:text-3xl tracking-tight text-slate-900 dark:text-slate-100">Bunny</p>
+             <p className="font-black text-2xl lg:text-3xl tracking-tight text-pink-500">English</p>
+             <p className="text-[9px] font-black uppercase tracking-[0.24em] text-slate-400 dark:text-slate-500 mt-2">Học tiếng Anh mỗi ngày</p>
+           </div>
          </div>
          
 
