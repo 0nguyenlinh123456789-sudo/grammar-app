@@ -95,7 +95,7 @@ function ProtectedApp({ children }) {
   if (state.status === 'checking') return <div className="min-h-screen bg-[#fff9e8] dark:bg-slate-950 flex items-center justify-center"><div className="w-12 h-12 rounded-full border-4 border-slate-300 border-t-blue-500 animate-spin" aria-label="Đang kiểm tra quyền truy cập" /></div>;
   if (state.status === 'active') return <>{children}<AccessBadge access={state.access} onLogout={logout} /></>;
 
-  return <main className="min-h-screen bg-[#fff9e8] dark:bg-slate-950 text-slate-900 dark:text-white p-5 flex items-center justify-center relative overflow-hidden">
+  return <main className="min-h-screen bg-[#fff9e8] dark:bg-slate-950 text-slate-900 dark:text-white p-5 flex flex-col items-center justify-center gap-10 relative overflow-hidden">
     <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-yellow-300/40 blur-3xl" /><div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-blue-300/30 blur-3xl" />
     <section className="relative w-full max-w-5xl grid lg:grid-cols-[1.05fr_0.95fr] bg-white dark:bg-slate-900 border-4 border-slate-900 dark:border-slate-700 rounded-[2.25rem] overflow-hidden shadow-[12px_12px_0_0_#1e293b]">
       <div className="p-7 md:p-10 bg-gradient-to-br from-blue-500 to-indigo-700 text-white">
@@ -121,9 +121,58 @@ function ProtectedApp({ children }) {
         </button>
       </form>
     </section>
+    <LandingSections onPricing={() => setShowPricing(true)} />
     {showPricing && <PricingModal onClose={() => setShowPricing(false)} />}
     {showPolicy && <PolicyDialog onClose={() => setShowPolicy(false)} />}
   </main>;
+}
+
+// Public landing content shown under the activation card for visitors
+// without a code — the sales pitch lives here, not behind the gate.
+function LandingSections({ onPricing }) {
+  const features = [
+    { icon: '🎧', title: 'Đủ 4 kỹ năng', desc: 'Nghe – Nói – Đọc – Viết luyện xen kẽ trong từng chủ đề, không học lệch.' },
+    { icon: '🗺️', title: 'Lộ trình A1 → C2', desc: '44 chặng từ mất gốc đến nâng cao, kèm test đầu vào xếp đúng trình độ.' },
+    { icon: '🤖', title: 'Gia sư AI', desc: 'Chấm bài viết, quét từ vựng từ ảnh và hỏi đáp ngữ pháp bằng AI Gemini.' },
+    { icon: '🧠', title: 'Ôn đúng lúc sắp quên', desc: 'Từ vựng và câu làm sai tự quay lại theo lịch khoa học 3–7–14 ngày.' },
+    { icon: '🎮', title: 'Học mà chơi', desc: '6 trò chơi từ vựng, vườn thú thỏ Bunny, huy hiệu và chuỗi ngày học.' },
+    { icon: '📊', title: 'Báo cáo rõ ràng', desc: 'Biểu đồ 7 ngày, báo cáo phụ huynh in được và chứng nhận hoàn thành.' },
+  ];
+  const faqs = [
+    ['Tôi mất gốc có học được không?', 'Được! Bài test đầu vào 5 phút sẽ xếp bạn vào đúng chặng A1, học từ điều cơ bản nhất với hướng dẫn tiếng Việt.'],
+    ['Học trên điện thoại được không?', 'Được — Bunny English chạy mượt trên điện thoại, máy tính bảng và máy tính; tiến độ đồng bộ theo mã truy cập.'],
+    ['Tính năng AI có tốn thêm phí không?', 'Bạn dùng API key Gemini miễn phí của Google (hướng dẫn lấy trong 1 phút), nên AI không phát sinh phí hằng tháng.'],
+  ];
+  return <>
+    <section className="relative w-full max-w-5xl">
+      <h2 className="text-2xl md:text-3xl font-black text-center">Vì sao chọn Bunny English?</h2>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        {features.map((f) => (
+          <article key={f.title} className="bg-white dark:bg-slate-900 border-3 border-slate-900 dark:border-slate-700 rounded-3xl p-5 shadow-[5px_5px_0_0_#1e293b]">
+            <p className="text-3xl" aria-hidden="true">{f.icon}</p>
+            <h3 className="font-black text-lg mt-2">{f.title}</h3>
+            <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{f.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section className="relative w-full max-w-3xl">
+      <h2 className="text-2xl font-black text-center">Câu hỏi thường gặp</h2>
+      <div className="mt-5 space-y-3">
+        {faqs.map(([q, a]) => (
+          <details key={q} className="bg-white dark:bg-slate-900 border-3 border-slate-900 dark:border-slate-700 rounded-2xl p-4 shadow-[4px_4px_0_0_#1e293b]">
+            <summary className="font-black cursor-pointer">{q}</summary>
+            <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">{a}</p>
+          </details>
+        ))}
+      </div>
+      <div className="text-center mt-8 pb-6">
+        <button onClick={onPricing} className="px-8 py-4 rounded-2xl bg-yellow-300 text-slate-950 border-4 border-slate-900 font-black text-lg shadow-[5px_5px_0_0_#1e293b] hover:translate-y-0.5 transition-all cursor-pointer">
+          XEM BẢNG GIÁ & ĐĂNG KÝ HỌC 🐰
+        </button>
+      </div>
+    </section>
+  </>;
 }
 
 function PricingModal({ onClose }) {
