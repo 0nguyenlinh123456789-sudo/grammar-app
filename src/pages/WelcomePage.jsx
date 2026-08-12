@@ -113,14 +113,18 @@ const WelcomePage = ({
     }
   };
 
-  // Rank name based on completed milestones
+  // Danh hiệu theo SỐ CHẶNG ĐÃ HỌC — đo sự chuyên cần, KHÔNG phải trình độ.
+  // (#0-A1) Trước đây gắn nhãn CEFR ("C2 Master", "B1 Explorer"…) theo số
+  // milestone: học đủ 30 chặng là được gọi C2 dù chưa có bài kiểm tra năng lực
+  // nào. Nhãn CEFR đã bỏ hẳn; chuỗi này còn được vẽ lên ảnh chia sẻ
+  // (utils/shareCard.js) nên sai ở đây là sai ra ngoài mạng xã hội.
   const getRankName = (count) => {
-    if (count >= 30) return '🏆 Bậc Thầy (C2 Master)';
-    if (count >= 22) return '🌟 Chuyên Gia (C1 Expert)';
-    if (count >= 15) return '⭐ Chiến Binh (B2 Warrior)';
-    if (count >= 8)  return '🌿 Người Khám Phá (B1 Explorer)';
-    if (count >= 3)  return '🌱 Tân Binh (A2 Starter)';
-    return '👶 Mới Bắt Đầu (A1 Beginner)';
+    if (count >= 30) return '🏆 Bậc Thầy Chuyên Cần';
+    if (count >= 22) return '🌟 Chuyên Gia Bền Bỉ';
+    if (count >= 15) return '⭐ Chiến Binh Chăm Chỉ';
+    if (count >= 8)  return '🌿 Người Khám Phá Kiên Trì';
+    if (count >= 3)  return '🌱 Tân Binh Siêng Năng';
+    return '👶 Mới Bắt Đầu';
   };
 
   const getMilestoneTypeBadge = (type) => {
