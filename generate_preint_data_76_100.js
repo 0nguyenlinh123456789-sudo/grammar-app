@@ -1,5 +1,39 @@
 import fs from 'fs';
 
+// ============================================================================
+// CHÍNH SÁCH DỮ LIỆU (2026-08-12): Generator này KHÔNG được bịa nội dung.
+// Bản cũ đã sinh: 600 item kéo-thả "liên quan tới X", 500 câu quiz với
+// distractor literal "wrong_word_1/2/3", "họ từ" ngụy tạo ("operatorful"),
+// và câu điền trống filler — xem AUDIT_SU_PHAM.md mục 9. Quy tắc:
+//   1. Chỉ sinh item từ dữ liệu curated có thật.
+//   2. Thiếu dữ liệu làm giàu (collocation/synonym/họ từ) → BỎ QUA, không bịa.
+//   3. Dữ liệu cốt lõi bất thường → THROW, dừng toàn bộ; writeFileSync chỉ
+//      chạy sau khi compile + kiểm tra xong nên không bao giờ có file dở dang.
+// ============================================================================
+
+function blankExample(word, example, unitNum, placeholder) {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`\\b${escaped}\\b`, 'gi');
+  if (!re.test(example)) {
+    throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}: câu ví dụ của "${word}" không chứa chính từ đó ("${example}"). Sửa dữ liệu gốc rồi chạy lại.`);
+  }
+  return example.replace(re, placeholder);
+}
+
+function validateRawUnit(unit) {
+  const { unitNum, title, buckets, words } = unit;
+  if (!Number.isInteger(unitNum) || !title || !Array.isArray(buckets) || buckets.length < 2) {
+    throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum ?? '?'}: thiếu unitNum/title/buckets.`);
+  }
+  if (!Array.isArray(words) || words.length < 4) throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}: cần tối thiểu 4 words.`);
+  for (const w of words) {
+    for (const field of ['word', 'type', 'phonetic', 'vi', 'example']) {
+      if (!w[field]) throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}, từ "${w.word || '?'}": thiếu trường "${field}".`);
+    }
+    if (buckets[w.bucket] === undefined) throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}, từ "${w.word}": bucket ${w.bucket} không tồn tại.`);
+  }
+}
+
 const rawUnits = [
   {
     unitNum: 76,
@@ -405,14 +439,12 @@ const rawUnits = [
 
 // Helper to compile Unit data into complete 3-Tier structures, Quizzes, Drag Drops and Typing Games
 function compileUnit(unit) {
+  validateRawUnit(unit);
   const { unitNum, title, description, buckets, words } = unit;
 
-  // Enhance words with collocations and fake wordFamily for structural consistency
-  const enhancedWords = words.map(w => ({
-    ...w,
-    collocations: ['use ' + w.word, 'about ' + w.word],
-    wordFamily: 'Biến thể từ vựng của ' + w.word
-  }));
+  // CHÍNH SÁCH: không gắn collocation/wordFamily bịa ("use X", "about X",
+  // "Biến thể từ vựng của X") lên coreVocab — dùng đúng dữ liệu curated.
+  const enhancedWords = words;
 
   // Build basic theory structure mapping
   const coreVocabList = [{
@@ -433,79 +465,47 @@ function compileUnit(unit) {
     }))
   }];
 
-  const families = words.slice(0, 3).map(w => {
-    let related = [];
-    if (w.type.includes('Động từ')) related.push(`${w.word}er (Danh từ)`);
-    if (w.type.includes('Danh từ')) related.push(`${w.word}ful (Tính từ)`);
-    if (w.type.includes('Tính từ')) related.push(`${w.word}ly (Trạng từ)`);
-    return {
-      title: `Họ từ (Word Family) của "${w.word}"`,
-      value: related.length ? related.join(', ') : `Các dạng từ loại khác của "${w.word}" đang được cập nhật.`
-    };
-  });
-
-  const collocations = words.slice(3, 6).map(w => {
-    let colls = [];
-    if (w.type.includes('Danh từ')) colls = [`have a ${w.word}`, `make a ${w.word}`, `good ${w.word}`];
-    if (w.type.includes('Động từ')) colls = [`${w.word} quickly`, `always ${w.word}`];
-    if (w.type.includes('Tính từ')) colls = [`very ${w.word}`, `extremely ${w.word}`];
-    return {
-      title: `Cụm từ (Collocations) với "${w.word}"`,
-      value: colls.length ? `Ví dụ: ${colls.join(', ')}` : `Cụm từ liên quan đến ${w.word}`
-    };
-  });
-
+  // ĐÃ XÓA khối "families" ghép hậu tố mù quáng ("operatorful (Tính từ)",
+  // "engagedly (Trạng từ)" — dạy từ tiếng Anh KHÔNG TỒN TẠI) và khối
+  // "collocations" template ("have a data, make a data, good data").
+  // Chưa có nội dung curated tương đương → discoveryCorner để trống, UI tự ẩn.
   const theory = {
     coreVocab: enhancedWords,
     practicalUsage: practicalUsageList,
-    discoveryCorner: [
-      {
-        heading: `💡 Góc khám phá: Word Families (Họ từ)`,
-        intro: `Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit ${unitNum}:`,
-        details: families
-      },
-      {
-        heading: `🔥 Góc khám phá: Collocations (Cụm từ đi kèm)`,
-        intro: `Học cách sử dụng từ tự nhiên như người bản xứ:`,
-        details: collocations
-      }
-    ]
+    discoveryCorner: []
   };
 
-  // Build DragDrop items (32 items)
-  const dragDropItems = [];
-  [...enhancedWords, ...enhancedWords, ...enhancedWords, ...enhancedWords].forEach((w, index) => {
-    dragDropItems.push({
-      id: "dd_" + index,
-      word: index < 8 ? w.word : "liên quan tới " + w.word,
-      target: buckets[w.bucket],
-      vi: w.vi
-    });
-  });
+  // Build DragDrop items: mỗi từ curated đúng 1 item. ĐÃ XÓA phép nhân ×4 với
+  // "liên quan tới X" (600 item rác/25 unit đã ship — xem chính sách đầu file).
+  const dragDropItems = words.map((w, index) => ({
+    id: "dd_" + index,
+    word: w.word,
+    target: buckets[w.bucket],
+    vi: w.vi
+  }));
 
   const dragDrop = { buckets, items: dragDropItems };
 
-  // Build Quizzes (20 questions)
-  const quiz = [];
-  for(let i=0; i<20; i++){
-    const w = enhancedWords[i % 8];
-    quiz.push({
+  // Build Quizzes: mỗi từ 1 câu. Distractor là 3 TỪ CURATED khác của chính
+  // unit (xoay vòng xác định) — TUYỆT ĐỐI không dùng chuỗi giả "wrong_word_N".
+  // Vị trí đáp án rải theo i % 4; xáo trộn thêm là việc của UI runtime.
+  const quiz = words.map((w, i) => {
+    const distractors = [1, 2, 3].map(k => words[(i + k) % words.length].word);
+    const options = [...distractors];
+    options.splice(i % 4, 0, w.word);
+    return {
       q: 'Từ nào có nghĩa là "' + w.vi + '"?',
-      options: [w.word, "wrong_word_1", "wrong_word_2", "wrong_word_3"],
+      options,
       a: w.word
-    });
-  }
+    };
+  });
 
-  // Build Typing Games (20 questions)
-  const typingGame = [];
-  for(let i=0; i<20; i++){
-    const w = enhancedWords[i % 8];
-    typingGame.push({
-      q: 'Gõ từ tiếng Anh có nghĩa là: "' + w.vi + '"',
-      hint: w.word.split('').map((c, idx) => idx % 2 === 0 ? c : '_').join(''),
-      a: w.word
-    });
-  }
+  // Build Typing Games: mỗi từ 1 câu (bỏ vòng lặp ép đủ 20 tạo 12 câu trùng lặp).
+  const typingGame = words.map((w) => ({
+    q: 'Gõ từ tiếng Anh có nghĩa là: "' + w.vi + '"',
+    hint: w.word.split('').map((c, idx) => idx % 2 === 0 ? c : '_').join(''),
+    a: w.word
+  }));
 
   // Build Textbook Exercises (5 Dynamic Exercises)
   const ex1 = {
@@ -513,13 +513,9 @@ function compileUnit(unit) {
     type: 'fill_in_blanks',
     instruction: "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
     questions: words.slice(0, 4).map((w, idx) => {
-      let sentence = w.example;
-      const regex = new RegExp("\\b" + w.word + "\\b", "gi");
-      if (regex.test(sentence)) {
-        sentence = sentence.replace(regex, "[blank]");
-      } else {
-        sentence = `The correct word is [blank].`;
-      }
+      // blankExample THROW nếu ví dụ không chứa từ — nhánh filler cũ
+      // ("The correct word is [blank].") đã bị xóa theo chính sách đầu file.
+      const sentence = blankExample(w.word, w.example, unitNum, '[blank]');
       return {
         id: `ex_${unitNum}_1_${idx}`,
         text: sentence,
@@ -538,7 +534,9 @@ function compileUnit(unit) {
       return {
         id: `ex_${unitNum}_2_${idx}`,
         text: w.word,
-        options: words.slice(4, 8).map(x => x.vi).sort(() => Math.random() - 0.5),
+        // Xoay vòng xác định thay cho Math.random (output tái lập được;
+        // xáo trộn cho người học là việc của UI runtime).
+        options: words.slice(4, 8).map((_, i, arr) => arr[(i + idx) % arr.length].vi),
         answer: w.vi,
         explanation: `Từ "${w.word}" có nghĩa chính xác là "${w.vi}".`
       };
@@ -566,8 +564,13 @@ function compileUnit(unit) {
     questions: words.slice(2, 4).map((w, idx) => {
       let badWord = w.word + "s";
       if (w.word.endsWith('s')) badWord = w.word.slice(0, -1);
-      let badExample = w.example.replace(new RegExp("\\b" + w.word + "\\b", 'i'), badWord);
-      if (badExample === w.example) badExample = `I really like ${badWord}.`;
+      // Câu sai được biến đổi TỪ câu ví dụ curated (lỗi số ít/số nhiều có chủ
+      // đích, đáp án đúng là chính câu curated). Không biến đổi được → THROW;
+      // nhánh filler cũ tự bịa "I really like X." đã bị xóa.
+      const badExample = w.example.replace(new RegExp("\\b" + w.word + "\\b", 'i'), badWord);
+      if (badExample === w.example) {
+        throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}: không tạo được câu sửa lỗi cho "${w.word}" (ví dụ không chứa từ). Sửa dữ liệu gốc rồi chạy lại.`);
+      }
       return {
         id: `ex_${unitNum}_4_${idx}`,
         original: badExample,
@@ -582,13 +585,9 @@ function compileUnit(unit) {
     type: 'fill_in_blanks',
     instruction: "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
     questions: words.slice(4, 8).map((w, idx) => {
-      let sentence = w.example;
-      const regex = new RegExp("\\b" + w.word + "\\b", "gi");
-      if (regex.test(sentence)) {
-        sentence = sentence.replace(regex, "[blank]");
-      } else {
-        sentence = `This [blank] is very important.`;
-      }
+      // blankExample THROW nếu ví dụ không chứa từ — nhánh filler cũ
+      // ("This [blank] is very important.") đã bị xóa theo chính sách đầu file.
+      const sentence = blankExample(w.word, w.example, unitNum, '[blank]');
       return {
         id: `ex_${unitNum}_5_${idx}`,
         text: sentence,
@@ -609,6 +608,31 @@ function compileUnit(unit) {
 }
 
 const compiledCourseData = rawUnits.map(compileUnit);
+
+// KIỂM TRA OUTPUT TRƯỚC KHI GHI FILE — vi phạm là THROW, không có file dở dang.
+// (Chốt chặn đầy đủ hơn: scripts/validate_content.mjs, chạy trong npm test.)
+function assertCleanOutput(units) {
+  const TEMPLATE = /use the word |frequently use |study the word |liên quan tới |wrong_word_/i;
+  const FAKE_SYN = / (synonym|derivative)$/i;
+  const VIET = /[àáảãạăắằẳẵặâấầẩẫậđèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵ]/i;
+  for (const u of units) {
+    for (const it of (u.dragDrop?.items || [])) {
+      if (VIET.test(it.word) || TEMPLATE.test(it.word) || FAKE_SYN.test(it.word)) throw new Error(`[assertCleanOutput] ${u.id}: dragDrop word rác "${it.word}"`);
+    }
+    for (const q of (u.quiz || [])) {
+      if (TEMPLATE.test(q.q) || TEMPLATE.test(q.a) || q.options.some((o) => TEMPLATE.test(o))) throw new Error(`[assertCleanOutput] ${u.id}: quiz rác "${q.q}"`);
+      if (!q.options.includes(q.a)) throw new Error(`[assertCleanOutput] ${u.id}: đáp án không nằm trong options`);
+      if (new Set(q.options).size !== q.options.length) throw new Error(`[assertCleanOutput] ${u.id}: options trùng nhau`);
+    }
+    for (const t of (u.typingGame || [])) {
+      if (TEMPLATE.test(t.a) || FAKE_SYN.test(t.a)) throw new Error(`[assertCleanOutput] ${u.id}: typing rác "${t.a}"`);
+    }
+    if ((u.quiz?.length || 0) < 8 || (u.typingGame?.length || 0) < 8 || (u.dragDrop?.items?.length || 0) < 8) {
+      throw new Error(`[assertCleanOutput] ${u.id}: dưới ngưỡng tối thiểu 8 quiz/8 typing/8 dragDrop.`);
+    }
+  }
+}
+assertCleanOutput(compiledCourseData);
 
 const fileContent = "// File: src/data/oxfordPreIntData76_100.js\n" +
 "// Auto-generated data file containing Units 76-100.\n" +

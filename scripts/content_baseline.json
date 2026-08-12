@@ -1,0 +1,86 @@
+{
+  "_readme": [
+    "BASELINE RÁC TỒN ĐỌNG trong dữ liệu THÔ — cơ chế BÁNH CÓC (ratchet):",
+    "- validate_content.mjs so số vi phạm hiện tại với file này THEO TỪNG LUẬT × TỪNG FILE.",
+    "- Vi phạm TĂNG so với baseline (kể cả khi luật khác giảm) => FAIL build.",
+    "- Vi phạm GIẢM => script tự ghi số mới xuống đây (chỉ đi xuống); hãy commit file này cùng thay đổi dữ liệu.",
+    "- Muốn TĂNG một ô baseline: sửa tay ở đây và BẮT BUỘC ghi lý do vào _increase_log bên dưới.",
+    "- Số kiểm kê gốc: 2026-08-12, xem AUDIT_SU_PHAM.md mục 9.",
+    "- File dữ liệu sinh lại sạch (hạng mục #3) sẽ tự ratchet về 0 nhờ cơ chế này."
+  ],
+  "_increase_log": [
+    "2026-08-12 (e): thêm 2 luật MỚI 'speaking-trans' (250 câu, 7 file) và 'drag-vi' (400 hint, oxfordPreIntData.js) — kiểm kê lần đầu rác tồn đọng đã có sẵn trong dữ liệu, KHÔNG phải rác mới; contentFilter đã ẩn ở runtime cùng ngày.",
+    "2026-08-12 (e1): thêm luật MỚI 'vocab-example-pair' (553 cặp example/viExample máy-sinh: vocabFinalData 356, vocabMoreData 184, vocabExtendedData 13) — kiểm kê lần đầu; sanitizeVocabTopics đã ẩn ở runtime cùng ngày.",
+    "2026-08-12 (f2): thêm luật MỚI 'typing-fake-meaning' (393 câu typing 'Gõ cụm từ tiếng Anh có nghĩa là: cảm thấy rất/sử dụng một/nỗ lực thực hiện + từ Anh chưa dịch', oxfordPreIntData.js) — kiểm kê lần đầu, contentFilter đã ẩn runtime cùng ngày."
+  ],
+  "files": {
+    "vocabExtendedData.js": {
+      "vocab-example-pair": 13
+    },
+    "vocabFinalData.js": {
+      "vocab-example-pair": 356
+    },
+    "vocabMoreData.js": {
+      "vocab-example-pair": 184
+    },
+    "oxfordAdvancedData1_25.js": {
+      "textbook": 13,
+      "textbook-original": 2,
+      "speaking-trans": 25
+    },
+    "oxfordAdvancedData26_50.js": {
+      "textbook": 27,
+      "textbook-original": 7,
+      "speaking-trans": 25
+    },
+    "oxfordAdvancedData51_75.js": {
+      "textbook": 19,
+      "textbook-original": 5,
+      "speaking-trans": 25
+    },
+    "oxfordAdvancedData76_100.js": {
+      "textbook": 56,
+      "textbook-original": 18,
+      "speaking-trans": 25
+    },
+    "oxfordData.js": {
+      "textbook": 153,
+      "theory": 99,
+      "textbook-original": 39
+    },
+    "oxfordDataPart2.js": {
+      "textbook": 32,
+      "theory": 40,
+      "textbook-original": 9
+    },
+    "oxfordDataPart3.js": {
+      "textbook": 21,
+      "theory": 48,
+      "textbook-original": 5
+    },
+    "oxfordPreIntData.js": {
+      "dragDrop": 786,
+      "drag-vi": 400,
+      "quiz": 392,
+      "typing": 197,
+      "typing-fake-meaning": 393,
+      "theory": 543,
+      "speaking-trans": 100
+    },
+    "oxfordPreIntData51_75.js": {
+      "dragDrop": 600,
+      "quiz-option": 500,
+      "textbook": 10,
+      "theory": 88,
+      "speaking-trans": 25
+    },
+    "oxfordPreIntData76_100.js": {
+      "dragDrop": 600,
+      "quiz-option": 500,
+      "textbook": 16,
+      "theory": 75,
+      "textbook-original": 5,
+      "speaking-trans": 25
+    }
+  }
+}

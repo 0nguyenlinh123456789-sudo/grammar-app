@@ -2,6 +2,55 @@
 // File: generate_preint_data.js
 import fs from 'fs';
 
+// ============================================================================
+// CHÍNH SÁCH DỮ LIỆU (2026-08-12) — ĐỌC TRƯỚC KHI SỬA FILE NÀY
+// Generator này KHÔNG được bịa nội dung. Trước đây các nhánh fallback tự chế
+// collocation/synonym/word-family đã bơm ~2.600 item bài tập rác và hàng trăm
+// mục lý thuyết ngụy tạo ("reviseer", "washbasinful") vào app — xem
+// AUDIT_SU_PHAM.md mục 9. Quy tắc bắt buộc:
+//   1. Chỉ sinh item từ dữ liệu curated (viết tay) có thật.
+//   2. Phần làm giàu tùy chọn (collocation/synonym/họ từ) thiếu dữ liệu curated
+//      → BỎ QUA item đó. Chất lượng > số lượng.
+//   3. Phần cốt lõi gặp dữ liệu bất thường (ví dụ: câu ví dụ không chứa từ cần
+//      điền) → THROW và dừng toàn bộ. Không ghi file dở dang (writeFileSync chỉ
+//      chạy sau khi toàn bộ compile + kiểm tra output đã xong). Không bao giờ
+//      sinh chuỗi thay thế.
+// ============================================================================
+
+// Dừng toàn bộ khi thiếu dữ liệu bắt buộc — không sinh chuỗi thay thế.
+function requireData(value, message) {
+  if (value === undefined || value === null || (Array.isArray(value) && value.length === 0)) {
+    throw new Error(`[generate_preint_data] DỪNG - ${message}`);
+  }
+  return value;
+}
+
+// Tạo câu đục lỗ từ câu ví dụ curated. Câu ví dụ KHÔNG chứa chính từ đó là lỗi
+// dữ liệu gốc → throw để buộc sửa dữ liệu, không lặng lẽ sinh câu giả.
+function blankExample(word, example, unitNum, placeholder) {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`\\b${escaped}\\b`, 'gi');
+  if (!re.test(example)) {
+    throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}: câu ví dụ của "${word}" không chứa chính từ đó ("${example}"). Sửa dữ liệu gốc rồi chạy lại.`);
+  }
+  return example.replace(re, placeholder);
+}
+
+// Kiểm tra unit thô trước khi compile — dữ liệu vào sai thì dừng ngay.
+function validateRawUnit(unit) {
+  const { unitNum, title, buckets, words } = unit;
+  if (!Number.isInteger(unitNum) || !title || !Array.isArray(buckets) || buckets.length < 2) {
+    throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum ?? '?'}: thiếu unitNum/title/buckets.`);
+  }
+  requireData(words, `unit ${unitNum}: không có words.`);
+  for (const w of words) {
+    for (const field of ['word', 'type', 'phonetic', 'vi', 'example']) {
+      if (!w[field]) throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}, từ "${w.word || '?'}": thiếu trường "${field}".`);
+    }
+    if (buckets[w.bucket] === undefined) throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}, từ "${w.word}": bucket ${w.bucket} không tồn tại.`);
+  }
+}
+
 // Complete 50 Units Database for Pre-Intermediate & Intermediate English Vocabulary in Use (1st Edition 1997)
 // Each Unit contains exactly 8 words (4 for Section A, and 4 for Section B)
 const rawUnits = [
@@ -1024,7 +1073,8 @@ function compileTextbookExercises(unit) {
     type: 'fill_in_blanks',
     instruction: 'Complete the sentences using the correct words from the first half of this unit:',
     questions: firstHalfWords.map((w, idx) => {
-      const cleanExample = w.example.replace(new RegExp(w.word, 'gi'), '[blank]');
+      // blankExample THROW nếu câu ví dụ không chứa từ — không sinh câu giả.
+      const cleanExample = blankExample(w.word, w.example, unitNum, '[blank]');
       return {
         id: `ex_${unitNum}_1_q${idx + 1}`,
         text: cleanExample,
@@ -1040,10 +1090,10 @@ function compileTextbookExercises(unit) {
     exNum: `${unitNum}.2`,
     type: 'error_correction',
     instruction: 'Find and correct the grammatical or vocabulary errors in these sentences:',
-    questions: errorCorrectionDb[unitNum] || [
-      { id: `ex_${unitNum}_err_1`, original: `I study ${words[0].word} every days.`, correct: `I study ${words[0].word} every day.`, explanation: "Sau 'every' ta dùng danh từ số ít 'day' chứ không dùng số nhiều 'days'!" },
-      { id: `ex_${unitNum}_err_2`, original: `She is good in ${words[1].word}.`, correct: `She is good at ${words[1].word}.`, explanation: "Thành ngữ chỉ việc giỏi môn gì/lĩnh vực gì luôn là 'good at', không dùng 'good in'!" }
-    ]
+    // KHÔNG fallback: unit nào chưa có bài sửa lỗi curated thì DỪNG. Nhánh
+    // `|| [...]` cũ tự ghép câu kiểu "I study make a mistake every days." —
+    // đúng loại rác đã phải dọn (AUDIT_SU_PHAM.md mục 9).
+    questions: requireData(errorCorrectionDb[unitNum], `unit ${unitNum}: chưa có errorCorrectionDb curated.`)
   };
 
   // Exercise 3: Matching Words to Translations (All 8 words) (X.3)
@@ -1056,7 +1106,9 @@ function compileTextbookExercises(unit) {
       return {
         id: `ex_${unitNum}_3_q${idx + 1}`,
         text: w.word,
-        options: [...allTranslations].sort(() => Math.random() - 0.5),
+        // Xoay vòng xác định thay cho Math.random: output tái lập được giữa các
+        // lần generate; việc xáo trộn cho người học là của UI lúc runtime.
+        options: allTranslations.map((_, i) => allTranslations[(i + idx) % allTranslations.length]),
         answer: w.vi,
         explanation: `Từ tiếng Anh **'${w.word}'** (${w.type}) có nghĩa tiếng Việt là: *${w.vi}*. Giao tiếp thực tế: "${w.example}"`
       };
@@ -1084,7 +1136,8 @@ function compileTextbookExercises(unit) {
     type: 'fill_in_blanks',
     instruction: 'Complete the sentences using the correct words from the second half of this unit:',
     questions: secondHalfWords.map((w, idx) => {
-      const cleanExample = w.example.replace(new RegExp(w.word, 'gi'), '[blank]');
+      // blankExample THROW nếu câu ví dụ không chứa từ — không sinh câu giả.
+      const cleanExample = blankExample(w.word, w.example, unitNum, '[blank]');
       return {
         id: `ex_${unitNum}_5_q${idx + 1}`,
         text: cleanExample,
@@ -1100,15 +1153,18 @@ function compileTextbookExercises(unit) {
 
 // Helper to compile Unit data into complete 3-Tier structures, Quizzes, Drag Drops and Typing Games
 function compileUnit(unit) {
+  validateRawUnit(unit);
   const { unitNum, title, description, buckets, words } = unit;
 
   // 1. Build 3-Tier theory structure
   const coreVocabList = [];
   const enhancedWords = words.map(w => {
-    // Basic collocations and derivatives depending on word
-    let collocations = [`use the word ${w.word}`];
-    let wordFamily = `Từ loại khác của từ này có thể tìm thấy trong từ điển!`;
-    
+    // Collocation/word-family CHỈ từ danh sách curated bên dưới. Không có thì
+    // để trống — tuyệt đối không tự ghép chuỗi (nhánh fallback cũ tạo ra
+    // "use the word X" / "frequently use X" đã bị xóa theo chính sách đầu file).
+    let collocations = [];
+    let wordFamily = '';
+
     if (w.word === "vocabulary notebook") {
       collocations = ["keep a vocabulary notebook", "write in vocabulary notebook"];
       wordFamily = "notebook (n) sổ ghi chép, note (v/n) ghi chú";
@@ -1133,10 +1189,8 @@ function compileUnit(unit) {
     } else if (w.word === "word class") {
       collocations = ["identify the word class", "determine word class"];
       wordFamily = "classification (n) sự phân loại từ";
-    } else {
-      collocations = [`frequently use ${w.word}`, `study the word ${w.word}`, `understand ${w.word}`];
-      wordFamily = `Từ loại: [${w.type}]. Hãy tra cứu thêm các biến thể từ loại của "${w.word}" trong từ điển monolingual nhé!`;
     }
+    // (Đã xóa nhánh else tự chế "frequently use X" — thiếu curated thì để trống.)
 
     return {
       ...w,
@@ -1161,16 +1215,18 @@ function compileUnit(unit) {
 
   const theme = title.replace(/Unit \d+:\s*/i, "");
   
-  practicalUsageList = [
+  // Chỉ hiện những từ CÓ collocation curated — từ không có thì không bịa.
+  const wordsWithCollocations = enhancedWords.filter(w => w.collocations.length > 0);
+  practicalUsageList = wordsWithCollocations.length > 0 ? [
     {
       heading: `💬 Thực hành giao tiếp & Cụm từ thông dụng (${theme})`,
       intro: `Hãy luyện tập nói tự nhiên như người bản xứ. Đây là các cụm từ (Collocations) kết hợp từ các từ vựng chính của bài hằng ngày giúp trẻ phản xạ nói siêu tốc:`,
-      details: enhancedWords.map(w => ({
+      details: wordsWithCollocations.map(w => ({
         title: `Cụm từ đi kèm của: "${w.word}"`,
         value: `👉 Cụm từ: "${w.collocations.join(' / ')}"\n💬 Giao tiếp thực tế: "${w.example}"`
       }))
     }
-  ];
+  ] : [];
 
   // Smart cross-references to avoid duplication
   const crossRefNotes = [];
@@ -1238,38 +1294,16 @@ function compileUnit(unit) {
     }
   ];
 
-  const families = words.slice(0, 3).map(w => {
-    let related = [];
-    if (w.type.includes('Động từ')) related.push(`${w.word}er (Danh từ)`);
-    if (w.type.includes('Danh từ')) related.push(`${w.word}ful (Tính từ)`);
-    if (w.type.includes('Tính từ')) related.push(`${w.word}ly (Trạng từ)`);
-    return {
-      title: `Họ từ (Word Family) của "${w.word}"`,
-      value: related.length ? related.join(', ') : `Các dạng từ loại khác của "${w.word}" đang được cập nhật.`
-    };
-  });
-
-  const collocations = words.slice(3, 6).map(w => {
-    let colls = [];
-    if (w.type.includes('Danh từ')) colls = [`have a ${w.word}`, `make a ${w.word}`, `good ${w.word}`];
-    if (w.type.includes('Động từ')) colls = [`${w.word} quickly`, `always ${w.word}`];
-    if (w.type.includes('Tính từ')) colls = [`very ${w.word}`, `extremely ${w.word}`];
-    return {
-      title: `Cụm từ (Collocations) với "${w.word}"`,
-      value: colls.length ? `Ví dụ: ${colls.join(', ')}` : `Cụm từ liên quan đến ${w.word}`
-    };
-  });
-
+  // ĐÃ XÓA hai khối "families"/"collocations" ghép hậu tố và template mù quáng
+  // ("reviseer (Danh từ)", "have a collocation, make a collocation") — chúng
+  // NGỤY TẠO từ tiếng Anh không tồn tại ngay trong phần lý thuyết. Thay bằng
+  // nội dung curated có thật: ghi chú cross-reference theo unit (trước đây được
+  // soạn sẵn nhưng là code chết, không bao giờ vào output) + mẹo học chung.
   discoveryCornerList = [
     {
-      heading: `💡 Góc khám phá: Word Families (Họ từ)`,
-      intro: `Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit ${unitNum}:`,
-      details: families
-    },
-    {
-      heading: `🔥 Góc khám phá: Collocations (Cụm từ đi kèm)`,
-      intro: `Học cách sử dụng từ tự nhiên như người bản xứ:`,
-      details: collocations
+      heading: `💡 Góc khám phá & Lưu ý của Unit ${unitNum}`,
+      intro: `Ghi chú quan trọng và mẹo học cho chủ đề ${theme}:`,
+      details: [...crossRefNotes, ...defaultDiscoveryDetails]
     }
   ];
 
@@ -1279,7 +1313,8 @@ function compileUnit(unit) {
     discoveryCorner: discoveryCornerList
   };
 
-  // 2. Build Exactly 32 Drag Drop items (8 base + 8 collocations + 8 synonyms + 8 context words)
+  // 2. Build Drag Drop items: 8 từ gốc + collocation curated (số lượng thay đổi
+  //    theo dữ liệu thật — không ép đủ 32 bằng item bịa như trước)
   const dragDropItems = [];
 
   // Group 1: 8 Base Words
@@ -1292,8 +1327,9 @@ function compileUnit(unit) {
     });
   });
 
-  // Group 2: 8 Collocations
+  // Group 2: collocation curated (từ nào không có thì KHÔNG sinh item).
   enhancedWords.forEach((w, index) => {
+    if (w.collocations.length === 0) return;
     dragDropItems.push({
       id: `dd_c_${index + 1}`,
       word: w.collocations[0],
@@ -1302,54 +1338,50 @@ function compileUnit(unit) {
     });
   });
 
-  // Group 3: 8 Synonyms / Related derivatives
-  enhancedWords.forEach((w, index) => {
-    dragDropItems.push({
-      id: `dd_s_${index + 1}`,
-      word: w.wordFamily.split(' ')[0] || `${w.word} derivative`,
-      target: buckets[w.bucket],
-      vi: `biến thể từ loại của ${w.word}`
-    });
-  });
-
-  // Group 4: 8 Context words / Derivatives
-  enhancedWords.forEach((w, index) => {
-    dragDropItems.push({
-      id: `dd_x_${index + 1}`,
-      word: w.example.split(' ').find(x => x.length > 5 && x.toLowerCase() !== w.word.toLowerCase()) || `${w.word} context`,
-      target: buckets[w.bucket],
-      vi: `từ ngữ cảnh của ${w.word}`
-    });
-  });
+  // ĐÃ XÓA Group 3 (wordFamily.split(' ')[0] → sinh ra chữ "Từ" tiếng Việt làm
+  // item kéo-thả, 393 item rác đã ship) và Group 4 (bốc từ ngẫu nhiên >5 ký tự
+  // trong câu ví dụ — không có giá trị sư phạm). Xem chính sách đầu file.
 
   const dragDrop = {
     buckets: buckets,
     items: dragDropItems
   };
 
-  // 3. Build Exactly 20 Quiz questions (16 base collocations + 4 synonyms)
+  // 3. Build Quiz questions: 8 câu đục lỗ ví dụ + cloze collocation curated
+  //    + 4 câu từ loại (số lượng theo dữ liệu thật, không ép đủ 20)
   const quizQuestions = [];
 
-  // 16 base collocation/context questions
+  // Câu đục lỗ từ ví dụ curated (blankExample THROW nếu ví dụ không chứa từ).
+  // Distractor là 3 từ curated khác của chính unit; vị trí đáp án xoay vòng
+  // xác định (index % 4) — việc xáo trộn cho người học là của UI runtime,
+  // không dùng Math.random lúc generate (thứ tự sẽ đóng băng trong file).
   enhancedWords.forEach((w, index) => {
-    const hiddenPhrase = w.example.replace(new RegExp(w.word, 'gi'), '_____');
+    const hiddenPhrase = blankExample(w.word, w.example, unitNum, '_____');
     const wrongAnswers = enhancedWords.filter((x, idx) => idx !== index).map(x => x.word).slice(0, 3);
-    
+    const options = [...wrongAnswers];
+    options.splice(index % 4, 0, w.word);
+
     quizQuestions.push({
       q: `Điền từ thích hợp vào chỗ trống: "${hiddenPhrase}"`,
-      options: [w.word, ...wrongAnswers].sort(() => Math.random() - 0.5),
+      options,
       a: w.word
     });
 
-    const colStr = w.collocations[0];
-    const hiddenCol = colStr.replace(new RegExp(w.word, 'gi'), '_____');
-    const wrongCols = enhancedWords.filter((x, idx) => idx !== index).map(x => x.word).slice(0, 3);
+    // Câu cloze collocation CHỈ khi từ có collocation curated. Nhánh cũ đục lỗ
+    // template "frequently use X" đã tạo 392 câu hỏi vô nghĩa (đã xóa).
+    if (w.collocations.length > 0) {
+      const colStr = w.collocations[0];
+      const hiddenCol = colStr.replace(new RegExp(w.word, 'gi'), '_____');
+      const wrongCols = enhancedWords.filter((x, idx) => idx !== index).map(x => x.word).slice(0, 3);
+      const colOptions = [...wrongCols];
+      colOptions.splice((index + 1) % 4, 0, w.word);
 
-    quizQuestions.push({
-      q: `Hoàn thành cụm từ (Collocation) sau: "${hiddenCol}"`,
-      options: [w.word, ...wrongCols].sort(() => Math.random() - 0.5),
-      a: w.word
-    });
+      quizQuestions.push({
+        q: `Hoàn thành cụm từ (Collocation) sau: "${hiddenCol}"`,
+        options: colOptions,
+        a: w.word
+      });
+    }
   });
 
   // 4 synonym / related questions to make exactly 20
@@ -1362,7 +1394,8 @@ function compileUnit(unit) {
     });
   }
 
-  // 4. Build Exactly 20 Typing Questions
+  // 4. Build Typing Questions: 8 từ gốc + collocation/synonym curated
+  //    (số lượng theo dữ liệu thật, không ép đủ 20)
   const typingGameQuestions = [];
 
   // Helper to make a hint like "u_h_p_y" for "unhappy"
@@ -1405,16 +1438,10 @@ function compileUnit(unit) {
       coll = "identify the word class";
       collVi = "nhận dạng loại của từ";
     } else {
-      if (w.type.includes("Động từ")) {
-        coll = `try to ${w.word.toLowerCase()}`;
-        collVi = `nỗ lực thực hiện ${w.word.toLowerCase()}`;
-      } else if (w.type.includes("Danh từ")) {
-        coll = `use a ${w.word.toLowerCase()}`;
-        collVi = `sử dụng một ${w.word.toLowerCase()}`;
-      } else {
-        coll = `feel very ${w.word.toLowerCase()}`;
-        collVi = `cảm thấy rất ${w.word.toLowerCase()}`;
-      }
+      // KHÔNG có collocation curated → KHÔNG sinh câu. Nhánh cũ tự ghép
+      // "try to X / use a X / feel very X" là đoán mò theo từ loại — vi phạm
+      // chính sách đầu file (đã xóa).
+      return;
     }
 
     typingGameQuestions.push({
@@ -1443,8 +1470,9 @@ function compileUnit(unit) {
       syn = "commit an error";
       synVi = "phạm phải một sai sót";
     } else {
-      syn = `${w.word} synonym`;
-      synVi = `thuật ngữ đồng nghĩa của ${w.word}`;
+      // KHÔNG có synonym curated → KHÔNG sinh câu. Nhánh cũ tự chế đáp án
+      // "X synonym" đã tạo 197 câu người học không thể trả lời đúng (đã xóa).
+      continue;
     }
 
     typingGameQuestions.push({
@@ -1482,6 +1510,36 @@ function compileUnit(unit) {
 
 // Compile all 50 units
 const compiledCourseData = rawUnits.map(compileUnit);
+
+// KIỂM TRA OUTPUT TRƯỚC KHI GHI FILE — bất kỳ vi phạm nào cũng THROW, và vì
+// writeFileSync chỉ chạy sau bước này nên không bao giờ có file dở dang.
+// (Chốt chặn đầy đủ hơn nằm ở scripts/validate_content.mjs, chạy trong npm test.)
+function assertCleanOutput(units) {
+  // Chữ ký máy có chủ đích hẹp: "X synonym" (bắt buộc có khoảng trắng trước —
+  // vì "synonym" trần là từ vựng curated thật của Unit 2), các cụm template và
+  // "wrong_word". Không dùng luật rộng kẻo chặn nhầm nội dung người soạn.
+  const TEMPLATE = /use the word |frequently use |study the word |liên quan tới |wrong_word_/i;
+  const FAKE_SYN = / (synonym|derivative)$/i;
+  const VIET = /[àáảãạăắằẳẵặâấầẩẫậđèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵ]/i;
+  for (const u of units) {
+    for (const it of (u.dragDrop?.items || [])) {
+      if (VIET.test(it.word) || TEMPLATE.test(it.word) || FAKE_SYN.test(it.word)) throw new Error(`[assertCleanOutput] ${u.id}: dragDrop word rác "${it.word}"`);
+    }
+    for (const q of (u.quiz || [])) {
+      if (TEMPLATE.test(q.q) || TEMPLATE.test(q.a) || FAKE_SYN.test(q.a)) throw new Error(`[assertCleanOutput] ${u.id}: quiz rác "${q.q}"`);
+      if (q.options.some((o) => TEMPLATE.test(o))) throw new Error(`[assertCleanOutput] ${u.id}: option rác trong "${q.q}"`);
+      if (!q.options.includes(q.a)) throw new Error(`[assertCleanOutput] ${u.id}: đáp án không nằm trong options`);
+      if (new Set(q.options).size !== q.options.length) throw new Error(`[assertCleanOutput] ${u.id}: options trùng nhau`);
+    }
+    for (const t of (u.typingGame || [])) {
+      if (TEMPLATE.test(t.a) || FAKE_SYN.test(t.a)) throw new Error(`[assertCleanOutput] ${u.id}: typing rác "${t.a}"`);
+    }
+    if ((u.quiz?.length || 0) < 8 || (u.typingGame?.length || 0) < 8 || (u.dragDrop?.items?.length || 0) < 8) {
+      throw new Error(`[assertCleanOutput] ${u.id}: dưới ngưỡng tối thiểu 8 quiz/8 typing/8 dragDrop — bổ sung dữ liệu curated.`);
+    }
+  }
+}
+assertCleanOutput(compiledCourseData);
 
 // Prepare file content
 const fileContent = `// File: src/data/oxfordPreIntData.js
