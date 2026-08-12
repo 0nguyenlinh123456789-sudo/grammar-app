@@ -140,11 +140,13 @@ const WelcomePage = ({
     }
   };
 
-  // Which of the 4 skills a milestone trains. Vocab topics now train all four
-  // (Listening/Speaking/Reading/Writing modes); grammar trains Reading+Writing.
+  // (#0-E2) Badge ghi ĐÚNG TÊN BƯỚC HỌC có trong chặng, không ghi "4 kỹ năng"
+  // Nghe/Nói/Đọc/Viết — các bước này là chọn nghĩa, gõ từ và đọc to so khớp
+  // văn bản, không phải bốn kỹ năng ngôn ngữ. Tên khớp với nhãn thật trong
+  // VocabVstepPage (xem #0-F1/F2).
   const getSkillBadges = (type) => {
     const skills = type === 'vstep'
-      ? [['🎧', 'Nghe'], ['🗣️', 'Nói'], ['📖', 'Đọc'], ['✍️', 'Viết']]
+      ? [['🎧', 'Nghe–Chọn Nghĩa'], ['📖', 'Đọc–Chọn Nghĩa'], ['✍️', 'Gõ Từ'], ['🗣️', 'Đọc To Từ']]
       : [['📖', 'Đọc'], ['✍️', 'Viết']];
     return (
       <div className="flex flex-wrap gap-1 mt-1.5">
@@ -467,7 +469,7 @@ const WelcomePage = ({
             <p className="font-bold text-slate-500 dark:text-slate-400 text-sm">
               {lastMock
                 ? <>Gần nhất: <span className="text-emerald-600 dark:text-emerald-400 font-black">{lastMock.scale.type === 'ielts' ? `Band ${lastMock.scale.band}` : `${lastMock.scale.score}/10`}</span> ({lastMock.percent}% · {lastMock.testName})</>
-                : 'Đề mini 20 câu có đếm giờ, quy đổi band và phân tích từng kỹ năng'}
+                : 'Đề mini 20 câu có đếm giờ, quy đổi band ước lượng dựa trên từ vựng & ngữ pháp, phân tích từng phần'}
             </p>
           </div>
         </div>
