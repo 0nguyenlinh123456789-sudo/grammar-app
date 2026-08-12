@@ -6,6 +6,7 @@ import { clearVocabProgress } from './utils/learningProgress';
 import { addLearningActivity, normalizeActivityHistory, localDateKey } from './utils/activityHistory';
 import { normalizeDailyGoal } from './utils/dailyGoal';
 import { syncLearningProgress } from './utils/progressSync';
+import { sanitizeBook, sanitizeVocabTopics } from './utils/contentFilter';
 // NOTE: Oxford data (~9MB, the biggest data set) is NOT imported eagerly. It is
 // dynamically loaded only when the learner opens the Oxford vocab section, so it
 // no longer bloats the initial page load. See loadOxfordBooks() below.
@@ -17,28 +18,50 @@ const OXFORD_BOOKS = [
 ];
 
 async function loadOxfordBook(bookId) {
+  // sanitizeBook: lớp lọc runtime tạm thời chặn các item bài tập máy-sinh bị
+  // hỏng trong dữ liệu Pre-Int (xem src/utils/contentFilter.js). Gỡ khi dữ
+  // liệu đã được sinh lại sạch (KE_HOACH_TRIEN_KHAI.md #3).
   if (bookId === 'elementary') {
     const [p1, p2, p3] = await Promise.all([
       import('./data/oxfordData'), import('./data/oxfordDataPart2'), import('./data/oxfordDataPart3'),
     ]);
-    return [...p1.courseData, ...p2.courseData, ...p3.courseData];
+    return sanitizeBook([...p1.courseData, ...p2.courseData, ...p3.courseData]);
   }
   if (bookId === 'pre_intermediate') {
     const [p1, p2, p3] = await Promise.all([
       import('./data/oxfordPreIntData'), import('./data/oxfordPreIntData51_75'), import('./data/oxfordPreIntData76_100'),
     ]);
-    return [...p1.courseData, ...p2.courseData51_75, ...p3.courseData76_100];
+    return sanitizeBook([...p1.courseData, ...p2.courseData51_75, ...p3.courseData76_100]);
   }
   const [p1, p2, p3, p4] = await Promise.all([
     import('./data/oxfordAdvancedData1_25'), import('./data/oxfordAdvancedData26_50'),
     import('./data/oxfordAdvancedData51_75'), import('./data/oxfordAdvancedData76_100'),
   ]);
-  return [...p1.courseData1_25, ...p2.courseData26_50, ...p3.courseData51_75, ...p4.courseData76_100];
+  return sanitizeBook([...p1.courseData1_25, ...p2.courseData26_50, ...p3.courseData51_75, ...p4.courseData76_100]);
+}
+
+// (h1) 2026-08-12 — LƯỚI AN TOÀN chống topic trùng id: chọn topic và lưu tiến
+// độ đều theo id, nên nếu hai topic trùng id thì bản sau mở nhầm về bản đầu và
+// sáng chéo trạng thái active/hoàn thành (bug 47 topic, đã xảy ra thật). Kho
+// đã được khử trùng id trong dữ liệu (đợt (h) — 4 bản gộp, 43 bản đổi id
+// "-pN"), nhưng giữ hàm này để dữ liệu tương lai lỡ trùng id cũng không tái
+// phát bug: bản ĐẦU TIÊN giữ nguyên id (tiến độ cũ gắn id gốc → không mất gì);
+// bản trùng thứ n nhận id "id--n".
+function withUniqueTopicIds(topics) {
+  const seen = new Map();
+  return topics.map((t) => {
+    const n = (seen.get(t.id) || 0) + 1;
+    seen.set(t.id, n);
+    return n === 1 ? t : { ...t, id: `${t.id}--${n}` };
+  });
 }
 
 async function loadVstepTopics() {
   const module = await import('./data/vocabVstepData');
-  return module.default;
+  // sanitizeVocabTopics: gỡ 553 cặp example/viExample máy-sinh (viExample là
+  // tiếng Anh, không phải bản dịch) khỏi Flashcard/SRS/nghe-đọc hiểu — phát
+  // hiện (e1), xem src/utils/contentFilter.js.
+  return withUniqueTopicIds(sanitizeVocabTopics(module.default));
 }
 
 // Warm the two biggest lesson chunks while the browser is idle on the home
@@ -376,8 +399,11 @@ export default function App() {
   useEffect(() => {
     if (oxfordLoaded && oxfordBooks.length) {
       const book = oxfordBooks.find(b => b.id === activeOxfordBookId) || oxfordBooks[0];
-      const exists = book.units.some(u => u.id === oxfordUnitId);
-      if (!exists) setOxfordUnitId(book.units[0]?.id ?? null);
+      const exists = book.units.some(u => u.id === oxfordUnitId && !u.contentUpdating);
+      if (!exists) {
+        const firstPlayable = book.units.find(u => !u.contentUpdating) || book.units[0];
+        setOxfordUnitId(firstPlayable?.id ?? null);
+      }
     }
   }, [oxfordLoaded, activeOxfordBookId, oxfordBooks, oxfordUnitId]);
 
@@ -441,7 +467,9 @@ export default function App() {
   const selectedGrammarTopic = parsedGrammarData.find(t => t.id === topicId);
   const selectedBook = oxfordBooks.find(b => b.id === activeOxfordBookId) || oxfordBooks[0] || null;
   const selectedOxfordUnit = selectedBook
-    ? (selectedBook.units.find(u => u.id === oxfordUnitId) || selectedBook.units[0])
+    ? (selectedBook.units.find(u => u.id === oxfordUnitId && !u.contentUpdating)
+        || selectedBook.units.find(u => !u.contentUpdating)
+        || selectedBook.units[0])
     : null;
   const selectedVstepTopic = vstepTopics.find(t => t.id === vstepTopicId);
 

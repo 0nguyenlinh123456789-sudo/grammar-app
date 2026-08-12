@@ -73,7 +73,7 @@ const MainLayout = ({
   const globalResults = searchTerm ? [
     ...(parsedGrammarData || []).filter((item) => `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'grammar', resultLabel: 'Ngữ pháp' })),
     ...vstepTopics.filter((item) => `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'vocab', resultLabel: 'Từ vựng' })),
-    ...(courseData || []).filter((item) => `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'oxford', resultLabel: 'Oxford' })),
+    ...(courseData || []).filter((item) => !item.contentUpdating && `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'oxford', resultLabel: 'Oxford' })),
   ].slice(0, 12) : [];
 
   const selectSearchResult = (result) => {
@@ -414,7 +414,8 @@ const MainLayout = ({
                       // Automatically load the first unit of the new book
                       const newBook = oxfordBooks.find(b => b.id === newBookId);
                       if (newBook && newBook.units.length > 0) {
-                        setOxfordUnitId(newBook.units[0].id);
+                        const firstPlayable = newBook.units.find(u => !u.contentUpdating) || newBook.units[0];
+                        setOxfordUnitId(firstPlayable.id);
                       }
                     }}
                     className="w-full p-3 font-black border-4 border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-800 dark:text-slate-100 rounded-xl outline-none shadow-[2px_2px_0_0_#1c293b] dark:shadow-[2px_2px_0_0_#020617] focus:bg-yellow-100 dark:focus:bg-slate-700 cursor-pointer text-sm"
@@ -433,15 +434,28 @@ const MainLayout = ({
 
                 <div className="space-y-2">
                   {courseData.map(unit => (
-                    <button 
-                      key={unit.id} 
-                      onClick={() => { 
-                        setOxfordUnitId(unit.id); 
-                        setMenuOpen(false); 
-                      }} 
+                    unit.contentUpdating ? (
+                      // Unit không còn đủ item hợp lệ sau lớp lọc nội dung
+                      // (src/utils/contentFilter.js) — ẩn tạm cho tới khi dữ
+                      // liệu được sinh lại sạch.
+                      <div
+                        key={unit.id}
+                        aria-disabled="true"
+                        className="w-full text-left font-bold p-4 border-[4px] border-dashed border-slate-300 dark:border-slate-700 rounded-2xl truncate text-lg flex flex-col gap-1 bg-slate-50 dark:bg-slate-900 opacity-70 cursor-not-allowed"
+                      >
+                        <span className="text-sm md:text-base leading-tight font-black text-slate-400 dark:text-slate-500">{unit.title}</span>
+                        <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">🚧 Đang cập nhật nội dung</span>
+                      </div>
+                    ) : (
+                    <button
+                      key={unit.id}
+                      onClick={() => {
+                        setOxfordUnitId(unit.id);
+                        setMenuOpen(false);
+                      }}
                       className={`w-full text-left font-bold p-4 border-[4px] border-slate-800 dark:border-slate-700 rounded-2xl truncate text-lg transition-all flex flex-col gap-1 cursor-pointer ${
-                        oxfordUnitId === unit.id 
-                          ? 'bg-yellow-200 dark:bg-yellow-450 dark:text-slate-950 translate-x-2 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617]' 
+                        oxfordUnitId === unit.id
+                          ? 'bg-yellow-200 dark:bg-yellow-450 dark:text-slate-950 translate-x-2 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617]'
                           : 'bg-white dark:bg-slate-850 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617]'
                       }`}
                     >
@@ -450,6 +464,7 @@ const MainLayout = ({
                         {unit.theory ? `${Array.isArray(unit.theory) ? unit.theory.length : Object.keys(unit.theory).length} phần lý thuyết` : ''}
                       </span>
                     </button>
+                    )
                   ))}
                 </div>
               </>
