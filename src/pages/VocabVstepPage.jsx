@@ -16,10 +16,15 @@ import { loadVocabProgress, saveVocabProgress } from '../utils/learningProgress'
 const MODES = [
   { key: 'flashcard', label: 'Nhận Diện', step: 1, icon: () => <span className="text-xl leading-none">🐰</span>, color: 'bg-blue-400', hoverColor: 'hover:bg-blue-50 dark:hover:bg-blue-900/30', activeText: 'text-white', inactiveIcon: '' },
   { key: 'phrases',   label: 'Cụm Câu',  step: 2, icon: () => <span className="text-xl leading-none">⚡</span>, color: 'bg-yellow-400', hoverColor: 'hover:bg-yellow-50 dark:hover:bg-yellow-900/30', activeText: 'text-slate-900', inactiveIcon: '' },
-  { key: 'listening', label: 'Nghe Hiểu',step: 3, icon: () => <span className="text-xl leading-none">🎧</span>, color: 'bg-cyan-400', hoverColor: 'hover:bg-cyan-50 dark:hover:bg-cyan-900/30', activeText: 'text-white', inactiveIcon: '' },
+  // (#0-F2) "Nghe Hiểu"/"Đọc Hiểu" cũ hứa nhiều hơn thực tế: cùng MỘT ngân hàng
+  // câu, người học chỉ chọn 1/4 bản dịch — khác nhau ở kênh trình bày (TTS hay
+  // chữ). Tên mới nói đúng thao tác.
+  { key: 'listening', label: 'Nghe – Chọn Nghĩa',step: 3, icon: () => <span className="text-xl leading-none">🎧</span>, color: 'bg-cyan-400', hoverColor: 'hover:bg-cyan-50 dark:hover:bg-cyan-900/30', activeText: 'text-white', inactiveIcon: '' },
   { key: 'scenario',  label: 'Hành Động',step: 4, icon: () => <span className="text-xl leading-none">🎬</span>, color: 'bg-purple-400', hoverColor: 'hover:bg-purple-50 dark:hover:bg-purple-900/30', activeText: 'text-white', inactiveIcon: '' },
   { key: 'story',     label: 'Câu Chuyện',step:5, icon: () => <span className="text-xl leading-none">⛺</span>, color: 'bg-green-400', hoverColor: 'hover:bg-green-50 dark:hover:bg-green-900/30', activeText: 'text-white', inactiveIcon: '' },
-  { key: 'writing',   label: 'Luyện Viết',step: 6, icon: () => <span className="text-xl leading-none">✍️</span>, color: 'bg-orange-400', hoverColor: 'hover:bg-orange-50 dark:hover:bg-orange-900/30', activeText: 'text-white', inactiveIcon: '' },
+  // (#0-F1) Bước này là gõ ĐÚNG MỘT TỪ theo nghĩa, không phải luyện viết.
+  // Tên "Luyện Viết" chỉ dành cho Gia Sư Writing (viết đoạn, AI chấm).
+  { key: 'writing',   label: 'Gõ Từ Theo Nghĩa',step: 6, icon: () => <span className="text-xl leading-none">✍️</span>, color: 'bg-orange-400', hoverColor: 'hover:bg-orange-50 dark:hover:bg-orange-900/30', activeText: 'text-white', inactiveIcon: '' },
   { key: 'speaking',  label: 'Luyện Nói', step: 7, icon: () => <span className="text-xl leading-none">🎤</span>, color: 'bg-pink-400', hoverColor: 'hover:bg-pink-50 dark:hover:bg-pink-900/30', activeText: 'text-white', inactiveIcon: '' },
 ];
 
@@ -62,6 +67,14 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
   const isCompleted = completedMilestones.includes(activeTopic.id);
   const totalWords = activeTopic.words.length;
 
+  // CHÍNH SÁCH NỘI DUNG (đợt (f) 2026-08-12): thiếu dữ liệu thì ẨN hoặc BÁO,
+  // không thay thế âm thầm. Mode "Cụm Câu" trước đây tự sinh collocation/"mẫu
+  // câu thi" bằng template cho topic không có dữ liệu — nay chỉ hiện với topic
+  // có `phrases` soạn tay; các topic còn lại không thấy bước này.
+  const hasRealPhrases = Array.isArray(activeTopic.phrases) && activeTopic.phrases.length > 0;
+  const availableModes = MODES.filter((mode) => mode.key !== 'phrases' || hasRealPhrases);
+  const modeGridCols = availableModes.length >= 7 ? 'md:grid-cols-7' : 'md:grid-cols-6';
+
   const handleWordChange = (nextIndex) => {
     const normalizedIndex = ((nextIndex % totalWords) + totalWords) % totalWords;
     setCurrentWordIndex(normalizedIndex);
@@ -90,7 +103,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
   };
 
   const requiredWordCount = Math.min(totalWords, Math.max(5, Math.ceil(totalWords * 0.3)));
-  const requiredModeCount = Math.min(4, MODES.length);
+  const requiredModeCount = Math.min(4, availableModes.length);
   const wordRequirementMet = studiedWordIndexes.size >= requiredWordCount;
   const modeRequirementMet = visitedModes.size >= requiredModeCount;
   const canComplete = wordRequirementMet && modeRequirementMet;
@@ -184,9 +197,10 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
         </div>
       </div>
 
-      {/* MODE CONTROLS — 7 Tabs (đủ 4 kỹ năng: Nghe/Nói/Đọc/Viết) */}
-      <div className="w-full max-w-3xl grid grid-cols-4 md:grid-cols-7 gap-2 mb-6">
-        {MODES.map((mode) => {
+      {/* MODE CONTROLS — các bước học (đủ 4 kỹ năng: Nghe/Nói/Đọc/Viết);
+          bước "Cụm Câu" chỉ hiện khi topic có phrases soạn tay */}
+      <div className={`w-full max-w-3xl grid grid-cols-4 ${modeGridCols} gap-2 mb-6`}>
+        {availableModes.map((mode, modeIndex) => {
           const Icon = mode.icon;
           const isActive = learningMode === mode.key;
           return (
@@ -194,7 +208,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
               key={mode.key}
               onClick={() => handleModeChange(mode.key)}
               className={`
-                py-2 px-1 border-4 border-black dark:border-slate-600 rounded-xl font-black text-xs 
+                py-2 px-1 border-4 border-black dark:border-slate-600 rounded-xl font-black text-xs
                 transition-all flex flex-col items-center justify-center gap-0.5
                 ${isActive
                   ? `${mode.color} shadow-none translate-y-[2px] ${mode.activeText}`
@@ -203,7 +217,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
               `}
             >
               <span className={`text-[10px] ${isActive ? 'opacity-80' : 'text-slate-400 dark:text-slate-500'}`}>
-                Bước {mode.step}
+                Bước {modeIndex + 1}
               </span>
               <div className={isActive ? mode.activeText : mode.inactiveIcon}>
                 <Icon />
@@ -227,7 +241,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
         />
       )}
 
-      {learningMode === 'phrases' && (
+      {learningMode === 'phrases' && hasRealPhrases && (
         <PhraseLearningMode
           activeTopic={activeTopic}
           playAudio={playAudio}

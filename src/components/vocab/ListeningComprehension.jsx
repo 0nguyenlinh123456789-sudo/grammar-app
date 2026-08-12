@@ -100,7 +100,7 @@ const ListeningComprehension = ({ activeTopic, playAudio }) => {
   return (
     <div className="w-full max-w-3xl flex flex-col items-center animate-fade-in">
       <div className="bg-cyan-100 dark:bg-cyan-950/40 border-4 border-black dark:border-slate-650 px-6 py-2 rounded-full font-black text-lg shadow-[4px_4px_0_0_rgba(0,0,0,1)] mb-5 text-cyan-800 dark:text-cyan-300 flex items-center gap-2">
-        <Headphones size={20} /> Nghe Hiểu: Câu {idx + 1}/{pool.length}
+        <Headphones size={20} /> Nghe – Chọn Nghĩa: Câu {idx + 1}/{pool.length}
       </div>
 
       {/* progress */}

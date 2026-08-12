@@ -43,7 +43,7 @@ const ReadingComprehension = ({ words = [], authored }) => {
     return (
       <div className="bg-white dark:bg-slate-800 border-4 border-black rounded-2xl p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)] text-center">
         <Trophy size={52} className="mx-auto text-yellow-500 fill-yellow-300 mb-3" />
-        <h3 className="text-2xl font-black text-slate-800 dark:text-white mb-1">Đọc hiểu xong!</h3>
+        <h3 className="text-2xl font-black text-slate-800 dark:text-white mb-1">Hoàn thành phần đọc!</h3>
         <p className="font-bold text-slate-500 dark:text-slate-400 mb-5">Đúng {score / 10}/{pool.length} câu ({pct}%)</p>
         <button onClick={init} className="px-6 py-2.5 bg-green-400 font-black text-slate-900 border-4 border-black rounded-2xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:bg-green-500 active:translate-y-1 active:shadow-none transition-all cursor-pointer inline-flex items-center gap-2">
           <RefreshCw size={18} /> Làm lại
@@ -55,7 +55,7 @@ const ReadingComprehension = ({ words = [], authored }) => {
   return (
     <div className="bg-white dark:bg-slate-800 border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)]">
       <h3 className="text-xl font-black mb-4 bg-sky-300 dark:bg-sky-800 dark:text-white inline-flex items-center gap-2 px-4 py-2 border-2 border-black rounded-lg transform -rotate-1">
-        <BookOpen size={20} /> 📖 Kiểm Tra Đọc Hiểu — Câu {idx + 1}/{pool.length}
+        <BookOpen size={20} /> 📖 Đọc – Chọn Nghĩa — Câu {idx + 1}/{pool.length}
       </h3>
       <div className="flex gap-1 w-full my-4">
         {pool.map((_, i) => <div key={i} className={`flex-1 h-2 rounded-full ${i < idx ? 'bg-emerald-400' : i === idx ? 'bg-sky-400 animate-pulse' : 'bg-slate-200 dark:bg-slate-700'}`} />)}

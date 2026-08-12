@@ -70,7 +70,7 @@ const WritingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio,
   return (
     <div className="w-full flex flex-col items-center animate-fade-in">
       <div className="bg-orange-100 dark:bg-orange-950/30 border-4 border-black dark:border-slate-650 px-6 py-2 rounded-full font-black text-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#000] mb-6 text-orange-850 dark:text-orange-300 flex items-center justify-center gap-1.5">
-        <span>Luyện Viết: Từ</span>
+        <span>Gõ Từ: Từ</span>
         <input
           type="number"
           min={1}
@@ -90,13 +90,17 @@ const WritingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio,
           {currentWord.vi}
         </div>
         
-        <div className="bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-400 dark:border-slate-650 rounded-xl p-4 mb-8 text-left">
-          <p className="text-sm font-bold text-slate-550 dark:text-slate-450 mb-1">DỊCH CÂU NÀY:</p>
-          <p className="text-lg font-bold text-slate-800 dark:text-slate-200">
-            "{generateClozeSentence(currentWord.example, currentWord.en)}"
-          </p>
-          <p className="text-sm font-medium text-slate-650 dark:text-slate-400 mt-2 italic">({currentWord.viExample})</p>
-        </div>
+        {/* example/viExample có thể vắng: contentFilter gỡ cặp ví dụ máy-sinh
+            khỏi một số từ — thiếu thì ẩn khối này, không bịa câu thay thế. */}
+        {currentWord.example && (
+          <div className="bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-400 dark:border-slate-650 rounded-xl p-4 mb-8 text-left">
+            <p className="text-sm font-bold text-slate-550 dark:text-slate-450 mb-1">DỊCH CÂU NÀY:</p>
+            <p className="text-lg font-bold text-slate-800 dark:text-slate-200">
+              "{generateClozeSentence(currentWord.example, currentWord.en)}"
+            </p>
+            {currentWord.viExample && <p className="text-sm font-medium text-slate-650 dark:text-slate-400 mt-2 italic">({currentWord.viExample})</p>}
+          </div>
+        )}
         
         <form onSubmit={checkWriting} className="flex flex-col gap-4 items-center w-full">
           <input 
