@@ -102,6 +102,7 @@ Quy ước: "GIỮ" = bản nhiều từ nhất trong cụm; "BỎ" = bản còn
 ## PHƯƠNG ÁN LÙI
 
 - Data: revert commit của cụm đó (mỗi cụm 1 commit).
+- ⚠️ **Lưu ý khi revert `c5479fd`** (cụm `food-meals-beginner`): commit này vô tình mang theo 2 file xóa đã được duyệt từ trước (QĐ4: `generate_preint_data_part2.js` và `src/data/oxfordPreIntDataPart2.js` — 50 unit chết, trùng id, 0% đạt), do chúng đã ở trạng thái staged sẵn khi commit. Revert commit này sẽ **khôi phục lại 2 file chết đó**; nếu chỉ muốn lùi phần gộp topic thì revert xong xóa lại 2 file này. Không ảnh hưởng app vì không file nào import chúng.
 - Runtime: di trú chỉ-cộng-thêm + không xóa key cũ → revert code là hành vi cũ trở lại nguyên vẹn.
 - Trước khi chạy đợt gộp đầu tiên: nhắc người dùng backup (đã có tính năng backup/restore, test "learning progress can be exported and restored safely" đang xanh).
 
