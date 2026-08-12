@@ -3,7 +3,7 @@ import { Award, BarChart3, Printer, X } from 'lucide-react';
 
 const SKILL_LABELS = { grammar: 'Ngữ pháp', vocabulary: 'Từ vựng', reading: 'Đọc hiểu' };
 
-export default function LearningReport({ placementResult, weeklyLessons, weeklyXp, completionPercentage = 0, streak = 0, weeklyGoalDays = 0 }) {
+export default function LearningReport({ placementResult, weeklyLessons, weeklyXp, completionPercentage = 0, streak = 0, weeklyGoalDays = 0, completedCount = 0, totalMilestonesCount = 0 }) {
   const [showCertificate, setShowCertificate] = useState(false);
   if (!placementResult) return null;
 
@@ -41,10 +41,15 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
       <div className="grid md:grid-cols-3 gap-4 mt-5">{Object.entries(placementResult.skillStats || {}).map(([skill, stat]) => { const percent = Math.round((stat.correct / stat.total) * 100); return <div key={skill}><div className="flex justify-between text-xs font-black mb-1"><span>{SKILL_LABELS[skill] || skill}</span><span>{percent}%</span></div><div className="h-3 rounded-full bg-slate-100 border-2 border-slate-700 overflow-hidden"><div className={`h-full ${percent >= 67 ? 'bg-emerald-400' : 'bg-amber-400'}`} style={{ width: `${percent}%` }} /></div></div>; })}</div>
       {completionPercentage < 100 && <p className="mt-5 text-xs font-bold text-slate-500">Hoàn thành toàn bộ lộ trình để mở chứng nhận kết quả học tập.</p>}
     </section>
-    {showCertificate && <CertificateModal placementResult={placementResult} onClose={() => setShowCertificate(false)} />}
+    {showCertificate && <CertificateModal placementResult={placementResult} completedCount={completedCount} totalMilestonesCount={totalMilestonesCount} onClose={() => setShowCertificate(false)} />}
   </>;
 }
 
 function ReportStat({ label, value }) { return <div className="rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 p-3"><p className="text-[10px] font-black uppercase text-slate-500">{label}</p><p className="text-xl font-black mt-1">{value}</p></div>; }
 
-function CertificateModal({ placementResult, onClose }) { return <div className="fixed inset-0 z-[120] bg-slate-950/70 p-4 flex items-center justify-center" role="dialog" aria-modal="true"><section className="max-w-2xl w-full bg-[#fffdf4] text-slate-900 border-[10px] border-double border-yellow-600 rounded-xl p-8 md:p-12 text-center shadow-2xl"><button onClick={onClose} aria-label="Đóng" className="float-right"><X /></button><Award size={58} className="mx-auto text-yellow-500" /><p className="text-xs tracking-[0.3em] font-black text-yellow-700 mt-4">BUNNY ENGLISH · CERTIFICATE</p><h2 className="text-3xl md:text-4xl font-black mt-3">Chứng nhận hoàn thành</h2><p className="mt-5 font-bold text-slate-600">Đã hoàn thành lộ trình với kết quả đánh giá đầu vào</p><p className="text-5xl font-black text-blue-700 mt-3">{placementResult.levelLabel}</p><p className="mt-4 text-sm font-bold">Điểm đánh giá: {placementResult.score}% · Ngày cấp: {new Intl.DateTimeFormat('vi-VN', { dateStyle: 'long' }).format(new Date())}</p><button onClick={() => window.print()} className="mt-8 px-5 py-3 rounded-xl bg-slate-900 text-white font-black inline-flex items-center gap-2"><Printer size={17} /> In / Lưu PDF</button></section></div>; }
+// (#0-D1) Chứng nhận CHUYÊN CẦN, không phải chứng nhận trình độ: điều kiện cấp
+// là học hết các chặng, nên thành tích in ra phải là số chặng. Trước đây in
+// nhãn trình độ ĐẦU VÀO (levelLabel) cỡ chữ 5xl như thể đó là kết quả đạt
+// được sau khoá học. Trình độ đầu vào nay chỉ còn dòng nhỏ ghi rõ "tham khảo".
+// Sau #1, điều kiện cấp sẽ là số chặng ĐÃ XÁC MINH (đạt ngưỡng chính xác).
+function CertificateModal({ placementResult, completedCount, totalMilestonesCount, onClose }) { return <div className="fixed inset-0 z-[120] bg-slate-950/70 p-4 flex items-center justify-center" role="dialog" aria-modal="true"><section className="max-w-2xl w-full bg-[#fffdf4] text-slate-900 border-[10px] border-double border-yellow-600 rounded-xl p-8 md:p-12 text-center shadow-2xl"><button onClick={onClose} aria-label="Đóng" className="float-right"><X /></button><Award size={58} className="mx-auto text-yellow-500" /><p className="text-xs tracking-[0.3em] font-black text-yellow-700 mt-4">BUNNY ENGLISH · CERTIFICATE</p><h2 className="text-3xl md:text-4xl font-black mt-3">Chứng nhận hoàn thành lộ trình</h2><p className="mt-5 font-bold text-slate-600">Đã hoàn thành</p><p className="text-5xl font-black text-blue-700 mt-3">{completedCount}/{totalMilestonesCount} chặng học</p><p className="mt-4 text-sm font-bold">Ngày cấp: {new Intl.DateTimeFormat('vi-VN', { dateStyle: 'long' }).format(new Date())}</p><p className="mt-1 text-xs font-bold text-slate-500">Trình độ đầu vào (tham khảo): {placementResult.levelLabel} · {placementResult.score}%</p><button onClick={() => window.print()} className="mt-8 px-5 py-3 rounded-xl bg-slate-900 text-white font-black inline-flex items-center gap-2"><Printer size={17} /> In / Lưu PDF</button></section></div>; }

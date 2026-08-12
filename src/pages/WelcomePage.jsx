@@ -534,7 +534,7 @@ const WelcomePage = ({
         {weeklyLessons === 0 && <p className="mt-4 text-center text-sm font-bold text-slate-500 dark:text-slate-400">Hoàn thành một chặng để bắt đầu tạo nhịp học của bạn.</p>}
       </section>
 
-      <LearningReport placementResult={placementResult} weeklyLessons={weeklyLessons} weeklyXp={weeklyXp} completionPercentage={completionPercentage} streak={streak} weeklyGoalDays={weeklyGoalDays} />
+      <LearningReport placementResult={placementResult} weeklyLessons={weeklyLessons} weeklyXp={weeklyXp} completionPercentage={completionPercentage} streak={streak} weeklyGoalDays={weeklyGoalDays} completedCount={completedCount} totalMilestonesCount={totalMilestonesCount} />
 
       {/* --- VƯỜN THÚ (bộ sưu tập thú cưng, mở khoá bằng việc học) --- */}
       <PetZoo done={completedMilestones} streak={streak} className="mb-10" />
