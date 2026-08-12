@@ -111,8 +111,8 @@ export const vocabDailyNew12 = [
     storyVi: "Mọi người đều cần một chút thời gian để thư giãn và vui vẻ sau một tuần làm việc hoặc học tập dài. Có nhiều hình thức giải trí mà bạn có thể thưởng thức. Nếu bạn thích đi ra ngoài, bạn có thể mua một vé đến rạp chiếu phim để xem một bộ phim hành động thú vị hoặc một bộ phim hài buồn cười trên màn hình lớn. Bạn cũng có thể đi đến một nhà hát để xem một vở kịch với những nam diễn viên nổi tiếng, hoặc tham dự một buổi hòa nhạc để xem ngôi sao nhạc pop hoặc ban nhạc rock yêu thích của bạn biểu diễn trực tiếp. Nếu bạn thích ở nhà hơn, bạn có thể bật vô tuyến lên để xem một bộ phim tài liệu, một bộ phim hoạt hình, hoặc cày một bộ phim nhiều tập tâm lý mới trên Netflix. Công nghệ cũng đã thay đổi cách chúng ta tìm kiếm sự giải trí. Với một chiếc điện thoại thông minh, máy tính bảng, hoặc máy tính xách tay, bạn có thể kết nối với mạng không dây và lướt internet. Bạn có thể sử dụng một ứng dụng để phát trực tuyến những bài hát yêu thích, nghe một tệp âm thanh kỹ thuật số, hoặc tải xuống một trò chơi điện tử vui nhộn. Nhiều người trẻ dành hàng giờ trên mạng xã hội. Họ sử dụng máy ảnh để chụp một bức ảnh, tải nó lên, và viết một bài đăng. Khi bạn bè của họ nhìn thấy nó, họ sẽ nhấp chuột để lại một lượt thích hoặc một bình luận, và thậm chí có thể chia sẻ nó. Trong thế giới hiện đại, truyền thông ở khắp mọi nơi. Chúng ta có thể đọc tin tức từ một bài báo trực tuyến, hoặc trò chuyện và gửi một tin nhắn văn bản cho bạn bè của chúng ta bất cứ lúc nào. Chỉ cần nhớ sạc pin của bạn khi nó ở mức thấp, để bạn không bị mất kết nối!"
   },
   {
-    id: "technology-internet-daily", category: "daily",
-    title: "💻 Công Nghệ & Mạng Internet (100 Từ) (A2-B1)",
+    id: "technology-internet-daily-p2", category: "daily",
+    title: "💻 Công Nghệ & Mạng Internet (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng giao tiếp về các thiết bị công nghệ, phần mềm, các hoạt động trên internet và kỹ năng máy tính cơ bản.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

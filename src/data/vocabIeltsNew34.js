@@ -1,8 +1,8 @@
 // IELTS Batch 34 - Global Issues & Politics, Language & Communication
 export const vocabIeltsNew34 = [
   {
-    id: "global-issues-politics-ielts", category: "ielts",
-    title: "🌍 Vấn Đề Toàn Cầu & Chính Trị (100 Từ) (C1-C2)",
+    id: "global-issues-politics-ielts-p2", category: "ielts",
+    title: "🌍 Vấn Đề Toàn Cầu & Chính Trị (100 Từ) (C1-C2) – Phần 2",
     description: "100 từ vựng nâng cao về các vấn đề quốc tế, chính sách toàn cầu và hệ thống chính trị.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

@@ -1,8 +1,8 @@
 // Beginner Batch 11 - Colors & Shapes, Clothes & Accessories
 export const vocabBeginnerNew11 = [
   {
-    id: "colors-shapes-beginner", category: "beginner",
-    title: "🎨 Màu Sắc & Hình Khối (100 Từ) (A1-A2)",
+    id: "colors-shapes-beginner-p2", category: "beginner",
+    title: "🎨 Màu Sắc & Hình Khối (100 Từ) (A1-A2) – Phần 2",
     description: "100 từ vựng tiếng Anh cơ bản về các màu sắc, hình dáng, kích thước và cách miêu tả bề ngoài.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [

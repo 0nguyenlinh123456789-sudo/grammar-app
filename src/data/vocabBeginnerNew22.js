@@ -103,8 +103,8 @@ export const vocabBeginnerNew22 = [
     storyVi: "Mỗi ngày, chúng ta cảm nhận nhiều cảm xúc khác nhau. Khi tôi thức giấc và mặt trời đang chiếu sáng, tôi cảm thấy hạnh phúc và vui mừng. Tôi mỉm cười và đôi khi tôi cười to với những người bạn của mình. Chúng tôi còn trẻ và chúng tôi có một khoảng thời gian tuyệt diệu cùng nhau. Nhưng đôi khi, mọi thứ diễn ra không như ý. Nếu tôi trượt một bài kiểm tra dễ, tôi có thể cảm thấy buồn, và một giọt nước mắt có thể rơi ra từ mắt tôi. Nếu một ai đó làm hỏng món đồ chơi của tôi, tôi có thể cảm thấy tức giận và phát điên, và tôi muốn la hét. Khi tôi xem một bộ phim đáng sợ trong bóng tối, tôi cảm thấy e sợ. Một tiếng ồn lớn bất ngờ làm tôi cảm thấy ngạc nhiên hoặc bị sốc. Nếu tôi không có gì để làm, tôi cảm thấy buồn chán. Sau một ngày dài làm việc hoặc học tập chăm chỉ, cơ thể tôi cảm thấy mệt mỏi và đôi mắt tôi cảm thấy buồn ngủ. Nếu tôi không ăn, tôi cảm thấy đói, và nếu tôi không uống nước, tôi cảm thấy khát. Đôi khi thời tiết thay đổi cách chúng ta cảm nhận. Khi trời lạnh, tôi cần một chiếc áo khoác ấm áp. Khi trời nóng, một thức uống mát mẻ làm tôi cảm thấy ổn. Nếu tôi bị ốm hoặc bệnh, tôi cảm thấy đau đớn, và đó là một cảm giác kinh khủng. Nhưng gia đình tôi thì rất tử tế và họ chăm sóc tôi. Họ đưa cho tôi một chiếc gối mềm mại và một cái chăn nhẹ. Tình yêu và sự quan tâm từ những người thân thiện luôn luôn làm tôi cảm thấy an toàn và tuyệt vời trở lại. Thật đúng sự thật rằng những cảm xúc của chúng ta thay đổi, nhưng điều quan trọng là phải hiểu chúng."
   },
   {
-    id: "weather-seasons-beginner", category: "beginner",
-    title: "🌤️ Thời Tiết & Mùa (100 Từ) (A1)",
+    id: "weather-seasons-beginner-p3", category: "beginner",
+    title: "🌤️ Thời Tiết & Mùa (100 Từ) (A1) – Phần 3",
     description: "100 từ vựng cơ bản về các hiện tượng thời tiết, nhiệt độ, các mùa trong năm và thiên nhiên.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [

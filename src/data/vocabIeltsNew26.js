@@ -61,8 +61,8 @@ export const vocabIeltsNew26 = [
     storyVi: "Xuyên suốt lịch sử, triết học đã dẫn dắt nhân loại trong công cuộc mưu cầu chân lý và sự hiểu biết. Một nhà triết học kiểm tra những câu hỏi nền tảng về sự tồn tại, thực tại, và bản chất của kiến thức thông qua nhận thức luận. Trong cuộc sống hằng ngày của chúng ta, chúng ta thường đối mặt với một tình thế tiến thoái lưỡng nan về đạo đức cái mà kiểm tra hệ thống đạo đức và những giá trị cá nhân của chúng ta. Liệu một hành động nên được phán xét bởi hậu quả của nó, như được đề xuất bởi chủ nghĩa vị lợi, hay bởi nguyên tắc cơ bản và đức hạnh của nó? Khi mọi người tranh luận, một vài người dựa vào lý luận nghiêm ngặt và tư duy có lý trí, duy trì một góc nhìn khách quan. Những người khác tiếp cận những vấn đề với sự hoài nghi sâu sắc hoặc thậm chí là một hệ tư tưởng yếm thế. Mặc dù một vài nhà tư tưởng đón nhận thuyết quyết định, tin rằng số phận của chúng ta đã được định đoạt, nhiều người bảo vệ khái niệm về ý chí tự do, khẳng định rằng các cá nhân chịu trách nhiệm cho những sự lựa chọn của chính họ. Cuối cùng, cho dù một người áp dụng một thái độ của sự lạc quan, lòng vị tha, hay chủ nghĩa vị kỷ, sự suy ngẫm về triết học và hợp đạo đức là sống còn. Nó thách thức những giáo điều và những niềm tin phi lý cái mà có thể dẫn đến một xã hội vô đạo đức, khuyến khích chúng ta biện minh cho những hành động của mình và không ngừng tìm kiếm ý nghĩa sâu sắc hơn."
   },
   {
-    id: "psychology-mind-ielts", category: "ielts",
-    title: "🧠 Tâm Lý & Tâm Trí (100 Từ) (C1-C2)",
+    id: "psychology-mind-ielts-p2", category: "ielts",
+    title: "🧠 Tâm Lý & Tâm Trí (100 Từ) (C1-C2) – Phần 2",
     description: "100 từ vựng nâng cao về tâm lý học, trạng thái cảm xúc, nhận thức và các hội chứng tâm lý.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

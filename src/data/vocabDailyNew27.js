@@ -61,8 +61,8 @@ export const vocabDailyNew27 = [
     storyVi: "Sức khỏe tốt là điều quan trọng nhất trong cuộc sống. Khi bạn cảm thấy bị ốm hoặc ốm yếu, thật khó để tận hưởng một ngày của bạn. Đôi khi bạn có thể bị cảm lạnh hoặc bệnh cúm, cái mà mang đến cho bạn một cơn sốt, một chứng ho tồi tệ, và một cái cổ họng bị đau. Nếu bạn ăn quá nhiều thức ăn không tốt cho sức khỏe, bạn có thể bị đau bụng. Những thời điểm khác, bạn có thể có một cơn đau đầu tồi tệ hoặc một cơn đau răng. Khi bạn có một triệu chứng đau đớn giống như những thứ này, tốt nhất là nên đi gặp một bác sĩ hoặc một nha sĩ tại một phòng khám địa phương. Bác sĩ sẽ kiểm tra bạn và có thể viết một đơn thuốc. Bạn sau đó có thể đi đến hiệu thuốc để mua thuốc men, chẳng hạn như một viên thuốc hoặc một viên thuốc dạng nén, để giúp bạn phục hồi. Trong một tình trạng khẩn cấp về y tế, một chiếc xe cứu thương sẽ đưa bệnh nhân đến bệnh viện. Ở đó, một y tá có thể làm sạch một vết thương và dán lên một tấm băng gạc, hoặc một bác sĩ phẫu thuật lành nghề có thể thực hiện một ca phẫu thuật. Để duy trì sự khỏe mạnh và tránh dịch bệnh nghiêm trọng, chúng ta nên ăn một chế độ ăn uống cân bằng, tập thể dục, và chăm sóc cho những cơ thể của chúng ta để chúng có thể lành lại một cách nhanh chóng."
   },
   {
-    id: "food-cooking-daily", category: "daily",
-    title: "🍳 Ẩm Thực & Nấu Ăn (100 Từ) (A2-B1)",
+    id: "food-cooking-daily-p2", category: "daily",
+    title: "🍳 Ẩm Thực & Nấu Ăn (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng thông dụng về các phương pháp chế biến, dụng cụ nhà bếp và trải nghiệm ẩm thực.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

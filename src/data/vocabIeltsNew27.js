@@ -61,8 +61,8 @@ export const vocabIeltsNew27 = [
     storyVi: "Văn học là một cánh cửa sổ nhìn vào tâm hồn con người. Một tác giả lỗi lạc hoặc một tiểu thuyết gia tài năng sử dụng ngôn ngữ để tạo ra một câu chuyện hấp dẫn. Cho dù đó là thơ ca chứa đầy phép ẩn dụ và phép so sánh sâu sắc, hay văn xuôi tao nhã, vẻ đẹp của một kiệt tác văn học nằm ở khả năng của nó trong việc kết nối với những người đọc. Mỗi câu chuyện đều có một bối cảnh và một cốt truyện nơi mà một nhân vật chính anh hùng đối mặt với một nhân vật phản diện xấu xa. Thông qua lời thoại thông minh và sự độc thoại căng thẳng, những chủ đề về tình yêu, chiến tranh, hoặc bi kịch được khám phá. Trong lĩnh vực phi hư cấu, một tiểu sử hoặc một cuốn hồi ký cá nhân cung cấp một bài tường thuật dựa trên sự thật về lịch sử. Trước khi một cuốn sách được xuất bản, người viết tạo ra một bản nháp. Bản thảo này sau đó được gửi đến một người biên tập, người mà sẽ chỉnh sửa và đọc rà soát văn bản để đảm bảo rằng nó thì mạch lạc, lưu loát, và súc tích, loại bỏ đi bất kỳ ngôn từ dài dòng nào. Những người viết học thuật cũng phải cẩn thận để tránh sự đạo văn bằng cách cung cấp một sự trích dẫn phù hợp và một thư mục tham khảo chi tiết. Cuối cùng, cho dù đối mặt với bài phê bình gay gắt của một nhà phê bình văn học hay nhận được những sự đánh giá rực rỡ từ công chúng, việc viết lách hùng hồn tiếp tục truyền cảm hứng, thách thức, và giải trí cho một xã hội có học thức."
   },
   {
-    id: "art-design-ielts", category: "ielts",
-    title: "🎨 Nghệ Thuật & Thiết Kế (100 Từ) (C1-C2)",
+    id: "art-design-ielts-p2", category: "ielts",
+    title: "🎨 Nghệ Thuật & Thiết Kế (100 Từ) (C1-C2) – Phần 2",
     description: "100 từ vựng nâng cao về các trào lưu nghệ thuật, kỹ thuật thiết kế, mỹ thuật và sự sáng tạo thẩm mỹ.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

@@ -1,8 +1,8 @@
 // Beginner Batch 12 - Animals & Pets, Places & Buildings
 export const vocabBeginnerNew12 = [
   {
-    id: "animals-pets-beginner", category: "beginner",
-    title: "🐾 Động Vật & Thú Cưng (100 Từ) (A1-A2)",
+    id: "animals-pets-beginner-p2", category: "beginner",
+    title: "🐾 Động Vật & Thú Cưng (100 Từ) (A1-A2) – Phần 2",
     description: "100 từ vựng tiếng Anh cơ bản về các loài động vật hoang dã, vật nuôi trong nhà và các bộ phận của chúng.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [

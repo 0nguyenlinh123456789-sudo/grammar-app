@@ -1,8 +1,8 @@
 // Beginner Batch 15 - Family & People, Body & Health
 export const vocabBeginnerNew15 = [
   {
-    id: "family-people-beginner", category: "beginner",
-    title: "👨‍👩‍👧 Gia Đình & Con Người (100 Từ) (A1-A2)",
+    id: "family-people-beginner-p2", category: "beginner",
+    title: "👨‍👩‍👧 Gia Đình & Con Người (100 Từ) (A1-A2) – Phần 2",
     description: "100 từ vựng tiếng Anh cơ bản về các thành viên trong gia đình, các mối quan hệ, các giai đoạn cuộc đời và con người.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
@@ -92,8 +92,8 @@ export const vocabBeginnerNew15 = [
     storyVi: "Gia đình thì rất quan trọng đối với tất cả mọi người. Trong một ngôi nhà, bạn thường tìm thấy cha mẹ và những đứa trẻ của họ. Một gia đình có thể có một người cha, một người mẹ, một người con trai, và một người con gái. Người con trai là anh/em trai, và người con gái là chị/em gái. Họ là những anh chị em ruột. Họ cũng có một người ông và một người bà, những người là ông bà của họ. Ông bà rất yêu thương cháu trai và cháu gái của mình. Thường thì, một người chú hoặc một người dì đến thăm với những đứa trẻ của họ, những người là anh chị em họ. Khi con người lớn lên, họ trở thành người lớn. Một người đàn ông hoặc một người phụ nữ độc thân có thể gặp ai đó tốt bụng, rơi vào tình yêu, và kết hôn. Sau đó, người đàn ông trở thành một người chồng và người phụ nữ trở thành một người vợ. Họ có thể có một đám cưới tuyệt đẹp và mời nhiều người khách, bạn bè, và những người hàng xóm. Một em bé nhỏ thì rất dễ thương. Trẻ em lớn lên nhanh chóng và học cách chơi cùng nhau. Một số người thì cao và gầy, trong khi những người khác thì thấp hoặc béo. Tất cả chúng ta đều có những cái tên, tên gọi, và họ khác nhau. Chúng ta cũng cảm nhận những cảm xúc khác nhau. Đôi khi chúng ta vui vẻ và thân thiện, và đôi khi chúng ta buồn, mệt mỏi, hoặc tức giận. Nhưng cho dù thế nào, một gia đình tử tế sẽ luôn luôn yêu thương và giúp đỡ lẫn nhau trong cuộc sống."
   },
   {
-    id: "body-health-beginner", category: "beginner",
-    title: "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2)",
+    id: "body-health-beginner-p3", category: "beginner",
+    title: "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2) – Phần 3",
     description: "100 từ vựng tiếng Anh cơ bản về các bộ phận trên cơ thể người, sức khỏe, bệnh tật và việc chăm sóc bản thân.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [

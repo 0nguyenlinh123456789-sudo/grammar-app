@@ -1,8 +1,8 @@
 // Beginner Batch 13 - Food & Drinks, Days & Months
 export const vocabBeginnerNew13 = [
   {
-    id: "food-drinks-beginner", category: "beginner",
-    title: "🍔 Đồ Ăn & Thức Uống (100 Từ) (A1-A2)",
+    id: "food-drinks-beginner-p2", category: "beginner",
+    title: "🍔 Đồ Ăn & Thức Uống (100 Từ) (A1-A2) – Phần 2",
     description: "100 từ vựng tiếng Anh cơ bản về các loại thức ăn, đồ uống, trái cây, rau củ và các bữa ăn trong ngày.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
@@ -105,8 +105,8 @@ export const vocabBeginnerNew13 = [
     storyVi: "Mọi người đều trở nên đói và khát mỗi ngày. Khi chúng ta thức dậy, chúng ta ăn bữa sáng. Chúng ta có thể luộc một quả trứng, ăn một chút bánh mì với bơ, hoặc ăn một bát súp mì nóng. Chúng ta cũng uống một ly sữa, một tách cà phê, hoặc nước ép cam. Vào buổi trưa, chúng ta ăn bữa trưa. Một số người ăn một bữa ăn nhẹ nhanh chóng giống như một chiếc bánh kẹp, một chiếc hăm-bơ-gơ, hoặc một lát bánh pi-za. Vào buổi tối, các gia đình nấu bữa tối cùng nhau. Đầu tiên, họ rửa và thái những loại rau củ tươi như một quả cà chua, một củ khoai tây, một củ hành tây, và một củ cà rốt để làm một món rau trộn xanh lành mạnh. Sau đó, họ chiên một chút thịt như thịt bò, thịt heo, hoặc thịt gà, hoặc có thể nướng một con cá. Họ thêm muối và hạt tiêu để làm cho thức ăn ngon và ngon miệng. Trong suốt bữa ăn, họ sử dụng một cái đĩa, một cái bát, một cái nĩa, một con dao, và một cái thìa. Ở châu Á, nhiều người sử dụng đũa để ăn một bát cơm. Nếu thức ăn bị cay hoặc mặn, bạn có thể muốn một đồ uống bằng nước lạnh, một cốc nước ngọt có ga, hoặc một ly bia hay rượu vang. Sau bữa tối, nếu bạn không bị no, bạn có thể ăn một món tráng miệng ngọt. Bạn có thể ăn một miếng bánh ngọt, một chiếc bánh quy sô-cô-la, hoặc một chút trái cây như một quả táo, một quả chuối, hay một lát dưa hấu. Đồ ăn tốt làm cho chúng ta hạnh phúc và khỏe mạnh!"
   },
   {
-    id: "days-months-beginner", category: "beginner",
-    title: "📅 Ngày Tháng & Thời Gian (100 Từ) (A1-A2)",
+    id: "days-months-beginner-p2", category: "beginner",
+    title: "📅 Ngày Tháng & Thời Gian (100 Từ) (A1-A2) – Phần 2",
     description: "100 từ vựng tiếng Anh cơ bản về các thứ trong tuần, các tháng, các mùa, và cách nói thời gian.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [

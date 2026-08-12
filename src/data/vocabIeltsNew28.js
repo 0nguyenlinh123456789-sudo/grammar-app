@@ -61,8 +61,8 @@ export const vocabIeltsNew28 = [
     storyVi: "Xã hội hiện đại đang trải qua những thay đổi nhân khẩu học đáng kể. Tại nhiều quốc gia, một tỷ lệ sinh đang giảm sút kết hợp với tuổi thọ trung bình đang tăng lên đã dẫn đến một dân số đang già hóa, đặt áp lực lên các hệ thống lương hưu và phúc lợi công cộng. Hơn thế nữa, sự đô thị hóa và sự di cư nhanh chóng từ những khu vực nông thôn ra thành phố thường xuyên dẫn đến sự đông đúc quá mức và sự phát triển của một khu ổ chuột nghèo nàn ở vùng ngoại ô. Mặc dù một vài người tận hưởng sự sung túc tuyệt vời và một mức sống cao, những người khác đối mặt với sự nghèo đói nghiêm trọng, tạo ra một sự bất bình đẳng sâu sắc giữa các tầng lớp xã hội. Một xã hội đa văn hóa cũng phải giải quyết những thử thách của sự hội nhập, phấn đấu để loại bỏ định kiến, sự phân biệt đối xử, và sự kỳ thị cái mà gạt một nhóm thiểu số ra ngoài lề xã hội. Điều thiết yếu là phải thúc đẩy sự khoan dung và sự gắn kết xã hội để thu hẹp khoảng cách thế hệ và đảm bảo quyền tiếp cận công bằng đối với cơ sở hạ tầng cơ bản. Chỉ bằng cách phá vỡ những khuôn mẫu tiêu cực và khuyến khích sự bình đẳng thực sự thì một quốc gia mới có thể cung cấp sự di động cần thiết cho tất cả mọi người để cải thiện địa vị của họ."
   },
   {
-    id: "law-crime-ielts", category: "ielts",
-    title: "⚖️ Luật Pháp & Tội Phạm (100 Từ) (C1-C2)",
+    id: "law-crime-ielts-p3", category: "ielts",
+    title: "⚖️ Luật Pháp & Tội Phạm (100 Từ) (C1-C2) – Phần 3",
     description: "100 từ vựng chuyên sâu về hệ thống tư pháp, các loại tội phạm, hình phạt và an ninh xã hội.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

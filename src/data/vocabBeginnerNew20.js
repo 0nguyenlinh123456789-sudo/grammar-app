@@ -110,8 +110,8 @@ export const vocabBeginnerNew20 = [
     storyVi: "Tôi yêu thiên nhiên. Thế giới đầy ắp sự sống. Trên bầu trời, mặt trời có màu vàng và nóng. Nó chiếu sáng lên bãi cỏ màu xanh lá và những cái cây cao. Những bông hoa tuyệt đẹp mọc lên trong đất. Một con bướm bay qua một bông hoa, và một con ong làm ra mật ong. Những con chim hót một âm thanh ngọt ngào trong những chiếc lá. Trên mặt đất, có rất nhiều loài động vật. Một vài con là thú cưng, giống như một con chó hoặc một con mèo. Một con chó chạy nhanh, và một con mèo ngủ cả ngày. Đôi khi một con mèo bắt một con chuột nhỏ. Trên một nông trại, một con bò ăn cỏ, một con lợn thì béo, và một con vịt bơi trong nước. Trong khu rừng hoang dã hoặc rừng nhiệt đới, có những loài động vật lớn. Một con khỉ leo lên một cái cây để ăn những quả chuối. Một con sư tử mạnh mẽ và một con hổ nhanh nhẹn săn lùng thức ăn. Một con voi lớn đi bộ một cách chậm chạp. Một con gấu ngủ trong một hang động tối tăm khi thời tiết lạnh và trời có tuyết. Trong dòng sông, cái hồ, và đại dương màu xanh da trời, một con cá bơi. Một con ếch nhảy trên một chiếc lá màu xanh lá. Vào ban đêm, bầu trời có màu đen. Chúng ta có thể nhìn thấy mặt trăng màu trắng và nhiều ngôi sao sáng. Thiên nhiên thì rất xinh đẹp và chúng ta phải bảo vệ nó."
   },
   {
-    id: "places-buildings-beginner", category: "beginner",
-    title: "🏢 Nơi Chốn & Tòa Nhà (100 Từ) (A1)",
+    id: "places-buildings-beginner-p2", category: "beginner",
+    title: "🏢 Nơi Chốn & Tòa Nhà (100 Từ) (A1) – Phần 2",
     description: "100 từ vựng cơ bản về các địa điểm công cộng, các loại tòa nhà và phương hướng trong thị trấn.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [

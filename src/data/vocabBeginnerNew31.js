@@ -61,8 +61,8 @@ export const vocabBeginnerNew31 = [
     storyVi: "Thế giới của chúng ta là một nơi tuyệt đẹp. Trong thiên nhiên, bạn có thể nhìn thấy một cái cây cao với một chiếc lá màu xanh lá và một bông hoa tuyệt đẹp. Bạn có thể đi bộ trên bãi cỏ xanh mềm mại và nhìn thấy một cái cây nhỏ phát triển. Cao tít trên bầu trời, mặt trời chiếu sáng vào ban ngày, và mặt trăng cùng một ngôi sao sáng xuất hiện vào ban đêm. Nếu bạn ghé thăm khu rừng, bạn có thể nhìn thấy một ngọn núi cao và một ngọn đồi xanh. Một con sông dài chảy vào một hồ nước yên tĩnh, hoặc chảy xuống vùng biển xanh sâu thẳm và đại dương lớn. Tại bãi biển, bạn có thể chơi đùa trong cát trắng và tìm thấy một tảng đá hoặc hòn đá cứng. Có rất nhiều loại động vật trên Trái Đất. Trong ngôi nhà của bạn, bạn có thể có một thú cưng giống như một chú chó thân thiện, một chú mèo dễ thương, một chú chim đang hót, hoặc một chú cá đang bơi. Trên một trang trại, bạn có thể tìm thấy một con bò, một con heo mập, một con ngựa để cưỡi, một con cừu, một con gà, và một con vịt màu vàng. Trong môi trường hoang dã, có những loài động vật lớn giống như một con hổ, một con sư tử, một con voi, và một con gấu, hoặc một con khỉ buồn cười. Bạn cũng có thể nhìn thấy một con ếch đang nhảy, một con rắn dài, một chú thỏ trắng, hoặc một con bọ và con nhện nhỏ xíu. Mỗi loài động vật, từ một chú chim với cái cánh của nó cho đến một chú chó với cái đuôi của nó, làm cho thiên nhiên trở nên đặc biệt."
   },
   {
-    id: "weather-seasons-beginner", category: "beginner",
-    title: "🌦️ Thời Tiết & Mùa (100 Từ) (A1)",
+    id: "weather-seasons-beginner-p4", category: "beginner",
+    title: "🌦️ Thời Tiết & Mùa (100 Từ) (A1) – Phần 4",
     description: "100 từ vựng cơ bản về các hiện tượng thời tiết thông thường và bốn mùa trong năm.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [

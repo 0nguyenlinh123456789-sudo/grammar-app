@@ -61,8 +61,8 @@ export const vocabIeltsNew31 = [
     storyVi: "Sự theo đuổi không ngừng nghỉ của khoa học thúc đẩy sự đổi mới liên tục. Trong suốt lịch sử, một nhà khoa học hoặc nhà phát minh lỗi lạc đã thách thức hệ tư tưởng được chấp nhận để kiểm tra một giả thuyết mới. Bằng cách tiến hành một cuộc thí nghiệm nghiêm ngặt và thu thập dữ liệu thực nghiệm, họ phân tích các kết quả để tạo ra một sự khám phá mang tính đột phá. Ngày nay, chúng ta đang chứng kiến một bước đột phá lớn trong những lĩnh vực giống như công nghệ sinh học, ngành chế tạo rô-bốt, và công nghệ nano. Sự trỗi dậy của trí tuệ nhân tạo và học máy đang mang lại sự tự động hóa cho mọi ngành công nghiệp, thay thế một hệ thống lỗi thời hoặc lạc hậu bằng một cơ sở hạ tầng hiện đại nhất, tiên tiến nhất. Mặc dù một người tiên phong có thể dễ dàng đạt được một bằng sáng chế cho một thuật toán tinh vi, chúng ta cũng phải giải quyết những vấn đề thuộc về đạo đức và gây tranh cãi xoay quanh công nghệ hiện đại. Ví dụ, khả năng nhân bản vô tính hoặc biến đổi gen một sinh vật dấy lên những mối quan ngại sâu sắc. Cuối cùng, mục tiêu của chúng ta là khai thác sức mạnh của những sự tiến bộ khoa học này và tích hợp chúng vào xã hội, đảm bảo rằng mỗi sự phát minh mới mang lại lợi ích cho nhân loại hơn là gây ra sự tổn hại."
   },
   {
-    id: "space-exploration-ielts", category: "ielts",
-    title: "🚀 Không Gian & Khám Phá (100 Từ) (C1-C2)",
+    id: "space-exploration-ielts-p3", category: "ielts",
+    title: "🚀 Không Gian & Khám Phá (100 Từ) (C1-C2) – Phần 3",
     description: "100 từ vựng nâng cao về vũ trụ học, thiên văn học, và các sứ mệnh khám phá không gian.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

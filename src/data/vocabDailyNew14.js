@@ -1,8 +1,8 @@
 // Daily Batch 14 - Clothes & Fashion, House & Furniture
 export const vocabDailyNew14 = [
   {
-    id: "clothes-fashion-daily", category: "daily",
-    title: "👗 Quần Áo & Thời Trang (100 Từ) (A2-B1)",
+    id: "clothes-fashion-daily-p2", category: "daily",
+    title: "👗 Quần Áo & Thời Trang (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng giao tiếp về các loại trang phục, phụ kiện, thời trang và cách ăn mặc.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

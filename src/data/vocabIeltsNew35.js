@@ -61,8 +61,8 @@ export const vocabIeltsNew35 = [
     storyVi: "Nghệ thuật biểu diễn mang đến một trải nghiệm thuộc về thẩm mỹ sâu sắc cái mà thu hút khán giả. Trong một nhà hát tráng lệ, một sự biểu diễn kịch nghệ có thể bắt đầu bằng một vở bi kịch kịch tính hoặc một vở hài kịch nhẹ nhàng được viết bởi một nhà viết kịch tài ba. Dàn diễn viên phải diễn tập kịch bản một cách tỉ mỉ trong suốt một sự diễn tập để hoàn thiện những vai diễn của họ. Tương tự như vậy, trong lĩnh vực âm nhạc, một nhà soạn nhạc tạo ra một tác phẩm âm nhạc phức tạp. Một nhạc trưởng dẫn dắt dàn nhạc giao hưởng và dàn đồng ca, đảm bảo rằng mỗi nhạc cụ và phần giọng hát đều ở trong sự hòa âm hoàn hảo. Nhịp điệu, nhịp độ, và độ cao âm thanh phải kết hợp một cách liền mạch để tạo ra một giai điệu êm tai. Cho dù đó là một buổi hòa nhạc không dùng điện, một vở nhạc kịch tráng lệ, hay một vở múa ba-lê có nghệ thuật biên đạo múa phức tạp, những người biểu diễn đều nỗ lực cho sự xuất sắc. Sau một sự biểu diễn xuất chúng, khán giả sẽ háo hức vỗ tay tán thưởng, thường xuyên dành tặng một sự đứng dậy vỗ tay hoan hô. Những kiệt tác nghệ thuật này không chỉ giải trí mà còn nâng cao sự thấu hiểu văn hóa của chúng ta, khiến cho mỗi sự thử vai, sự diễn tập, và sự biểu diễn trực tiếp đều là một sự đóng góp có giá trị cho xã hội."
   },
   {
-    id: "literature-poetry-ielts", category: "ielts",
-    title: "📚 Văn Học & Thi Ca (100 Từ) (C1-C2)",
+    id: "literature-poetry-ielts-p2", category: "ielts",
+    title: "📚 Văn Học & Thi Ca (100 Từ) (C1-C2) – Phần 2",
     description: "100 từ vựng chuyên sâu về các thể loại văn học, thơ ca và phân tích tác phẩm nghệ thuật.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

@@ -1,8 +1,8 @@
 // Beginner Batch 18 - Family & People, Body Parts
 export const vocabBeginnerNew18 = [
   {
-    id: "family-people-beginner", category: "beginner",
-    title: "👨‍👩‍👧‍👦 Gia Đình & Mọi Người (100 Từ) (A1)",
+    id: "family-people-beginner-p3", category: "beginner",
+    title: "👨‍👩‍👧‍👦 Gia Đình & Mọi Người (100 Từ) (A1) – Phần 3",
     description: "100 từ vựng cơ bản về các thành viên trong gia đình, các mối quan hệ và con người xung quanh bạn.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [

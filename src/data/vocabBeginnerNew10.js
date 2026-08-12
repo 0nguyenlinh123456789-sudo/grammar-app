@@ -111,8 +111,8 @@ export const vocabBeginnerNew10 = [
     storyVi: "Khi mọi người lớn lên, họ cần phải tìm một công việc để kiếm tiền và có một sự nghiệp tốt. Có rất nhiều loại công việc khác nhau. Ví dụ, một giáo viên làm việc trong một trường học và giúp học sinh học tập. Một bác sĩ và một y tá làm việc trong một bệnh viện để giúp đỡ những người ốm. Nếu bạn thích đồ ăn, bạn có thể là một đầu bếp trong một nhà hàng, và một người bồi bàn nam hoặc nữ sẽ phục vụ thức ăn cho khách hàng. Một người thợ máy làm việc chăm chỉ để sửa chữa ô tô, trong khi một người thợ xây và một thợ mộc xây dựng nhà cửa. Một số công việc yêu cầu một bộ đồng phục, giống như một cảnh sát hoặc một lính cứu hỏa. Một nam doanh nhân hay nữ doanh nhân thường làm việc trong một văn phòng lớn, sử dụng máy tính tại bàn làm việc của họ, và có một cuộc họp với sếp hoặc đồng nghiệp của họ. Nếu bạn muốn tìm việc làm, bạn phải viết một bản sơ yếu lý lịch tốt và nộp đơn cho một công việc. Sau đó, bạn sẽ có một cuộc phỏng vấn. Thỉnh thoảng, mọi người làm việc toàn thời gian, và sinh viên có thể làm việc bán thời gian. Công việc có thể khiến bạn mệt mỏi và bận rộn, vì vậy việc nghỉ giải lao là rất quan trọng. Nếu bạn làm việc chăm chỉ và học những kỹ năng mới, bạn sẽ có rất nhiều sự thành công!"
   },
   {
-    id: "body-health-beginner", category: "beginner",
-    title: "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2)",
+    id: "body-health-beginner-p2", category: "beginner",
+    title: "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2) – Phần 2",
     description: "100 từ vựng tiếng Anh cơ bản về các bộ phận cơ thể người, tình trạng sức khỏe và các bệnh ốm đau thông thường.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [

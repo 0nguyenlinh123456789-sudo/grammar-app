@@ -61,8 +61,8 @@ export const vocabBeginnerNew27 = [
     storyVi: "Mọi người đều có một sở thích yêu thích. Việc có một sở thích thì rất vui vẻ. Một vài người thích những thứ yên tĩnh. Họ đọc một cuốn sách hay hoặc viết một câu chuyện. Những người khác thích nghệ thuật. Họ vẽ một bức tranh, tô màu với nhiều màu sắc, hoặc chụp một bức ảnh tuyệt đẹp. Nếu bạn yêu âm nhạc, bạn có thể hát một bài hát hoặc nhảy múa. Đôi khi, bạn chỉ muốn thư giãn. Bạn có thể xem một bộ phim trên ti vi, nghe nhạc, hoặc sử dụng điện thoại của bạn và mạng internet. Trẻ em yêu thích việc chơi đùa. Chúng chơi với một món đồ chơi, giống như một con búp bê hoặc một quả bóng. Chúng chạy ra bên ngoài, thả một con diều, hoặc đạp một chiếc xe đạp trong công viên. Các môn thể thao cũng là một sở thích tuyệt vời. Bạn có thể chơi một trò chơi bóng đá hoặc quần vợt với một đội. Thật vui vẻ khi chạy nhanh, nhảy cao, và bơi lội trong hồ bơi. Khi chúng ta chơi một trò chơi, chúng ta muốn chiến thắng, nhưng sẽ ổn thôi nếu chúng ta thua cuộc. Điều quan trọng nhất là phải tận hưởng hoạt động đó. Chúng ta thì vui vẻ khi chúng ta làm những việc chúng ta yêu thích cùng nhau với những người bạn của chúng ta."
   },
   {
-    id: "transport-vehicles-beginner", category: "beginner",
-    title: "🚗 Giao Thông & Xe Cộ (100 Từ) (A1)",
+    id: "transport-vehicles-beginner-p2", category: "beginner",
+    title: "🚗 Giao Thông & Xe Cộ (100 Từ) (A1) – Phần 2",
     description: "100 từ vựng cơ bản về các loại phương tiện đi lại, giao thông đường bộ và các động từ di chuyển.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [

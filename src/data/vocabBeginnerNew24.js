@@ -1,8 +1,8 @@
 // Beginner Batch 24 - House & Rooms, Clothes & Accessories
 export const vocabBeginnerNew24 = [
   {
-    id: "house-rooms-beginner", category: "beginner",
-    title: "🏠 Ngôi Nhà & Căn Phòng (100 Từ) (A1)",
+    id: "house-rooms-beginner-p2", category: "beginner",
+    title: "🏠 Ngôi Nhà & Căn Phòng (100 Từ) (A1) – Phần 2",
     description: "100 từ vựng cơ bản nhất về các loại nhà, các phòng, đồ đạc trong nhà và các vật dụng thường ngày.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
@@ -61,8 +61,8 @@ export const vocabBeginnerNew24 = [
     storyVi: "Chào mừng đến với ngôi nhà của tôi. Đó là một mái ấm đẹp với một cái sân nhỏ và một khu vườn xanh. Ngôi nhà của tôi có bốn căn phòng. Khi bạn mở cánh cửa, bạn đi vào phòng khách. Trong phòng khách, có một chiếc ghế sô pha mềm mại, một cái bàn nhỏ, và một cái ti vi. Có một bức tranh tuyệt đẹp trên bức tường và một chiếc đồng hồ để biết giờ giấc. Bên cạnh phòng khách là nhà bếp. Mẹ tôi nấu thức ăn ở đó. Trong nhà bếp, chúng tôi có nhiều cái cốc, cái ly, cái đĩa, và cái bát. Chúng tôi ăn thức ăn bằng cách sử dụng một con dao, một cái nĩa, và một cái muỗng. Ở tầng trên, có phòng ngủ của tôi và một phòng tắm. Trong phòng ngủ của tôi, tôi có một chiếc giường lớn để ngủ trên đó. Tôi cũng có một chiếc bàn học và một cái ghế nơi tôi học tập. Tôi đặt những cuốn sách, chiếc bút mực, và chiếc bút chì của mình vào trong ba lô đi học của tôi. Trong phòng tắm, bạn có thể tìm thấy một chiếc gương, một chiếc khăn tắm, và một ít xà phòng để rửa tay khi chúng bị bẩn. Mỗi cuối tuần, tôi giúp đỡ gia đình mình lau dọn ngôi nhà. Tôi mở cửa sổ để cho ánh mặt trời chiếu vào. Tôi rất yêu ngôi nhà của mình."
   },
   {
-    id: "clothes-accessories-beginner", category: "beginner",
-    title: "👕 Quần Áo & Phụ Kiện (100 Từ) (A1)",
+    id: "clothes-accessories-beginner-p2", category: "beginner",
+    title: "👕 Quần Áo & Phụ Kiện (100 Từ) (A1) – Phần 2",
     description: "100 từ vựng cơ bản về các loại trang phục, màu sắc quần áo, và cách ăn mặc hàng ngày.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [

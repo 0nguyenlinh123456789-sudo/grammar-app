@@ -1,8 +1,8 @@
 // Beginner Batch 14 - Weather & Seasons, City & Transport
 export const vocabBeginnerNew14 = [
   {
-    id: "weather-seasons-beginner", category: "beginner",
-    title: "☀️ Thời Tiết & Các Mùa (100 Từ) (A1-A2)",
+    id: "weather-seasons-beginner-p2", category: "beginner",
+    title: "☀️ Thời Tiết & Các Mùa (100 Từ) (A1-A2) – Phần 2",
     description: "100 từ vựng tiếng Anh cơ bản về hiện tượng thời tiết, nhiệt độ, các mùa trong năm và thiên nhiên.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [

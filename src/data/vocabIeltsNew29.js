@@ -1,8 +1,8 @@
 // IELTS Batch 29 - Business & Economy, Globalization & Trade
 export const vocabIeltsNew29 = [
   {
-    id: "business-economy-ielts", category: "ielts",
-    title: "💼 Kinh Doanh & Kinh Tế (100 Từ) (C1-C2)",
+    id: "business-economy-ielts-p2", category: "ielts",
+    title: "💼 Kinh Doanh & Kinh Tế (100 Từ) (C1-C2) – Phần 2",
     description: "100 từ vựng nâng cao về các nguyên lý kinh tế học, tài chính doanh nghiệp, đầu tư và thị trường.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

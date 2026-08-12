@@ -1,8 +1,8 @@
 // IELTS Batch 15 - Media & Advertising, Technology & Internet
 export const vocabIeltsNew15 = [
   {
-    id: "media-advertising-ielts", category: "ielts",
-    title: "📺 Media & Advertising (100 Words) (B2-C1)",
+    id: "media-advertising-ielts-p2", category: "ielts",
+    title: "📺 Media & Advertising (100 Words) (B2-C1) – Phần 2",
     description: "100 high-level vocabulary words related to mass media, advertising strategies, consumerism, and journalism for IELTS preparation.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [

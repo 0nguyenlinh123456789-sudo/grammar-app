@@ -1,8 +1,8 @@
 // Daily Batch 19 - Family & Relationships, Hobbies & Interests
 export const vocabDailyNew19 = [
   {
-    id: "family-relationships-daily", category: "daily",
-    title: "👨‍👩‍👧‍👦 Gia Đình & Mối Quan Hệ (100 Từ) (A2-B1)",
+    id: "family-relationships-daily-p2", category: "daily",
+    title: "👨‍👩‍👧‍👦 Gia Đình & Mối Quan Hệ (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng thông dụng về các thành viên trong gia đình, họ hàng, tình bạn và các mối quan hệ xã hội.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

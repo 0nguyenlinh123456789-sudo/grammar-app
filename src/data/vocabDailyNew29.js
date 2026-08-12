@@ -1,8 +1,8 @@
 // Daily Batch 29 - Weather & Seasons, Nature & Environment
 export const vocabDailyNew29 = [
   {
-    id: "weather-seasons-daily", category: "daily",
-    title: "🌦️ Thời Tiết & Mùa (100 Từ) (A2-B1)",
+    id: "weather-seasons-daily-p3", category: "daily",
+    title: "🌦️ Thời Tiết & Mùa (100 Từ) (A2-B1) – Phần 3",
     description: "100 từ vựng thông dụng về các hiện tượng thời tiết, nhiệt độ, các mùa trong năm và dự báo thời tiết.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
@@ -61,8 +61,8 @@ export const vocabDailyNew29 = [
     storyVi: "Việc thấu hiểu thời tiết và bốn mùa giúp chúng ta lên kế hoạch cho cuộc sống hằng ngày của mình. Theo như dự báo, khí hậu thay đổi trong suốt cả năm. Vào mùa xuân, nhiệt độ thì ôn hòa và ấm áp, và mặt trời bắt đầu chiếu sáng. Mùa hè thường rất nóng và có nắng, mặc dù có thể có một cơn mưa rào bất chợt. Khi mùa thu đến, thời tiết chuyển sang mát mẻ và có gió nhẹ, và bạn có thể trải qua một ngày nhiều gió khi những chiếc lá rơi xuống từ những cái cây. Cuối cùng, mùa đông mang đến những ngày lạnh và lạnh cóng. Trời thường nhiều mây, và ở một số nơi, tuyết sẽ bao phủ mặt đất trong băng trắng. Một buổi sáng có sương mù có thể làm cho nó khó để nhìn thấy. Thời tiết khắc nghiệt cũng có thể xảy ra. Một đám mây đen có thể mang đến cơn mưa lớn, một cơn bão mạnh với một tia chớp và sấm sét lớn. Trong những trường hợp cực đoan, một cơn bão cuồng phong mạnh mẽ hoặc một cơn lốc xoáy nhanh có thể gây ra thiệt hại tồi tệ, trong khi quá nhiều mưa có thể gây ra một trận lũ lụt, và sự thiếu hụt mưa gây ra một đợt hạn hán khô cằn. Cho dù bao nhiêu độ ở bên ngoài, việc được chuẩn bị sẵn sàng thì tốt. Nếu trời ướt và có mưa, hãy chộp lấy chiếc ô của bạn. Nếu trời đóng băng và có tuyết, hãy mặc một chiếc áo khoác ấm áp."
   },
   {
-    id: "nature-environment-daily", category: "daily",
-    title: "🌲 Thiên Nhiên & Môi Trường (100 Từ) (A2-B1)",
+    id: "nature-environment-daily-p2", category: "daily",
+    title: "🌲 Thiên Nhiên & Môi Trường (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng thông dụng về cảnh quan thiên nhiên, các loài thực vật, động vật và bảo vệ môi trường.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

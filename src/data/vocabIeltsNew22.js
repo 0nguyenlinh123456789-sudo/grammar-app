@@ -61,8 +61,8 @@ export const vocabIeltsNew22 = [
     storyVi: "Sự tiếp cận đến dịch vụ chăm sóc sức khỏe toàn diện là thiết yếu cho sự an sinh của bất kỳ xã hội nào. Tuy nhiên, các hệ thống y tế hiện đại đối mặt với vô số thách thức, từ những chi phí thuốc chữa bệnh đang gia tăng cho đến sự thiếu hụt các bác sĩ đa khoa và bác sĩ phẫu thuật đủ trình độ. Khi một bệnh nhân xuất hiện với một triệu chứng, một sự chẩn đoán chính xác là cực kỳ quan trọng để xác định phương pháp điều trị hoặc liệu pháp điều trị đúng đắn. Đáng tiếc là, một vài căn bệnh mãn tính và bệnh lây nhiễm không có phương thuốc chữa trị nào được biết đến. Trong thời gian gần đây, sự bùng phát của một loại virus có tính lây truyền cao đã nhanh chóng leo thang thành một đại dịch toàn cầu, buộc các chính phủ phải tăng tốc độ phát triển của một loại vắc-xin để xây dựng sự miễn dịch. Vượt ngoài các loại virus, những bệnh vặt không lây nhiễm như bệnh tim, bệnh tiểu đường, và bệnh ung thư đặt ra những mối đe dọa đáng kể, thường có liên quan đến các yếu tố phong cách sống giống như sự dinh dưỡng kém và sự béo phì. Những biện pháp phòng ngừa, bao gồm vệ sinh cộng đồng, hệ thống vệ sinh môi trường tốt hơn, và việc tập thể dục thường xuyên, có thể làm giảm thiểu đáng kể nguy cơ của một cơn đột quỵ hoặc cơn đau tim. Tóm lại, trong khi những tiến bộ trong phẫu thuật và y học tiếp tục cứu sống nhiều sinh mạng, một sự tập trung vào sự phòng ngừa và chăm sóc y tế dễ tiếp cận vẫn là tối quan trọng."
   },
   {
-    id: "law-crime-ielts", category: "ielts",
-    title: "⚖️ Luật Pháp & Tội Phạm (100 Từ) (B2-C1)",
+    id: "law-crime-ielts-p2", category: "ielts",
+    title: "⚖️ Luật Pháp & Tội Phạm (100 Từ) (B2-C1) – Phần 2",
     description: "100 từ vựng nâng cao về hệ thống pháp luật, các loại tội phạm, và quá trình tư pháp.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [

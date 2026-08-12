@@ -61,8 +61,8 @@ export const vocabIeltsNew30 = [
     storyVi: "Việc nghiên cứu lịch sử thì vô cùng quan trọng bởi vì di sản của chúng ta hình thành nên nền tảng của xã hội hiện đại. Từ một kỷ nguyên tiền sử đến một nền văn minh cổ đại huy hoàng, mỗi triều đại và đế chế đều đã để lại phía sau một di sản (để lại) độc nhất vô nhị. Trong lĩnh vực khảo cổ học, các chuyên gia khai quật một tàn tích để tìm kiếm một cổ vật cổ đại hoặc một di vật thiêng liêng. Sự bảo tồn và sự giữ gìn những đồ vật này là thiết yếu. Một viện bảo tàng thường tổ chức một cuộc triển lãm để trưng bày một bộ sưu tập những đồ cổ, được sắp xếp theo trình tự thời gian, cho phép chúng ta thấu hiểu một kỷ nguyên từ nhiều thế kỷ hoặc thậm chí một thiên niên kỷ trước. Chúng ta phải làm việc để trùng tu một đài kỷ niệm mang tính lịch sử cái mà tôn vinh một cuộc cách mạng hoặc cuộc khởi nghĩa trong quá khứ chống lại một chế độ quân chủ. Thông qua sự trùng tu cẩn thận, chúng ta có thể tưởng nhớ những sự chật vật của một dân số bản địa và đảm bảo rằng một truyền thống truyền miệng hoặc thần thoại học không bị đánh mất. Việc thấu hiểu tổ tiên của chúng ta và văn hóa dân gian của họ giúp mỗi hậu duệ trân trọng bản sắc văn hóa của họ. Cho dù là việc bảo tồn một tài liệu trong một nơi lưu trữ hay cứu một tòa lâu đài khỏi sự mục nát, việc bảo vệ những tàn dư lịch sử kết nối chúng ta một cách sâu sắc với quá khứ."
   },
   {
-    id: "architecture-urban-ielts", category: "ielts",
-    title: "🏙️ Kiến Trúc & Quy Hoạch Đô Thị (100 Từ) (C1-C2)",
+    id: "architecture-urban-ielts-p2", category: "ielts",
+    title: "🏙️ Kiến Trúc & Quy Hoạch Đô Thị (100 Từ) (C1-C2) – Phần 2",
     description: "100 từ vựng chuyên sâu về thiết kế công trình, cấu trúc xây dựng và sự phát triển của thành phố.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

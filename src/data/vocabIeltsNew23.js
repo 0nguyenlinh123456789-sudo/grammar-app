@@ -61,8 +61,8 @@ export const vocabIeltsNew23 = [
     storyVi: "Văn hóa và di sản của một xã hội được bảo tồn một cách tuyệt đẹp thông qua nghệ thuật và văn học của nó. Từ những truyền thuyết cổ đại và văn hóa dân gian cho đến thơ ca kinh điển, những truyền thống này kể về câu chuyện của một quốc gia. Trong lĩnh vực của nghệ thuật thị giác, một nghệ sĩ xuất chúng có thể đứng trước một tấm vải bạt trống rỗng và tạo ra một kiệt tác đương đại, hoặc chế tác một tác phẩm điêu khắc bằng đá cẩm thạch tráng lệ. Những tác phẩm nghệ thuật này thường được trưng bày trong một phòng trưng bày nghệ thuật hoặc một bảo tàng, bên cạnh những đồ tạo tác mang tính lịch sử vô giá. Nghệ thuật biểu diễn cũng quan trọng không kém đối với sự thể hiện văn hóa. Một diễn viên nam hoặc diễn viên nữ tận tụy dành nhiều giờ đồng hồ trong sự diễn tập để hoàn thiện màn trình diễn của họ trong một vở kịch. Khi đạo diễn hô gọi cho cảnh quay cuối cùng, khán giả đáp lại bằng tiếng vỗ tay vang dội. Âm nhạc cũng kết nối các thế hệ, khi một nhà soạn nhạc tài năng tạo ra một bản nhạc giao hưởng được biểu diễn bởi một dàn nhạc giao hưởng vĩ đại chơi một sự đa dạng của các nhạc cụ. Cho dù là tham dự một lễ hội sôi động, chiêm ngưỡng thiết kế thẩm mỹ của kiến trúc độc đáo, hay đọc một tác phẩm tiểu thuyết hấp dẫn bởi một tác giả nổi danh, những trải nghiệm văn hóa này làm phong phú thêm cuộc sống của chúng ta và kết nối chúng ta với lịch sử nhân loại được chia sẻ của chúng ta."
   },
   {
-    id: "media-communication-ielts", category: "ielts",
-    title: "📱 Truyền Thông & Giao Tiếp (100 Từ) (B2-C1)",
+    id: "media-communication-ielts-p2", category: "ielts",
+    title: "📱 Truyền Thông & Giao Tiếp (100 Từ) (B2-C1) – Phần 2",
     description: "100 từ vựng nâng cao về các phương tiện truyền thông đại chúng, báo chí, mạng xã hội và phương thức giao tiếp.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [

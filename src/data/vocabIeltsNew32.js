@@ -1,8 +1,8 @@
 // IELTS Batch 32 - Food & Agriculture, Energy & Resources
 export const vocabIeltsNew32 = [
   {
-    id: "food-agriculture-ielts", category: "ielts",
-    title: "🌾 Thực Phẩm & Nông Nghiệp (100 Từ) (C1-C2)",
+    id: "food-agriculture-ielts-p2", category: "ielts",
+    title: "🌾 Thực Phẩm & Nông Nghiệp (100 Từ) (C1-C2) – Phần 2",
     description: "100 từ vựng nâng cao về an ninh lương thực, canh tác nông nghiệp, và ngành công nghiệp thực phẩm.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

@@ -1,8 +1,8 @@
 // Daily Batch 22 - Health & Body, Education & School
 export const vocabDailyNew22 = [
   {
-    id: "health-body-daily", category: "daily",
-    title: "💪 Sức Khỏe & Cơ Thể (100 Từ) (A2-B1)",
+    id: "health-body-daily-p2", category: "daily",
+    title: "💪 Sức Khỏe & Cơ Thể (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng thông dụng về các bộ phận cơ thể con người, các bệnh thường gặp và việc chăm sóc sức khỏe cá nhân.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
@@ -71,8 +71,8 @@ export const vocabDailyNew22 = [
     storyVi: "Cơ thể của chúng ta thì đáng kinh ngạc và việc chăm sóc sức khỏe của chúng ta nên là một sự ưu tiên. Chúng ta sử dụng cái đầu của mình để suy nghĩ nhờ vào não bộ của chúng ta, và đôi mắt của chúng ta để nhìn. Chúng ta sử dụng lỗ tai của mình để nghe, cái mũi của chúng ta để ngửi, và cái miệng của chúng ta, với những đôi môi, những chiếc răng, và cái lưỡi của nó, để nói chuyện và ăn uống. Chúng ta làm việc bằng cách sử dụng những cánh tay và bàn tay của mình, và chúng ta đi bộ bằng cách sử dụng những cái chân và bàn chân của mình. Để giữ cho những cơ bắp và những chiếc xương của chúng ta mạnh mẽ, và trái tim của chúng ta khỏe mạnh, chúng ta phải tập thể dục một cách thường xuyên và ăn một chế độ ăn uống khỏe mạnh. Tuy nhiên, đôi khi chúng ta cảm thấy bị ốm. Bạn có thể bị mắc một bệnh cảm lạnh hoặc bệnh cúm, thứ mà gây cho bạn một cơn sốt cao, một chứng ho, và làm cho bạn hắt hơi. Đôi khi bạn có thể có một cơn đau đầu tồi tệ, một cơn đau dạ dày từ việc ăn thức ăn tệ, hoặc một cơn đau răng. Nếu cơn đau làm đau rất nhiều, bạn nên đến thăm một bác sĩ tại phòng khám hoặc bệnh viện, hoặc đi gặp một nha sĩ. Bác sĩ có thể bảo bạn đi đến hiệu thuốc để lấy một vài loại thuốc hoặc uống một viên thuốc. Nếu bạn gặp một vụ tai nạn và có một vết cắt trên làn da của mình, nó có thể chảy máu, và một y tá sẽ đặt một miếng băng gạc lên trên vết thương. Bằng cách giữ cho cơ thể cân đối và chăm sóc bản thân mình, bạn có thể tận hưởng một cuộc sống hạnh phúc, khỏe mạnh."
   },
   {
-    id: "education-school-daily", category: "daily",
-    title: "🏫 Giáo Dục & Trường Học (100 Từ) (A2-B1)",
+    id: "education-school-daily-p2", category: "daily",
+    title: "🏫 Giáo Dục & Trường Học (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng thông dụng về trường học, lớp học, các môn học và các hoạt động giáo dục.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

@@ -1,8 +1,8 @@
 // Daily Batch 28 - Technology & Gadgets, Communication & Internet
 export const vocabDailyNew28 = [
   {
-    id: "technology-gadgets-daily", category: "daily",
-    title: "💻 Công Nghệ & Thiết Bị (100 Từ) (A2-B1)",
+    id: "technology-gadgets-daily-p2", category: "daily",
+    title: "💻 Công Nghệ & Thiết Bị (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng thông dụng về máy tính, điện thoại, các thiết bị điện tử và phần mềm tiện ích.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

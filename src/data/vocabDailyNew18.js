@@ -110,8 +110,8 @@ export const vocabDailyNew18 = [
     storyVi: "Để có một cuộc sống tốt, bạn cần phải chăm sóc cơ thể và sức khỏe của bạn. Cơ thể của bạn có nhiều bộ phận, từ đầu và khuôn mặt, xuống đến cánh tay, chân, và bàn chân của bạn. Ở bên trong, não bộ, trái tim, và dạ dày của bạn làm việc chăm chỉ mỗi ngày. Để giữ chúng khỏe mạnh, bạn nên ăn một chế độ ăn uống cân bằng với nhiều vi-ta-min, và tập thể dục để xây dựng cơ bắp của bạn. Tuy nhiên, đôi khi chúng ta bị ốm. Nếu bạn mắc một cơn cảm lạnh hoặc cảm cúm, bạn có thể có một cơn sốt, một cơn ho, và đau đầu. Bạn có thể hắt hơi và cảm thấy mệt mỏi hoặc kiệt sức. Khi điều này xảy ra, bạn cần nghỉ ngơi và nhận đủ giấc ngủ. Nếu căn bệnh nghiêm trọng, hoặc nếu bạn có một cơn đau tồi tệ hoặc chấn thương giống như một chiếc xương bị gãy, bạn phải đi đến bệnh viện. Ở đó, một y tá sẽ kiểm tra huyết áp và nhiệt độ của bạn, và một bác sĩ sẽ điều trị cho bạn. Bác sĩ có thể đưa cho bạn một đơn thuốc cho một vài loại thuốc hoặc viên thuốc để mua tại hiệu thuốc. Nếu bạn có một cơn đau răng, bạn đến thăm một nha sĩ. Hãy nhớ rằng, việc phòng bệnh thì tốt hơn chữa bệnh. Bằng cách duy trì một lối sống lành mạnh, tránh sự căng thẳng, và đi cho một cuộc kiểm tra sức khỏe thường xuyên, bạn có thể ngăn ngừa bệnh tật và giữ khỏe mạnh và vui vẻ."
   },
   {
-    id: "weather-seasons-daily", category: "daily",
-    title: "☀️ Thời Tiết & Bốn Mùa (100 Từ) (A2-B1)",
+    id: "weather-seasons-daily-p2", category: "daily",
+    title: "☀️ Thời Tiết & Bốn Mùa (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng thông dụng về các hiện tượng thời tiết, các mùa trong năm và thiên nhiên.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

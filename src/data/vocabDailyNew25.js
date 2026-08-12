@@ -1,8 +1,8 @@
 // Daily Batch 25 - Entertainment & Media, Culture & Traditions
 export const vocabDailyNew25 = [
   {
-    id: "entertainment-media-daily", category: "daily",
-    title: "🎬 Giải Trí & Truyền Thông (100 Từ) (A2-B1)",
+    id: "entertainment-media-daily-p2", category: "daily",
+    title: "🎬 Giải Trí & Truyền Thông (100 Từ) (A2-B1) – Phần 2",
     description: "100 từ vựng thông dụng về các loại hình giải trí, phim ảnh, âm nhạc, báo chí và các phương tiện truyền thông.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

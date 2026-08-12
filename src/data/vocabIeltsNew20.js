@@ -1,8 +1,8 @@
 // IELTS Batch 20 - History & Culture, Media & Advertising
 export const vocabIeltsNew20 = [
   {
-    id: "history-culture-ielts", category: "ielts",
-    title: "🏺 Lịch Sử & Văn Hóa (100 Từ) (B2-C1)",
+    id: "history-culture-ielts-p2", category: "ielts",
+    title: "🏺 Lịch Sử & Văn Hóa (100 Từ) (B2-C1) – Phần 2",
     description: "100 từ vựng nâng cao về di sản, truyền thống, các sự kiện lịch sử và sự đa dạng văn hóa.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [

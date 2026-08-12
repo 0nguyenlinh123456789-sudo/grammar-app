@@ -111,8 +111,8 @@ export const vocabIeltsNew17 = [
     storyVi: "Một xã hội văn minh phụ thuộc vào một hệ thống pháp lý vững chắc để duy trì trật tự và thực thi pháp luật. Khi một tội ác được thực hiện, cho dù đó là một hành vi phạm pháp nhỏ như ăn cắp ở cửa hàng hay móc túi, hoặc một trọng tội nghiêm trọng như giết người, cướp có vũ trang, hay tham ô, các cơ quan thực thi pháp luật phải điều tra kỹ lưỡng. Các thám tử và chuyên gia pháp y thu thập bằng chứng tại hiện trường vụ án, cố gắng thiết lập một động cơ và xác minh xem kẻ tình nghi có một bằng chứng ngoại phạm hợp lệ hay không. Nếu tìm thấy đủ bằng chứng xác thực, cảnh sát sẽ xin một lệnh để bắt giữ kẻ tình nghi, người sau đó bị buộc tội và bị truy tố chính thức. Trong suốt phiên tòa xét xử tại tòa án, bên truy tố phải đưa ra lời khai có sức thuyết phục từ các nhân chứng để chứng minh bị cáo có tội mà không có sự nghi ngờ hợp lý nào. Ngược lại, luật sư bào chữa lập luận để tha bổng cho thân chủ của họ, thường xuyên khẳng định sự vô tội hoặc tự vệ. Bồi thẩm đoàn lắng nghe một cách công bằng trước khi đưa ra một phán quyết. Nếu bị kết án, thẩm phán sẽ đưa ra một bản án, thứ mà có thể dao động từ một khoản tiền phạt nặng và thời gian thử thách cho đến sự bỏ tù kéo dài. Mục tiêu cuối cùng của hệ thống tư pháp không chỉ là đóng vai trò như một thứ răn đe đối với hành vi trái pháp luật mà còn để phục hồi nhân phẩm cho những người phạm tội để họ không quay lại với một cuộc sống của sự phạm pháp vị thành niên hoặc hoạt động tội phạm."
   },
   {
-    id: "space-exploration-ielts", category: "ielts",
-    title: "🚀 Space & Exploration (100 Words) (B2-C1)",
+    id: "space-exploration-ielts-p2", category: "ielts",
+    title: "🚀 Space & Exploration (100 Words) (B2-C1) – Phần 2",
     description: "100 advanced vocabulary words related to astronomy, the universe, space travel, and scientific discovery for IELTS preparation.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [

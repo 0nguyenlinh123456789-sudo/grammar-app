@@ -61,8 +61,8 @@ export const vocabBeginnerNew30 = [
     storyVi: "Mọi người đều cần tiền bạc để mua các thứ. Chúng ta có thể giữ tiền của mình an toàn trong một ngân hàng. Khi chúng ta muốn mua thức ăn, quần áo, hoặc một món đồ chơi, chúng ta đi đến một cửa hàng, một khu chợ, hoặc một siêu thị lớn. Đôi khi chúng ta ghé thăm một trung tâm mua sắm lớn. Chúng ta có thể trả bằng tiền mặt, giống như một đồng xu hoặc tiền giấy, hoặc chúng ta có thể sử dụng một chiếc thẻ ngân hàng. Khi chúng ta tìm thấy thứ gì đó chúng ta thích, chúng ta nhìn vào giá cả. Nếu nó rẻ, chúng ta có thể lấy nó. Nếu nó quá đắt đỏ, chúng ta có thể tiết kiệm tiền của mình và đợi một đợt giảm giá. Trong cửa hàng, chúng ta đặt những thứ chúng ta cần vào trong một cái giỏ. Nếu bạn muốn mua một chiếc áo sơ mi, bạn có thể yêu cầu nhân viên cửa hàng giúp đỡ. Họ sẽ giúp bạn tìm đúng kích cỡ và màu sắc, và bạn có thể mặc thử nó để xem liệu nó có vừa vặn hay không. Khi bạn đã sẵn sàng để trả tiền, bạn đưa tiền cho nhân viên. Họ sẽ đưa cho bạn tiền thối lại và một tờ biên lai, và đặt những đồ vật của bạn vào một cái túi. Cho dù bạn giàu hay nghèo, việc mua sắm có thể rất thú vị. Và hãy luôn nhớ nói cảm ơn khi bạn rời khỏi cửa hàng đang mở cửa trước khi nó đóng cửa."
   },
   {
-    id: "clothes-fashion-beginner", category: "beginner",
-    title: "👗 Quần Áo & Thời Trang (100 Từ) (A1)",
+    id: "clothes-fashion-beginner-p2", category: "beginner",
+    title: "👗 Quần Áo & Thời Trang (100 Từ) (A1) – Phần 2",
     description: "100 từ vựng cơ bản về các loại trang phục, phụ kiện và cách miêu tả quần áo.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
