@@ -39,7 +39,7 @@ const OnboardingWizard = ({ dailyGoal = 1, setDailyGoal, onFinish }) => {
             <img src="/bunny_logo.png" alt="" className="w-28 h-28 mx-auto object-contain drop-shadow-[4px_5px_0_rgba(30,41,59,0.15)]" draggable={false} />
             <h2 id="onboarding-title" className="text-3xl font-black mt-4 text-slate-900 dark:text-white">Chào mừng đến<br />Bunny <span className="text-pink-500">English</span>! 🎉</h2>
             <p className="mt-3 font-bold text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
-              Tớ là Bunny! Tớ sẽ cùng cậu luyện đủ 4 kỹ năng Nghe – Nói – Đọc – Viết theo lộ trình từ A1 đến C2, mỗi ngày chỉ cần 15 phút.
+              Tớ là Bunny! Tớ sẽ cùng cậu học Ngữ pháp – Từ vựng – Đọc hiểu theo lộ trình rõ ràng, kèm nghe phát âm và luyện đọc to từng từ — mỗi ngày chỉ cần 15 phút.
             </p>
             <button onClick={() => setStep(1)} className="mt-7 w-full py-4 rounded-2xl bg-yellow-300 text-slate-900 border-4 border-slate-900 font-black text-lg shadow-[5px_5px_0_0_#1e293b] hover:translate-y-0.5 hover:shadow-[3px_3px_0_0_#1e293b] transition-all cursor-pointer flex items-center justify-center gap-2">
               BẮT ĐẦU NÀO <ArrowRight size={20} />

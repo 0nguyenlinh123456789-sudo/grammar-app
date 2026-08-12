@@ -101,7 +101,7 @@ function ProtectedApp({ children }) {
       <div className="p-7 md:p-10 bg-gradient-to-br from-blue-500 to-indigo-700 text-white">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border-2 border-white/60 bg-white/15 text-xs font-black uppercase tracking-widest"><Sparkles size={15} /> Bunny English Premium</div>
         <h1 className="text-4xl md:text-5xl font-black leading-tight mt-6">Học tiếng Anh<br />có lộ trình rõ ràng.</h1>
-        <p className="mt-4 text-blue-100 font-bold leading-relaxed">Một tài khoản mở toàn bộ kho ngữ pháp, từ vựng, IELTS, luyện phát âm, trò chơi và trợ lý AI.</p>
+        <p className="mt-4 text-blue-100 font-bold leading-relaxed">Một tài khoản mở toàn bộ kho ngữ pháp, từ vựng luyện thi (VSTEP/IELTS), phiên âm IPA toàn bộ từ vựng, trò chơi và trợ lý AI.</p>
         <ul className="mt-7 space-y-3">{['Lộ trình từ cơ bản đến C1–C2', 'Theo dõi XP, chuỗi học và tiến độ 7 ngày', 'Ôn từ thông minh theo lịch SRS', 'Dữ liệu học đồng bộ theo mã truy cập'].map((item) => <li key={item} className="flex items-center gap-3 font-black text-sm"><CheckCircle2 className="text-yellow-300 shrink-0" size={20} />{item}</li>)}</ul>
         <button type="button" onClick={() => setShowPricing(true)} className="mt-8 px-5 py-3 rounded-2xl bg-white/15 hover:bg-white/25 border-2 border-white/70 font-black text-sm">XEM BẢNG GIÁ & QUYỀN LỢI →</button>
       </div>
@@ -131,7 +131,9 @@ function ProtectedApp({ children }) {
 // without a code — the sales pitch lives here, not behind the gate.
 function LandingSections({ onPricing }) {
   const features = [
-    { icon: '🎧', title: 'Đủ 4 kỹ năng', desc: 'Nghe – Nói – Đọc – Viết luyện xen kẽ trong từng chủ đề, không học lệch.' },
+    // (#0-B1) Không hứa "4 kỹ năng"/"luyện nghe": app chưa có bài nghe đoạn dài
+    // hay chấm nói thật — chỉ nghe TTS từng từ/câu và đọc to so khớp văn bản.
+    { icon: '🎧', title: 'Học đủ chiều', desc: 'Ngữ pháp & Từ vựng chuyên sâu, đọc hiểu song ngữ, nghe phát âm chuẩn từng từ và trò chơi ôn tập.' },
     { icon: '🗺️', title: 'Lộ trình A1 → C2', desc: '44 chặng từ mất gốc đến nâng cao, kèm test đầu vào xếp đúng trình độ.' },
     { icon: '🤖', title: 'Gia sư AI', desc: 'Chấm bài viết, quét từ vựng từ ảnh và hỏi đáp ngữ pháp bằng AI Gemini.' },
     { icon: '🧠', title: 'Ôn đúng lúc sắp quên', desc: 'Từ vựng và câu làm sai tự quay lại theo lịch khoa học 3–7–14 ngày.' },
@@ -185,7 +187,7 @@ function PricingModal({ onClose }) {
   };
   const plans = [
     { name: 'Standard', caption: 'Bắt đầu có định hướng', color: 'bg-slate-100', features: ['Toàn bộ lộ trình ngữ pháp & từ vựng', 'SRS và báo cáo tiến độ', 'Trợ lý AI bằng API key miễn phí của bạn', '1 thiết bị'], action: 'MUA STANDARD' },
-    { name: 'Premium', caption: 'Lựa chọn phổ biến', color: 'bg-yellow-200', features: ['Tất cả Standard', 'Trợ lý AI viết/nói/ảnh', 'Placement test & chứng nhận', 'Tối đa 3 thiết bị'], action: 'MUA PREMIUM', popular: true },
+    { name: 'Premium', caption: 'Lựa chọn phổ biến', color: 'bg-yellow-200', features: ['Tất cả Standard', 'Trợ lý AI viết/ảnh/hỏi-đáp', 'Placement test & chứng nhận', 'Tối đa 3 thiết bị'], action: 'MUA PREMIUM', popular: true },
     { name: 'Trọn đời', caption: 'Đầu tư một lần', color: 'bg-indigo-200', features: ['Tất cả Premium', 'Không hết hạn', 'Ưu tiên hỗ trợ cập nhật', 'Tối đa 5 thiết bị'], action: 'MUA TRỌN ĐỜI' },
   ];
   return <div className="fixed inset-0 z-[140] bg-slate-950/80 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="pricing-title"><div className="max-w-5xl mx-auto my-5 bg-[#fffdf4] dark:bg-slate-900 text-slate-900 dark:text-white border-4 border-slate-900 dark:border-slate-700 rounded-[2rem] p-5 md:p-8 shadow-[10px_10px_0_0_#020617]"><div className="flex justify-between items-start gap-4"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">Đầu tư cho kết quả học</p><h2 id="pricing-title" className="text-3xl md:text-4xl font-black mt-1">Chọn gói phù hợp</h2><p className="text-sm font-bold text-slate-500 mt-2">Mã truy cập được cấp sau khi xác nhận thanh toán.</p></div><button onClick={onClose} className="w-10 h-10 rounded-xl border-3 border-slate-800 font-black">×</button></div><div className="grid md:grid-cols-3 gap-4 mt-7">{plans.map((plan) => <article key={plan.name} className={`relative ${plan.color} text-slate-900 border-3 border-slate-900 rounded-3xl p-5 shadow-[4px_4px_0_0_#1e293b]`}>{plan.popular && <span className="absolute -top-3 right-4 px-3 py-1 rounded-full bg-rose-500 text-white border-2 border-slate-900 text-[10px] font-black">ĐƯỢC CHỌN NHIỀU</span>}<h3 className="text-2xl font-black">{plan.name}</h3><p className="text-xs font-black uppercase mt-1 opacity-70">{plan.caption}</p><ul className="mt-5 space-y-2.5">{plan.features.map((feature) => <li key={feature} className="text-sm font-bold flex gap-2"><CheckCircle2 size={17} className="shrink-0 text-emerald-700" />{feature}</li>)}</ul><button onClick={() => requestPlan(plan.name)} className="w-full mt-6 px-3 py-3 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm">{plan.action}</button></article>)}</div><div className="mt-7 grid md:grid-cols-3 gap-3 text-xs font-bold text-slate-600 dark:text-slate-300"><p>🧪 Có thể bắt đầu bằng placement test.</p><p>🔒 Mã không lưu dạng plaintext.</p><p>💬 {copied ? 'Đã sao chép yêu cầu mua.' : 'Liên hệ để nhận hướng dẫn thanh toán.'}</p></div></div></div>;
