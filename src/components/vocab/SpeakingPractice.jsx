@@ -109,7 +109,9 @@ const SpeakingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio
       </div>
       
       <div className="w-full max-w-3xl bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[10px_10px_0_0_rgba(0,0,0,1)] text-center flex flex-col items-center">
-        <h3 className="text-2xl font-bold text-slate-500 mb-2">Hãy phát âm chuẩn từ sau:</h3>
+        {/* (#0-C) Nhãn phải nói đúng cái đang xảy ra: đây là nhận dạng giọng
+            nói của TRÌNH DUYỆT so khớp VĂN BẢN, không phải AI chấm phát âm. */}
+        <h3 className="text-2xl font-bold text-slate-500 mb-2">Hãy đọc to từ sau:</h3>
         <div className="text-5xl md:text-7xl font-black text-slate-800 mb-2">{currentWord.en}</div>
         <div className="text-2xl font-bold text-slate-400 mb-8">
           {currentWord.ipa} <span className="text-lg text-red-400">({currentWord.vi})</span>
@@ -131,7 +133,7 @@ const SpeakingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio
 
         {/* Voice Recognition result */}
         <div className="w-full max-w-md min-h-[100px] bg-slate-50 border-4 border-black border-dashed rounded-2xl p-4 flex flex-col justify-center items-center">
-          <p className="text-sm font-bold text-slate-400 mb-2">AI NGHE THẤY:</p>
+          <p className="text-sm font-bold text-slate-400 mb-2">TRÌNH DUYỆT NGHE ĐƯỢC:</p>
           {spokenText ? (
             <p className={`text-2xl font-black ${speakStatus === 'correct' ? 'text-green-600' : 'text-red-600'}`}>
               "{spokenText}"
@@ -140,7 +142,7 @@ const SpeakingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio
             <p className="text-xl font-medium text-slate-300 italic">Chưa có dữ liệu giọng nói</p>
           )}
 
-          {speakStatus === 'correct' && <div className="mt-2 bg-green-200 px-4 py-2 rounded-full border-2 border-green-600 font-bold text-green-800 animate-bounce flex items-center gap-2"><Sparkles size={18} className="text-yellow-600 fill-yellow-600" /> Tuyệt vời! Phát âm chuẩn!</div>}
+          {speakStatus === 'correct' && <div className="mt-2 bg-green-200 px-4 py-2 rounded-full border-2 border-green-600 font-bold text-green-800 animate-bounce flex items-center gap-2"><Sparkles size={18} className="text-yellow-600 fill-yellow-600" /> Tốt lắm! Trình duyệt nghe ra đúng từ này.</div>}
           {speakStatus === 'wrong' && <div className="mt-2 bg-red-200 px-4 py-2 rounded-full border-2 border-red-600 font-bold text-red-800 flex items-center gap-2"><XCircle size={18} className="text-red-600" /> Chưa đúng, thử nói lại nhé!</div>}
         </div>
 

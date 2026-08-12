@@ -113,7 +113,8 @@ const AiAssistant = ({ topic, sentences }) => {
         )}
         {score !== null && (
           <div className="mt-8 p-6 bg-slate-50 rounded-2xl font-black text-2xl border-[4px] border-slate-800 shadow-inner">
-             Độ chuẩn xác: <span className={score>70?'text-emerald-500 text-4xl':'text-rose-500 text-4xl'}> {score}%</span>
+             {/* (#0-C8) tỉ lệ từ khớp giữa transcript và câu mẫu — không phải điểm phát âm */}
+             Trùng khớp với câu mẫu: <span className={score>70?'text-emerald-500 text-4xl':'text-rose-500 text-4xl'}> {score}%</span>
           </div>
         )}
       </div>

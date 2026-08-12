@@ -202,17 +202,32 @@ function FillBlankGame({ words, playAudio, onScore }) {
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
 
+  // CHÍNH SÁCH NỘI DUNG (f): chỉ dùng từ CÓ câu ví dụ thật. Trước đây từ thiếu
+  // example bị bịa đề `"______ = nghĩa"` trình bày như một câu tiếng Anh.
+  const usable = words.filter(w => w.example);
+
   const makeOpts = useCallback((cur, all) => {
     const wrong = all.filter(w => w.en !== cur.en).sort(() => Math.random() - 0.5).slice(0, 3).map(w => w.en);
     return [...wrong, cur.en].sort(() => Math.random() - 0.5);
   }, []);
 
   const init = useCallback(() => {
-    const p = [...words].sort(() => Math.random() - 0.5).slice(0, 10);
-    setPool(p); setIdx(0); setOptions(makeOpts(p[0], words)); setSelected(null); setScore(0); setStreak(0);
+    const p = [...usable].sort(() => Math.random() - 0.5).slice(0, 10);
+    setPool(p); setIdx(0); setOptions(p.length ? makeOpts(p[0], words) : []); setSelected(null); setScore(0); setStreak(0);
+    // usable dẫn xuất từ words — words đổi thì usable đổi theo
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [words, makeOpts]);
   useEffect(() => { init(); }, [init]);
   const cur = pool[idx];
+
+  if (usable.length < 4) {
+    return (
+      <div className="p-8 font-bold text-center text-slate-500">
+        <p className="text-3xl mb-3">✏️🚧</p>
+        <p>Chủ đề này chưa đủ từ có câu ví dụ để chơi Điền Từ (cần ít nhất 4 từ).</p>
+      </div>
+    );
+  }
 
   const select = (opt) => {
     if (selected !== null) return;
@@ -227,7 +242,8 @@ function FillBlankGame({ words, playAudio, onScore }) {
   };
 
   if (!cur) return null;
-  const blank = (cur.example || `______ = ${cleanVi(cur.vi)}`).replace(new RegExp(`\\b${escapeRegExp(cur.en)}\\b`, 'gi'), '______');
+  // pool chỉ chứa từ có example thật (xem usable ở trên) — không còn đề bịa.
+  const blank = cur.example.replace(new RegExp(`\\b${escapeRegExp(cur.en)}\\b`, 'gi'), '______');
   const isLast = idx >= pool.length - 1 && selected !== null;
 
   return (
@@ -407,14 +423,31 @@ function PronunciationGame({ words, playAudio, onScore }) {
   const [result, setResult] = useState(null); // 'correct' | 'wrong' | null
   const sttSupported = typeof window !== 'undefined' && (window.SpeechRecognition || window.webkitSpeechRecognition);
 
+  // CHÍNH SÁCH NỘI DUNG (f): game "Đọc phiên âm IPA" chỉ dùng từ CÓ IPA.
+  // Trước đây thiếu từ có IPA thì âm thầm nạp từ không IPA — thẻ không có dòng
+  // phiên âm nhưng vẫn chấm "✅ Phát âm chuẩn!", tức khẳng định sai về năng lực
+  // người học. Nay thiếu thì BÁO, không tráo dữ liệu.
+  const usable = words.filter(w => w.ipa);
+
   const init = useCallback(() => {
-    const p = [...words].filter(w => w.ipa).sort(() => Math.random() - 0.5).slice(0, 10);
-    setPool(p.length >= 5 ? p : [...words].sort(() => Math.random() - 0.5).slice(0, 10));
+    const p = [...usable].sort(() => Math.random() - 0.5).slice(0, 10);
+    setPool(p);
     setIdx(0); setPracticed([]); setScore(0); setShowTip(false);
     setListening(false); setHeard(''); setResult(null);
+    // usable dẫn xuất từ words — words đổi thì usable đổi theo
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [words]);
   useEffect(() => { init(); }, [init]);
   const cur = pool[idx];
+
+  if (usable.length < 5) {
+    return (
+      <div className="p-8 font-bold text-center text-slate-500">
+        <p className="text-3xl mb-3">🗣️🚧</p>
+        <p>Chủ đề này chưa đủ từ có phiên âm IPA để luyện phát âm (cần ít nhất 5 từ).</p>
+      </div>
+    );
+  }
 
   const speak = () => {
     if (window.speechSynthesis) {
@@ -507,15 +540,16 @@ function PronunciationGame({ words, playAudio, onScore }) {
 
         <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3 mb-4 text-sm font-bold text-blue-700 dark:text-blue-300">
           {sttSupported
-            ? <>🎤 Bấm micro rồi <span className="font-black text-blue-900 dark:text-blue-100">đọc to "{cur.en}"</span> — AI sẽ chấm phát âm của bạn</>
+            ? <>🎤 Bấm micro rồi <span className="font-black text-blue-900 dark:text-blue-100">đọc to "{cur.en}"</span> — trình duyệt sẽ kiểm tra có nhận ra từ bạn đọc không</>
             : <>🗣️ Trình duyệt không hỗ trợ thu âm. Hãy đọc to <span className="font-black">"{cur.en}"</span> rồi bấm xác nhận</>}
         </div>
 
         {/* AI heard + result */}
         {heard && (
           <div className={`rounded-xl p-3 mb-4 font-bold ${result === 'correct' ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300' : 'bg-rose-100 dark:bg-rose-900/40 text-rose-800 dark:text-rose-300'}`}>
-            <span className="text-xs uppercase opacity-70">AI nghe thấy:</span> "{heard}"
-            <div className="mt-1">{result === 'correct' ? '✅ Phát âm chuẩn! +12 XP' : '💪 Gần rồi, nghe mẫu và thử lại nhé (+3 XP)'}</div>
+            {/* (#0-C) so khớp văn bản của trình duyệt, không phải chấm phát âm */}
+            <span className="text-xs uppercase opacity-70">Trình duyệt nghe được:</span> "{heard}"
+            <div className="mt-1">{result === 'correct' ? '✅ Đọc rõ ràng! +12 XP' : '💪 Gần rồi, nghe mẫu và thử lại nhé (+3 XP)'}</div>
           </div>
         )}
 
@@ -554,10 +588,23 @@ function SpeedQuizGame({ words, onScore }) {
 
   useEffect(() => { onScoreRef.current = onScore; }, [onScore]);
 
+  // Sửa (f) nhóm C: option là OBJECT có cờ correct, chấm theo option được bấm
+  // chứ không so chuỗi — hai từ gần nghĩa có cùng gloss tiếng Việt từng tạo ra
+  // 2 option giống hệt nhau và chấm sai. Distractor trùng text với đáp án (hoặc
+  // với nhau) bị loại ngay khi dựng.
   const makeOpts = useCallback((cur, all, m) => {
-    const answer = m === 'en-to-vi' ? cleanVi(cur.vi) : cur.en;
-    const wrong = all.filter(w => w.en !== cur.en).sort(() => Math.random() - 0.5).slice(0, 3).map(w => m === 'en-to-vi' ? cleanVi(w.vi) : w.en);
-    return [...wrong, answer].sort(() => Math.random() - 0.5);
+    const answerText = m === 'en-to-vi' ? cleanVi(cur.vi) : cur.en;
+    const seen = new Set([answerText]);
+    const wrong = [];
+    for (const w of [...all].sort(() => Math.random() - 0.5)) {
+      if (w.en === cur.en) continue;
+      const text = m === 'en-to-vi' ? cleanVi(w.vi) : w.en;
+      if (seen.has(text)) continue;
+      seen.add(text);
+      wrong.push({ text, correct: false });
+      if (wrong.length === 3) break;
+    }
+    return [...wrong, { text: answerText, correct: true }].sort(() => Math.random() - 0.5);
   }, []);
 
   const init = useCallback((m = mode) => {
@@ -582,9 +629,7 @@ function SpeedQuizGame({ words, onScore }) {
     if (selected !== null || !started) return;
     setSelected(opt);
     const m = mode;
-    const answer = m === 'en-to-vi' ? cleanVi(pool[idx].vi) : pool[idx].en;
-    const ok = opt === answer;
-    if (ok) { setScore(s => s + Math.max(1, Math.ceil(timer / 6))); setCorrect(c => c + 1); }
+    if (opt.correct) { setScore(s => s + Math.max(1, Math.ceil(timer / 6))); setCorrect(c => c + 1); }
     setTimeout(() => {
       if (idx < pool.length - 1) { const ni = idx + 1; setIdx(ni); setOptions(makeOpts(pool[ni], words, m)); setSelected(null); }
       else { clearInterval(timerRef.current); setGameOver(true); }
@@ -601,7 +646,6 @@ function SpeedQuizGame({ words, onScore }) {
 
   const cur = pool[idx];
   if (!cur) return null;
-  const answer = mode === 'en-to-vi' ? cleanVi(cur.vi) : cur.en;
   const question = mode === 'en-to-vi' ? cur.en : cleanVi(cur.vi);
 
   return (
@@ -652,7 +696,7 @@ function SpeedQuizGame({ words, onScore }) {
           </div>
           <div className="grid grid-cols-2 gap-2">
             {options.map((opt, i) => {
-              const isOk = opt === answer, isSel = selected === opt;
+              const isOk = opt.correct, isSel = selected === opt;
               const show = selected !== null;
               return (
                 <button key={i} onClick={() => select(opt)} className={`py-3 px-2 rounded-xl border-3 font-bold text-sm cursor-pointer transition-all text-center ${
@@ -660,7 +704,7 @@ function SpeedQuizGame({ words, onScore }) {
                     : isSel ? 'bg-red-200 dark:bg-red-900 border-red-400 text-red-900 dark:text-red-100'
                     : 'bg-slate-100 dark:bg-slate-700 border-slate-300 text-slate-400 opacity-50'
                   : 'bg-white dark:bg-slate-700 border-slate-700 dark:border-slate-500 text-slate-800 dark:text-slate-100 hover:bg-teal-50 dark:hover:bg-slate-600 hover:border-teal-400 shadow-[2px_2px_0_0_rgba(0,0,0,0.8)] hover:-translate-y-0.5'
-                }`}>{opt}</button>
+                }`}>{opt.text}</button>
               );
             })}
           </div>
@@ -689,31 +733,38 @@ const SKILLS_INFO = [
   { icon: '✍️', name: 'Viết', game: 'Ghép Chữ', tip: 'Đánh vần chính xác, ghi nhớ cấu trúc từ. Nền tảng viết tiếng Anh.' },
 ];
 
-const FALLBACK_WORDS = [
-  { en: 'happy', vi: 'vui vẻ', type: 'adj', ipa: '/ˈhæpi/', example: 'I am very happy today.', viExample: 'Hôm nay tôi rất vui.' },
-  { en: 'study', vi: 'học tập', type: 'verb', ipa: '/ˈstʌdi/', example: 'She likes to study English.', viExample: 'Cô ấy thích học tiếng Anh.' },
-  { en: 'beautiful', vi: 'đẹp', type: 'adj', ipa: '/ˈbjuːtɪfl/', example: 'The flowers are beautiful.', viExample: 'Những bông hoa rất đẹp.' },
-  { en: 'school', vi: 'trường học', type: 'noun', ipa: '/skuːl/', example: 'I go to school every day.', viExample: 'Tôi đi học mỗi ngày.' },
-  { en: 'family', vi: 'gia đình', type: 'noun', ipa: '/ˈfæmɪli/', example: 'My family is very close.', viExample: 'Gia đình tôi rất thân thiết.' },
-  { en: 'travel', vi: 'du lịch', type: 'verb', ipa: '/ˈtrævl/', example: 'I love to travel the world.', viExample: 'Tôi yêu thích du lịch.' },
-  { en: 'friend', vi: 'bạn bè', type: 'noun', ipa: '/frend/', example: 'She is my best friend.', viExample: 'Cô ấy là người bạn thân nhất.' },
-  { en: 'music', vi: 'âm nhạc', type: 'noun', ipa: '/ˈmjuːzɪk/', example: 'Music makes me happy.', viExample: 'Âm nhạc làm tôi vui.' },
-  { en: 'nature', vi: 'thiên nhiên', type: 'noun', ipa: '/ˈneɪtʃər/', example: 'I enjoy nature walks.', viExample: 'Tôi thích đi dạo trong thiên nhiên.' },
-  { en: 'dream', vi: 'ước mơ', type: 'noun', ipa: '/driːm/', example: 'Never give up on your dream.', viExample: 'Đừng bỏ cuộc.' },
-  { en: 'strong', vi: 'mạnh mẽ', type: 'adj', ipa: '/strɒŋ/', example: 'Be strong and brave.', viExample: 'Hãy mạnh mẽ và can đảm.' },
-  { en: 'water', vi: 'nước', type: 'noun', ipa: '/ˈwɔːtər/', example: 'Drink water every day.', viExample: 'Uống nước mỗi ngày.' },
-  { en: 'learn', vi: 'học/tìm hiểu', type: 'verb', ipa: '/lɜːrn/', example: 'I want to learn English well.', viExample: 'Tôi muốn học tiếng Anh tốt.' },
-  { en: 'success', vi: 'thành công', type: 'noun', ipa: '/səkˈses/', example: 'Hard work leads to success.', viExample: 'Nỗ lực dẫn đến thành công.' },
-  { en: 'patient', vi: 'kiên nhẫn', type: 'adj', ipa: '/ˈpeɪʃnt/', example: 'Be patient with yourself.', viExample: 'Hãy kiên nhẫn với bản thân.' },
-];
-
 const GamesPage = ({ activeTopic, playAudio, completeMilestone }) => {
   const [activeGame, setActiveGame] = useState('match');
   const [totalScore, setTotalScore] = useState(0);
   const [gameKey, setGameKey] = useState(0);
   const [medals, setMedals] = useState({});
 
-  const words = activeTopic?.words?.length >= 8 ? activeTopic.words : FALLBACK_WORDS;
+  // CHÍNH SÁCH NỘI DUNG (đợt (f) 2026-08-12): thiếu dữ liệu thì ẨN hoặc BÁO,
+  // không thay thế âm thầm. Trước đây topic không giải được hoặc <8 từ bị tráo
+  // sang 15 từ cứng (happy/study/...) trong khi header vẫn hiện tên chủ đề
+  // người học chọn — người học tưởng đang luyện từ của chủ đề đó.
+  const words = activeTopic?.words || [];
+
+  if (words.length < 8) {
+    return (
+      <div className="w-full max-w-4xl mx-auto pb-20 pt-10 font-sans">
+        <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700">
+          <p className="text-4xl mb-4">🎮🚧</p>
+          {activeTopic ? (
+            <>
+              <p className="text-xl">Chủ đề "{activeTopic.title}" chưa đủ từ vựng để chơi game (cần ít nhất 8 từ).</p>
+              <p className="text-sm mt-2 font-normal opacity-70">Hãy chọn một chủ đề khác trong mục Từ Vựng nhé!</p>
+            </>
+          ) : (
+            <>
+              <p className="text-xl">Hãy chọn một chủ đề từ vựng trước, rồi vào Games để luyện đúng những từ đó.</p>
+              <p className="text-sm mt-2 font-normal opacity-70">Games luôn dùng từ vựng thật của chủ đề bạn đang học — không có bộ từ thay thế.</p>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   const handleScore = (pts) => {
     setTotalScore(s => s + pts);

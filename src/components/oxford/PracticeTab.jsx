@@ -95,7 +95,8 @@ const PracticeTab = ({ unitData }) => {
                 <h3 className="text-2xl font-black mb-6 flex items-center justify-center gap-3"><Mic className="text-rose-500"/> Luyện Speaking</h3>
                 <div className="bg-cyan-50 p-8 rounded-3xl border-4 border-slate-800 mb-8 shadow-inner">
                     <p className="text-2xl md:text-3xl font-black mb-4 text-slate-900">"{speakItem.text}"</p>
-                    <p className="font-bold text-slate-500 text-lg italic">({speakItem.trans})</p>
+                    {/* trans có thể vắng: contentFilter ẩn các bản "dịch" máy-sinh (placeholder [Tạm dịch]/công thức) */}
+                    {speakItem.trans && <p className="font-bold text-slate-500 text-lg italic">({speakItem.trans})</p>}
                 </div>
                 <div className="flex flex-wrap justify-center gap-4">
                     <button 
@@ -127,7 +128,8 @@ const PracticeTab = ({ unitData }) => {
                 </div>
                 {score !== null && (
                     <div className="mt-8 p-4 bg-slate-50 rounded-2xl font-black text-xl border-4 border-slate-800 border-dashed">
-                        Độ chuẩn xác: <span className={score>70?'text-emerald-500':'text-rose-500'}> {score}%</span>
+                        {/* (#0-C8) tỉ lệ từ khớp giữa transcript và câu mẫu — không phải điểm phát âm */}
+                        Trùng khớp với câu mẫu: <span className={score>70?'text-emerald-500':'text-rose-500'}> {score}%</span>
                     </div>
                 )}
             </div>

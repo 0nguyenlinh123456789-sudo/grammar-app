@@ -106,7 +106,10 @@ export function scoreWriting(text, opts = {}) {
   else if (score >= 40) level = 'fair';
   else level = 'weak';
 
-  if (tips.length === 0) tips.push('Rất tốt! Câu của bạn viết đúng chuẩn cơ bản. Hãy thử viết câu dài và phức tạp hơn.');
+  // (#0-C7) Bộ chấm offline chỉ soi lỗi bề mặt (chính tả thường gặp, viết hoa,
+  // dấu câu, lặp từ) — KHÔNG kiểm tra ngữ pháp. Không được khen "viết đúng
+  // chuẩn" vì câu sai ngữ pháp vẫn qua được hết các kiểm tra này.
+  if (tips.length === 0) tips.push('Không phát hiện lỗi chính tả hay dấu câu. (Phần này chưa kiểm tra ngữ pháp.)');
 
   return { score, level, tips, praises, usedTargets };
 }
