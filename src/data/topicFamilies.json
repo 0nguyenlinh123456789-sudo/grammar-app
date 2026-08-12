@@ -1,0 +1,1574 @@
+{
+  "_readme": [
+    "BẢN ĐỒ HỌ CHỦ ĐỀ — sinh bởi scripts/build_topic_families.mjs (đợt (h) 2026-08-12).",
+    "Họ = nhóm topic dính nhau qua các cặp trùng >70% từ vựng (union-find).",
+    "ĐẦU VÀO BẮT BUỘC của hạng mục #2: xếp topic cùng họ theo trình tự khó dần trong lộ trình.",
+    "KHÔNG gộp các topic trong họ — quyết định chủ dự án 2026-08-12."
+  ],
+  "generatedFrom": "267 topics",
+  "overlapThresholdPct": 70,
+  "familyCount": 33,
+  "families": [
+    {
+      "family": "health-body",
+      "topics": [
+        {
+          "id": "health-basics",
+          "title": "🩺 Sức Khỏe Cơ Bản",
+          "words": 190
+        },
+        {
+          "id": "medicine-healthcare-vstep",
+          "title": "🏥 Y Tế & Chăm Sóc Sức Khỏe (100 Từ) (B1-B2)",
+          "words": 99
+        },
+        {
+          "id": "health-body-daily",
+          "title": "🩺 Sức Khỏe & Cơ Thể (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "health-fitness-daily",
+          "title": "💪 Sức Khỏe & Thể Hình (100 Từ) (A2-B1)",
+          "words": 89
+        },
+        {
+          "id": "body-health-beginner",
+          "title": "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2)",
+          "words": 93
+        },
+        {
+          "id": "body-health-beginner-p2",
+          "title": "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2) – Phần 2",
+          "words": 91
+        },
+        {
+          "id": "body-health-beginner-p3",
+          "title": "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2) – Phần 3",
+          "words": 71
+        },
+        {
+          "id": "body-health-daily",
+          "title": "💪 Cơ Thể & Sức Khỏe (100 Từ) (A2-B1)",
+          "words": 99
+        },
+        {
+          "id": "body-parts-beginner",
+          "title": "💪 Bộ Phận Cơ Thể (100 Từ) (A1)",
+          "words": 100
+        },
+        {
+          "id": "health-body-daily-p2",
+          "title": "💪 Sức Khỏe & Cơ Thể (100 Từ) (A2-B1) – Phần 2",
+          "words": 60
+        },
+        {
+          "id": "human-body-beginner",
+          "title": "🧍 Cơ Thể Người (100 Từ) (A1)",
+          "words": 50
+        },
+        {
+          "id": "health-medicine-daily",
+          "title": "🏥 Sức Khỏe & Y Tế (100 Từ) (A2-B1)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "health-basics",
+          "b": "health-fitness-daily",
+          "overlapPct": 71
+        },
+        {
+          "a": "health-basics",
+          "b": "health-medicine-daily",
+          "overlapPct": 84
+        },
+        {
+          "a": "medicine-healthcare-vstep",
+          "b": "health-medicine-daily",
+          "overlapPct": 82
+        },
+        {
+          "a": "health-body-daily",
+          "b": "body-health-beginner",
+          "overlapPct": 72
+        },
+        {
+          "a": "health-body-daily",
+          "b": "body-health-beginner-p2",
+          "overlapPct": 74
+        },
+        {
+          "a": "health-body-daily",
+          "b": "body-health-beginner-p3",
+          "overlapPct": 82
+        },
+        {
+          "a": "health-body-daily",
+          "b": "body-health-daily",
+          "overlapPct": 79
+        },
+        {
+          "a": "health-body-daily",
+          "b": "health-body-daily-p2",
+          "overlapPct": 92
+        },
+        {
+          "a": "health-body-daily",
+          "b": "health-medicine-daily",
+          "overlapPct": 72
+        },
+        {
+          "a": "health-fitness-daily",
+          "b": "body-health-daily",
+          "overlapPct": 72
+        },
+        {
+          "a": "health-fitness-daily",
+          "b": "health-medicine-daily",
+          "overlapPct": 88
+        },
+        {
+          "a": "body-health-beginner",
+          "b": "body-health-beginner-p2",
+          "overlapPct": 82
+        },
+        {
+          "a": "body-health-beginner",
+          "b": "body-health-beginner-p3",
+          "overlapPct": 89
+        },
+        {
+          "a": "body-health-beginner",
+          "b": "health-body-daily-p2",
+          "overlapPct": 87
+        },
+        {
+          "a": "body-health-beginner",
+          "b": "human-body-beginner",
+          "overlapPct": 80
+        },
+        {
+          "a": "body-health-beginner-p2",
+          "b": "body-health-beginner-p3",
+          "overlapPct": 89
+        },
+        {
+          "a": "body-health-beginner-p2",
+          "b": "body-health-daily",
+          "overlapPct": 81
+        },
+        {
+          "a": "body-health-beginner-p2",
+          "b": "health-body-daily-p2",
+          "overlapPct": 88
+        },
+        {
+          "a": "body-health-beginner-p2",
+          "b": "human-body-beginner",
+          "overlapPct": 72
+        },
+        {
+          "a": "body-health-beginner-p3",
+          "b": "body-health-daily",
+          "overlapPct": 80
+        },
+        {
+          "a": "body-health-beginner-p3",
+          "b": "body-parts-beginner",
+          "overlapPct": 73
+        },
+        {
+          "a": "body-health-beginner-p3",
+          "b": "health-body-daily-p2",
+          "overlapPct": 83
+        },
+        {
+          "a": "body-health-daily",
+          "b": "health-body-daily-p2",
+          "overlapPct": 95
+        },
+        {
+          "a": "body-health-daily",
+          "b": "health-medicine-daily",
+          "overlapPct": 78
+        },
+        {
+          "a": "body-parts-beginner",
+          "b": "human-body-beginner",
+          "overlapPct": 94
+        }
+      ]
+    },
+    {
+      "family": "clothes-fashion",
+      "topics": [
+        {
+          "id": "clothes-fashion-daily",
+          "title": "👗 Quần Áo & Thời Trang (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "clothes-fashion-daily-p2",
+          "title": "👗 Quần Áo & Thời Trang (100 Từ) (A2-B1) – Phần 2",
+          "words": 86
+        },
+        {
+          "id": "clothes-colors-beginner",
+          "title": "👗 Quần Áo & Màu Sắc (100 Từ) (A1-A2)",
+          "words": 91
+        },
+        {
+          "id": "clothes-fashion-beginner",
+          "title": "👗 Quần Áo & Thời Trang (100 Từ) (A1-A2)",
+          "words": 98
+        },
+        {
+          "id": "clothes-accessories-beginner",
+          "title": "👗 Trang Phục & Phụ Kiện (100 Từ) (A1-A2)",
+          "words": 90
+        },
+        {
+          "id": "clothes-beginner",
+          "title": "👕 Quần Áo (100 Từ) (A1)",
+          "words": 100
+        },
+        {
+          "id": "shopping-clothes-daily",
+          "title": "🛍️ Mua Sắm & Quần Áo (100 Từ) (A2-B1)",
+          "words": 90
+        },
+        {
+          "id": "clothes-accessories-beginner-p2",
+          "title": "👕 Quần Áo & Phụ Kiện (100 Từ) (A1) – Phần 2",
+          "words": 50
+        },
+        {
+          "id": "clothes-fashion-beginner-p2",
+          "title": "👗 Quần Áo & Thời Trang (100 Từ) (A1) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "clothes-fashion-daily",
+          "b": "clothes-fashion-daily-p2",
+          "overlapPct": 79
+        },
+        {
+          "a": "clothes-fashion-daily",
+          "b": "clothes-colors-beginner",
+          "overlapPct": 71
+        },
+        {
+          "a": "clothes-fashion-daily",
+          "b": "clothes-fashion-beginner",
+          "overlapPct": 80
+        },
+        {
+          "a": "clothes-fashion-daily",
+          "b": "clothes-accessories-beginner",
+          "overlapPct": 90
+        },
+        {
+          "a": "clothes-fashion-daily",
+          "b": "clothes-fashion-beginner-p2",
+          "overlapPct": 74
+        },
+        {
+          "a": "clothes-fashion-daily-p2",
+          "b": "clothes-colors-beginner",
+          "overlapPct": 71
+        },
+        {
+          "a": "clothes-fashion-daily-p2",
+          "b": "clothes-fashion-beginner",
+          "overlapPct": 72
+        },
+        {
+          "a": "clothes-colors-beginner",
+          "b": "clothes-beginner",
+          "overlapPct": 80
+        },
+        {
+          "a": "clothes-colors-beginner",
+          "b": "clothes-accessories-beginner-p2",
+          "overlapPct": 76
+        },
+        {
+          "a": "clothes-colors-beginner",
+          "b": "clothes-fashion-beginner-p2",
+          "overlapPct": 80
+        },
+        {
+          "a": "clothes-fashion-beginner",
+          "b": "clothes-accessories-beginner",
+          "overlapPct": 82
+        },
+        {
+          "a": "clothes-fashion-beginner",
+          "b": "clothes-fashion-beginner-p2",
+          "overlapPct": 76
+        },
+        {
+          "a": "clothes-accessories-beginner",
+          "b": "clothes-beginner",
+          "overlapPct": 76
+        },
+        {
+          "a": "clothes-accessories-beginner",
+          "b": "clothes-fashion-beginner-p2",
+          "overlapPct": 80
+        },
+        {
+          "a": "clothes-beginner",
+          "b": "clothes-accessories-beginner-p2",
+          "overlapPct": 88
+        },
+        {
+          "a": "clothes-beginner",
+          "b": "clothes-fashion-beginner-p2",
+          "overlapPct": 88
+        },
+        {
+          "a": "shopping-clothes-daily",
+          "b": "clothes-fashion-beginner-p2",
+          "overlapPct": 74
+        }
+      ]
+    },
+    {
+      "family": "crime-law",
+      "topics": [
+        {
+          "id": "crime-law-vstep",
+          "title": "⚖️ Tội Phạm & Luật Pháp (100 Từ) (B1-B2)",
+          "words": 90
+        },
+        {
+          "id": "crime-punishment-vstep",
+          "title": "⚖️ Tội Phạm & Hình Phạt (100 Từ) (B1-B2)",
+          "words": 77
+        },
+        {
+          "id": "crime-law-advanced-ielts",
+          "title": "⚖️ Tội Phạm & Pháp Luật Nâng Cao (100 Từ) (B2-C1)",
+          "words": 100
+        },
+        {
+          "id": "law-crime-ielts",
+          "title": "⚖️ Luật Pháp & Tội Phạm (100 Từ) (C1-C2)",
+          "words": 100
+        },
+        {
+          "id": "crime-law-ielts",
+          "title": "⚖️ Crime & Law (100 Words) (B2-C1)",
+          "words": 100
+        },
+        {
+          "id": "law-crime-ielts-p2",
+          "title": "⚖️ Luật Pháp & Tội Phạm (100 Từ) (B2-C1) – Phần 2",
+          "words": 50
+        },
+        {
+          "id": "law-crime-ielts-p3",
+          "title": "⚖️ Luật Pháp & Tội Phạm (100 Từ) (C1-C2) – Phần 3",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "crime-law-vstep",
+          "b": "crime-punishment-vstep",
+          "overlapPct": 81
+        },
+        {
+          "a": "crime-law-vstep",
+          "b": "law-crime-ielts-p2",
+          "overlapPct": 78
+        },
+        {
+          "a": "crime-law-vstep",
+          "b": "law-crime-ielts-p3",
+          "overlapPct": 72
+        },
+        {
+          "a": "crime-punishment-vstep",
+          "b": "law-crime-ielts",
+          "overlapPct": 74
+        },
+        {
+          "a": "crime-punishment-vstep",
+          "b": "law-crime-ielts-p2",
+          "overlapPct": 74
+        },
+        {
+          "a": "crime-law-advanced-ielts",
+          "b": "law-crime-ielts",
+          "overlapPct": 72
+        },
+        {
+          "a": "crime-law-advanced-ielts",
+          "b": "law-crime-ielts-p2",
+          "overlapPct": 74
+        },
+        {
+          "a": "crime-law-advanced-ielts",
+          "b": "law-crime-ielts-p3",
+          "overlapPct": 88
+        },
+        {
+          "a": "law-crime-ielts",
+          "b": "law-crime-ielts-p2",
+          "overlapPct": 82
+        },
+        {
+          "a": "law-crime-ielts",
+          "b": "law-crime-ielts-p3",
+          "overlapPct": 86
+        },
+        {
+          "a": "crime-law-ielts",
+          "b": "law-crime-ielts-p2",
+          "overlapPct": 80
+        },
+        {
+          "a": "crime-law-ielts",
+          "b": "law-crime-ielts-p3",
+          "overlapPct": 80
+        },
+        {
+          "a": "law-crime-ielts-p2",
+          "b": "law-crime-ielts-p3",
+          "overlapPct": 76
+        }
+      ]
+    },
+    {
+      "family": "weather-seasons",
+      "topics": [
+        {
+          "id": "weather-seasons-daily",
+          "title": "🌦️ Thời Tiết & Các Mùa (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "weather-seasons-beginner",
+          "title": "🌤 Thời Tiết & Mùa (100 Từ) (A1-A2)",
+          "words": 87
+        },
+        {
+          "id": "weather-seasons-beginner-p2",
+          "title": "☀️ Thời Tiết & Các Mùa (100 Từ) (A1-A2) – Phần 2",
+          "words": 91
+        },
+        {
+          "id": "weather-seasons-daily-p2",
+          "title": "☀️ Thời Tiết & Bốn Mùa (100 Từ) (A2-B1) – Phần 2",
+          "words": 90
+        },
+        {
+          "id": "weather-climate-daily",
+          "title": "🌦️ Thời Tiết & Khí Hậu (100 Từ) (A2-B1)",
+          "words": 50
+        },
+        {
+          "id": "weather-seasons-daily-p3",
+          "title": "🌦️ Thời Tiết & Mùa (100 Từ) (A2-B1) – Phần 3",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "weather-seasons-daily",
+          "b": "weather-climate-daily",
+          "overlapPct": 96
+        },
+        {
+          "a": "weather-seasons-daily",
+          "b": "weather-seasons-daily-p3",
+          "overlapPct": 90
+        },
+        {
+          "a": "weather-seasons-beginner",
+          "b": "weather-climate-daily",
+          "overlapPct": 88
+        },
+        {
+          "a": "weather-seasons-beginner",
+          "b": "weather-seasons-daily-p3",
+          "overlapPct": 88
+        },
+        {
+          "a": "weather-seasons-beginner-p2",
+          "b": "weather-seasons-daily-p2",
+          "overlapPct": 76
+        },
+        {
+          "a": "weather-seasons-beginner-p2",
+          "b": "weather-climate-daily",
+          "overlapPct": 78
+        },
+        {
+          "a": "weather-seasons-beginner-p2",
+          "b": "weather-seasons-daily-p3",
+          "overlapPct": 80
+        },
+        {
+          "a": "weather-seasons-daily-p2",
+          "b": "weather-climate-daily",
+          "overlapPct": 90
+        },
+        {
+          "a": "weather-seasons-daily-p2",
+          "b": "weather-seasons-daily-p3",
+          "overlapPct": 86
+        },
+        {
+          "a": "weather-climate-daily",
+          "b": "weather-seasons-daily-p3",
+          "overlapPct": 90
+        }
+      ]
+    },
+    {
+      "family": "food-cooking",
+      "topics": [
+        {
+          "id": "food-cooking-daily",
+          "title": "🍔 Đồ Ăn & Nấu Nướng (100 Từ) (A2-B1)",
+          "words": 90
+        },
+        {
+          "id": "food-drinks-beginner",
+          "title": "🍔 Đồ Ăn & Thức Uống (100 Từ) (A1-A2)",
+          "words": 100
+        },
+        {
+          "id": "food-meals-beginner",
+          "title": "🍔 Đồ Ăn & Bữa Ăn (100 Từ) (A1-A2)",
+          "words": 101
+        },
+        {
+          "id": "food-drinks-beginner-p2",
+          "title": "🍔 Đồ Ăn & Thức Uống (100 Từ) (A1-A2) – Phần 2",
+          "words": 94
+        },
+        {
+          "id": "food-dining-daily",
+          "title": "🍔 Đồ Ăn & Ăn Uống (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "food-cooking-daily-p2",
+          "title": "🍳 Ẩm Thực & Nấu Ăn (100 Từ) (A2-B1) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "food-cooking-daily",
+          "b": "food-drinks-beginner",
+          "overlapPct": 79
+        },
+        {
+          "a": "food-cooking-daily",
+          "b": "food-meals-beginner",
+          "overlapPct": 71
+        },
+        {
+          "a": "food-cooking-daily",
+          "b": "food-dining-daily",
+          "overlapPct": 77
+        },
+        {
+          "a": "food-cooking-daily",
+          "b": "food-cooking-daily-p2",
+          "overlapPct": 86
+        },
+        {
+          "a": "food-drinks-beginner",
+          "b": "food-meals-beginner",
+          "overlapPct": 87
+        },
+        {
+          "a": "food-drinks-beginner",
+          "b": "food-drinks-beginner-p2",
+          "overlapPct": 84
+        },
+        {
+          "a": "food-drinks-beginner",
+          "b": "food-dining-daily",
+          "overlapPct": 72
+        },
+        {
+          "a": "food-meals-beginner",
+          "b": "food-drinks-beginner-p2",
+          "overlapPct": 89
+        },
+        {
+          "a": "food-dining-daily",
+          "b": "food-cooking-daily-p2",
+          "overlapPct": 72
+        }
+      ]
+    },
+    {
+      "family": "transport-vehicles",
+      "topics": [
+        {
+          "id": "transport-driving-daily",
+          "title": "🚗 Giao Thông & Lái Xe (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "transport-vehicles-beginner",
+          "title": "🚗 Phương Tiện Giao Thông (100 Từ) (A1-A2)",
+          "words": 88
+        },
+        {
+          "id": "city-transport-beginner",
+          "title": "🏙️ Thành Phố & Giao Thông (100 Từ) (A1-A2)",
+          "words": 80
+        },
+        {
+          "id": "transportation-beginner",
+          "title": "🚗 Phương Tiện Giao Thông (100 Từ) (A1)",
+          "words": 79
+        },
+        {
+          "id": "transport-travel-daily",
+          "title": "🚗 Giao Thông & Đi Lại (100 Từ) (A2-B1)",
+          "words": 63
+        },
+        {
+          "id": "transport-vehicles-beginner-p2",
+          "title": "🚗 Giao Thông & Xe Cộ (100 Từ) (A1) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "transport-driving-daily",
+          "b": "transport-vehicles-beginner",
+          "overlapPct": 74
+        },
+        {
+          "a": "transport-vehicles-beginner",
+          "b": "transport-travel-daily",
+          "overlapPct": 71
+        },
+        {
+          "a": "transport-vehicles-beginner",
+          "b": "transport-vehicles-beginner-p2",
+          "overlapPct": 78
+        },
+        {
+          "a": "city-transport-beginner",
+          "b": "transport-vehicles-beginner-p2",
+          "overlapPct": 76
+        },
+        {
+          "a": "transportation-beginner",
+          "b": "transport-vehicles-beginner-p2",
+          "overlapPct": 84
+        }
+      ]
+    },
+    {
+      "family": "space-exploration",
+      "topics": [
+        {
+          "id": "space-exploration-vstep",
+          "title": "🚀 Vũ Trụ & Khám Phá (100 Từ) (B1-B2)",
+          "words": 100
+        },
+        {
+          "id": "space-astronomy-vstep",
+          "title": "🚀 Vũ Trụ & Thiên Văn Học (100 Từ) (B1-B2)",
+          "words": 80
+        },
+        {
+          "id": "space-exploration-ielts",
+          "title": "🚀 Không Gian & Khám Phá (100 Từ) (B2-C1)",
+          "words": 90
+        },
+        {
+          "id": "space-exploration-ielts-p2",
+          "title": "🚀 Space & Exploration (100 Words) (B2-C1) – Phần 2",
+          "words": 100
+        },
+        {
+          "id": "space-exploration-ielts-p3",
+          "title": "🚀 Không Gian & Khám Phá (100 Từ) (C1-C2) – Phần 3",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "space-exploration-vstep",
+          "b": "space-astronomy-vstep",
+          "overlapPct": 79
+        },
+        {
+          "a": "space-exploration-vstep",
+          "b": "space-exploration-ielts-p3",
+          "overlapPct": 76
+        },
+        {
+          "a": "space-exploration-ielts",
+          "b": "space-exploration-ielts-p3",
+          "overlapPct": 76
+        },
+        {
+          "a": "space-exploration-ielts-p2",
+          "b": "space-exploration-ielts-p3",
+          "overlapPct": 86
+        }
+      ]
+    },
+    {
+      "family": "technology-internet",
+      "topics": [
+        {
+          "id": "technology-internet-daily",
+          "title": "💻 Công Nghệ & Internet (100 Từ) (A2-B1)",
+          "words": 99
+        },
+        {
+          "id": "technology-internet-daily-p2",
+          "title": "💻 Công Nghệ & Mạng Internet (100 Từ) (A2-B1) – Phần 2",
+          "words": 89
+        },
+        {
+          "id": "technology-daily-life",
+          "title": "📱 Công Nghệ Trong Đời Sống (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "technology-gadgets-daily",
+          "title": "💻 Công Nghệ & Thiết Bị (100 Từ) (A2-B1)",
+          "words": 50
+        },
+        {
+          "id": "technology-gadgets-daily-p2",
+          "title": "💻 Công Nghệ & Thiết Bị (100 Từ) (A2-B1) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "technology-internet-daily",
+          "b": "technology-gadgets-daily",
+          "overlapPct": 80
+        },
+        {
+          "a": "technology-internet-daily",
+          "b": "technology-gadgets-daily-p2",
+          "overlapPct": 72
+        },
+        {
+          "a": "technology-internet-daily-p2",
+          "b": "technology-gadgets-daily",
+          "overlapPct": 84
+        },
+        {
+          "a": "technology-internet-daily-p2",
+          "b": "technology-gadgets-daily-p2",
+          "overlapPct": 82
+        },
+        {
+          "a": "technology-daily-life",
+          "b": "technology-gadgets-daily",
+          "overlapPct": 84
+        },
+        {
+          "a": "technology-daily-life",
+          "b": "technology-gadgets-daily-p2",
+          "overlapPct": 78
+        }
+      ]
+    },
+    {
+      "family": "school-education",
+      "topics": [
+        {
+          "id": "education-school-daily",
+          "title": "🎒 Giáo Dục & Trường Học (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "education-learning-daily",
+          "title": "📚 Giáo Dục & Học Tập (100 Từ) (A2-B1)",
+          "words": 92
+        },
+        {
+          "id": "school-learning-beginner",
+          "title": "🎒 Trường Học & Học Tập (100 Từ) (A1-A2)",
+          "words": 99
+        },
+        {
+          "id": "education-school-daily-p2",
+          "title": "🏫 Giáo Dục & Trường Học (100 Từ) (A2-B1) – Phần 2",
+          "words": 50
+        },
+        {
+          "id": "school-classroom-beginner",
+          "title": "🏫 Trường Học & Lớp Học (100 Từ) (A1)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "education-school-daily",
+          "b": "education-learning-daily",
+          "overlapPct": 77
+        },
+        {
+          "a": "education-school-daily",
+          "b": "education-school-daily-p2",
+          "overlapPct": 86
+        },
+        {
+          "a": "education-learning-daily",
+          "b": "education-school-daily-p2",
+          "overlapPct": 82
+        },
+        {
+          "a": "school-learning-beginner",
+          "b": "education-school-daily-p2",
+          "overlapPct": 78
+        },
+        {
+          "a": "school-learning-beginner",
+          "b": "school-classroom-beginner",
+          "overlapPct": 72
+        }
+      ]
+    },
+    {
+      "family": "house-rooms",
+      "topics": [
+        {
+          "id": "house-furniture-daily",
+          "title": "🏠 Ngôi Nhà & Đồ Nội Thất (100 Từ) (A2-B1)",
+          "words": 77
+        },
+        {
+          "id": "house-rooms-beginner",
+          "title": "🏠 Ngôi Nhà & Các Phòng (100 Từ) (A1-A2)",
+          "words": 89
+        },
+        {
+          "id": "rooms-furniture-beginner",
+          "title": "🛋 Các Phòng & Đồ Nội Thất (100 Từ) (A1-A2)",
+          "words": 90
+        },
+        {
+          "id": "housing-home-daily",
+          "title": "🏡 Nhà Ở & Mái Ấm (100 Từ) (A2-B1)",
+          "words": 69
+        },
+        {
+          "id": "house-rooms-beginner-p2",
+          "title": "🏠 Ngôi Nhà & Căn Phòng (100 Từ) (A1) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "house-furniture-daily",
+          "b": "house-rooms-beginner",
+          "overlapPct": 75
+        },
+        {
+          "a": "house-furniture-daily",
+          "b": "rooms-furniture-beginner",
+          "overlapPct": 71
+        },
+        {
+          "a": "house-furniture-daily",
+          "b": "housing-home-daily",
+          "overlapPct": 74
+        },
+        {
+          "a": "house-rooms-beginner",
+          "b": "rooms-furniture-beginner",
+          "overlapPct": 79
+        },
+        {
+          "a": "house-rooms-beginner",
+          "b": "housing-home-daily",
+          "overlapPct": 72
+        },
+        {
+          "a": "house-rooms-beginner",
+          "b": "house-rooms-beginner-p2",
+          "overlapPct": 74
+        },
+        {
+          "a": "rooms-furniture-beginner",
+          "b": "house-rooms-beginner-p2",
+          "overlapPct": 74
+        }
+      ]
+    },
+    {
+      "family": "business-finance",
+      "topics": [
+        {
+          "id": "business-finance-vstep",
+          "title": "🏢 Kinh Doanh & Tài Chính (100 Từ) (B1-B2)",
+          "words": 100
+        },
+        {
+          "id": "business-finance-ielts",
+          "title": "💼 Kinh Doanh & Tài Chính (100 Từ) (C1-C2)",
+          "words": 100
+        },
+        {
+          "id": "business-economy-ielts",
+          "title": "📈 Kinh Doanh & Kinh Tế (100 Từ) (B2-C1)",
+          "words": 75
+        },
+        {
+          "id": "business-economy-ielts-p2",
+          "title": "💼 Kinh Doanh & Kinh Tế (100 Từ) (C1-C2) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "business-finance-vstep",
+          "b": "business-economy-ielts",
+          "overlapPct": 72
+        },
+        {
+          "a": "business-finance-vstep",
+          "b": "business-economy-ielts-p2",
+          "overlapPct": 74
+        },
+        {
+          "a": "business-finance-ielts",
+          "b": "business-economy-ielts-p2",
+          "overlapPct": 76
+        },
+        {
+          "a": "business-economy-ielts",
+          "b": "business-economy-ielts-p2",
+          "overlapPct": 86
+        }
+      ]
+    },
+    {
+      "family": "places-directions",
+      "topics": [
+        {
+          "id": "places-directions-daily",
+          "title": "📍 Địa Điểm & Chỉ Đường (100 Từ) (A2-B1)",
+          "words": 99
+        },
+        {
+          "id": "places-buildings-beginner",
+          "title": "🏙️ Địa Điểm & Tòa Nhà (100 Từ) (A1-A2)",
+          "words": 86
+        },
+        {
+          "id": "places-buildings-beginner-p2",
+          "title": "🏢 Nơi Chốn & Tòa Nhà (100 Từ) (A1) – Phần 2",
+          "words": 94
+        },
+        {
+          "id": "places-directions-beginner",
+          "title": "📍 Nơi Chốn & Phương Hướng (100 Từ) (A1)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "places-directions-daily",
+          "b": "places-directions-beginner",
+          "overlapPct": 80
+        },
+        {
+          "a": "places-buildings-beginner",
+          "b": "places-directions-beginner",
+          "overlapPct": 76
+        },
+        {
+          "a": "places-buildings-beginner-p2",
+          "b": "places-directions-beginner",
+          "overlapPct": 80
+        }
+      ]
+    },
+    {
+      "family": "family-people",
+      "topics": [
+        {
+          "id": "family-people-beginner",
+          "title": "👨‍👩‍👧‍👦 Gia Đình & Con Người (100 Từ) (A1-A2)",
+          "words": 90
+        },
+        {
+          "id": "family-people-beginner-p2",
+          "title": "👨‍👩‍👧 Gia Đình & Con Người (100 Từ) (A1-A2) – Phần 2",
+          "words": 81
+        },
+        {
+          "id": "family-relationships-daily-p2",
+          "title": "👨‍👩‍👧‍👦 Gia Đình & Mối Quan Hệ (100 Từ) (A2-B1) – Phần 2",
+          "words": 100
+        },
+        {
+          "id": "family-relatives-beginner",
+          "title": "👨‍👩‍👧 Gia Đình & Họ Hàng (100 Từ) (A1)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "family-people-beginner",
+          "b": "family-people-beginner-p2",
+          "overlapPct": 78
+        },
+        {
+          "a": "family-people-beginner",
+          "b": "family-relatives-beginner",
+          "overlapPct": 74
+        },
+        {
+          "a": "family-relationships-daily-p2",
+          "b": "family-relatives-beginner",
+          "overlapPct": 74
+        }
+      ]
+    },
+    {
+      "family": "history-civilizations",
+      "topics": [
+        {
+          "id": "history-civilizations-vstep",
+          "title": "🏛️ Lịch Sử & Nền Văn Minh (100 Từ) (B1-B2)",
+          "words": 100
+        },
+        {
+          "id": "history-civilizations-ielts",
+          "title": "🏺 Lịch Sử & Nền Văn Minh (100 Từ) (C1-C2)",
+          "words": 85
+        },
+        {
+          "id": "history-past-ielts",
+          "title": "🏛️ Lịch Sử & Quá Khứ (100 Từ) (B2-C1)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "history-civilizations-vstep",
+          "b": "history-past-ielts",
+          "overlapPct": 80
+        },
+        {
+          "a": "history-civilizations-ielts",
+          "b": "history-past-ielts",
+          "overlapPct": 74
+        }
+      ]
+    },
+    {
+      "family": "literature-poetry",
+      "topics": [
+        {
+          "id": "literature-poetry-ielts",
+          "title": "📚 Văn Học & Thi Ca (100 Từ) (C1-C2)",
+          "words": 90
+        },
+        {
+          "id": "literature-writing-ielts",
+          "title": "📖 Văn Học & Viết Lách (100 Từ) (C1-C2)",
+          "words": 50
+        },
+        {
+          "id": "literature-poetry-ielts-p2",
+          "title": "📚 Văn Học & Thi Ca (100 Từ) (C1-C2) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "literature-poetry-ielts",
+          "b": "literature-writing-ielts",
+          "overlapPct": 74
+        },
+        {
+          "a": "literature-poetry-ielts",
+          "b": "literature-poetry-ielts-p2",
+          "overlapPct": 86
+        }
+      ]
+    },
+    {
+      "family": "animals-nature",
+      "topics": [
+        {
+          "id": "animals-nature-daily",
+          "title": "🐾 Động Vật & Thiên Nhiên (100 Từ) (A2-B1)",
+          "words": 95
+        },
+        {
+          "id": "animals-nature-beginner",
+          "title": "🐶 Động Vật & Thiên Nhiên (100 Từ) (A1)",
+          "words": 99
+        },
+        {
+          "id": "nature-animals-beginner",
+          "title": "🌳 Thiên Nhiên & Động Vật (100 Từ) (A1)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "animals-nature-daily",
+          "b": "nature-animals-beginner",
+          "overlapPct": 88
+        },
+        {
+          "a": "animals-nature-beginner",
+          "b": "nature-animals-beginner",
+          "overlapPct": 92
+        }
+      ]
+    },
+    {
+      "family": "hobbies-free",
+      "topics": [
+        {
+          "id": "hobbies-entertainment-daily",
+          "title": "🎨 Sở Thích & Giải Trí (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "hobbies-free-time-daily",
+          "title": "🎨 Sở Thích & Thời Gian Rảnh (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "free-time-hobbies-daily",
+          "title": "🎨 Thời Gian Rảnh & Sở Thích (100 Từ) (A2-B1)",
+          "words": 76
+        }
+      ],
+      "pairs": [
+        {
+          "a": "hobbies-entertainment-daily",
+          "b": "free-time-hobbies-daily",
+          "overlapPct": 74
+        },
+        {
+          "a": "hobbies-free-time-daily",
+          "b": "free-time-hobbies-daily",
+          "overlapPct": 72
+        }
+      ]
+    },
+    {
+      "family": "work-jobs",
+      "topics": [
+        {
+          "id": "work-career-daily",
+          "title": "💼 Công Việc & Sự Nghiệp (100 Từ) (A2-B1)",
+          "words": 100
+        },
+        {
+          "id": "jobs-careers-daily",
+          "title": "💼 Công Việc & Nghề Nghiệp (100 Từ) (A2-B1)",
+          "words": 101
+        },
+        {
+          "id": "work-jobs-daily",
+          "title": "💼 Công Việc & Nghề Nghiệp (100 Từ) (A2-B1)",
+          "words": 56
+        }
+      ],
+      "pairs": [
+        {
+          "a": "work-career-daily",
+          "b": "work-jobs-daily",
+          "overlapPct": 75
+        },
+        {
+          "a": "jobs-careers-daily",
+          "b": "work-jobs-daily",
+          "overlapPct": 80
+        }
+      ]
+    },
+    {
+      "family": "colors-shapes",
+      "topics": [
+        {
+          "id": "colors-shapes-beginner",
+          "title": "🔴 Màu Sắc & Hình Khối (100 Từ) (A1-A2)",
+          "words": 90
+        },
+        {
+          "id": "colors-shapes-beginner-p2",
+          "title": "🎨 Màu Sắc & Hình Khối (100 Từ) (A1-A2) – Phần 2",
+          "words": 91
+        },
+        {
+          "id": "colors-shapes-beginner-p3",
+          "title": "🎨 Màu Sắc & Hình Khối (100 Từ) (A1) – Phần 3",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "colors-shapes-beginner",
+          "b": "colors-shapes-beginner-p3",
+          "overlapPct": 78
+        },
+        {
+          "a": "colors-shapes-beginner-p2",
+          "b": "colors-shapes-beginner-p3",
+          "overlapPct": 94
+        }
+      ]
+    },
+    {
+      "family": "jobs-occupations",
+      "topics": [
+        {
+          "id": "jobs-occupations-beginner",
+          "title": "💼 Nghề Nghiệp & Công Việc (100 Từ) (A1-A2)",
+          "words": 100
+        },
+        {
+          "id": "jobs-work-beginner",
+          "title": "💼 Nghề Nghiệp & Làm Việc (100 Từ) (A1)",
+          "words": 81
+        },
+        {
+          "id": "jobs-professions-beginner",
+          "title": "👨‍🍳 Nghề Nghiệp & Công Việc (100 Từ) (A1)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "jobs-occupations-beginner",
+          "b": "jobs-professions-beginner",
+          "overlapPct": 78
+        },
+        {
+          "a": "jobs-work-beginner",
+          "b": "jobs-professions-beginner",
+          "overlapPct": 76
+        }
+      ]
+    },
+    {
+      "family": "time-days",
+      "topics": [
+        {
+          "id": "days-months-beginner-p2",
+          "title": "📅 Ngày Tháng & Thời Gian (100 Từ) (A1-A2) – Phần 2",
+          "words": 90
+        },
+        {
+          "id": "time-dates-beginner",
+          "title": "⏰ Thời Gian & Ngày Tháng (100 Từ) (A1)",
+          "words": 93
+        },
+        {
+          "id": "time-calendar-beginner",
+          "title": "⏳ Thời Gian & Lịch (100 Từ) (A1)",
+          "words": 53
+        }
+      ],
+      "pairs": [
+        {
+          "a": "days-months-beginner-p2",
+          "b": "time-dates-beginner",
+          "overlapPct": 81
+        },
+        {
+          "a": "days-months-beginner-p2",
+          "b": "time-calendar-beginner",
+          "overlapPct": 100
+        },
+        {
+          "a": "time-dates-beginner",
+          "b": "time-calendar-beginner",
+          "overlapPct": 100
+        }
+      ]
+    },
+    {
+      "family": "energy-resources",
+      "topics": [
+        {
+          "id": "energy-resources-vstep",
+          "title": "⚡ Năng Lượng & Tài Nguyên (100 Từ) (B1-B2)",
+          "words": 80
+        },
+        {
+          "id": "energy-resources-ielts",
+          "title": "⚡ Năng Lượng & Tài Nguyên (100 Từ) (C1-C2)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "energy-resources-vstep",
+          "b": "energy-resources-ielts",
+          "overlapPct": 74
+        }
+      ]
+    },
+    {
+      "family": "media-communication",
+      "topics": [
+        {
+          "id": "media-communication-ielts",
+          "title": "📰 Truyền Thông & Giao Tiếp (100 Từ) (B2-C1)",
+          "words": 100
+        },
+        {
+          "id": "media-communication-ielts-p2",
+          "title": "📱 Truyền Thông & Giao Tiếp (100 Từ) (B2-C1) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "media-communication-ielts",
+          "b": "media-communication-ielts-p2",
+          "overlapPct": 72
+        }
+      ]
+    },
+    {
+      "family": "politics-government",
+      "topics": [
+        {
+          "id": "politics-government-ielts",
+          "title": "🏛 Chính Trị & Chính Phủ (100 Từ) (C1-C2)",
+          "words": 90
+        },
+        {
+          "id": "government-politics-ielts",
+          "title": "🏛️ Government & Politics (100 Words) (B2-C1)",
+          "words": 80
+        }
+      ],
+      "pairs": [
+        {
+          "a": "politics-government-ielts",
+          "b": "government-politics-ielts",
+          "overlapPct": 71
+        }
+      ]
+    },
+    {
+      "family": "art-design",
+      "topics": [
+        {
+          "id": "art-design-ielts",
+          "title": "🎨 Nghệ Thuật & Thiết Kế (100 Từ) (C1-C2)",
+          "words": 100
+        },
+        {
+          "id": "art-design-ielts-p2",
+          "title": "🎨 Nghệ Thuật & Thiết Kế (100 Từ) (C1-C2) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "art-design-ielts",
+          "b": "art-design-ielts-p2",
+          "overlapPct": 78
+        }
+      ]
+    },
+    {
+      "family": "food-agriculture",
+      "topics": [
+        {
+          "id": "food-agriculture-ielts",
+          "title": "🌾 Thực Phẩm & Nông Nghiệp (100 Từ) (C1-C2)",
+          "words": 100
+        },
+        {
+          "id": "food-agriculture-ielts-p2",
+          "title": "🌾 Thực Phẩm & Nông Nghiệp (100 Từ) (C1-C2) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "food-agriculture-ielts",
+          "b": "food-agriculture-ielts-p2",
+          "overlapPct": 78
+        }
+      ]
+    },
+    {
+      "family": "history-culture",
+      "topics": [
+        {
+          "id": "history-culture-ielts",
+          "title": "🏛️ Lịch Sử & Văn Hóa (100 Từ) (C1-C2)",
+          "words": 99
+        },
+        {
+          "id": "history-heritage-ielts",
+          "title": "🏛️ Lịch Sử & Di Sản (100 Từ) (C1-C2)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "history-culture-ielts",
+          "b": "history-heritage-ielts",
+          "overlapPct": 74
+        }
+      ]
+    },
+    {
+      "family": "communication-languages",
+      "topics": [
+        {
+          "id": "languages-communication-ielts",
+          "title": "🗣️ Ngôn Ngữ & Giao Tiếp (100 Từ) (C1-C2)",
+          "words": 80
+        },
+        {
+          "id": "language-communication-ielts",
+          "title": "🗣️ Ngôn Ngữ & Giao Tiếp (100 Từ) (C1-C2)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "languages-communication-ielts",
+          "b": "language-communication-ielts",
+          "overlapPct": 82
+        }
+      ]
+    },
+    {
+      "family": "money-shopping",
+      "topics": [
+        {
+          "id": "money-shopping-daily",
+          "title": "💵 Tiền Bạc & Mua Sắm (100 Từ) (A2-B1)",
+          "words": 99
+        },
+        {
+          "id": "shopping-money-daily",
+          "title": "🛒 Mua Sắm & Tiền Bạc (100 Từ) (A2-B1)",
+          "words": 76
+        }
+      ],
+      "pairs": [
+        {
+          "a": "money-shopping-daily",
+          "b": "shopping-money-daily",
+          "overlapPct": 75
+        }
+      ]
+    },
+    {
+      "family": "animals-pets",
+      "topics": [
+        {
+          "id": "animals-pets-beginner",
+          "title": "🐶 Động Vật & Thú Cưng (100 Từ) (A1-A2)",
+          "words": 89
+        },
+        {
+          "id": "animals-pets-beginner-p2",
+          "title": "🐾 Động Vật & Thú Cưng (100 Từ) (A1-A2) – Phần 2",
+          "words": 91
+        }
+      ],
+      "pairs": [
+        {
+          "a": "animals-pets-beginner",
+          "b": "animals-pets-beginner-p2",
+          "overlapPct": 72
+        }
+      ]
+    },
+    {
+      "family": "numbers-time",
+      "topics": [
+        {
+          "id": "numbers-time-beginner",
+          "title": "🔢 Con Số & Thời Gian (100 Từ) (A1-A2)",
+          "words": 89
+        },
+        {
+          "id": "numbers-time-beginner-p2",
+          "title": "🔢 Chữ Số & Thời Gian (100 Từ) (A1) – Phần 2",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "numbers-time-beginner",
+          "b": "numbers-time-beginner-p2",
+          "overlapPct": 86
+        }
+      ]
+    },
+    {
+      "family": "numbers-shapes",
+      "topics": [
+        {
+          "id": "numbers-shapes-beginner",
+          "title": "🔢 Số Đếm & Hình Khối (100 Từ) (A1)",
+          "words": 92
+        },
+        {
+          "id": "numbers-quantity-beginner",
+          "title": "🔢 Số Đếm & Số Lượng (100 Từ) (A1)",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "numbers-shapes-beginner",
+          "b": "numbers-quantity-beginner",
+          "overlapPct": 92
+        }
+      ]
+    },
+    {
+      "family": "weather-seasons",
+      "topics": [
+        {
+          "id": "weather-seasons-beginner-p3",
+          "title": "🌤️ Thời Tiết & Mùa (100 Từ) (A1) – Phần 3",
+          "words": 85
+        },
+        {
+          "id": "weather-seasons-beginner-p4",
+          "title": "🌦️ Thời Tiết & Mùa (100 Từ) (A1) – Phần 4",
+          "words": 50
+        }
+      ],
+      "pairs": [
+        {
+          "a": "weather-seasons-beginner-p3",
+          "b": "weather-seasons-beginner-p4",
+          "overlapPct": 80
+        }
+      ]
+    }
+  ]
+}
