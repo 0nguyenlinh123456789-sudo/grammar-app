@@ -12,7 +12,8 @@ const TABS = [
     icon: FileText,
     body: (
       <>
-        <p><strong>1. Dịch vụ.</strong> Bunny English là ứng dụng tự học tiếng Anh (ngữ pháp, từ vựng, 4 kỹ năng) dành cho người dùng cá nhân. Quyền truy cập được cấp qua mã truy cập theo gói (Standard / Premium / Lifetime) với thời hạn ghi trên mã.</p>
+        {/* (#0-B) Điều khoản dịch vụ không được hứa "4 kỹ năng" — mô tả đúng phạm vi thật */}
+        <p><strong>1. Dịch vụ.</strong> Bunny English là ứng dụng tự học tiếng Anh (ngữ pháp, từ vựng, đọc hiểu, luyện phát âm từng từ) dành cho người dùng cá nhân. Quyền truy cập được cấp qua mã truy cập theo gói (Standard / Premium / Lifetime) với thời hạn ghi trên mã.</p>
         <p><strong>2. Tài khoản &amp; thiết bị.</strong> Mỗi mã truy cập giới hạn số thiết bị theo gói đã mua. Không chia sẻ, bán lại hoặc công khai mã truy cập; mã bị lạm dụng có thể bị khóa.</p>
         <p><strong>3. Nội dung.</strong> Toàn bộ bài học, dữ liệu và hình ảnh thuộc về Bunny English hoặc các bên cấp phép. Bạn được dùng cho việc học cá nhân, không sao chép hay phân phối lại.</p>
         <p><strong>4. Tính năng AI.</strong> Các tính năng AI (chấm Writing, Quét ảnh) hoạt động bằng API key Google Gemini do chính bạn cung cấp và chịu điều khoản của Google. Ứng dụng không bán API key.</p>

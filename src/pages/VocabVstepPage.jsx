@@ -197,7 +197,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
         </div>
       </div>
 
-      {/* MODE CONTROLS — các bước học (đủ 4 kỹ năng: Nghe/Nói/Đọc/Viết);
+      {/* MODE CONTROLS — các bước học của một chủ đề từ vựng;
           bước "Cụm Câu" chỉ hiện khi topic có phrases soạn tay */}
       <div className={`w-full max-w-3xl grid grid-cols-4 ${modeGridCols} gap-2 mb-6`}>
         {availableModes.map((mode, modeIndex) => {

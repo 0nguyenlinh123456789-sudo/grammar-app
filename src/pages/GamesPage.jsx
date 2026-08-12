@@ -726,11 +726,13 @@ const GAME_TABS = [
   { id: 'speedquiz',  label: 'Quiz Nhanh',  icon: '⚡', skill: 'Phản xạ',  color: 'teal' },
 ];
 
+// (#0-B) Mô tả ĐÚNG việc người học làm trong từng game — không gọi là bốn kỹ
+// năng ngôn ngữ (nghe/nói/đọc/viết ở mức từ đơn không phải kỹ năng Nghe/Nói).
 const SKILLS_INFO = [
-  { icon: '🎧', name: 'Nghe', game: 'Nghe & Viết', tip: 'Nghe từ → gõ lại chính xác. Luyện tai nghe phân biệt âm tiếng Anh.' },
-  { icon: '🗣️', name: 'Nói', game: 'Phát Âm', tip: 'Đọc phiên âm IPA, nghe mẫu → tự luyện nói. Chuẩn bị IELTS Speaking.' },
-  { icon: '📖', name: 'Đọc', game: 'Ghép Đôi + Điền Từ', tip: 'Đọc hiểu từ vựng trong ngữ cảnh thực, đúng cách dùng trong câu.' },
-  { icon: '✍️', name: 'Viết', game: 'Ghép Chữ', tip: 'Đánh vần chính xác, ghi nhớ cấu trúc từ. Nền tảng viết tiếng Anh.' },
+  { icon: '🎧', name: 'Nghe từ', game: 'Nghe & Viết', tip: 'Nghe máy đọc một từ → gõ lại chính xác. Luyện tai phân biệt âm.' },
+  { icon: '🗣️', name: 'Đọc to từ', game: 'Phát Âm', tip: 'Xem phiên âm IPA, nghe mẫu rồi đọc to — trình duyệt kiểm tra có nhận ra từ không.' },
+  { icon: '📖', name: 'Nhận nghĩa', game: 'Ghép Đôi + Điền Từ', tip: 'Nhận ra nghĩa của từ và chọn đúng từ điền vào câu ví dụ.' },
+  { icon: '✍️', name: 'Đánh vần', game: 'Ghép Chữ', tip: 'Xếp lại chữ cái cho đúng chính tả, ghi nhớ mặt chữ của từ.' },
 ];
 
 const GamesPage = ({ activeTopic, playAudio, completeMilestone }) => {
@@ -799,12 +801,12 @@ const GamesPage = ({ activeTopic, playAudio, completeMilestone }) => {
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
               <div className="inline-flex items-center gap-1 bg-white/20 border border-white/30 px-2.5 py-0.5 rounded-lg text-white font-black text-xs uppercase tracking-wider">
-                6 Trò Chơi • 4 Kỹ Năng
+                6 Trò Chơi Từ Vựng
               </div>
             </div>
             <h1 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight leading-tight">HỌC MÀ CHƠI!</h1>
             <p className="text-white/75 font-bold text-sm mt-0.5 truncate">
-              {activeTopic ? activeTopic.title : 'Luyện tất cả 4 kỹ năng qua trò chơi!'}
+              {activeTopic ? activeTopic.title : 'Ôn từ vựng của chủ đề bạn đang học qua trò chơi!'}
             </p>
           </div>
           <div className="shrink-0 bg-white/20 border-2 border-white/30 rounded-2xl px-4 py-2.5 text-center hidden sm:block">
