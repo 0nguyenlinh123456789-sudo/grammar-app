@@ -151,6 +151,9 @@ const Flashcard = ({ currentWordIndex, totalWords, currentWord, playAudio, onNex
               </div>
             )}
 
+            {/* example/viExample có thể vắng: contentFilter gỡ cặp ví dụ
+                máy-sinh khỏi một số từ — thiếu thì ẩn khối, không bịa. */}
+            {currentWord.example && (
             <div className="w-full bg-white dark:bg-slate-900/80 border-4 border-black dark:border-slate-600 rounded-2xl p-4 md:p-5 relative shrink-0 flex flex-col items-center">
               <button
                 onClick={(e) => { e.stopPropagation(); playAudio(currentWord.example); }}
@@ -161,10 +164,13 @@ const Flashcard = ({ currentWordIndex, totalWords, currentWord, playAudio, onNex
               <p className="text-base md:text-xl font-bold text-slate-800 dark:text-slate-100 mb-2 leading-snug">
                 "{currentWord.example}"
               </p>
-              <p className="text-sm md:text-base font-semibold text-slate-600 dark:text-slate-300 italic border-t-2 border-dashed border-slate-300 dark:border-slate-600 pt-2 w-full">
-                {currentWord.viExample}
-              </p>
+              {currentWord.viExample && (
+                <p className="text-sm md:text-base font-semibold text-slate-600 dark:text-slate-300 italic border-t-2 border-dashed border-slate-300 dark:border-slate-600 pt-2 w-full">
+                  {currentWord.viExample}
+                </p>
+              )}
             </div>
+            )}
           </div>
 
         </div>

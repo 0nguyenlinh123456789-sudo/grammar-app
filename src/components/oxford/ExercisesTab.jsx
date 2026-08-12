@@ -132,28 +132,14 @@ export default function ExercisesTab({ unitData }) {
         setShowExpl(updated);
     };
 
-    const getDynamicExplanation = (q, type) => {
-        if (q.explanation) return q.explanation;
-        
-        if (type === 'fill_in_blanks') {
-            const cleanAnswer = q.answers?.[0] || '';
-            const cleanHint = q.hint ? q.hint.replace('Nghĩa: ', '') : '';
-            return `Scholar Bunny mách bé nè: Ở câu này chúng mình điền "${cleanAnswer}" nha! Từ này mang ý nghĩa là "${cleanHint}". Khi điền vào ô trống, câu của chúng mình sẽ hoàn chỉnh và đúng ngữ pháp 100% rồi đó. Bé hãy luyện đọc to cả câu lên để nhớ phát âm nhé! 🐰✨`;
-        }
-        
-        if (type === 'matching') {
-            const englishWord = q.text || '';
-            const vietnameseMeaning = q.answer || '';
-            return `Scholar Bunny bật mí nè: Từ tiếng Anh "${englishWord}" sẽ ghép đôi cực kỳ chính xác với nghĩa tiếng Việt là "${vietnameseMeaning}" đó! Bé nhớ ghi lại cặp từ này vào sổ tay của mình nha. Chăm chỉ tích lũy cặp từ sẽ giúp bé giao tiếp tự tin hơn nhiều đó! 🐰🎉`;
-        }
-        
-        if (type === 'categorization') {
-            const word = q.word || '';
-            const category = q.category || '';
-            return `Scholar Bunny mách nhỏ bé: Từ "${word}" thuộc nhóm từ vựng "${category}" là hoàn toàn chuẩn xác rồi nhé! Việc phân loại từ theo nhóm thế này là một phương pháp siêu thông minh giúp bộ não ghi nhớ từ vựng có hệ thống và lâu quên hơn đấy. Cố lên bé yêu nhé! 🐰💪`;
-        }
-        
-        return "Scholar Bunny rất vui vì bé đã hoàn thành câu hỏi này! Hãy tiếp tục rèn luyện chăm chỉ để ngày càng giỏi giang nhé! 🐰❤️";
+    // CHÍNH SÁCH NỘI DUNG (đợt (f) 2026-08-12): thiếu dữ liệu thì ẨN hoặc BÁO,
+    // không thay thế âm thầm. Trước đây câu thiếu `explanation` được ghép "lời
+    // giải thích" template chỉ đọc lại đáp án rồi khẳng định "đúng ngữ pháp
+    // 100%" — không giải thích gì. Nay hiển thị đúng lời giải người soạn; câu
+    // chưa có thì tự khai báo là chưa có, không bịa.
+    const getDynamicExplanation = (q) => {
+        return q.explanation
+            || 'Câu này chưa có lời giải thích được biên soạn. Đáp án đúng đã được đánh dấu ở trên — bạn hãy đối chiếu với phần Lý Thuyết của Unit nhé.';
     };
 
     const getMascotFeedback = () => {

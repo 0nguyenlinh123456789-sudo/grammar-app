@@ -276,7 +276,11 @@ const SCENARIO_TEMPLATES = {
       ],
     },
   ],
-  'default': [
+  // (g) 2026-08-12, duyệt chủ dự án: hai hội thoại viết tay dưới đây từng nằm
+  // ở nhánh 'default' (bị tráo cho MỌI topic không khớp nhóm — đã xóa ở đợt
+  // (f)). Nay TÁI GÁN đúng nhóm chủ đề: [0] siêu thị → shopping, [1] nhà hàng
+  // → food (xem getScenarios). Không còn nhánh default.
+  'rehomed': [
     {
       title: '🛒 Mua Sắm Tại Siêu Thị (Supermarket Shopping)',
       icon: '🛒',
@@ -429,16 +433,33 @@ const ActionScenarioMode = ({ activeTopic, playAudio }) => {
     if (combined.includes('health') || combined.includes('medical') || combined.includes('sức khỏe') || combined.includes('y tế')) return SCENARIO_TEMPLATES.health;
     if (combined.includes('business') || combined.includes('office') || combined.includes('work') || combined.includes('kinh doanh') || combined.includes('văn phòng') || combined.includes('nghề')) return SCENARIO_TEMPLATES.business;
     if (combined.includes('education') || combined.includes('school') || combined.includes('academic') || combined.includes('giáo dục') || combined.includes('học')) return SCENARIO_TEMPLATES.education;
-    if (combined.includes('food') || combined.includes('cook') || combined.includes('thức ăn') || combined.includes('nấu') || combined.includes('dinh dưỡng')) return SCENARIO_TEMPLATES.food;
+    if (combined.includes('food') || combined.includes('cook') || combined.includes('thức ăn') || combined.includes('nấu') || combined.includes('dinh dưỡng')) return [...SCENARIO_TEMPLATES.food, SCENARIO_TEMPLATES.rehomed[1]];
     if (combined.includes('nature') || combined.includes('environment') || combined.includes('thiên nhiên') || combined.includes('môi trường') || combined.includes('động vật') || combined.includes('animal')) return SCENARIO_TEMPLATES.nature;
     if (combined.includes('tech') || combined.includes('internet') || combined.includes('digital') || combined.includes('công nghệ')) return SCENARIO_TEMPLATES.technology;
     if (combined.includes('family') || combined.includes('relationship') || combined.includes('gia đình') || combined.includes('quan hệ')) return SCENARIO_TEMPLATES.family;
-    if (combined.includes('shopping') || combined.includes('mua sắm') || combined.includes('tài chính') || combined.includes('finance')) return SCENARIO_TEMPLATES.shopping;
+    if (combined.includes('shopping') || combined.includes('mua sắm') || combined.includes('tài chính') || combined.includes('finance')) return [...SCENARIO_TEMPLATES.shopping, SCENARIO_TEMPLATES.rehomed[0]];
     if (combined.includes('emotion') || combined.includes('feeling') || combined.includes('cảm xúc') || combined.includes('tâm lý') || combined.includes('tính cách')) return SCENARIO_TEMPLATES.emotion;
-    return SCENARIO_TEMPLATES.default;
+    // CHÍNH SÁCH NỘI DUNG (đợt (f) 2026-08-12): thiếu dữ liệu thì ẨN hoặc BÁO,
+    // không thay thế âm thầm. Trước đây topic không khớp nhóm nào (135/274 —
+    // kể cả "Luật pháp & Tội phạm C1-C2") bị tráo hội thoại siêu thị/nhà hàng
+    // mà không một dòng khai báo. Nay trả null → hiện thông báo trung thực.
+    return null;
   };
 
   const scenarios = getScenarios();
+
+  if (!scenarios) {
+    return (
+      <div className="w-full max-w-4xl p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in">
+        <p className="text-3xl mb-3">🎬🚧</p>
+        <p className="text-xl">Chưa có kịch bản hội thoại cho chủ đề này.</p>
+        <p className="text-sm mt-2 font-normal opacity-70">
+          Kịch bản tình huống được biên soạn theo từng nhóm chủ đề — chủ đề này chưa nằm trong nhóm nào.
+          Bạn vẫn luyện được từ vựng qua các bước khác nhé!
+        </p>
+      </div>
+    );
+  }
 
   // Key vocabulary for this context
   const contextWords = (activeTopic?.words || []).slice(0, 10);
