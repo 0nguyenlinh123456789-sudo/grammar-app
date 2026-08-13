@@ -18,8 +18,7 @@ export const courseData76_100 = [
           "collocations": [
             "grouse effectively",
             "must grouse"
-          ],
-          "wordFamily": "Biến thể của grouse"
+          ]
         },
         {
           "word": "whinge",
@@ -31,8 +30,7 @@ export const courseData76_100 = [
           "collocations": [
             "whinge effectively",
             "must whinge"
-          ],
-          "wordFamily": "Biến thể của whinge"
+          ]
         },
         {
           "word": "find fault",
@@ -41,8 +39,7 @@ export const courseData76_100 = [
           "vi": "bới lông tìm vết, chê bai",
           "example": "He's always trying to find fault with my work.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của find fault"
+          "collocations": []
         },
         {
           "word": "grumble",
@@ -54,8 +51,7 @@ export const courseData76_100 = [
           "collocations": [
             "grumble effectively",
             "must grumble"
-          ],
-          "wordFamily": "Biến thể của grumble"
+          ]
         },
         {
           "word": "boycott",
@@ -67,8 +63,7 @@ export const courseData76_100 = [
           "collocations": [
             "boycott effectively",
             "must boycott"
-          ],
-          "wordFamily": "Biến thể của boycott"
+          ]
         },
         {
           "word": "picket",
@@ -80,8 +75,7 @@ export const courseData76_100 = [
           "collocations": [
             "picket effectively",
             "must picket"
-          ],
-          "wordFamily": "Biến thể của picket"
+          ]
         },
         {
           "word": "uproar",
@@ -93,8 +87,7 @@ export const courseData76_100 = [
           "collocations": [
             "important uproar",
             "uproar system"
-          ],
-          "wordFamily": "Biến thể của uproar"
+          ]
         },
         {
           "word": "petition",
@@ -106,8 +99,7 @@ export const courseData76_100 = [
           "collocations": [
             "important petition",
             "petition system"
-          ],
-          "wordFamily": "Biến thể của petition"
+          ]
         }
       ],
       "practicalUsage": [
@@ -196,24 +188,6 @@ export const courseData76_100 = [
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
           {
-            "id": "ex_76_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "grouse"
-            ],
-            "hint": "càu nhàu, cằn nhằn",
-            "explanation": "Từ cần điền là \"grouse\", mang nghĩa là \"càu nhàu, cằn nhằn\"."
-          },
-          {
-            "id": "ex_76_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "whinge"
-            ],
-            "hint": "rên rỉ, than vãn (một cách phiền toái)",
-            "explanation": "Từ cần điền là \"whinge\", mang nghĩa là \"rên rỉ, than vãn (một cách phiền toái)\"."
-          },
-          {
             "id": "ex_76_1_2",
             "text": "He's always trying to [blank] with my work.",
             "answers": [
@@ -221,15 +195,6 @@ export const courseData76_100 = [
             ],
             "hint": "bới lông tìm vết, chê bai",
             "explanation": "Từ cần điền là \"find fault\", mang nghĩa là \"bới lông tìm vết, chê bai\"."
-          },
-          {
-            "id": "ex_76_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "grumble"
-            ],
-            "hint": "lầm bầm phàn nàn",
-            "explanation": "Từ cần điền là \"grumble\", mang nghĩa là \"lầm bầm phàn nàn\"."
           }
         ]
       },
@@ -345,12 +310,6 @@ export const courseData76_100 = [
             "original": "He's always trying to finds fault with my work.",
             "correct": "He's always trying to find fault with my work.",
             "explanation": "Từ viết đúng chính xác phải là \"find fault\"."
-          },
-          {
-            "id": "ex_76_4_1",
-            "original": "I really like grumbles.",
-            "correct": "She grumbled about the cold weather.",
-            "explanation": "Từ viết đúng chính xác phải là \"grumble\"."
           }
         ]
       },
@@ -367,15 +326,6 @@ export const courseData76_100 = [
             ],
             "hint": "tẩy chay",
             "explanation": "Từ cần điền là \"boycott\"."
-          },
-          {
-            "id": "ex_76_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "picket"
-            ],
-            "hint": "đứng biểu tình chặn cửa (đình công)",
-            "explanation": "Từ cần điền là \"picket\"."
           },
           {
             "id": "ex_76_5_2",
@@ -466,8 +416,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "He's always grousing about how much he has to work.",
-        "trans": "[Tạm dịch] Câu ví dụ cho grouse"
+        "text": "He's always grousing about how much he has to work."
       }
     ]
   },
@@ -487,8 +436,7 @@ export const courseData76_100 = [
           "collocations": [
             "important alibi",
             "alibi system"
-          ],
-          "wordFamily": "Biến thể của alibi"
+          ]
         },
         {
           "word": "remorse",
@@ -500,8 +448,7 @@ export const courseData76_100 = [
           "collocations": [
             "important remorse",
             "remorse system"
-          ],
-          "wordFamily": "Biến thể của remorse"
+          ]
         },
         {
           "word": "exonerate",
@@ -513,8 +460,7 @@ export const courseData76_100 = [
           "collocations": [
             "exonerate effectively",
             "must exonerate"
-          ],
-          "wordFamily": "Biến thể của exonerate"
+          ]
         },
         {
           "word": "repent",
@@ -526,8 +472,7 @@ export const courseData76_100 = [
           "collocations": [
             "repent effectively",
             "must repent"
-          ],
-          "wordFamily": "Biến thể của repent"
+          ]
         },
         {
           "word": "acquittal",
@@ -539,8 +484,7 @@ export const courseData76_100 = [
           "collocations": [
             "important acquittal",
             "acquittal system"
-          ],
-          "wordFamily": "Biến thể của acquittal"
+          ]
         },
         {
           "word": "clemency",
@@ -552,8 +496,7 @@ export const courseData76_100 = [
           "collocations": [
             "important clemency",
             "clemency system"
-          ],
-          "wordFamily": "Biến thể của clemency"
+          ]
         },
         {
           "word": "reconcile",
@@ -565,8 +508,7 @@ export const courseData76_100 = [
           "collocations": [
             "reconcile effectively",
             "must reconcile"
-          ],
-          "wordFamily": "Biến thể của reconcile"
+          ]
         },
         {
           "word": "absolve",
@@ -578,8 +520,7 @@ export const courseData76_100 = [
           "collocations": [
             "absolve effectively",
             "must absolve"
-          ],
-          "wordFamily": "Biến thể của absolve"
+          ]
         }
       ],
       "practicalUsage": [
@@ -684,24 +625,6 @@ export const courseData76_100 = [
             ],
             "hint": "sự ăn năn, hối hận tột cùng",
             "explanation": "Từ cần điền là \"remorse\", mang nghĩa là \"sự ăn năn, hối hận tột cùng\"."
-          },
-          {
-            "id": "ex_77_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "exonerate"
-            ],
-            "hint": "minh oan, giải trừ tội danh",
-            "explanation": "Từ cần điền là \"exonerate\", mang nghĩa là \"minh oan, giải trừ tội danh\"."
-          },
-          {
-            "id": "ex_77_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "repent"
-            ],
-            "hint": "sám hối",
-            "explanation": "Từ cần điền là \"repent\", mang nghĩa là \"sám hối\"."
           }
         ]
       },
@@ -808,25 +731,6 @@ export const courseData76_100 = [
         ]
       },
       {
-        "exNum": "77.4",
-        "type": "error_correction",
-        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
-        "questions": [
-          {
-            "id": "ex_77_4_0",
-            "original": "I really like exonerates.",
-            "correct": "The DNA evidence completely exonerated him.",
-            "explanation": "Từ viết đúng chính xác phải là \"exonerate\"."
-          },
-          {
-            "id": "ex_77_4_1",
-            "original": "I really like repents.",
-            "correct": "He repented of his sins and became a monk.",
-            "explanation": "Từ viết đúng chính xác phải là \"repent\"."
-          }
-        ]
-      },
-      {
         "exNum": "77.5",
         "type": "fill_in_blanks",
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
@@ -857,15 +761,6 @@ export const courseData76_100 = [
             ],
             "hint": "hòa giải, làm lành",
             "explanation": "Từ cần điền là \"reconcile\"."
-          },
-          {
-            "id": "ex_77_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "absolve"
-            ],
-            "hint": "xá tội, miễn trách nhiệm",
-            "explanation": "Từ cần điền là \"absolve\"."
           }
         ]
       }
@@ -938,8 +833,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "He has a cast-iron alibi for the night of the murder.",
-        "trans": "[Tạm dịch] Câu ví dụ cho alibi"
+        "text": "He has a cast-iron alibi for the night of the murder."
       }
     ]
   },
@@ -959,8 +853,7 @@ export const courseData76_100 = [
           "collocations": [
             "laud effectively",
             "must laud"
-          ],
-          "wordFamily": "Biến thể của laud"
+          ]
         },
         {
           "word": "flatter",
@@ -972,8 +865,7 @@ export const courseData76_100 = [
           "collocations": [
             "flatter effectively",
             "must flatter"
-          ],
-          "wordFamily": "Biến thể của flatter"
+          ]
         },
         {
           "word": "obsequious",
@@ -985,8 +877,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly obsequious",
             "extremely obsequious"
-          ],
-          "wordFamily": "Biến thể của obsequious"
+          ]
         },
         {
           "word": "extol",
@@ -998,8 +889,7 @@ export const courseData76_100 = [
           "collocations": [
             "extol effectively",
             "must extol"
-          ],
-          "wordFamily": "Biến thể của extol"
+          ]
         },
         {
           "word": "eulogy",
@@ -1011,8 +901,7 @@ export const courseData76_100 = [
           "collocations": [
             "important eulogy",
             "eulogy system"
-          ],
-          "wordFamily": "Biến thể của eulogy"
+          ]
         },
         {
           "word": "sycophant",
@@ -1024,8 +913,7 @@ export const courseData76_100 = [
           "collocations": [
             "important sycophant",
             "sycophant system"
-          ],
-          "wordFamily": "Biến thể của sycophant"
+          ]
         },
         {
           "word": "commend",
@@ -1037,8 +925,7 @@ export const courseData76_100 = [
           "collocations": [
             "commend effectively",
             "must commend"
-          ],
-          "wordFamily": "Biến thể của commend"
+          ]
         },
         {
           "word": "accolade",
@@ -1050,8 +937,7 @@ export const courseData76_100 = [
           "collocations": [
             "important accolade",
             "accolade system"
-          ],
-          "wordFamily": "Biến thể của accolade"
+          ]
         }
       ],
       "practicalUsage": [
@@ -1140,15 +1026,6 @@ export const courseData76_100 = [
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
           {
-            "id": "ex_78_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "laud"
-            ],
-            "hint": "tán dương, ca ngợi (trịnh trọng)",
-            "explanation": "Từ cần điền là \"laud\", mang nghĩa là \"tán dương, ca ngợi (trịnh trọng)\"."
-          },
-          {
             "id": "ex_78_1_1",
             "text": "Are you trying to [blank] me into giving you a raise?",
             "answers": [
@@ -1165,15 +1042,6 @@ export const courseData76_100 = [
             ],
             "hint": "khúm núm, nịnh hót quá đáng",
             "explanation": "Từ cần điền là \"obsequious\", mang nghĩa là \"khúm núm, nịnh hót quá đáng\"."
-          },
-          {
-            "id": "ex_78_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "extol"
-            ],
-            "hint": "tán tụng hết lời",
-            "explanation": "Từ cần điền là \"extol\", mang nghĩa là \"tán tụng hết lời\"."
           }
         ]
       },
@@ -1289,12 +1157,6 @@ export const courseData76_100 = [
             "original": "He is surrounded by obsequiou assistants who never disagree.",
             "correct": "He is surrounded by obsequious assistants who never disagree.",
             "explanation": "Từ viết đúng chính xác phải là \"obsequious\"."
-          },
-          {
-            "id": "ex_78_4_1",
-            "original": "I really like extols.",
-            "correct": "The critics extolled the virtues of her new novel.",
-            "explanation": "Từ viết đúng chính xác phải là \"extol\"."
           }
         ]
       },
@@ -1311,15 +1173,6 @@ export const courseData76_100 = [
             ],
             "hint": "điếu văn ca ngợi (người đã khuất)",
             "explanation": "Từ cần điền là \"eulogy\"."
-          },
-          {
-            "id": "ex_78_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "sycophant"
-            ],
-            "hint": "kẻ nịnh bợ, bợ đỡ",
-            "explanation": "Từ cần điền là \"sycophant\"."
           },
           {
             "id": "ex_78_5_2",
@@ -1410,8 +1263,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "The brave firefighter was loudly lauded by the mayor.",
-        "trans": "[Tạm dịch] Câu ví dụ cho laud"
+        "text": "The brave firefighter was loudly lauded by the mayor."
       }
     ]
   },
@@ -1431,8 +1283,7 @@ export const courseData76_100 = [
           "collocations": [
             "vow effectively",
             "must vow"
-          ],
-          "wordFamily": "Biến thể của vow"
+          ]
         },
         {
           "word": "pledge",
@@ -1444,8 +1295,7 @@ export const courseData76_100 = [
           "collocations": [
             "important pledge",
             "pledge system"
-          ],
-          "wordFamily": "Biến thể của pledge"
+          ]
         },
         {
           "word": "have a flutter",
@@ -1454,8 +1304,7 @@ export const courseData76_100 = [
           "vi": "đặt cược nhỏ cho vui",
           "example": "I usually have a little flutter on the horse races.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của have a flutter"
+          "collocations": []
         },
         {
           "word": "wager",
@@ -1467,8 +1316,7 @@ export const courseData76_100 = [
           "collocations": [
             "important wager",
             "wager system"
-          ],
-          "wordFamily": "Biến thể của wager"
+          ]
         },
         {
           "word": "oath",
@@ -1480,8 +1328,7 @@ export const courseData76_100 = [
           "collocations": [
             "important oath",
             "oath system"
-          ],
-          "wordFamily": "Biến thể của oath"
+          ]
         },
         {
           "word": "guarantee",
@@ -1493,8 +1340,7 @@ export const courseData76_100 = [
           "collocations": [
             "guarantee effectively",
             "must guarantee"
-          ],
-          "wordFamily": "Biến thể của guarantee"
+          ]
         },
         {
           "word": "stake",
@@ -1506,8 +1352,7 @@ export const courseData76_100 = [
           "collocations": [
             "important stake",
             "stake system"
-          ],
-          "wordFamily": "Biến thể của stake"
+          ]
         },
         {
           "word": "assure",
@@ -1519,8 +1364,7 @@ export const courseData76_100 = [
           "collocations": [
             "assure effectively",
             "must assure"
-          ],
-          "wordFamily": "Biến thể của assure"
+          ]
         }
       ],
       "practicalUsage": [
@@ -1609,15 +1453,6 @@ export const courseData76_100 = [
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
           {
-            "id": "ex_79_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "vow"
-            ],
-            "hint": "thề, lập lời thề",
-            "explanation": "Từ cần điền là \"vow\", mang nghĩa là \"thề, lập lời thề\"."
-          },
-          {
             "id": "ex_79_1_1",
             "text": "Thousands made a monthly [blank] to the charity.",
             "answers": [
@@ -1625,15 +1460,6 @@ export const courseData76_100 = [
             ],
             "hint": "lời cam kết, sự đóng góp (quyên tiền)",
             "explanation": "Từ cần điền là \"pledge\", mang nghĩa là \"lời cam kết, sự đóng góp (quyên tiền)\"."
-          },
-          {
-            "id": "ex_79_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "have a flutter"
-            ],
-            "hint": "đặt cược nhỏ cho vui",
-            "explanation": "Từ cần điền là \"have a flutter\", mang nghĩa là \"đặt cược nhỏ cho vui\"."
           },
           {
             "id": "ex_79_1_3",
@@ -1754,12 +1580,6 @@ export const courseData76_100 = [
         "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
         "questions": [
           {
-            "id": "ex_79_4_0",
-            "original": "I really like haves a flutter.",
-            "correct": "I usually have a little flutter on the horse races.",
-            "explanation": "Từ viết đúng chính xác phải là \"have a flutter\"."
-          },
-          {
             "id": "ex_79_4_1",
             "original": "He placed a heavy wagers on the football match.",
             "correct": "He placed a heavy wager on the football match.",
@@ -1789,15 +1609,6 @@ export const courseData76_100 = [
             ],
             "hint": "bảo đảm",
             "explanation": "Từ cần điền là \"guarantee\"."
-          },
-          {
-            "id": "ex_79_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "stake"
-            ],
-            "hint": "tiền cọc, cổ phần",
-            "explanation": "Từ cần điền là \"stake\"."
           },
           {
             "id": "ex_79_5_3",
@@ -1879,8 +1690,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "They stood at the altar and vowed to love each other forever.",
-        "trans": "[Tạm dịch] Câu ví dụ cho vow"
+        "text": "They stood at the altar and vowed to love each other forever."
       }
     ]
   },
@@ -1897,8 +1707,7 @@ export const courseData76_100 = [
           "vi": "những ngày tháng xưa tươi đẹp",
           "example": "My grandfather always talks fondly about the good old days.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của the good old days"
+          "collocations": []
         },
         {
           "word": "look back",
@@ -1907,8 +1716,7 @@ export const courseData76_100 = [
           "vi": "nhìn lại (quá khứ)",
           "example": "When I look back on my youth, I have no regrets.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của look back"
+          "collocations": []
         },
         {
           "word": "lament",
@@ -1920,8 +1728,7 @@ export const courseData76_100 = [
           "collocations": [
             "lament effectively",
             "must lament"
-          ],
-          "wordFamily": "Biến thể của lament"
+          ]
         },
         {
           "word": "nostalgia",
@@ -1933,8 +1740,7 @@ export const courseData76_100 = [
           "collocations": [
             "important nostalgia",
             "nostalgia system"
-          ],
-          "wordFamily": "Biến thể của nostalgia"
+          ]
         },
         {
           "word": "reminisce",
@@ -1946,8 +1752,7 @@ export const courseData76_100 = [
           "collocations": [
             "reminisce effectively",
             "must reminisce"
-          ],
-          "wordFamily": "Biến thể của reminisce"
+          ]
         },
         {
           "word": "mourn",
@@ -1959,8 +1764,7 @@ export const courseData76_100 = [
           "collocations": [
             "mourn effectively",
             "must mourn"
-          ],
-          "wordFamily": "Biến thể của mourn"
+          ]
         },
         {
           "word": "rue",
@@ -1972,8 +1776,7 @@ export const courseData76_100 = [
           "collocations": [
             "rue effectively",
             "must rue"
-          ],
-          "wordFamily": "Biến thể của rue"
+          ]
         },
         {
           "word": "evocative",
@@ -1985,8 +1788,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly evocative",
             "extremely evocative"
-          ],
-          "wordFamily": "Biến thể của evocative"
+          ]
         }
       ],
       "practicalUsage": [
@@ -2091,15 +1893,6 @@ export const courseData76_100 = [
             ],
             "hint": "nhìn lại (quá khứ)",
             "explanation": "Từ cần điền là \"look back\", mang nghĩa là \"nhìn lại (quá khứ)\"."
-          },
-          {
-            "id": "ex_80_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "lament"
-            ],
-            "hint": "than vãn, xót xa",
-            "explanation": "Từ cần điền là \"lament\", mang nghĩa là \"than vãn, xót xa\"."
           },
           {
             "id": "ex_80_1_3",
@@ -2220,12 +2013,6 @@ export const courseData76_100 = [
         "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
         "questions": [
           {
-            "id": "ex_80_4_0",
-            "original": "I really like laments.",
-            "correct": "He lamented the tragic loss of his best friend.",
-            "explanation": "Từ viết đúng chính xác phải là \"lament\"."
-          },
-          {
             "id": "ex_80_4_1",
             "original": "Hearing that old song fills me with deep nostalgias.",
             "correct": "Hearing that old song fills me with deep nostalgia.",
@@ -2238,24 +2025,6 @@ export const courseData76_100 = [
         "type": "fill_in_blanks",
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
-          {
-            "id": "ex_80_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "reminisce"
-            ],
-            "hint": "hồi tưởng, ôn lại kỷ niệm",
-            "explanation": "Từ cần điền là \"reminisce\"."
-          },
-          {
-            "id": "ex_80_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "mourn"
-            ],
-            "hint": "than khóc (người chết), tiếc thương",
-            "explanation": "Từ cần điền là \"mourn\"."
-          },
           {
             "id": "ex_80_5_2",
             "text": "You will live to [blank] this foolish decision.",
@@ -2345,8 +2114,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "My grandfather always talks fondly about the good old days.",
-        "trans": "[Tạm dịch] Câu ví dụ cho the good old days"
+        "text": "My grandfather always talks fondly about the good old days."
       }
     ]
   },
@@ -2366,8 +2134,7 @@ export const courseData76_100 = [
           "collocations": [
             "tally effectively",
             "must tally"
-          ],
-          "wordFamily": "Biến thể của tally"
+          ]
         },
         {
           "word": "rift",
@@ -2379,8 +2146,7 @@ export const courseData76_100 = [
           "collocations": [
             "important rift",
             "rift system"
-          ],
-          "wordFamily": "Biến thể của rift"
+          ]
         },
         {
           "word": "concession",
@@ -2392,8 +2158,7 @@ export const courseData76_100 = [
           "collocations": [
             "important concession",
             "concession system"
-          ],
-          "wordFamily": "Biến thể của concession"
+          ]
         },
         {
           "word": "unanimous",
@@ -2405,8 +2170,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly unanimous",
             "extremely unanimous"
-          ],
-          "wordFamily": "Biến thể của unanimous"
+          ]
         },
         {
           "word": "compromise",
@@ -2418,8 +2182,7 @@ export const courseData76_100 = [
           "collocations": [
             "important compromise",
             "compromise system"
-          ],
-          "wordFamily": "Biến thể của compromise"
+          ]
         },
         {
           "word": "dissent",
@@ -2431,8 +2194,7 @@ export const courseData76_100 = [
           "collocations": [
             "important dissent",
             "dissent system"
-          ],
-          "wordFamily": "Biến thể của dissent"
+          ]
         },
         {
           "word": "friction",
@@ -2444,8 +2206,7 @@ export const courseData76_100 = [
           "collocations": [
             "important friction",
             "friction system"
-          ],
-          "wordFamily": "Biến thể của friction"
+          ]
         },
         {
           "word": "concur",
@@ -2457,8 +2218,7 @@ export const courseData76_100 = [
           "collocations": [
             "concur effectively",
             "must concur"
-          ],
-          "wordFamily": "Biến thể của concur"
+          ]
         }
       ],
       "practicalUsage": [
@@ -2563,15 +2323,6 @@ export const courseData76_100 = [
             ],
             "hint": "sự rạn nứt (mối quan hệ)",
             "explanation": "Từ cần điền là \"rift\", mang nghĩa là \"sự rạn nứt (mối quan hệ)\"."
-          },
-          {
-            "id": "ex_81_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "concession"
-            ],
-            "hint": "sự nhượng bộ",
-            "explanation": "Từ cần điền là \"concession\", mang nghĩa là \"sự nhượng bộ\"."
           },
           {
             "id": "ex_81_1_3",
@@ -2692,12 +2443,6 @@ export const courseData76_100 = [
         "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
         "questions": [
           {
-            "id": "ex_81_4_0",
-            "original": "I really like concessions.",
-            "correct": "Both sides had to make some major concessions to reach a deal.",
-            "explanation": "Từ viết đúng chính xác phải là \"concession\"."
-          },
-          {
             "id": "ex_81_4_1",
             "original": "The jury reached a unanimou verdict of guilty.",
             "correct": "The jury reached a unanimous verdict of guilty.",
@@ -2817,8 +2562,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "Her story doesn't tally with what the other witnesses said.",
-        "trans": "[Tạm dịch] Câu ví dụ cho tally"
+        "text": "Her story doesn't tally with what the other witnesses said."
       }
     ]
   },
@@ -2838,8 +2582,7 @@ export const courseData76_100 = [
           "collocations": [
             "infer effectively",
             "must infer"
-          ],
-          "wordFamily": "Biến thể của infer"
+          ]
         },
         {
           "word": "distort",
@@ -2851,8 +2594,7 @@ export const courseData76_100 = [
           "collocations": [
             "distort effectively",
             "must distort"
-          ],
-          "wordFamily": "Biến thể của distort"
+          ]
         },
         {
           "word": "append",
@@ -2864,8 +2606,7 @@ export const courseData76_100 = [
           "collocations": [
             "append effectively",
             "must append"
-          ],
-          "wordFamily": "Biến thể của append"
+          ]
         },
         {
           "word": "derive",
@@ -2877,8 +2618,7 @@ export const courseData76_100 = [
           "collocations": [
             "derive effectively",
             "must derive"
-          ],
-          "wordFamily": "Biến thể của derive"
+          ]
         },
         {
           "word": "corroborate",
@@ -2890,8 +2630,7 @@ export const courseData76_100 = [
           "collocations": [
             "corroborate effectively",
             "must corroborate"
-          ],
-          "wordFamily": "Biến thể của corroborate"
+          ]
         },
         {
           "word": "refute",
@@ -2903,8 +2642,7 @@ export const courseData76_100 = [
           "collocations": [
             "refute effectively",
             "must refute"
-          ],
-          "wordFamily": "Biến thể của refute"
+          ]
         },
         {
           "word": "deduce",
@@ -2916,8 +2654,7 @@ export const courseData76_100 = [
           "collocations": [
             "deduce effectively",
             "must deduce"
-          ],
-          "wordFamily": "Biến thể của deduce"
+          ]
         },
         {
           "word": "compile",
@@ -2929,8 +2666,7 @@ export const courseData76_100 = [
           "collocations": [
             "compile effectively",
             "must compile"
-          ],
-          "wordFamily": "Biến thể của compile"
+          ]
         }
       ],
       "practicalUsage": [
@@ -3028,15 +2764,6 @@ export const courseData76_100 = [
             "explanation": "Từ cần điền là \"infer\", mang nghĩa là \"suy luận, suy ra\"."
           },
           {
-            "id": "ex_82_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "distort"
-            ],
-            "hint": "bóp méo, xuyên tạc",
-            "explanation": "Từ cần điền là \"distort\", mang nghĩa là \"bóp méo, xuyên tạc\"."
-          },
-          {
             "id": "ex_82_1_2",
             "text": "Please [blank] a list of references at the end of the essay.",
             "answers": [
@@ -3044,15 +2771,6 @@ export const courseData76_100 = [
             ],
             "hint": "đính kèm, thêm vào phần cuối",
             "explanation": "Từ cần điền là \"append\", mang nghĩa là \"đính kèm, thêm vào phần cuối\"."
-          },
-          {
-            "id": "ex_82_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "derive"
-            ],
-            "hint": "bắt nguồn từ, rút ra từ",
-            "explanation": "Từ cần điền là \"derive\", mang nghĩa là \"bắt nguồn từ, rút ra từ\"."
           }
         ]
       },
@@ -3168,55 +2886,6 @@ export const courseData76_100 = [
             "original": "Please appends a list of references at the end of the essay.",
             "correct": "Please append a list of references at the end of the essay.",
             "explanation": "Từ viết đúng chính xác phải là \"append\"."
-          },
-          {
-            "id": "ex_82_4_1",
-            "original": "I really like derives.",
-            "correct": "Many English words are derived from Latin.",
-            "explanation": "Từ viết đúng chính xác phải là \"derive\"."
-          }
-        ]
-      },
-      {
-        "exNum": "82.5",
-        "type": "fill_in_blanks",
-        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
-        "questions": [
-          {
-            "id": "ex_82_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "corroborate"
-            ],
-            "hint": "làm chứng, chứng thực (bằng chứng)",
-            "explanation": "Từ cần điền là \"corroborate\"."
-          },
-          {
-            "id": "ex_82_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "refute"
-            ],
-            "hint": "bác bỏ, chứng minh là sai",
-            "explanation": "Từ cần điền là \"refute\"."
-          },
-          {
-            "id": "ex_82_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "deduce"
-            ],
-            "hint": "suy diễn (dựa trên logic)",
-            "explanation": "Từ cần điền là \"deduce\"."
-          },
-          {
-            "id": "ex_82_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "compile"
-            ],
-            "hint": "biên soạn, tập hợp",
-            "explanation": "Từ cần điền là \"compile\"."
           }
         ]
       }
@@ -3289,8 +2958,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "We can infer from the data that the economy is improving.",
-        "trans": "[Tạm dịch] Câu ví dụ cho infer"
+        "text": "We can infer from the data that the economy is improving."
       }
     ]
   },
@@ -3310,8 +2978,7 @@ export const courseData76_100 = [
           "collocations": [
             "reiterate effectively",
             "must reiterate"
-          ],
-          "wordFamily": "Biến thể của reiterate"
+          ]
         },
         {
           "word": "epitomise",
@@ -3323,8 +2990,7 @@ export const courseData76_100 = [
           "collocations": [
             "epitomise effectively",
             "must epitomise"
-          ],
-          "wordFamily": "Biến thể của epitomise"
+          ]
         },
         {
           "word": "allude to",
@@ -3333,8 +2999,7 @@ export const courseData76_100 = [
           "vi": "ám chỉ, nói bóng gió tới",
           "example": "The poem briefly alludes to the Greek myth of Icarus.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của allude to"
+          "collocations": []
         },
         {
           "word": "assert",
@@ -3346,8 +3011,7 @@ export const courseData76_100 = [
           "collocations": [
             "assert effectively",
             "must assert"
-          ],
-          "wordFamily": "Biến thể của assert"
+          ]
         },
         {
           "word": "substantiate",
@@ -3359,8 +3023,7 @@ export const courseData76_100 = [
           "collocations": [
             "substantiate effectively",
             "must substantiate"
-          ],
-          "wordFamily": "Biến thể của substantiate"
+          ]
         },
         {
           "word": "elucidate",
@@ -3372,8 +3035,7 @@ export const courseData76_100 = [
           "collocations": [
             "elucidate effectively",
             "must elucidate"
-          ],
-          "wordFamily": "Biến thể của elucidate"
+          ]
         },
         {
           "word": "imply",
@@ -3385,8 +3047,7 @@ export const courseData76_100 = [
           "collocations": [
             "imply effectively",
             "must imply"
-          ],
-          "wordFamily": "Biến thể của imply"
+          ]
         },
         {
           "word": "exemplify",
@@ -3398,8 +3059,7 @@ export const courseData76_100 = [
           "collocations": [
             "exemplify effectively",
             "must exemplify"
-          ],
-          "wordFamily": "Biến thể của exemplify"
+          ]
         }
       ],
       "practicalUsage": [
@@ -3495,33 +3155,6 @@ export const courseData76_100 = [
             ],
             "hint": "nhắc lại, lặp lại (để nhấn mạnh)",
             "explanation": "Từ cần điền là \"reiterate\", mang nghĩa là \"nhắc lại, lặp lại (để nhấn mạnh)\"."
-          },
-          {
-            "id": "ex_83_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "epitomise"
-            ],
-            "hint": "là hình ảnh/ví dụ tiêu biểu của",
-            "explanation": "Từ cần điền là \"epitomise\", mang nghĩa là \"là hình ảnh/ví dụ tiêu biểu của\"."
-          },
-          {
-            "id": "ex_83_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "allude to"
-            ],
-            "hint": "ám chỉ, nói bóng gió tới",
-            "explanation": "Từ cần điền là \"allude to\", mang nghĩa là \"ám chỉ, nói bóng gió tới\"."
-          },
-          {
-            "id": "ex_83_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "assert"
-            ],
-            "hint": "khẳng định mạnh mẽ",
-            "explanation": "Từ cần điền là \"assert\", mang nghĩa là \"khẳng định mạnh mẽ\"."
           }
         ]
       },
@@ -3628,25 +3261,6 @@ export const courseData76_100 = [
         ]
       },
       {
-        "exNum": "83.4",
-        "type": "error_correction",
-        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
-        "questions": [
-          {
-            "id": "ex_83_4_0",
-            "original": "I really like alludes to.",
-            "correct": "The poem briefly alludes to the Greek myth of Icarus.",
-            "explanation": "Từ viết đúng chính xác phải là \"allude to\"."
-          },
-          {
-            "id": "ex_83_4_1",
-            "original": "I really like asserts.",
-            "correct": "He confidently asserted his innocence in court.",
-            "explanation": "Từ viết đúng chính xác phải là \"assert\"."
-          }
-        ]
-      },
-      {
         "exNum": "83.5",
         "type": "fill_in_blanks",
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
@@ -3668,24 +3282,6 @@ export const courseData76_100 = [
             ],
             "hint": "làm sáng tỏ, giải thích rõ",
             "explanation": "Từ cần điền là \"elucidate\"."
-          },
-          {
-            "id": "ex_83_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "imply"
-            ],
-            "hint": "ngụ ý (không nói thẳng)",
-            "explanation": "Từ cần điền là \"imply\"."
-          },
-          {
-            "id": "ex_83_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "exemplify"
-            ],
-            "hint": "minh họa bằng ví dụ cụ thể",
-            "explanation": "Từ cần điền là \"exemplify\"."
           }
         ]
       }
@@ -3758,8 +3354,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "Let me reiterate that this rule applies to everyone.",
-        "trans": "[Tạm dịch] Câu ví dụ cho reiterate"
+        "text": "Let me reiterate that this rule applies to everyone."
       }
     ]
   },
@@ -3779,8 +3374,7 @@ export const courseData76_100 = [
           "collocations": [
             "doodle effectively",
             "must doodle"
-          ],
-          "wordFamily": "Biến thể của doodle"
+          ]
         },
         {
           "word": "block capitals",
@@ -3789,8 +3383,7 @@ export const courseData76_100 = [
           "vi": "CHỮ IN HOA (không viết liền)",
           "example": "Please fill out the application form in block capitals.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của block capitals"
+          "collocations": []
         },
         {
           "word": "bullet point",
@@ -3799,8 +3392,7 @@ export const courseData76_100 = [
           "vi": "dấu chấm đầu dòng",
           "example": "Summarize your main arguments using clear bullet points.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của bullet point"
+          "collocations": []
         },
         {
           "word": "illegible",
@@ -3812,8 +3404,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly illegible",
             "extremely illegible"
-          ],
-          "wordFamily": "Biến thể của illegible"
+          ]
         },
         {
           "word": "concise",
@@ -3825,8 +3416,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly concise",
             "extremely concise"
-          ],
-          "wordFamily": "Biến thể của concise"
+          ]
         },
         {
           "word": "verbose",
@@ -3838,8 +3428,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly verbose",
             "extremely verbose"
-          ],
-          "wordFamily": "Biến thể của verbose"
+          ]
         },
         {
           "word": "draft",
@@ -3851,8 +3440,7 @@ export const courseData76_100 = [
           "collocations": [
             "important draft",
             "draft system"
-          ],
-          "wordFamily": "Biến thể của draft"
+          ]
         },
         {
           "word": "indent",
@@ -3864,8 +3452,7 @@ export const courseData76_100 = [
           "collocations": [
             "indent effectively",
             "must indent"
-          ],
-          "wordFamily": "Biến thể của indent"
+          ]
         }
       ],
       "practicalUsage": [
@@ -3954,15 +3541,6 @@ export const courseData76_100 = [
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
           {
-            "id": "ex_84_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "doodle"
-            ],
-            "hint": "vẽ nguệch ngoạc (khi đang rảnh/suy nghĩ)",
-            "explanation": "Từ cần điền là \"doodle\", mang nghĩa là \"vẽ nguệch ngoạc (khi đang rảnh/suy nghĩ)\"."
-          },
-          {
             "id": "ex_84_1_1",
             "text": "Please fill out the application form in [blank].",
             "answers": [
@@ -3970,15 +3548,6 @@ export const courseData76_100 = [
             ],
             "hint": "CHỮ IN HOA (không viết liền)",
             "explanation": "Từ cần điền là \"block capitals\", mang nghĩa là \"CHỮ IN HOA (không viết liền)\"."
-          },
-          {
-            "id": "ex_84_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "bullet point"
-            ],
-            "hint": "dấu chấm đầu dòng",
-            "explanation": "Từ cần điền là \"bullet point\", mang nghĩa là \"dấu chấm đầu dòng\"."
           },
           {
             "id": "ex_84_1_3",
@@ -4099,12 +3668,6 @@ export const courseData76_100 = [
         "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
         "questions": [
           {
-            "id": "ex_84_4_0",
-            "original": "I really like bullets point.",
-            "correct": "Summarize your main arguments using clear bullet points.",
-            "explanation": "Từ viết đúng chính xác phải là \"bullet point\"."
-          },
-          {
             "id": "ex_84_4_1",
             "original": "The doctor's handwriting is completely illegibles.",
             "correct": "The doctor's handwriting is completely illegible.",
@@ -4224,8 +3787,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "He absentmindedly doodled in the margins of his notebook.",
-        "trans": "[Tạm dịch] Câu ví dụ cho doodle"
+        "text": "He absentmindedly doodled in the margins of his notebook."
       }
     ]
   },
@@ -4245,8 +3807,7 @@ export const courseData76_100 = [
           "collocations": [
             "important thingummy",
             "thingummy system"
-          ],
-          "wordFamily": "Biến thể của thingummy"
+          ]
         },
         {
           "word": "umpteen",
@@ -4255,8 +3816,7 @@ export const courseData76_100 = [
           "vi": "vô số, rất nhiều lần (văn nói)",
           "example": "I've told you umpteen times to clean your room!",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của umpteen"
+          "collocations": []
         },
         {
           "word": "a touch of",
@@ -4265,8 +3825,7 @@ export const courseData76_100 = [
           "vi": "một chút, hơi hơi (ốm nhẹ)",
           "example": "I think I have a touch of the flu.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của a touch of"
+          "collocations": []
         },
         {
           "word": "whatsit",
@@ -4278,8 +3837,7 @@ export const courseData76_100 = [
           "collocations": [
             "important whatsit",
             "whatsit system"
-          ],
-          "wordFamily": "Biến thể của whatsit"
+          ]
         },
         {
           "word": "loads of",
@@ -4288,8 +3846,7 @@ export const courseData76_100 = [
           "vi": "rất nhiều (văn nói)",
           "example": "Don't worry, we have loads of time before the train leaves.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của loads of"
+          "collocations": []
         },
         {
           "word": "sort of",
@@ -4298,8 +3855,7 @@ export const courseData76_100 = [
           "vi": "đại loại thế, kiểu như",
           "example": "It's sort of a blue-green color.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của sort of"
+          "collocations": []
         },
         {
           "word": "ish",
@@ -4308,8 +3864,7 @@ export const courseData76_100 = [
           "vi": "tầm khoảng (giờ, tuổi, màu)",
           "example": "Let's meet at seven-ish.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của ish"
+          "collocations": []
         },
         {
           "word": "give or take",
@@ -4318,8 +3873,7 @@ export const courseData76_100 = [
           "vi": "khoảng chừng, xê xích chút xíu",
           "example": "It will cost $100, give or take a few dollars.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của give or take"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -4678,8 +4232,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "Pass me the... thingummy, you know, the tool for opening bottles.",
-        "trans": "[Tạm dịch] Câu ví dụ cho thingummy"
+        "text": "Pass me the... thingummy, you know, the tool for opening bottles."
       }
     ]
   },
@@ -4699,8 +4252,7 @@ export const courseData76_100 = [
           "collocations": [
             "shriek effectively",
             "must shriek"
-          ],
-          "wordFamily": "Biến thể của shriek"
+          ]
         },
         {
           "word": "lisp",
@@ -4712,8 +4264,7 @@ export const courseData76_100 = [
           "collocations": [
             "important lisp",
             "lisp system"
-          ],
-          "wordFamily": "Biến thể của lisp"
+          ]
         },
         {
           "word": "slur",
@@ -4725,8 +4276,7 @@ export const courseData76_100 = [
           "collocations": [
             "slur effectively",
             "must slur"
-          ],
-          "wordFamily": "Biến thể của slur"
+          ]
         },
         {
           "word": "mumble",
@@ -4738,8 +4288,7 @@ export const courseData76_100 = [
           "collocations": [
             "mumble effectively",
             "must mumble"
-          ],
-          "wordFamily": "Biến thể của mumble"
+          ]
         },
         {
           "word": "stutter",
@@ -4751,8 +4300,7 @@ export const courseData76_100 = [
           "collocations": [
             "stutter effectively",
             "must stutter"
-          ],
-          "wordFamily": "Biến thể của stutter"
+          ]
         },
         {
           "word": "whisper",
@@ -4764,8 +4312,7 @@ export const courseData76_100 = [
           "collocations": [
             "whisper effectively",
             "must whisper"
-          ],
-          "wordFamily": "Biến thể của whisper"
+          ]
         },
         {
           "word": "bellow",
@@ -4777,8 +4324,7 @@ export const courseData76_100 = [
           "collocations": [
             "bellow effectively",
             "must bellow"
-          ],
-          "wordFamily": "Biến thể của bellow"
+          ]
         },
         {
           "word": "mutter",
@@ -4790,8 +4336,7 @@ export const courseData76_100 = [
           "collocations": [
             "mutter effectively",
             "must mutter"
-          ],
-          "wordFamily": "Biến thể của mutter"
+          ]
         }
       ],
       "practicalUsage": [
@@ -4880,15 +4425,6 @@ export const courseData76_100 = [
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
           {
-            "id": "ex_86_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "shriek"
-            ],
-            "hint": "hét thất thanh, the thé",
-            "explanation": "Từ cần điền là \"shriek\", mang nghĩa là \"hét thất thanh, the thé\"."
-          },
-          {
             "id": "ex_86_1_1",
             "text": "The cute little boy speaks with a slight [blank].",
             "answers": [
@@ -4905,15 +4441,6 @@ export const courseData76_100 = [
             ],
             "hint": "nói nhịu, nói lè nhè (do say/mệt)",
             "explanation": "Từ cần điền là \"slur\", mang nghĩa là \"nói nhịu, nói lè nhè (do say/mệt)\"."
-          },
-          {
-            "id": "ex_86_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "mumble"
-            ],
-            "hint": "nói lầm bầm (trong miệng)",
-            "explanation": "Từ cần điền là \"mumble\", mang nghĩa là \"nói lầm bầm (trong miệng)\"."
           }
         ]
       },
@@ -5029,12 +4556,6 @@ export const courseData76_100 = [
             "original": "He was drunk and started to loudly slurs his words.",
             "correct": "He was drunk and started to loudly slur his words.",
             "explanation": "Từ viết đúng chính xác phải là \"slur\"."
-          },
-          {
-            "id": "ex_86_4_1",
-            "original": "I really like mumbles.",
-            "correct": "Stop mumbling and speak clearly!",
-            "explanation": "Từ viết đúng chính xác phải là \"mumble\"."
           }
         ]
       },
@@ -5060,24 +4581,6 @@ export const courseData76_100 = [
             ],
             "hint": "nói thì thầm",
             "explanation": "Từ cần điền là \"whisper\"."
-          },
-          {
-            "id": "ex_86_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "bellow"
-            ],
-            "hint": "rống lên, gầm lên (vì giận/để gọi ai)",
-            "explanation": "Từ cần điền là \"bellow\"."
-          },
-          {
-            "id": "ex_86_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "mutter"
-            ],
-            "hint": "càu nhàu (âm lượng nhỏ)",
-            "explanation": "Từ cần điền là \"mutter\"."
           }
         ]
       }
@@ -5150,8 +4653,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "The little girls shrieked with laughter.",
-        "trans": "[Tạm dịch] Câu ví dụ cho shriek"
+        "text": "The little girls shrieked with laughter."
       }
     ]
   },
@@ -5171,8 +4673,7 @@ export const courseData76_100 = [
           "collocations": [
             "important smattering",
             "smattering system"
-          ],
-          "wordFamily": "Biến thể của smattering"
+          ]
         },
         {
           "word": "more or less",
@@ -5181,8 +4682,7 @@ export const courseData76_100 = [
           "vi": "tương đối, gần như là",
           "example": "The project is more or less finished.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của more or less"
+          "collocations": []
         },
         {
           "word": "or whatever",
@@ -5191,8 +4691,7 @@ export const courseData76_100 = [
           "vi": "hay cái gì đó đại loại thế",
           "example": "You can bring wine, beer, or whatever you like.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của or whatever"
+          "collocations": []
         },
         {
           "word": "bits and pieces",
@@ -5201,8 +4700,7 @@ export const courseData76_100 = [
           "vi": "vài thứ lặt vặt",
           "example": "I just need to buy a few bits and pieces at the supermarket.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của bits and pieces"
+          "collocations": []
         },
         {
           "word": "somewhere in the region of",
@@ -5211,8 +4709,7 @@ export const courseData76_100 = [
           "vi": "vào khoảng (giá tiền, số lượng)",
           "example": "The house will cost somewhere in the region of $500,000.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của somewhere in the region of"
+          "collocations": []
         },
         {
           "word": "odds and ends",
@@ -5221,8 +4718,7 @@ export const courseData76_100 = [
           "vi": "đồ lặt vặt rải rác",
           "example": "I've packed most things, just got a few odds and ends left.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của odds and ends"
+          "collocations": []
         },
         {
           "word": "stuff",
@@ -5234,8 +4730,7 @@ export const courseData76_100 = [
           "collocations": [
             "important stuff",
             "stuff system"
-          ],
-          "wordFamily": "Biến thể của stuff"
+          ]
         },
         {
           "word": "along those lines",
@@ -5244,8 +4739,7 @@ export const courseData76_100 = [
           "vi": "cái gì đó tương tự như thế",
           "example": "I want a car, a Honda Civic or something along those lines.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của along those lines"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -5604,8 +5098,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "I only know a small smattering of French.",
-        "trans": "[Tạm dịch] Câu ví dụ cho smattering"
+        "text": "I only know a small smattering of French."
       }
     ]
   },
@@ -5622,8 +5115,7 @@ export const courseData76_100 = [
           "vi": "đắn đo, suy nghĩ lại (thay đổi quyết định)",
           "example": "I agreed to go, but now I'm having second thoughts.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của have second thoughts"
+          "collocations": []
         },
         {
           "word": "in the dark",
@@ -5632,8 +5124,7 @@ export const courseData76_100 = [
           "vi": "mù tịt, không được biết thông tin",
           "example": "They kept me completely in the dark about their plans.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của in the dark"
+          "collocations": []
         },
         {
           "word": "stumbling block",
@@ -5642,8 +5133,7 @@ export const courseData76_100 = [
           "vi": "vật cản, trở ngại lớn",
           "example": "Money has always been the main stumbling block to this project.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của stumbling block"
+          "collocations": []
         },
         {
           "word": "out of the blue",
@@ -5652,8 +5142,7 @@ export const courseData76_100 = [
           "vi": "bất thình lình, không báo trước",
           "example": "One day, he just called me completely out of the blue.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của out of the blue"
+          "collocations": []
         },
         {
           "word": "turn a blind eye",
@@ -5662,8 +5151,7 @@ export const courseData76_100 = [
           "vi": "nhắm mắt làm ngơ",
           "example": "The manager turned a blind eye to the employees coming in late.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của turn a blind eye"
+          "collocations": []
         },
         {
           "word": "a piece of cake",
@@ -5672,8 +5160,7 @@ export const courseData76_100 = [
           "vi": "dễ ợt",
           "example": "That math exam was an absolute piece of cake.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của a piece of cake"
+          "collocations": []
         },
         {
           "word": "ring a bell",
@@ -5682,8 +5169,7 @@ export const courseData76_100 = [
           "vi": "nghe quen quen",
           "example": "That name definitely rings a bell, but I can't remember his face.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của ring a bell"
+          "collocations": []
         },
         {
           "word": "under the weather",
@@ -5692,8 +5178,7 @@ export const courseData76_100 = [
           "vi": "cảm thấy hơi ốm",
           "example": "I'm feeling a bit under the weather today.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của under the weather"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -5781,15 +5266,6 @@ export const courseData76_100 = [
         "type": "fill_in_blanks",
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
-          {
-            "id": "ex_88_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "have second thoughts"
-            ],
-            "hint": "đắn đo, suy nghĩ lại (thay đổi quyết định)",
-            "explanation": "Từ cần điền là \"have second thoughts\", mang nghĩa là \"đắn đo, suy nghĩ lại (thay đổi quyết định)\"."
-          },
           {
             "id": "ex_88_1_1",
             "text": "They kept me completely [blank] about their plans.",
@@ -5946,33 +5422,6 @@ export const courseData76_100 = [
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
           {
-            "id": "ex_88_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "turn a blind eye"
-            ],
-            "hint": "nhắm mắt làm ngơ",
-            "explanation": "Từ cần điền là \"turn a blind eye\"."
-          },
-          {
-            "id": "ex_88_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "a piece of cake"
-            ],
-            "hint": "dễ ợt",
-            "explanation": "Từ cần điền là \"a piece of cake\"."
-          },
-          {
-            "id": "ex_88_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "ring a bell"
-            ],
-            "hint": "nghe quen quen",
-            "explanation": "Từ cần điền là \"ring a bell\"."
-          },
-          {
             "id": "ex_88_5_3",
             "text": "I'm feeling a bit [blank] today.",
             "answers": [
@@ -6052,8 +5501,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "I agreed to go, but now I'm having second thoughts.",
-        "trans": "[Tạm dịch] Câu ví dụ cho have second thoughts"
+        "text": "I agreed to go, but now I'm having second thoughts."
       }
     ]
   },
@@ -6070,8 +5518,7 @@ export const courseData76_100 = [
           "vi": "hoạt động trơn tru (máy móc, dự án)",
           "example": "We finally got the new computer system up and running.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của up and running"
+          "collocations": []
         },
         {
           "word": "a complete shambles",
@@ -6080,8 +5527,7 @@ export const courseData76_100 = [
           "vi": "tình trạng hỗn loạn, lộn xộn",
           "example": "The organization of the festival was a complete shambles.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của a complete shambles"
+          "collocations": []
         },
         {
           "word": "as clear as mud",
@@ -6090,8 +5536,7 @@ export const courseData76_100 = [
           "vi": "rất khó hiểu (như bùn)",
           "example": "His explanation of the grammar rules was as clear as mud.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của as clear as mud"
+          "collocations": []
         },
         {
           "word": "smooth sailing",
@@ -6100,8 +5545,7 @@ export const courseData76_100 = [
           "vi": "thuận buồm xuôi gió",
           "example": "Once we got the visa, the rest of the trip was smooth sailing.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của smooth sailing"
+          "collocations": []
         },
         {
           "word": "a vicious circle",
@@ -6110,8 +5554,7 @@ export const courseData76_100 = [
           "vi": "vòng luẩn quẩn",
           "example": "Poverty and lack of education create a terrible vicious circle.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của a vicious circle"
+          "collocations": []
         },
         {
           "word": "in a nutshell",
@@ -6120,8 +5563,7 @@ export const courseData76_100 = [
           "vi": "tóm lại là",
           "example": "Well, to put it in a nutshell, we are bankrupt.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của in a nutshell"
+          "collocations": []
         },
         {
           "word": "out of hand",
@@ -6130,8 +5572,7 @@ export const courseData76_100 = [
           "vi": "vượt tầm kiểm soát",
           "example": "The protest quickly got violently out of hand.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của out of hand"
+          "collocations": []
         },
         {
           "word": "nip and tuck",
@@ -6140,8 +5581,7 @@ export const courseData76_100 = [
           "vi": "bất phân thắng bại, rượt đuổi sát sao",
           "example": "The race was strictly nip and tuck until the final lap.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của nip and tuck"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -6394,15 +5834,6 @@ export const courseData76_100 = [
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
           {
-            "id": "ex_89_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "a vicious circle"
-            ],
-            "hint": "vòng luẩn quẩn",
-            "explanation": "Từ cần điền là \"a vicious circle\"."
-          },
-          {
             "id": "ex_89_5_1",
             "text": "Well, to put it [blank], we are bankrupt.",
             "answers": [
@@ -6500,8 +5931,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "We finally got the new computer system up and running.",
-        "trans": "[Tạm dịch] Câu ví dụ cho up and running"
+        "text": "We finally got the new computer system up and running."
       }
     ]
   },
@@ -6518,8 +5948,7 @@ export const courseData76_100 = [
           "vi": "sự yêu mến, yếu lòng (trước ai đó)",
           "example": "I will always have a soft spot for my old dog.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của soft spot"
+          "collocations": []
         },
         {
           "word": "the brains behind",
@@ -6528,8 +5957,7 @@ export const courseData76_100 = [
           "vi": "kẻ đứng sau giật dây / bộ não chủ mưu",
           "example": "She is definitely the brains behind this whole operation.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của the brains behind"
+          "collocations": []
         },
         {
           "word": "on cloud nine",
@@ -6538,8 +5966,7 @@ export const courseData76_100 = [
           "vi": "hạnh phúc tột đỉnh (lên chín tầng mây)",
           "example": "When he asked her to marry him, she was on cloud nine.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của on cloud nine"
+          "collocations": []
         },
         {
           "word": "a pain in the neck",
@@ -6548,8 +5975,7 @@ export const courseData76_100 = [
           "vi": "kẻ phiền toái, nhức nhối",
           "example": "My little brother can be a real pain in the neck.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của a pain in the neck"
+          "collocations": []
         },
         {
           "word": "know-it-all",
@@ -6561,8 +5987,7 @@ export const courseData76_100 = [
           "collocations": [
             "important know-it-all",
             "know-it-all system"
-          ],
-          "wordFamily": "Biến thể của know-it-all"
+          ]
         },
         {
           "word": "life and soul of the party",
@@ -6571,8 +5996,7 @@ export const courseData76_100 = [
           "vi": "người năng nổ, trung tâm của bữa tiệc",
           "example": "He's very funny and always the life and soul of the party.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của life and soul of the party"
+          "collocations": []
         },
         {
           "word": "down to earth",
@@ -6584,8 +6008,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly down to earth",
             "extremely down to earth"
-          ],
-          "wordFamily": "Biến thể của down to earth"
+          ]
         },
         {
           "word": "a big head",
@@ -6594,8 +6017,7 @@ export const courseData76_100 = [
           "vi": "kẻ tự phụ, kiêu ngạo",
           "example": "Winning the award gave him a massively big head.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của a big head"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -6709,15 +6131,6 @@ export const courseData76_100 = [
             ],
             "hint": "hạnh phúc tột đỉnh (lên chín tầng mây)",
             "explanation": "Từ cần điền là \"on cloud nine\", mang nghĩa là \"hạnh phúc tột đỉnh (lên chín tầng mây)\"."
-          },
-          {
-            "id": "ex_90_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "a pain in the neck"
-            ],
-            "hint": "kẻ phiền toái, nhức nhối",
-            "explanation": "Từ cần điền là \"a pain in the neck\", mang nghĩa là \"kẻ phiền toái, nhức nhối\"."
           }
         ]
       },
@@ -6833,12 +6246,6 @@ export const courseData76_100 = [
             "original": "When he asked her to marry him, she was ons cloud nine.",
             "correct": "When he asked her to marry him, she was on cloud nine.",
             "explanation": "Từ viết đúng chính xác phải là \"on cloud nine\"."
-          },
-          {
-            "id": "ex_90_4_1",
-            "original": "I really like as pain in the neck.",
-            "correct": "My little brother can be a real pain in the neck.",
-            "explanation": "Từ viết đúng chính xác phải là \"a pain in the neck\"."
           }
         ]
       },
@@ -6873,15 +6280,6 @@ export const courseData76_100 = [
             ],
             "hint": "thực tế, không viển vông",
             "explanation": "Từ cần điền là \"down to earth\"."
-          },
-          {
-            "id": "ex_90_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "a big head"
-            ],
-            "hint": "kẻ tự phụ, kiêu ngạo",
-            "explanation": "Từ cần điền là \"a big head\"."
           }
         ]
       }
@@ -6954,8 +6352,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "I will always have a soft spot for my old dog.",
-        "trans": "[Tạm dịch] Câu ví dụ cho soft spot"
+        "text": "I will always have a soft spot for my old dog."
       }
     ]
   },
@@ -6972,8 +6369,7 @@ export const courseData76_100 = [
           "vi": "viên kim cương thô (người thô lỗ nhưng tốt bụng/tài năng)",
           "example": "He's a bit of a rough diamond, but he has a heart of gold.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của a rough diamond"
+          "collocations": []
         },
         {
           "word": "a dark horse",
@@ -6982,8 +6378,7 @@ export const courseData76_100 = [
           "vi": "nhân tố bí ẩn, người có tài năng che giấu",
           "example": "Anna is a dark horse; I didn't know she could sing so well.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của a dark horse"
+          "collocations": []
         },
         {
           "word": "at loggerheads",
@@ -6992,8 +6387,7 @@ export const courseData76_100 = [
           "vi": "cãi vã, bất đồng gay gắt",
           "example": "The two managers are constantly at loggerheads over the budget.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của at loggerheads"
+          "collocations": []
         },
         {
           "word": "a lone wolf",
@@ -7002,8 +6396,7 @@ export const courseData76_100 = [
           "vi": "người thích đơn độc (sói đơn độc)",
           "example": "He's a lone wolf who prefers working by himself.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của a lone wolf"
+          "collocations": []
         },
         {
           "word": "a cold fish",
@@ -7012,8 +6405,7 @@ export const courseData76_100 = [
           "vi": "người lạnh lùng, vô cảm",
           "example": "My boss is a bit of a cold fish; he never smiles.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của a cold fish"
+          "collocations": []
         },
         {
           "word": "a guinea pig",
@@ -7025,8 +6417,7 @@ export const courseData76_100 = [
           "collocations": [
             "important a guinea pig",
             "a guinea pig system"
-          ],
-          "wordFamily": "Biến thể của a guinea pig"
+          ]
         },
         {
           "word": "a busybody",
@@ -7038,8 +6429,7 @@ export const courseData76_100 = [
           "collocations": [
             "important a busybody",
             "a busybody system"
-          ],
-          "wordFamily": "Biến thể của a busybody"
+          ]
         },
         {
           "word": "at cross purposes",
@@ -7048,8 +6438,7 @@ export const courseData76_100 = [
           "vi": "hiểu lầm ý nhau, trống đánh xuôi kèn thổi ngược",
           "example": "I think we've been talking at completely cross purposes.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của at cross purposes"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -7309,33 +6698,6 @@ export const courseData76_100 = [
             ],
             "hint": "người lạnh lùng, vô cảm",
             "explanation": "Từ cần điền là \"a cold fish\"."
-          },
-          {
-            "id": "ex_91_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "a guinea pig"
-            ],
-            "hint": "chuột bạch (người bị đem ra thử nghiệm)",
-            "explanation": "Từ cần điền là \"a guinea pig\"."
-          },
-          {
-            "id": "ex_91_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "a busybody"
-            ],
-            "hint": "người hay tọc mạch chuyện người khác",
-            "explanation": "Từ cần điền là \"a busybody\"."
-          },
-          {
-            "id": "ex_91_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "at cross purposes"
-            ],
-            "hint": "hiểu lầm ý nhau, trống đánh xuôi kèn thổi ngược",
-            "explanation": "Từ cần điền là \"at cross purposes\"."
           }
         ]
       }
@@ -7408,8 +6770,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "He's a bit of a rough diamond, but he has a heart of gold.",
-        "trans": "[Tạm dịch] Câu ví dụ cho a rough diamond"
+        "text": "He's a bit of a rough diamond, but he has a heart of gold."
       }
     ]
   },
@@ -7426,8 +6787,7 @@ export const courseData76_100 = [
           "vi": "bất thình lình, hoàn toàn bất ngờ",
           "example": "The job offer came completely out of the blue.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của out of the blue"
+          "collocations": []
         },
         {
           "word": "famous last words",
@@ -7436,8 +6796,7 @@ export const courseData76_100 = [
           "vi": "nói trước bước không qua (châm biếm)",
           "example": "He said it wouldn't rain. Famous last words!",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của famous last words"
+          "collocations": []
         },
         {
           "word": "small world",
@@ -7446,8 +6805,7 @@ export const courseData76_100 = [
           "vi": "thế giới quả là nhỏ bé (khi gặp người quen ở nơi xa lạ)",
           "example": "I met my old teacher in Tokyo! It's a small world.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của small world"
+          "collocations": []
         },
         {
           "word": "a likely story",
@@ -7456,8 +6814,7 @@ export const courseData76_100 = [
           "vi": "chuyện khó tin (mỉa mai ai đó đang nói dối)",
           "example": "The dog ate your homework? That's a likely story!",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của a likely story"
+          "collocations": []
         },
         {
           "word": "a tall order",
@@ -7466,8 +6823,7 @@ export const courseData76_100 = [
           "vi": "một nhiệm vụ vô cùng khó khăn",
           "example": "Finishing this project in two days is a very tall order.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của a tall order"
+          "collocations": []
         },
         {
           "word": "ring true",
@@ -7476,8 +6832,7 @@ export const courseData76_100 = [
           "vi": "nghe có vẻ thật/hợp lý",
           "example": "Her excuse for being late didn't exactly ring true.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của ring true"
+          "collocations": []
         },
         {
           "word": "off the record",
@@ -7486,8 +6841,7 @@ export const courseData76_100 = [
           "vi": "không chính thức, không được ghi âm/công bố",
           "example": "The politician made a controversial comment strictly off the record.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của off the record"
+          "collocations": []
         },
         {
           "word": "word of mouth",
@@ -7499,8 +6853,7 @@ export const courseData76_100 = [
           "collocations": [
             "important word of mouth",
             "word of mouth system"
-          ],
-          "wordFamily": "Biến thể của word of mouth"
+          ]
         }
       ],
       "practicalUsage": [
@@ -7753,15 +7106,6 @@ export const courseData76_100 = [
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
           {
-            "id": "ex_92_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "a tall order"
-            ],
-            "hint": "một nhiệm vụ vô cùng khó khăn",
-            "explanation": "Từ cần điền là \"a tall order\"."
-          },
-          {
             "id": "ex_92_5_1",
             "text": "Her excuse for being late didn't exactly [blank].",
             "answers": [
@@ -7859,8 +7203,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "The job offer came completely out of the blue.",
-        "trans": "[Tạm dịch] Câu ví dụ cho out of the blue"
+        "text": "The job offer came completely out of the blue."
       }
     ]
   },
@@ -7877,8 +7220,7 @@ export const courseData76_100 = [
           "vi": "lùi lại để nhìn nhận toàn cảnh vấn đề",
           "example": "We need to stand back from the situation and look at the bigger picture.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của stand back from"
+          "collocations": []
         },
         {
           "word": "stand in for",
@@ -7887,8 +7229,7 @@ export const courseData76_100 = [
           "vi": "làm thay thế tạm thời cho ai",
           "example": "Could you please stand in for me at the meeting tomorrow?",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của stand in for"
+          "collocations": []
         },
         {
           "word": "stand up for",
@@ -7897,8 +7238,7 @@ export const courseData76_100 = [
           "vi": "đứng lên bảo vệ (lẽ phải/ai đó)",
           "example": "You must always stand up for what you believe is right.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của stand up for"
+          "collocations": []
         },
         {
           "word": "look up to",
@@ -7907,8 +7247,7 @@ export const courseData76_100 = [
           "vi": "kính trọng, ngưỡng mộ",
           "example": "I have always deeply looked up to my older sister.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của look up to"
+          "collocations": []
         },
         {
           "word": "look down on",
@@ -7917,8 +7256,7 @@ export const courseData76_100 = [
           "vi": "khinh thường",
           "example": "He tends to look down on people who are less educated.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của look down on"
+          "collocations": []
         },
         {
           "word": "make up for",
@@ -7927,8 +7265,7 @@ export const courseData76_100 = [
           "vi": "bù đắp cho",
           "example": "I bought her flowers to make up for forgetting her birthday.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của make up for"
+          "collocations": []
         },
         {
           "word": "get away with",
@@ -7937,8 +7274,7 @@ export const courseData76_100 = [
           "vi": "thoát tội, làm sai mà không bị phạt",
           "example": "He thinks he can lie and always get away with it.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của get away with"
+          "collocations": []
         },
         {
           "word": "put up with",
@@ -7947,8 +7283,7 @@ export const courseData76_100 = [
           "vi": "chịu đựng (điều khó chịu)",
           "example": "I refuse to put up with this terrible noise anymore.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của put up with"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -8062,15 +7397,6 @@ export const courseData76_100 = [
             ],
             "hint": "đứng lên bảo vệ (lẽ phải/ai đó)",
             "explanation": "Từ cần điền là \"stand up for\", mang nghĩa là \"đứng lên bảo vệ (lẽ phải/ai đó)\"."
-          },
-          {
-            "id": "ex_93_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "look up to"
-            ],
-            "hint": "kính trọng, ngưỡng mộ",
-            "explanation": "Từ cần điền là \"look up to\", mang nghĩa là \"kính trọng, ngưỡng mộ\"."
           }
         ]
       },
@@ -8186,12 +7512,6 @@ export const courseData76_100 = [
             "original": "You must always stands up for what you believe is right.",
             "correct": "You must always stand up for what you believe is right.",
             "explanation": "Từ viết đúng chính xác phải là \"stand up for\"."
-          },
-          {
-            "id": "ex_93_4_1",
-            "original": "I really like looks up to.",
-            "correct": "I have always deeply looked up to my older sister.",
-            "explanation": "Từ viết đúng chính xác phải là \"look up to\"."
           }
         ]
       },
@@ -8307,8 +7627,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "We need to stand back from the situation and look at the bigger picture.",
-        "trans": "[Tạm dịch] Câu ví dụ cho stand back from"
+        "text": "We need to stand back from the situation and look at the bigger picture."
       }
     ]
   },
@@ -8325,8 +7644,7 @@ export const courseData76_100 = [
           "vi": "làm việc cật lực, cặm cụi",
           "example": "I've been slogging away at this report all morning.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của slog away"
+          "collocations": []
         },
         {
           "word": "pelt down",
@@ -8335,8 +7653,7 @@ export const courseData76_100 = [
           "vi": "mưa xối xả",
           "example": "We couldn't go out because the rain was absolutely pelting down.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của pelt down"
+          "collocations": []
         },
         {
           "word": "bottle out",
@@ -8345,8 +7662,7 @@ export const courseData76_100 = [
           "vi": "mất can đảm phút chót, hèn nhát bỏ cuộc",
           "example": "He was going to ask her out, but he entirely bottled out.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của bottle out"
+          "collocations": []
         },
         {
           "word": "knuckle down",
@@ -8355,8 +7671,7 @@ export const courseData76_100 = [
           "vi": "bắt tay vào làm việc nghiêm túc",
           "example": "Exams are near; it's time to seriously knuckle down and study.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của knuckle down"
+          "collocations": []
         },
         {
           "word": "breeze through",
@@ -8365,8 +7680,7 @@ export const courseData76_100 = [
           "vi": "vượt qua dễ dàng (kỳ thi)",
           "example": "She is so smart she just breezed through the math test.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của breeze through"
+          "collocations": []
         },
         {
           "word": "tuck in",
@@ -8375,8 +7689,7 @@ export const courseData76_100 = [
           "vi": "bắt đầu ăn một cách ngon miệng",
           "example": "The food is getting cold, let's tuck in!",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của tuck in"
+          "collocations": []
         },
         {
           "word": "freshen up",
@@ -8385,8 +7698,7 @@ export const courseData76_100 = [
           "vi": "rửa mặt mũi tay chân cho tỉnh táo",
           "example": "I just need ten minutes to properly freshen up before dinner.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của freshen up"
+          "collocations": []
         },
         {
           "word": "laze around",
@@ -8395,8 +7707,7 @@ export const courseData76_100 = [
           "vi": "lười biếng nằm ườn ra",
           "example": "We spent Sunday just lazing around the house.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của laze around"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -8484,33 +7795,6 @@ export const courseData76_100 = [
         "type": "fill_in_blanks",
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
-          {
-            "id": "ex_94_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "slog away"
-            ],
-            "hint": "làm việc cật lực, cặm cụi",
-            "explanation": "Từ cần điền là \"slog away\", mang nghĩa là \"làm việc cật lực, cặm cụi\"."
-          },
-          {
-            "id": "ex_94_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "pelt down"
-            ],
-            "hint": "mưa xối xả",
-            "explanation": "Từ cần điền là \"pelt down\", mang nghĩa là \"mưa xối xả\"."
-          },
-          {
-            "id": "ex_94_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "bottle out"
-            ],
-            "hint": "mất can đảm phút chót, hèn nhát bỏ cuộc",
-            "explanation": "Từ cần điền là \"bottle out\", mang nghĩa là \"mất can đảm phút chót, hèn nhát bỏ cuộc\"."
-          },
           {
             "id": "ex_94_1_3",
             "text": "Exams are near; it's time to seriously [blank] and study.",
@@ -8630,12 +7914,6 @@ export const courseData76_100 = [
         "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
         "questions": [
           {
-            "id": "ex_94_4_0",
-            "original": "I really like bottles out.",
-            "correct": "He was going to ask her out, but he entirely bottled out.",
-            "explanation": "Từ viết đúng chính xác phải là \"bottle out\"."
-          },
-          {
             "id": "ex_94_4_1",
             "original": "Exams are near; it's time to seriously knuckles down and study.",
             "correct": "Exams are near; it's time to seriously knuckle down and study.",
@@ -8648,15 +7926,6 @@ export const courseData76_100 = [
         "type": "fill_in_blanks",
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
-          {
-            "id": "ex_94_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "breeze through"
-            ],
-            "hint": "vượt qua dễ dàng (kỳ thi)",
-            "explanation": "Từ cần điền là \"breeze through\"."
-          },
           {
             "id": "ex_94_5_1",
             "text": "The food is getting cold, let's [blank]!",
@@ -8674,15 +7943,6 @@ export const courseData76_100 = [
             ],
             "hint": "rửa mặt mũi tay chân cho tỉnh táo",
             "explanation": "Từ cần điền là \"freshen up\"."
-          },
-          {
-            "id": "ex_94_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "laze around"
-            ],
-            "hint": "lười biếng nằm ườn ra",
-            "explanation": "Từ cần điền là \"laze around\"."
           }
         ]
       }
@@ -8755,8 +8015,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "I've been slogging away at this report all morning.",
-        "trans": "[Tạm dịch] Câu ví dụ cho slog away"
+        "text": "I've been slogging away at this report all morning."
       }
     ]
   },
@@ -8773,8 +8032,7 @@ export const courseData76_100 = [
           "vi": "bỏ lỡ (cơ hội, niềm vui)",
           "example": "Don't miss out on this fantastic discount offer!",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của miss out on"
+          "collocations": []
         },
         {
           "word": "branch out",
@@ -8783,8 +8041,7 @@ export const courseData76_100 = [
           "vi": "mở rộng lĩnh vực kinh doanh / rẽ nhánh",
           "example": "The bookstore decided to branch out into selling coffee.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của branch out"
+          "collocations": []
         },
         {
           "word": "bubble over with",
@@ -8793,8 +8050,7 @@ export const courseData76_100 = [
           "vi": "tràn ngập (sự phấn khích/hạnh phúc)",
           "example": "The children were absolutely bubbling over with excitement.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của bubble over with"
+          "collocations": []
         },
         {
           "word": "boil down to",
@@ -8803,8 +8059,7 @@ export const courseData76_100 = [
           "vi": "chung quy lại là (vấn đề cốt lõi)",
           "example": "The whole problem basically boils down to a lack of money.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của boil down to"
+          "collocations": []
         },
         {
           "word": "cater for",
@@ -8813,8 +8068,7 @@ export const courseData76_100 = [
           "vi": "phục vụ cho (nhu cầu/sự kiện)",
           "example": "This school specifically caters for children with learning difficulties.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của cater for"
+          "collocations": []
         },
         {
           "word": "dwell on",
@@ -8823,8 +8077,7 @@ export const courseData76_100 = [
           "vi": "nghĩ ngợi/dằn vặt mãi về điều buồn bã",
           "example": "Don't dwell on your past mistakes; move forward.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của dwell on"
+          "collocations": []
         },
         {
           "word": "opt out",
@@ -8833,8 +8086,7 @@ export const courseData76_100 = [
           "vi": "chọn rút lui khỏi",
           "example": "Employees can legally opt out of the pension scheme.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của opt out"
+          "collocations": []
         },
         {
           "word": "capitalize on",
@@ -8843,8 +8095,7 @@ export const courseData76_100 = [
           "vi": "tận dụng tối đa lợi thế",
           "example": "We must quickly capitalize on our competitor's mistake.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của capitalize on"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -8949,24 +8200,6 @@ export const courseData76_100 = [
             ],
             "hint": "mở rộng lĩnh vực kinh doanh / rẽ nhánh",
             "explanation": "Từ cần điền là \"branch out\", mang nghĩa là \"mở rộng lĩnh vực kinh doanh / rẽ nhánh\"."
-          },
-          {
-            "id": "ex_95_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "bubble over with"
-            ],
-            "hint": "tràn ngập (sự phấn khích/hạnh phúc)",
-            "explanation": "Từ cần điền là \"bubble over with\", mang nghĩa là \"tràn ngập (sự phấn khích/hạnh phúc)\"."
-          },
-          {
-            "id": "ex_95_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "boil down to"
-            ],
-            "hint": "chung quy lại là (vấn đề cốt lõi)",
-            "explanation": "Từ cần điền là \"boil down to\", mang nghĩa là \"chung quy lại là (vấn đề cốt lõi)\"."
           }
         ]
       },
@@ -9073,38 +8306,10 @@ export const courseData76_100 = [
         ]
       },
       {
-        "exNum": "95.4",
-        "type": "error_correction",
-        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
-        "questions": [
-          {
-            "id": "ex_95_4_0",
-            "original": "I really like bubbles over with.",
-            "correct": "The children were absolutely bubbling over with excitement.",
-            "explanation": "Từ viết đúng chính xác phải là \"bubble over with\"."
-          },
-          {
-            "id": "ex_95_4_1",
-            "original": "I really like boils down to.",
-            "correct": "The whole problem basically boils down to a lack of money.",
-            "explanation": "Từ viết đúng chính xác phải là \"boil down to\"."
-          }
-        ]
-      },
-      {
         "exNum": "95.5",
         "type": "fill_in_blanks",
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
-          {
-            "id": "ex_95_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "cater for"
-            ],
-            "hint": "phục vụ cho (nhu cầu/sự kiện)",
-            "explanation": "Từ cần điền là \"cater for\"."
-          },
           {
             "id": "ex_95_5_1",
             "text": "Don't [blank] your past mistakes; move forward.",
@@ -9203,8 +8408,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "Don't miss out on this fantastic discount offer!",
-        "trans": "[Tạm dịch] Câu ví dụ cho miss out on"
+        "text": "Don't miss out on this fantastic discount offer!"
       }
     ]
   },
@@ -9224,8 +8428,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly kitty-corner",
             "extremely kitty-corner"
-          ],
-          "wordFamily": "Biến thể của kitty-corner"
+          ]
         },
         {
           "word": "deplane",
@@ -9237,8 +8440,7 @@ export const courseData76_100 = [
           "collocations": [
             "deplane effectively",
             "must deplane"
-          ],
-          "wordFamily": "Biến thể của deplane"
+          ]
         },
         {
           "word": "faucet",
@@ -9250,8 +8452,7 @@ export const courseData76_100 = [
           "collocations": [
             "important faucet",
             "faucet system"
-          ],
-          "wordFamily": "Biến thể của faucet"
+          ]
         },
         {
           "word": "sidewalk",
@@ -9263,8 +8464,7 @@ export const courseData76_100 = [
           "collocations": [
             "important sidewalk",
             "sidewalk system"
-          ],
-          "wordFamily": "Biến thể của sidewalk"
+          ]
         },
         {
           "word": "trunk",
@@ -9276,8 +8476,7 @@ export const courseData76_100 = [
           "collocations": [
             "important trunk",
             "trunk system"
-          ],
-          "wordFamily": "Biến thể của trunk"
+          ]
         },
         {
           "word": "sneakers",
@@ -9289,8 +8488,7 @@ export const courseData76_100 = [
           "collocations": [
             "important sneakers",
             "sneakers system"
-          ],
-          "wordFamily": "Biến thể của sneakers"
+          ]
         },
         {
           "word": "freeway",
@@ -9302,8 +8500,7 @@ export const courseData76_100 = [
           "collocations": [
             "important freeway",
             "freeway system"
-          ],
-          "wordFamily": "Biến thể của freeway"
+          ]
         },
         {
           "word": "eggplant",
@@ -9315,8 +8512,7 @@ export const courseData76_100 = [
           "collocations": [
             "important eggplant",
             "eggplant system"
-          ],
-          "wordFamily": "Biến thể của eggplant"
+          ]
         }
       ],
       "practicalUsage": [
@@ -9675,8 +8871,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "The bank is kitty-corner to the post office.",
-        "trans": "[Tạm dịch] Câu ví dụ cho kitty-corner"
+        "text": "The bank is kitty-corner to the post office."
       }
     ]
   },
@@ -9696,8 +8891,7 @@ export const courseData76_100 = [
           "collocations": [
             "important craic",
             "craic system"
-          ],
-          "wordFamily": "Biến thể của craic"
+          ]
         },
         {
           "word": "beaut",
@@ -9709,8 +8903,7 @@ export const courseData76_100 = [
           "collocations": [
             "important beaut",
             "beaut system"
-          ],
-          "wordFamily": "Biến thể của beaut"
+          ]
         },
         {
           "word": "shroff",
@@ -9722,8 +8915,7 @@ export const courseData76_100 = [
           "collocations": [
             "important shroff",
             "shroff system"
-          ],
-          "wordFamily": "Biến thể của shroff"
+          ]
         },
         {
           "word": "barbie",
@@ -9735,8 +8927,7 @@ export const courseData76_100 = [
           "collocations": [
             "important barbie",
             "barbie system"
-          ],
-          "wordFamily": "Biến thể của barbie"
+          ]
         },
         {
           "word": "mate",
@@ -9748,8 +8939,7 @@ export const courseData76_100 = [
           "collocations": [
             "important mate",
             "mate system"
-          ],
-          "wordFamily": "Biến thể của mate"
+          ]
         },
         {
           "word": "arvo",
@@ -9761,8 +8951,7 @@ export const courseData76_100 = [
           "collocations": [
             "important arvo",
             "arvo system"
-          ],
-          "wordFamily": "Biến thể của arvo"
+          ]
         },
         {
           "word": "kiwi",
@@ -9774,8 +8963,7 @@ export const courseData76_100 = [
           "collocations": [
             "important kiwi",
             "kiwi system"
-          ],
-          "wordFamily": "Biến thể của kiwi"
+          ]
         },
         {
           "word": "bloke",
@@ -9787,8 +8975,7 @@ export const courseData76_100 = [
           "collocations": [
             "important bloke",
             "bloke system"
-          ],
-          "wordFamily": "Biến thể của bloke"
+          ]
         }
       ],
       "practicalUsage": [
@@ -10147,8 +9334,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "We went to the pub and the craic was brilliant.",
-        "trans": "[Tạm dịch] Câu ví dụ cho craic"
+        "text": "We went to the pub and the craic was brilliant."
       }
     ]
   },
@@ -10168,8 +9354,7 @@ export const courseData76_100 = [
           "collocations": [
             "important spokesperson",
             "spokesperson system"
-          ],
-          "wordFamily": "Biến thể của spokesperson"
+          ]
         },
         {
           "word": "butch",
@@ -10181,8 +9366,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly butch",
             "extremely butch"
-          ],
-          "wordFamily": "Biến thể của butch"
+          ]
         },
         {
           "word": "effeminate",
@@ -10194,8 +9378,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly effeminate",
             "extremely effeminate"
-          ],
-          "wordFamily": "Biến thể của effeminate"
+          ]
         },
         {
           "word": "flight attendant",
@@ -10204,8 +9387,7 @@ export const courseData76_100 = [
           "vi": "tiếp viên hàng không (trung tính hơn 'stewardess')",
           "example": "The flight attendant demonstrated the safety procedures.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của flight attendant"
+          "collocations": []
         },
         {
           "word": "firefighter",
@@ -10217,8 +9399,7 @@ export const courseData76_100 = [
           "collocations": [
             "important firefighter",
             "firefighter system"
-          ],
-          "wordFamily": "Biến thể của firefighter"
+          ]
         },
         {
           "word": "chairperson",
@@ -10230,8 +9411,7 @@ export const courseData76_100 = [
           "collocations": [
             "important chairperson",
             "chairperson system"
-          ],
-          "wordFamily": "Biến thể của chairperson"
+          ]
         },
         {
           "word": "sexism",
@@ -10243,8 +9423,7 @@ export const courseData76_100 = [
           "collocations": [
             "important sexism",
             "sexism system"
-          ],
-          "wordFamily": "Biến thể của sexism"
+          ]
         },
         {
           "word": "macho",
@@ -10256,8 +9435,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly macho",
             "extremely macho"
-          ],
-          "wordFamily": "Biến thể của macho"
+          ]
         }
       ],
       "practicalUsage": [
@@ -10616,8 +9794,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "A government spokesperson declined to comment on the scandal.",
-        "trans": "[Tạm dịch] Câu ví dụ cho spokesperson"
+        "text": "A government spokesperson declined to comment on the scandal."
       }
     ]
   },
@@ -10637,8 +9814,7 @@ export const courseData76_100 = [
           "collocations": [
             "important oik",
             "oik system"
-          ],
-          "wordFamily": "Biến thể của oik"
+          ]
         },
         {
           "word": "wireless",
@@ -10650,8 +9826,7 @@ export const courseData76_100 = [
           "collocations": [
             "important wireless",
             "wireless system"
-          ],
-          "wordFamily": "Biến thể của wireless"
+          ]
         },
         {
           "word": "luncheon",
@@ -10663,8 +9838,7 @@ export const courseData76_100 = [
           "collocations": [
             "important luncheon",
             "luncheon system"
-          ],
-          "wordFamily": "Biến thể của luncheon"
+          ]
         },
         {
           "word": "posh",
@@ -10676,8 +9850,7 @@ export const courseData76_100 = [
           "collocations": [
             "highly posh",
             "extremely posh"
-          ],
-          "wordFamily": "Biến thể của posh"
+          ]
         },
         {
           "word": "chav",
@@ -10689,8 +9862,7 @@ export const courseData76_100 = [
           "collocations": [
             "important chav",
             "chav system"
-          ],
-          "wordFamily": "Biến thể của chav"
+          ]
         },
         {
           "word": "geezer",
@@ -10702,8 +9874,7 @@ export const courseData76_100 = [
           "collocations": [
             "important geezer",
             "geezer system"
-          ],
-          "wordFamily": "Biến thể của geezer"
+          ]
         },
         {
           "word": "millennial",
@@ -10715,8 +9886,7 @@ export const courseData76_100 = [
           "collocations": [
             "important millennial",
             "millennial system"
-          ],
-          "wordFamily": "Biến thể của millennial"
+          ]
         },
         {
           "word": "aristocracy",
@@ -10728,8 +9898,7 @@ export const courseData76_100 = [
           "collocations": [
             "important aristocracy",
             "aristocracy system"
-          ],
-          "wordFamily": "Biến thể của aristocracy"
+          ]
         }
       ],
       "practicalUsage": [
@@ -10982,15 +10151,6 @@ export const courseData76_100 = [
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
           {
-            "id": "ex_99_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "chav"
-            ],
-            "hint": "thanh niên vô văn hóa, hay gây gổ (tiếng lóng Anh)",
-            "explanation": "Từ cần điền là \"chav\"."
-          },
-          {
             "id": "ex_99_5_1",
             "text": "Some crazy old [blank] was shouting at the pigeons.",
             "answers": [
@@ -11088,8 +10248,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "Don't act like a complete oik in the restaurant.",
-        "trans": "[Tạm dịch] Câu ví dụ cho oik"
+        "text": "Don't act like a complete oik in the restaurant."
       }
     ]
   },
@@ -11109,8 +10268,7 @@ export const courseData76_100 = [
           "collocations": [
             "important crackdown",
             "crackdown system"
-          ],
-          "wordFamily": "Biến thể của crackdown"
+          ]
         },
         {
           "word": "louts",
@@ -11122,8 +10280,7 @@ export const courseData76_100 = [
           "collocations": [
             "important louts",
             "louts system"
-          ],
-          "wordFamily": "Biến thể của louts"
+          ]
         },
         {
           "word": "besiege",
@@ -11135,8 +10292,7 @@ export const courseData76_100 = [
           "collocations": [
             "besiege effectively",
             "must besiege"
-          ],
-          "wordFamily": "Biến thể của besiege"
+          ]
         },
         {
           "word": "axe",
@@ -11148,8 +10304,7 @@ export const courseData76_100 = [
           "collocations": [
             "axe effectively",
             "must axe"
-          ],
-          "wordFamily": "Biến thể của axe"
+          ]
         },
         {
           "word": "blaze",
@@ -11161,8 +10316,7 @@ export const courseData76_100 = [
           "collocations": [
             "important blaze",
             "blaze system"
-          ],
-          "wordFamily": "Biến thể của blaze"
+          ]
         },
         {
           "word": "bid",
@@ -11174,8 +10328,7 @@ export const courseData76_100 = [
           "collocations": [
             "important bid",
             "bid system"
-          ],
-          "wordFamily": "Biến thể của bid"
+          ]
         },
         {
           "word": "clash",
@@ -11187,8 +10340,7 @@ export const courseData76_100 = [
           "collocations": [
             "clash effectively",
             "must clash"
-          ],
-          "wordFamily": "Biến thể của clash"
+          ]
         },
         {
           "word": "probe",
@@ -11200,8 +10352,7 @@ export const courseData76_100 = [
           "collocations": [
             "important probe",
             "probe system"
-          ],
-          "wordFamily": "Biến thể của probe"
+          ]
         }
       ],
       "practicalUsage": [
@@ -11315,15 +10466,6 @@ export const courseData76_100 = [
             ],
             "hint": "bao vây (tòa nhà / người nổi tiếng)",
             "explanation": "Từ cần điền là \"besiege\", mang nghĩa là \"bao vây (tòa nhà / người nổi tiếng)\"."
-          },
-          {
-            "id": "ex_100_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "axe"
-            ],
-            "hint": "cắt giảm, sa thải (dùng trên báo thay cho 'cut')",
-            "explanation": "Từ cần điền là \"axe\", mang nghĩa là \"cắt giảm, sa thải (dùng trên báo thay cho 'cut')\"."
           }
         ]
       },
@@ -11439,12 +10581,6 @@ export const courseData76_100 = [
             "original": "Fans completely besieges the hotel where the band is staying.",
             "correct": "Fans completely besiege the hotel where the band is staying.",
             "explanation": "Từ viết đúng chính xác phải là \"besiege\"."
-          },
-          {
-            "id": "ex_100_4_1",
-            "original": "I really like axes.",
-            "correct": "The company axes 500 jobs to save money.",
-            "explanation": "Từ viết đúng chính xác phải là \"axe\"."
           }
         ]
       },
@@ -11560,8 +10696,7 @@ export const courseData76_100 = [
     ],
     "speaking": [
       {
-        "text": "Police launch a massive crackdown on illegal racing.",
-        "trans": "[Tạm dịch] Câu ví dụ cho crackdown"
+        "text": "Police launch a massive crackdown on illegal racing."
       }
     ]
   }

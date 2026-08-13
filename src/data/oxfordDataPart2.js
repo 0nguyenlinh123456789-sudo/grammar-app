@@ -17,8 +17,7 @@ export const courseData = [
           "collocations": [
             "very very well / fine",
             "extremely very well / fine"
-          ],
-          "wordFamily": "Biến thể của very well / fine"
+          ]
         },
         {
           "word": "feel ill / feel sick",
@@ -27,8 +26,7 @@ export const courseData = [
           "vi": "Cảm thấy ốm/bệnh (Ill thường cần bác sĩ; feel sick có thể nghĩa là buồn nôn).",
           "example": "I feel ill. Can you get a doctor please. I feel sick and want to vomit.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của feel ill / feel sick"
+          "collocations": []
         },
         {
           "word": "headache / toothache",
@@ -40,8 +38,7 @@ export const courseData = [
           "collocations": [
             "have a headache / toothache",
             "use headache / toothache"
-          ],
-          "wordFamily": "Biến thể của headache / toothache"
+          ]
         },
         {
           "word": "a cold / cough",
@@ -53,8 +50,7 @@ export const courseData = [
           "collocations": [
             "a cold / cough something",
             "always a cold / cough"
-          ],
-          "wordFamily": "Biến thể của a cold / cough"
+          ]
         },
         {
           "word": "asthma / hay-fever",
@@ -66,8 +62,7 @@ export const courseData = [
           "collocations": [
             "have a asthma / hay-fever",
             "use asthma / hay-fever"
-          ],
-          "wordFamily": "Biến thể của asthma / hay-fever"
+          ]
         },
         {
           "word": "malaria / cholera",
@@ -79,8 +74,7 @@ export const courseData = [
           "collocations": [
             "have a malaria / cholera",
             "use malaria / cholera"
-          ],
-          "wordFamily": "Biến thể của malaria / cholera"
+          ]
         },
         {
           "word": "heart attack / cancer",
@@ -92,8 +86,7 @@ export const courseData = [
           "collocations": [
             "have a heart attack / cancer",
             "use heart attack / cancer"
-          ],
-          "wordFamily": "Biến thể của heart attack / cancer"
+          ]
         },
         {
           "word": "healthy diet",
@@ -102,8 +95,7 @@ export const courseData = [
           "vi": "Chế độ ăn uống lành mạnh (nhiều rau quả).",
           "example": "Eat lots of fruit and vegetables to have a healthy diet.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của healthy diet"
+          "collocations": []
         },
         {
           "word": "get exercise",
@@ -112,8 +104,7 @@ export const courseData = [
           "vi": "Tập thể dục (chạy bộ, bơi lội, đạp xe).",
           "example": "Swimming and jogging are good ways to get exercise.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của get exercise"
+          "collocations": []
         },
         {
           "word": "stress",
@@ -125,8 +116,7 @@ export const courseData = [
           "collocations": [
             "have a stress",
             "use stress"
-          ],
-          "wordFamily": "Biến thể của stress"
+          ]
         }
       ],
       "practicalUsage": [
@@ -201,16 +191,8 @@ export const courseData = [
           "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
           "details": [
             {
-              "title": "Họ từ (Word Family) của \"very well / fine\"",
-              "value": "very well / finely (Trạng từ)"
-            },
-            {
               "title": "Họ từ (Word Family) của \"feel ill / feel sick\"",
               "value": "Các dạng từ loại khác của \"feel ill / feel sick\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"headache / toothache\"",
-              "value": "headache / toothacheful (Tính từ)"
             }
           ]
         },
@@ -753,49 +735,6 @@ export const courseData = [
     ],
     "textbookExercises": [
       {
-        "exNum": "33.1",
-        "type": "fill_in_blanks",
-        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
-        "questions": [
-          {
-            "id": "ex_33_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "very well / fine"
-            ],
-            "hint": "Rất khỏe / Ổn.",
-            "explanation": "Từ cần điền là \"very well / fine\", mang nghĩa là \"Rất khỏe / Ổn.\"."
-          },
-          {
-            "id": "ex_33_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "feel ill / feel sick"
-            ],
-            "hint": "Cảm thấy ốm/bệnh (Ill thường cần bác sĩ; feel sick có thể nghĩa là buồn nôn).",
-            "explanation": "Từ cần điền là \"feel ill / feel sick\", mang nghĩa là \"Cảm thấy ốm/bệnh (Ill thường cần bác sĩ; feel sick có thể nghĩa là buồn nôn).\"."
-          },
-          {
-            "id": "ex_33_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "headache / toothache"
-            ],
-            "hint": "Đau đầu / Đau răng.",
-            "explanation": "Từ cần điền là \"headache / toothache\", mang nghĩa là \"Đau đầu / Đau răng.\"."
-          },
-          {
-            "id": "ex_33_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "a cold / cough"
-            ],
-            "hint": "Cảm lạnh / Ho.",
-            "explanation": "Từ cần điền là \"a cold / cough\", mang nghĩa là \"Cảm lạnh / Ho.\"."
-          }
-        ]
-      },
-      {
         "exNum": "33.2",
         "type": "matching",
         "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
@@ -898,56 +837,10 @@ export const courseData = [
         ]
       },
       {
-        "exNum": "33.4",
-        "type": "error_correction",
-        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
-        "questions": [
-          {
-            "id": "ex_33_4_0",
-            "original": "I really like headache / toothaches.",
-            "correct": "Have you got an aspirin? I've got a headache.",
-            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"headache / toothache\" thay vì \"headache / toothaches\"."
-          },
-          {
-            "id": "ex_33_4_1",
-            "original": "I really like a cold / coughs.",
-            "correct": "I'm going to bed with a hot drink. I've got a cold.",
-            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"a cold / cough\" thay vì \"a cold / coughs\"."
-          }
-        ]
-      },
-      {
         "exNum": "33.5",
         "type": "fill_in_blanks",
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
-          {
-            "id": "ex_33_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "asthma / hay-fever"
-            ],
-            "hint": "Hen suyễn / Dị ứng phấn hoa (hắt hơi liên tục).",
-            "explanation": "Từ cần điền là \"asthma / hay-fever\"."
-          },
-          {
-            "id": "ex_33_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "malaria / cholera"
-            ],
-            "hint": "Sốt rét / Bệnh tả (do muỗi đốt hoặc nước bẩn).",
-            "explanation": "Từ cần điền là \"malaria / cholera\"."
-          },
-          {
-            "id": "ex_33_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "heart attack / cancer"
-            ],
-            "hint": "Cơn đau tim / Bệnh ung thư.",
-            "explanation": "Từ cần điền là \"heart attack / cancer\"."
-          },
           {
             "id": "ex_33_5_3",
             "text": "Eat lots of fruit and vegetables to have a [blank].",
@@ -977,8 +870,7 @@ export const courseData = [
           "collocations": [
             "love / like / don't like / hate something",
             "always love / like / don't like / hate"
-          ],
-          "wordFamily": "Biến thể của love / like / don't like / hate"
+          ]
         },
         {
           "word": "prefer",
@@ -990,8 +882,7 @@ export const courseData = [
           "collocations": [
             "prefer something",
             "always prefer"
-          ],
-          "wordFamily": "Biến thể của prefer"
+          ]
         },
         {
           "word": "want / hope",
@@ -1003,8 +894,7 @@ export const courseData = [
           "collocations": [
             "want / hope something",
             "always want / hope"
-          ],
-          "wordFamily": "Biến thể của want / hope"
+          ]
         },
         {
           "word": "happy / sad / angry / surprised",
@@ -1016,8 +906,7 @@ export const courseData = [
           "collocations": [
             "very happy / sad / angry / surprised",
             "extremely happy / sad / angry / surprised"
-          ],
-          "wordFamily": "Biến thể của happy / sad / angry / surprised"
+          ]
         },
         {
           "word": "tired / hungry / thirsty",
@@ -1029,8 +918,7 @@ export const courseData = [
           "collocations": [
             "very tired / hungry / thirsty",
             "extremely tired / hungry / thirsty"
-          ],
-          "wordFamily": "Biến thể của tired / hungry / thirsty"
+          ]
         },
         {
           "word": "cold / hot / well / ill",
@@ -1042,8 +930,7 @@ export const courseData = [
           "collocations": [
             "very cold / hot / well / ill",
             "extremely cold / hot / well / ill"
-          ],
-          "wordFamily": "Biến thể của cold / hot / well / ill"
+          ]
         }
       ],
       "practicalUsage": [
@@ -1085,24 +972,6 @@ export const courseData = [
         }
       ],
       "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"love / like / don't like / hate\"",
-              "value": "love / like / don't like / hateer (Danh từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"prefer\"",
-              "value": "preferer (Danh từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"want / hope\"",
-              "value": "want / hopeer (Danh từ)"
-            }
-          ]
-        },
         {
           "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
           "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
@@ -1716,8 +1585,7 @@ export const courseData = [
           "vi": "Chào buổi sáng / chiều / tối.",
           "example": "Good morning, how are you today?",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Good morning / afternoon / evening"
+          "collocations": []
         },
         {
           "word": "Hello / Hi",
@@ -1726,8 +1594,7 @@ export const courseData = [
           "vi": "Xin chào (thân mật).",
           "example": "Hi! How are you?",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Hello / Hi"
+          "collocations": []
         },
         {
           "word": "Goodbye / See you soon",
@@ -1736,8 +1603,7 @@ export const courseData = [
           "vi": "Tạm biệt / Hẹn gặp lại sớm.",
           "example": "Goodbye! Have a good journey.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Goodbye / See you soon"
+          "collocations": []
         },
         {
           "word": "Goodnight / Sleep well",
@@ -1746,8 +1612,7 @@ export const courseData = [
           "vi": "Chúc ngủ ngon / Ngủ ngon nhé.",
           "example": "Goodnight! Sleep well.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Goodnight / Sleep well"
+          "collocations": []
         },
         {
           "word": "Please / Thank you",
@@ -1756,8 +1621,7 @@ export const courseData = [
           "vi": "Vui lòng / Cảm ơn.",
           "example": "Can I have a coffee, please? Thank you very much.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Please / Thank you"
+          "collocations": []
         },
         {
           "word": "Excuse me",
@@ -1766,8 +1630,7 @@ export const courseData = [
           "vi": "Xin lỗi (khi muốn thu hút chú ý hoặc chen qua đám đông).",
           "example": "Excuse me! Can I get past?",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Excuse me"
+          "collocations": []
         },
         {
           "word": "Sorry",
@@ -1776,8 +1639,7 @@ export const courseData = [
           "vi": "Xin lỗi (khi mắc lỗi hoặc vô tình va phải ai).",
           "example": "I'm sorry I'm late. Oh, sorry!",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Sorry"
+          "collocations": []
         },
         {
           "word": "Bless you!",
@@ -1786,8 +1648,7 @@ export const courseData = [
           "vi": "Chúc sức khỏe! (Nói khi có ai đó hắt hơi).",
           "example": "Atchoo! - Bless you!",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Bless you!"
+          "collocations": []
         },
         {
           "word": "Cheers!",
@@ -1796,8 +1657,7 @@ export const courseData = [
           "vi": "Nâng ly! / Cụng ly! / Cảm ơn!",
           "example": "Here is your beer. - Cheers!",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Cheers!"
+          "collocations": []
         },
         {
           "word": "Happy Birthday",
@@ -1806,8 +1666,7 @@ export const courseData = [
           "vi": "Chúc mừng sinh nhật (KHÔNG dùng Congratulations).",
           "example": "Happy Birthday to you!",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Happy Birthday"
+          "collocations": []
         },
         {
           "word": "Happy New Year / Merry Christmas",
@@ -1816,8 +1675,7 @@ export const courseData = [
           "vi": "Chúc mừng năm mới / Giáng sinh vui vẻ.",
           "example": "Happy New Year! Merry Christmas!",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Happy New Year / Merry Christmas"
+          "collocations": []
         },
         {
           "word": "Good luck",
@@ -1826,8 +1684,7 @@ export const courseData = [
           "vi": "Chúc may mắn (trước kỳ thi hoặc phỏng vấn).",
           "example": "Good luck in your driving test!",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Good luck"
+          "collocations": []
         },
         {
           "word": "Congratulations! / Well done!",
@@ -1836,8 +1693,7 @@ export const courseData = [
           "vi": "Chúc mừng! / Làm tốt lắm! (khi ai đó đỗ kỳ thi, sinh em bé...).",
           "example": "I passed my exam! - Congratulations!",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Congratulations! / Well done!"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -1928,24 +1784,6 @@ export const courseData = [
             {
               "title": "Họ từ (Word Family) của \"Goodbye / See you soon\"",
               "value": "Các dạng từ loại khác của \"Goodbye / See you soon\" đang được cập nhật."
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"Goodnight / Sleep well\"",
-              "value": "Cụm từ liên quan đến Goodnight / Sleep well"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"Please / Thank you\"",
-              "value": "Cụm từ liên quan đến Please / Thank you"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"Excuse me\"",
-              "value": "Cụm từ liên quan đến Excuse me"
             }
           ]
         }
@@ -2469,49 +2307,6 @@ export const courseData = [
     ],
     "textbookExercises": [
       {
-        "exNum": "35.1",
-        "type": "fill_in_blanks",
-        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
-        "questions": [
-          {
-            "id": "ex_35_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "Good morning / afternoon / evening"
-            ],
-            "hint": "Chào buổi sáng / chiều / tối.",
-            "explanation": "Từ cần điền là \"Good morning / afternoon / evening\", mang nghĩa là \"Chào buổi sáng / chiều / tối.\"."
-          },
-          {
-            "id": "ex_35_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "Hello / Hi"
-            ],
-            "hint": "Xin chào (thân mật).",
-            "explanation": "Từ cần điền là \"Hello / Hi\", mang nghĩa là \"Xin chào (thân mật).\"."
-          },
-          {
-            "id": "ex_35_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "Goodbye / See you soon"
-            ],
-            "hint": "Tạm biệt / Hẹn gặp lại sớm.",
-            "explanation": "Từ cần điền là \"Goodbye / See you soon\", mang nghĩa là \"Tạm biệt / Hẹn gặp lại sớm.\"."
-          },
-          {
-            "id": "ex_35_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "Goodnight / Sleep well"
-            ],
-            "hint": "Chúc ngủ ngon / Ngủ ngon nhé.",
-            "explanation": "Từ cần điền là \"Goodnight / Sleep well\", mang nghĩa là \"Chúc ngủ ngon / Ngủ ngon nhé.\"."
-          }
-        ]
-      },
-      {
         "exNum": "35.2",
         "type": "matching",
         "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
@@ -2614,38 +2409,10 @@ export const courseData = [
         ]
       },
       {
-        "exNum": "35.4",
-        "type": "error_correction",
-        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
-        "questions": [
-          {
-            "id": "ex_35_4_0",
-            "original": "I really like Goodbye / See you soons.",
-            "correct": "Goodbye! Have a good journey.",
-            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"Goodbye / See you soon\" thay vì \"Goodbye / See you soons\"."
-          },
-          {
-            "id": "ex_35_4_1",
-            "original": "I really like Goodnight / Sleep wells.",
-            "correct": "Goodnight! Sleep well.",
-            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"Goodnight / Sleep well\" thay vì \"Goodnight / Sleep wells\"."
-          }
-        ]
-      },
-      {
         "exNum": "35.5",
         "type": "fill_in_blanks",
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
-          {
-            "id": "ex_35_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "Please / Thank you"
-            ],
-            "hint": "Vui lòng / Cảm ơn.",
-            "explanation": "Từ cần điền là \"Please / Thank you\"."
-          },
           {
             "id": "ex_35_5_1",
             "text": "[blank]! Can I get past?",
@@ -2663,15 +2430,6 @@ export const courseData = [
             ],
             "hint": "Xin lỗi (khi mắc lỗi hoặc vô tình va phải ai).",
             "explanation": "Từ cần điền là \"Sorry\"."
-          },
-          {
-            "id": "ex_35_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "Bless you!"
-            ],
-            "hint": "Chúc sức khỏe! (Nói khi có ai đó hắt hơi).",
-            "explanation": "Từ cần điền là \"Bless you!\"."
           }
         ]
       }
@@ -2690,8 +2448,7 @@ export const courseData = [
           "vi": "Châu Âu / Châu Á / Châu Phi.",
           "example": "Germany is in Europe. Vietnam is in Asia.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Europe / Asia / Africa"
+          "collocations": []
         },
         {
           "word": "North America / South America / Australia",
@@ -2700,8 +2457,7 @@ export const courseData = [
           "vi": "Bắc Mỹ / Nam Mỹ / Châu Úc (Australia).",
           "example": "The USA is in North America. Brazil is in South America.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của North America / South America / Australia"
+          "collocations": []
         },
         {
           "word": "capital letters",
@@ -2710,8 +2466,7 @@ export const courseData = [
           "vi": "Chữ hoa (Mọi từ chỉ châu lục, đất nước, quốc tịch, ngôn ngữ LUÔN viết hoa chữ cái đầu tiên).",
           "example": "Japan [KHÔNG DÙNG: japan], Japanese [KHÔNG DÙNG: japanese].",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của capital letters"
+          "collocations": []
         },
         {
           "word": "adjective endings",
@@ -2720,8 +2475,7 @@ export const courseData = [
           "vi": "Đuôi tính từ chỉ người/ngôn ngữ: -an (German, American, Korean), -ish (British, English, Spanish), -ese (Chinese, Japanese, Vietnamese).",
           "example": "He is Vietnamese. He speaks Vietnamese.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của adjective endings"
+          "collocations": []
         },
         {
           "word": "exceptions",
@@ -2730,8 +2484,7 @@ export const courseData = [
           "vi": "Các trường hợp bất quy tắc: French (từ France), Dutch (từ Holland), Greek (từ Greece), Swiss (từ Switzerland).",
           "example": "Athens is the capital of Greece. The Greeks speak Greek.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của exceptions"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -2784,20 +2537,6 @@ export const courseData = [
             {
               "title": "Họ từ (Word Family) của \"capital letters\"",
               "value": "Các dạng từ loại khác của \"capital letters\" đang được cập nhật."
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"adjective endings\"",
-              "value": "Cụm từ liên quan đến adjective endings"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"exceptions\"",
-              "value": "Cụm từ liên quan đến exceptions"
             }
           ]
         }
@@ -3390,8 +3129,7 @@ export const courseData = [
           "collocations": [
             "have a sun / rain / wind / cloud",
             "use sun / rain / wind / cloud"
-          ],
-          "wordFamily": "Biến thể của sun / rain / wind / cloud"
+          ]
         },
         {
           "word": "snow / fog / thunder / lightning",
@@ -3403,8 +3141,7 @@ export const courseData = [
           "collocations": [
             "have a snow / fog / thunder / lightning",
             "use snow / fog / thunder / lightning"
-          ],
-          "wordFamily": "Biến thể của snow / fog / thunder / lightning"
+          ]
         },
         {
           "word": "sunny / rainy / windy",
@@ -3416,8 +3153,7 @@ export const courseData = [
           "collocations": [
             "very sunny / rainy / windy",
             "extremely sunny / rainy / windy"
-          ],
-          "wordFamily": "Biến thể của sunny / rainy / windy"
+          ]
         },
         {
           "word": "cloudy / snowy / foggy",
@@ -3429,8 +3165,7 @@ export const courseData = [
           "collocations": [
             "very cloudy / snowy / foggy",
             "extremely cloudy / snowy / foggy"
-          ],
-          "wordFamily": "Biến thể của cloudy / snowy / foggy"
+          ]
         },
         {
           "word": "hot / warm / cool / cold",
@@ -3442,8 +3177,7 @@ export const courseData = [
           "collocations": [
             "very hot / warm / cool / cold",
             "extremely hot / warm / cool / cold"
-          ],
-          "wordFamily": "Biến thể của hot / warm / cool / cold"
+          ]
         },
         {
           "word": "storm / hurricane / thunderstorm",
@@ -3455,8 +3189,7 @@ export const courseData = [
           "collocations": [
             "have a storm / hurricane / thunderstorm",
             "use storm / hurricane / thunderstorm"
-          ],
-          "wordFamily": "Biến thể của storm / hurricane / thunderstorm"
+          ]
         }
       ],
       "practicalUsage": [
@@ -3504,24 +3237,6 @@ export const courseData = [
         }
       ],
       "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"sun / rain / wind / cloud\"",
-              "value": "sun / rain / wind / cloudful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"snow / fog / thunder / lightning\"",
-              "value": "snow / fog / thunder / lightningful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"sunny / rainy / windy\"",
-              "value": "sunny / rainy / windyly (Trạng từ)"
-            }
-          ]
-        },
         {
           "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
           "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
@@ -4135,8 +3850,7 @@ export const courseData = [
           "vi": "Ga tàu hỏa / Bến xe buýt.",
           "example": "You can get a train at the railway station.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của railway station / bus station"
+          "collocations": []
         },
         {
           "word": "bank / post office / library",
@@ -4145,8 +3859,7 @@ export const courseData = [
           "vi": "Ngân hàng / Bưu điện / Thư viện.",
           "example": "You can change money at the bank. Post letters at the post office.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của bank / post office / library"
+          "collocations": []
         },
         {
           "word": "museum / town hall / car park",
@@ -4155,8 +3868,7 @@ export const courseData = [
           "vi": "Bảo tàng / Tòa thị chính / Bãi đỗ xe.",
           "example": "You can see old things in the museum. Park in the car park.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của museum / town hall / car park"
+          "collocations": []
         },
         {
           "word": "pedestrian area / shopping centre",
@@ -4165,8 +3877,7 @@ export const courseData = [
           "vi": "Phố đi bộ / Trung tâm thương mại.",
           "example": "A pedestrian area is for walking only, no cars.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của pedestrian area / shopping centre"
+          "collocations": []
         },
         {
           "word": "no parking / no entry / bus stop",
@@ -4175,8 +3886,7 @@ export const courseData = [
           "vi": "Cấm đỗ xe / Cấm vào / Điểm dừng xe buýt.",
           "example": "Look at the 'No Parking' sign.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của no parking / no entry / bus stop"
+          "collocations": []
         },
         {
           "word": "Where is the...?",
@@ -4185,8 +3895,7 @@ export const courseData = [
           "vi": "Đường đến... ở đâu?",
           "example": "Where is the main square please?",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Where is the...?"
+          "collocations": []
         },
         {
           "word": "How do I get to...?",
@@ -4195,8 +3904,7 @@ export const courseData = [
           "vi": "Làm thế nào để tôi đi đến...?",
           "example": "How do I get to York Street?",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của How do I get to...?"
+          "collocations": []
         },
         {
           "word": "Excuse me, I'm looking for...",
@@ -4205,8 +3913,7 @@ export const courseData = [
           "vi": "Xin lỗi, tôi đang tìm kiếm...",
           "example": "Excuse me, I'm looking for the museum.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Excuse me, I'm looking for..."
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -4277,24 +3984,6 @@ export const courseData = [
             {
               "title": "Họ từ (Word Family) của \"museum / town hall / car park\"",
               "value": "Các dạng từ loại khác của \"museum / town hall / car park\" đang được cập nhật."
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"pedestrian area / shopping centre\"",
-              "value": "Cụm từ liên quan đến pedestrian area / shopping centre"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"no parking / no entry / bus stop\"",
-              "value": "Cụm từ liên quan đến no parking / no entry / bus stop"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"Where is the...?\"",
-              "value": "Cụm từ liên quan đến Where is the...?"
             }
           ]
         }
@@ -4818,49 +4507,6 @@ export const courseData = [
     ],
     "textbookExercises": [
       {
-        "exNum": "38.1",
-        "type": "fill_in_blanks",
-        "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
-        "questions": [
-          {
-            "id": "ex_38_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "railway station / bus station"
-            ],
-            "hint": "Ga tàu hỏa / Bến xe buýt.",
-            "explanation": "Từ cần điền là \"railway station / bus station\", mang nghĩa là \"Ga tàu hỏa / Bến xe buýt.\"."
-          },
-          {
-            "id": "ex_38_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "bank / post office / library"
-            ],
-            "hint": "Ngân hàng / Bưu điện / Thư viện.",
-            "explanation": "Từ cần điền là \"bank / post office / library\", mang nghĩa là \"Ngân hàng / Bưu điện / Thư viện.\"."
-          },
-          {
-            "id": "ex_38_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "museum / town hall / car park"
-            ],
-            "hint": "Bảo tàng / Tòa thị chính / Bãi đỗ xe.",
-            "explanation": "Từ cần điền là \"museum / town hall / car park\", mang nghĩa là \"Bảo tàng / Tòa thị chính / Bãi đỗ xe.\"."
-          },
-          {
-            "id": "ex_38_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "pedestrian area / shopping centre"
-            ],
-            "hint": "Phố đi bộ / Trung tâm thương mại.",
-            "explanation": "Từ cần điền là \"pedestrian area / shopping centre\", mang nghĩa là \"Phố đi bộ / Trung tâm thương mại.\"."
-          }
-        ]
-      },
-      {
         "exNum": "38.2",
         "type": "matching",
         "instruction": "Ghép các từ tiếng Anh ở cột trái với nghĩa tiếng Việt tương ứng ở cột phải:",
@@ -4961,68 +4607,6 @@ export const courseData = [
             "explanation": "Từ \"Where is the...?\" thuộc nhóm \"Topic B\"."
           }
         ]
-      },
-      {
-        "exNum": "38.4",
-        "type": "error_correction",
-        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
-        "questions": [
-          {
-            "id": "ex_38_4_0",
-            "original": "I really like museum / town hall / car parks.",
-            "correct": "You can see old things in the museum. Park in the car park.",
-            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"museum / town hall / car park\" thay vì \"museum / town hall / car parks\"."
-          },
-          {
-            "id": "ex_38_4_1",
-            "original": "I really like pedestrian area / shopping centres.",
-            "correct": "A pedestrian area is for walking only, no cars.",
-            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"pedestrian area / shopping centre\" thay vì \"pedestrian area / shopping centres\"."
-          }
-        ]
-      },
-      {
-        "exNum": "38.5",
-        "type": "fill_in_blanks",
-        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
-        "questions": [
-          {
-            "id": "ex_38_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "no parking / no entry / bus stop"
-            ],
-            "hint": "Cấm đỗ xe / Cấm vào / Điểm dừng xe buýt.",
-            "explanation": "Từ cần điền là \"no parking / no entry / bus stop\"."
-          },
-          {
-            "id": "ex_38_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "Where is the...?"
-            ],
-            "hint": "Đường đến... ở đâu?",
-            "explanation": "Từ cần điền là \"Where is the...?\"."
-          },
-          {
-            "id": "ex_38_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "How do I get to...?"
-            ],
-            "hint": "Làm thế nào để tôi đi đến...?",
-            "explanation": "Từ cần điền là \"How do I get to...?\"."
-          },
-          {
-            "id": "ex_38_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "Excuse me, I'm looking for..."
-            ],
-            "hint": "Xin lỗi, tôi đang tìm kiếm...",
-            "explanation": "Từ cần điền là \"Excuse me, I'm looking for...\"."
-          }
-        ]
       }
     ]
   },
@@ -5042,8 +4626,7 @@ export const courseData = [
           "collocations": [
             "have a mountains / hills / forest / wood",
             "use mountains / hills / forest / wood"
-          ],
-          "wordFamily": "Biến thể của mountains / hills / forest / wood"
+          ]
         },
         {
           "word": "lake / river / country road / path",
@@ -5055,8 +4638,7 @@ export const courseData = [
           "collocations": [
             "have a lake / river / country road / path",
             "use lake / river / country road / path"
-          ],
-          "wordFamily": "Biến thể của lake / river / country road / path"
+          ]
         },
         {
           "word": "village / small town",
@@ -5068,8 +4650,7 @@ export const courseData = [
           "collocations": [
             "have a village / small town",
             "use village / small town"
-          ],
-          "wordFamily": "Biến thể của village / small town"
+          ]
         },
         {
           "word": "farm / farmer / fields",
@@ -5081,8 +4662,7 @@ export const courseData = [
           "collocations": [
             "have a farm / farmer / fields",
             "use farm / farmer / fields"
-          ],
-          "wordFamily": "Biến thể của farm / farmer / fields"
+          ]
         },
         {
           "word": "cottage",
@@ -5094,8 +4674,7 @@ export const courseData = [
           "collocations": [
             "have a cottage",
             "use cottage"
-          ],
-          "wordFamily": "Biến thể của cottage"
+          ]
         },
         {
           "word": "nature / wildlife",
@@ -5107,8 +4686,7 @@ export const courseData = [
           "collocations": [
             "have a nature / wildlife",
             "use nature / wildlife"
-          ],
-          "wordFamily": "Biến thể của nature / wildlife"
+          ]
         },
         {
           "word": "national park / conservation area",
@@ -5120,8 +4698,7 @@ export const courseData = [
           "collocations": [
             "have a national park / conservation area",
             "use national park / conservation area"
-          ],
-          "wordFamily": "Biến thể của national park / conservation area"
+          ]
         }
       ],
       "practicalUsage": [
@@ -5173,24 +4750,6 @@ export const courseData = [
         }
       ],
       "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"mountains / hills / forest / wood\"",
-              "value": "mountains / hills / forest / woodful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"lake / river / country road / path\"",
-              "value": "lake / river / country road / pathful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"village / small town\"",
-              "value": "village / small townful (Tính từ)"
-            }
-          ]
-        },
         {
           "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
           "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
@@ -5816,8 +5375,7 @@ export const courseData = [
           "collocations": [
             "have a horse / cow / sheep / pig / hen",
             "use horse / cow / sheep / pig / hen"
-          ],
-          "wordFamily": "Biến thể của horse / cow / sheep / pig / hen"
+          ]
         },
         {
           "word": "meat names",
@@ -5826,8 +5384,7 @@ export const courseData = [
           "vi": "Tên thịt tương ứng: cow -> beef, sheep -> lamb, pig -> pork/bacon/ham, hen -> chicken.",
           "example": "I like eating lamb.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của meat names"
+          "collocations": []
         },
         {
           "word": "elephant / giraffe / lion / tiger",
@@ -5839,8 +5396,7 @@ export const courseData = [
           "collocations": [
             "have a elephant / giraffe / lion / tiger",
             "use elephant / giraffe / lion / tiger"
-          ],
-          "wordFamily": "Biến thể của elephant / giraffe / lion / tiger"
+          ]
         },
         {
           "word": "monkey / snake",
@@ -5852,8 +5408,7 @@ export const courseData = [
           "collocations": [
             "have a monkey / snake",
             "use monkey / snake"
-          ],
-          "wordFamily": "Biến thể của monkey / snake"
+          ]
         },
         {
           "word": "dog / cat / fish / parrot / tortoise",
@@ -5865,8 +5420,7 @@ export const courseData = [
           "collocations": [
             "have a dog / cat / fish / parrot / tortoise",
             "use dog / cat / fish / parrot / tortoise"
-          ],
-          "wordFamily": "Biến thể của dog / cat / fish / parrot / tortoise"
+          ]
         }
       ],
       "practicalUsage": [
@@ -5915,16 +5469,8 @@ export const courseData = [
           "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
           "details": [
             {
-              "title": "Họ từ (Word Family) của \"horse / cow / sheep / pig / hen\"",
-              "value": "horse / cow / sheep / pig / henful (Tính từ)"
-            },
-            {
               "title": "Họ từ (Word Family) của \"meat names\"",
               "value": "Các dạng từ loại khác của \"meat names\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"elephant / giraffe / lion / tiger\"",
-              "value": "elephant / giraffe / lion / tigerful (Tính từ)"
             }
           ]
         },
@@ -6528,8 +6074,7 @@ export const courseData = [
           "vi": "Tàu hỏa / Máy bay / Ô tô / Xe buýt.",
           "example": "Travelling by plane is very fast. I go to school by bus.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của train / plane / car / bus"
+          "collocations": []
         },
         {
           "word": "motorbike / underground / boat",
@@ -6538,8 +6083,7 @@ export const courseData = [
           "vi": "Xe máy / Tàu điện ngầm / Thuyền.",
           "example": "In London we take the underground.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của motorbike / underground / boat"
+          "collocations": []
         },
         {
           "word": "timetable / map",
@@ -6548,8 +6092,7 @@ export const courseData = [
           "vi": "Lịch trình tàu chạy / Bản đồ.",
           "example": "Check the timetable to see when the train departs.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của timetable / map"
+          "collocations": []
         },
         {
           "word": "single ticket / return ticket",
@@ -6558,8 +6101,7 @@ export const courseData = [
           "vi": "Vé một chiều / Vé khứ hồi.",
           "example": "Can I have a return ticket to Oxford please?",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của single ticket / return ticket"
+          "collocations": []
         },
         {
           "word": "book a seat",
@@ -6571,8 +6113,7 @@ export const courseData = [
           "collocations": [
             "book a seat something",
             "always book a seat"
-          ],
-          "wordFamily": "Biến thể của book a seat"
+          ]
         },
         {
           "word": "arrive at platform",
@@ -6581,8 +6122,7 @@ export const courseData = [
           "vi": "Đến sân ga số...",
           "example": "The train departs from platform 6.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của arrive at platform"
+          "collocations": []
         },
         {
           "word": "check in / takes off / land",
@@ -6591,8 +6131,7 @@ export const courseData = [
           "vi": "Thủ tục lên máy bay / Cất cánh / Hạ cánh.",
           "example": "Check in 2 hours before the plane takes off. The plane landed safely.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của check in / takes off / land"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -6667,16 +6206,8 @@ export const courseData = [
           "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
           "details": [
             {
-              "title": "Cụm từ (Collocations) với \"single ticket / return ticket\"",
-              "value": "Cụm từ liên quan đến single ticket / return ticket"
-            },
-            {
               "title": "Cụm từ (Collocations) với \"book a seat\"",
               "value": "Ví dụ: book a seat quickly, always book a seat"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"arrive at platform\"",
-              "value": "Cụm từ liên quan đến arrive at platform"
             }
           ]
         }
@@ -7244,8 +6775,7 @@ export const courseData = [
           "vi": "Cấm hút thuốc.",
           "example": "You can see 'No Smoking' in restaurants and planes.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của No smoking"
+          "collocations": []
         },
         {
           "word": "Out of order",
@@ -7254,8 +6784,7 @@ export const courseData = [
           "vi": "Máy hỏng, không hoạt động (dùng cho điện thoại công cộng, máy bán nước).",
           "example": "The public telephone is out of order.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Out of order"
+          "collocations": []
         },
         {
           "word": "No camping / No parking",
@@ -7264,8 +6793,7 @@ export const courseData = [
           "vi": "Cấm cắm trại / Cấm đỗ xe.",
           "example": "There is a 'No Parking' sign outside the gate.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của No camping / No parking"
+          "collocations": []
         },
         {
           "word": "Push / Pull",
@@ -7274,8 +6802,7 @@ export const courseData = [
           "vi": "Đẩy vào / Kéo ra (ở cánh cửa).",
           "example": "Push the door to enter, pull it to exit.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Push / Pull"
+          "collocations": []
         },
         {
           "word": "Open / Closed",
@@ -7284,8 +6811,7 @@ export const courseData = [
           "vi": "Mở cửa / Đóng cửa.",
           "example": "The shop is closed on Sunday.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Open / Closed"
+          "collocations": []
         },
         {
           "word": "Sale",
@@ -7294,8 +6820,7 @@ export const courseData = [
           "vi": "Đợt giảm giá, xả hàng.",
           "example": "The big summer sale starts today.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Sale"
+          "collocations": []
         },
         {
           "word": "Please pay here",
@@ -7304,8 +6829,7 @@ export const courseData = [
           "vi": "Vui lòng thanh toán tại đây (ở quầy thu ngân).",
           "example": "Take your items to the cash desk: 'Please pay here'.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Please pay here"
+          "collocations": []
         },
         {
           "word": "Please do not walk on the grass",
@@ -7314,8 +6838,7 @@ export const courseData = [
           "vi": "Vui lòng không đi bộ trên cỏ.",
           "example": "You see this notice in public parks.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của Please do not walk on the grass"
+          "collocations": []
         },
         {
           "word": "Queue this side",
@@ -7324,8 +6847,7 @@ export const courseData = [
           "vi": "Xếp hàng bên này.",
           "example": "Please queue this side to buy tickets.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Queue this side"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -7400,24 +6922,6 @@ export const courseData = [
             {
               "title": "Họ từ (Word Family) của \"No camping / No parking\"",
               "value": "Các dạng từ loại khác của \"No camping / No parking\" đang được cập nhật."
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"Push / Pull\"",
-              "value": "Cụm từ liên quan đến Push / Pull"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"Open / Closed\"",
-              "value": "Cụm từ liên quan đến Open / Closed"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"Sale\"",
-              "value": "Cụm từ liên quan đến Sale"
             }
           ]
         }
@@ -7922,24 +7426,6 @@ export const courseData = [
             ],
             "hint": "Máy hỏng, không hoạt động (dùng cho điện thoại công cộng, máy bán nước).",
             "explanation": "Từ cần điền là \"Out of order\", mang nghĩa là \"Máy hỏng, không hoạt động (dùng cho điện thoại công cộng, máy bán nước).\"."
-          },
-          {
-            "id": "ex_42_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "No camping / No parking"
-            ],
-            "hint": "Cấm cắm trại / Cấm đỗ xe.",
-            "explanation": "Từ cần điền là \"No camping / No parking\", mang nghĩa là \"Cấm cắm trại / Cấm đỗ xe.\"."
-          },
-          {
-            "id": "ex_42_1_3",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "Push / Pull"
-            ],
-            "hint": "Đẩy vào / Kéo ra (ở cánh cửa).",
-            "explanation": "Từ cần điền là \"Push / Pull\", mang nghĩa là \"Đẩy vào / Kéo ra (ở cánh cửa).\"."
           }
         ]
       },
@@ -8046,38 +7532,10 @@ export const courseData = [
         ]
       },
       {
-        "exNum": "42.4",
-        "type": "error_correction",
-        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
-        "questions": [
-          {
-            "id": "ex_42_4_0",
-            "original": "I really like No camping / No parkings.",
-            "correct": "There is a 'No Parking' sign outside the gate.",
-            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"No camping / No parking\" thay vì \"No camping / No parkings\"."
-          },
-          {
-            "id": "ex_42_4_1",
-            "original": "I really like Push / Pulls.",
-            "correct": "Push the door to enter, pull it to exit.",
-            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"Push / Pull\" thay vì \"Push / Pulls\"."
-          }
-        ]
-      },
-      {
         "exNum": "42.5",
         "type": "fill_in_blanks",
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
-          {
-            "id": "ex_42_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "Open / Closed"
-            ],
-            "hint": "Mở cửa / Đóng cửa.",
-            "explanation": "Từ cần điền là \"Open / Closed\"."
-          },
           {
             "id": "ex_42_5_1",
             "text": "The big summer [blank] starts today.",
@@ -8095,15 +7553,6 @@ export const courseData = [
             ],
             "hint": "Vui lòng thanh toán tại đây (ở quầy thu ngân).",
             "explanation": "Từ cần điền là \"Please pay here\"."
-          },
-          {
-            "id": "ex_42_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "Please do not walk on the grass"
-            ],
-            "hint": "Vui lòng không đi bộ trên cỏ.",
-            "explanation": "Từ cần điền là \"Please do not walk on the grass\"."
           }
         ]
       }
@@ -8125,8 +7574,7 @@ export const courseData = [
           "collocations": [
             "have a bread / rice / pasta",
             "use bread / rice / pasta"
-          ],
-          "wordFamily": "Biến thể của bread / rice / pasta"
+          ]
         },
         {
           "word": "meat / fish",
@@ -8138,8 +7586,7 @@ export const courseData = [
           "collocations": [
             "have a meat / fish",
             "use meat / fish"
-          ],
-          "wordFamily": "Biến thể của meat / fish"
+          ]
         },
         {
           "word": "hot-dog / hamburger / pizza",
@@ -8151,8 +7598,7 @@ export const courseData = [
           "collocations": [
             "have a hot-dog / hamburger / pizza",
             "use hot-dog / hamburger / pizza"
-          ],
-          "wordFamily": "Biến thể của hot-dog / hamburger / pizza"
+          ]
         },
         {
           "word": "fish and chips",
@@ -8164,8 +7610,7 @@ export const courseData = [
           "collocations": [
             "have a fish and chips",
             "use fish and chips"
-          ],
-          "wordFamily": "Biến thể của fish and chips"
+          ]
         },
         {
           "word": "carrot / bean / potato / tomato",
@@ -8174,8 +7619,7 @@ export const courseData = [
           "vi": "Cà rốt / Hạt đậu / Khoai tây / Cà chua.",
           "example": "Vegetables are good for you.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của carrot / bean / potato / tomato"
+          "collocations": []
         },
         {
           "word": "apple / banana / pear / grape / strawberry",
@@ -8184,8 +7628,7 @@ export const courseData = [
           "vi": "Quả táo / Chuối / Lê / Nho / Dâu tây.",
           "example": "Fruit is also good for you (Fruit ở dạng số ít không đếm được nói chung).",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của apple / banana / pear / grape / strawberry"
+          "collocations": []
         },
         {
           "word": "tea / coffee / milk / fruit juice",
@@ -8194,8 +7637,7 @@ export const courseData = [
           "vi": "Trà / Cà phê / Sữa / Nước ép hoa quả.",
           "example": "I drink a glass of milk in the morning.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của tea / coffee / milk / fruit juice"
+          "collocations": []
         },
         {
           "word": "beer / wine / mineral water",
@@ -8204,8 +7646,7 @@ export const courseData = [
           "vi": "Bia / Rượu vang / Nước khoáng.",
           "example": "Would you like a glass of red wine?",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của beer / wine / mineral water"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -8268,38 +7709,12 @@ export const courseData = [
       ],
       "discoveryCorner": [
         {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit này:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"bread / rice / pasta\"",
-              "value": "bread / rice / pastaful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"meat / fish\"",
-              "value": "meat / fishful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"hot-dog / hamburger / pizza\"",
-              "value": "hot-dog / hamburger / pizzaful (Tính từ)"
-            }
-          ]
-        },
-        {
           "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
           "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
           "details": [
             {
               "title": "Cụm từ (Collocations) với \"fish and chips\"",
               "value": "Ví dụ: have a fish and chips, make a fish and chips, good fish and chips"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"carrot / bean / potato / tomato\"",
-              "value": "Cụm từ liên quan đến carrot / bean / potato / tomato"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"apple / banana / pear / grape / strawberry\"",
-              "value": "Cụm từ liên quan đến apple / banana / pear / grape / strawberry"
             }
           ]
         }
@@ -8788,33 +8203,6 @@ export const courseData = [
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
           {
-            "id": "ex_43_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "bread / rice / pasta"
-            ],
-            "hint": "Bánh mì / Cơm, gạo / Mì ống.",
-            "explanation": "Từ cần điền là \"bread / rice / pasta\", mang nghĩa là \"Bánh mì / Cơm, gạo / Mì ống.\"."
-          },
-          {
-            "id": "ex_43_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "meat / fish"
-            ],
-            "hint": "Thịt / Cá.",
-            "explanation": "Từ cần điền là \"meat / fish\", mang nghĩa là \"Thịt / Cá.\"."
-          },
-          {
-            "id": "ex_43_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "hot-dog / hamburger / pizza"
-            ],
-            "hint": "Bánh mì kẹp xúc xích / Hamburgers / Bánh pizza.",
-            "explanation": "Từ cần điền là \"hot-dog / hamburger / pizza\", mang nghĩa là \"Bánh mì kẹp xúc xích / Hamburgers / Bánh pizza.\"."
-          },
-          {
             "id": "ex_43_1_3",
             "text": "Most British people like [blank].",
             "answers": [
@@ -8933,59 +8321,10 @@ export const courseData = [
         "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
         "questions": [
           {
-            "id": "ex_43_4_0",
-            "original": "I really like hot-dog / hamburger / pizzas.",
-            "correct": "Young people love fast food like pizza and hot-dogs.",
-            "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"hot-dog / hamburger / pizza\" thay vì \"hot-dog / hamburger / pizzas\"."
-          },
-          {
             "id": "ex_43_4_1",
             "original": "Most British people like fish and chip.",
             "correct": "Most British people like fish and chips.",
             "explanation": "Từ viết đúng chính tả/ngữ pháp phải là \"fish and chips\" thay vì \"fish and chip\"."
-          }
-        ]
-      },
-      {
-        "exNum": "43.5",
-        "type": "fill_in_blanks",
-        "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
-        "questions": [
-          {
-            "id": "ex_43_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "carrot / bean / potato / tomato"
-            ],
-            "hint": "Cà rốt / Hạt đậu / Khoai tây / Cà chua.",
-            "explanation": "Từ cần điền là \"carrot / bean / potato / tomato\"."
-          },
-          {
-            "id": "ex_43_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "apple / banana / pear / grape / strawberry"
-            ],
-            "hint": "Quả táo / Chuối / Lê / Nho / Dâu tây.",
-            "explanation": "Từ cần điền là \"apple / banana / pear / grape / strawberry\"."
-          },
-          {
-            "id": "ex_43_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "tea / coffee / milk / fruit juice"
-            ],
-            "hint": "Trà / Cà phê / Sữa / Nước ép hoa quả.",
-            "explanation": "Từ cần điền là \"tea / coffee / milk / fruit juice\"."
-          },
-          {
-            "id": "ex_43_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "beer / wine / mineral water"
-            ],
-            "hint": "Bia / Rượu vang / Nước khoáng.",
-            "explanation": "Từ cần điền là \"beer / wine / mineral water\"."
           }
         ]
       }
@@ -9004,8 +8343,7 @@ export const courseData = [
           "vi": "Tủ lạnh / Tủ đông.",
           "example": "Keep the milk in the fridge. The ice is in the freezer.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của fridge / freezer"
+          "collocations": []
         },
         {
           "word": "cooker / microwave",
@@ -9014,8 +8352,7 @@ export const courseData = [
           "vi": "Bếp nấu / Lò vi sóng.",
           "example": "Cook dinner on the cooker. Heat the soup in the microwave.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của cooker / microwave"
+          "collocations": []
         },
         {
           "word": "sink / cupboard / taps",
@@ -9024,8 +8361,7 @@ export const courseData = [
           "vi": "Bồn rửa chén / Tủ ly chén / Vòi nước.",
           "example": "Put the dirty dishes in the sink. Turn the tap on.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của sink / cupboard / taps"
+          "collocations": []
         },
         {
           "word": "saucepan / frying pan",
@@ -9034,8 +8370,7 @@ export const courseData = [
           "vi": "Nồi sâu lòng / Chảo rán.",
           "example": "Boil potatoes in a saucepan. Fry eggs in a frying pan.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của saucepan / frying pan"
+          "collocations": []
         },
         {
           "word": "washing-up liquid / teapot",
@@ -9044,8 +8379,7 @@ export const courseData = [
           "vi": "Nước rửa chén / Ấm pha trà.",
           "example": "Wash the dishes with washing-up liquid. Put tea in the teapot.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của washing-up liquid / teapot"
+          "collocations": []
         },
         {
           "word": "cup / plate / bowl / saucer",
@@ -9054,8 +8388,7 @@ export const courseData = [
           "vi": "Cái tách / Đĩa / Bát / Đĩa lót tách.",
           "example": "Pour tea into the cup. Eat soup from a bowl.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của cup / plate / bowl / saucer"
+          "collocations": []
         },
         {
           "word": "knife / fork / spoon / chopsticks",
@@ -9064,8 +8397,7 @@ export const courseData = [
           "vi": "Con dao / Cái nĩa / Cái thìa / Đôi đũa.",
           "example": "Cut meat with a knife. Eat rice with chopsticks.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của knife / fork / spoon / chopsticks"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -9132,24 +8464,6 @@ export const courseData = [
             {
               "title": "Họ từ (Word Family) của \"sink / cupboard / taps\"",
               "value": "Các dạng từ loại khác của \"sink / cupboard / taps\" đang được cập nhật."
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"saucepan / frying pan\"",
-              "value": "Cụm từ liên quan đến saucepan / frying pan"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"washing-up liquid / teapot\"",
-              "value": "Cụm từ liên quan đến washing-up liquid / teapot"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"cup / plate / bowl / saucer\"",
-              "value": "Cụm từ liên quan đến cup / plate / bowl / saucer"
             }
           ]
         }
@@ -9717,8 +9031,7 @@ export const courseData = [
           "vi": "Giường ngủ / Đồng hồ báo thức / Tủ quần áo.",
           "example": "I wake up when the alarm clock rings. Hang your coat in the wardrobe.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của bed / alarm clock / wardrobe"
+          "collocations": []
         },
         {
           "word": "dressing table / chest of drawers / bedside table",
@@ -9727,8 +9040,7 @@ export const courseData = [
           "vi": "Bàn trang điểm / Tủ nhiều ngăn kéo / Bàn đầu giường.",
           "example": "Put the alarm clock on the bedside table.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của dressing table / chest of drawers / bedside table"
+          "collocations": []
         },
         {
           "word": "shower / bath / basin / toilet",
@@ -9737,8 +9049,7 @@ export const courseData = [
           "vi": "Vòi sen / Bồn tắm / Bồn rửa mặt / Bồn cầu.",
           "example": "I have a shower in the morning. Put water in the basin.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của shower / bath / basin / toilet"
+          "collocations": []
         },
         {
           "word": "soap / shampoo / toothpaste / toothbrush / towel",
@@ -9747,8 +9058,7 @@ export const courseData = [
           "vi": "Xà bông / Dầu gội / Kem đánh răng / Bàn chải / Khăn tắm.",
           "example": "Wash your hands with soap. Clean teeth with toothbrush and toothpaste.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của soap / shampoo / toothpaste / toothbrush / towel"
+          "collocations": []
         },
         {
           "word": "wake up / get up / get dressed",
@@ -9757,8 +9067,7 @@ export const courseData = [
           "vi": "Thức giấc / Thức dậy (ra khỏi giường) / Mặc quần áo.",
           "example": "Joel wakes up at 7, gets up at 7.15, and gets dressed.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của wake up / get up / get dressed"
+          "collocations": []
         },
         {
           "word": "clean teeth / turn off the light / fall asleep",
@@ -9767,8 +9076,7 @@ export const courseData = [
           "vi": "Đánh răng / Tắt đèn / Ngủ thiếp đi.",
           "example": "He cleans his teeth, turns off the light, and falls asleep.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của clean teeth / turn off the light / fall asleep"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -9831,24 +9139,6 @@ export const courseData = [
             {
               "title": "Họ từ (Word Family) của \"shower / bath / basin / toilet\"",
               "value": "Các dạng từ loại khác của \"shower / bath / basin / toilet\" đang được cập nhật."
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"soap / shampoo / toothpaste / toothbrush / towel\"",
-              "value": "Cụm từ liên quan đến soap / shampoo / toothpaste / toothbrush / towel"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"wake up / get up / get dressed\"",
-              "value": "Cụm từ liên quan đến wake up / get up / get dressed"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"clean teeth / turn off the light / fall asleep\"",
-              "value": "Cụm từ liên quan đến clean teeth / turn off the light / fall asleep"
             }
           ]
         }
@@ -10407,8 +9697,7 @@ export const courseData = [
           "vi": "Ghế sofa / Ghế bành (có tay vịn).",
           "example": "Two people can sit on the sofa. I sat in the armchair.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của sofa / armchair"
+          "collocations": []
         },
         {
           "word": "bookshelf / power point / light switch",
@@ -10417,8 +9706,7 @@ export const courseData = [
           "vi": "Kệ sách / Ổ cắm điện / Công tắc đèn.",
           "example": "Put the novels on the bookshelf. Plug the TV into the power point.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của bookshelf / power point / light switch"
+          "collocations": []
         },
         {
           "word": "coffee table / carpet / curtains",
@@ -10427,8 +9715,7 @@ export const courseData = [
           "vi": "Bàn trà nhỏ / Tấm thảm trải sàn / Rèm cửa sổ.",
           "example": "We put cups on the coffee table. Close the curtains because it is dark.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của coffee table / carpet / curtains"
+          "collocations": []
         },
         {
           "word": "near / next to / in the corner",
@@ -10437,8 +9724,7 @@ export const courseData = [
           "vi": "Gần / Ngay bên cạnh / Trong góc phòng.",
           "example": "The sofa is near the window. The TV is in the corner.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của near / next to / in the corner"
+          "collocations": []
         },
         {
           "word": "against the wall / under",
@@ -10447,8 +9733,7 @@ export const courseData = [
           "vi": "Tựa vào tường / Bên dưới.",
           "example": "The bookshelf is against the wall. The book is under the table.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của against the wall / under"
+          "collocations": []
         },
         {
           "word": "watch television / listen to the radio",
@@ -10457,8 +9742,7 @@ export const courseData = [
           "vi": "Xem tivi / Nghe đài.",
           "example": "Every evening I watch television. I listen to the radio in the morning.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của watch television / listen to the radio"
+          "collocations": []
         },
         {
           "word": "remote control / reading lamp",
@@ -10467,8 +9751,7 @@ export const courseData = [
           "vi": "Điều khiển từ xa / Đèn đọc sách.",
           "example": "Where is the remote control for the TV? Turn on the reading lamp.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của remote control / reading lamp"
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -10535,24 +9818,6 @@ export const courseData = [
             {
               "title": "Họ từ (Word Family) của \"coffee table / carpet / curtains\"",
               "value": "Các dạng từ loại khác của \"coffee table / carpet / curtains\" đang được cập nhật."
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"near / next to / in the corner\"",
-              "value": "Cụm từ liên quan đến near / next to / in the corner"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"against the wall / under\"",
-              "value": "Cụm từ liên quan đến against the wall / under"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"watch television / listen to the radio\"",
-              "value": "Cụm từ liên quan đến watch television / listen to the radio"
             }
           ]
         }

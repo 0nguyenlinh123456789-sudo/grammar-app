@@ -1715,8 +1715,6 @@ const vocabExtendedData = [
         "type": "(v)",
         "vi": "đàm phán/thương lượng",
         "ipa": "/nɪˈɡəʊʃieɪt/",
-        "example": "Negotiate business contract details",
-        "viExample": "Agree passively",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2438,8 +2436,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "con ngựa vằn",
         "ipa": "/ˈzebrə/",
-        "example": "Striped zebra running grass",
-        "viExample": "Black horse",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2448,8 +2444,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "gấu trúc",
         "ipa": "/ˈpændə/",
-        "example": "Cute black white panda eats bamboo",
-        "viExample": "Scary polar bear",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2458,8 +2452,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "bánh quy",
         "ipa": "/ˈkʊki/",
-        "example": "Sweet chocolate chip cookie",
-        "viExample": "Salty soup",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2468,8 +2460,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "chó con",
         "ipa": "/ˈpʌpi/",
-        "example": "Adorable puppy tail",
-        "viExample": "Old cat",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2478,8 +2468,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "mèo con",
         "ipa": "/ˈkɪtn/",
-        "example": "Soft white kitten",
-        "viExample": "Dog bark",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2488,8 +2476,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "quả bóng bóng",
         "ipa": "/bəˈluːn/",
-        "example": "Red fly balloon air",
-        "viExample": "Heavy stone",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2498,8 +2484,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "đàn ghi-ta",
         "ipa": "/ɡɪˈtɑː/",
-        "example": "Play simple children guitar melody",
-        "viExample": "Big drum",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2508,8 +2492,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "bút màu sáp",
         "ipa": "/ˈkreɪən/",
-        "example": "Draw pictures color crayons",
-        "viExample": "Lead pencil",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2518,8 +2500,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "bút chì",
         "ipa": "/ˈpensl/",
-        "example": "Write letters wooden pencil",
-        "viExample": "Marker pen",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2528,8 +2508,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "cục tẩy",
         "ipa": "/ɪˈreɪzə/",
-        "example": "Rub mistakes rub eraser",
-        "viExample": "Permanent pen",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2538,8 +2516,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "con nhện",
         "ipa": "/ˈspaɪdə/",
-        "example": "Climbing web small spider",
-        "viExample": "Flying bird",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2548,8 +2524,6 @@ const vocabExtendedData = [
         "type": "(n)",
         "vi": "cá heo",
         "ipa": "/ˈdɒlfɪn/",
-        "example": "Friendly ocean dolphin jumps",
-        "viExample": "Shark predator",
         "synonyms": "",
         "antonyms": ""
       },

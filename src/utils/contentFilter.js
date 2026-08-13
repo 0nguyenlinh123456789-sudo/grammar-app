@@ -1,11 +1,19 @@
 // File: src/utils/contentFilter.js
-// LỚP LỌC NỘI DUNG RUNTIME — TẠM THỜI (băng gạc, không thay thế việc dọn dữ liệu).
+// LỚP LỌC NỘI DUNG RUNTIME — nay là LƯỚI AN TOÀN, không còn là băng gạc.
 //
-// Bối cảnh: các file src/data/oxfordPreIntData*.js chứa ~2.600 item bài tập rác
-// do các nhánh fallback của generate_preint_data*.js sinh ra (kiểm kê ngày
-// 2026-08-12 — xem AUDIT_SU_PHAM.md và KE_HOACH_TRIEN_KHAI.md, hạng mục #3).
-// Lớp lọc này chặn không cho người học nhìn thấy item rác cho tới khi dữ liệu
-// được sinh lại sạch; khi đó có thể gỡ lớp lọc.
+// Bối cảnh: từ 2026-08-12 lớp lọc này che ~4.600 item máy-sinh hỏng để người
+// học không nhìn thấy, trong khi chờ dọn dữ liệu (xem AUDIT_SU_PHAM.md và
+// KE_HOACH_TRIEN_KHAI.md hạng mục #3).
+//
+// 2026-08-13, #3 XONG: dữ liệu THÔ đã sạch — 3 file Pre-Int sinh lại từ
+// generator sạch, 7 file oxford*/3 file vocab* mổ trực tiếp bằng
+// scripts/clean_legacy_data.mjs. `scripts/content_baseline.json` nay RỖNG:
+// không còn vi phạm tồn đọng nào, và bất kỳ vi phạm mới nào cũng FAIL build.
+//
+// VÌ THẾ ĐỪNG GỠ LỚP LỌC NÀY. Nó không còn che gì nữa (lọc 0 item), nhưng
+// chính vì vậy nó thành lưới an toàn miễn phí: tầng 2 của validator cho dữ
+// liệu chạy qua đúng lớp lọc này rồi kiểm lại, nên mọi luật ở đây vừa là
+// hàng rào runtime vừa là định nghĩa "rác" mà CI dùng để chấm.
 //
 // NGUYÊN TẮC: luật lọc CỐ Ý HẸP — chỉ khớp đúng các mẫu máy-sinh đã kiểm kê,
 // tuyệt đối không dùng luật rộng (kiểu "chứa tiếng Việt là loại"), vì dữ liệu

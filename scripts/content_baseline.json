@@ -13,50 +13,5 @@
     "2026-08-12 (e1): thêm luật MỚI 'vocab-example-pair' (553 cặp example/viExample máy-sinh: vocabFinalData 356, vocabMoreData 184, vocabExtendedData 13) — kiểm kê lần đầu; sanitizeVocabTopics đã ẩn ở runtime cùng ngày.",
     "2026-08-12 (f2): thêm luật MỚI 'typing-fake-meaning' (393 câu typing 'Gõ cụm từ tiếng Anh có nghĩa là: cảm thấy rất/sử dụng một/nỗ lực thực hiện + từ Anh chưa dịch', oxfordPreIntData.js) — kiểm kê lần đầu, contentFilter đã ẩn runtime cùng ngày."
   ],
-  "files": {
-    "vocabExtendedData.js": {
-      "vocab-example-pair": 13
-    },
-    "vocabFinalData.js": {
-      "vocab-example-pair": 356
-    },
-    "vocabMoreData.js": {
-      "vocab-example-pair": 184
-    },
-    "oxfordAdvancedData1_25.js": {
-      "textbook": 13,
-      "textbook-original": 2,
-      "speaking-trans": 25
-    },
-    "oxfordAdvancedData26_50.js": {
-      "textbook": 27,
-      "textbook-original": 7,
-      "speaking-trans": 25
-    },
-    "oxfordAdvancedData51_75.js": {
-      "textbook": 19,
-      "textbook-original": 5,
-      "speaking-trans": 25
-    },
-    "oxfordAdvancedData76_100.js": {
-      "textbook": 56,
-      "textbook-original": 18,
-      "speaking-trans": 25
-    },
-    "oxfordData.js": {
-      "textbook": 153,
-      "theory": 99,
-      "textbook-original": 39
-    },
-    "oxfordDataPart2.js": {
-      "textbook": 32,
-      "theory": 40,
-      "textbook-original": 9
-    },
-    "oxfordDataPart3.js": {
-      "textbook": 21,
-      "theory": 48,
-      "textbook-original": 5
-    }
-  }
+  "files": {}
 }

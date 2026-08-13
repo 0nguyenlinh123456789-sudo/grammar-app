@@ -18,8 +18,7 @@ export const courseData1_25 = [
           "collocations": [
             "important FAQ",
             "FAQ system"
-          ],
-          "wordFamily": "Biến thể của FAQ"
+          ]
         },
         {
           "word": "ASAP",
@@ -28,8 +27,7 @@ export const courseData1_25 = [
           "vi": "càng sớm càng tốt",
           "example": "Please send me the report ASAP.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của ASAP"
+          "collocations": []
         },
         {
           "word": "o.n.o.",
@@ -38,8 +36,7 @@ export const courseData1_25 = [
           "vi": "hoặc mức giá gần nhất (or near offer)",
           "example": "Bicycle for sale, £50 o.n.o.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của o.n.o."
+          "collocations": []
         },
         {
           "word": "RSVP",
@@ -51,8 +48,7 @@ export const courseData1_25 = [
           "collocations": [
             "RSVP effectively",
             "must RSVP"
-          ],
-          "wordFamily": "Biến thể của RSVP"
+          ]
         },
         {
           "word": "ID",
@@ -64,8 +60,7 @@ export const courseData1_25 = [
           "collocations": [
             "important ID",
             "ID system"
-          ],
-          "wordFamily": "Biến thể của ID"
+          ]
         },
         {
           "word": "DOB",
@@ -77,8 +72,7 @@ export const courseData1_25 = [
           "collocations": [
             "important DOB",
             "DOB system"
-          ],
-          "wordFamily": "Biến thể của DOB"
+          ]
         },
         {
           "word": "AWOL",
@@ -90,8 +84,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly AWOL",
             "extremely AWOL"
-          ],
-          "wordFamily": "Biến thể của AWOL"
+          ]
         },
         {
           "word": "PR",
@@ -103,8 +96,7 @@ export const courseData1_25 = [
           "collocations": [
             "important PR",
             "PR system"
-          ],
-          "wordFamily": "Biến thể của PR"
+          ]
         }
       ],
       "practicalUsage": [
@@ -209,15 +201,6 @@ export const courseData1_25 = [
             ],
             "hint": "càng sớm càng tốt",
             "explanation": "Từ cần điền là \"ASAP\", mang nghĩa là \"càng sớm càng tốt\"."
-          },
-          {
-            "id": "ex_1_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "o.n.o."
-            ],
-            "hint": "hoặc mức giá gần nhất (or near offer)",
-            "explanation": "Từ cần điền là \"o.n.o.\", mang nghĩa là \"hoặc mức giá gần nhất (or near offer)\"."
           },
           {
             "id": "ex_1_1_3",
@@ -338,12 +321,6 @@ export const courseData1_25 = [
         "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
         "questions": [
           {
-            "id": "ex_1_4_0",
-            "original": "I really like o.n.o.s.",
-            "correct": "Bicycle for sale, £50 o.n.o.",
-            "explanation": "Từ viết đúng chính xác phải là \"o.n.o.\"."
-          },
-          {
             "id": "ex_1_4_1",
             "original": "Please RSVPs by the end of the month.",
             "correct": "Please RSVP by the end of the month.",
@@ -463,8 +440,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "If you have any problems, please check the FAQ section.",
-        "trans": "[Tạm dịch] Câu ví dụ cho FAQ"
+        "text": "If you have any problems, please check the FAQ section."
       }
     ]
   },
@@ -484,8 +460,7 @@ export const courseData1_25 = [
           "collocations": [
             "overestimate effectively",
             "must overestimate"
-          ],
-          "wordFamily": "Biến thể của overestimate"
+          ]
         },
         {
           "word": "overrated",
@@ -497,8 +472,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly overrated",
             "extremely overrated"
-          ],
-          "wordFamily": "Biến thể của overrated"
+          ]
         },
         {
           "word": "cross-cultural",
@@ -510,8 +484,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly cross-cultural",
             "extremely cross-cultural"
-          ],
-          "wordFamily": "Biến thể của cross-cultural"
+          ]
         },
         {
           "word": "e-commerce",
@@ -523,8 +496,7 @@ export const courseData1_25 = [
           "collocations": [
             "important e-commerce",
             "e-commerce system"
-          ],
-          "wordFamily": "Biến thể của e-commerce"
+          ]
         },
         {
           "word": "outnumber",
@@ -536,8 +508,7 @@ export const courseData1_25 = [
           "collocations": [
             "outnumber effectively",
             "must outnumber"
-          ],
-          "wordFamily": "Biến thể của outnumber"
+          ]
         },
         {
           "word": "pseudo-science",
@@ -549,8 +520,7 @@ export const courseData1_25 = [
           "collocations": [
             "important pseudo-science",
             "pseudo-science system"
-          ],
-          "wordFamily": "Biến thể của pseudo-science"
+          ]
         },
         {
           "word": "overworked",
@@ -562,8 +532,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly overworked",
             "extremely overworked"
-          ],
-          "wordFamily": "Biến thể của overworked"
+          ]
         },
         {
           "word": "overhaul",
@@ -575,8 +544,7 @@ export const courseData1_25 = [
           "collocations": [
             "overhaul effectively",
             "must overhaul"
-          ],
-          "wordFamily": "Biến thể của overhaul"
+          ]
         }
       ],
       "practicalUsage": [
@@ -935,8 +903,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "Never overestimate your enemy's weakness.",
-        "trans": "[Tạm dịch] Câu ví dụ cho overestimate"
+        "text": "Never overestimate your enemy's weakness."
       }
     ]
   },
@@ -956,8 +923,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly tax-free",
             "extremely tax-free"
-          ],
-          "wordFamily": "Biến thể của tax-free"
+          ]
         },
         {
           "word": "waterproof",
@@ -969,8 +935,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly waterproof",
             "extremely waterproof"
-          ],
-          "wordFamily": "Biến thể của waterproof"
+          ]
         },
         {
           "word": "bulletproof",
@@ -982,8 +947,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly bulletproof",
             "extremely bulletproof"
-          ],
-          "wordFamily": "Biến thể của bulletproof"
+          ]
         },
         {
           "word": "sugar-free",
@@ -995,8 +959,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly sugar-free",
             "extremely sugar-free"
-          ],
-          "wordFamily": "Biến thể của sugar-free"
+          ]
         },
         {
           "word": "picturesque",
@@ -1008,8 +971,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly picturesque",
             "extremely picturesque"
-          ],
-          "wordFamily": "Biến thể của picturesque"
+          ]
         },
         {
           "word": "Kafkaesque",
@@ -1021,8 +983,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly Kafkaesque",
             "extremely Kafkaesque"
-          ],
-          "wordFamily": "Biến thể của Kafkaesque"
+          ]
         },
         {
           "word": "washable",
@@ -1034,8 +995,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly washable",
             "extremely washable"
-          ],
-          "wordFamily": "Biến thể của washable"
+          ]
         },
         {
           "word": "newsworthy",
@@ -1047,8 +1007,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly newsworthy",
             "extremely newsworthy"
-          ],
-          "wordFamily": "Biến thể của newsworthy"
+          ]
         }
       ],
       "practicalUsage": [
@@ -1407,8 +1366,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "You can buy tax-free goods at the airport.",
-        "trans": "[Tạm dịch] Câu ví dụ cho tax-free"
+        "text": "You can buy tax-free goods at the airport."
       }
     ]
   },
@@ -1428,8 +1386,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly biodegradable",
             "extremely biodegradable"
-          ],
-          "wordFamily": "Biến thể của biodegradable"
+          ]
         },
         {
           "word": "cybercafé",
@@ -1441,8 +1398,7 @@ export const courseData1_25 = [
           "collocations": [
             "important cybercafé",
             "cybercafé system"
-          ],
-          "wordFamily": "Biến thể của cybercafé"
+          ]
         },
         {
           "word": "guesstimate",
@@ -1454,8 +1410,7 @@ export const courseData1_25 = [
           "collocations": [
             "important guesstimate",
             "guesstimate system"
-          ],
-          "wordFamily": "Biến thể của guesstimate"
+          ]
         },
         {
           "word": "brunch",
@@ -1467,8 +1422,7 @@ export const courseData1_25 = [
           "collocations": [
             "important brunch",
             "brunch system"
-          ],
-          "wordFamily": "Biến thể của brunch"
+          ]
         },
         {
           "word": "motel",
@@ -1480,8 +1434,7 @@ export const courseData1_25 = [
           "collocations": [
             "important motel",
             "motel system"
-          ],
-          "wordFamily": "Biến thể của motel"
+          ]
         },
         {
           "word": "smog",
@@ -1493,8 +1446,7 @@ export const courseData1_25 = [
           "collocations": [
             "important smog",
             "smog system"
-          ],
-          "wordFamily": "Biến thể của smog"
+          ]
         },
         {
           "word": "brainwash",
@@ -1506,8 +1458,7 @@ export const courseData1_25 = [
           "collocations": [
             "brainwash effectively",
             "must brainwash"
-          ],
-          "wordFamily": "Biến thể của brainwash"
+          ]
         },
         {
           "word": "troubleshoot",
@@ -1519,8 +1470,7 @@ export const courseData1_25 = [
           "collocations": [
             "troubleshoot effectively",
             "must troubleshoot"
-          ],
-          "wordFamily": "Biến thể của troubleshoot"
+          ]
         }
       ],
       "practicalUsage": [
@@ -1616,15 +1566,6 @@ export const courseData1_25 = [
             ],
             "hint": "có thể phân hủy sinh học",
             "explanation": "Từ cần điền là \"biodegradable\", mang nghĩa là \"có thể phân hủy sinh học\"."
-          },
-          {
-            "id": "ex_4_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "cybercafé"
-            ],
-            "hint": "quán cà phê internet",
-            "explanation": "Từ cần điền là \"cybercafé\", mang nghĩa là \"quán cà phê internet\"."
           },
           {
             "id": "ex_4_1_2",
@@ -1791,15 +1732,6 @@ export const courseData1_25 = [
             "explanation": "Từ cần điền là \"smog\"."
           },
           {
-            "id": "ex_4_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "brainwash"
-            ],
-            "hint": "tẩy não",
-            "explanation": "Từ cần điền là \"brainwash\"."
-          },
-          {
             "id": "ex_4_5_3",
             "text": "IT support will help you [blank] the software problem.",
             "answers": [
@@ -1879,8 +1811,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "We use biodegradable packaging for our products.",
-        "trans": "[Tạm dịch] Câu ví dụ cho biodegradable"
+        "text": "We use biodegradable packaging for our products."
       }
     ]
   },
@@ -1897,8 +1828,7 @@ export const courseData1_25 = [
           "vi": "từ mượn (từ ngôn ngữ khác)",
           "example": "The English language has many loan words from French.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của loan word"
+          "collocations": []
         },
         {
           "word": "roster",
@@ -1910,8 +1840,7 @@ export const courseData1_25 = [
           "collocations": [
             "important roster",
             "roster system"
-          ],
-          "wordFamily": "Biến thể của roster"
+          ]
         },
         {
           "word": "intelligentsia",
@@ -1923,8 +1852,7 @@ export const courseData1_25 = [
           "collocations": [
             "important intelligentsia",
             "intelligentsia system"
-          ],
-          "wordFamily": "Biến thể của intelligentsia"
+          ]
         },
         {
           "word": "karaoke",
@@ -1936,8 +1864,7 @@ export const courseData1_25 = [
           "collocations": [
             "important karaoke",
             "karaoke system"
-          ],
-          "wordFamily": "Biến thể của karaoke"
+          ]
         },
         {
           "word": "macho",
@@ -1949,8 +1876,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly macho",
             "extremely macho"
-          ],
-          "wordFamily": "Biến thể của macho"
+          ]
         },
         {
           "word": "bazaar",
@@ -1962,8 +1888,7 @@ export const courseData1_25 = [
           "collocations": [
             "important bazaar",
             "bazaar system"
-          ],
-          "wordFamily": "Biến thể của bazaar"
+          ]
         },
         {
           "word": "guru",
@@ -1975,8 +1900,7 @@ export const courseData1_25 = [
           "collocations": [
             "important guru",
             "guru system"
-          ],
-          "wordFamily": "Biến thể của guru"
+          ]
         },
         {
           "word": "paparazzi",
@@ -1988,8 +1912,7 @@ export const courseData1_25 = [
           "collocations": [
             "important paparazzi",
             "paparazzi system"
-          ],
-          "wordFamily": "Biến thể của paparazzi"
+          ]
         }
       ],
       "practicalUsage": [
@@ -2077,15 +2000,6 @@ export const courseData1_25 = [
         "type": "fill_in_blanks",
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
-          {
-            "id": "ex_5_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "loan word"
-            ],
-            "hint": "từ mượn (từ ngôn ngữ khác)",
-            "explanation": "Từ cần điền là \"loan word\", mang nghĩa là \"từ mượn (từ ngôn ngữ khác)\"."
-          },
           {
             "id": "ex_5_1_1",
             "text": "Check the duty [blank] to see when you are working.",
@@ -2348,8 +2262,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "The English language has many loan words from French.",
-        "trans": "[Tạm dịch] Câu ví dụ cho loan word"
+        "text": "The English language has many loan words from French."
       }
     ]
   },
@@ -2369,8 +2282,7 @@ export const courseData1_25 = [
           "collocations": [
             "important series",
             "series system"
-          ],
-          "wordFamily": "Biến thể của series"
+          ]
         },
         {
           "word": "serial",
@@ -2382,8 +2294,7 @@ export const courseData1_25 = [
           "collocations": [
             "important serial",
             "serial system"
-          ],
-          "wordFamily": "Biến thể của serial"
+          ]
         },
         {
           "word": "moist",
@@ -2395,8 +2306,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly moist",
             "extremely moist"
-          ],
-          "wordFamily": "Biến thể của moist"
+          ]
         },
         {
           "word": "damp",
@@ -2408,8 +2318,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly damp",
             "extremely damp"
-          ],
-          "wordFamily": "Biến thể của damp"
+          ]
         },
         {
           "word": "historic",
@@ -2421,8 +2330,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly historic",
             "extremely historic"
-          ],
-          "wordFamily": "Biến thể của historic"
+          ]
         },
         {
           "word": "historical",
@@ -2434,8 +2342,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly historical",
             "extremely historical"
-          ],
-          "wordFamily": "Biến thể của historical"
+          ]
         },
         {
           "word": "economic",
@@ -2447,8 +2354,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly economic",
             "extremely economic"
-          ],
-          "wordFamily": "Biến thể của economic"
+          ]
         },
         {
           "word": "economical",
@@ -2460,8 +2366,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly economical",
             "extremely economical"
-          ],
-          "wordFamily": "Biến thể của economical"
+          ]
         }
       ],
       "practicalUsage": [
@@ -2820,8 +2725,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "They released a new series of comedy films.",
-        "trans": "[Tạm dịch] Câu ví dụ cho series"
+        "text": "They released a new series of comedy films."
       }
     ]
   },
@@ -2841,8 +2745,7 @@ export const courseData1_25 = [
           "collocations": [
             "important flexi-time",
             "flexi-time system"
-          ],
-          "wordFamily": "Biến thể của flexi-time"
+          ]
         },
         {
           "word": "freelance",
@@ -2854,8 +2757,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly freelance",
             "extremely freelance"
-          ],
-          "wordFamily": "Biến thể của freelance"
+          ]
         },
         {
           "word": "job-share",
@@ -2867,8 +2769,7 @@ export const courseData1_25 = [
           "collocations": [
             "important job-share",
             "job-share system"
-          ],
-          "wordFamily": "Biến thể của job-share"
+          ]
         },
         {
           "word": "shift work",
@@ -2877,8 +2778,7 @@ export const courseData1_25 = [
           "vi": "làm việc theo ca",
           "example": "Shift work can completely ruin your sleep schedule.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của shift work"
+          "collocations": []
         },
         {
           "word": "colleague",
@@ -2890,8 +2790,7 @@ export const courseData1_25 = [
           "collocations": [
             "important colleague",
             "colleague system"
-          ],
-          "wordFamily": "Biến thể của colleague"
+          ]
         },
         {
           "word": "commute",
@@ -2903,8 +2802,7 @@ export const courseData1_25 = [
           "collocations": [
             "commute effectively",
             "must commute"
-          ],
-          "wordFamily": "Biến thể của commute"
+          ]
         },
         {
           "word": "workaholic",
@@ -2916,8 +2814,7 @@ export const courseData1_25 = [
           "collocations": [
             "important workaholic",
             "workaholic system"
-          ],
-          "wordFamily": "Biến thể của workaholic"
+          ]
         },
         {
           "word": "burnout",
@@ -2929,8 +2826,7 @@ export const courseData1_25 = [
           "collocations": [
             "important burnout",
             "burnout system"
-          ],
-          "wordFamily": "Biến thể của burnout"
+          ]
         }
       ],
       "practicalUsage": [
@@ -3183,15 +3079,6 @@ export const courseData1_25 = [
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
           {
-            "id": "ex_7_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "colleague"
-            ],
-            "hint": "đồng nghiệp",
-            "explanation": "Từ cần điền là \"colleague\"."
-          },
-          {
             "id": "ex_7_5_1",
             "text": "I have to [blank] two hours every day.",
             "answers": [
@@ -3289,8 +3176,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "Working flexi-time allows me to pick up my kids from school.",
-        "trans": "[Tạm dịch] Câu ví dụ cho flexi-time"
+        "text": "Working flexi-time allows me to pick up my kids from school."
       }
     ]
   },
@@ -3310,8 +3196,7 @@ export const courseData1_25 = [
           "collocations": [
             "important drive",
             "drive system"
-          ],
-          "wordFamily": "Biến thể của drive"
+          ]
         },
         {
           "word": "perks",
@@ -3323,8 +3208,7 @@ export const courseData1_25 = [
           "collocations": [
             "important perks",
             "perks system"
-          ],
-          "wordFamily": "Biến thể của perks"
+          ]
         },
         {
           "word": "glass ceiling",
@@ -3333,8 +3217,7 @@ export const courseData1_25 = [
           "vi": "rào cản vô hình (cản trở phụ nữ/thiểu số thăng tiến)",
           "example": "Many women struggle to break through the glass ceiling in business.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của glass ceiling"
+          "collocations": []
         },
         {
           "word": "promotion",
@@ -3346,8 +3229,7 @@ export const courseData1_25 = [
           "collocations": [
             "important promotion",
             "promotion system"
-          ],
-          "wordFamily": "Biến thể của promotion"
+          ]
         },
         {
           "word": "lucrative",
@@ -3359,8 +3241,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly lucrative",
             "extremely lucrative"
-          ],
-          "wordFamily": "Biến thể của lucrative"
+          ]
         },
         {
           "word": "lay off",
@@ -3369,8 +3250,7 @@ export const courseData1_25 = [
           "vi": "sa thải (do dư thừa nhân sự)",
           "example": "The company had to lay off a hundred workers.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của lay off"
+          "collocations": []
         },
         {
           "word": "resign",
@@ -3382,8 +3262,7 @@ export const courseData1_25 = [
           "collocations": [
             "resign effectively",
             "must resign"
-          ],
-          "wordFamily": "Biến thể của resign"
+          ]
         },
         {
           "word": "headhunter",
@@ -3395,8 +3274,7 @@ export const courseData1_25 = [
           "collocations": [
             "important headhunter",
             "headhunter system"
-          ],
-          "wordFamily": "Biến thể của headhunter"
+          ]
         }
       ],
       "practicalUsage": [
@@ -3755,8 +3633,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "She has the drive to succeed in her career.",
-        "trans": "[Tạm dịch] Câu ví dụ cho drive"
+        "text": "She has the drive to succeed in her career."
       }
     ]
   },
@@ -3776,8 +3653,7 @@ export const courseData1_25 = [
           "collocations": [
             "important telemarketing",
             "telemarketing system"
-          ],
-          "wordFamily": "Biến thể của telemarketing"
+          ]
         },
         {
           "word": "niche market",
@@ -3786,8 +3662,7 @@ export const courseData1_25 = [
           "vi": "thị trường ngách",
           "example": "They found a profitable niche market selling vegan shoes.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của niche market"
+          "collocations": []
         },
         {
           "word": "entrepreneurship",
@@ -3799,8 +3674,7 @@ export const courseData1_25 = [
           "collocations": [
             "important entrepreneurship",
             "entrepreneurship system"
-          ],
-          "wordFamily": "Biến thể của entrepreneurship"
+          ]
         },
         {
           "word": "startup",
@@ -3812,8 +3686,7 @@ export const courseData1_25 = [
           "collocations": [
             "important startup",
             "startup system"
-          ],
-          "wordFamily": "Biến thể của startup"
+          ]
         },
         {
           "word": "monopoly",
@@ -3825,8 +3698,7 @@ export const courseData1_25 = [
           "collocations": [
             "important monopoly",
             "monopoly system"
-          ],
-          "wordFamily": "Biến thể của monopoly"
+          ]
         },
         {
           "word": "brand awareness",
@@ -3835,8 +3707,7 @@ export const courseData1_25 = [
           "vi": "nhận diện thương hiệu",
           "example": "The ad campaign successfully increased brand awareness.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của brand awareness"
+          "collocations": []
         },
         {
           "word": "merger",
@@ -3848,8 +3719,7 @@ export const courseData1_25 = [
           "collocations": [
             "important merger",
             "merger system"
-          ],
-          "wordFamily": "Biến thể của merger"
+          ]
         },
         {
           "word": "turnover",
@@ -3861,8 +3731,7 @@ export const courseData1_25 = [
           "collocations": [
             "important turnover",
             "turnover system"
-          ],
-          "wordFamily": "Biến thể của turnover"
+          ]
         }
       ],
       "practicalUsage": [
@@ -4221,8 +4090,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "I hate receiving telemarketing calls at dinner time.",
-        "trans": "[Tạm dịch] Câu ví dụ cho telemarketing"
+        "text": "I hate receiving telemarketing calls at dinner time."
       }
     ]
   },
@@ -4239,8 +4107,7 @@ export const courseData1_25 = [
           "vi": "nộp hồ sơ đấu thầu",
           "example": "Five companies submitted a tender for the bridge construction.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của submit a tender"
+          "collocations": []
         },
         {
           "word": "default on a payment",
@@ -4249,8 +4116,7 @@ export const courseData1_25 = [
           "vi": "vỡ nợ, không trả được nợ",
           "example": "If you default on a payment, they will seize your house.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của default on a payment"
+          "collocations": []
         },
         {
           "word": "liquidate",
@@ -4262,8 +4128,7 @@ export const courseData1_25 = [
           "collocations": [
             "liquidate effectively",
             "must liquidate"
-          ],
-          "wordFamily": "Biến thể của liquidate"
+          ]
         },
         {
           "word": "subsidy",
@@ -4275,8 +4140,7 @@ export const courseData1_25 = [
           "collocations": [
             "important subsidy",
             "subsidy system"
-          ],
-          "wordFamily": "Biến thể của subsidy"
+          ]
         },
         {
           "word": "audit",
@@ -4288,8 +4152,7 @@ export const courseData1_25 = [
           "collocations": [
             "important audit",
             "audit system"
-          ],
-          "wordFamily": "Biến thể của audit"
+          ]
         },
         {
           "word": "liability",
@@ -4301,8 +4164,7 @@ export const courseData1_25 = [
           "collocations": [
             "important liability",
             "liability system"
-          ],
-          "wordFamily": "Biến thể của liability"
+          ]
         },
         {
           "word": "outsource",
@@ -4314,8 +4176,7 @@ export const courseData1_25 = [
           "collocations": [
             "outsource effectively",
             "must outsource"
-          ],
-          "wordFamily": "Biến thể của outsource"
+          ]
         },
         {
           "word": "fluctuate",
@@ -4327,8 +4188,7 @@ export const courseData1_25 = [
           "collocations": [
             "fluctuate effectively",
             "must fluctuate"
-          ],
-          "wordFamily": "Biến thể của fluctuate"
+          ]
         }
       ],
       "practicalUsage": [
@@ -4416,15 +4276,6 @@ export const courseData1_25 = [
         "type": "fill_in_blanks",
         "instruction": "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
         "questions": [
-          {
-            "id": "ex_10_1_0",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "submit a tender"
-            ],
-            "hint": "nộp hồ sơ đấu thầu",
-            "explanation": "Từ cần điền là \"submit a tender\", mang nghĩa là \"nộp hồ sơ đấu thầu\"."
-          },
           {
             "id": "ex_10_1_1",
             "text": "If you [blank], they will seize your house.",
@@ -4590,15 +4441,6 @@ export const courseData1_25 = [
             "explanation": "Từ cần điền là \"audit\"."
           },
           {
-            "id": "ex_10_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "liability"
-            ],
-            "hint": "khoản nợ pháp lý, nghĩa vụ",
-            "explanation": "Từ cần điền là \"liability\"."
-          },
-          {
             "id": "ex_10_5_2",
             "text": "Many tech companies [blank] their customer service.",
             "answers": [
@@ -4687,8 +4529,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "Five companies submitted a tender for the bridge construction.",
-        "trans": "[Tạm dịch] Câu ví dụ cho submit a tender"
+        "text": "Five companies submitted a tender for the bridge construction."
       }
     ]
   },
@@ -4708,8 +4549,7 @@ export const courseData1_25 = [
           "collocations": [
             "important rote-learning",
             "rote-learning system"
-          ],
-          "wordFamily": "Biến thể của rote-learning"
+          ]
         },
         {
           "word": "assignment",
@@ -4721,8 +4561,7 @@ export const courseData1_25 = [
           "collocations": [
             "important assignment",
             "assignment system"
-          ],
-          "wordFamily": "Biến thể của assignment"
+          ]
         },
         {
           "word": "deadline",
@@ -4734,8 +4573,7 @@ export const courseData1_25 = [
           "collocations": [
             "important deadline",
             "deadline system"
-          ],
-          "wordFamily": "Biến thể của deadline"
+          ]
         },
         {
           "word": "cram",
@@ -4747,8 +4585,7 @@ export const courseData1_25 = [
           "collocations": [
             "cram effectively",
             "must cram"
-          ],
-          "wordFamily": "Biến thể của cram"
+          ]
         },
         {
           "word": "plagiarism",
@@ -4760,8 +4597,7 @@ export const courseData1_25 = [
           "collocations": [
             "important plagiarism",
             "plagiarism system"
-          ],
-          "wordFamily": "Biến thể của plagiarism"
+          ]
         },
         {
           "word": "curriculum",
@@ -4773,8 +4609,7 @@ export const courseData1_25 = [
           "collocations": [
             "important curriculum",
             "curriculum system"
-          ],
-          "wordFamily": "Biến thể của curriculum"
+          ]
         },
         {
           "word": "tuition fee",
@@ -4783,8 +4618,7 @@ export const courseData1_25 = [
           "vi": "học phí",
           "example": "The university increased its tuition fee this year.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của tuition fee"
+          "collocations": []
         },
         {
           "word": "comprehensive",
@@ -4796,8 +4630,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly comprehensive",
             "extremely comprehensive"
-          ],
-          "wordFamily": "Biến thể của comprehensive"
+          ]
         }
       ],
       "practicalUsage": [
@@ -5156,8 +4989,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "Rote-learning is not effective for understanding complex theories.",
-        "trans": "[Tạm dịch] Câu ví dụ cho rote-learning"
+        "text": "Rote-learning is not effective for understanding complex theories."
       }
     ]
   },
@@ -5177,8 +5009,7 @@ export const courseData1_25 = [
           "collocations": [
             "important elitism",
             "elitism system"
-          ],
-          "wordFamily": "Biến thể của elitism"
+          ]
         },
         {
           "word": "league tables",
@@ -5187,8 +5018,7 @@ export const courseData1_25 = [
           "vi": "bảng xếp hạng (trường học)",
           "example": "Parents often look at school league tables to choose a school.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của league tables"
+          "collocations": []
         },
         {
           "word": "the three Rs",
@@ -5197,8 +5027,7 @@ export const courseData1_25 = [
           "vi": "kỹ năng cơ bản (Reading, wRiting, aRithmetic)",
           "example": "Primary education should heavily focus on the three Rs.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của the three Rs"
+          "collocations": []
         },
         {
           "word": "streaming",
@@ -5210,8 +5039,7 @@ export const courseData1_25 = [
           "collocations": [
             "important streaming",
             "streaming system"
-          ],
-          "wordFamily": "Biến thể của streaming"
+          ]
         },
         {
           "word": "literacy",
@@ -5223,8 +5051,7 @@ export const courseData1_25 = [
           "collocations": [
             "important literacy",
             "literacy system"
-          ],
-          "wordFamily": "Biến thể của literacy"
+          ]
         },
         {
           "word": "truancy",
@@ -5236,8 +5063,7 @@ export const courseData1_25 = [
           "collocations": [
             "important truancy",
             "truancy system"
-          ],
-          "wordFamily": "Biến thể của truancy"
+          ]
         },
         {
           "word": "bursary",
@@ -5249,8 +5075,7 @@ export const courseData1_25 = [
           "collocations": [
             "important bursary",
             "bursary system"
-          ],
-          "wordFamily": "Biến thể của bursary"
+          ]
         },
         {
           "word": "pedagogy",
@@ -5262,8 +5087,7 @@ export const courseData1_25 = [
           "collocations": [
             "important pedagogy",
             "pedagogy system"
-          ],
-          "wordFamily": "Biến thể của pedagogy"
+          ]
         }
       ],
       "practicalUsage": [
@@ -5622,8 +5446,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "The university has been accused of academic elitism.",
-        "trans": "[Tạm dịch] Câu ví dụ cho elitism"
+        "text": "The university has been accused of academic elitism."
       }
     ]
   },
@@ -5643,8 +5466,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly diligent",
             "extremely diligent"
-          ],
-          "wordFamily": "Biến thể của diligent"
+          ]
         },
         {
           "word": "shrewd",
@@ -5656,8 +5478,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly shrewd",
             "extremely shrewd"
-          ],
-          "wordFamily": "Biến thể của shrewd"
+          ]
         },
         {
           "word": "sagacious",
@@ -5669,8 +5490,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly sagacious",
             "extremely sagacious"
-          ],
-          "wordFamily": "Biến thể của sagacious"
+          ]
         },
         {
           "word": "articulate",
@@ -5682,8 +5502,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly articulate",
             "extremely articulate"
-          ],
-          "wordFamily": "Biến thể của articulate"
+          ]
         },
         {
           "word": "meticulous",
@@ -5695,8 +5514,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly meticulous",
             "extremely meticulous"
-          ],
-          "wordFamily": "Biến thể của meticulous"
+          ]
         },
         {
           "word": "introverted",
@@ -5708,8 +5526,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly introverted",
             "extremely introverted"
-          ],
-          "wordFamily": "Biến thể của introverted"
+          ]
         },
         {
           "word": "versatile",
@@ -5721,8 +5538,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly versatile",
             "extremely versatile"
-          ],
-          "wordFamily": "Biến thể của versatile"
+          ]
         },
         {
           "word": "witty",
@@ -5734,8 +5550,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly witty",
             "extremely witty"
-          ],
-          "wordFamily": "Biến thể của witty"
+          ]
         }
       ],
       "practicalUsage": [
@@ -6094,8 +5909,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "She is a highly diligent and responsible worker.",
-        "trans": "[Tạm dịch] Câu ví dụ cho diligent"
+        "text": "She is a highly diligent and responsible worker."
       }
     ]
   },
@@ -6115,8 +5929,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly infatuated",
             "extremely infatuated"
-          ],
-          "wordFamily": "Biến thể của infatuated"
+          ]
         },
         {
           "word": "amiable",
@@ -6128,8 +5941,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly amiable",
             "extremely amiable"
-          ],
-          "wordFamily": "Biến thể của amiable"
+          ]
         },
         {
           "word": "kindred spirits",
@@ -6138,8 +5950,7 @@ export const courseData1_25 = [
           "vi": "những tâm hồn đồng điệu",
           "example": "We realized we were kindred spirits the moment we met.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của kindred spirits"
+          "collocations": []
         },
         {
           "word": "devoted",
@@ -6151,8 +5962,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly devoted",
             "extremely devoted"
-          ],
-          "wordFamily": "Biến thể của devoted"
+          ]
         },
         {
           "word": "affectionate",
@@ -6164,8 +5974,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly affectionate",
             "extremely affectionate"
-          ],
-          "wordFamily": "Biến thể của affectionate"
+          ]
         },
         {
           "word": "inseparable",
@@ -6177,8 +5986,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly inseparable",
             "extremely inseparable"
-          ],
-          "wordFamily": "Biến thể của inseparable"
+          ]
         },
         {
           "word": "fidelity",
@@ -6190,8 +5998,7 @@ export const courseData1_25 = [
           "collocations": [
             "important fidelity",
             "fidelity system"
-          ],
-          "wordFamily": "Biến thể của fidelity"
+          ]
         },
         {
           "word": "platonic",
@@ -6203,8 +6010,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly platonic",
             "extremely platonic"
-          ],
-          "wordFamily": "Biến thể của platonic"
+          ]
         }
       ],
       "practicalUsage": [
@@ -6563,8 +6369,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "He was completely infatuated with her beauty.",
-        "trans": "[Tạm dịch] Câu ví dụ cho infatuated"
+        "text": "He was completely infatuated with her beauty."
       }
     ]
   },
@@ -6584,8 +6389,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly disloyal",
             "extremely disloyal"
-          ],
-          "wordFamily": "Biến thể của disloyal"
+          ]
         },
         {
           "word": "unsupportive",
@@ -6597,8 +6401,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly unsupportive",
             "extremely unsupportive"
-          ],
-          "wordFamily": "Biến thể của unsupportive"
+          ]
         },
         {
           "word": "family feud",
@@ -6607,8 +6410,7 @@ export const courseData1_25 = [
           "vi": "mối thù truyền kiếp trong gia tộc",
           "example": "The tragic play is based on a bitter family feud.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của family feud"
+          "collocations": []
         },
         {
           "word": "betrayal",
@@ -6620,8 +6422,7 @@ export const courseData1_25 = [
           "collocations": [
             "important betrayal",
             "betrayal system"
-          ],
-          "wordFamily": "Biến thể của betrayal"
+          ]
         },
         {
           "word": "estranged",
@@ -6633,8 +6434,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly estranged",
             "extremely estranged"
-          ],
-          "wordFamily": "Biến thể của estranged"
+          ]
         },
         {
           "word": "resentment",
@@ -6646,8 +6446,7 @@ export const courseData1_25 = [
           "collocations": [
             "important resentment",
             "resentment system"
-          ],
-          "wordFamily": "Biến thể của resentment"
+          ]
         },
         {
           "word": "toxic",
@@ -6659,8 +6458,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly toxic",
             "extremely toxic"
-          ],
-          "wordFamily": "Biến thể của toxic"
+          ]
         },
         {
           "word": "alienate",
@@ -6672,8 +6470,7 @@ export const courseData1_25 = [
           "collocations": [
             "alienate effectively",
             "must alienate"
-          ],
-          "wordFamily": "Biến thể của alienate"
+          ]
         }
       ],
       "practicalUsage": [
@@ -6951,15 +6748,6 @@ export const courseData1_25 = [
             ],
             "hint": "độc hại (nghĩa bóng)",
             "explanation": "Từ cần điền là \"toxic\"."
-          },
-          {
-            "id": "ex_15_5_3",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "alienate"
-            ],
-            "hint": "làm xa lánh",
-            "explanation": "Từ cần điền là \"alienate\"."
           }
         ]
       }
@@ -7032,8 +6820,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "It was highly disloyal of him to reveal our secret.",
-        "trans": "[Tạm dịch] Câu ví dụ cho disloyal"
+        "text": "It was highly disloyal of him to reveal our secret."
       }
     ]
   },
@@ -7053,8 +6840,7 @@ export const courseData1_25 = [
           "collocations": [
             "conciliate effectively",
             "must conciliate"
-          ],
-          "wordFamily": "Biến thể của conciliate"
+          ]
         },
         {
           "word": "rapture",
@@ -7066,8 +6852,7 @@ export const courseData1_25 = [
           "collocations": [
             "important rapture",
             "rapture system"
-          ],
-          "wordFamily": "Biến thể của rapture"
+          ]
         },
         {
           "word": "blissful",
@@ -7079,8 +6864,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly blissful",
             "extremely blissful"
-          ],
-          "wordFamily": "Biến thể của blissful"
+          ]
         },
         {
           "word": "ecstatic",
@@ -7092,8 +6876,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly ecstatic",
             "extremely ecstatic"
-          ],
-          "wordFamily": "Biến thể của ecstatic"
+          ]
         },
         {
           "word": "euphoria",
@@ -7105,8 +6888,7 @@ export const courseData1_25 = [
           "collocations": [
             "important euphoria",
             "euphoria system"
-          ],
-          "wordFamily": "Biến thể của euphoria"
+          ]
         },
         {
           "word": "overwhelmed",
@@ -7118,8 +6900,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly overwhelmed",
             "extremely overwhelmed"
-          ],
-          "wordFamily": "Biến thể của overwhelmed"
+          ]
         },
         {
           "word": "thrilled",
@@ -7131,8 +6912,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly thrilled",
             "extremely thrilled"
-          ],
-          "wordFamily": "Biến thể của thrilled"
+          ]
         },
         {
           "word": "appease",
@@ -7144,8 +6924,7 @@ export const courseData1_25 = [
           "collocations": [
             "appease effectively",
             "must appease"
-          ],
-          "wordFamily": "Biến thể của appease"
+          ]
         }
       ],
       "practicalUsage": [
@@ -7504,8 +7283,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "He tried to conciliate the angry customers.",
-        "trans": "[Tạm dịch] Câu ví dụ cho conciliate"
+        "text": "He tried to conciliate the angry customers."
       }
     ]
   },
@@ -7525,8 +7303,7 @@ export const courseData1_25 = [
           "collocations": [
             "important abhorrence",
             "abhorrence system"
-          ],
-          "wordFamily": "Biến thể của abhorrence"
+          ]
         },
         {
           "word": "loathing",
@@ -7538,8 +7315,7 @@ export const courseData1_25 = [
           "collocations": [
             "important loathing",
             "loathing system"
-          ],
-          "wordFamily": "Biến thể của loathing"
+          ]
         },
         {
           "word": "fickle",
@@ -7551,8 +7327,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly fickle",
             "extremely fickle"
-          ],
-          "wordFamily": "Biến thể của fickle"
+          ]
         },
         {
           "word": "aversion",
@@ -7564,8 +7339,7 @@ export const courseData1_25 = [
           "collocations": [
             "important aversion",
             "aversion system"
-          ],
-          "wordFamily": "Biến thể của aversion"
+          ]
         },
         {
           "word": "repulse",
@@ -7577,8 +7351,7 @@ export const courseData1_25 = [
           "collocations": [
             "repulse effectively",
             "must repulse"
-          ],
-          "wordFamily": "Biến thể của repulse"
+          ]
         },
         {
           "word": "hostility",
@@ -7590,8 +7363,7 @@ export const courseData1_25 = [
           "collocations": [
             "important hostility",
             "hostility system"
-          ],
-          "wordFamily": "Biến thể của hostility"
+          ]
         },
         {
           "word": "scorn",
@@ -7603,8 +7375,7 @@ export const courseData1_25 = [
           "collocations": [
             "important scorn",
             "scorn system"
-          ],
-          "wordFamily": "Biến thể của scorn"
+          ]
         },
         {
           "word": "resent",
@@ -7616,8 +7387,7 @@ export const courseData1_25 = [
           "collocations": [
             "resent effectively",
             "must resent"
-          ],
-          "wordFamily": "Biến thể của resent"
+          ]
         }
       ],
       "practicalUsage": [
@@ -7870,15 +7640,6 @@ export const courseData1_25 = [
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
         "questions": [
           {
-            "id": "ex_17_5_0",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "repulse"
-            ],
-            "hint": "làm cho kinh tởm",
-            "explanation": "Từ cần điền là \"repulse\"."
-          },
-          {
             "id": "ex_17_5_1",
             "text": "There was open [blank] between the two gangs.",
             "answers": [
@@ -7976,8 +7737,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "She has a deep abhorrence of cruelty to animals.",
-        "trans": "[Tạm dịch] Câu ví dụ cho abhorrence"
+        "text": "She has a deep abhorrence of cruelty to animals."
       }
     ]
   },
@@ -7997,8 +7757,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly lanky",
             "extremely lanky"
-          ],
-          "wordFamily": "Biến thể của lanky"
+          ]
         },
         {
           "word": "grimace",
@@ -8010,8 +7769,7 @@ export const courseData1_25 = [
           "collocations": [
             "grimace effectively",
             "must grimace"
-          ],
-          "wordFamily": "Biến thể của grimace"
+          ]
         },
         {
           "word": "pout",
@@ -8023,8 +7781,7 @@ export const courseData1_25 = [
           "collocations": [
             "pout effectively",
             "must pout"
-          ],
-          "wordFamily": "Biến thể của pout"
+          ]
         },
         {
           "word": "scruffy",
@@ -8036,8 +7793,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly scruffy",
             "extremely scruffy"
-          ],
-          "wordFamily": "Biến thể của scruffy"
+          ]
         },
         {
           "word": "fidget",
@@ -8049,8 +7805,7 @@ export const courseData1_25 = [
           "collocations": [
             "fidget effectively",
             "must fidget"
-          ],
-          "wordFamily": "Biến thể của fidget"
+          ]
         },
         {
           "word": "shrug",
@@ -8062,8 +7817,7 @@ export const courseData1_25 = [
           "collocations": [
             "shrug effectively",
             "must shrug"
-          ],
-          "wordFamily": "Biến thể của shrug"
+          ]
         },
         {
           "word": "stout",
@@ -8075,8 +7829,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly stout",
             "extremely stout"
-          ],
-          "wordFamily": "Biến thể của stout"
+          ]
         },
         {
           "word": "slouch",
@@ -8088,8 +7841,7 @@ export const courseData1_25 = [
           "collocations": [
             "slouch effectively",
             "must slouch"
-          ],
-          "wordFamily": "Biến thể của slouch"
+          ]
         }
       ],
       "practicalUsage": [
@@ -8185,24 +7937,6 @@ export const courseData1_25 = [
             ],
             "hint": "cao gầy lêu nghêu",
             "explanation": "Từ cần điền là \"lanky\", mang nghĩa là \"cao gầy lêu nghêu\"."
-          },
-          {
-            "id": "ex_18_1_1",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "grimace"
-            ],
-            "hint": "nhăn nhó (vì đau/kinh tởm)",
-            "explanation": "Từ cần điền là \"grimace\", mang nghĩa là \"nhăn nhó (vì đau/kinh tởm)\"."
-          },
-          {
-            "id": "ex_18_1_2",
-            "text": "The correct word is [blank].",
-            "answers": [
-              "pout"
-            ],
-            "hint": "bĩu môi (giận dỗi/gợi cảm)",
-            "explanation": "Từ cần điền là \"pout\", mang nghĩa là \"bĩu môi (giận dỗi/gợi cảm)\"."
           },
           {
             "id": "ex_18_1_3",
@@ -8323,12 +8057,6 @@ export const courseData1_25 = [
         "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý ngữ pháp và cách dùng từ nâng cao):",
         "questions": [
           {
-            "id": "ex_18_4_0",
-            "original": "I really like pouts.",
-            "correct": "The little girl pouted because she couldn't have candy.",
-            "explanation": "Từ viết đúng chính xác phải là \"pout\"."
-          },
-          {
             "id": "ex_18_4_1",
             "original": "He arrived at the wedding in a scruffys old jacket.",
             "correct": "He arrived at the wedding in a scruffy old jacket.",
@@ -8349,15 +8077,6 @@ export const courseData1_25 = [
             ],
             "hint": "cựa quậy, bồn chồn",
             "explanation": "Từ cần điền là \"fidget\"."
-          },
-          {
-            "id": "ex_18_5_1",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "shrug"
-            ],
-            "hint": "nhún vai",
-            "explanation": "Từ cần điền là \"shrug\"."
           },
           {
             "id": "ex_18_5_2",
@@ -8448,8 +8167,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "He was a tall, lanky teenager.",
-        "trans": "[Tạm dịch] Câu ví dụ cho lanky"
+        "text": "He was a tall, lanky teenager."
       }
     ]
   },
@@ -8469,8 +8187,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly impulsive",
             "extremely impulsive"
-          ],
-          "wordFamily": "Biến thể của impulsive"
+          ]
         },
         {
           "word": "diffident",
@@ -8482,8 +8199,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly diffident",
             "extremely diffident"
-          ],
-          "wordFamily": "Biến thể của diffident"
+          ]
         },
         {
           "word": "gullible",
@@ -8495,8 +8211,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly gullible",
             "extremely gullible"
-          ],
-          "wordFamily": "Biến thể của gullible"
+          ]
         },
         {
           "word": "stubborn",
@@ -8508,8 +8223,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly stubborn",
             "extremely stubborn"
-          ],
-          "wordFamily": "Biến thể của stubborn"
+          ]
         },
         {
           "word": "conceited",
@@ -8521,8 +8235,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly conceited",
             "extremely conceited"
-          ],
-          "wordFamily": "Biến thể của conceited"
+          ]
         },
         {
           "word": "compassionate",
@@ -8534,8 +8247,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly compassionate",
             "extremely compassionate"
-          ],
-          "wordFamily": "Biến thể của compassionate"
+          ]
         },
         {
           "word": "cynical",
@@ -8547,8 +8259,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly cynical",
             "extremely cynical"
-          ],
-          "wordFamily": "Biến thể của cynical"
+          ]
         },
         {
           "word": "arrogant",
@@ -8560,8 +8271,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly arrogant",
             "extremely arrogant"
-          ],
-          "wordFamily": "Biến thể của arrogant"
+          ]
         }
       ],
       "practicalUsage": [
@@ -8920,8 +8630,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "She made an impulsive decision to quit her job.",
-        "trans": "[Tạm dịch] Câu ví dụ cho impulsive"
+        "text": "She made an impulsive decision to quit her job."
       }
     ]
   },
@@ -8938,8 +8647,7 @@ export const courseData1_25 = [
           "vi": "sinh mổ",
           "example": "The baby was safely delivered by Caesarean section.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của Caesarean section"
+          "collocations": []
         },
         {
           "word": "obituary",
@@ -8951,8 +8659,7 @@ export const courseData1_25 = [
           "collocations": [
             "important obituary",
             "obituary system"
-          ],
-          "wordFamily": "Biến thể của obituary"
+          ]
         },
         {
           "word": "mourning",
@@ -8964,8 +8671,7 @@ export const courseData1_25 = [
           "collocations": [
             "important mourning",
             "mourning system"
-          ],
-          "wordFamily": "Biến thể của mourning"
+          ]
         },
         {
           "word": "maternity",
@@ -8977,8 +8683,7 @@ export const courseData1_25 = [
           "collocations": [
             "important maternity",
             "maternity system"
-          ],
-          "wordFamily": "Biến thể của maternity"
+          ]
         },
         {
           "word": "midwife",
@@ -8990,8 +8695,7 @@ export const courseData1_25 = [
           "collocations": [
             "important midwife",
             "midwife system"
-          ],
-          "wordFamily": "Biến thể của midwife"
+          ]
         },
         {
           "word": "deceased",
@@ -9003,8 +8707,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly deceased",
             "extremely deceased"
-          ],
-          "wordFamily": "Biến thể của deceased"
+          ]
         },
         {
           "word": "cemetery",
@@ -9016,8 +8719,7 @@ export const courseData1_25 = [
           "collocations": [
             "important cemetery",
             "cemetery system"
-          ],
-          "wordFamily": "Biến thể của cemetery"
+          ]
         },
         {
           "word": "cremation",
@@ -9029,8 +8731,7 @@ export const courseData1_25 = [
           "collocations": [
             "important cremation",
             "cremation system"
-          ],
-          "wordFamily": "Biến thể của cremation"
+          ]
         }
       ],
       "practicalUsage": [
@@ -9389,8 +9090,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "The baby was safely delivered by Caesarean section.",
-        "trans": "[Tạm dịch] Câu ví dụ cho Caesarean section"
+        "text": "The baby was safely delivered by Caesarean section."
       }
     ]
   },
@@ -9410,8 +9110,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly time-consuming",
             "extremely time-consuming"
-          ],
-          "wordFamily": "Biến thể của time-consuming"
+          ]
         },
         {
           "word": "dabbler",
@@ -9423,8 +9122,7 @@ export const courseData1_25 = [
           "collocations": [
             "important dabbler",
             "dabbler system"
-          ],
-          "wordFamily": "Biến thể của dabbler"
+          ]
         },
         {
           "word": "shopaholic",
@@ -9436,8 +9134,7 @@ export const courseData1_25 = [
           "collocations": [
             "important shopaholic",
             "shopaholic system"
-          ],
-          "wordFamily": "Biến thể của shopaholic"
+          ]
         },
         {
           "word": "pastime",
@@ -9449,8 +9146,7 @@ export const courseData1_25 = [
           "collocations": [
             "important pastime",
             "pastime system"
-          ],
-          "wordFamily": "Biến thể của pastime"
+          ]
         },
         {
           "word": "unwind",
@@ -9462,8 +9158,7 @@ export const courseData1_25 = [
           "collocations": [
             "unwind effectively",
             "must unwind"
-          ],
-          "wordFamily": "Biến thể của unwind"
+          ]
         },
         {
           "word": "binge-watch",
@@ -9475,8 +9170,7 @@ export const courseData1_25 = [
           "collocations": [
             "binge-watch effectively",
             "must binge-watch"
-          ],
-          "wordFamily": "Biến thể của binge-watch"
+          ]
         },
         {
           "word": "addictive",
@@ -9488,8 +9182,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly addictive",
             "extremely addictive"
-          ],
-          "wordFamily": "Biến thể của addictive"
+          ]
         },
         {
           "word": "excursion",
@@ -9501,8 +9194,7 @@ export const courseData1_25 = [
           "collocations": [
             "important excursion",
             "excursion system"
-          ],
-          "wordFamily": "Biến thể của excursion"
+          ]
         }
       ],
       "practicalUsage": [
@@ -9861,8 +9553,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "Writing this report is highly time-consuming.",
-        "trans": "[Tạm dịch] Câu ví dụ cho time-consuming"
+        "text": "Writing this report is highly time-consuming."
       }
     ]
   },
@@ -9882,8 +9573,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly frumpy",
             "extremely frumpy"
-          ],
-          "wordFamily": "Biến thể của frumpy"
+          ]
         },
         {
           "word": "dressed to kill",
@@ -9892,8 +9582,7 @@ export const courseData1_25 = [
           "vi": "ăn mặc lộng lẫy, thu hút sự chú ý",
           "example": "She arrived at the party dressed to kill.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của dressed to kill"
+          "collocations": []
         },
         {
           "word": "without frills",
@@ -9902,8 +9591,7 @@ export const courseData1_25 = [
           "vi": "đơn giản, không diêm dúa/cầu kỳ",
           "example": "It's a basic, without frills hotel room.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của without frills"
+          "collocations": []
         },
         {
           "word": "trendy",
@@ -9915,8 +9603,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly trendy",
             "extremely trendy"
-          ],
-          "wordFamily": "Biến thể của trendy"
+          ]
         },
         {
           "word": "haute couture",
@@ -9925,8 +9612,7 @@ export const courseData1_25 = [
           "vi": "thời trang cao cấp",
           "example": "She models for an exclusive haute couture fashion house.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của haute couture"
+          "collocations": []
         },
         {
           "word": "vintage",
@@ -9938,8 +9624,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly vintage",
             "extremely vintage"
-          ],
-          "wordFamily": "Biến thể của vintage"
+          ]
         },
         {
           "word": "tailor-made",
@@ -9951,8 +9636,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly tailor-made",
             "extremely tailor-made"
-          ],
-          "wordFamily": "Biến thể của tailor-made"
+          ]
         },
         {
           "word": "outdated",
@@ -9964,8 +9648,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly outdated",
             "extremely outdated"
-          ],
-          "wordFamily": "Biến thể của outdated"
+          ]
         }
       ],
       "practicalUsage": [
@@ -10324,8 +10007,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "She wore a frumpy dress that made her look older.",
-        "trans": "[Tạm dịch] Câu ví dụ cho frumpy"
+        "text": "She wore a frumpy dress that made her look older."
       }
     ]
   },
@@ -10342,8 +10024,7 @@ export const courseData1_25 = [
           "vi": "căn hộ phụ (xây thêm cho người già ở)",
           "example": "They built a granny flat in the garden for her mother.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của granny flat"
+          "collocations": []
         },
         {
           "word": "minimalism",
@@ -10355,8 +10036,7 @@ export const courseData1_25 = [
           "collocations": [
             "important minimalism",
             "minimalism system"
-          ],
-          "wordFamily": "Biến thể của minimalism"
+          ]
         },
         {
           "word": "household word",
@@ -10365,8 +10045,7 @@ export const courseData1_25 = [
           "vi": "thương hiệu/tên tuổi quen thuộc với mọi nhà",
           "example": "Coca-Cola is a global household word.",
           "bucket": 2,
-          "collocations": [],
-          "wordFamily": "Biến thể của household word"
+          "collocations": []
         },
         {
           "word": "spacious",
@@ -10378,8 +10057,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly spacious",
             "extremely spacious"
-          ],
-          "wordFamily": "Biến thể của spacious"
+          ]
         },
         {
           "word": "cluttered",
@@ -10391,8 +10069,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly cluttered",
             "extremely cluttered"
-          ],
-          "wordFamily": "Biến thể của cluttered"
+          ]
         },
         {
           "word": "sustainable",
@@ -10404,8 +10081,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly sustainable",
             "extremely sustainable"
-          ],
-          "wordFamily": "Biến thể của sustainable"
+          ]
         },
         {
           "word": "renovate",
@@ -10417,8 +10093,7 @@ export const courseData1_25 = [
           "collocations": [
             "renovate effectively",
             "must renovate"
-          ],
-          "wordFamily": "Biến thể của renovate"
+          ]
         },
         {
           "word": "cosy",
@@ -10430,8 +10105,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly cosy",
             "extremely cosy"
-          ],
-          "wordFamily": "Biến thể của cosy"
+          ]
         }
       ],
       "practicalUsage": [
@@ -10790,8 +10464,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "They built a granny flat in the garden for her mother.",
-        "trans": "[Tạm dịch] Câu ví dụ cho granny flat"
+        "text": "They built a granny flat in the garden for her mother."
       }
     ]
   },
@@ -10811,8 +10484,7 @@ export const courseData1_25 = [
           "collocations": [
             "important housewarming",
             "housewarming system"
-          ],
-          "wordFamily": "Biến thể của housewarming"
+          ]
         },
         {
           "word": "hobnob",
@@ -10824,8 +10496,7 @@ export const courseData1_25 = [
           "collocations": [
             "hobnob effectively",
             "must hobnob"
-          ],
-          "wordFamily": "Biến thể của hobnob"
+          ]
         },
         {
           "word": "clique",
@@ -10837,8 +10508,7 @@ export const courseData1_25 = [
           "collocations": [
             "important clique",
             "clique system"
-          ],
-          "wordFamily": "Biến thể của clique"
+          ]
         },
         {
           "word": "mingle",
@@ -10850,8 +10520,7 @@ export const courseData1_25 = [
           "collocations": [
             "mingle effectively",
             "must mingle"
-          ],
-          "wordFamily": "Biến thể của mingle"
+          ]
         },
         {
           "word": "acquaintance",
@@ -10863,8 +10532,7 @@ export const courseData1_25 = [
           "collocations": [
             "important acquaintance",
             "acquaintance system"
-          ],
-          "wordFamily": "Biến thể của acquaintance"
+          ]
         },
         {
           "word": "networking",
@@ -10876,8 +10544,7 @@ export const courseData1_25 = [
           "collocations": [
             "important networking",
             "networking system"
-          ],
-          "wordFamily": "Biến thể của networking"
+          ]
         },
         {
           "word": "schmooze",
@@ -10889,8 +10556,7 @@ export const courseData1_25 = [
           "collocations": [
             "schmooze effectively",
             "must schmooze"
-          ],
-          "wordFamily": "Biến thể của schmooze"
+          ]
         },
         {
           "word": "gatecrash",
@@ -10902,8 +10568,7 @@ export const courseData1_25 = [
           "collocations": [
             "gatecrash effectively",
             "must gatecrash"
-          ],
-          "wordFamily": "Biến thể của gatecrash"
+          ]
         }
       ],
       "practicalUsage": [
@@ -11174,15 +10839,6 @@ export const courseData1_25 = [
             "explanation": "Từ cần điền là \"networking\"."
           },
           {
-            "id": "ex_24_5_2",
-            "text": "This [blank] is very important.",
-            "answers": [
-              "schmooze"
-            ],
-            "hint": "nịnh nọt, nói chuyện thân mật để trục lợi",
-            "explanation": "Từ cần điền là \"schmooze\"."
-          },
-          {
             "id": "ex_24_5_3",
             "text": "A group of teenagers tried to [blank] the wedding.",
             "answers": [
@@ -11262,8 +10918,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "They invited us to their housewarming party.",
-        "trans": "[Tạm dịch] Câu ví dụ cho housewarming"
+        "text": "They invited us to their housewarming party."
       }
     ]
   },
@@ -11283,8 +10938,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly hackneyed",
             "extremely hackneyed"
-          ],
-          "wordFamily": "Biến thể của hackneyed"
+          ]
         },
         {
           "word": "typecast",
@@ -11296,8 +10950,7 @@ export const courseData1_25 = [
           "collocations": [
             "typecast effectively",
             "must typecast"
-          ],
-          "wordFamily": "Biến thể của typecast"
+          ]
         },
         {
           "word": "rendition",
@@ -11309,8 +10962,7 @@ export const courseData1_25 = [
           "collocations": [
             "important rendition",
             "rendition system"
-          ],
-          "wordFamily": "Biến thể của rendition"
+          ]
         },
         {
           "word": "standing ovation",
@@ -11319,8 +10971,7 @@ export const courseData1_25 = [
           "vi": "sự đứng lên vỗ tay hoan hô",
           "example": "The cast received a massive standing ovation.",
           "bucket": 1,
-          "collocations": [],
-          "wordFamily": "Biến thể của standing ovation"
+          "collocations": []
         },
         {
           "word": "masterpiece",
@@ -11332,8 +10983,7 @@ export const courseData1_25 = [
           "collocations": [
             "important masterpiece",
             "masterpiece system"
-          ],
-          "wordFamily": "Biến thể của masterpiece"
+          ]
         },
         {
           "word": "flop",
@@ -11345,8 +10995,7 @@ export const courseData1_25 = [
           "collocations": [
             "important flop",
             "flop system"
-          ],
-          "wordFamily": "Biến thể của flop"
+          ]
         },
         {
           "word": "mesmerizing",
@@ -11358,8 +11007,7 @@ export const courseData1_25 = [
           "collocations": [
             "highly mesmerizing",
             "extremely mesmerizing"
-          ],
-          "wordFamily": "Biến thể của mesmerizing"
+          ]
         },
         {
           "word": "critique",
@@ -11371,8 +11019,7 @@ export const courseData1_25 = [
           "collocations": [
             "important critique",
             "critique system"
-          ],
-          "wordFamily": "Biến thể của critique"
+          ]
         }
       ],
       "practicalUsage": [
@@ -11731,8 +11378,7 @@ export const courseData1_25 = [
     ],
     "speaking": [
       {
-        "text": "The plot of the movie was completely hackneyed.",
-        "trans": "[Tạm dịch] Câu ví dụ cho hackneyed"
+        "text": "The plot of the movie was completely hackneyed."
       }
     ]
   }

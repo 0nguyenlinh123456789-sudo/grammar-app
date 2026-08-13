@@ -745,8 +745,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự trồng rừng",
         "ipa": "/əˌfɒrɪˈsteɪʃn/",
-        "example": "National tree afforestation projects",
-        "viExample": "Deforestation cutting",
         "synonyms": "",
         "antonyms": ""
       },
@@ -755,8 +753,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "có thể tái tạo",
         "ipa": "/rɪˈnjuːəbl/",
-        "example": "Clean green renewable energy",
-        "viExample": "Fossil finite",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1485,8 +1481,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "thuộc học thuật",
         "ipa": "/ˌækəˈdemɪk/",
-        "example": "High academic publishing standards",
-        "viExample": "Practical amateur work",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1495,8 +1489,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "khoa đại học/ban giảng huấn",
         "ipa": "/ˈfæklti/",
-        "example": "Faculty department dean office",
-        "viExample": "Student union class",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1505,8 +1497,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "hội nghị khoa học chuyên sâu",
         "ipa": "/sɪmˈpəʊziəm/",
-        "example": "Annual physics research symposium",
-        "viExample": "Casual chat",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1515,8 +1505,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "gia sư/dạy kèm",
         "ipa": "/ˈtjuːtə/",
-        "example": "Hire personal math tutor",
-        "viExample": "Self learn alone",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1525,8 +1513,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "người cố vấn/hướng dẫn",
         "ipa": "/ˈmentɔː/",
-        "example": "Need experienced career mentor",
-        "viExample": "Rival opponent",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1535,8 +1521,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "cựu sinh viên nam",
         "ipa": "/əˈlʌmnəs/",
-        "example": "Famous university alumnus donation",
-        "viExample": "Current student",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1545,8 +1529,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "cựu sinh viên nữ",
         "ipa": "/əˈlʌmnə/",
-        "example": "Successful business alumna speak",
-        "viExample": "Current student",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1555,8 +1537,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nạn mù chữ",
         "ipa": "/ɪˈlɪtərəsi/",
-        "example": "Eliminate global remote illiteracy",
-        "viExample": "High literacy rate",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1565,8 +1545,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhà giáo dục/thầy giáo (nghiêm khắc)",
         "ipa": "/ˈpedəɡɒɡ/",
-        "example": "Strict school pedagogue guidance",
-        "viExample": "Carefree friend",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2169,8 +2147,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "thiết bị điện gia dụng",
         "ipa": "/əˈplaɪəns/",
-        "example": "Buy kitchen electric appliances",
-        "viExample": "Outdoor tools",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2179,8 +2155,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "đồ nội thất",
         "ipa": "/ˈfɜːnɪtʃə/",
-        "example": "Arrange wooden bedroom furniture",
-        "viExample": "Bare empty walls",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2189,8 +2163,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "việc nhà vặt",
         "ipa": "/tʃɔː/",
-        "example": "Domestic cleaning household chores",
-        "viExample": "Leisure relaxation",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2199,8 +2171,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "hành lang nhà",
         "ipa": "/ˈkɒrɪdɔː/",
-        "example": "Walk down long corridor",
-        "viExample": "Wide open field",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2209,8 +2179,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "gác mái",
         "ipa": "/ˈætɪk/",
-        "example": "Wooden roof attic room",
-        "viExample": "Ground floor kitchen",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2219,8 +2187,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "phòng chứa đồ ăn",
         "ipa": "/ˈpæntri/",
-        "example": "Store canned food pantry",
-        "viExample": "Empty dining table",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2229,8 +2195,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự bảo trì nhà cửa",
         "ipa": "/ˈmeɪntənəns/",
-        "example": "Regular roof maintenance cost",
-        "viExample": "Neglect damage",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2239,8 +2203,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chất tẩy rửa/xà phòng",
         "ipa": "/dɪˈtɜːdʒənt/",
-        "example": "Use liquid laundry detergent",
-        "viExample": "Pure fresh water",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2249,8 +2211,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "hệ thống đường ống nước",
         "ipa": "/ˈplʌmɪŋ/",
-        "example": "Repair kitchen sink plumbing",
-        "viExample": "Electrical wiring",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2259,8 +2219,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tủ tường đựng đồ",
         "ipa": "/ˈklɒzɪt/",
-        "example": "Hang jackets closet wall",
-        "viExample": "Open shelf rack",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2269,8 +2227,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tủ ngăn kéo đựng đồ",
         "ipa": "/ˈdresə/",
-        "example": "Socks folding drawer dresser",
-        "viExample": "Tall hanger bar",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2279,8 +2235,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "đồ dùng gắn cố định (đèn, vòi nước)",
         "ipa": "/ˈfɪkstʃə/",
-        "example": "Modern bathroom light fixtures",
-        "viExample": "Mobile chair table",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2289,8 +2243,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "thảm trải sàn",
         "ipa": "/ˈkɑːpɪt/",
-        "example": "Soft wool floor carpet",
-        "viExample": "Bare stone tiles",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2299,8 +2251,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nệm giường",
         "ipa": "/ˈmæt rəs/",
-        "example": "Comfortable spring bed mattress",
-        "viExample": "Hard floor board",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2309,8 +2259,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "cái chăn ấm",
         "ipa": "/ˈblæŋkɪt/",
-        "example": "Warm heavy winter blanket",
-        "viExample": "Thin summer sheet",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2319,8 +2267,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "cái gối",
         "ipa": "/ˈpɪləʊ/",
-        "example": "Soft feather sleeping pillow",
-        "viExample": "Flat wood bench",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2329,8 +2275,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "drap giường vỏ gối",
         "ipa": "/ˈlɪnɪnz/",
-        "example": "Wash white bed linens",
-        "viExample": "Dirty blankets",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2339,8 +2283,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "dao kéo muỗng dĩa ăn",
         "ipa": "/ˈkʌtləri/",
-        "example": "Silver dinner cutlery set",
-        "viExample": "Bare hands eating",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2349,8 +2291,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "bát đĩa gốm sứ",
         "ipa": "/ˈkrɒkəri/",
-        "example": "Clean daily kitchen crockery",
-        "viExample": "Metal pots pans",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2359,8 +2299,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "đồ thủy tinh (ly, cốc)",
         "ipa": "/ˈɡlɑːsweə/",
-        "example": "Fragile wine party glassware",
-        "viExample": "Plastic cups mugs",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2369,8 +2307,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "khăn tắm/khăn lau",
         "ipa": "/ˈtaʊəl/",
-        "example": "Cotton soft dry towel",
-        "viExample": "Wet hand wipe",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2379,8 +2315,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "đồ vệ sinh cá nhân (sữa tắm, kem đánh răng)",
         "ipa": "/ˈtɔɪlətriz/",
-        "example": "Pack travel travel toiletries",
-        "viExample": "Kitchen groceries",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2389,8 +2323,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tủ có nhiều ngăn",
         "ipa": "/ˈkæbɪnət/",
-        "example": "Kitchen medicine glass cabinet",
-        "viExample": "Open desk table",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2399,8 +2331,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "cái kệ sách/kệ đồ",
         "ipa": "/ʃelf/",
-        "example": "Wooden book wall shelf",
-        "viExample": "Flat clean floor",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2409,8 +2339,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "ghế bành",
         "ipa": "/ˈɑːmtʃeə/",
-        "example": "Reading fireside soft armchair",
-        "viExample": "Stiff metal stool",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2419,8 +2347,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "lò sưởi ấm",
         "ipa": "/ˈfaɪəpleɪs/",
-        "example": "Brick warm winter fireplace",
-        "viExample": "Electric cooler fan",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2429,8 +2355,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "ống khói",
         "ipa": "/ˈtʃɪmni/",
-        "example": "Brick roof fireplace chimney",
-        "viExample": "Window ventilator",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2439,8 +2363,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "hộp nhận thư",
         "ipa": "/ˈmeɪlbɒks/",
-        "example": "Metal front gate mailbox",
-        "viExample": "Email inbox account",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2449,8 +2371,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "đường lái xe vào nhà",
         "ipa": "/ˈdraɪvweɪ/",
-        "example": "Park car front driveway",
-        "viExample": "Busy main highway",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2459,8 +2379,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sân trong nhà lát gạch dạo mát",
         "ipa": "/ˈpætɪəʊ/",
-        "example": "Outdoor dinner backyard patio",
-        "viExample": "Inside living room",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2469,8 +2387,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "bãi cỏ xanh quanh nhà",
         "ipa": "/lɔːn/",
-        "example": "Cut green backyard lawn",
-        "viExample": "Concrete pavement",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2479,8 +2395,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "máy cắt cỏ",
         "ipa": "/ˈməʊə/",
-        "example": "Petrol lawn grass mower",
-        "viExample": "Scissors pruning shears",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2489,8 +2403,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "sự cắt tỉa cành cây",
         "ipa": "/ˈpruːnɪŋ/",
-        "example": "Garden rose plants pruning",
-        "viExample": "Grow wildly free",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2499,8 +2411,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "phân bón cây",
         "ipa": "/ˈfɜːtəlaɪzə/",
-        "example": "Organic soil plant fertilizer",
-        "viExample": "Chemical weed killer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2509,8 +2419,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "phân hữu cơ làm từ rác thải",
         "ipa": "/ˈkɒmpɒst/",
-        "example": "Kitchen vegetable waste compost",
-        "viExample": "Pure raw garbage",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3045,8 +2953,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "kiệt tác nghệ thuật",
         "ipa": "/ˈmɑːstəpiːs/",
-        "example": "Museum exhibits painting masterpiece",
-        "viExample": "Worthless scribble",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3055,8 +2961,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "buổi biểu diễn",
         "ipa": "/pəˈfɔːmáns/",
-        "example": "Live music stage performance",
-        "viExample": "Practice rehearsal",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3065,8 +2969,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "khán giả xem trực tiếp",
         "ipa": "/ˈɔːdiəns/",
-        "example": "Theatre audience claps",
-        "viExample": "Performers actors",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3075,8 +2977,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhà phê bình nghệ thuật",
         "ipa": "/ˈkrɪtɪk/",
-        "example": "Movie review newspaper critic",
-        "viExample": "Blind fan buyer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3085,8 +2985,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "buổi tổng duyệt/tập dượt",
         "ipa": "/rɪˈhɜːsl/",
-        "example": "Actors theatre play rehearsal",
-        "viExample": "Live public show",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3095,8 +2993,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "cực kỳ tinh xảo/tuyệt mỹ",
         "ipa": "/ɪkˈskwɪzɪt/",
-        "example": "Handmade gold crown exquisite",
-        "viExample": "Cheap rough plastic",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3105,8 +3001,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhà bảo trợ nghệ thuật",
         "ipa": "/ˈpeɪtrən/",
-        "example": "Wealthy artist studio patron",
-        "viExample": "Buyer simple customer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3115,8 +3009,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "bản nhạc giao hưởng",
         "ipa": "/ˈsɪmfəni/",
-        "example": "Orchestra play grand symphony",
-        "viExample": "Short pop song",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3125,8 +3017,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhạc trưởng điều khiển",
         "ipa": "/kənˈdʌktə/",
-        "example": "Orchestra lead music conductor",
-        "viExample": "Audience listener",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3135,8 +3025,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "bản thảo viết tay",
         "ipa": "/ˈmænjuskrɪpt/",
-        "example": "Ancient novel original manuscript",
-        "viExample": "Printed printed-book",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3145,8 +3033,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "giá đỡ vẽ tranh",
         "ipa": "/ˈiːzl/",
-        "example": "Artist paint brush easel",
-        "viExample": "Writing desk table",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3155,8 +3041,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "bảng màu/phối màu",
         "ipa": "/ˈpælət/",
-        "example": "Wooden paint oil palette",
-        "viExample": "Color single marker",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3165,8 +3049,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tranh vẽ tường khổ lớn",
         "ipa": "/ˈmjʊərəl/",
-        "example": "Street building wall mural",
-        "viExample": "Framed tiny painting",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3175,8 +3057,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "bản vẽ phác thảo",
         "ipa": "/sketʃ/",
-        "example": "Pencil quick notebook sketch",
-        "viExample": "Finished color canvas",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3185,8 +3065,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tranh biếm họa phóng đại",
         "ipa": "/ˈkærɪkətʃʊə/",
-        "example": "Funny political face caricature",
-        "viExample": "Accurate photo ID",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3195,8 +3073,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nghệ thuật làm đồ gốm sứ",
         "ipa": "/səˈræmɪks/",
-        "example": "Clay baking pottery ceramics",
-        "viExample": "Metal plastic works",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3205,8 +3081,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "thảm thêu dệt treo tường",
         "ipa": "/ˈtæpəstri/",
-        "example": "Palace castle walls tapestry",
-        "viExample": "Plain paper poster",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3215,8 +3089,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nghệ thuật viết chữ đẹp",
         "ipa": "/kəˈlɪɡrəfi/",
-        "example": "Asian brush ink calligraphy",
-        "viExample": "Typewriter print",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3225,8 +3097,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "thuộc thể loại opera",
         "ipa": "/ˌɒpəˈrætɪk/",
-        "example": "Grand scale operatic singing",
-        "viExample": "Casual speak talk",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3235,8 +3105,6 @@ const vocabMoreData = [
         "type": "(n/adj)",
         "vi": "diễn viên kịch sân khấu",
         "ipa": "/ˈθespiən/",
-        "example": "Famous school drama thespian",
-        "viExample": "Audience crowd spectator",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3245,8 +3113,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhân vật phản diện",
         "ipa": "/ænˈtæɡənɪst/",
-        "example": "Comic book evil antagonist",
-        "viExample": "Protagonist hero champion",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3255,8 +3121,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "cực điểm/đỉnh điểm cốt truyện",
         "ipa": "/ˈklaɪmæks/",
-        "example": "Movie action final climax",
-        "viExample": "Boring slow start",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3265,8 +3129,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "lời mở đầu/lời giới thiệu",
         "ipa": "/ˈprəʊlɒɡ/",
-        "example": "Book history intro prologue",
-        "viExample": "Epilogue end final",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3275,8 +3137,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "lời kết/phần kết câu chuyện",
         "ipa": "/ˈepɪlɒɡ/",
-        "example": "Story ending future epilogue",
-        "viExample": "Prologue start beginning",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3285,8 +3145,6 @@ const vocabMoreData = [
         "type": "(v)",
         "vi": "ứng biến/tự biên tự diễn",
         "ipa": "/ˈɪmprəvaɪz/",
-        "example": "Actor forgets lines improvise",
-        "viExample": "Rigidly follow script",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3295,8 +3153,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "độ vang âm/âm học phòng",
         "ipa": "/əˈkuːstɪks/",
-        "example": "Theatre perfect singing acoustics",
-        "viExample": "Deaf muffled sound",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3305,8 +3161,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "diễn viên đóng thế mạo hiểm",
         "ipa": "/ˈstʌntmæn/",
-        "example": "Action movie jump stuntman",
-        "viExample": "Main celebrity star",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3315,8 +3169,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tác phẩm chuyển thể",
         "ipa": "/ˌædæpˈteɪʃn/",
-        "example": "Novel to movie adaptation",
-        "viExample": "Original direct writing",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3325,8 +3177,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "người thổi sáo",
         "ipa": "/ˈflɔːtɪst/",
-        "example": "Classical orchestra band flautist",
-        "viExample": "Drummer beat maker",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3335,8 +3185,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhà thiết kế mỹ thuật sân khấu",
         "ipa": "/ˌsiːˈnɒɡrəfə/",
-        "example": "Theatre drama set scenographer",
-        "viExample": "Simple stagehand helper",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3345,8 +3193,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "đạo cụ diễn kịch",
         "ipa": "/prɒps/",
-        "example": "Actor sword fake props",
-        "viExample": "Real weapons furniture",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3355,8 +3201,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "ca sĩ hát chính",
         "ipa": "/ˈvəʊkəlɪst/",
-        "example": "Jazz music band lead vocalist",
-        "viExample": "Guitar player solo",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3365,8 +3209,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "cảnh tượng ngoạn mục/kịch tính",
         "ipa": "/ˈspektəkl/",
-        "example": "Olympics opening ceremony spectacle",
-        "viExample": "Boring small event",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3375,8 +3217,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "độc thoại kịch",
         "ipa": "/səˈlɪləkwi/",
-        "example": "Actor stage alone soliloquy",
-        "viExample": "Dialogue chat conversation",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4027,8 +3867,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự trao đổi chất cơ thể",
         "ipa": "/məˈtæbəlɪzəm/",
-        "example": "Boost active body metabolism",
-        "viExample": "Slow sluggish state",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4037,8 +3875,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "thuộc hệ tiêu hóa",
         "ipa": "/daɪˈdʒestɪv/",
-        "example": "Healthy stomach digestive system",
-        "viExample": "Respiratory lung air",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4047,8 +3883,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nạn béo phì",
         "ipa": "/əʊˈbiːsəti/",
-        "example": "Prevent childhood obesity hazard",
-        "viExample": "Malnutrition thinness",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4057,8 +3891,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chất béo cholesterol",
         "ipa": "/kəˈlestərɒl/",
-        "example": "Monitor blood level cholesterol",
-        "viExample": "Pure vitamin water",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4067,8 +3899,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "thuộc chế độ ăn uống",
         "ipa": "/ˈdaɪətəri/",
-        "example": "Healthy dietary fiber supplement",
-        "viExample": "Medical drug injection",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4077,8 +3907,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chất gây dị ứng thực phẩm",
         "ipa": "/ˈælədʒən/",
-        "example": "Peanut food allergen alert",
-        "viExample": "Pure safe water",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4087,8 +3915,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "thực phẩm bổ sung/bổ sung",
         "ipa": "/ˈsʌplɪmənt/",
-        "example": "Take daily vitamin supplements",
-        "viExample": "Normal whole food",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4097,8 +3923,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "canxi giúp xương khỏe",
         "ipa": "/ˈkælsiəm/",
-        "example": "Milk contains high calcium",
-        "viExample": "Salty salt sodium",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4107,8 +3931,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "axit béo hữu ích",
         "ipa": "/ˌfæti ˈæsɪd/",
-        "example": "Fish oil omega fatty acids",
-        "viExample": "Dry clean water",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4117,8 +3939,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "bão hòa (chất béo xấu)",
         "ipa": "/ˈsætʃəreɪtɪd/",
-        "example": "Avoid meat saturated fats",
-        "viExample": "Unsaturated liquid oil",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4127,8 +3947,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "chưa bão hòa (chất béo tốt)",
         "ipa": "/ˌʌnˈsætʃəreɪtɪd/",
-        "example": "Olive oil unsaturated fats",
-        "viExample": "Solid butter lard",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4137,8 +3955,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "được chế biến công nghiệp",
         "ipa": "/ˈprəʊsest/",
-        "example": "Avoid packaged processed food",
-        "viExample": "Fresh farm organic",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4147,8 +3963,6 @@ const vocabMoreData = [
         "type": "(v)",
         "vi": "nuôi nấng/cung cấp chất dinh dưỡng",
         "ipa": "/ˈnɜːrɪʃ/",
-        "example": "Nourish healthy growing babies",
-        "viExample": "Starve neglect",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4157,8 +3971,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chất dinh dưỡng nuôi cơ thể",
         "ipa": "/ˈnjuːtriənt/",
-        "example": "Plants absorb soil nutrients",
-        "viExample": "Empty plain water",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4167,8 +3979,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự thiếu hụt chất/bệnh thiếu chất",
         "ipa": "/dɪˈfɪʃnsi/",
-        "example": "Iron blood cell deficiency",
-        "viExample": "Surplus excess balance",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4177,8 +3987,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự mất nước cơ thể",
         "ipa": "/ˌdiːhaɪˈdreɪʃn/",
-        "example": "Sport drinks prevent dehydration",
-        "viExample": "Fully hydrated state",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4187,8 +3995,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "lượng nạp vào cơ thể (calo/nước)",
         "ipa": "/ˈɪnteɪk/",
-        "example": "Reduce sodium salt intake",
-        "viExample": "Output sweat excretion",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4197,8 +4003,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "natri/muối ăn",
         "ipa": "/ˈsəʊdiəm/",
-        "example": "Salty chips high sodium",
-        "viExample": "Calcium vitamins",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4207,8 +4011,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "phụ gia thực phẩm màu mùi",
         "ipa": "/ˈædətɪv/",
-        "example": "Harmful chemical food additives",
-        "viExample": "Raw natural ingredient",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4217,8 +4019,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "độc tố/chất độc tự nhiên",
         "ipa": "/ˈtɒksɪn/",
-        "example": "Body flushes out toxins",
-        "viExample": "Nutrition nutrient clean",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4227,8 +4027,6 @@ const vocabMoreData = [
         "type": "(v)",
         "vi": "giải độc cơ thể",
         "ipa": "/diːˈtɒksɪfaɪ/",
-        "example": "Liver filters detoxify blood",
-        "viExample": "Contaminate poison",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4237,8 +4035,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "dễ tiêu hóa",
         "ipa": "/daɪˈdʒestəbl/",
-        "example": "Warm soft digestible porridge",
-        "viExample": "Tough raw fiber",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4247,8 +4043,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "khó tiêu hóa/không tiêu hóa được",
         "ipa": "/ˌɪndɪˈdʒestəbl/",
-        "example": "Swallowed plastic is indigestible",
-        "viExample": "Soft cooked grain",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4257,8 +4051,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "không chứa đường sữa lactose",
         "ipa": "/lækˈtəʊs ˈfriː/",
-        "example": "Soy milk lactose-free option",
-        "viExample": "Cow dairy butter",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4267,8 +4059,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chuyên gia dinh dưỡng học",
         "ipa": "/ˌdaɪəˈtɪʃn/",
-        "example": "Consult hospital clinical dietitian",
-        "viExample": "Fast-food cook manager",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4277,8 +4067,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "lành mạnh/bổ dưỡng tốt cho sức khỏe",
         "ipa": "/ˈhəʊlsəm/",
-        "example": "Eat fresh wholesome meals",
-        "viExample": "Processed fast-food junk",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4287,8 +4075,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "đồ uống/nước uống",
         "ipa": "/ˈbevərɪdʒ/",
-        "example": "Healthy green tea beverage",
-        "viExample": "Dry solid biscuit",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4297,8 +4083,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "ngũ cốc ăn sáng",
         "ipa": "/ˈsɪəriəl/",
-        "example": "Milk organic breakfast cereal",
-        "viExample": "Roast beef steak",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4307,8 +4091,6 @@ const vocabMoreData = [
         "type": "(n/adj)",
         "vi": "sữa và sản phẩm từ sữa",
         "ipa": "/ˈdeəri/",
-        "example": "Cheese butter dairy category",
-        "viExample": "Plant vegan alternatives",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4317,8 +4099,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "gia cầm lấy thịt trứng",
         "ipa": "/ˈpəʊltri/",
-        "example": "Chicken turkey poultry section",
-        "viExample": "Wild river fish",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4327,8 +4107,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "hải sản cá tôm cua",
         "ipa": "/ˈsiːfuːd/",
-        "example": "Fresh marine seafood diet",
-        "viExample": "Land cattle meat",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4337,8 +4115,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chất dinh dưỡng/sự nuôi dưỡng",
         "ipa": "/ˈnʌrɪʃmənt/",
-        "example": "Milk is complete nourishment",
-        "viExample": "Starvation lack",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4915,8 +4691,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự khoan dung/lòng vị tha",
         "ipa": "/ˈtɒlərəns/",
-        "example": "Teach religious cultural tolerance",
-        "viExample": "Bigotry intolerance",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4925,8 +4699,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự tự do",
         "ipa": "/ˈlɪbəti/",
-        "example": "Statue of liberty values",
-        "viExample": "Captivity slavery",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4935,8 +4707,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "quyền tự do",
         "ipa": "/ˈfriːdəm/",
-        "example": "Protect freedom of speech",
-        "viExample": "Prison slavery",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4945,8 +4715,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "người bảo vệ/ủng hộ/bênh vực",
         "ipa": "/ˈædvəkeɪt/",
-        "example": "Human rights advocate speaks",
-        "viExample": "Opponent denouncer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4955,8 +4723,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "sự cải cách/cải tổ",
         "ipa": "/rɪˈfɔːm/",
-        "example": "Social welfare tax reform",
-        "viExample": "Preservation status-quo",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4965,8 +4731,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "phúc lợi xã hội/sự an sinh",
         "ipa": "/ˈwelfeə/",
-        "example": "State child welfare system",
-        "viExample": "Neglect isolation",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4975,8 +4739,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhân phẩm/lòng tự trọng",
         "ipa": "/ˈdɪɡnəti/",
-        "example": "Treat elders with dignity",
-        "viExample": "Shame disgrace",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4985,8 +4747,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự đoàn kết/sự nhất trí",
         "ipa": "/ˌsɒlɪˈdærəti/",
-        "example": "Worker strike trade solidarity",
-        "viExample": "Division conflict",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4995,8 +4755,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "bị gạt ra ngoài lề xã hội",
         "ipa": "/ˈmɑːdʒɪnəlaɪzd/",
-        "example": "Help poor marginalized groups",
-        "viExample": "Privileged powerful",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5005,8 +4763,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự trao quyền/nâng cao thế lực",
         "ipa": "/ɪmˈpaʊəmənt/",
-        "example": "Women social economic empowerment",
-        "viExample": "Subjugation control",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5015,8 +4771,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhà hoạt động xã hội",
         "ipa": "/ˈæktɪvɪst/",
-        "example": "Climate change youth activist",
-        "viExample": "Passive citizen",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5025,8 +4779,6 @@ const vocabMoreData = [
         "type": "(v/n)",
         "vi": "tẩy chay",
         "ipa": "/ˈbɔɪkɒt/",
-        "example": "Boycott plastic package goods",
-        "viExample": "Support buy",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5035,8 +4787,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "sự trừng phạt/phê chuẩn",
         "ipa": "/ˈsæŋkʃn/",
-        "example": "Impose trade economic sanctions",
-        "viExample": "Free trade approve",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5045,8 +4795,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "quyền hạn xét xử/quyền tài phán",
         "ipa": "/ˌdʒʊərɪsˈdɪkʃn/",
-        "example": "Court international law jurisdiction",
-        "viExample": "Out of bounds",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5055,8 +4803,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự kiện tụng/tranh chấp pháp lý",
         "ipa": "/ˌlɪtɪˈɡeɪʃn/",
-        "example": "Commercial patent court litigation",
-        "viExample": "Amicable agreement",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5065,8 +4811,6 @@ const vocabMoreData = [
         "type": "(v)",
         "vi": "truy tố",
         "ipa": "/ˈprɒsɪkjuːt/",
-        "example": "Prosecute criminals in court",
-        "viExample": "Pardon forgive",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5075,8 +4819,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nguyên đơn/người kiện",
         "ipa": "/ˈpleɪntɪf/",
-        "example": "Plaintiff files lawsuit claim",
-        "viExample": "Defendant defender",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5085,8 +4827,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tòa án đặc biệt/tòa án xét xử",
         "ipa": "/traɪˈbjuːnl/",
-        "example": "Military crimes international tribunal",
-        "viExample": "Arbitration council",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5095,8 +4835,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự ân xá/khoan hồng",
         "ipa": "/ˈæmnəsti/",
-        "example": "General political prisoner amnesty",
-        "viExample": "Severe punishment",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5105,8 +4843,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chủ quyền quốc gia",
         "ipa": "/ˈsɒvrənti/",
-        "example": "Protect territorial national sovereignty",
-        "viExample": "Colony dependency",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5115,8 +4851,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự phân xử/hòa giải trọng tài",
         "ipa": "/ˌɑːbɪˈtreɪʃn/",
-        "example": "Commercial dispute legal arbitration",
-        "viExample": "Street fight war",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5125,8 +4859,6 @@ const vocabMoreData = [
         "type": "(n/v)",
         "vi": "sắc lệnh/phát lệnh",
         "ipa": "/dɪˈkriː/",
-        "example": "Government royal decree signed",
-        "viExample": "Suggestion hint",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5135,8 +4867,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "đạo luật/quy chế",
         "ipa": "/ˈstætʃuːt/",
-        "example": "Statute of limitations applies",
-        "viExample": "Unwritten rule",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5145,8 +4875,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "thói quan liêu/bộ máy hành chính",
         "ipa": "/bjʊəˈrɒkrəsi/",
-        "example": "Reduce paperwork delay bureaucracy",
-        "viExample": "Efficient direct system",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5155,8 +4883,6 @@ const vocabMoreData = [
         "type": "(n/adj)",
         "vi": "thường dân/dân sự",
         "ipa": "/səˈvɪliən/",
-        "example": "Protect innocent war civilians",
-        "viExample": "Military soldier",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5165,8 +4891,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự đàn áp/áp bức",
         "ipa": "/əˈpreʃn/",
-        "example": "Fight political absolute oppression",
-        "viExample": "Liberty freedom",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5175,8 +4899,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhóm thiểu số",
         "ipa": "/maɪˈnɒrəti/",
-        "example": "Protect ethnic minority rights",
-        "viExample": "Majority dominant",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5185,8 +4907,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhóm đa số",
         "ipa": "/məˈdʒɒrəti/",
-        "example": "Parliament votes majority rule",
-        "viExample": "Minority group",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5195,8 +4915,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tổ chức từ thiện/lòng nhân đức",
         "ipa": "/ˈtʃærəti/",
-        "example": "Donate money orphan charity",
-        "viExample": "Selfish business",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5205,8 +4923,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "lòng bác ái/hoạt động nhân đạo",
         "ipa": "/fɪˈlænθrəpi/",
-        "example": "Rich billionaire philanthropy donation",
-        "viExample": "Greed stinginess",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5215,8 +4931,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự bình đẳng",
         "ipa": "/ɪˈkwɒləti/",
-        "example": "Racial gender legal equality",
-        "viExample": "Discrimination bias",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5751,8 +5465,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "liên văn hóa/giao thoa văn hóa",
         "ipa": "/ˌɪntəˈkʌltʃərəl/",
-        "example": "Improve intercultural communication skills",
-        "viExample": "Isolated inside culture",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5761,8 +5473,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự tiếp biến văn hóa/hội nhập",
         "ipa": "/əˌkʌltʃəˈreɪʃn/",
-        "example": "Immigrant child language acculturation",
-        "viExample": "Cultural isolation",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5771,8 +5481,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chủ nghĩa đế quốc/áp đặt văn hóa",
         "ipa": "/ɪmˈpɪəriəlɪzəm/",
-        "example": "Fight global cultural imperialism",
-        "viExample": "Local sovereignty independence",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5781,8 +5489,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "di sản truyền thống văn hóa",
         "ipa": "/ˈherɪtɪdʒ/",
-        "example": "Protect unesco world heritage",
-        "viExample": "Modern new fashion",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5791,8 +5497,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "phong tục tập quán",
         "ipa": "/ˈkʌstəm/",
-        "example": "Follow local traditional customs",
-        "viExample": "Universal behavior rule",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5801,8 +5505,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự đa dạng",
         "ipa": "/daɪˈvɜːsəti/",
-        "example": "Cultural ecological plant diversity",
-        "viExample": "Sameness uniformity",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5811,8 +5513,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự di cư",
         "ipa": "/maɪˈɡreɪʃn/",
-        "example": "Global mass labor migration",
-        "viExample": "Native stay permanence",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5821,8 +5521,6 @@ const vocabMoreData = [
         "type": "(n/adj)",
         "vi": "người làm việc định cư nước ngoài (expat)",
         "ipa": "/eksˈpætriət/",
-        "example": "Expat community english teachers",
-        "viExample": "Native resident citizen",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5831,8 +5529,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự hội nhập/tích hợp",
         "ipa": "/ˌɪntɪˈɡreɪʃn/",
-        "example": "Immigrant society social integration",
-        "viExample": "Exclusion segregation",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5841,8 +5537,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự bảo tồn di sản",
         "ipa": "/ˌprezəˈveɪʃn/",
-        "example": "Historical monument architecture preservation",
-        "viExample": "Demolition destruction",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5851,8 +5545,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự lai hóa ngôn ngữ/văn hóa",
         "ipa": "/ˌkriːəlaɪˈzeɪʃn/",
-        "example": "Caribbean food music creolization",
-        "viExample": "Purism isolation",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5861,8 +5553,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tính lai/sự lai tạp",
         "ipa": "/haɪˈbrɪdəti/",
-        "example": "Postcolonial theory cultural hybridity",
-        "viExample": "Purity homogeneity",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5871,8 +5561,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "thương mại tự do hơn",
         "ipa": "/ˌfriːə ˈtreɪd/",
-        "example": "Wto promotes freer trade",
-        "viExample": "Tariff barriers quotas",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5881,8 +5569,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "thuế xuất nhập khẩu",
         "ipa": "/ˈtærɪf/",
-        "example": "Impose import export tariffs",
-        "viExample": "Free tax trade",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5891,8 +5577,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chính sách bảo hộ mậu dịch",
         "ipa": "/prəˈtekʃənɪzəm/",
-        "example": "Us farm agriculture protectionism",
-        "viExample": "Free global market",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5901,8 +5585,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự liên kết kết nối lẫn nhau",
         "ipa": "/ˌɪntəkəˈnektɪdnəs/",
-        "example": "Internet global communication interconnectedness",
-        "viExample": "Complete regional isolation",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5911,8 +5593,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "quyền bá chủ/sự thống trị ảnh hưởng",
         "ipa": "/hɪˈdʒeməni/",
-        "example": "Cultural western media hegemony",
-        "viExample": "Equality mutual-respect",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5921,8 +5601,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nhân học thực địa/dân tộc học",
         "ipa": "/eθˈnɒɡrəfi/",
-        "example": "Fieldwork professor writes ethnography",
-        "viExample": "General desk study",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5931,8 +5609,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "hời hợt/nông cạn (văn hóa)",
         "ipa": "/ˌsuːpəˈfɪʃl/",
-        "example": "Superficial tourist culture knowledge",
-        "viExample": "Deep profound understanding",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5941,8 +5617,6 @@ const vocabMoreData = [
         "type": "(adj)",
         "vi": "sâu sắc/thâm thúy",
         "ipa": "/prəˈfaʊnd/",
-        "example": "Profound philosophy wisdom text",
-        "viExample": "Superficial silly simple",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5951,8 +5625,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tính xác thực/chân thực văn hóa",
         "ipa": "/ˌɔːθenˈtɪsəti/",
-        "example": "Folk song performance authenticity",
-        "viExample": "Fake replica copy",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5961,8 +5633,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "cổ vật/tác phẩm khảo cổ",
         "ipa": "/ˈɑːtɪfækt/",
-        "example": "Museum displays historical artifact",
-        "viExample": "Modern plastic toy",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5971,8 +5641,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "truyền thuyết/văn học dân gian",
         "ipa": "/ˈfəʊklɔː/",
-        "example": "Study old native folklore",
-        "viExample": "Modern sci-fi",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5981,8 +5649,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nghi lễ/nghi thức",
         "ipa": "/ˈrɪtʃuəl/",
-        "example": "Annual spring harvest ritual",
-        "viExample": "Random casual party",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5991,8 +5657,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "nghi thức trưởng thành",
         "ipa": "/ˌraɪt əv ˈpæsɪdʒ/",
-        "example": "Graduation university rite of passage",
-        "viExample": "Routine normal event",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6001,8 +5665,6 @@ const vocabMoreData = [
         "type": "(n/adj)",
         "vi": "điều kiêng kỵ/cấm kỵ",
         "ipa": "/təˈbuː/",
-        "example": "Cultural taboo body language",
-        "viExample": "Common acceptable behavior",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6011,8 +5673,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "tiếng lóng",
         "ipa": "/slæŋ/",
-        "example": "Internet teenager chat slang",
-        "viExample": "Formal academic text",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6021,8 +5681,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "thuật ngữ ngành/tiếng nghề",
         "ipa": "/ˈdʒɑːɡən/",
-        "example": "Medical tech code jargon",
-        "viExample": "Simple plain words",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6031,8 +5689,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "quy tắc xã giao/phép lịch sự",
         "ipa": "/ˈetɪket/",
-        "example": "Dining table polite etiquette",
-        "viExample": "Rude bad manners",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6041,8 +5697,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "sự hiếu khách",
         "ipa": "/ˌhɒspɪˈtæləti/",
-        "example": "Famous local traditional hospitality",
-        "viExample": "Cold hostile exclusion",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6051,8 +5705,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "lòng vị tha/sự khoan dung",
         "ipa": "/ˈtɒlərəns/",
-        "example": "Cultural differences moral tolerance",
-        "viExample": "Bigotry bias hatred",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6061,8 +5713,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "lòng yêu nước",
         "ipa": "/ˈpætriətɪzəm/",
-        "example": "National anthem army patriotism",
-        "viExample": "Treason betrayal",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6071,8 +5721,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "chủ nghĩa dân tộc",
         "ipa": "/ˈnæʃnəlɪzəm/",
-        "example": "Extreme border wave nationalism",
-        "viExample": "Cosmopolitan globalism",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6081,8 +5729,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "công dân thế giới",
         "ipa": "/kɒzˈmɒpəlaɪt/",
-        "example": "Traveler is true cosmopolite",
-        "viExample": "Rural local villager",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6091,8 +5737,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "du khách du lịch",
         "ipa": "/ˈtʊərɪst/",
-        "example": "Crowded historic landmark tourists",
-        "viExample": "Native resident worker",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6101,8 +5745,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "người hành hương",
         "ipa": "/ˈpɪlɡrɪm/",
-        "example": "Temple temple holy pilgrims",
-        "viExample": "Casual beach tourist",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6111,8 +5753,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "người nhập cư",
         "ipa": "/ˈɪmɪɡrənt/",
-        "example": "Legal skilled jobs immigrants",
-        "viExample": "Emigrant native stayer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6121,8 +5761,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "người di cư ra nước ngoài",
         "ipa": "/ˈemɪɡrənt/",
-        "example": "Country loses talent emigrants",
-        "viExample": "Immigrant buyer arrival",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6131,8 +5769,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "người lao động di cư",
         "ipa": "/ˈmaɪɡrənt/",
-        "example": "Seasonal farm harvest migrants",
-        "viExample": "Permanent city resident",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6141,8 +5777,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "di sản được công nhận",
         "ipa": "/ˈherɪtɪdʒ saɪt/",
-        "example": "Visit world heritage site",
-        "viExample": "Modern shopping mall",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6151,8 +5785,6 @@ const vocabMoreData = [
         "type": "(n)",
         "vi": "đài tưởng niệm/di tích",
         "ipa": "/ˈmɒnjumənt/",
-        "example": "Stone soldier memorial monument",
-        "viExample": "New office building",
         "synonyms": "",
         "antonyms": ""
       },

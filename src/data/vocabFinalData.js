@@ -449,8 +449,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "môn điền kinh/thể thao",
         "ipa": "/æθˈletɪks/",
-        "example": "School stadium tracks athletics",
-        "viExample": "Chess table-game",
         "synonyms": "",
         "antonyms": ""
       },
@@ -459,8 +457,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "vòng loại/sự đủ điều kiện",
         "ipa": "/ˌkwɒlɪfɪˈteɪʃn/",
-        "example": "World cup team qualification",
-        "viExample": "Final match stage",
         "synonyms": "",
         "antonyms": ""
       },
@@ -469,8 +465,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự tiếp nước cơ thể",
         "ipa": "/haɪˈdreɪʃn/",
-        "example": "Sport drinks maintain hydration",
-        "viExample": "Dehydration thirst",
         "synonyms": "",
         "antonyms": ""
       },
@@ -479,8 +473,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự mất nước",
         "ipa": "/ˌdiːhaɪˈdreɪʃn/",
-        "example": "Sun heat causes dehydration",
-        "viExample": "Hydration water",
         "synonyms": "",
         "antonyms": ""
       },
@@ -489,8 +481,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thể dục nhịp điệu/aerobic",
         "ipa": "/eəˈrəʊbɪks/",
-        "example": "Weekly music dancing aerobics",
-        "viExample": "Weightlifting power",
         "synonyms": "",
         "antonyms": ""
       },
@@ -499,8 +489,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tạ tay nhỏ",
         "ipa": "/ˈdʌmbel/",
-        "example": "Lift small metal dumbbells",
-        "viExample": "Heavy machine rack",
         "synonyms": "",
         "antonyms": ""
       },
@@ -509,8 +497,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "máy chạy bộ phòng gym",
         "ipa": "/ˈtredmɪl/",
-        "example": "Run indoor electric treadmill",
-        "viExample": "Open park road",
         "synonyms": "",
         "antonyms": ""
       },
@@ -519,8 +505,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "khởi động cơ thể",
         "ipa": "/ˈwɔːm ʌp/",
-        "example": "Ten-minute stretch warm-up",
-        "viExample": "Rest direct stop",
         "synonyms": "",
         "antonyms": ""
       },
@@ -529,8 +513,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "thả lỏng cơ thể sau tập",
         "ipa": "/ˈkuːl daʊn/",
-        "example": "Slow walking cool-down stretch",
-        "viExample": "Run fast stop",
         "synonyms": "",
         "antonyms": ""
       },
@@ -539,8 +521,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "bong gân khớp",
         "ipa": "/spreɪn/",
-        "example": "Sprain ankle running track",
-        "viExample": "Heal bone recovery",
         "synonyms": "",
         "antonyms": ""
       },
@@ -549,8 +529,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "chuột rút/co cơ",
         "ipa": "/kræmp/",
-        "example": "Swimmer leg muscle cramp",
-        "viExample": "Smooth stretch play",
         "synonyms": "",
         "antonyms": ""
       },
@@ -559,8 +537,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chuyên gia dinh dưỡng thể thao",
         "ipa": "/njuˈtrɪʃənɪst/",
-        "example": "Athlete diet plans nutritionist",
-        "viExample": "Fast-food cook",
         "synonyms": "",
         "antonyms": ""
       },
@@ -569,8 +545,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "thực phẩm chức năng (whey...)",
         "ipa": "/ˈsʌplɪmənt/",
-        "example": "Take protein shake supplements",
-        "viExample": "Plain rice soup",
         "synonyms": "",
         "antonyms": ""
       },
@@ -579,8 +553,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chất kích thích cơ bắp/doping",
         "ipa": "/ˈsterɔɪd/",
-        "example": "Banned olympic illegal steroids",
-        "viExample": "Natural vitamin food",
         "synonyms": "",
         "antonyms": ""
       },
@@ -589,8 +561,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chiến thuật thi đấu",
         "ipa": "/ˈtæktɪks/",
-        "example": "Smart defensive coach tactics",
-        "viExample": "Random running play",
         "synonyms": "",
         "antonyms": ""
       },
@@ -599,8 +569,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chiến lược toàn trận",
         "ipa": "/ˈstrætədʒi/",
-        "example": "Long term seasonal strategy",
-        "viExample": "Immediate quick shot",
         "synonyms": "",
         "antonyms": ""
       },
@@ -609,8 +577,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hàng công/sự tấn công",
         "ipa": "/əˈfens/",
-        "example": "Score points strong offense",
-        "viExample": "Defense barrier goal",
         "synonyms": "",
         "antonyms": ""
       },
@@ -619,8 +585,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hàng thủ/sự phòng ngự",
         "ipa": "/dɪˈfens/",
-        "example": "Block balls active defense",
-        "viExample": "Attack striker offense",
         "synonyms": "",
         "antonyms": ""
       },
@@ -629,8 +593,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tiền đạo ghi bàn",
         "ipa": "/ˈstraɪkə/",
-        "example": "Soccer center forward striker",
-        "viExample": "Goalkeeper defender",
         "synonyms": "",
         "antonyms": ""
       },
@@ -639,8 +601,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thủ môn",
         "ipa": "/ˈɡəʊlkiːpə/",
-        "example": "Catch net guard goalkeeper",
-        "viExample": "Striker forward attacker",
         "synonyms": "",
         "antonyms": ""
       },
@@ -649,8 +609,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tiền vệ",
         "ipa": "/ˈmɪdfiːldə/",
-        "example": "Pass play center midfielder",
-        "viExample": "Goalkeeper net",
         "synonyms": "",
         "antonyms": ""
       },
@@ -659,8 +617,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hậu vệ phòng ngự",
         "ipa": "/dɪˈfendə/",
-        "example": "Tackle striker brave defender",
-        "viExample": "Striker striker-goal",
         "synonyms": "",
         "antonyms": ""
       },
@@ -669,8 +625,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "trọng tài (tennis/baseball)",
         "ipa": "/ˈʌmpaɪə/",
-        "example": "Tennis chair umpire call",
-        "viExample": "Soccer referee whistle",
         "synonyms": "",
         "antonyms": ""
       },
@@ -679,8 +633,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nhà thi đấu/võ đài",
         "ipa": "/əˈriːnə/",
-        "example": "Basketball indoor sport arena",
-        "viExample": "Open field grass",
         "synonyms": "",
         "antonyms": ""
       },
@@ -689,8 +641,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "vòng đeo tay theo dõi sức khỏe",
         "ipa": "/ˈfɪtnəs ˈtrækə/",
-        "example": "Smartwatch wrist fitness tracker",
-        "viExample": "Mechanical old watch",
         "synonyms": "",
         "antonyms": ""
       },
@@ -699,8 +649,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nhịp tim",
         "ipa": "/hɑːt reɪt/",
-        "example": "Check aerobic heart rate",
-        "viExample": "Breathing rate breath",
         "synonyms": "",
         "antonyms": ""
       },
@@ -709,8 +657,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "sự mệt mỏi/kiệt sức",
         "ipa": "/fəˈtiːɡ/",
-        "example": "Muscle fatigue after marathon",
-        "viExample": "Vitality energy strength",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1293,8 +1239,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sơ yếu lý lịch (CV)",
         "ipa": "/ˈrezjuːmeɪ/",
-        "example": "Submit candidate job resume",
-        "viExample": "Salary slip note",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1303,8 +1247,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người được phỏng vấn xin việc",
         "ipa": "/ˌɪntəvjuːˈiː/",
-        "example": "Nervous young job interviewee",
-        "viExample": "Interviewer boss manager",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1313,8 +1255,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người phỏng vấn tuyển dụng",
         "ipa": "/ˈɪntəvjuːə/",
-        "example": "Strict corporate HR interviewer",
-        "viExample": "Interviewee candidate candidate",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1323,8 +1263,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "thuộc nghề nghiệp/lao động",
         "ipa": "/ˌɒkjuˈpeɪʃənl/",
-        "example": "Workplace safety occupational hazards",
-        "viExample": "Leisure hobby play",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1333,8 +1271,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tiền thù lao/lương thưởng",
         "ipa": "/rɪˌmjuːnəˈreɪʃn/",
-        "example": "Excellent job remuneration package",
-        "viExample": "Unpaid volunteer work",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1343,8 +1279,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tỷ lệ nghỉ việc/luân chuyển nhân viên",
         "ipa": "/ˈtɜːnəʊvə/",
-        "example": "High staff turnover rate",
-        "viExample": "Stable employee retention",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1353,8 +1287,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người làm việc tự do",
         "ipa": "/ˈfriːlɑːnsə/",
-        "example": "Independent graphics designer freelancer",
-        "viExample": "Full-time office staff",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1363,8 +1295,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "làm việc từ xa (qua mạng)",
         "ipa": "/ˌtelikəˈmjuːt/",
-        "example": "Allow staff telecommute home",
-        "viExample": "Commute office daily",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1373,8 +1303,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chế độ giờ làm việc linh hoạt",
         "ipa": "/ˈfleksitaɪm/",
-        "example": "Office system introducing flexitime",
-        "viExample": "Rigid nine-to-five shift",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1383,8 +1311,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nạn trốn việc/vắng mặt vô cớ",
         "ipa": "/ˌæbsənˈtiːɪzəm/",
-        "example": "Reduce stress staff absenteeism",
-        "viExample": "Punctual daily presence",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1393,8 +1319,6 @@ const vocabFinalData = [
         "type": "(n/adj)",
         "vi": "người cuồng công việc",
         "ipa": "/ˌwɜːkəˈhɒlɪk/",
-        "example": "Overtime night workaholic employee",
-        "viExample": "Lazy slacker idler",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1403,8 +1327,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "kẻ lười biếng trốn việc",
         "ipa": "/ˈslækə/",
-        "example": "Fired the office slacker",
-        "viExample": "Workaholic top performer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1413,8 +1335,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "lương hưu trí",
         "ipa": "/ˈpenʃn/",
-        "example": "Receive corporate retirement pension",
-        "viExample": "Current month salary",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1423,8 +1343,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự thôi việc/khoản trợ cấp thôi việc",
         "ipa": "/ˈsevərəns/",
-        "example": "Receive severance pay package",
-        "viExample": "Joining sign-on bonus",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1433,8 +1351,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "việc thuê nhân lực bên ngoài",
         "ipa": "/ˈaʊtsɔːsɪŋ/",
-        "example": "Save money offshore outsourcing",
-        "viExample": "In-house local team",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1443,8 +1359,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "thuộc tập đoàn/doanh nghiệp",
         "ipa": "/ˈkɔːpərət/",
-        "example": "Strict office corporate ladder",
-        "viExample": "Small family shop",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1453,8 +1367,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hệ thống cấp bậc quản lý",
         "ipa": "/ˈhaɪərɑːki/",
-        "example": "Flat management company hierarchy",
-        "viExample": "Unstructured group chaos",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1463,8 +1375,6 @@ const vocabFinalData = [
         "type": "(n/adj)",
         "vi": "cấp dưới/thuộc cấp",
         "ipa": "/səˈbɔːdɪnət/",
-        "example": "Manager guides helpful subordinates",
-        "viExample": "Superior director boss",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1473,8 +1383,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nơi làm việc/công sở",
         "ipa": "/ˈwɜːkpleɪs/",
-        "example": "Modern ergonomic workspace workplace",
-        "viExample": "Outdoor park home",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1483,8 +1391,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nhân trắc học văn phòng (thiết kế ghế bàn)",
         "ipa": "/ˌɜːɡəˈnɒmɪks/",
-        "example": "Ergonomics office chair health",
-        "viExample": "Stiff wooden bench",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1493,8 +1399,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự tuyển dụng nhân sự",
         "ipa": "/rɪˈkruːtmənt/",
-        "example": "Active campus talent recruitment",
-        "viExample": "Firing mass layoffs",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1503,8 +1407,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "vị trí công việc còn trống",
         "ipa": "/ˈveɪkənsi/",
-        "example": "Job opening developer vacancy",
-        "viExample": "Staffed full position",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1513,8 +1415,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người nộp đơn xin việc",
         "ipa": "/ˈæplɪkənt/",
-        "example": "Job opening many applicants",
-        "viExample": "Employer hirer recruiter",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1523,8 +1423,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sức lao động/nhân công",
         "ipa": "/ˈleɪbə/",
-        "example": "Manual heavy physical labor",
-        "viExample": "Automated machine robot",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1533,8 +1431,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tiền phụ cấp (đi lại, ăn trưa)",
         "ipa": "/əˈlaʊəns/",
-        "example": "Monthly travel fuel allowance",
-        "viExample": "Basic salary only",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1543,8 +1439,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tiền hoa hồng doanh số",
         "ipa": "/kəˈmɪʃn/",
-        "example": "Sales agent high commission",
-        "viExample": "Fixed base salary",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1553,8 +1447,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "phúc lợi phụ thêm (xe đưa đón, gym...)",
         "ipa": "/pɜːk/",
-        "example": "Free lunch gym perk",
-        "viExample": "Salary only taxes",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1563,8 +1455,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự giáng chức",
         "ipa": "/diːˈməʊʃn/",
-        "example": "Mistake results in demotion",
-        "viExample": "Promotion step-up",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1573,8 +1463,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự từ chức/xin thôi việc",
         "ipa": "/ˌrezɪɡˈneɪʃn/",
-        "example": "Submit official manager resignation",
-        "viExample": "Joining sign-on contract",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1583,8 +1471,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự nghỉ hưu",
         "ipa": "/rɪˈtaɪəmənt/",
-        "example": "Golden age active retirement",
-        "viExample": "Working employee career",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1593,8 +1479,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nạn thất nghiệp",
         "ipa": "/ˌʌnɪmˈplɔɪmənt/",
-        "example": "Benefit check during unemployment",
-        "viExample": "Career job work",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1603,8 +1487,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "công đoàn bảo vệ công nhân",
         "ipa": "/ˈleɪbə ˈjuːniən/",
-        "example": "Join local factory labor union",
-        "viExample": "Company board owners",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1613,8 +1495,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "cuộc đình công",
         "ipa": "/straɪk/",
-        "example": "Bus drivers go strike",
-        "viExample": "Working normal shift",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1623,8 +1503,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự đàm phán thương lượng",
         "ipa": "/nɪˌɡəʊʃiˈeɪʃn/",
-        "example": "Contract salary union negotiation",
-        "viExample": "Passive agreement accept",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1633,8 +1511,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự hòa giải tranh chấp",
         "ipa": "/ˌmiːdiˈeɪʃn/",
-        "example": "Legal court dispute mediation",
-        "viExample": "Arbitrary fight fire",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1643,8 +1519,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự phân xử trọng tài",
         "ipa": "/ˌɑːbɪˈtreɪʃn/",
-        "example": "Dispute resolved legal arbitration",
-        "viExample": "Informal compromise chat",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1653,8 +1527,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "an toàn lao động công sở",
         "ipa": "/ˈwɜːkpleɪs ˈseɪfti/",
-        "example": "Implement strict workplace safety",
-        "viExample": "Negligence hazards danger",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1663,8 +1535,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "làm việc qua mạng viễn thông",
         "ipa": "/ˈteliwɜːkɪŋ/",
-        "example": "Company policy teleworking support",
-        "viExample": "Office attendance check",
         "synonyms": "",
         "antonyms": ""
       },
@@ -1673,8 +1543,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "quãng đường đi làm hằng ngày",
         "ipa": "/kəˈmjuːt/",
-        "example": "Long exhausting daily commute",
-        "viExample": "Stay-home remote work",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2189,8 +2057,6 @@ const vocabFinalData = [
         "type": "(adj/n)",
         "vi": "lượng tử/hạt lượng tử",
         "ipa": "/ˈkwɒntəm/",
-        "example": "Quantum computer processing speed",
-        "viExample": "Classical mechanical logic",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2199,8 +2065,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "công nghệ siêu vi nano",
         "ipa": "/ˈnænəʊtek/",
-        "example": "Nanotech materials chip manufacturing",
-        "viExample": "Heavy iron construction",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2209,8 +2073,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "điều khiển học hệ thống",
         "ipa": "/ˌsaɪbəˈnetɪks/",
-        "example": "Study robotics machine cybernetics",
-        "viExample": "Uncontrolled raw force",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2219,8 +2081,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự đo lường viễn thám/truyền dữ liệu xa",
         "ipa": "/təˈlemətri/",
-        "example": "Space rocket live telemetry",
-        "viExample": "Manual local scale",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2229,8 +2089,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "khí động học",
         "ipa": "/ˌeərəʊdaɪˈnæmɪks/",
-        "example": "Race car smooth aerodynamics",
-        "viExample": "Flat brick wall wind",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2239,8 +2097,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nhận diện sinh trắc học",
         "ipa": "/ˌbaɪəʊˈmetrɪks/",
-        "example": "Biometrics passport gate check",
-        "viExample": "Paper password sign",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2249,8 +2105,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "dữ liệu phân tích",
         "ipa": "/ˌænəˈlɪtɪks/",
-        "example": "Business sales predict analytics",
-        "viExample": "Guess estimation dream",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2259,8 +2113,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hạt siêu nhỏ nano",
         "ipa": "/ˈnænəʊˌpɑːtɪkl/",
-        "example": "Deliver medicine drug nanoparticles",
-        "viExample": "Giant sand grain",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2269,8 +2121,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chất siêu dẫn",
         "ipa": "/ˌsuːpəkənˈdʌktə/",
-        "example": "Zero resistance superconductor wire",
-        "viExample": "Plastic insulator block",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2279,8 +2129,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chất cách điện/cách nhiệt",
         "ipa": "/ˈɪnsjuleɪtə/",
-        "example": "Rubber cable electrical insulator",
-        "viExample": "Copper metal wire",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2289,8 +2137,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "ngành luyện kim",
         "ipa": "/meˈtælədʒi/",
-        "example": "Steel factory alloy metallurgy",
-        "viExample": "Wood work carpentry",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2299,8 +2145,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "thuộc chất polyme/nhựa dẻo",
         "ipa": "/ˌpɒlɪˈmerɪk/",
-        "example": "Advanced synthetic polymeric materials",
-        "viExample": "Natural raw wood",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2309,8 +2153,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "vật lý thiên văn",
         "ipa": "/ˌæstrəʊˈfɪzɪks/",
-        "example": "Study black hole astrophysics",
-        "viExample": "Local earth geology",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2319,8 +2161,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "vũ trụ học",
         "ipa": "/kɒzˈmɒlədʒi/",
-        "example": "Big bang theory cosmology",
-        "viExample": "Microbiology study",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2329,8 +2169,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "vi sinh vật học",
         "ipa": "/ˌmaɪkrəʊbaɪˈɒlədʒi/",
-        "example": "Bacteria cell virus microbiology",
-        "viExample": "Astrophysics space star",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2339,8 +2177,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "di truyền học",
         "ipa": "/dʒəˈnetɪks/",
-        "example": "DNA molecular heredity genetics",
-        "viExample": "Environment nurture only",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2349,8 +2185,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự di truyền",
         "ipa": "/həˈredəti/",
-        "example": "Physical traits eye heredity",
-        "viExample": "Acquired trained habit",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2359,8 +2193,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự tiến hóa",
         "ipa": "/ˌiːvəˈluːʃn/",
-        "example": "Darwin animal species evolution",
-        "viExample": "Static creation design",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2369,8 +2201,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự tuyệt chủng sinh vật",
         "ipa": "/ɪkˈstɪŋkʃn/",
-        "example": "Fossil record dinosaur extinction",
-        "viExample": "Survival thrive grow",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2379,8 +2209,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự đột biến gene",
         "ipa": "/mjuːˈteɪʃn/",
-        "example": "Genetic mutation causes disease",
-        "viExample": "Stable code clone",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2389,8 +2217,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "nhân bản vô tính",
         "ipa": "/ˈkləʊnɪŋ/",
-        "example": "Cloning sheep science project",
-        "viExample": "Natural mating birth",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2399,8 +2225,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "nhân tạo/tổng hợp hóa học",
         "ipa": "/sɪnˈθetɪk/",
-        "example": "Synthetic rubber plastic products",
-        "viExample": "Natural organic wool",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2409,8 +2233,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "thuộc động năng/chuyển động",
         "ipa": "/kɪˈnetɪk/",
-        "example": "Moving car high kinetic",
-        "viExample": "Potential static state",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2419,8 +2241,6 @@ const vocabFinalData = [
         "type": "(adj/n)",
         "vi": "thế năng/tiềm năng",
         "ipa": "/pəˈtenʃl/",
-        "example": "Stored battery electrical potential",
-        "viExample": "Active kinetic work",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2429,8 +2249,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nhiệt động lực học",
         "ipa": "/ˌθɜːməʊdaɪˈnæmɪks/",
-        "example": "Steam engine heat thermodynamics",
-        "viExample": "Cold static ice",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2439,8 +2257,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thuyết tương đối (Einstein)",
         "ipa": "/ˌreləˈtɪvəti/",
-        "example": "Einstein general special relativity",
-        "viExample": "Newton simple gravity",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2449,8 +2265,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "trọng lực/sức hút",
         "ipa": "/ˈɡrævəti/",
-        "example": "Earth pulls down gravity",
-        "viExample": "Weightless space float",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2459,8 +2273,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "lực ma sát",
         "ipa": "/ˈfrɪkʃn/",
-        "example": "Car tyres road friction",
-        "viExample": "Smooth frictionless ice",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2469,8 +2281,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "lực quán tính",
         "ipa": "/ɪˈnɜːʃə/",
-        "example": "Seatbelt stops body inertia",
-        "viExample": "Active steering force",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2479,8 +2289,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "vận tốc/tốc độ di chuyển",
         "ipa": "/vəˈlɒsəti/",
-        "example": "Wind speed direction velocity",
-        "viExample": "Static resting state",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2489,8 +2297,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự gia tốc/tăng tốc",
         "ipa": "/əkˌseləˈreɪʃn/",
-        "example": "Rocket takeoff high acceleration",
-        "viExample": "Constant decel slow",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2499,8 +2305,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự giảm tốc",
         "ipa": "/ˌdiːseləˈreɪʃn/",
-        "example": "Apply brake car deceleration",
-        "viExample": "Acceleration speed-up",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2509,8 +2313,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "động lượng/đà chuyển động",
         "ipa": "/məˈmentəm/",
-        "example": "Heavy truck gathers momentum",
-        "viExample": "Stop freeze still",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2519,8 +2321,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "ly tâm",
         "ipa": "/senˈtrɪfjuːɡl/",
-        "example": "Washing machine spin centrifugal",
-        "viExample": "Centripetal center-pull",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2529,8 +2329,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "hướng tâm",
         "ipa": "/senˈtrɪpɪtl/",
-        "example": "Orbit moon gravity centripetal",
-        "viExample": "Centrifugal out-push",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2539,8 +2337,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự bức xạ/phóng xạ",
         "ipa": "/ˌreɪdiˈeɪʃn/",
-        "example": "Sun UV skin radiation",
-        "viExample": "Dark absolute shade",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2549,8 +2345,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "thuộc điện từ trường",
         "ipa": "/ɪˌlektrəʊmæɡˈnetɪk/",
-        "example": "Wifi wave radio electromagnetic",
-        "viExample": "Pure sound sound-wave",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2559,8 +2353,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "bước sóng",
         "ipa": "/ˈweɪvleŋθ/",
-        "example": "Red light long wavelength",
-        "viExample": "Amplitude wave-height",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2569,8 +2361,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "biên độ dao động",
         "ipa": "/ˈæmplɪtjuːd/",
-        "example": "Sound wave volume amplitude",
-        "viExample": "Wavelength wave-length",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2579,8 +2369,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tần số dao động",
         "ipa": "/ˈfriːkwənsi/",
-        "example": "Radio signal tuning frequency",
-        "viExample": "Static wave level",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2589,8 +2377,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "quang phổ/dải phổ",
         "ipa": "/ˈspektrəm/",
-        "example": "Rainbow visible color spectrum",
-        "viExample": "Single pure color",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2599,8 +2385,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "lăng kính phân tích ánh sáng",
         "ipa": "/ˈprɪzəm/",
-        "example": "Glass split light prism",
-        "viExample": "Flat mirror sheet",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2609,8 +2393,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thấu kính/kính hội tụ",
         "ipa": "/lenz/",
-        "example": "Microscope camera focal lens",
-        "viExample": "Flat transparent glass",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2619,8 +2401,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự khúc xạ ánh sáng",
         "ipa": "/rɪˈfrækʃn/",
-        "example": "Water straw bend refraction",
-        "viExample": "Straight direct beam",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2629,8 +2409,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự phản chiếu ánh sáng",
         "ipa": "/rɪˈflekʃn/",
-        "example": "Mirror surface image reflection",
-        "viExample": "Absorption darkness",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2639,8 +2417,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự hấp thụ năng lượng",
         "ipa": "/əbˈsɔːpʃn/",
-        "example": "Black solar panel absorption",
-        "viExample": "Reflection bounce-off",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2649,8 +2425,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự dẫn nhiệt/dẫn điện",
         "ipa": "/kənˈdʌkʃn/",
-        "example": "Metal pot heat conduction",
-        "viExample": "Insulation blocking",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2659,8 +2433,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự đối lưu dòng khí/nước",
         "ipa": "/kənˈvekʃn/",
-        "example": "Boiling water heat convection",
-        "viExample": "Conduction direct-touch",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2669,8 +2441,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự cách nhiệt/cách âm",
         "ipa": "/ˌɪnsjuˈleɪʃn/",
-        "example": "House wall warm insulation",
-        "viExample": "Conduction leak",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2679,8 +2449,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chất xúc tác phản ứng",
         "ipa": "/ˈkætəlɪst/",
-        "example": "Chemical speed reaction catalyst",
-        "viExample": "Inhibitor blocker",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2689,8 +2457,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chất ức chế phản ứng",
         "ipa": "/ɪnˈhɪbɪtə/",
-        "example": "Rust prevention chemical inhibitor",
-        "viExample": "Catalyst accelerator",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2699,8 +2465,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hợp chất hóa học",
         "ipa": "/ˈkɒmpaʊnd/",
-        "example": "Water hydrogen oxygen compound",
-        "viExample": "Pure gold element",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2709,8 +2473,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nguyên tố hóa học",
         "ipa": "/ˈelɪmənt/",
-        "example": "Gold iron pure element",
-        "viExample": "Water salt compound",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2719,8 +2481,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "phân tử siêu nhỏ",
         "ipa": "/ˈmɒlɪkjuːl/",
-        "example": "Water two hydrogen molecules",
-        "viExample": "Large sand grain",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2729,8 +2489,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nguyên tử",
         "ipa": "/ˈætəm/",
-        "example": "Fission split uranium atom",
-        "viExample": "Molecule cell block",
         "synonyms": "",
         "antonyms": ""
       },
@@ -2739,8 +2497,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hạt cơ bản cực nhỏ",
         "ipa": "/ˈpɑːtɪkl/",
-        "example": "Dust physics subatomic particles",
-        "viExample": "Large stone block",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3111,8 +2867,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "phụ phí/khoản thu thêm",
         "ipa": "/ˈsɜːtʃɑːdʒ/",
-        "example": "Credit card payment surcharge",
-        "viExample": "Discount cut",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3121,8 +2875,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "sự bảo hành/cam kết",
         "ipa": "/ˌɡærənˈtiː/",
-        "example": "Two year electronics guarantee",
-        "viExample": "Unwarranted risk",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3131,8 +2883,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "giấy bảo hành sản phẩm",
         "ipa": "/ˈwɒrənti/",
-        "example": "Laptop under store warranty",
-        "viExample": "Unprotected break",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3141,8 +2891,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự thanh lý hàng hóa dọn kho",
         "ipa": "/ˈklɪərəns/",
-        "example": "End of season clearance",
-        "viExample": "New arrival import",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3151,8 +2899,6 @@ const vocabFinalData = [
         "type": "(n/adj/adv)",
         "vi": "bán lẻ hàng hóa",
         "ipa": "/ˈriːteɪl/",
-        "example": "Shopping center retail outlets",
-        "viExample": "Wholesale bulk-trade",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3161,8 +2907,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "tín dụng/mua nợ",
         "ipa": "/ˈkredɪt/",
-        "example": "Buy goods on credit",
-        "viExample": "Debit cash payments",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3171,8 +2915,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "ghi nợ tài khoản/thanh toán trực tiếp",
         "ipa": "/ˈdebɪt/",
-        "example": "Debit card direct payment",
-        "viExample": "Credit buy-later",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3181,8 +2923,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "giao dịch mua bán",
         "ipa": "/trænˈzækʃn/",
-        "example": "Secure online bank transaction",
-        "viExample": "Cashless barter",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3191,8 +2931,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "mặt hàng/hàng hóa giao dịch",
         "ipa": "/kəˈmɒdəti/",
-        "example": "Oil gold global commodities",
-        "viExample": "Digital service only",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3201,8 +2939,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "hàng hóa trưng bày bán",
         "ipa": "/ˈmɜːtʃəndaɪs/",
-        "example": "Store shelves quality merchandise",
-        "viExample": "Scrap waste garbage",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3211,8 +2947,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "kho hàng/hàng tồn kho",
         "ipa": "/ˈɪnvəntri/",
-        "example": "Check factory warehouse inventory",
-        "viExample": "Empty shelves",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3221,8 +2955,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự thâm hụt tài chính",
         "ipa": "/ˈdefɪsɪt/",
-        "example": "Personal budget spending deficit",
-        "viExample": "Surplus extra money",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3231,8 +2963,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "số dư/sự thặng dư",
         "ipa": "/ˈsɜːpləs/",
-        "example": "Monthly salary budget surplus",
-        "viExample": "Deficit debt debt",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3241,8 +2971,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "doanh thu bán hàng",
         "ipa": "/ˈrevənjuː/",
-        "example": "Store daily sales revenue",
-        "viExample": "Net loss debt",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3251,8 +2979,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "lợi nhuận",
         "ipa": "/ˈprɒfɪt/",
-        "example": "Sell at high profit",
-        "viExample": "Loss debt failure",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3261,8 +2987,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "giá bán sỉ",
         "ipa": "/ˈhəʊlseɪl praɪs/",
-        "example": "Factory buy wholesale price",
-        "viExample": "Retail shelf price",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3271,8 +2995,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "giá bán lẻ niêm yết",
         "ipa": "/ˈriːteɪl praɪs/",
-        "example": "Supermarket shelf retail price",
-        "viExample": "Wholesale bulk price",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3281,8 +3003,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "bán quá đắt/đội giá",
         "ipa": "/ˌəʊvəˈpraɪs/",
-        "example": "Tourist shops overprice goods",
-        "viExample": "Discount underprice",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3291,8 +3011,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "mua sắm/vật mua được",
         "ipa": "/ˈpɜːtʃəs/",
-        "example": "Make card ticket purchase",
-        "viExample": "Sell dispose",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3301,8 +3019,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "bán hàng rong/bán qua máy",
         "ipa": "/vend/",
-        "example": "Vending machine soft drinks",
-        "viExample": "Buy purchase",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3311,8 +3027,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người bán hàng/nhà cung cấp",
         "ipa": "/ˈvendə/",
-        "example": "Street food fruit vendor",
-        "viExample": "Buyer consumer customer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3321,8 +3035,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nhóm khách hàng thân thiết",
         "ipa": "/ˌkliːɒnˈtel/",
-        "example": "Boutique store rich clientele",
-        "viExample": "Single random buyer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3331,8 +3043,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người tiêu dùng",
         "ipa": "/kənˈsjuːmə/",
-        "example": "Protect electric product consumers",
-        "viExample": "Producer manufacturer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3341,8 +3051,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thương gia/chủ tiệm",
         "ipa": "/ˈmɜːtʃənt/",
-        "example": "Wealthy export silk merchant",
-        "viExample": "Office clerk worker",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3351,8 +3059,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "người môi giới trung gian",
         "ipa": "/ˈbrəʊkə/",
-        "example": "Real estate stock broker",
-        "viExample": "Direct buyer seller",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3361,8 +3067,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự độc quyền thị trường",
         "ipa": "/məˈnɒpəli/",
-        "example": "State post office monopoly",
-        "viExample": "Free trade competition",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3371,8 +3075,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "nhượng quyền thương hiệu",
         "ipa": "/ˈfræntʃaɪz/",
-        "example": "Open coffee fast-food franchise",
-        "viExample": "Sole proprietary brand",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3381,8 +3083,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự vỡ nợ phá sản",
         "ipa": "/ˈbæŋkrʌptsi/",
-        "example": "Company declares court bankruptcy",
-        "viExample": "Financial wealth growth",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3391,8 +3091,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "khả năng trả nợ tốt",
         "ipa": "/ˈsɒlvənsi/",
-        "example": "Bank audit verifies solvency",
-        "viExample": "Insolvency debt defaults",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3401,8 +3099,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nợ nần/trách nhiệm pháp lý",
         "ipa": "/ˌlaɪəˈbɪləti/",
-        "example": "Financial loans liability debts",
-        "viExample": "Assets wealth holdings",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3411,8 +3107,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tài sản giá trị",
         "ipa": "/ˈæset/",
-        "example": "Liquid cash gold assets",
-        "viExample": "Liabilities debts",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3421,8 +3115,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tiền tệ quốc gia",
         "ipa": "/ˈkʌrənsi/",
-        "example": "Foreign travel currency exchange",
-        "viExample": "Barter gold trade",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3431,8 +3123,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tiền giấy pháp định",
         "ipa": "/ˈfiːæt ˈmʌni/",
-        "example": "Government print fiat money",
-        "viExample": "Gold backing standard",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3441,8 +3131,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "trao đổi hàng hóa trực tiếp",
         "ipa": "/ˈbɑːtə/",
-        "example": "Exchange cows corn barter",
-        "viExample": "Money coin purchase",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3451,8 +3139,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "giao dịch viên ngân hàng",
         "ipa": "/ˈtelə/",
-        "example": "Hand cash bank teller",
-        "viExample": "Cashier shop-clerk",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3461,8 +3147,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hầm chứa tiền vàng bảo mật",
         "ipa": "/vɔːlt/",
-        "example": "Bank underground secure vault",
-        "viExample": "Open desk drawer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3471,8 +3155,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tài sản thế chấp ngân hàng",
         "ipa": "/kəˈlætərəl/",
-        "example": "House home loan collateral",
-        "viExample": "Unsecured trust credit",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3481,8 +3163,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chủ nợ",
         "ipa": "/ˈkredɪtə/",
-        "example": "Pay money back creditor",
-        "viExample": "Debtor borrower",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3491,8 +3171,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con nợ/người vay nợ",
         "ipa": "/ˈdetə/",
-        "example": "Bank sends warning debtor",
-        "viExample": "Creditor lender",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3501,8 +3179,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "vỡ nợ/không trả được nợ",
         "ipa": "/dɪˈfɔːlt/",
-        "example": "Default on credit card",
-        "viExample": "Repay fully clear",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3511,8 +3187,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tình trạng mất khả năng thanh toán",
         "ipa": "/ɪnˈsɒlvənsi/",
-        "example": "Firm facing immediate insolvency",
-        "viExample": "High cash solvency",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3521,8 +3195,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự thanh lý tài sản",
         "ipa": "/ˌlɪkwɪˈdeɪʃn/",
-        "example": "Bankruptcy court assets liquidation",
-        "viExample": "Business startup open",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3531,8 +3203,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự mất giá/khấu hao tài sản",
         "ipa": "/dɪˌpriːʃiˈeɪʃn/",
-        "example": "New car value depreciation",
-        "viExample": "Appreciation growth raise",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3541,8 +3211,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự tăng giá trị tài sản",
         "ipa": "/əˌpriːʃiˈeɪʃn/",
-        "example": "City center land appreciation",
-        "viExample": "Depreciation loss cut",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3551,8 +3219,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "kho bạc quốc gia",
         "ipa": "/ˈtreʒəri/",
-        "example": "National gold cash treasury",
-        "viExample": "Private home safe",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3561,8 +3227,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "khoản trợ cấp kinh tế",
         "ipa": "/ˈsʌbsədi/",
-        "example": "Farm rice export subsidy",
-        "viExample": "Tax penalty fine",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3571,8 +3235,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "đánh thuế nhập khẩu/thu phí",
         "ipa": "/ˈlevi/",
-        "example": "Levy import luxury taxes",
-        "viExample": "Exempt waive free",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3581,8 +3243,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chi tiêu công/ngân sách chi tiêu",
         "ipa": "/ɪkˈspendɪtʃə/",
-        "example": "Military defense weapon expenditure",
-        "viExample": "Saving budget surplus",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3591,8 +3251,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nhà đầu cơ mạo hiểm",
         "ipa": "/ˈspekjuleɪtə/",
-        "example": "Real estate land speculator",
-        "viExample": "Long term investor",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3601,8 +3259,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "hoàn tiền/thanh toán lại",
         "ipa": "/ˌriːɪmˈbɜːs/",
-        "example": "Reimburse taxi travel costs",
-        "viExample": "Charge fee bill",
         "synonyms": "",
         "antonyms": ""
       },
@@ -3611,8 +3267,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "buổi đấu giá công khai",
         "ipa": "/ˈɔːkʃn/",
-        "example": "Buy old painting auction",
-        "viExample": "Fixed retail shop",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4095,8 +3749,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "thuộc nhận thức",
         "ipa": "/ˈkɒɡnətɪv/",
-        "example": "Cognitive therapy works well",
-        "viExample": "Pure physical reflex",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4105,8 +3757,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự dễ bị tổn thương",
         "ipa": "/ˌvʌlnərəˈbɪləti/",
-        "example": "Emotional vulnerability is strength",
-        "viExample": "Resilience stiffness",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4115,8 +3765,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự bất lực/vô vọng",
         "ipa": "/ˈhelpləsnəs/",
-        "example": "Learned helplessness theory explains",
-        "viExample": "Empowerment control",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4125,8 +3773,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự nản lòng/bực dọc",
         "ipa": "/frʌˈstreɪʃn/",
-        "example": "Slow progress causes frustration",
-        "viExample": "Satisfaction peace",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4135,8 +3781,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nhà trị liệu tâm lý",
         "ipa": "/ˈθerəpɪst/",
-        "example": "Talk to licensed therapist",
-        "viExample": "Medical surgeon doctor",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4145,8 +3789,6 @@ const vocabFinalData = [
         "type": "(n/adj)",
         "vi": "tiềm thức",
         "ipa": "/ˌsʌbˈkɒnʃəs/",
-        "example": "Subconscious fear of heights",
-        "viExample": "Conscious active mind",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4155,8 +3797,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự nhận thức/giác quan",
         "ipa": "/pəˈsepʃn/",
-        "example": "Visual depth perception test",
-        "viExample": "Ignorance blindness",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4165,8 +3805,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "thuộc hành vi",
         "ipa": "/bɪˈheɪvjərəl/",
-        "example": "Animal behavioral science experiments",
-        "viExample": "Cognitive thought-based",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4175,8 +3813,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự nghiện ngập/say mê quá mức",
         "ipa": "/əˈdɪkʃn/",
-        "example": "Game smartphone screen addiction",
-        "viExample": "Dislike aversion",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4185,8 +3821,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự hoang tưởng/ảo tưởng",
         "ipa": "/dɪˈluːʒn/",
-        "example": "Grandeur wealth mental delusion",
-        "viExample": "Reality truth fact",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4195,8 +3829,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "ảo giác",
         "ipa": "/həˌluːsɪˈneɪʃn/",
-        "example": "Fever cause strange hallucinations",
-        "viExample": "Clear accurate vision",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4205,8 +3837,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hoang tưởng bị hại",
         "ipa": "/ˌpærəˈnɔɪə/",
-        "example": "Suffer from extreme paranoia",
-        "viExample": "Trust confidence peace",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4215,8 +3845,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự ái kỷ/tự yêu bản thân",
         "ipa": "/ˈnɑːsɪsɪzəm/",
-        "example": "Celebrity ego narcissism signs",
-        "viExample": "Altruism modesty humility",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4225,8 +3853,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "bệnh tâm thần phân liệt",
         "ipa": "/ˌskɪtsəˈfriːniə/",
-        "example": "Medical treatment for schizophrenia",
-        "viExample": "Sane clear state",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4235,8 +3861,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "thuộc rối loạn lưỡng cực",
         "ipa": "/ˌbaɪˈpəʊlə/",
-        "example": "Bipolar emotional mood swings",
-        "viExample": "Stable calm mind",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4245,8 +3869,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "cơn hưng cảm/cuồng nhiệt",
         "ipa": "/ˈmeɪniə/",
-        "example": "Shopping buying mental mania",
-        "viExample": "Apathy depression",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4255,8 +3877,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "trạng thái u sầu nặng",
         "ipa": "/ˌmelənˈkəʊliə/",
-        "example": "Winter dark causes melancholia",
-        "viExample": "Happiness delight",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4265,8 +3885,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự hưng phấn tột độ",
         "ipa": "/juːˈfɔːriə/",
-        "example": "Winner feel gold medal euphoria",
-        "viExample": "Depression sadness",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4275,8 +3893,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự vô cảm/hờ hững",
         "ipa": "/ˈæpəθi/",
-        "example": "Prevent voters social apathy",
-        "viExample": "Passion active interest",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4285,8 +3901,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự thương cảm",
         "ipa": "/ˈsɪmpəθi/",
-        "example": "Send card show sympathy",
-        "viExample": "Coldness indifference",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4295,8 +3909,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "lòng vị tha",
         "ipa": "/ˈæltruɪzəm/",
-        "example": "Charity work altruism value",
-        "viExample": "Selfish greed egoism",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4305,8 +3917,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chủ nghĩa vị kỷ/tự tư tự lợi",
         "ipa": "/ˈiːɡəʊɪzəm/",
-        "example": "Corporate greed egoism limits",
-        "viExample": "Altruism philanthropy",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4315,8 +3925,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "sự an ủi/xoa dịu",
         "ipa": "/ˈsɒləs/",
-        "example": "Find music reading solace",
-        "viExample": "Pain distress torture",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4325,8 +3933,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự kích động/bồn chồn",
         "ipa": "/ˌædʒɪˈteɪʃn/",
-        "example": "Patient shows physical agitation",
-        "viExample": "Calm serenity peace",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4335,8 +3941,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự thanh bình/tĩnh lặng tâm hồn",
         "ipa": "/səˈrenəti/",
-        "example": "Meditation leads daily serenity",
-        "viExample": "Agitation stress chaos",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4345,8 +3949,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự thù hằn/thù địch",
         "ipa": "/hɒˈstɪləti/",
-        "example": "Hidden coworker active hostility",
-        "viExample": "Friendship alliance",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4355,8 +3957,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "sự hoảng loạn",
         "ipa": "/ˈpænɪk/",
-        "example": "Fire alarm causes panic",
-        "viExample": "Calm orderly exit",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4365,8 +3965,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự cuồng loạn/kích động tập thể",
         "ipa": "/hɪˈstɪəriə/",
-        "example": "Crowd mass hysteria events",
-        "viExample": "Orderly rational peace",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4375,8 +3973,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự cưỡng chế/thôi thúc vô lý",
         "ipa": "/kəmˈpʌlʃn/",
-        "example": "Washing hands hand compulsion",
-        "viExample": "Free willing choice",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4385,8 +3981,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chứng loạn thần chức năng/rối loạn",
         "ipa": "/njʊəˈrəʊsɪs/",
-        "example": "Mild stress causing neurosis",
-        "viExample": "Sane robust health",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4395,8 +3989,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chứng loạn thần nặng",
         "ipa": "/saɪˈkəʊsɪs/",
-        "example": "Severe trauma induced psychosis",
-        "viExample": "Mental health stability",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4405,8 +3997,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chứng mất trí nhớ tuổi già",
         "ipa": "/dɪˈmenʃə/",
-        "example": "Caring for elders dementia",
-        "viExample": "Sharp active memory",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4415,8 +4005,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chứng mất ngủ",
         "ipa": "/ɪnˈsɒmniə/",
-        "example": "Stress coffee causes insomnia",
-        "viExample": "Deep healthy sleep",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4425,8 +4013,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chứng mộng du",
         "ipa": "/sɒmˈnæmbjəlɪzəm/",
-        "example": "Child walking night somnambulism",
-        "viExample": "Quiet restful sleep",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4435,8 +4021,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "cơn ác mộng",
         "ipa": "/ˈnaɪtmeə/",
-        "example": "Scary horror movie nightmare",
-        "viExample": "Sweet pleasant dream",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4445,8 +4029,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chất gây ảo giác",
         "ipa": "/həˈluːsɪnədʒən/",
-        "example": "Banned dangerous drug hallucinogens",
-        "viExample": "Pure vitamin water",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4455,8 +4037,6 @@ const vocabFinalData = [
         "type": "(n/adj)",
         "vi": "thuốc an thần/làm dịu",
         "ipa": "/ˈsedətɪv/",
-        "example": "Doctor prescribes mild sedative",
-        "viExample": "Stimulant coffee energy",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4465,8 +4045,6 @@ const vocabFinalData = [
         "type": "(n/adj)",
         "vi": "chất kích thích (caffeine...)",
         "ipa": "/ˈstɪmjʊlənt/",
-        "example": "Coffee is brain stimulant",
-        "viExample": "Sedative sleeping pill",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4475,8 +4053,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thuốc trấn an/giả dược",
         "ipa": "/pləˈsiːbəʊ/",
-        "example": "Sugar pill clinical placebo",
-        "viExample": "Active medical drug",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4485,8 +4061,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự tự ngẫm/nội quan",
         "ipa": "/ˌɪntrəˈspekʃn/",
-        "example": "Spend Sunday quiet introspection",
-        "viExample": "Outer distraction noise",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4495,8 +4069,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "quá trình nhận thức của não",
         "ipa": "/kɒɡˈnɪʃn/",
-        "example": "Study human learning cognition",
-        "viExample": "Pure physical reflex",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4505,8 +4077,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tác nhân kích thích",
         "ipa": "/ˈstɪmjʊləs/",
-        "example": "Response to light stimulus",
-        "viExample": "Indifference no-reaction",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4515,8 +4085,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự phản hồi/phản ứng",
         "ipa": "/rɪˈspɒns/",
-        "example": "Pupil size light response",
-        "viExample": "Stimulus cause start",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4525,8 +4093,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự tạo phản xạ có điều kiện",
         "ipa": "/kənˈdɪʃənɪŋ/",
-        "example": "Dog bell saliva conditioning",
-        "viExample": "Natural untaught reflex",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4535,8 +4101,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự dập tắt phản xạ/tuyệt chủng",
         "ipa": "/ɪkˈstɪŋktʃn/",
-        "example": "Behavior habit pattern extinction",
-        "viExample": "Strengthening learning",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4545,8 +4109,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự dồn nén cảm xúc đau buồn",
         "ipa": "/rɪˈpreʃn/",
-        "example": "Bad memory mental repression",
-        "viExample": "Open expression therapy",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4555,8 +4117,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự giải tỏa tâm lý/thanh lọc",
         "ipa": "/kəˈθɑːsɪs/",
-        "example": "Crying cinema drama catharsis",
-        "viExample": "Holding in stress",
         "synonyms": "",
         "antonyms": ""
       },
@@ -4565,8 +4125,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tính khí/khí chất tự nhiên",
         "ipa": "/ˈtemprəmənt/",
-        "example": "Calm quiet baby temperament",
-        "viExample": "Sudden mood swings",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5071,8 +4629,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "gấu koala",
         "ipa": "/kəʊˈɑːlə/",
-        "example": "Gray koala eats eucalyptus leaves",
-        "viExample": "Brown squirrel tree",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5081,8 +4637,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chó con",
         "ipa": "/ˈpʌpi/",
-        "example": "Adorable puppy tail",
-        "viExample": "Old cat",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5091,8 +4645,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "mèo con",
         "ipa": "/ˈkɪtn/",
-        "example": "Soft white kitten",
-        "viExample": "Dog bark",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5101,8 +4653,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chú thỏ con",
         "ipa": "/ˈbʌni/",
-        "example": "Bouncing white carrot bunny",
-        "viExample": "Big wolf hunter",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5111,8 +4661,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con vẹt",
         "ipa": "/ˈpærət/",
-        "example": "Colorful talking green parrot",
-        "viExample": "Black crow bird",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5121,8 +4669,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "bọ rùa",
         "ipa": "/ˈleɪdibʌɡ/",
-        "example": "Red black dots ladybug leaf",
-        "viExample": "Mosquito fly bite",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5131,8 +4677,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con sóc",
         "ipa": "/ˈskwɪrəl/",
-        "example": "Brown nut eating squirrel tail",
-        "viExample": "Dog puppy bark",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5141,8 +4685,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "vịt con",
         "ipa": "/ˈdʌklɪŋ/",
-        "example": "Yellow swimming water duckling baby",
-        "viExample": "Big eagle bird",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5151,8 +4693,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "cừu non",
         "ipa": "/læm/",
-        "example": "Soft white wool lamb baby",
-        "viExample": "Big wolf predator",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5161,8 +4701,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "bê con/bò con",
         "ipa": "/kɑːf/",
-        "example": "Cow farm baby calf milk",
-        "viExample": "Adult bull steer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5171,8 +4709,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "ngựa con",
         "ipa": "/fəʊl/",
-        "example": "Horse baby foal running fields",
-        "viExample": "Old stallion",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5181,8 +4717,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "gà con",
         "ipa": "/tʃɪk/",
-        "example": "Yellow egg chick chirping sound",
-        "viExample": "Rooster cock dad",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5191,8 +4725,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "heo con",
         "ipa": "/ˈpɪɡlət/",
-        "example": "Pink cute farm piglet mud",
-        "viExample": "Big wild boar",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5201,8 +4733,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nai con",
         "ipa": "/fɔːn/",
-        "example": "Spotted deer baby fawn forest",
-        "viExample": "Antler stag male",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5211,8 +4741,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con sâu bướm",
         "ipa": "/ˈkætəpɪlə/",
-        "example": "Green leaf eating caterpillar crawl",
-        "viExample": "Flying butterfly wings",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5221,8 +4749,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con ong mật",
         "ipa": "/ˈhʌnibiː/",
-        "example": "Pollen flower garden honeybee honey",
-        "viExample": "Mosquito fly bite",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5231,8 +4757,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chuồn chuồn",
         "ipa": "/ˈdræɡənflaɪ/",
-        "example": "Summer pond flying helicopter dragonfly",
-        "viExample": "House fly pest",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5241,8 +4765,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "ốc sên",
         "ipa": "/sneɪl/",
-        "example": "Slow shell garden snail crawl",
-        "viExample": "Rabbit run fast",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5251,8 +4773,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "rùa cạn",
         "ipa": "/ˈtɔːtəs/",
-        "example": "Slow walking old tortoise shell",
-        "viExample": "Hare bunny runner",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5261,8 +4781,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nòng nọc",
         "ipa": "/ˈtædpəʊl/",
-        "example": "Baby frog swimming water tadpole",
-        "viExample": "Jumping green frog",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5271,8 +4789,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sao biển",
         "ipa": "/ˈstɑːfɪʃ/",
-        "example": "Five arm ocean beach starfish",
-        "viExample": "Swimming dolphin fish",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5281,8 +4797,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con sứa",
         "ipa": "/ˈdʒelɪfɪʃ/",
-        "example": "Transparent sting ocean water jellyfish",
-        "viExample": "Dolphin mammal helper",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5291,8 +4805,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "bạch tuộc",
         "ipa": "/ˈɒktəpʊs/",
-        "example": "Eight tentacle sea ink octopus",
-        "viExample": "Small crab shell",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5301,8 +4813,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "cá ngựa",
         "ipa": "/ˈsiːhɔːs/",
-        "example": "Small ocean coral seahorse swimming",
-        "viExample": "Big blue whale",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5311,8 +4821,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con cua",
         "ipa": "/kræb/",
-        "example": "Sandy beach claw walking crab",
-        "viExample": "Fish scale swim",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5321,8 +4829,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tôm hùm",
         "ipa": "/ˈlɒbstə/",
-        "example": "Big ocean shell red lobster",
-        "viExample": "Tiny shrimp bait",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5331,8 +4837,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con tôm",
         "ipa": "/ʃrɪmp/",
-        "example": "Small pink water swimming shrimp",
-        "viExample": "Whale giant mammal",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5341,8 +4845,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chim hải âu",
         "ipa": "/ˈsiːɡʌl/",
-        "example": "Ocean sky flying white seagull",
-        "viExample": "Land chicken hen",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5351,8 +4853,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chim đại bàng",
         "ipa": "/ˈiːɡl/",
-        "example": "Mountain flying sharp eye eagle",
-        "viExample": "Small sparrow bird",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5361,8 +4861,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con cú mèo",
         "ipa": "/aʊl/",
-        "example": "Night night forest hooting owl",
-        "viExample": "Diurnal morning chicken",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5371,8 +4869,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chim gõ kiến",
         "ipa": "/ˈwʊdpekə/",
-        "example": "Tree trunk pecking sound woodpecker",
-        "viExample": "Singing canary bird",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5381,8 +4877,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "con công",
         "ipa": "/ˈpiːkɒk/",
-        "example": "Beautiful tail feather display peacock",
-        "viExample": "Gray pigeon bird",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5391,8 +4885,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chim hồng hạc",
         "ipa": "/fləˈmɪŋɡəʊ/",
-        "example": "Pink one leg water standing flamingo",
-        "viExample": "Black crow bird",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5401,8 +4893,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chim thiên nga",
         "ipa": "/swɒn/",
-        "example": "Beautiful white lake swimming swan",
-        "viExample": "Ugly mud duck",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5887,8 +5377,6 @@ const vocabFinalData = [
         "type": "(n/adj)",
         "vi": "bài xã luận/thuộc biên tập",
         "ipa": "/ˌedɪˈtɔːriəl/",
-        "example": "Newspaper editor writes editorial",
-        "viExample": "Advertisement commercial",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5897,8 +5385,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "phóng viên thường trú nước ngoài",
         "ipa": "/ˌkɒrəˈspɒndənt/",
-        "example": "War zone news tv correspondent",
-        "viExample": "Studio news anchor",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5907,8 +5393,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hãng phát thanh truyền hình/phát thanh viên",
         "ipa": "/ˈbrɔːdkɑːstə/",
-        "example": "National public television broadcaster",
-        "viExample": "Private blogger writer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5917,8 +5401,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "số lượng bản in phát hành (báo)",
         "ipa": "/ˌsɜːkjəˈleɪʃn/",
-        "example": "Newspaper daily printed circulation",
-        "viExample": "Web visitor traffic",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5927,8 +5409,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "xu hướng giật gân/câu khách",
         "ipa": "/senˈseɪʃənəlɪzəm/",
-        "example": "Tabloid yellow journalism sensationalism",
-        "viExample": "Serious objective report",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5937,8 +5417,6 @@ const vocabFinalData = [
         "type": "(n/adj)",
         "vi": "báo lá cải giật gân",
         "ipa": "/ˈtæblɔɪd/",
-        "example": "Celebrity gossip scandal tabloid",
-        "viExample": "Broadsheet quality paper",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5947,8 +5425,6 @@ const vocabFinalData = [
         "type": "(n/adj)",
         "vi": "báo khổ lớn chính thống",
         "ipa": "/ˈbrɔːdʃiːt/",
-        "example": "Serious financial business broadsheet",
-        "viExample": "Gossip tabloid page",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5957,8 +5433,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "bản tin định kỳ",
         "ipa": "/ˈnjuːzletə/",
-        "example": "Email weekly business newsletter",
-        "viExample": "Huge encyclopedia book",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5967,8 +5441,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tạp chí xuất bản định kỳ",
         "ipa": "/ˌpɪəriˈɒdɪkl/",
-        "example": "Scientific research academic periodical",
-        "viExample": "Daily news sheet",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5977,8 +5449,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người viết chuyên mục báo",
         "ipa": "/ˈkɒləmnɪst/",
-        "example": "Opinion page political columnist",
-        "viExample": "Anonymous news reporter",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5987,8 +5457,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "người dẫn chương trình tin tức thời sự",
         "ipa": "/ˈæŋkə/",
-        "example": "Evening television news anchor",
-        "viExample": "Field camera crew",
         "synonyms": "",
         "antonyms": ""
       },
@@ -5997,8 +5465,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "dòng ghi tên tác giả bài báo",
         "ipa": "/ˈbaɪlaɪn/",
-        "example": "Check reporter name byline",
-        "viExample": "Anonymous text block",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6007,8 +5473,6 @@ const vocabFinalData = [
         "type": "(n/adj)",
         "vi": "tin sốt dẻo độc quyền",
         "ipa": "/ɪkˈskluːsɪv/",
-        "example": "Get celebrity interview exclusive",
-        "viExample": "General public news",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6017,8 +5481,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "tin nhanh độc quyền sốt dẻo",
         "ipa": "/skuːp/",
-        "example": "Investigative reporter gets scoop",
-        "viExample": "Old news reprint",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6027,8 +5489,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "sự rò rỉ thông tin mật",
         "ipa": "/liːk/",
-        "example": "Government secret document leak",
-        "viExample": "Official press release",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6037,8 +5497,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "sự vu khống nói xấu (miệng)",
         "ipa": "/ˈslɑːndə/",
-        "example": "Court case politician slander",
-        "viExample": "Praise compliment award",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6047,8 +5505,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "sự vu khống bằng văn bản/báo",
         "ipa": "/ˈlaɪbl/",
-        "example": "Newspaper pays suing libel",
-        "viExample": "Honest verified quote",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6057,8 +5513,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự bôi nhọ thanh danh",
         "ipa": "/ˌdefəˈmeɪʃn/",
-        "example": "Lawyer files corporate defamation",
-        "viExample": "Honor praise support",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6067,8 +5521,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự uy tín/độ tin cậy",
         "ipa": "/ˌkredəˈbɪləti/",
-        "example": "Fake news ruins source credibility",
-        "viExample": "Unreliability doubt lies",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6077,8 +5529,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "sự thiên vị/định kiến",
         "ipa": "/ˈbaɪəs/",
-        "example": "Media political review bias",
-        "viExample": "Neutral objectivity fair",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6087,8 +5537,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tính chủ quan",
         "ipa": "/ˌsʌbdʒekˈtɪvəti/",
-        "example": "Opinion column writer subjectivity",
-        "viExample": "Scientific objective fact",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6097,8 +5545,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thông cáo báo chí",
         "ipa": "/pres rɪˈliːs/",
-        "example": "Company issues official press release",
-        "viExample": "Secret email leak",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6107,8 +5553,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người phát ngôn đại diện",
         "ipa": "/ˈspəʊkspɜːsn/",
-        "example": "Corporate media team spokesperson",
-        "viExample": "Unauthorized clerk worker",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6117,8 +5561,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự đưa tin/phủ sóng tin tức",
         "ipa": "/ˈkʌvərɪdʒ/",
-        "example": "Live election television coverage",
-        "viExample": "News blackout silence",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6127,8 +5569,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "tổ chức cung cấp bài viết/tin đồng loạt",
         "ipa": "/ˈsɪndɪkət/",
-        "example": "Cartoon strip news syndicate",
-        "viExample": "Single local print",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6137,8 +5577,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người đăng ký theo dõi dài hạn",
         "ipa": "/səbˈskraɪbə/",
-        "example": "Youtube channel premium subscribers",
-        "viExample": "One-time visitor reader",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6147,8 +5585,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hệ thống thu phí đọc báo mạng",
         "ipa": "/ˈpeɪwɔːl/",
-        "example": "Premium articles behind paywall",
-        "viExample": "Free open web",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6157,8 +5593,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tỷ lệ người xem/xếp hạng",
         "ipa": "/ˈreɪtɪŋ/",
-        "example": "Prime time show high ratings",
-        "viExample": "Flop ignore show",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6167,8 +5601,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "mục quảng cáo",
         "ipa": "/ədˈvɜːtɪsmənt/",
-        "example": "Tv commercial sponsor advertisement",
-        "viExample": "News article report",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6177,8 +5609,6 @@ const vocabFinalData = [
         "type": "(n/v)",
         "vi": "nhà tài trợ chương trình",
         "ipa": "/ˈspɒnsə/",
-        "example": "Sports show corporate sponsor",
-        "viExample": "Viewer ticket buyer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6187,8 +5617,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thông tin giải trí (tin tức nhẹ)",
         "ipa": "/ˌɪnfəʊˈteɪnmənt/",
-        "example": "Morning show light infotainment",
-        "viExample": "Serious hard news",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6197,8 +5625,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thời sự hiện tại",
         "ipa": "/ˌkʌrənt əˈfeəz/",
-        "example": "Weekly local current affairs",
-        "viExample": "History class text",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6207,8 +5633,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "thuộc điều tra phóng sự",
         "ipa": "/ɪnˈvestɪɡətɪv/",
-        "example": "Investigative journalism corrupt files",
-        "viExample": "Gossip celebrity review",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6217,8 +5641,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "kiểm duyệt/nhân viên kiểm duyệt",
         "ipa": "/ˈsensə/",
-        "example": "Censor video violent scenes",
-        "viExample": "Allow speak publish",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6227,8 +5649,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "cuộc thăm dò dư luận",
         "ipa": "/əˈpɪnjən pəʊl/",
-        "example": "Conduct national election opinion poll",
-        "viExample": "Individual decision vote",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6237,8 +5657,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người trả lời thăm dò/phỏng vấn",
         "ipa": "/rɪˈspɒndənt/",
-        "example": "Poll survey asks 1000 respondents",
-        "viExample": "Interviewer poller caller",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6247,8 +5665,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "xác minh tính đúng đắn",
         "ipa": "/ˈverɪfaɪ/",
-        "example": "Fact checker verifies quote",
-        "viExample": "Make up fake lie",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6257,8 +5673,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "bịa đặt/làm giả thông tin",
         "ipa": "/ˈfæbrɪkeɪt/",
-        "example": "Corrupt reporter fabricates story",
-        "viExample": "Verify check report",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6267,8 +5681,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "nguồn tin",
         "ipa": "/sɔːsɪz/",
-        "example": "Anonymous government inside sources",
-        "viExample": "Rumors gossip internet",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6277,8 +5689,6 @@ const vocabFinalData = [
         "type": "(adj)",
         "vi": "bảo mật/bí mật",
         "ipa": "/ˌkɒnfɪˈdenʃl/",
-        "example": "Keep whistleblower sources confidential",
-        "viExample": "Public open internet",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6287,8 +5697,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người tố giác/báo động sai phạm",
         "ipa": "/ˈwɪslbləʊə/",
-        "example": "Employee acts corporate whistleblower",
-        "viExample": "Loyal silent clerk",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6297,8 +5705,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "sự tham nhũng tiêu cực",
         "ipa": "/kəˈrʌpʃn/",
-        "example": "Newspaper exposes local corruption",
-        "viExample": "Honesty fair play",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6307,8 +5713,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "phóng sự lột trần sự thật/vạch trần",
         "ipa": "/ekˈspəʊzeɪ/",
-        "example": "Publish shocking exposé on drug trade",
-        "viExample": "Corporate puff piece",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6317,8 +5721,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chuyên mục báo định kỳ",
         "ipa": "/ˈkɒləm/",
-        "example": "Read weekly computer technology column",
-        "viExample": "Entire page news banner",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6327,8 +5729,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "bài viết chuyên đề đặc biệt",
         "ipa": "/ˈfiːtʃə/",
-        "example": "Magazine publishes environmental feature",
-        "viExample": "Short news brief",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6337,8 +5737,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "ban biên tập báo chí",
         "ipa": "/ˌedɪˈtɔːriəl bɔːd/",
-        "example": "Editorial board meeting decides policy",
-        "viExample": "Ad sales department",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6347,8 +5745,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "tổng biên tập",
         "ipa": "/ˌedɪtər ɪn ˈtʃiːf/",
-        "example": "Final approval from editor-in-chief",
-        "viExample": "Junior copywriter reporter",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6357,8 +5753,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người viết quảng cáo/viết bản thảo",
         "ipa": "/ˈkɒpiraɪtə/",
-        "example": "Hire creative advertising copywriter",
-        "viExample": "News field reporter",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6367,8 +5761,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "người sửa bản in thử/lỗi chính tả",
         "ipa": "/ˈpruːfriːdə/",
-        "example": "Check spelling mistakes proofreader",
-        "viExample": "Original story writer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6377,8 +5769,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "hạn chót hoàn thành bài",
         "ipa": "/ˈdedlaɪn/",
-        "example": "Reporters rush to meet deadline",
-        "viExample": "Flexible print day",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6387,8 +5777,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "báo giới/báo chí nói chung",
         "ipa": "/pres/",
-        "example": "Freedom of the local press",
-        "viExample": "Secret government board",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6397,8 +5785,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "thông tấn xã",
         "ipa": "/ˈnjuːz ˌeɪdʒənsi/",
-        "example": "Reuters global news agency",
-        "viExample": "Individual blog site",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6407,8 +5793,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "dịch vụ truyền tin thông tấn",
         "ipa": "/ˈwaɪə ˌsɜːvɪs/",
-        "example": "Subscribe national wire service",
-        "viExample": "Local post office",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6417,8 +5801,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "phát sóng truyền hình",
         "ipa": "/ˈtelɪkɑːst/",
-        "example": "Live telecast of soccer game",
-        "viExample": "Radio sound only",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6427,8 +5809,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "chương trình thời sự phát thanh/hình",
         "ipa": "/ˈnjuːzkɑːst/",
-        "example": "Morning news radio newscast",
-        "viExample": "Music show play",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6437,8 +5817,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "lượng khán giả xem truyền hình",
         "ipa": "/ˈvjuːəʃɪp/",
-        "example": "Show loses millions of viewership",
-        "viExample": "Single client buyer",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6447,8 +5825,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "lượng độc giả đọc báo",
         "ipa": "/ˈriːdəʃɪp/",
-        "example": "Newspaper boasts loyal readership",
-        "viExample": "One-time visitor web",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6457,8 +5833,6 @@ const vocabFinalData = [
         "type": "(n)",
         "vi": "phương tiện truyền thông đại chúng",
         "ipa": "/ˌmæs ˈmiːdiə/",
-        "example": "Influence public opinion mass media",
-        "viExample": "Private chat letter",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6971,8 +6345,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "tổng hợp",
         "ipa": "/ˈsɪnθəsaɪz/",
-        "example": "Synthesize information from three books",
-        "viExample": "Separate split divide",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6981,8 +6353,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "xem xét/nghiên cứu kỹ",
         "ipa": "/ɪɡˈzæmɪn/",
-        "example": "Examine patient symptoms closely",
-        "viExample": "Ignore overlook skip",
         "synonyms": "",
         "antonyms": ""
       },
@@ -6991,8 +6361,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "nhận dạng/chỉ ra",
         "ipa": "/aɪˈdentɪfaɪ/",
-        "example": "Identify major study issues",
-        "viExample": "Confuse mix up",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7001,8 +6369,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "phân loại",
         "ipa": "/ˈklæsɪfaɪ/",
-        "example": "Classify plants into groups",
-        "viExample": "Mix scramble shuffle",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7011,8 +6377,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "phân biệt sự khác nhau",
         "ipa": "/ˌdɪfəˈrenʃieɪt/",
-        "example": "Differentiate between true fake",
-        "viExample": "Confuse equate mix",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7021,8 +6385,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "minh họa bằng hình/ví dụ",
         "ipa": "/ˈɪləstreɪt/",
-        "example": "Charts illustrate global warming",
-        "viExample": "Confuse hide obscure",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7031,8 +6393,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "làm cho rõ ràng",
         "ipa": "/ˈklærɪfaɪ/",
-        "example": "Please clarify your proposal",
-        "viExample": "Confuse complicate obscure",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7041,8 +6401,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "xác minh sự thật",
         "ipa": "/ˈverɪfaɪ/",
-        "example": "Accountant verifies tax audit",
-        "viExample": "Fabricate lie fake",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7051,8 +6409,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "phê chuẩn/xác nhận hợp lệ",
         "ipa": "/ˈvælɪdeɪt/",
-        "example": "Data validates our hypothesis",
-        "viExample": "Nullify invalidate void",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7061,8 +6417,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "bác bỏ lý lẽ",
         "ipa": "/rɪˈfjuːt/",
-        "example": "Lawyer refutes accuser claims",
-        "viExample": "Support agree accept",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7071,8 +6425,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "củng cố/làm vững thêm (lý lẽ)",
         "ipa": "/kəˈrɒbəreɪt/",
-        "example": "Extra evidence corroborates story",
-        "viExample": "Refute contradict deny",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7081,8 +6433,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "ủng hộ/người ủng hộ",
         "ipa": "/ˈædvəkeɪt/",
-        "example": "Professor advocates new curriculum",
-        "viExample": "Oppose critic fight",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7091,8 +6441,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "giải thích/phiên dịch",
         "ipa": "/ɪnˈtɜːprɪt/",
-        "example": "Interpret ancient stone text",
-        "viExample": "Misunderstand confuse",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7101,8 +6449,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "định nghĩa",
         "ipa": "/dɪˈfaɪn/",
-        "example": "Dictionary defines vocabulary words",
-        "viExample": "Confuse blur mask",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7111,8 +6457,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "tóm tắt",
         "ipa": "/ˈsʌməraɪz/",
-        "example": "Summarize the article main points",
-        "viExample": "Expand write long",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7121,8 +6465,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "diễn đạt lại bằng từ khác",
         "ipa": "/ˈpærəfreɪz/",
-        "example": "Paraphrase quotes in essays",
-        "viExample": "Copy direct plagiarize",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7131,8 +6473,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "đạo văn",
         "ipa": "/ˈpleɪdʒəraɪz/",
-        "example": "Plagiarize university thesis paper",
-        "viExample": "Write original work",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7141,8 +6481,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "trích dẫn nguồn tài liệu",
         "ipa": "/saɪt/",
-        "example": "Cite research papers bibliography",
-        "viExample": "Steal ignore omit",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7151,8 +6489,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "quy cho/thuộc tính",
         "ipa": "/əˈtrɪbjuːt/",
-        "example": "Painting attributed to picasso",
-        "viExample": "Deny connection sever",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7161,8 +6497,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "liên quan/tương quan với",
         "ipa": "/ˈkɒrəleɪt/",
-        "example": "Smoking correlates with cancer",
-        "viExample": "Disconnect differ",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7171,8 +6505,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "lệch hướng/lệch pha",
         "ipa": "/ˈdiːvieɪt/",
-        "example": "Project plan deviates budget",
-        "viExample": "Follow stick align",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7181,8 +6513,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "dao động lên xuống thất thường",
         "ipa": "/ˈflʌktʃueɪt/",
-        "example": "Temperature fluctuates daily",
-        "viExample": "Remain stable constant",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7191,8 +6521,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "làm cho ổn định",
         "ipa": "/ˈsteɪbəlaɪz/",
-        "example": "Medicine stabilizes patient heart",
-        "viExample": "Fluctuate shake worsen",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7201,8 +6529,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "đề xuất ý kiến",
         "ipa": "/prəˈpəʊz/",
-        "example": "Propose changes to curriculum",
-        "viExample": "Withdraw take back",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7211,8 +6537,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "sửa đổi một chút cho phù hợp",
         "ipa": "/ˈmɒdɪfaɪ/",
-        "example": "Modify lesson plan structure",
-        "viExample": "Keep original copy",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7221,8 +6545,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "thích nghi/chuyển thể",
         "ipa": "/əˈdæpt/",
-        "example": "Animals adapt to desert",
-        "viExample": "Remain rigid static",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7231,8 +6553,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "biến đổi hoàn toàn",
         "ipa": "/trænsˈfɔːm/",
-        "example": "Caterpillar transforms into butterfly",
-        "viExample": "Keep maintain preserve",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7241,8 +6561,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "kiên trì/vẫn tiếp tục tồn tại",
         "ipa": "/pəˈsɪst/",
-        "example": "Rain persists all night",
-        "viExample": "Stop end cease",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7251,8 +6569,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "dừng hẳn/ngừng hẳn",
         "ipa": "/siːs/",
-        "example": "Factory ceases smoke production",
-        "viExample": "Start continue go-on",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7261,8 +6577,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "khởi xướng/bắt đầu",
         "ipa": "/ɪˈnɪʃieɪt/",
-        "example": "Initiate new research project",
-        "viExample": "End stop terminate",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7271,8 +6585,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "chấm dứt/kết thúc",
         "ipa": "/ˈtɜːmɪneɪt/",
-        "example": "Terminate contract agreement",
-        "viExample": "Start begin initiate",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7281,8 +6593,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "duy trì lâu dài",
         "ipa": "/səˈsteɪn/",
-        "example": "Sustain economic growth rates",
-        "viExample": "Stop crash collapse",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7291,8 +6601,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "nâng cao chất lượng/cải thiện",
         "ipa": "/ɪnˈhɑːns/",
-        "example": "Enhance english speaking skills",
-        "viExample": "Worsen damage drop",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7301,8 +6609,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "giảm bớt/thu nhỏ lại",
         "ipa": "/dɪˈmɪnɪʃ/",
-        "example": "Threat begins to diminish",
-        "viExample": "Grow increase expand",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7311,8 +6617,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "tích lũy/gom góp",
         "ipa": "/əˈkjuːmjəleɪt/",
-        "example": "Students accumulate academic knowledge",
-        "viExample": "Spend scatter waste",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7321,8 +6625,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "làm cạn kiệt (tài nguyên)",
         "ipa": "/dɪˈpliːt/",
-        "example": "Coal oil reserves depleted",
-        "viExample": "Refill stock store",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7331,8 +6633,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "củng cố/làm mạnh thêm",
         "ipa": "/ˌriːɪnˈfɔːs/",
-        "example": "Practice reinforces grammar rules",
-        "viExample": "Weaken break destroy",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7341,8 +6641,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "cản trở/gây khó khăn",
         "ipa": "/ˈhɪndə/",
-        "example": "Noise hinders study focus",
-        "viExample": "Help facilitate support",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7351,8 +6649,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "chặn đứng/làm nghẽn",
         "ipa": "/əbˈstrʌkt/",
-        "example": "Accident obstructs highway lane",
-        "viExample": "Clear open facilitate",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7361,8 +6657,6 @@ const vocabFinalData = [
         "type": "(v/n)",
         "vi": "thỏa hiệp/làm tổn hại",
         "ipa": "/ˈkɒmprəmaɪz/",
-        "example": "Leak compromises system safety",
-        "viExample": "Protect defend secure",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7371,8 +6665,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "gây nguy hiểm/đe dọa",
         "ipa": "/ˈdʒepədaɪz/",
-        "example": "Scandal jeopardizes job promotion",
-        "viExample": "Save protect guarantee",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7381,8 +6673,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "phủ định/làm cho vô hiệu",
         "ipa": "/nɪˈɡeɪt/",
-        "example": "Fact negates previous claims",
-        "viExample": "Confirm support prove",
         "synonyms": "",
         "antonyms": ""
       },
@@ -7391,8 +6681,6 @@ const vocabFinalData = [
         "type": "(v)",
         "vi": "hủy bỏ tính pháp lý/vô hiệu hóa",
         "ipa": "/ˈnʌlɪfaɪ/",
-        "example": "Court nullifies corrupt contract",
-        "viExample": "Approve pass enact",
         "synonyms": "",
         "antonyms": ""
       },
