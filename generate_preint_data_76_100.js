@@ -11,13 +11,47 @@ import fs from 'fs';
 //      chạy sau khi compile + kiểm tra xong nên không bao giờ có file dở dang.
 // ============================================================================
 
-function blankExample(word, example, unitNum, placeholder) {
-  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(`\\b${escaped}\\b`, 'gi');
-  if (!re.test(example)) {
-    throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}: câu ví dụ của "${word}" không chứa chính từ đó ("${example}"). Sửa dữ liệu gốc rồi chạy lại.`);
+// Hợp đồng đục lỗ — giống hệt generate_preint_data.js (xem chú thích đầy đủ ở
+// file đó): đoạn bị đục lỗ là `w.blank` nếu mục từ khai báo, ngược lại là
+// `w.word`; `noBlank: true` nghĩa là bỏ item chứ không bịa câu thay thế.
+function blankExample(w, unitNum, placeholder) {
+  const target = w.blank || w.word;
+  const escaped = target.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`(^|[^A-Za-z])${escaped}(?![A-Za-z])`, 'gi');
+  const hits = w.example.match(re) || [];
+  if (hits.length === 0) {
+    throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}: câu ví dụ của "${w.word}" không chứa đoạn cần đục lỗ "${target}" ("${w.example}"). Khai báo trường blank/noBlank cho mục từ này rồi chạy lại.`);
   }
-  return example.replace(re, placeholder);
+  if (hits.length > 1) {
+    throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}: "${target}" xuất hiện ${hits.length} lần trong "${w.example}" — đục lỗ sẽ tạo 2 chỗ trống nhưng chỉ có 1 đáp án.`);
+  }
+  const sentence = w.example.replace(re, (m, pre) => pre + placeholder);
+  const surface = w.example.match(new RegExp(`${escaped}(?![A-Za-z])`, 'i'))[0];
+  return { sentence, surface };
+}
+
+const hasVerbatimWord = (w) => !w.blank && !w.noBlank;
+const canBlank = (w) => !w.noBlank;
+const stripHelperFields = (words) => words.map((w) => {
+  const out = { ...w };
+  delete out.blank;
+  delete out.noBlank;
+  return out;
+});
+
+// Đáp án là ĐÚNG đoạn đã lấy khỏi câu, không phải dạng nguyên mẫu.
+function fillBlankQuestion(w, unitNum, id, explain) {
+  const { sentence, surface } = blankExample(w, unitNum, '[blank]');
+  const sameForm = surface.toLowerCase() === w.word.toLowerCase();
+  return {
+    id,
+    text: sentence,
+    answers: [surface],
+    hint: w.vi,
+    explanation: sameForm
+      ? explain(w)
+      : `Từ vựng cốt lõi là "${w.word}" (${w.type}), nghĩa "${w.vi}". Trong câu này nó ở dạng "${surface}", nên đáp án cần gõ là "${surface}".`
+  };
 }
 
 function validateRawUnit(unit) {
@@ -43,12 +77,12 @@ const rawUnits = [
     words: [
       { word: "operator", type: "Danh từ", phonetic: "/ˈɒpəreɪtə/", vi: "tổng đài viên", example: "The operator connected me to the manager.", bucket: 1 },
       { word: "engaged", type: "Tính từ", phonetic: "/ɪnˈgeɪdʒd/", vi: "máy bận", example: "I tried to call but the line was engaged.", bucket: 1 },
-      { word: "Is that...?", type: "Cụm từ", phonetic: "/ɪz ðæt/", vi: "Đó có phải là... (khi nghe máy)?", example: "Hello, is that John?", bucket: 0 },
+      { word: "Is that...?", type: "Cụm từ", phonetic: "/ɪz ðæt/", vi: "Đó có phải là... (khi nghe máy)?", example: "Hello, is that John?", blank: "is that", bucket: 0 },
       { word: "hold on", type: "Cụm động từ", phonetic: "/həʊld ɒn/", vi: "giữ máy", example: "Please hold on a minute.", bucket: 0 },
       { word: "hang up", type: "Cụm động từ", phonetic: "/hæŋ ʌp/", vi: "cúp máy", example: "Don't hang up on me!", bucket: 0 },
       { word: "dial", type: "Động từ", phonetic: "/ˈdaɪəl/", vi: "quay số, bấm số", example: "Dial 999 for emergencies.", bucket: 0 },
       { word: "wrong number", type: "Cụm danh từ", phonetic: "/rɒŋ ˈnʌmbə/", vi: "nhầm số", example: "Sorry, you have the wrong number.", bucket: 1 },
-      { word: "call back", type: "Cụm động từ", phonetic: "/kɔːl bæk/", vi: "gọi lại sau", example: "I will call you back later.", bucket: 1 }
+      { word: "call back", type: "Cụm động từ", phonetic: "/kɔːl bæk/", vi: "gọi lại sau", example: "I will call you back later.", blank: "call you back", bucket: 1 }
     ]
   },
   {
@@ -62,7 +96,7 @@ const rawUnits = [
       { word: "software", type: "Danh từ", phonetic: "/ˈsɒftweə/", vi: "phần mềm", example: "You need to install anti-virus software.", bucket: 1 },
       { word: "data", type: "Danh từ", phonetic: "/ˈdeɪtə/", vi: "dữ liệu", example: "The company stores all customer data safely.", bucket: 1 },
       { word: "save", type: "Động từ", phonetic: "/seɪv/", vi: "lưu lại (tài liệu)", example: "Remember to save your work frequently.", bucket: 1 },
-      { word: "delete", type: "Động từ", phonetic: "/dɪˈliːt/", vi: "xóa đi", example: "I accidentally deleted the important file.", bucket: 1 },
+      { word: "delete", type: "Động từ", phonetic: "/dɪˈliːt/", vi: "xóa đi", example: "I accidentally deleted the important file.", blank: "deleted", bucket: 1 },
       { word: "mouse", type: "Danh từ", phonetic: "/maʊs/", vi: "chuột máy tính", example: "Click the left button on the mouse.", bucket: 0 },
       { word: "laptop", type: "Danh từ", phonetic: "/ˈlæptɒp/", vi: "máy tính xách tay", example: "I carry my laptop to the coffee shop.", bucket: 0 }
     ]
@@ -76,7 +110,7 @@ const rawUnits = [
       { word: "primary school", type: "Cụm danh từ", phonetic: "/ˈpraɪməri skuːl/", vi: "trường tiểu học", example: "Children start primary school at age 5.", bucket: 0 },
       { word: "secondary school", type: "Cụm danh từ", phonetic: "/ˈsɛkəndri skuːl/", vi: "trường trung học", example: "He is a student at the local secondary school.", bucket: 0 },
       { word: "term", type: "Danh từ", phonetic: "/tɜːm/", vi: "học kỳ", example: "The autumn term starts in September.", bucket: 0 },
-      { word: "pupil", type: "Danh từ", phonetic: "/ˈpjuːpl/", vi: "học sinh (nhỏ tuổi)", example: "There are thirty pupils in my class.", bucket: 0 },
+      { word: "pupil", type: "Danh từ", phonetic: "/ˈpjuːpl/", vi: "học sinh (nhỏ tuổi)", example: "There are thirty pupils in my class.", blank: "pupils", bucket: 0 },
       { word: "subject", type: "Danh từ", phonetic: "/ˈsʌbdʒɪkt/", vi: "môn học", example: "Maths is my favorite subject.", bucket: 1 },
       { word: "geography", type: "Danh từ", phonetic: "/dʒɪˈɒgrəfi/", vi: "môn địa lý", example: "We learn about countries in geography.", bucket: 1 },
       { word: "history", type: "Danh từ", phonetic: "/ˈhɪstəri/", vi: "môn lịch sử", example: "The history teacher talked about the war.", bucket: 1 },
@@ -127,7 +161,7 @@ const rawUnits = [
       { word: "steal", type: "Động từ", phonetic: "/stiːl/", vi: "ăn cắp, lấy trộm", example: "Someone tried to steal my bicycle.", bucket: 1 },
       { word: "burglar", type: "Danh từ", phonetic: "/ˈbɜːglə/", vi: "kẻ trộm đột nhập (nhà)", example: "A burglar broke into our house.", bucket: 0 },
       { word: "thief", type: "Danh từ", phonetic: "/θiːf/", vi: "kẻ trộm (nói chung)", example: "The thief ran away with my bag.", bucket: 0 },
-      { word: "break in", type: "Cụm động từ", phonetic: "/breɪk ɪn/", vi: "đột nhập (vào nhà)", example: "They broke in through the back window.", bucket: 1 },
+      { word: "break in", type: "Cụm động từ", phonetic: "/breɪk ɪn/", vi: "đột nhập (vào nhà)", example: "They broke in through the back window.", blank: "broke in", bucket: 1 },
       { word: "shoplifting", type: "Danh từ", phonetic: "/ˈʃɒpˌlɪftɪŋ/", vi: "ăn cắp ở cửa hàng", example: "He was caught shoplifting clothes.", bucket: 1 }
     ]
   },
@@ -157,7 +191,7 @@ const rawUnits = [
       { word: "signature", type: "Danh từ", phonetic: "/ˈsɪgnətʃə/", vi: "chữ ký", example: "Please put your signature at the bottom.", bucket: 0 },
       { word: "passport", type: "Danh từ", phonetic: "/ˈpɑːspɔːt/", vi: "hộ chiếu", example: "You need a passport to travel abroad.", bucket: 0 },
       { word: "certificate", type: "Danh từ", phonetic: "/səˈtɪfɪkɪt/", vi: "chứng chỉ, giấy chứng nhận", example: "She received a birth certificate.", bucket: 0 },
-      { word: "fill in a form", type: "Cụm từ", phonetic: "/fɪl ɪn ə fɔːm/", vi: "điền vào mẫu đơn", example: "Please fill in this application form.", bucket: 1 },
+      { word: "fill in a form", type: "Cụm từ", phonetic: "/fɪl ɪn ə fɔːm/", vi: "điền vào mẫu đơn", example: "Please fill in this application form.", blank: "fill in this application form", bucket: 1 },
       { word: "sign", type: "Động từ", phonetic: "/saɪn/", vi: "ký tên", example: "Sign the document here, please.", bucket: 1 },
       { word: "apply for", type: "Cụm động từ", phonetic: "/əˈplaɪ fɔː/", vi: "làm đơn xin (visa, việc)", example: "I will apply for a tourist visa.", bucket: 1 },
       { word: "register", type: "Động từ", phonetic: "/ˈrɛdʒɪstə/", vi: "đăng ký (thông tin)", example: "You must register before using the website.", bucket: 1 }
@@ -171,10 +205,10 @@ const rawUnits = [
     words: [
       { word: "terrorism", type: "Danh từ", phonetic: "/ˈtɛrərɪzəm/", vi: "chủ nghĩa khủng bố", example: "The world must fight against terrorism.", bucket: 0 },
       { word: "army", type: "Danh từ", phonetic: "/ˈɑːmi/", vi: "quân đội", example: "He joined the army when he was 18.", bucket: 0 },
-      { word: "weapon", type: "Danh từ", phonetic: "/ˈwɛpən/", vi: "vũ khí", example: "Guns and bombs are dangerous weapons.", bucket: 0 },
+      { word: "weapon", type: "Danh từ", phonetic: "/ˈwɛpən/", vi: "vũ khí", example: "Guns and bombs are dangerous weapons.", blank: "weapons", bucket: 0 },
       { word: "peace talks", type: "Cụm danh từ", phonetic: "/piːs tɔːks/", vi: "cuộc đàm phán hòa bình", example: "The leaders met for peace talks.", bucket: 1 },
       { word: "attack", type: "Động từ / Danh từ", phonetic: "/əˈtæk/", vi: "tấn công / cuộc tấn công", example: "The enemy plans to attack the city.", bucket: 1 },
-      { word: "invade", type: "Động từ", phonetic: "/ɪnˈveɪd/", vi: "xâm lược", example: "The army invaded the neighboring country.", bucket: 1 },
+      { word: "invade", type: "Động từ", phonetic: "/ɪnˈveɪd/", vi: "xâm lược", example: "The army invaded the neighboring country.", blank: "invaded", bucket: 1 },
       { word: "defend", type: "Động từ", phonetic: "/dɪˈfɛnd/", vi: "bảo vệ, phòng thủ", example: "The soldiers fought to defend their homeland.", bucket: 1 },
       { word: "surrender", type: "Động từ", phonetic: "/səˈrɛndə/", vi: "đầu hàng", example: "The rebels were forced to surrender.", bucket: 1 }
     ]
@@ -287,7 +321,7 @@ const rawUnits = [
       { word: "divide", type: "Động từ", phonetic: "/dɪˈvaɪd/", vi: "chia", example: "Divide ten by two is five.", bucket: 0 },
       { word: "two and a half", type: "Cụm từ", phonetic: "/tuː ænd ə hɑːf/", vi: "hai rưỡi (2.5)", example: "We waited for two and a half hours.", bucket: 1 },
       { word: "nought point six", type: "Cụm từ", phonetic: "/nɔːt pɔɪnt sɪks/", vi: "không phẩy sáu (0.6)", example: "The result is nought point six.", bucket: 1 },
-      { word: "fraction", type: "Danh từ", phonetic: "/ˈfrækʃn/", vi: "phân số", example: "A half and a quarter are fractions.", bucket: 1 },
+      { word: "fraction", type: "Danh từ", phonetic: "/ˈfrækʃn/", vi: "phân số", example: "A half and a quarter are fractions.", blank: "fractions", bucket: 1 },
       { word: "percentage", type: "Danh từ", phonetic: "/pəˈsɛntɪdʒ/", vi: "tỷ lệ phần trăm", example: "A large percentage of the students pass.", bucket: 1 }
     ]
   },
@@ -335,7 +369,7 @@ const rawUnits = [
       { word: "bar of chocolate", type: "Cụm danh từ", phonetic: "/bɑːr ɒv ˈtʃɒklɪt/", vi: "một thanh sô cô la", example: "He ate a whole bar of chocolate.", bucket: 0 },
       { word: "group of people", type: "Cụm danh từ", phonetic: "/gruːp ɒv ˈpiːpl/", vi: "một nhóm người", example: "A large group of people gathered outside.", bucket: 1 },
       { word: "pair of shoes", type: "Cụm danh từ", phonetic: "/peər ɒv ʃuːz/", vi: "một đôi giày", example: "I need to buy a new pair of shoes.", bucket: 1 },
-      { word: "bunch of flowers", type: "Cụm danh từ", phonetic: "/bʌntʃ ɒv ˈflaʊəz/", vi: "một bó hoa", example: "He gave her a bunch of red flowers.", bucket: 1 },
+      { word: "bunch of flowers", type: "Cụm danh từ", phonetic: "/bʌntʃ ɒv ˈflaʊəz/", vi: "một bó hoa", example: "He gave her a bunch of red flowers.", blank: "bunch of red flowers", bucket: 1 },
       { word: "drop of water", type: "Cụm danh từ", phonetic: "/drɒp ɒv ˈwɔːtə/", vi: "một giọt nước", example: "There wasn't a single drop of water left.", bucket: 1 }
     ]
   },
@@ -346,13 +380,13 @@ const rawUnits = [
     buckets: ["Senses (Giác quan)", "Perception Verbs (Động từ cảm nhận)"],
     words: [
       { word: "smell", type: "Động từ / Danh từ", phonetic: "/smɛl/", vi: "ngửi, có mùi", example: "The roses smell beautiful.", bucket: 0 },
-      { word: "taste", type: "Động từ / Danh từ", phonetic: "/teɪst/", vi: "nếm, có vị", example: "This soup tastes like chicken.", bucket: 0 },
-      { word: "feel", type: "Động từ", phonetic: "/fiːl/", vi: "cảm thấy", example: "The blanket feels very soft.", bucket: 0 },
-      { word: "sound", type: "Động từ", phonetic: "/saʊnd/", vi: "nghe có vẻ", example: "That sounds like a great idea!", bucket: 0 },
+      { word: "taste", type: "Động từ / Danh từ", phonetic: "/teɪst/", vi: "nếm, có vị", example: "This soup tastes like chicken.", blank: "tastes", bucket: 0 },
+      { word: "feel", type: "Động từ", phonetic: "/fiːl/", vi: "cảm thấy", example: "The blanket feels very soft.", blank: "feels", bucket: 0 },
+      { word: "sound", type: "Động từ", phonetic: "/saʊnd/", vi: "nghe có vẻ", example: "That sounds like a great idea!", blank: "sounds", bucket: 0 },
       { word: "see", type: "Động từ", phonetic: "/siː/", vi: "nhìn thấy (tự nhiên lọt vào mắt)", example: "I can see a bird in the tree.", bucket: 1 },
       { word: "look at", type: "Cụm động từ", phonetic: "/lʊk æt/", vi: "nhìn vào (có chủ ý)", example: "Look at this interesting picture.", bucket: 1 },
       { word: "watch", type: "Động từ", phonetic: "/wɒtʃ/", vi: "theo dõi, xem (có sự chuyển động)", example: "We sit and watch television every night.", bucket: 1 },
-      { word: "listen to", type: "Cụm động từ", phonetic: "/ˈlɪsn tuː/", vi: "lắng nghe (có chủ ý)", example: "Listen carefully to the instructions.", bucket: 1 }
+      { word: "listen to", type: "Cụm động từ", phonetic: "/ˈlɪsn tuː/", vi: "lắng nghe (có chủ ý)", example: "Listen carefully to the instructions.", blank: "Listen", bucket: 1 }
     ]
   },
   {
@@ -409,11 +443,11 @@ const rawUnits = [
     description: "Từ ngữ trang trọng và thân mật: purchase/buy, children/kids.",
     buckets: ["Formal (Trang trọng)", "Informal (Thân mật)"],
     words: [
-      { word: "purchase", type: "Động từ", phonetic: "/ˈpɜːtʃəs/", vi: "mua (trang trọng)", example: "Tickets must be purchased in advance.", bucket: 0 },
+      { word: "purchase", type: "Động từ", phonetic: "/ˈpɜːtʃəs/", vi: "mua (trang trọng)", example: "Tickets must be purchased in advance.", blank: "purchased", bucket: 0 },
       { word: "buy", type: "Động từ", phonetic: "/baɪ/", vi: "mua (thân mật)", example: "Where did you buy that shirt?", bucket: 1 },
       { word: "children", type: "Danh từ", phonetic: "/ˈtʃɪldrən/", vi: "trẻ em (trang trọng)", example: "The park is designed for children.", bucket: 0 },
       { word: "kids", type: "Danh từ", phonetic: "/kɪdz/", vi: "bọn trẻ (thân mật)", example: "The kids are playing in the garden.", bucket: 1 },
-      { word: "require", type: "Động từ", phonetic: "/rɪˈkwaɪə/", vi: "yêu cầu, cần (trang trọng)", example: "This job requires excellent computer skills.", bucket: 0 },
+      { word: "require", type: "Động từ", phonetic: "/rɪˈkwaɪə/", vi: "yêu cầu, cần (trang trọng)", example: "This job requires excellent computer skills.", blank: "requires", bucket: 0 },
       { word: "need", type: "Động từ", phonetic: "/niːd/", vi: "cần (thân mật)", example: "I need a new pair of shoes.", bucket: 1 },
       { word: "commence", type: "Động từ", phonetic: "/kəˈmɛns/", vi: "bắt đầu (trang trọng)", example: "The meeting will commence at noon.", bucket: 0 },
       { word: "start", type: "Động từ", phonetic: "/stɑːt/", vi: "bắt đầu (thân mật)", example: "What time does the movie start?", bucket: 1 }
@@ -470,7 +504,7 @@ function compileUnit(unit) {
   // "collocations" template ("have a data, make a data, good data").
   // Chưa có nội dung curated tương đương → discoveryCorner để trống, UI tự ẩn.
   const theory = {
-    coreVocab: enhancedWords,
+    coreVocab: stripHelperFields(enhancedWords),
     practicalUsage: practicalUsageList,
     discoveryCorner: []
   };
@@ -512,18 +546,12 @@ function compileUnit(unit) {
     exNum: `${unitNum}.1`,
     type: 'fill_in_blanks',
     instruction: "Điền từ tiếng Anh thích hợp vào chỗ trống dựa trên gợi ý nghĩa tiếng Việt:",
-    questions: words.slice(0, 4).map((w, idx) => {
-      // blankExample THROW nếu ví dụ không chứa từ — nhánh filler cũ
-      // ("The correct word is [blank].") đã bị xóa theo chính sách đầu file.
-      const sentence = blankExample(w.word, w.example, unitNum, '[blank]');
-      return {
-        id: `ex_${unitNum}_1_${idx}`,
-        text: sentence,
-        answers: [w.word],
-        hint: w.vi,
-        explanation: `Từ cần điền là "${w.word}" (${w.type}), mang nghĩa là "${w.vi}".`
-      };
-    })
+    // blankExample THROW nếu ví dụ không chứa đoạn cần đục lỗ — nhánh filler cũ
+    // ("The correct word is [blank].") đã bị xóa theo chính sách đầu file.
+    questions: words.slice(0, 4).filter(canBlank).map((w, idx) => fillBlankQuestion(
+      w, unitNum, `ex_${unitNum}_1_${idx}`,
+      (x) => `Từ cần điền là "${x.word}" (${x.type}), mang nghĩa là "${x.vi}".`
+    ))
   };
 
   const ex2 = {
@@ -561,7 +589,9 @@ function compileUnit(unit) {
     exNum: `${unitNum}.4`,
     type: 'error_correction',
     instruction: "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
-    questions: words.slice(2, 4).map((w, idx) => {
+    // Chỉ dựng được cho từ xuất hiện NGUYÊN DẠNG: bài này cố ý chia sai số
+    // ít/số nhiều của chính từ khoá, nên câu dùng dạng chia khác thì bỏ qua.
+    questions: words.slice(2, 4).filter(hasVerbatimWord).map((w, idx) => {
       let badWord = w.word + "s";
       if (w.word.endsWith('s')) badWord = w.word.slice(0, -1);
       // Câu sai được biến đổi TỪ câu ví dụ curated (lỗi số ít/số nhiều có chủ
@@ -584,26 +614,22 @@ function compileUnit(unit) {
     exNum: `${unitNum}.5`,
     type: 'fill_in_blanks',
     instruction: "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",
-    questions: words.slice(4, 8).map((w, idx) => {
-      // blankExample THROW nếu ví dụ không chứa từ — nhánh filler cũ
-      // ("This [blank] is very important.") đã bị xóa theo chính sách đầu file.
-      const sentence = blankExample(w.word, w.example, unitNum, '[blank]');
-      return {
-        id: `ex_${unitNum}_5_${idx}`,
-        text: sentence,
-        answers: [w.word],
-        hint: w.vi,
-        explanation: `Từ cần điền là "${w.word}" (${w.type}).`
-      };
-    })
+    // Nhánh filler cũ ("This [blank] is very important.") đã bị xóa.
+    questions: words.slice(4, 8).filter(canBlank).map((w, idx) => fillBlankQuestion(
+      w, unitNum, `ex_${unitNum}_5_${idx}`,
+      (x) => `Từ cần điền là "${x.word}" (${x.type}).`
+    ))
   };
 
   const textbookExercises = [ex1, ex2, ex3, ex4, ex5];
 
   return {
     id: "pre_" + unitNum,
-    title, description, words, theory, dragDrop, quiz, typingGame, textbookExercises,
-    speaking: [{text: words[0].example, trans: "Đọc to câu này."}]
+    title, description, words: stripHelperFields(words), theory, dragDrop, quiz, typingGame, textbookExercises,
+    // KHÔNG có trường `trans`: bản cũ ghi "Đọc to câu này." vào ô bản dịch —
+    // đó là câu lệnh, không phải nghĩa tiếng Việt của câu. Chưa có bản dịch do
+    // người soạn thì bỏ trống, UI tự ẩn dòng dịch.
+    speaking: [{ text: words[0].example }]
   };
 }
 
@@ -626,6 +652,20 @@ function assertCleanOutput(units) {
     }
     for (const t of (u.typingGame || [])) {
       if (TEMPLATE.test(t.a) || FAKE_SYN.test(t.a)) throw new Error(`[assertCleanOutput] ${u.id}: typing rác "${t.a}"`);
+    }
+    for (const ex of (u.textbookExercises || [])) {
+      if (ex.type !== 'fill_in_blanks') continue;
+      for (const q of (ex.questions || [])) {
+        const holes = (q.text.match(/\[blank\]/g) || []).length;
+        if (holes !== 1) throw new Error(`[assertCleanOutput] ${u.id}: câu điền trống có ${holes} chỗ trống — "${q.text}"`);
+        if (q.answers.length !== 1 || !q.answers[0].trim()) throw new Error(`[assertCleanOutput] ${u.id}: câu điền trống thiếu đáp án — "${q.text}"`);
+      }
+    }
+    for (const s of (u.speaking || [])) {
+      if (s.trans !== undefined) throw new Error(`[assertCleanOutput] ${u.id}: speaking còn trường trans máy-sinh "${s.trans}"`);
+    }
+    for (const w of (u.words || [])) {
+      if ('blank' in w || 'noBlank' in w || 'wordFamily' in w) throw new Error(`[assertCleanOutput] ${u.id}: từ "${w.word}" còn trường phụ trợ/chết lọt ra dữ liệu`);
     }
     if ((u.quiz?.length || 0) < 8 || (u.typingGame?.length || 0) < 8 || (u.dragDrop?.items?.length || 0) < 8) {
       throw new Error(`[assertCleanOutput] ${u.id}: dưới ngưỡng tối thiểu 8 quiz/8 typing/8 dragDrop.`);
