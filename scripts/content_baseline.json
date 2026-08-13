@@ -57,30 +57,6 @@
       "textbook": 21,
       "theory": 48,
       "textbook-original": 5
-    },
-    "oxfordPreIntData.js": {
-      "dragDrop": 786,
-      "drag-vi": 400,
-      "quiz": 392,
-      "typing": 197,
-      "typing-fake-meaning": 393,
-      "theory": 543,
-      "speaking-trans": 100
-    },
-    "oxfordPreIntData51_75.js": {
-      "dragDrop": 600,
-      "quiz-option": 500,
-      "textbook": 10,
-      "theory": 88,
-      "speaking-trans": 25
-    },
-    "oxfordPreIntData76_100.js": {
-      "dragDrop": 600,
-      "quiz-option": 500,
-      "textbook": 16,
-      "theory": 75,
-      "textbook-original": 5,
-      "speaking-trans": 25
     }
   }
 }

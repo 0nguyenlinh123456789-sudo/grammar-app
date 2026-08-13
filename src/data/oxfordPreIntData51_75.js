@@ -81,12 +81,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈwɒʃbeɪsn/",
           "vi": "bồn rửa mặt, bồn rửa tay",
           "example": "Wash your hands in the washbasin.",
-          "bucket": 0,
-          "collocations": [
-            "use washbasin",
-            "about washbasin"
-          ],
-          "wordFamily": "Biến thể từ vựng của washbasin"
+          "bucket": 0
         },
         {
           "word": "hoover",
@@ -94,12 +89,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈhuːvə/",
           "vi": "máy hút bụi / hút bụi",
           "example": "I need to hoover the carpet.",
-          "bucket": 0,
-          "collocations": [
-            "use hoover",
-            "about hoover"
-          ],
-          "wordFamily": "Biến thể từ vựng của hoover"
+          "bucket": 0
         },
         {
           "word": "iron",
@@ -107,12 +97,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈaɪən/",
           "vi": "bàn là / là quần áo",
           "example": "Please iron this shirt for me.",
-          "bucket": 0,
-          "collocations": [
-            "use iron",
-            "about iron"
-          ],
-          "wordFamily": "Biến thể từ vựng của iron"
+          "bucket": 0
         },
         {
           "word": "dustpan",
@@ -120,12 +105,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈdʌstpæn/",
           "vi": "cái hót rác",
           "example": "Sweep the dirt into the dustpan.",
-          "bucket": 0,
-          "collocations": [
-            "use dustpan",
-            "about dustpan"
-          ],
-          "wordFamily": "Biến thể từ vựng của dustpan"
+          "bucket": 0
         },
         {
           "word": "tidy",
@@ -133,12 +113,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtaɪdi/",
           "vi": "dọn dẹp / gọn gàng",
           "example": "It's time to tidy your room.",
-          "bucket": 1,
-          "collocations": [
-            "use tidy",
-            "about tidy"
-          ],
-          "wordFamily": "Biến thể từ vựng của tidy"
+          "bucket": 1
         },
         {
           "word": "polish",
@@ -146,12 +121,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈpɒlɪʃ/",
           "vi": "đánh bóng / lớp sơn bóng",
           "example": "Polish the table until it shines.",
-          "bucket": 1,
-          "collocations": [
-            "use polish",
-            "about polish"
-          ],
-          "wordFamily": "Biến thể từ vựng của polish"
+          "bucket": 1
         },
         {
           "word": "sweep",
@@ -159,12 +129,7 @@ export const courseData51_75 = [
           "phonetic": "/swiːp/",
           "vi": "quét nhà",
           "example": "Sweep the floor with a broom.",
-          "bucket": 1,
-          "collocations": [
-            "use sweep",
-            "about sweep"
-          ],
-          "wordFamily": "Biến thể từ vựng của sweep"
+          "bucket": 1
         },
         {
           "word": "wipe",
@@ -172,12 +137,7 @@ export const courseData51_75 = [
           "phonetic": "/waɪp/",
           "vi": "lau chùi",
           "example": "Wipe the kitchen table with a cloth.",
-          "bucket": 1,
-          "collocations": [
-            "use wipe",
-            "about wipe"
-          ],
-          "wordFamily": "Biến thể từ vựng của wipe"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -220,44 +180,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 51:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"washbasin\"",
-              "value": "washbasinful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"hoover\"",
-              "value": "hooverer (Danh từ), hooverful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"iron\"",
-              "value": "ironer (Danh từ), ironful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"dustpan\"",
-              "value": "Ví dụ: have a dustpan, make a dustpan, good dustpan"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"tidy\"",
-              "value": "Ví dụ: very tidy, extremely tidy"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"polish\"",
-              "value": "Ví dụ: polish quickly, always polish"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -312,150 +235,6 @@ export const courseData51_75 = [
           "word": "wipe",
           "target": "Actions (Hành động)",
           "vi": "lau chùi"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới washbasin",
-          "target": "Objects (Đồ vật)",
-          "vi": "bồn rửa mặt, bồn rửa tay"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới hoover",
-          "target": "Objects (Đồ vật)",
-          "vi": "máy hút bụi / hút bụi"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới iron",
-          "target": "Objects (Đồ vật)",
-          "vi": "bàn là / là quần áo"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới dustpan",
-          "target": "Objects (Đồ vật)",
-          "vi": "cái hót rác"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới tidy",
-          "target": "Actions (Hành động)",
-          "vi": "dọn dẹp / gọn gàng"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới polish",
-          "target": "Actions (Hành động)",
-          "vi": "đánh bóng / lớp sơn bóng"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới sweep",
-          "target": "Actions (Hành động)",
-          "vi": "quét nhà"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới wipe",
-          "target": "Actions (Hành động)",
-          "vi": "lau chùi"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới washbasin",
-          "target": "Objects (Đồ vật)",
-          "vi": "bồn rửa mặt, bồn rửa tay"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới hoover",
-          "target": "Objects (Đồ vật)",
-          "vi": "máy hút bụi / hút bụi"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới iron",
-          "target": "Objects (Đồ vật)",
-          "vi": "bàn là / là quần áo"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới dustpan",
-          "target": "Objects (Đồ vật)",
-          "vi": "cái hót rác"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới tidy",
-          "target": "Actions (Hành động)",
-          "vi": "dọn dẹp / gọn gàng"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới polish",
-          "target": "Actions (Hành động)",
-          "vi": "đánh bóng / lớp sơn bóng"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới sweep",
-          "target": "Actions (Hành động)",
-          "vi": "quét nhà"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới wipe",
-          "target": "Actions (Hành động)",
-          "vi": "lau chùi"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới washbasin",
-          "target": "Objects (Đồ vật)",
-          "vi": "bồn rửa mặt, bồn rửa tay"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới hoover",
-          "target": "Objects (Đồ vật)",
-          "vi": "máy hút bụi / hút bụi"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới iron",
-          "target": "Objects (Đồ vật)",
-          "vi": "bàn là / là quần áo"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới dustpan",
-          "target": "Objects (Đồ vật)",
-          "vi": "cái hót rác"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới tidy",
-          "target": "Actions (Hành động)",
-          "vi": "dọn dẹp / gọn gàng"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới polish",
-          "target": "Actions (Hành động)",
-          "vi": "đánh bóng / lớp sơn bóng"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới sweep",
-          "target": "Actions (Hành động)",
-          "vi": "quét nhà"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới wipe",
-          "target": "Actions (Hành động)",
-          "vi": "lau chùi"
         }
       ]
     },
@@ -464,39 +243,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"bồn rửa mặt, bồn rửa tay\"?",
         "options": [
           "washbasin",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "hoover",
+          "iron",
+          "dustpan"
         ],
         "a": "washbasin"
       },
       {
         "q": "Từ nào có nghĩa là \"máy hút bụi / hút bụi\"?",
         "options": [
+          "iron",
           "hoover",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "dustpan",
+          "tidy"
         ],
         "a": "hoover"
       },
       {
         "q": "Từ nào có nghĩa là \"bàn là / là quần áo\"?",
         "options": [
+          "dustpan",
+          "tidy",
           "iron",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "polish"
         ],
         "a": "iron"
       },
       {
         "q": "Từ nào có nghĩa là \"cái hót rác\"?",
         "options": [
-          "dustpan",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "tidy",
+          "polish",
+          "sweep",
+          "dustpan"
         ],
         "a": "dustpan"
       },
@@ -504,161 +283,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"dọn dẹp / gọn gàng\"?",
         "options": [
           "tidy",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "polish",
+          "sweep",
+          "wipe"
         ],
         "a": "tidy"
       },
       {
         "q": "Từ nào có nghĩa là \"đánh bóng / lớp sơn bóng\"?",
         "options": [
+          "sweep",
           "polish",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "wipe",
+          "washbasin"
         ],
         "a": "polish"
       },
       {
         "q": "Từ nào có nghĩa là \"quét nhà\"?",
         "options": [
+          "wipe",
+          "washbasin",
           "sweep",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "hoover"
         ],
         "a": "sweep"
       },
       {
         "q": "Từ nào có nghĩa là \"lau chùi\"?",
         "options": [
-          "wipe",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "washbasin",
+          "hoover",
+          "iron",
+          "wipe"
         ],
         "a": "wipe"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bồn rửa mặt, bồn rửa tay\"?",
-        "options": [
-          "washbasin",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "washbasin"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"máy hút bụi / hút bụi\"?",
-        "options": [
-          "hoover",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "hoover"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bàn là / là quần áo\"?",
-        "options": [
-          "iron",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "iron"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cái hót rác\"?",
-        "options": [
-          "dustpan",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "dustpan"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"dọn dẹp / gọn gàng\"?",
-        "options": [
-          "tidy",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "tidy"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đánh bóng / lớp sơn bóng\"?",
-        "options": [
-          "polish",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "polish"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"quét nhà\"?",
-        "options": [
-          "sweep",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "sweep"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"lau chùi\"?",
-        "options": [
-          "wipe",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "wipe"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bồn rửa mặt, bồn rửa tay\"?",
-        "options": [
-          "washbasin",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "washbasin"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"máy hút bụi / hút bụi\"?",
-        "options": [
-          "hoover",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "hoover"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bàn là / là quần áo\"?",
-        "options": [
-          "iron",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "iron"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cái hót rác\"?",
-        "options": [
-          "dustpan",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "dustpan"
       }
     ],
     "typingGame": [
@@ -701,66 +360,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"lau chùi\"",
         "hint": "w_p_",
         "a": "wipe"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bồn rửa mặt, bồn rửa tay\"",
-        "hint": "w_s_b_s_n",
-        "a": "washbasin"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"máy hút bụi / hút bụi\"",
-        "hint": "h_o_e_",
-        "a": "hoover"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bàn là / là quần áo\"",
-        "hint": "i_o_",
-        "a": "iron"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cái hót rác\"",
-        "hint": "d_s_p_n",
-        "a": "dustpan"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"dọn dẹp / gọn gàng\"",
-        "hint": "t_d_",
-        "a": "tidy"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đánh bóng / lớp sơn bóng\"",
-        "hint": "p_l_s_",
-        "a": "polish"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"quét nhà\"",
-        "hint": "s_e_p",
-        "a": "sweep"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"lau chùi\"",
-        "hint": "w_p_",
-        "a": "wipe"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bồn rửa mặt, bồn rửa tay\"",
-        "hint": "w_s_b_s_n",
-        "a": "washbasin"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"máy hút bụi / hút bụi\"",
-        "hint": "h_o_e_",
-        "a": "hoover"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bàn là / là quần áo\"",
-        "hint": "i_o_",
-        "a": "iron"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cái hót rác\"",
-        "hint": "d_s_p_n",
-        "a": "dustpan"
       }
     ],
     "textbookExercises": [
@@ -828,10 +427,10 @@ export const courseData51_75 = [
             "id": "ex_51_2_1",
             "text": "polish",
             "options": [
-              "quét nhà",
               "đánh bóng / lớp sơn bóng",
-              "dọn dẹp / gọn gàng",
-              "lau chùi"
+              "quét nhà",
+              "lau chùi",
+              "dọn dẹp / gọn gàng"
             ],
             "answer": "đánh bóng / lớp sơn bóng",
             "explanation": "Từ \"polish\" có nghĩa chính xác là \"đánh bóng / lớp sơn bóng\"."
@@ -840,10 +439,10 @@ export const courseData51_75 = [
             "id": "ex_51_2_2",
             "text": "sweep",
             "options": [
+              "quét nhà",
               "lau chùi",
               "dọn dẹp / gọn gàng",
-              "đánh bóng / lớp sơn bóng",
-              "quét nhà"
+              "đánh bóng / lớp sơn bóng"
             ],
             "answer": "quét nhà",
             "explanation": "Từ \"sweep\" có nghĩa chính xác là \"quét nhà\"."
@@ -852,10 +451,10 @@ export const courseData51_75 = [
             "id": "ex_51_2_3",
             "text": "wipe",
             "options": [
+              "lau chùi",
               "dọn dẹp / gọn gàng",
               "đánh bóng / lớp sơn bóng",
-              "quét nhà",
-              "lau chùi"
+              "quét nhà"
             ],
             "answer": "lau chùi",
             "explanation": "Từ \"wipe\" có nghĩa chính xác là \"lau chùi\"."
@@ -958,7 +557,7 @@ export const courseData51_75 = [
             "id": "ex_51_5_1",
             "text": "[blank] the table until it shines.",
             "answers": [
-              "polish"
+              "Polish"
             ],
             "hint": "đánh bóng / lớp sơn bóng",
             "explanation": "Từ cần điền là \"polish\" (Động từ / Danh từ)."
@@ -967,7 +566,7 @@ export const courseData51_75 = [
             "id": "ex_51_5_2",
             "text": "[blank] the floor with a broom.",
             "answers": [
-              "sweep"
+              "Sweep"
             ],
             "hint": "quét nhà",
             "explanation": "Từ cần điền là \"sweep\" (Động từ)."
@@ -976,7 +575,7 @@ export const courseData51_75 = [
             "id": "ex_51_5_3",
             "text": "[blank] the kitchen table with a cloth.",
             "answers": [
-              "wipe"
+              "Wipe"
             ],
             "hint": "lau chùi",
             "explanation": "Từ cần điền là \"wipe\" (Động từ)."
@@ -986,8 +585,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "Wash your hands in the washbasin.",
-        "trans": "Đọc to câu này."
+        "text": "Wash your hands in the washbasin."
       }
     ]
   },
@@ -1069,12 +667,7 @@ export const courseData51_75 = [
           "phonetic": "/ɪts nɒt ˈwɜːkɪŋ/",
           "vi": "nó không hoạt động, bị hỏng",
           "example": "The TV is broken; it's not working.",
-          "bucket": 0,
-          "collocations": [
-            "use it's not working",
-            "about it's not working"
-          ],
-          "wordFamily": "Biến thể từ vựng của it's not working"
+          "bucket": 0
         },
         {
           "word": "power cut",
@@ -1082,12 +675,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈpaʊə kʌt/",
           "vi": "sự cố mất điện",
           "example": "We used candles during the power cut.",
-          "bucket": 0,
-          "collocations": [
-            "use power cut",
-            "about power cut"
-          ],
-          "wordFamily": "Biến thể từ vựng của power cut"
+          "bucket": 0
         },
         {
           "word": "stuck",
@@ -1095,12 +683,7 @@ export const courseData51_75 = [
           "phonetic": "/stʌk/",
           "vi": "bị kẹt",
           "example": "The key is stuck in the lock.",
-          "bucket": 0,
-          "collocations": [
-            "use stuck",
-            "about stuck"
-          ],
-          "wordFamily": "Biến thể từ vựng của stuck"
+          "bucket": 0
         },
         {
           "word": "flat battery",
@@ -1108,12 +691,7 @@ export const courseData51_75 = [
           "phonetic": "/flæt ˈbætəri/",
           "vi": "hết pin, pin cạn",
           "example": "My phone has a flat battery.",
-          "bucket": 0,
-          "collocations": [
-            "use flat battery",
-            "about flat battery"
-          ],
-          "wordFamily": "Biến thể từ vựng của flat battery"
+          "bucket": 0
         },
         {
           "word": "drop",
@@ -1121,12 +699,7 @@ export const courseData51_75 = [
           "phonetic": "/drɒp/",
           "vi": "làm rơi",
           "example": "Don't drop that glass on the floor.",
-          "bucket": 1,
-          "collocations": [
-            "use drop",
-            "about drop"
-          ],
-          "wordFamily": "Biến thể từ vựng của drop"
+          "bucket": 1
         },
         {
           "word": "break",
@@ -1134,12 +707,7 @@ export const courseData51_75 = [
           "phonetic": "/breɪk/",
           "vi": "làm vỡ, bẻ gãy",
           "example": "Be careful not to break the window.",
-          "bucket": 1,
-          "collocations": [
-            "use break",
-            "about break"
-          ],
-          "wordFamily": "Biến thể từ vựng của break"
+          "bucket": 1
         },
         {
           "word": "spill",
@@ -1147,12 +715,7 @@ export const courseData51_75 = [
           "phonetic": "/spɪl/",
           "vi": "làm đổ, tràn",
           "example": "She spilled coffee on her dress.",
-          "bucket": 1,
-          "collocations": [
-            "use spill",
-            "about spill"
-          ],
-          "wordFamily": "Biến thể từ vựng của spill"
+          "bucket": 1
         },
         {
           "word": "lose",
@@ -1160,12 +723,7 @@ export const courseData51_75 = [
           "phonetic": "/luːz/",
           "vi": "làm mất, đánh mất",
           "example": "Did you lose your house keys again?",
-          "bucket": 1,
-          "collocations": [
-            "use lose",
-            "about lose"
-          ],
-          "wordFamily": "Biến thể từ vựng của lose"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -1208,44 +766,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 52:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"it's not working\"",
-              "value": "Các dạng từ loại khác của \"it's not working\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"power cut\"",
-              "value": "power cutful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"stuck\"",
-              "value": "stuckly (Trạng từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"flat battery\"",
-              "value": "Cụm từ liên quan đến flat battery"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"drop\"",
-              "value": "Ví dụ: drop quickly, always drop"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"break\"",
-              "value": "Ví dụ: break quickly, always break"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -1300,150 +821,6 @@ export const courseData51_75 = [
           "word": "lose",
           "target": "Actions (Hành động)",
           "vi": "làm mất, đánh mất"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới it's not working",
-          "target": "Issues (Vấn đề)",
-          "vi": "nó không hoạt động, bị hỏng"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới power cut",
-          "target": "Issues (Vấn đề)",
-          "vi": "sự cố mất điện"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới stuck",
-          "target": "Issues (Vấn đề)",
-          "vi": "bị kẹt"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới flat battery",
-          "target": "Issues (Vấn đề)",
-          "vi": "hết pin, pin cạn"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới drop",
-          "target": "Actions (Hành động)",
-          "vi": "làm rơi"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới break",
-          "target": "Actions (Hành động)",
-          "vi": "làm vỡ, bẻ gãy"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới spill",
-          "target": "Actions (Hành động)",
-          "vi": "làm đổ, tràn"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới lose",
-          "target": "Actions (Hành động)",
-          "vi": "làm mất, đánh mất"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới it's not working",
-          "target": "Issues (Vấn đề)",
-          "vi": "nó không hoạt động, bị hỏng"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới power cut",
-          "target": "Issues (Vấn đề)",
-          "vi": "sự cố mất điện"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới stuck",
-          "target": "Issues (Vấn đề)",
-          "vi": "bị kẹt"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới flat battery",
-          "target": "Issues (Vấn đề)",
-          "vi": "hết pin, pin cạn"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới drop",
-          "target": "Actions (Hành động)",
-          "vi": "làm rơi"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới break",
-          "target": "Actions (Hành động)",
-          "vi": "làm vỡ, bẻ gãy"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới spill",
-          "target": "Actions (Hành động)",
-          "vi": "làm đổ, tràn"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới lose",
-          "target": "Actions (Hành động)",
-          "vi": "làm mất, đánh mất"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới it's not working",
-          "target": "Issues (Vấn đề)",
-          "vi": "nó không hoạt động, bị hỏng"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới power cut",
-          "target": "Issues (Vấn đề)",
-          "vi": "sự cố mất điện"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới stuck",
-          "target": "Issues (Vấn đề)",
-          "vi": "bị kẹt"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới flat battery",
-          "target": "Issues (Vấn đề)",
-          "vi": "hết pin, pin cạn"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới drop",
-          "target": "Actions (Hành động)",
-          "vi": "làm rơi"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới break",
-          "target": "Actions (Hành động)",
-          "vi": "làm vỡ, bẻ gãy"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới spill",
-          "target": "Actions (Hành động)",
-          "vi": "làm đổ, tràn"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới lose",
-          "target": "Actions (Hành động)",
-          "vi": "làm mất, đánh mất"
         }
       ]
     },
@@ -1452,39 +829,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"nó không hoạt động, bị hỏng\"?",
         "options": [
           "it's not working",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "power cut",
+          "stuck",
+          "flat battery"
         ],
         "a": "it's not working"
       },
       {
         "q": "Từ nào có nghĩa là \"sự cố mất điện\"?",
         "options": [
+          "stuck",
           "power cut",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "flat battery",
+          "drop"
         ],
         "a": "power cut"
       },
       {
         "q": "Từ nào có nghĩa là \"bị kẹt\"?",
         "options": [
+          "flat battery",
+          "drop",
           "stuck",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "break"
         ],
         "a": "stuck"
       },
       {
         "q": "Từ nào có nghĩa là \"hết pin, pin cạn\"?",
         "options": [
-          "flat battery",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "drop",
+          "break",
+          "spill",
+          "flat battery"
         ],
         "a": "flat battery"
       },
@@ -1492,161 +869,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"làm rơi\"?",
         "options": [
           "drop",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "break",
+          "spill",
+          "lose"
         ],
         "a": "drop"
       },
       {
         "q": "Từ nào có nghĩa là \"làm vỡ, bẻ gãy\"?",
         "options": [
+          "spill",
           "break",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "lose",
+          "it's not working"
         ],
         "a": "break"
       },
       {
         "q": "Từ nào có nghĩa là \"làm đổ, tràn\"?",
         "options": [
+          "lose",
+          "it's not working",
           "spill",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "power cut"
         ],
         "a": "spill"
       },
       {
         "q": "Từ nào có nghĩa là \"làm mất, đánh mất\"?",
         "options": [
-          "lose",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "it's not working",
+          "power cut",
+          "stuck",
+          "lose"
         ],
         "a": "lose"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nó không hoạt động, bị hỏng\"?",
-        "options": [
-          "it's not working",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "it's not working"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sự cố mất điện\"?",
-        "options": [
-          "power cut",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "power cut"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bị kẹt\"?",
-        "options": [
-          "stuck",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "stuck"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"hết pin, pin cạn\"?",
-        "options": [
-          "flat battery",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "flat battery"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"làm rơi\"?",
-        "options": [
-          "drop",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "drop"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"làm vỡ, bẻ gãy\"?",
-        "options": [
-          "break",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "break"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"làm đổ, tràn\"?",
-        "options": [
-          "spill",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "spill"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"làm mất, đánh mất\"?",
-        "options": [
-          "lose",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "lose"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nó không hoạt động, bị hỏng\"?",
-        "options": [
-          "it's not working",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "it's not working"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sự cố mất điện\"?",
-        "options": [
-          "power cut",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "power cut"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bị kẹt\"?",
-        "options": [
-          "stuck",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "stuck"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"hết pin, pin cạn\"?",
-        "options": [
-          "flat battery",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "flat battery"
       }
     ],
     "typingGame": [
@@ -1689,66 +946,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"làm mất, đánh mất\"",
         "hint": "l_s_",
         "a": "lose"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nó không hoạt động, bị hỏng\"",
-        "hint": "i_'_ _o_ _o_k_n_",
-        "a": "it's not working"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sự cố mất điện\"",
-        "hint": "p_w_r_c_t",
-        "a": "power cut"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bị kẹt\"",
-        "hint": "s_u_k",
-        "a": "stuck"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"hết pin, pin cạn\"",
-        "hint": "f_a_ _a_t_r_",
-        "a": "flat battery"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"làm rơi\"",
-        "hint": "d_o_",
-        "a": "drop"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"làm vỡ, bẻ gãy\"",
-        "hint": "b_e_k",
-        "a": "break"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"làm đổ, tràn\"",
-        "hint": "s_i_l",
-        "a": "spill"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"làm mất, đánh mất\"",
-        "hint": "l_s_",
-        "a": "lose"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nó không hoạt động, bị hỏng\"",
-        "hint": "i_'_ _o_ _o_k_n_",
-        "a": "it's not working"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sự cố mất điện\"",
-        "hint": "p_w_r_c_t",
-        "a": "power cut"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bị kẹt\"",
-        "hint": "s_u_k",
-        "a": "stuck"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"hết pin, pin cạn\"",
-        "hint": "f_a_ _a_t_r_",
-        "a": "flat battery"
       }
     ],
     "textbookExercises": [
@@ -1804,10 +1001,10 @@ export const courseData51_75 = [
             "id": "ex_52_2_0",
             "text": "drop",
             "options": [
-              "làm đổ, tràn",
-              "làm mất, đánh mất",
+              "làm rơi",
               "làm vỡ, bẻ gãy",
-              "làm rơi"
+              "làm đổ, tràn",
+              "làm mất, đánh mất"
             ],
             "answer": "làm rơi",
             "explanation": "Từ \"drop\" có nghĩa chính xác là \"làm rơi\"."
@@ -1816,10 +1013,10 @@ export const courseData51_75 = [
             "id": "ex_52_2_1",
             "text": "break",
             "options": [
-              "làm mất, đánh mất",
-              "làm rơi",
               "làm vỡ, bẻ gãy",
-              "làm đổ, tràn"
+              "làm đổ, tràn",
+              "làm mất, đánh mất",
+              "làm rơi"
             ],
             "answer": "làm vỡ, bẻ gãy",
             "explanation": "Từ \"break\" có nghĩa chính xác là \"làm vỡ, bẻ gãy\"."
@@ -1828,10 +1025,10 @@ export const courseData51_75 = [
             "id": "ex_52_2_2",
             "text": "spill",
             "options": [
+              "làm đổ, tràn",
               "làm mất, đánh mất",
               "làm rơi",
-              "làm vỡ, bẻ gãy",
-              "làm đổ, tràn"
+              "làm vỡ, bẻ gãy"
             ],
             "answer": "làm đổ, tràn",
             "explanation": "Từ \"spill\" có nghĩa chính xác là \"làm đổ, tràn\"."
@@ -1840,10 +1037,10 @@ export const courseData51_75 = [
             "id": "ex_52_2_3",
             "text": "lose",
             "options": [
-              "làm đổ, tràn",
-              "làm vỡ, bẻ gãy",
               "làm mất, đánh mất",
-              "làm rơi"
+              "làm rơi",
+              "làm vỡ, bẻ gãy",
+              "làm đổ, tràn"
             ],
             "answer": "làm mất, đánh mất",
             "explanation": "Từ \"lose\" có nghĩa chính xác là \"làm mất, đánh mất\"."
@@ -1953,12 +1150,12 @@ export const courseData51_75 = [
           },
           {
             "id": "ex_52_5_2",
-            "text": "This [blank] is very important.",
+            "text": "She [blank] coffee on her dress.",
             "answers": [
-              "spill"
+              "spilled"
             ],
             "hint": "làm đổ, tràn",
-            "explanation": "Từ cần điền là \"spill\" (Động từ)."
+            "explanation": "Từ vựng cốt lõi là \"spill\" (Động từ), nghĩa \"làm đổ, tràn\". Trong câu này nó ở dạng \"spilled\", nên đáp án cần gõ là \"spilled\"."
           },
           {
             "id": "ex_52_5_3",
@@ -1974,8 +1171,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "The TV is broken; it's not working.",
-        "trans": "Đọc to câu này."
+        "text": "The TV is broken; it's not working."
       }
     ]
   },
@@ -2057,12 +1253,7 @@ export const courseData51_75 = [
           "phonetic": "/kɔɪnz/",
           "vi": "những đồng tiền xu",
           "example": "He has a pocket full of silver coins.",
-          "bucket": 0,
-          "collocations": [
-            "use coins",
-            "about coins"
-          ],
-          "wordFamily": "Biến thể từ vựng của coins"
+          "bucket": 0
         },
         {
           "word": "notes",
@@ -2070,12 +1261,7 @@ export const courseData51_75 = [
           "phonetic": "/nəʊts/",
           "vi": "những tờ tiền giấy",
           "example": "I only have ten-pound notes.",
-          "bucket": 0,
-          "collocations": [
-            "use notes",
-            "about notes"
-          ],
-          "wordFamily": "Biến thể từ vựng của notes"
+          "bucket": 0
         },
         {
           "word": "cash",
@@ -2083,12 +1269,7 @@ export const courseData51_75 = [
           "phonetic": "/kæʃ/",
           "vi": "tiền mặt",
           "example": "Can I pay in cash?",
-          "bucket": 0,
-          "collocations": [
-            "use cash",
-            "about cash"
-          ],
-          "wordFamily": "Biến thể từ vựng của cash"
+          "bucket": 0
         },
         {
           "word": "credit card",
@@ -2096,12 +1277,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkrɛdɪt kɑːd/",
           "vi": "thẻ tín dụng",
           "example": "She paid for the meal by credit card.",
-          "bucket": 0,
-          "collocations": [
-            "use credit card",
-            "about credit card"
-          ],
-          "wordFamily": "Biến thể từ vựng của credit card"
+          "bucket": 0
         },
         {
           "word": "borrow",
@@ -2109,12 +1285,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈbɒrəʊ/",
           "vi": "vay, mượn",
           "example": "Can I borrow some money from you?",
-          "bucket": 1,
-          "collocations": [
-            "use borrow",
-            "about borrow"
-          ],
-          "wordFamily": "Biến thể từ vựng của borrow"
+          "bucket": 1
         },
         {
           "word": "lend",
@@ -2122,12 +1293,7 @@ export const courseData51_75 = [
           "phonetic": "/lɛnd/",
           "vi": "cho vay, cho mượn",
           "example": "I will lend you my umbrella.",
-          "bucket": 1,
-          "collocations": [
-            "use lend",
-            "about lend"
-          ],
-          "wordFamily": "Biến thể từ vựng của lend"
+          "bucket": 1
         },
         {
           "word": "can't afford it",
@@ -2135,12 +1301,7 @@ export const courseData51_75 = [
           "phonetic": "/kɑːnt əˈfɔːd ɪt/",
           "vi": "không đủ khả năng chi trả",
           "example": "That car is too expensive; I can't afford it.",
-          "bucket": 1,
-          "collocations": [
-            "use can't afford it",
-            "about can't afford it"
-          ],
-          "wordFamily": "Biến thể từ vựng của can't afford it"
+          "bucket": 1
         },
         {
           "word": "earn",
@@ -2148,12 +1309,7 @@ export const courseData51_75 = [
           "phonetic": "/ɜːn/",
           "vi": "kiếm được (tiền)",
           "example": "He wants to earn a high salary.",
-          "bucket": 1,
-          "collocations": [
-            "use earn",
-            "about earn"
-          ],
-          "wordFamily": "Biến thể từ vựng của earn"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -2196,44 +1352,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 53:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"coins\"",
-              "value": "coinsful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"notes\"",
-              "value": "notesful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"cash\"",
-              "value": "cashful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"credit card\"",
-              "value": "Ví dụ: have a credit card, make a credit card, good credit card"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"borrow\"",
-              "value": "Ví dụ: borrow quickly, always borrow"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"lend\"",
-              "value": "Ví dụ: lend quickly, always lend"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -2288,150 +1407,6 @@ export const courseData51_75 = [
           "word": "earn",
           "target": "Financial Verbs (Động từ tài chính)",
           "vi": "kiếm được (tiền)"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới coins",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "những đồng tiền xu"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới notes",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "những tờ tiền giấy"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới cash",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "tiền mặt"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới credit card",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "thẻ tín dụng"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới borrow",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "vay, mượn"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới lend",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "cho vay, cho mượn"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới can't afford it",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "không đủ khả năng chi trả"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới earn",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "kiếm được (tiền)"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới coins",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "những đồng tiền xu"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới notes",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "những tờ tiền giấy"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới cash",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "tiền mặt"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới credit card",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "thẻ tín dụng"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới borrow",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "vay, mượn"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới lend",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "cho vay, cho mượn"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới can't afford it",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "không đủ khả năng chi trả"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới earn",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "kiếm được (tiền)"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới coins",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "những đồng tiền xu"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới notes",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "những tờ tiền giấy"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới cash",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "tiền mặt"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới credit card",
-          "target": "Forms of Money (Dạng tiền)",
-          "vi": "thẻ tín dụng"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới borrow",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "vay, mượn"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới lend",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "cho vay, cho mượn"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới can't afford it",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "không đủ khả năng chi trả"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới earn",
-          "target": "Financial Verbs (Động từ tài chính)",
-          "vi": "kiếm được (tiền)"
         }
       ]
     },
@@ -2440,39 +1415,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"những đồng tiền xu\"?",
         "options": [
           "coins",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "notes",
+          "cash",
+          "credit card"
         ],
         "a": "coins"
       },
       {
         "q": "Từ nào có nghĩa là \"những tờ tiền giấy\"?",
         "options": [
+          "cash",
           "notes",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "credit card",
+          "borrow"
         ],
         "a": "notes"
       },
       {
         "q": "Từ nào có nghĩa là \"tiền mặt\"?",
         "options": [
+          "credit card",
+          "borrow",
           "cash",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "lend"
         ],
         "a": "cash"
       },
       {
         "q": "Từ nào có nghĩa là \"thẻ tín dụng\"?",
         "options": [
-          "credit card",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "borrow",
+          "lend",
+          "can't afford it",
+          "credit card"
         ],
         "a": "credit card"
       },
@@ -2480,161 +1455,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"vay, mượn\"?",
         "options": [
           "borrow",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "lend",
+          "can't afford it",
+          "earn"
         ],
         "a": "borrow"
       },
       {
         "q": "Từ nào có nghĩa là \"cho vay, cho mượn\"?",
         "options": [
+          "can't afford it",
           "lend",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "earn",
+          "coins"
         ],
         "a": "lend"
       },
       {
         "q": "Từ nào có nghĩa là \"không đủ khả năng chi trả\"?",
         "options": [
+          "earn",
+          "coins",
           "can't afford it",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "notes"
         ],
         "a": "can't afford it"
       },
       {
         "q": "Từ nào có nghĩa là \"kiếm được (tiền)\"?",
         "options": [
-          "earn",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "coins",
+          "notes",
+          "cash",
+          "earn"
         ],
         "a": "earn"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"những đồng tiền xu\"?",
-        "options": [
-          "coins",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "coins"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"những tờ tiền giấy\"?",
-        "options": [
-          "notes",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "notes"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiền mặt\"?",
-        "options": [
-          "cash",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "cash"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thẻ tín dụng\"?",
-        "options": [
-          "credit card",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "credit card"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vay, mượn\"?",
-        "options": [
-          "borrow",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "borrow"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cho vay, cho mượn\"?",
-        "options": [
-          "lend",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "lend"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"không đủ khả năng chi trả\"?",
-        "options": [
-          "can't afford it",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "can't afford it"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"kiếm được (tiền)\"?",
-        "options": [
-          "earn",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "earn"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"những đồng tiền xu\"?",
-        "options": [
-          "coins",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "coins"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"những tờ tiền giấy\"?",
-        "options": [
-          "notes",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "notes"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiền mặt\"?",
-        "options": [
-          "cash",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "cash"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thẻ tín dụng\"?",
-        "options": [
-          "credit card",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "credit card"
       }
     ],
     "typingGame": [
@@ -2677,66 +1532,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"kiếm được (tiền)\"",
         "hint": "e_r_",
         "a": "earn"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"những đồng tiền xu\"",
-        "hint": "c_i_s",
-        "a": "coins"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"những tờ tiền giấy\"",
-        "hint": "n_t_s",
-        "a": "notes"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiền mặt\"",
-        "hint": "c_s_",
-        "a": "cash"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thẻ tín dụng\"",
-        "hint": "c_e_i_ _a_d",
-        "a": "credit card"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vay, mượn\"",
-        "hint": "b_r_o_",
-        "a": "borrow"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cho vay, cho mượn\"",
-        "hint": "l_n_",
-        "a": "lend"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"không đủ khả năng chi trả\"",
-        "hint": "c_n_t_a_f_r_ _t",
-        "a": "can't afford it"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"kiếm được (tiền)\"",
-        "hint": "e_r_",
-        "a": "earn"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"những đồng tiền xu\"",
-        "hint": "c_i_s",
-        "a": "coins"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"những tờ tiền giấy\"",
-        "hint": "n_t_s",
-        "a": "notes"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiền mặt\"",
-        "hint": "c_s_",
-        "a": "cash"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thẻ tín dụng\"",
-        "hint": "c_e_i_ _a_d",
-        "a": "credit card"
       }
     ],
     "textbookExercises": [
@@ -2804,10 +1599,10 @@ export const courseData51_75 = [
             "id": "ex_53_2_1",
             "text": "lend",
             "options": [
-              "vay, mượn",
-              "kiếm được (tiền)",
               "cho vay, cho mượn",
-              "không đủ khả năng chi trả"
+              "không đủ khả năng chi trả",
+              "kiếm được (tiền)",
+              "vay, mượn"
             ],
             "answer": "cho vay, cho mượn",
             "explanation": "Từ \"lend\" có nghĩa chính xác là \"cho vay, cho mượn\"."
@@ -2816,9 +1611,9 @@ export const courseData51_75 = [
             "id": "ex_53_2_2",
             "text": "can't afford it",
             "options": [
-              "vay, mượn",
               "không đủ khả năng chi trả",
               "kiếm được (tiền)",
+              "vay, mượn",
               "cho vay, cho mượn"
             ],
             "answer": "không đủ khả năng chi trả",
@@ -2828,8 +1623,8 @@ export const courseData51_75 = [
             "id": "ex_53_2_3",
             "text": "earn",
             "options": [
-              "vay, mượn",
               "kiếm được (tiền)",
+              "vay, mượn",
               "cho vay, cho mượn",
               "không đủ khả năng chi trả"
             ],
@@ -2962,8 +1757,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "He has a pocket full of silver coins.",
-        "trans": "Đọc to câu này."
+        "text": "He has a pocket full of silver coins."
       }
     ]
   },
@@ -3045,12 +1839,7 @@ export const courseData51_75 = [
           "phonetic": "/fluː/",
           "vi": "bệnh cảm cúm",
           "example": "She stayed in bed because she caught the flu.",
-          "bucket": 0,
-          "collocations": [
-            "use flu",
-            "about flu"
-          ],
-          "wordFamily": "Biến thể từ vựng của flu"
+          "bucket": 0
         },
         {
           "word": "cold",
@@ -3058,12 +1847,7 @@ export const courseData51_75 = [
           "phonetic": "/kəʊld/",
           "vi": "bệnh cảm lạnh",
           "example": "He has a bad cold and a runny nose.",
-          "bucket": 0,
-          "collocations": [
-            "use cold",
-            "about cold"
-          ],
-          "wordFamily": "Biến thể từ vựng của cold"
+          "bucket": 0
         },
         {
           "word": "fever",
@@ -3071,12 +1855,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈfiːvə/",
           "vi": "cơn sốt",
           "example": "Take medicine to reduce your high fever.",
-          "bucket": 0,
-          "collocations": [
-            "use fever",
-            "about fever"
-          ],
-          "wordFamily": "Biến thể từ vựng của fever"
+          "bucket": 0
         },
         {
           "word": "disease",
@@ -3084,12 +1863,7 @@ export const courseData51_75 = [
           "phonetic": "/dɪˈziːz/",
           "vi": "căn bệnh, dịch bệnh",
           "example": "Heart disease is common in older people.",
-          "bucket": 0,
-          "collocations": [
-            "use disease",
-            "about disease"
-          ],
-          "wordFamily": "Biến thể từ vựng của disease"
+          "bucket": 0
         },
         {
           "word": "sore throat",
@@ -3097,12 +1871,7 @@ export const courseData51_75 = [
           "phonetic": "/sɔː θrəʊt/",
           "vi": "sự đau họng",
           "example": "I have a terrible sore throat today.",
-          "bucket": 1,
-          "collocations": [
-            "use sore throat",
-            "about sore throat"
-          ],
-          "wordFamily": "Biến thể từ vựng của sore throat"
+          "bucket": 1
         },
         {
           "word": "sneezing",
@@ -3110,12 +1879,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈsniːzɪŋ/",
           "vi": "sự hắt hơi",
           "example": "Dust always starts me sneezing.",
-          "bucket": 1,
-          "collocations": [
-            "use sneezing",
-            "about sneezing"
-          ],
-          "wordFamily": "Biến thể từ vựng của sneezing"
+          "bucket": 1
         },
         {
           "word": "cough",
@@ -3123,12 +1887,7 @@ export const courseData51_75 = [
           "phonetic": "/kɒf/",
           "vi": "cơn ho / ho hắng",
           "example": "He has a dry cough from smoking.",
-          "bucket": 1,
-          "collocations": [
-            "use cough",
-            "about cough"
-          ],
-          "wordFamily": "Biến thể từ vựng của cough"
+          "bucket": 1
         },
         {
           "word": "pain",
@@ -3136,12 +1895,7 @@ export const courseData51_75 = [
           "phonetic": "/peɪn/",
           "vi": "sự đau đớn",
           "example": "I feel a sharp pain in my back.",
-          "bucket": 1,
-          "collocations": [
-            "use pain",
-            "about pain"
-          ],
-          "wordFamily": "Biến thể từ vựng của pain"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -3184,44 +1938,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 54:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"flu\"",
-              "value": "fluful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"cold\"",
-              "value": "coldful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"fever\"",
-              "value": "feverful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"disease\"",
-              "value": "Ví dụ: have a disease, make a disease, good disease"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"sore throat\"",
-              "value": "Cụm từ liên quan đến sore throat"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"sneezing\"",
-              "value": "Ví dụ: have a sneezing, make a sneezing, good sneezing"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -3276,150 +1993,6 @@ export const courseData51_75 = [
           "word": "pain",
           "target": "Symptoms (Triệu chứng)",
           "vi": "sự đau đớn"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới flu",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "bệnh cảm cúm"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới cold",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "bệnh cảm lạnh"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới fever",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "cơn sốt"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới disease",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "căn bệnh, dịch bệnh"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới sore throat",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "sự đau họng"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới sneezing",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "sự hắt hơi"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới cough",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "cơn ho / ho hắng"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới pain",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "sự đau đớn"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới flu",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "bệnh cảm cúm"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới cold",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "bệnh cảm lạnh"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới fever",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "cơn sốt"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới disease",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "căn bệnh, dịch bệnh"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới sore throat",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "sự đau họng"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới sneezing",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "sự hắt hơi"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới cough",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "cơn ho / ho hắng"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới pain",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "sự đau đớn"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới flu",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "bệnh cảm cúm"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới cold",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "bệnh cảm lạnh"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới fever",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "cơn sốt"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới disease",
-          "target": "Illnesses (Bệnh tật)",
-          "vi": "căn bệnh, dịch bệnh"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới sore throat",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "sự đau họng"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới sneezing",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "sự hắt hơi"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới cough",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "cơn ho / ho hắng"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới pain",
-          "target": "Symptoms (Triệu chứng)",
-          "vi": "sự đau đớn"
         }
       ]
     },
@@ -3428,39 +2001,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"bệnh cảm cúm\"?",
         "options": [
           "flu",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "cold",
+          "fever",
+          "disease"
         ],
         "a": "flu"
       },
       {
         "q": "Từ nào có nghĩa là \"bệnh cảm lạnh\"?",
         "options": [
+          "fever",
           "cold",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "disease",
+          "sore throat"
         ],
         "a": "cold"
       },
       {
         "q": "Từ nào có nghĩa là \"cơn sốt\"?",
         "options": [
+          "disease",
+          "sore throat",
           "fever",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "sneezing"
         ],
         "a": "fever"
       },
       {
         "q": "Từ nào có nghĩa là \"căn bệnh, dịch bệnh\"?",
         "options": [
-          "disease",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "sore throat",
+          "sneezing",
+          "cough",
+          "disease"
         ],
         "a": "disease"
       },
@@ -3468,161 +2041,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"sự đau họng\"?",
         "options": [
           "sore throat",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "sneezing",
+          "cough",
+          "pain"
         ],
         "a": "sore throat"
       },
       {
         "q": "Từ nào có nghĩa là \"sự hắt hơi\"?",
         "options": [
+          "cough",
           "sneezing",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "pain",
+          "flu"
         ],
         "a": "sneezing"
       },
       {
         "q": "Từ nào có nghĩa là \"cơn ho / ho hắng\"?",
         "options": [
+          "pain",
+          "flu",
           "cough",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "cold"
         ],
         "a": "cough"
       },
       {
         "q": "Từ nào có nghĩa là \"sự đau đớn\"?",
         "options": [
-          "pain",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "flu",
+          "cold",
+          "fever",
+          "pain"
         ],
         "a": "pain"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bệnh cảm cúm\"?",
-        "options": [
-          "flu",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "flu"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bệnh cảm lạnh\"?",
-        "options": [
-          "cold",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "cold"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cơn sốt\"?",
-        "options": [
-          "fever",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fever"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"căn bệnh, dịch bệnh\"?",
-        "options": [
-          "disease",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "disease"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sự đau họng\"?",
-        "options": [
-          "sore throat",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "sore throat"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sự hắt hơi\"?",
-        "options": [
-          "sneezing",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "sneezing"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cơn ho / ho hắng\"?",
-        "options": [
-          "cough",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "cough"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sự đau đớn\"?",
-        "options": [
-          "pain",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "pain"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bệnh cảm cúm\"?",
-        "options": [
-          "flu",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "flu"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bệnh cảm lạnh\"?",
-        "options": [
-          "cold",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "cold"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cơn sốt\"?",
-        "options": [
-          "fever",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fever"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"căn bệnh, dịch bệnh\"?",
-        "options": [
-          "disease",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "disease"
       }
     ],
     "typingGame": [
@@ -3665,66 +2118,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"sự đau đớn\"",
         "hint": "p_i_",
         "a": "pain"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bệnh cảm cúm\"",
-        "hint": "f_u",
-        "a": "flu"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bệnh cảm lạnh\"",
-        "hint": "c_l_",
-        "a": "cold"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cơn sốt\"",
-        "hint": "f_v_r",
-        "a": "fever"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"căn bệnh, dịch bệnh\"",
-        "hint": "d_s_a_e",
-        "a": "disease"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sự đau họng\"",
-        "hint": "s_r_ _h_o_t",
-        "a": "sore throat"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sự hắt hơi\"",
-        "hint": "s_e_z_n_",
-        "a": "sneezing"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cơn ho / ho hắng\"",
-        "hint": "c_u_h",
-        "a": "cough"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sự đau đớn\"",
-        "hint": "p_i_",
-        "a": "pain"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bệnh cảm cúm\"",
-        "hint": "f_u",
-        "a": "flu"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bệnh cảm lạnh\"",
-        "hint": "c_l_",
-        "a": "cold"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cơn sốt\"",
-        "hint": "f_v_r",
-        "a": "fever"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"căn bệnh, dịch bệnh\"",
-        "hint": "d_s_a_e",
-        "a": "disease"
       }
     ],
     "textbookExercises": [
@@ -3780,10 +2173,10 @@ export const courseData51_75 = [
             "id": "ex_54_2_0",
             "text": "sore throat",
             "options": [
-              "sự hắt hơi",
               "sự đau họng",
-              "sự đau đớn",
-              "cơn ho / ho hắng"
+              "sự hắt hơi",
+              "cơn ho / ho hắng",
+              "sự đau đớn"
             ],
             "answer": "sự đau họng",
             "explanation": "Từ \"sore throat\" có nghĩa chính xác là \"sự đau họng\"."
@@ -3792,9 +2185,9 @@ export const courseData51_75 = [
             "id": "ex_54_2_1",
             "text": "sneezing",
             "options": [
-              "sự đau đớn",
-              "cơn ho / ho hắng",
               "sự hắt hơi",
+              "cơn ho / ho hắng",
+              "sự đau đớn",
               "sự đau họng"
             ],
             "answer": "sự hắt hơi",
@@ -3804,10 +2197,10 @@ export const courseData51_75 = [
             "id": "ex_54_2_2",
             "text": "cough",
             "options": [
-              "sự đau đớn",
               "cơn ho / ho hắng",
-              "sự hắt hơi",
-              "sự đau họng"
+              "sự đau đớn",
+              "sự đau họng",
+              "sự hắt hơi"
             ],
             "answer": "cơn ho / ho hắng",
             "explanation": "Từ \"cough\" có nghĩa chính xác là \"cơn ho / ho hắng\"."
@@ -3817,9 +2210,9 @@ export const courseData51_75 = [
             "text": "pain",
             "options": [
               "sự đau đớn",
+              "sự đau họng",
               "sự hắt hơi",
-              "cơn ho / ho hắng",
-              "sự đau họng"
+              "cơn ho / ho hắng"
             ],
             "answer": "sự đau đớn",
             "explanation": "Từ \"pain\" có nghĩa chính xác là \"sự đau đớn\"."
@@ -3950,8 +2343,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "She stayed in bed because she caught the flu.",
-        "trans": "Đọc to câu này."
+        "text": "She stayed in bed because she caught the flu."
       }
     ]
   },
@@ -4033,12 +2425,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈbliːdɪŋ/",
           "vi": "sự chảy máu",
           "example": "Press on the cut to stop the bleeding.",
-          "bucket": 0,
-          "collocations": [
-            "use bleeding",
-            "about bleeding"
-          ],
-          "wordFamily": "Biến thể từ vựng của bleeding"
+          "bucket": 0
         },
         {
           "word": "bruise",
@@ -4046,12 +2433,7 @@ export const courseData51_75 = [
           "phonetic": "/bruːz/",
           "vi": "vết bầm tím",
           "example": "He got a purple bruise on his arm.",
-          "bucket": 0,
-          "collocations": [
-            "use bruise",
-            "about bruise"
-          ],
-          "wordFamily": "Biến thể từ vựng của bruise"
+          "bucket": 0
         },
         {
           "word": "plaster",
@@ -4059,12 +2441,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈplɑːstə/",
           "vi": "băng cá nhân",
           "example": "Put a plaster on your cut finger.",
-          "bucket": 0,
-          "collocations": [
-            "use plaster",
-            "about plaster"
-          ],
-          "wordFamily": "Biến thể từ vựng của plaster"
+          "bucket": 0
         },
         {
           "word": "bandage",
@@ -4072,12 +2449,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈbændɪdʒ/",
           "vi": "băng gạc y tế",
           "example": "Wrap a bandage around the injured knee.",
-          "bucket": 0,
-          "collocations": [
-            "use bandage",
-            "about bandage"
-          ],
-          "wordFamily": "Biến thể từ vựng của bandage"
+          "bucket": 0
         },
         {
           "word": "twist my ankle",
@@ -4085,12 +2457,7 @@ export const courseData51_75 = [
           "phonetic": "/twɪst maɪ ˈæŋkl/",
           "vi": "bị lật sơ mi, bong gân mắt cá chân",
           "example": "I fell and twisted my ankle.",
-          "bucket": 1,
-          "collocations": [
-            "use twist my ankle",
-            "about twist my ankle"
-          ],
-          "wordFamily": "Biến thể từ vựng của twist my ankle"
+          "bucket": 1
         },
         {
           "word": "burn",
@@ -4098,12 +2465,7 @@ export const courseData51_75 = [
           "phonetic": "/bɜːn/",
           "vi": "làm bỏng / vết bỏng",
           "example": "Don't burn your hand on the stove.",
-          "bucket": 1,
-          "collocations": [
-            "use burn",
-            "about burn"
-          ],
-          "wordFamily": "Biến thể từ vựng của burn"
+          "bucket": 1
         },
         {
           "word": "cut",
@@ -4111,12 +2473,7 @@ export const courseData51_75 = [
           "phonetic": "/kʌt/",
           "vi": "cắt, làm đứt / vết đứt",
           "example": "I cut my finger with a sharp knife.",
-          "bucket": 1,
-          "collocations": [
-            "use cut",
-            "about cut"
-          ],
-          "wordFamily": "Biến thể từ vựng của cut"
+          "bucket": 1
         },
         {
           "word": "break",
@@ -4124,12 +2481,7 @@ export const courseData51_75 = [
           "phonetic": "/breɪk/",
           "vi": "làm gãy xương",
           "example": "He fell off the tree and broke his leg.",
-          "bucket": 1,
-          "collocations": [
-            "use break",
-            "about break"
-          ],
-          "wordFamily": "Biến thể từ vựng của break"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -4172,44 +2524,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 55:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"bleeding\"",
-              "value": "bleedingful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"bruise\"",
-              "value": "bruiseful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"plaster\"",
-              "value": "plasterful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"bandage\"",
-              "value": "Ví dụ: have a bandage, make a bandage, good bandage"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"twist my ankle\"",
-              "value": "Cụm từ liên quan đến twist my ankle"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"burn\"",
-              "value": "Ví dụ: burn quickly, always burn"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -4264,150 +2579,6 @@ export const courseData51_75 = [
           "word": "break",
           "target": "Verbs (Hành động gây thương tích)",
           "vi": "làm gãy xương"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới bleeding",
-          "target": "Injuries (Vết thương)",
-          "vi": "sự chảy máu"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới bruise",
-          "target": "Injuries (Vết thương)",
-          "vi": "vết bầm tím"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới plaster",
-          "target": "Injuries (Vết thương)",
-          "vi": "băng cá nhân"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới bandage",
-          "target": "Injuries (Vết thương)",
-          "vi": "băng gạc y tế"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới twist my ankle",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "bị lật sơ mi, bong gân mắt cá chân"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới burn",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "làm bỏng / vết bỏng"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới cut",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "cắt, làm đứt / vết đứt"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới break",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "làm gãy xương"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới bleeding",
-          "target": "Injuries (Vết thương)",
-          "vi": "sự chảy máu"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới bruise",
-          "target": "Injuries (Vết thương)",
-          "vi": "vết bầm tím"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới plaster",
-          "target": "Injuries (Vết thương)",
-          "vi": "băng cá nhân"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới bandage",
-          "target": "Injuries (Vết thương)",
-          "vi": "băng gạc y tế"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới twist my ankle",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "bị lật sơ mi, bong gân mắt cá chân"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới burn",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "làm bỏng / vết bỏng"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới cut",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "cắt, làm đứt / vết đứt"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới break",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "làm gãy xương"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới bleeding",
-          "target": "Injuries (Vết thương)",
-          "vi": "sự chảy máu"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới bruise",
-          "target": "Injuries (Vết thương)",
-          "vi": "vết bầm tím"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới plaster",
-          "target": "Injuries (Vết thương)",
-          "vi": "băng cá nhân"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới bandage",
-          "target": "Injuries (Vết thương)",
-          "vi": "băng gạc y tế"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới twist my ankle",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "bị lật sơ mi, bong gân mắt cá chân"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới burn",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "làm bỏng / vết bỏng"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới cut",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "cắt, làm đứt / vết đứt"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới break",
-          "target": "Verbs (Hành động gây thương tích)",
-          "vi": "làm gãy xương"
         }
       ]
     },
@@ -4416,39 +2587,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"sự chảy máu\"?",
         "options": [
           "bleeding",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "bruise",
+          "plaster",
+          "bandage"
         ],
         "a": "bleeding"
       },
       {
         "q": "Từ nào có nghĩa là \"vết bầm tím\"?",
         "options": [
+          "plaster",
           "bruise",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "bandage",
+          "twist my ankle"
         ],
         "a": "bruise"
       },
       {
         "q": "Từ nào có nghĩa là \"băng cá nhân\"?",
         "options": [
+          "bandage",
+          "twist my ankle",
           "plaster",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "burn"
         ],
         "a": "plaster"
       },
       {
         "q": "Từ nào có nghĩa là \"băng gạc y tế\"?",
         "options": [
-          "bandage",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "twist my ankle",
+          "burn",
+          "cut",
+          "bandage"
         ],
         "a": "bandage"
       },
@@ -4456,161 +2627,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"bị lật sơ mi, bong gân mắt cá chân\"?",
         "options": [
           "twist my ankle",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "burn",
+          "cut",
+          "break"
         ],
         "a": "twist my ankle"
       },
       {
         "q": "Từ nào có nghĩa là \"làm bỏng / vết bỏng\"?",
         "options": [
+          "cut",
           "burn",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "break",
+          "bleeding"
         ],
         "a": "burn"
       },
       {
         "q": "Từ nào có nghĩa là \"cắt, làm đứt / vết đứt\"?",
         "options": [
+          "break",
+          "bleeding",
           "cut",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "bruise"
         ],
         "a": "cut"
       },
       {
         "q": "Từ nào có nghĩa là \"làm gãy xương\"?",
         "options": [
-          "break",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "bleeding",
+          "bruise",
+          "plaster",
+          "break"
         ],
         "a": "break"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sự chảy máu\"?",
-        "options": [
-          "bleeding",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "bleeding"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vết bầm tím\"?",
-        "options": [
-          "bruise",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "bruise"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"băng cá nhân\"?",
-        "options": [
-          "plaster",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "plaster"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"băng gạc y tế\"?",
-        "options": [
-          "bandage",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "bandage"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bị lật sơ mi, bong gân mắt cá chân\"?",
-        "options": [
-          "twist my ankle",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "twist my ankle"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"làm bỏng / vết bỏng\"?",
-        "options": [
-          "burn",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "burn"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cắt, làm đứt / vết đứt\"?",
-        "options": [
-          "cut",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "cut"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"làm gãy xương\"?",
-        "options": [
-          "break",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "break"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sự chảy máu\"?",
-        "options": [
-          "bleeding",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "bleeding"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vết bầm tím\"?",
-        "options": [
-          "bruise",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "bruise"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"băng cá nhân\"?",
-        "options": [
-          "plaster",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "plaster"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"băng gạc y tế\"?",
-        "options": [
-          "bandage",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "bandage"
       }
     ],
     "typingGame": [
@@ -4653,66 +2704,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"làm gãy xương\"",
         "hint": "b_e_k",
         "a": "break"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sự chảy máu\"",
-        "hint": "b_e_d_n_",
-        "a": "bleeding"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vết bầm tím\"",
-        "hint": "b_u_s_",
-        "a": "bruise"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"băng cá nhân\"",
-        "hint": "p_a_t_r",
-        "a": "plaster"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"băng gạc y tế\"",
-        "hint": "b_n_a_e",
-        "a": "bandage"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bị lật sơ mi, bong gân mắt cá chân\"",
-        "hint": "t_i_t_m_ _n_l_",
-        "a": "twist my ankle"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"làm bỏng / vết bỏng\"",
-        "hint": "b_r_",
-        "a": "burn"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cắt, làm đứt / vết đứt\"",
-        "hint": "c_t",
-        "a": "cut"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"làm gãy xương\"",
-        "hint": "b_e_k",
-        "a": "break"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sự chảy máu\"",
-        "hint": "b_e_d_n_",
-        "a": "bleeding"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vết bầm tím\"",
-        "hint": "b_u_s_",
-        "a": "bruise"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"băng cá nhân\"",
-        "hint": "p_a_t_r",
-        "a": "plaster"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"băng gạc y tế\"",
-        "hint": "b_n_a_e",
-        "a": "bandage"
       }
     ],
     "textbookExercises": [
@@ -4768,9 +2759,9 @@ export const courseData51_75 = [
             "id": "ex_55_2_0",
             "text": "twist my ankle",
             "options": [
-              "cắt, làm đứt / vết đứt",
-              "làm bỏng / vết bỏng",
               "bị lật sơ mi, bong gân mắt cá chân",
+              "làm bỏng / vết bỏng",
+              "cắt, làm đứt / vết đứt",
               "làm gãy xương"
             ],
             "answer": "bị lật sơ mi, bong gân mắt cá chân",
@@ -4781,9 +2772,9 @@ export const courseData51_75 = [
             "text": "burn",
             "options": [
               "làm bỏng / vết bỏng",
-              "bị lật sơ mi, bong gân mắt cá chân",
               "cắt, làm đứt / vết đứt",
-              "làm gãy xương"
+              "làm gãy xương",
+              "bị lật sơ mi, bong gân mắt cá chân"
             ],
             "answer": "làm bỏng / vết bỏng",
             "explanation": "Từ \"burn\" có nghĩa chính xác là \"làm bỏng / vết bỏng\"."
@@ -4792,10 +2783,10 @@ export const courseData51_75 = [
             "id": "ex_55_2_2",
             "text": "cut",
             "options": [
-              "bị lật sơ mi, bong gân mắt cá chân",
-              "làm bỏng / vết bỏng",
               "cắt, làm đứt / vết đứt",
-              "làm gãy xương"
+              "làm gãy xương",
+              "bị lật sơ mi, bong gân mắt cá chân",
+              "làm bỏng / vết bỏng"
             ],
             "answer": "cắt, làm đứt / vết đứt",
             "explanation": "Từ \"cut\" có nghĩa chính xác là \"cắt, làm đứt / vết đứt\"."
@@ -4899,12 +2890,12 @@ export const courseData51_75 = [
         "questions": [
           {
             "id": "ex_55_5_0",
-            "text": "This [blank] is very important.",
+            "text": "I fell and [blank].",
             "answers": [
-              "twist my ankle"
+              "twisted my ankle"
             ],
             "hint": "bị lật sơ mi, bong gân mắt cá chân",
-            "explanation": "Từ cần điền là \"twist my ankle\" (Cụm từ)."
+            "explanation": "Từ vựng cốt lõi là \"twist my ankle\" (Cụm từ), nghĩa \"bị lật sơ mi, bong gân mắt cá chân\". Trong câu này nó ở dạng \"twisted my ankle\", nên đáp án cần gõ là \"twisted my ankle\"."
           },
           {
             "id": "ex_55_5_1",
@@ -4926,20 +2917,19 @@ export const courseData51_75 = [
           },
           {
             "id": "ex_55_5_3",
-            "text": "This [blank] is very important.",
+            "text": "He fell off the tree and [blank] his leg.",
             "answers": [
-              "break"
+              "broke"
             ],
             "hint": "làm gãy xương",
-            "explanation": "Từ cần điền là \"break\" (Động từ)."
+            "explanation": "Từ vựng cốt lõi là \"break\" (Động từ), nghĩa \"làm gãy xương\". Trong câu này nó ở dạng \"broke\", nên đáp án cần gõ là \"broke\"."
           }
         ]
       }
     ],
     "speaking": [
       {
-        "text": "Press on the cut to stop the bleeding.",
-        "trans": "Đọc to câu này."
+        "text": "Press on the cut to stop the bleeding."
       }
     ]
   },
@@ -5021,12 +3011,7 @@ export const courseData51_75 = [
           "phonetic": "/ʃɜːt/",
           "vi": "áo sơ mi",
           "example": "He is wearing a white cotton shirt.",
-          "bucket": 0,
-          "collocations": [
-            "use shirt",
-            "about shirt"
-          ],
-          "wordFamily": "Biến thể từ vựng của shirt"
+          "bucket": 0
         },
         {
           "word": "trousers",
@@ -5034,12 +3019,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtraʊzəz/",
           "vi": "quần dài",
           "example": "I need to buy a new pair of trousers.",
-          "bucket": 0,
-          "collocations": [
-            "use trousers",
-            "about trousers"
-          ],
-          "wordFamily": "Biến thể từ vựng của trousers"
+          "bucket": 0
         },
         {
           "word": "suit",
@@ -5047,12 +3027,7 @@ export const courseData51_75 = [
           "phonetic": "/suːt/",
           "vi": "bộ com-lê, âu phục",
           "example": "The businessman wears a dark suit.",
-          "bucket": 0,
-          "collocations": [
-            "use suit",
-            "about suit"
-          ],
-          "wordFamily": "Biến thể từ vựng của suit"
+          "bucket": 0
         },
         {
           "word": "skirt",
@@ -5060,12 +3035,7 @@ export const courseData51_75 = [
           "phonetic": "/skɜːt/",
           "vi": "chân váy",
           "example": "She wore a lovely summer skirt.",
-          "bucket": 0,
-          "collocations": [
-            "use skirt",
-            "about skirt"
-          ],
-          "wordFamily": "Biến thể từ vựng của skirt"
+          "bucket": 0
         },
         {
           "word": "take off",
@@ -5073,12 +3043,7 @@ export const courseData51_75 = [
           "phonetic": "/teɪk ɒf/",
           "vi": "cởi ra (quần áo)",
           "example": "Take off your wet jacket.",
-          "bucket": 1,
-          "collocations": [
-            "use take off",
-            "about take off"
-          ],
-          "wordFamily": "Biến thể từ vựng của take off"
+          "bucket": 1
         },
         {
           "word": "get dressed",
@@ -5086,12 +3051,7 @@ export const courseData51_75 = [
           "phonetic": "/gɛt drɛst/",
           "vi": "mặc quần áo vào",
           "example": "Hurry up and get dressed for school.",
-          "bucket": 1,
-          "collocations": [
-            "use get dressed",
-            "about get dressed"
-          ],
-          "wordFamily": "Biến thể từ vựng của get dressed"
+          "bucket": 1
         },
         {
           "word": "try on",
@@ -5099,12 +3059,7 @@ export const courseData51_75 = [
           "phonetic": "/traɪ ɒn/",
           "vi": "mặc thử quần áo",
           "example": "Can I try on these blue jeans?",
-          "bucket": 1,
-          "collocations": [
-            "use try on",
-            "about try on"
-          ],
-          "wordFamily": "Biến thể từ vựng của try on"
+          "bucket": 1
         },
         {
           "word": "fit",
@@ -5112,12 +3067,7 @@ export const courseData51_75 = [
           "phonetic": "/fɪt/",
           "vi": "vừa vặn (kích cỡ)",
           "example": "This new shirt doesn't fit me.",
-          "bucket": 1,
-          "collocations": [
-            "use fit",
-            "about fit"
-          ],
-          "wordFamily": "Biến thể từ vựng của fit"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -5160,44 +3110,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 56:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"shirt\"",
-              "value": "shirtful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"trousers\"",
-              "value": "trousersful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"suit\"",
-              "value": "suitful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"skirt\"",
-              "value": "Ví dụ: have a skirt, make a skirt, good skirt"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"take off\"",
-              "value": "Cụm từ liên quan đến take off"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"get dressed\"",
-              "value": "Cụm từ liên quan đến get dressed"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -5252,150 +3165,6 @@ export const courseData51_75 = [
           "word": "fit",
           "target": "Actions (Hành động)",
           "vi": "vừa vặn (kích cỡ)"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới shirt",
-          "target": "Clothing (Quần áo)",
-          "vi": "áo sơ mi"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới trousers",
-          "target": "Clothing (Quần áo)",
-          "vi": "quần dài"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới suit",
-          "target": "Clothing (Quần áo)",
-          "vi": "bộ com-lê, âu phục"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới skirt",
-          "target": "Clothing (Quần áo)",
-          "vi": "chân váy"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới take off",
-          "target": "Actions (Hành động)",
-          "vi": "cởi ra (quần áo)"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới get dressed",
-          "target": "Actions (Hành động)",
-          "vi": "mặc quần áo vào"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới try on",
-          "target": "Actions (Hành động)",
-          "vi": "mặc thử quần áo"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới fit",
-          "target": "Actions (Hành động)",
-          "vi": "vừa vặn (kích cỡ)"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới shirt",
-          "target": "Clothing (Quần áo)",
-          "vi": "áo sơ mi"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới trousers",
-          "target": "Clothing (Quần áo)",
-          "vi": "quần dài"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới suit",
-          "target": "Clothing (Quần áo)",
-          "vi": "bộ com-lê, âu phục"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới skirt",
-          "target": "Clothing (Quần áo)",
-          "vi": "chân váy"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới take off",
-          "target": "Actions (Hành động)",
-          "vi": "cởi ra (quần áo)"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới get dressed",
-          "target": "Actions (Hành động)",
-          "vi": "mặc quần áo vào"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới try on",
-          "target": "Actions (Hành động)",
-          "vi": "mặc thử quần áo"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới fit",
-          "target": "Actions (Hành động)",
-          "vi": "vừa vặn (kích cỡ)"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới shirt",
-          "target": "Clothing (Quần áo)",
-          "vi": "áo sơ mi"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới trousers",
-          "target": "Clothing (Quần áo)",
-          "vi": "quần dài"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới suit",
-          "target": "Clothing (Quần áo)",
-          "vi": "bộ com-lê, âu phục"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới skirt",
-          "target": "Clothing (Quần áo)",
-          "vi": "chân váy"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới take off",
-          "target": "Actions (Hành động)",
-          "vi": "cởi ra (quần áo)"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới get dressed",
-          "target": "Actions (Hành động)",
-          "vi": "mặc quần áo vào"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới try on",
-          "target": "Actions (Hành động)",
-          "vi": "mặc thử quần áo"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới fit",
-          "target": "Actions (Hành động)",
-          "vi": "vừa vặn (kích cỡ)"
         }
       ]
     },
@@ -5404,39 +3173,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"áo sơ mi\"?",
         "options": [
           "shirt",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "trousers",
+          "suit",
+          "skirt"
         ],
         "a": "shirt"
       },
       {
         "q": "Từ nào có nghĩa là \"quần dài\"?",
         "options": [
+          "suit",
           "trousers",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "skirt",
+          "take off"
         ],
         "a": "trousers"
       },
       {
         "q": "Từ nào có nghĩa là \"bộ com-lê, âu phục\"?",
         "options": [
+          "skirt",
+          "take off",
           "suit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "get dressed"
         ],
         "a": "suit"
       },
       {
         "q": "Từ nào có nghĩa là \"chân váy\"?",
         "options": [
-          "skirt",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "take off",
+          "get dressed",
+          "try on",
+          "skirt"
         ],
         "a": "skirt"
       },
@@ -5444,161 +3213,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"cởi ra (quần áo)\"?",
         "options": [
           "take off",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "get dressed",
+          "try on",
+          "fit"
         ],
         "a": "take off"
       },
       {
         "q": "Từ nào có nghĩa là \"mặc quần áo vào\"?",
         "options": [
+          "try on",
           "get dressed",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "fit",
+          "shirt"
         ],
         "a": "get dressed"
       },
       {
         "q": "Từ nào có nghĩa là \"mặc thử quần áo\"?",
         "options": [
+          "fit",
+          "shirt",
           "try on",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "trousers"
         ],
         "a": "try on"
       },
       {
         "q": "Từ nào có nghĩa là \"vừa vặn (kích cỡ)\"?",
         "options": [
-          "fit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "shirt",
+          "trousers",
+          "suit",
+          "fit"
         ],
         "a": "fit"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"áo sơ mi\"?",
-        "options": [
-          "shirt",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "shirt"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"quần dài\"?",
-        "options": [
-          "trousers",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "trousers"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bộ com-lê, âu phục\"?",
-        "options": [
-          "suit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "suit"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chân váy\"?",
-        "options": [
-          "skirt",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "skirt"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cởi ra (quần áo)\"?",
-        "options": [
-          "take off",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "take off"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"mặc quần áo vào\"?",
-        "options": [
-          "get dressed",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "get dressed"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"mặc thử quần áo\"?",
-        "options": [
-          "try on",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "try on"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vừa vặn (kích cỡ)\"?",
-        "options": [
-          "fit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fit"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"áo sơ mi\"?",
-        "options": [
-          "shirt",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "shirt"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"quần dài\"?",
-        "options": [
-          "trousers",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "trousers"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bộ com-lê, âu phục\"?",
-        "options": [
-          "suit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "suit"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chân váy\"?",
-        "options": [
-          "skirt",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "skirt"
       }
     ],
     "typingGame": [
@@ -5641,66 +3290,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"vừa vặn (kích cỡ)\"",
         "hint": "f_t",
         "a": "fit"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"áo sơ mi\"",
-        "hint": "s_i_t",
-        "a": "shirt"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"quần dài\"",
-        "hint": "t_o_s_r_",
-        "a": "trousers"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bộ com-lê, âu phục\"",
-        "hint": "s_i_",
-        "a": "suit"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chân váy\"",
-        "hint": "s_i_t",
-        "a": "skirt"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cởi ra (quần áo)\"",
-        "hint": "t_k_ _f_",
-        "a": "take off"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"mặc quần áo vào\"",
-        "hint": "g_t_d_e_s_d",
-        "a": "get dressed"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"mặc thử quần áo\"",
-        "hint": "t_y_o_",
-        "a": "try on"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vừa vặn (kích cỡ)\"",
-        "hint": "f_t",
-        "a": "fit"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"áo sơ mi\"",
-        "hint": "s_i_t",
-        "a": "shirt"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"quần dài\"",
-        "hint": "t_o_s_r_",
-        "a": "trousers"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bộ com-lê, âu phục\"",
-        "hint": "s_i_",
-        "a": "suit"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chân váy\"",
-        "hint": "s_i_t",
-        "a": "skirt"
       }
     ],
     "textbookExercises": [
@@ -5756,10 +3345,10 @@ export const courseData51_75 = [
             "id": "ex_56_2_0",
             "text": "take off",
             "options": [
-              "vừa vặn (kích cỡ)",
-              "mặc thử quần áo",
+              "cởi ra (quần áo)",
               "mặc quần áo vào",
-              "cởi ra (quần áo)"
+              "mặc thử quần áo",
+              "vừa vặn (kích cỡ)"
             ],
             "answer": "cởi ra (quần áo)",
             "explanation": "Từ \"take off\" có nghĩa chính xác là \"cởi ra (quần áo)\"."
@@ -5768,9 +3357,9 @@ export const courseData51_75 = [
             "id": "ex_56_2_1",
             "text": "get dressed",
             "options": [
-              "vừa vặn (kích cỡ)",
-              "mặc thử quần áo",
               "mặc quần áo vào",
+              "mặc thử quần áo",
+              "vừa vặn (kích cỡ)",
               "cởi ra (quần áo)"
             ],
             "answer": "mặc quần áo vào",
@@ -5780,10 +3369,10 @@ export const courseData51_75 = [
             "id": "ex_56_2_2",
             "text": "try on",
             "options": [
-              "cởi ra (quần áo)",
-              "mặc quần áo vào",
+              "mặc thử quần áo",
               "vừa vặn (kích cỡ)",
-              "mặc thử quần áo"
+              "cởi ra (quần áo)",
+              "mặc quần áo vào"
             ],
             "answer": "mặc thử quần áo",
             "explanation": "Từ \"try on\" có nghĩa chính xác là \"mặc thử quần áo\"."
@@ -5792,10 +3381,10 @@ export const courseData51_75 = [
             "id": "ex_56_2_3",
             "text": "fit",
             "options": [
-              "mặc thử quần áo",
-              "mặc quần áo vào",
+              "vừa vặn (kích cỡ)",
               "cởi ra (quần áo)",
-              "vừa vặn (kích cỡ)"
+              "mặc quần áo vào",
+              "mặc thử quần áo"
             ],
             "answer": "vừa vặn (kích cỡ)",
             "explanation": "Từ \"fit\" có nghĩa chính xác là \"vừa vặn (kích cỡ)\"."
@@ -5889,7 +3478,7 @@ export const courseData51_75 = [
             "id": "ex_56_5_0",
             "text": "[blank] your wet jacket.",
             "answers": [
-              "take off"
+              "Take off"
             ],
             "hint": "cởi ra (quần áo)",
             "explanation": "Từ cần điền là \"take off\" (Cụm động từ)."
@@ -5926,8 +3515,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "He is wearing a white cotton shirt.",
-        "trans": "Đọc to câu này."
+        "text": "He is wearing a white cotton shirt."
       }
     ]
   },
@@ -6009,12 +3597,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkɛmɪst/",
           "vi": "dược sĩ, hiệu thuốc",
           "example": "Buy the medicine from the local chemist.",
-          "bucket": 0,
-          "collocations": [
-            "use chemist",
-            "about chemist"
-          ],
-          "wordFamily": "Biến thể từ vựng của chemist"
+          "bucket": 0
         },
         {
           "word": "shop assistant",
@@ -6022,12 +3605,7 @@ export const courseData51_75 = [
           "phonetic": "/ʃɒp əˈsɪstənt/",
           "vi": "nhân viên bán hàng",
           "example": "Ask the shop assistant for a different size.",
-          "bucket": 0,
-          "collocations": [
-            "use shop assistant",
-            "about shop assistant"
-          ],
-          "wordFamily": "Biến thể từ vựng của shop assistant"
+          "bucket": 0
         },
         {
           "word": "department store",
@@ -6035,12 +3613,7 @@ export const courseData51_75 = [
           "phonetic": "/dɪˈpɑːtmənt stɔː/",
           "vi": "cửa hàng bách hóa",
           "example": "Harrods is a famous department store.",
-          "bucket": 0,
-          "collocations": [
-            "use department store",
-            "about department store"
-          ],
-          "wordFamily": "Biến thể từ vựng của department store"
+          "bucket": 0
         },
         {
           "word": "customer",
@@ -6048,12 +3621,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkʌstəmə/",
           "vi": "khách hàng",
           "example": "The shop treats every customer well.",
-          "bucket": 0,
-          "collocations": [
-            "use customer",
-            "about customer"
-          ],
-          "wordFamily": "Biến thể từ vựng của customer"
+          "bucket": 0
         },
         {
           "word": "I'm being served",
@@ -6061,12 +3629,7 @@ export const courseData51_75 = [
           "phonetic": "/aɪm ˈbiːɪŋ sɜːvd/",
           "vi": "tôi đang được phục vụ rồi (đã có người bán hàng giúp)",
           "example": "No thanks, I'm being served by another lady.",
-          "bucket": 1,
-          "collocations": [
-            "use I'm being served",
-            "about I'm being served"
-          ],
-          "wordFamily": "Biến thể từ vựng của I'm being served"
+          "bucket": 1
         },
         {
           "word": "pay for",
@@ -6074,12 +3637,7 @@ export const courseData51_75 = [
           "phonetic": "/peɪ fɔː/",
           "vi": "thanh toán tiền cho",
           "example": "Go to the till to pay for your items.",
-          "bucket": 1,
-          "collocations": [
-            "use pay for",
-            "about pay for"
-          ],
-          "wordFamily": "Biến thể từ vựng của pay for"
+          "bucket": 1
         },
         {
           "word": "queue",
@@ -6087,12 +3645,7 @@ export const courseData51_75 = [
           "phonetic": "/kjuː/",
           "vi": "hàng người xếp hàng / xếp hàng",
           "example": "We have to queue at the checkout.",
-          "bucket": 1,
-          "collocations": [
-            "use queue",
-            "about queue"
-          ],
-          "wordFamily": "Biến thể từ vựng của queue"
+          "bucket": 1
         },
         {
           "word": "complain",
@@ -6100,12 +3653,7 @@ export const courseData51_75 = [
           "phonetic": "/kəmˈpleɪn/",
           "vi": "phàn nàn, khiếu nại",
           "example": "I will complain to the shop manager.",
-          "bucket": 1,
-          "collocations": [
-            "use complain",
-            "about complain"
-          ],
-          "wordFamily": "Biến thể từ vựng của complain"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -6148,44 +3696,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 57:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"chemist\"",
-              "value": "chemistful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"shop assistant\"",
-              "value": "shop assistantful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"department store\"",
-              "value": "department storeful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"customer\"",
-              "value": "Ví dụ: have a customer, make a customer, good customer"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"I'm being served\"",
-              "value": "Cụm từ liên quan đến I'm being served"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"pay for\"",
-              "value": "Cụm từ liên quan đến pay for"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -6240,150 +3751,6 @@ export const courseData51_75 = [
           "word": "complain",
           "target": "Shopping Actions (Hành động)",
           "vi": "phàn nàn, khiếu nại"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới chemist",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "dược sĩ, hiệu thuốc"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới shop assistant",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "nhân viên bán hàng"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới department store",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "cửa hàng bách hóa"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới customer",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "khách hàng"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới I'm being served",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "tôi đang được phục vụ rồi (đã có người bán hàng giúp)"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới pay for",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "thanh toán tiền cho"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới queue",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "hàng người xếp hàng / xếp hàng"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới complain",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "phàn nàn, khiếu nại"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới chemist",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "dược sĩ, hiệu thuốc"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới shop assistant",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "nhân viên bán hàng"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới department store",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "cửa hàng bách hóa"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới customer",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "khách hàng"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới I'm being served",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "tôi đang được phục vụ rồi (đã có người bán hàng giúp)"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới pay for",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "thanh toán tiền cho"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới queue",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "hàng người xếp hàng / xếp hàng"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới complain",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "phàn nàn, khiếu nại"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới chemist",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "dược sĩ, hiệu thuốc"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới shop assistant",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "nhân viên bán hàng"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới department store",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "cửa hàng bách hóa"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới customer",
-          "target": "People & Places (Người & Nơi chốn)",
-          "vi": "khách hàng"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới I'm being served",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "tôi đang được phục vụ rồi (đã có người bán hàng giúp)"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới pay for",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "thanh toán tiền cho"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới queue",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "hàng người xếp hàng / xếp hàng"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới complain",
-          "target": "Shopping Actions (Hành động)",
-          "vi": "phàn nàn, khiếu nại"
         }
       ]
     },
@@ -6392,39 +3759,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"dược sĩ, hiệu thuốc\"?",
         "options": [
           "chemist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "shop assistant",
+          "department store",
+          "customer"
         ],
         "a": "chemist"
       },
       {
         "q": "Từ nào có nghĩa là \"nhân viên bán hàng\"?",
         "options": [
+          "department store",
           "shop assistant",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "customer",
+          "I'm being served"
         ],
         "a": "shop assistant"
       },
       {
         "q": "Từ nào có nghĩa là \"cửa hàng bách hóa\"?",
         "options": [
+          "customer",
+          "I'm being served",
           "department store",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "pay for"
         ],
         "a": "department store"
       },
       {
         "q": "Từ nào có nghĩa là \"khách hàng\"?",
         "options": [
-          "customer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "I'm being served",
+          "pay for",
+          "queue",
+          "customer"
         ],
         "a": "customer"
       },
@@ -6432,161 +3799,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"tôi đang được phục vụ rồi (đã có người bán hàng giúp)\"?",
         "options": [
           "I'm being served",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "pay for",
+          "queue",
+          "complain"
         ],
         "a": "I'm being served"
       },
       {
         "q": "Từ nào có nghĩa là \"thanh toán tiền cho\"?",
         "options": [
+          "queue",
           "pay for",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "complain",
+          "chemist"
         ],
         "a": "pay for"
       },
       {
         "q": "Từ nào có nghĩa là \"hàng người xếp hàng / xếp hàng\"?",
         "options": [
+          "complain",
+          "chemist",
           "queue",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "shop assistant"
         ],
         "a": "queue"
       },
       {
         "q": "Từ nào có nghĩa là \"phàn nàn, khiếu nại\"?",
         "options": [
-          "complain",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "chemist",
+          "shop assistant",
+          "department store",
+          "complain"
         ],
         "a": "complain"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"dược sĩ, hiệu thuốc\"?",
-        "options": [
-          "chemist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "chemist"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nhân viên bán hàng\"?",
-        "options": [
-          "shop assistant",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "shop assistant"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cửa hàng bách hóa\"?",
-        "options": [
-          "department store",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "department store"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"khách hàng\"?",
-        "options": [
-          "customer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "customer"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tôi đang được phục vụ rồi (đã có người bán hàng giúp)\"?",
-        "options": [
-          "I'm being served",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "I'm being served"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thanh toán tiền cho\"?",
-        "options": [
-          "pay for",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "pay for"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"hàng người xếp hàng / xếp hàng\"?",
-        "options": [
-          "queue",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "queue"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"phàn nàn, khiếu nại\"?",
-        "options": [
-          "complain",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "complain"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"dược sĩ, hiệu thuốc\"?",
-        "options": [
-          "chemist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "chemist"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nhân viên bán hàng\"?",
-        "options": [
-          "shop assistant",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "shop assistant"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cửa hàng bách hóa\"?",
-        "options": [
-          "department store",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "department store"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"khách hàng\"?",
-        "options": [
-          "customer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "customer"
       }
     ],
     "typingGame": [
@@ -6629,66 +3876,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"phàn nàn, khiếu nại\"",
         "hint": "c_m_l_i_",
         "a": "complain"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"dược sĩ, hiệu thuốc\"",
-        "hint": "c_e_i_t",
-        "a": "chemist"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nhân viên bán hàng\"",
-        "hint": "s_o_ _s_i_t_n_",
-        "a": "shop assistant"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cửa hàng bách hóa\"",
-        "hint": "d_p_r_m_n_ _t_r_",
-        "a": "department store"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"khách hàng\"",
-        "hint": "c_s_o_e_",
-        "a": "customer"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tôi đang được phục vụ rồi (đã có người bán hàng giúp)\"",
-        "hint": "I_m_b_i_g_s_r_e_",
-        "a": "I'm being served"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thanh toán tiền cho\"",
-        "hint": "p_y_f_r",
-        "a": "pay for"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"hàng người xếp hàng / xếp hàng\"",
-        "hint": "q_e_e",
-        "a": "queue"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"phàn nàn, khiếu nại\"",
-        "hint": "c_m_l_i_",
-        "a": "complain"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"dược sĩ, hiệu thuốc\"",
-        "hint": "c_e_i_t",
-        "a": "chemist"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nhân viên bán hàng\"",
-        "hint": "s_o_ _s_i_t_n_",
-        "a": "shop assistant"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cửa hàng bách hóa\"",
-        "hint": "d_p_r_m_n_ _t_r_",
-        "a": "department store"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"khách hàng\"",
-        "hint": "c_s_o_e_",
-        "a": "customer"
       }
     ],
     "textbookExercises": [
@@ -6744,10 +3931,10 @@ export const courseData51_75 = [
             "id": "ex_57_2_0",
             "text": "I'm being served",
             "options": [
-              "thanh toán tiền cho",
-              "phàn nàn, khiếu nại",
               "tôi đang được phục vụ rồi (đã có người bán hàng giúp)",
-              "hàng người xếp hàng / xếp hàng"
+              "thanh toán tiền cho",
+              "hàng người xếp hàng / xếp hàng",
+              "phàn nàn, khiếu nại"
             ],
             "answer": "tôi đang được phục vụ rồi (đã có người bán hàng giúp)",
             "explanation": "Từ \"I'm being served\" có nghĩa chính xác là \"tôi đang được phục vụ rồi (đã có người bán hàng giúp)\"."
@@ -6756,8 +3943,8 @@ export const courseData51_75 = [
             "id": "ex_57_2_1",
             "text": "pay for",
             "options": [
-              "hàng người xếp hàng / xếp hàng",
               "thanh toán tiền cho",
+              "hàng người xếp hàng / xếp hàng",
               "phàn nàn, khiếu nại",
               "tôi đang được phục vụ rồi (đã có người bán hàng giúp)"
             ],
@@ -6768,10 +3955,10 @@ export const courseData51_75 = [
             "id": "ex_57_2_2",
             "text": "queue",
             "options": [
-              "tôi đang được phục vụ rồi (đã có người bán hàng giúp)",
-              "thanh toán tiền cho",
+              "hàng người xếp hàng / xếp hàng",
               "phàn nàn, khiếu nại",
-              "hàng người xếp hàng / xếp hàng"
+              "tôi đang được phục vụ rồi (đã có người bán hàng giúp)",
+              "thanh toán tiền cho"
             ],
             "answer": "hàng người xếp hàng / xếp hàng",
             "explanation": "Từ \"queue\" có nghĩa chính xác là \"hàng người xếp hàng / xếp hàng\"."
@@ -6780,10 +3967,10 @@ export const courseData51_75 = [
             "id": "ex_57_2_3",
             "text": "complain",
             "options": [
-              "thanh toán tiền cho",
-              "hàng người xếp hàng / xếp hàng",
               "phàn nàn, khiếu nại",
-              "tôi đang được phục vụ rồi (đã có người bán hàng giúp)"
+              "tôi đang được phục vụ rồi (đã có người bán hàng giúp)",
+              "thanh toán tiền cho",
+              "hàng người xếp hàng / xếp hàng"
             ],
             "answer": "phàn nàn, khiếu nại",
             "explanation": "Từ \"complain\" có nghĩa chính xác là \"phàn nàn, khiếu nại\"."
@@ -6914,8 +4101,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "Buy the medicine from the local chemist.",
-        "trans": "Đọc to câu này."
+        "text": "Buy the medicine from the local chemist."
       }
     ]
   },
@@ -6997,12 +4183,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkærət/",
           "vi": "củ cà rốt",
           "example": "Rabbits love eating fresh carrots.",
-          "bucket": 0,
-          "collocations": [
-            "use carrot",
-            "about carrot"
-          ],
-          "wordFamily": "Biến thể từ vựng của carrot"
+          "bucket": 0
         },
         {
           "word": "peach",
@@ -7010,12 +4191,7 @@ export const courseData51_75 = [
           "phonetic": "/piːtʃ/",
           "vi": "quả đào",
           "example": "This sweet peach is very juicy.",
-          "bucket": 0,
-          "collocations": [
-            "use peach",
-            "about peach"
-          ],
-          "wordFamily": "Biến thể từ vựng của peach"
+          "bucket": 0
         },
         {
           "word": "onion",
@@ -7023,12 +4199,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈʌnjən/",
           "vi": "củ hành tây",
           "example": "Chop the onion into small pieces.",
-          "bucket": 0,
-          "collocations": [
-            "use onion",
-            "about onion"
-          ],
-          "wordFamily": "Biến thể từ vựng của onion"
+          "bucket": 0
         },
         {
           "word": "grapes",
@@ -7036,12 +4207,7 @@ export const courseData51_75 = [
           "phonetic": "/greɪps/",
           "vi": "chùm nho",
           "example": "Would you like some green grapes?",
-          "bucket": 0,
-          "collocations": [
-            "use grapes",
-            "about grapes"
-          ],
-          "wordFamily": "Biến thể từ vựng của grapes"
+          "bucket": 0
         },
         {
           "word": "lamb",
@@ -7049,12 +4215,7 @@ export const courseData51_75 = [
           "phonetic": "/læm/",
           "vi": "thịt cừu non",
           "example": "We had roast lamb for Sunday dinner.",
-          "bucket": 1,
-          "collocations": [
-            "use lamb",
-            "about lamb"
-          ],
-          "wordFamily": "Biến thể từ vựng của lamb"
+          "bucket": 1
         },
         {
           "word": "beef",
@@ -7062,12 +4223,7 @@ export const courseData51_75 = [
           "phonetic": "/biːf/",
           "vi": "thịt bò",
           "example": "Cook the beef in a large frying pan.",
-          "bucket": 1,
-          "collocations": [
-            "use beef",
-            "about beef"
-          ],
-          "wordFamily": "Biến thể từ vựng của beef"
+          "bucket": 1
         },
         {
           "word": "pork",
@@ -7075,12 +4231,7 @@ export const courseData51_75 = [
           "phonetic": "/pɔːk/",
           "vi": "thịt lợn, thịt heo",
           "example": "She doesn't eat pork for religious reasons.",
-          "bucket": 1,
-          "collocations": [
-            "use pork",
-            "about pork"
-          ],
-          "wordFamily": "Biến thể từ vựng của pork"
+          "bucket": 1
         },
         {
           "word": "chicken",
@@ -7088,12 +4239,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtʃɪkɪn/",
           "vi": "thịt gà",
           "example": "Fried chicken is popular worldwide.",
-          "bucket": 1,
-          "collocations": [
-            "use chicken",
-            "about chicken"
-          ],
-          "wordFamily": "Biến thể từ vựng của chicken"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -7136,44 +4282,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 58:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"carrot\"",
-              "value": "carrotful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"peach\"",
-              "value": "peachful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"onion\"",
-              "value": "onionful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"grapes\"",
-              "value": "Ví dụ: have a grapes, make a grapes, good grapes"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"lamb\"",
-              "value": "Ví dụ: have a lamb, make a lamb, good lamb"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"beef\"",
-              "value": "Ví dụ: have a beef, make a beef, good beef"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -7228,150 +4337,6 @@ export const courseData51_75 = [
           "word": "chicken",
           "target": "Meat (Thịt)",
           "vi": "thịt gà"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới carrot",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "củ cà rốt"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới peach",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "quả đào"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới onion",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "củ hành tây"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới grapes",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "chùm nho"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới lamb",
-          "target": "Meat (Thịt)",
-          "vi": "thịt cừu non"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới beef",
-          "target": "Meat (Thịt)",
-          "vi": "thịt bò"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới pork",
-          "target": "Meat (Thịt)",
-          "vi": "thịt lợn, thịt heo"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới chicken",
-          "target": "Meat (Thịt)",
-          "vi": "thịt gà"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới carrot",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "củ cà rốt"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới peach",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "quả đào"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới onion",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "củ hành tây"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới grapes",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "chùm nho"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới lamb",
-          "target": "Meat (Thịt)",
-          "vi": "thịt cừu non"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới beef",
-          "target": "Meat (Thịt)",
-          "vi": "thịt bò"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới pork",
-          "target": "Meat (Thịt)",
-          "vi": "thịt lợn, thịt heo"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới chicken",
-          "target": "Meat (Thịt)",
-          "vi": "thịt gà"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới carrot",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "củ cà rốt"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới peach",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "quả đào"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới onion",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "củ hành tây"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới grapes",
-          "target": "Fruits & Veg (Trái cây & Rau)",
-          "vi": "chùm nho"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới lamb",
-          "target": "Meat (Thịt)",
-          "vi": "thịt cừu non"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới beef",
-          "target": "Meat (Thịt)",
-          "vi": "thịt bò"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới pork",
-          "target": "Meat (Thịt)",
-          "vi": "thịt lợn, thịt heo"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới chicken",
-          "target": "Meat (Thịt)",
-          "vi": "thịt gà"
         }
       ]
     },
@@ -7380,39 +4345,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"củ cà rốt\"?",
         "options": [
           "carrot",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "peach",
+          "onion",
+          "grapes"
         ],
         "a": "carrot"
       },
       {
         "q": "Từ nào có nghĩa là \"quả đào\"?",
         "options": [
+          "onion",
           "peach",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "grapes",
+          "lamb"
         ],
         "a": "peach"
       },
       {
         "q": "Từ nào có nghĩa là \"củ hành tây\"?",
         "options": [
+          "grapes",
+          "lamb",
           "onion",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "beef"
         ],
         "a": "onion"
       },
       {
         "q": "Từ nào có nghĩa là \"chùm nho\"?",
         "options": [
-          "grapes",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "lamb",
+          "beef",
+          "pork",
+          "grapes"
         ],
         "a": "grapes"
       },
@@ -7420,161 +4385,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"thịt cừu non\"?",
         "options": [
           "lamb",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "beef",
+          "pork",
+          "chicken"
         ],
         "a": "lamb"
       },
       {
         "q": "Từ nào có nghĩa là \"thịt bò\"?",
         "options": [
+          "pork",
           "beef",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "chicken",
+          "carrot"
         ],
         "a": "beef"
       },
       {
         "q": "Từ nào có nghĩa là \"thịt lợn, thịt heo\"?",
         "options": [
+          "chicken",
+          "carrot",
           "pork",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "peach"
         ],
         "a": "pork"
       },
       {
         "q": "Từ nào có nghĩa là \"thịt gà\"?",
         "options": [
-          "chicken",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "carrot",
+          "peach",
+          "onion",
+          "chicken"
         ],
         "a": "chicken"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"củ cà rốt\"?",
-        "options": [
-          "carrot",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "carrot"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"quả đào\"?",
-        "options": [
-          "peach",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "peach"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"củ hành tây\"?",
-        "options": [
-          "onion",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "onion"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chùm nho\"?",
-        "options": [
-          "grapes",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "grapes"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thịt cừu non\"?",
-        "options": [
-          "lamb",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "lamb"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thịt bò\"?",
-        "options": [
-          "beef",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "beef"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thịt lợn, thịt heo\"?",
-        "options": [
-          "pork",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "pork"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thịt gà\"?",
-        "options": [
-          "chicken",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "chicken"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"củ cà rốt\"?",
-        "options": [
-          "carrot",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "carrot"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"quả đào\"?",
-        "options": [
-          "peach",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "peach"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"củ hành tây\"?",
-        "options": [
-          "onion",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "onion"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chùm nho\"?",
-        "options": [
-          "grapes",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "grapes"
       }
     ],
     "typingGame": [
@@ -7617,66 +4462,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"thịt gà\"",
         "hint": "c_i_k_n",
         "a": "chicken"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"củ cà rốt\"",
-        "hint": "c_r_o_",
-        "a": "carrot"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"quả đào\"",
-        "hint": "p_a_h",
-        "a": "peach"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"củ hành tây\"",
-        "hint": "o_i_n",
-        "a": "onion"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chùm nho\"",
-        "hint": "g_a_e_",
-        "a": "grapes"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thịt cừu non\"",
-        "hint": "l_m_",
-        "a": "lamb"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thịt bò\"",
-        "hint": "b_e_",
-        "a": "beef"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thịt lợn, thịt heo\"",
-        "hint": "p_r_",
-        "a": "pork"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thịt gà\"",
-        "hint": "c_i_k_n",
-        "a": "chicken"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"củ cà rốt\"",
-        "hint": "c_r_o_",
-        "a": "carrot"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"quả đào\"",
-        "hint": "p_a_h",
-        "a": "peach"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"củ hành tây\"",
-        "hint": "o_i_n",
-        "a": "onion"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chùm nho\"",
-        "hint": "g_a_e_",
-        "a": "grapes"
       }
     ],
     "textbookExercises": [
@@ -7687,12 +4472,12 @@ export const courseData51_75 = [
         "questions": [
           {
             "id": "ex_58_1_0",
-            "text": "The correct word is [blank].",
+            "text": "Rabbits love eating fresh [blank].",
             "answers": [
-              "carrot"
+              "carrots"
             ],
             "hint": "củ cà rốt",
-            "explanation": "Từ cần điền là \"carrot\" (Danh từ), mang nghĩa là \"củ cà rốt\"."
+            "explanation": "Từ vựng cốt lõi là \"carrot\" (Danh từ), nghĩa \"củ cà rốt\". Trong câu này nó ở dạng \"carrots\", nên đáp án cần gõ là \"carrots\"."
           },
           {
             "id": "ex_58_1_1",
@@ -7744,10 +4529,10 @@ export const courseData51_75 = [
             "id": "ex_58_2_1",
             "text": "beef",
             "options": [
-              "thịt cừu non",
               "thịt bò",
               "thịt lợn, thịt heo",
-              "thịt gà"
+              "thịt gà",
+              "thịt cừu non"
             ],
             "answer": "thịt bò",
             "explanation": "Từ \"beef\" có nghĩa chính xác là \"thịt bò\"."
@@ -7756,10 +4541,10 @@ export const courseData51_75 = [
             "id": "ex_58_2_2",
             "text": "pork",
             "options": [
+              "thịt lợn, thịt heo",
               "thịt gà",
               "thịt cừu non",
-              "thịt bò",
-              "thịt lợn, thịt heo"
+              "thịt bò"
             ],
             "answer": "thịt lợn, thịt heo",
             "explanation": "Từ \"pork\" có nghĩa chính xác là \"thịt lợn, thịt heo\"."
@@ -7768,8 +4553,8 @@ export const courseData51_75 = [
             "id": "ex_58_2_3",
             "text": "chicken",
             "options": [
-              "thịt cừu non",
               "thịt gà",
+              "thịt cừu non",
               "thịt bò",
               "thịt lợn, thịt heo"
             ],
@@ -7902,8 +4687,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "Rabbits love eating fresh carrots.",
-        "trans": "Đọc to câu này."
+        "text": "Rabbits love eating fresh carrots."
       }
     ]
   },
@@ -7985,12 +4769,7 @@ export const courseData51_75 = [
           "phonetic": "/fraɪ/",
           "vi": "chiên, rán",
           "example": "Fry the eggs in a little oil.",
-          "bucket": 0,
-          "collocations": [
-            "use fry",
-            "about fry"
-          ],
-          "wordFamily": "Biến thể từ vựng của fry"
+          "bucket": 0
         },
         {
           "word": "boil",
@@ -7998,12 +4777,7 @@ export const courseData51_75 = [
           "phonetic": "/bɔɪl/",
           "vi": "luộc, đun sôi",
           "example": "Boil the potatoes for twenty minutes.",
-          "bucket": 0,
-          "collocations": [
-            "use boil",
-            "about boil"
-          ],
-          "wordFamily": "Biến thể từ vựng của boil"
+          "bucket": 0
         },
         {
           "word": "salty",
@@ -8011,12 +4785,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈsɔːlti/",
           "vi": "mặn, nhiều muối",
           "example": "This soup is too salty for me.",
-          "bucket": 0,
-          "collocations": [
-            "use salty",
-            "about salty"
-          ],
-          "wordFamily": "Biến thể từ vựng của salty"
+          "bucket": 0
         },
         {
           "word": "spicy",
@@ -8024,12 +4793,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈspaɪsi/",
           "vi": "cay, nhiều gia vị",
           "example": "Indian curry can be very spicy.",
-          "bucket": 0,
-          "collocations": [
-            "use spicy",
-            "about spicy"
-          ],
-          "wordFamily": "Biến thể từ vựng của spicy"
+          "bucket": 0
         },
         {
           "word": "main course",
@@ -8037,12 +4801,7 @@ export const courseData51_75 = [
           "phonetic": "/meɪn kɔːs/",
           "vi": "món chính",
           "example": "I chose fish for my main course.",
-          "bucket": 1,
-          "collocations": [
-            "use main course",
-            "about main course"
-          ],
-          "wordFamily": "Biến thể từ vựng của main course"
+          "bucket": 1
         },
         {
           "word": "book a table",
@@ -8050,12 +4809,7 @@ export const courseData51_75 = [
           "phonetic": "/bʊk ə ˈteɪbl/",
           "vi": "đặt bàn trước",
           "example": "Call them to book a table for eight.",
-          "bucket": 1,
-          "collocations": [
-            "use book a table",
-            "about book a table"
-          ],
-          "wordFamily": "Biến thể từ vựng của book a table"
+          "bucket": 1
         },
         {
           "word": "starter",
@@ -8063,12 +4817,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈstɑːtə/",
           "vi": "món khai vị",
           "example": "We ordered soup as a starter.",
-          "bucket": 1,
-          "collocations": [
-            "use starter",
-            "about starter"
-          ],
-          "wordFamily": "Biến thể từ vựng của starter"
+          "bucket": 1
         },
         {
           "word": "bill",
@@ -8076,12 +4825,7 @@ export const courseData51_75 = [
           "phonetic": "/bɪl/",
           "vi": "hóa đơn thanh toán",
           "example": "Could we have the bill, please?",
-          "bucket": 1,
-          "collocations": [
-            "use bill",
-            "about bill"
-          ],
-          "wordFamily": "Biến thể từ vựng của bill"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -8124,44 +4868,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 59:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"fry\"",
-              "value": "fryer (Danh từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"boil\"",
-              "value": "boiler (Danh từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"salty\"",
-              "value": "saltyly (Trạng từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"spicy\"",
-              "value": "Ví dụ: very spicy, extremely spicy"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"main course\"",
-              "value": "Cụm từ liên quan đến main course"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"book a table\"",
-              "value": "Cụm từ liên quan đến book a table"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -8216,150 +4923,6 @@ export const courseData51_75 = [
           "word": "bill",
           "target": "Restaurant (Nhà hàng)",
           "vi": "hóa đơn thanh toán"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới fry",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "chiên, rán"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới boil",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "luộc, đun sôi"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới salty",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "mặn, nhiều muối"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới spicy",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "cay, nhiều gia vị"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới main course",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "món chính"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới book a table",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "đặt bàn trước"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới starter",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "món khai vị"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới bill",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "hóa đơn thanh toán"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới fry",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "chiên, rán"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới boil",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "luộc, đun sôi"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới salty",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "mặn, nhiều muối"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới spicy",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "cay, nhiều gia vị"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới main course",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "món chính"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới book a table",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "đặt bàn trước"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới starter",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "món khai vị"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới bill",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "hóa đơn thanh toán"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới fry",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "chiên, rán"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới boil",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "luộc, đun sôi"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới salty",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "mặn, nhiều muối"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới spicy",
-          "target": "Food Preparation (Nấu nướng & Vị)",
-          "vi": "cay, nhiều gia vị"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới main course",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "món chính"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới book a table",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "đặt bàn trước"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới starter",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "món khai vị"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới bill",
-          "target": "Restaurant (Nhà hàng)",
-          "vi": "hóa đơn thanh toán"
         }
       ]
     },
@@ -8368,39 +4931,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"chiên, rán\"?",
         "options": [
           "fry",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "boil",
+          "salty",
+          "spicy"
         ],
         "a": "fry"
       },
       {
         "q": "Từ nào có nghĩa là \"luộc, đun sôi\"?",
         "options": [
+          "salty",
           "boil",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "spicy",
+          "main course"
         ],
         "a": "boil"
       },
       {
         "q": "Từ nào có nghĩa là \"mặn, nhiều muối\"?",
         "options": [
+          "spicy",
+          "main course",
           "salty",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "book a table"
         ],
         "a": "salty"
       },
       {
         "q": "Từ nào có nghĩa là \"cay, nhiều gia vị\"?",
         "options": [
-          "spicy",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "main course",
+          "book a table",
+          "starter",
+          "spicy"
         ],
         "a": "spicy"
       },
@@ -8408,161 +4971,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"món chính\"?",
         "options": [
           "main course",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "book a table",
+          "starter",
+          "bill"
         ],
         "a": "main course"
       },
       {
         "q": "Từ nào có nghĩa là \"đặt bàn trước\"?",
         "options": [
+          "starter",
           "book a table",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "bill",
+          "fry"
         ],
         "a": "book a table"
       },
       {
         "q": "Từ nào có nghĩa là \"món khai vị\"?",
         "options": [
+          "bill",
+          "fry",
           "starter",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "boil"
         ],
         "a": "starter"
       },
       {
         "q": "Từ nào có nghĩa là \"hóa đơn thanh toán\"?",
         "options": [
-          "bill",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "fry",
+          "boil",
+          "salty",
+          "bill"
         ],
         "a": "bill"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chiên, rán\"?",
-        "options": [
-          "fry",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fry"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"luộc, đun sôi\"?",
-        "options": [
-          "boil",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "boil"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"mặn, nhiều muối\"?",
-        "options": [
-          "salty",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "salty"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cay, nhiều gia vị\"?",
-        "options": [
-          "spicy",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "spicy"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"món chính\"?",
-        "options": [
-          "main course",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "main course"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đặt bàn trước\"?",
-        "options": [
-          "book a table",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "book a table"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"món khai vị\"?",
-        "options": [
-          "starter",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "starter"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"hóa đơn thanh toán\"?",
-        "options": [
-          "bill",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "bill"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chiên, rán\"?",
-        "options": [
-          "fry",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fry"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"luộc, đun sôi\"?",
-        "options": [
-          "boil",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "boil"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"mặn, nhiều muối\"?",
-        "options": [
-          "salty",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "salty"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cay, nhiều gia vị\"?",
-        "options": [
-          "spicy",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "spicy"
       }
     ],
     "typingGame": [
@@ -8605,66 +5048,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"hóa đơn thanh toán\"",
         "hint": "b_l_",
         "a": "bill"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chiên, rán\"",
-        "hint": "f_y",
-        "a": "fry"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"luộc, đun sôi\"",
-        "hint": "b_i_",
-        "a": "boil"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"mặn, nhiều muối\"",
-        "hint": "s_l_y",
-        "a": "salty"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cay, nhiều gia vị\"",
-        "hint": "s_i_y",
-        "a": "spicy"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"món chính\"",
-        "hint": "m_i_ _o_r_e",
-        "a": "main course"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đặt bàn trước\"",
-        "hint": "b_o_ _ _a_l_",
-        "a": "book a table"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"món khai vị\"",
-        "hint": "s_a_t_r",
-        "a": "starter"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"hóa đơn thanh toán\"",
-        "hint": "b_l_",
-        "a": "bill"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chiên, rán\"",
-        "hint": "f_y",
-        "a": "fry"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"luộc, đun sôi\"",
-        "hint": "b_i_",
-        "a": "boil"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"mặn, nhiều muối\"",
-        "hint": "s_l_y",
-        "a": "salty"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cay, nhiều gia vị\"",
-        "hint": "s_i_y",
-        "a": "spicy"
       }
     ],
     "textbookExercises": [
@@ -8677,7 +5060,7 @@ export const courseData51_75 = [
             "id": "ex_59_1_0",
             "text": "[blank] the eggs in a little oil.",
             "answers": [
-              "fry"
+              "Fry"
             ],
             "hint": "chiên, rán",
             "explanation": "Từ cần điền là \"fry\" (Động từ), mang nghĩa là \"chiên, rán\"."
@@ -8686,7 +5069,7 @@ export const courseData51_75 = [
             "id": "ex_59_1_1",
             "text": "[blank] the potatoes for twenty minutes.",
             "answers": [
-              "boil"
+              "Boil"
             ],
             "hint": "luộc, đun sôi",
             "explanation": "Từ cần điền là \"boil\" (Động từ), mang nghĩa là \"luộc, đun sôi\"."
@@ -8720,10 +5103,10 @@ export const courseData51_75 = [
             "id": "ex_59_2_0",
             "text": "main course",
             "options": [
-              "đặt bàn trước",
               "món chính",
-              "hóa đơn thanh toán",
-              "món khai vị"
+              "đặt bàn trước",
+              "món khai vị",
+              "hóa đơn thanh toán"
             ],
             "answer": "món chính",
             "explanation": "Từ \"main course\" có nghĩa chính xác là \"món chính\"."
@@ -8732,9 +5115,9 @@ export const courseData51_75 = [
             "id": "ex_59_2_1",
             "text": "book a table",
             "options": [
-              "hóa đơn thanh toán",
-              "món khai vị",
               "đặt bàn trước",
+              "món khai vị",
+              "hóa đơn thanh toán",
               "món chính"
             ],
             "answer": "đặt bàn trước",
@@ -8744,10 +5127,10 @@ export const courseData51_75 = [
             "id": "ex_59_2_2",
             "text": "starter",
             "options": [
-              "món chính",
-              "đặt bàn trước",
               "món khai vị",
-              "hóa đơn thanh toán"
+              "hóa đơn thanh toán",
+              "món chính",
+              "đặt bàn trước"
             ],
             "answer": "món khai vị",
             "explanation": "Từ \"starter\" có nghĩa chính xác là \"món khai vị\"."
@@ -8756,9 +5139,9 @@ export const courseData51_75 = [
             "id": "ex_59_2_3",
             "text": "bill",
             "options": [
+              "hóa đơn thanh toán",
               "món chính",
               "đặt bàn trước",
-              "hóa đơn thanh toán",
               "món khai vị"
             ],
             "answer": "hóa đơn thanh toán",
@@ -8890,8 +5273,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "Fry the eggs in a little oil.",
-        "trans": "Đọc to câu này."
+        "text": "Fry the eggs in a little oil."
       }
     ]
   },
@@ -8973,12 +5355,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈsʌbɜːbz/",
           "vi": "vùng ngoại ô",
           "example": "They live in the peaceful suburbs of London.",
-          "bucket": 0,
-          "collocations": [
-            "use suburbs",
-            "about suburbs"
-          ],
-          "wordFamily": "Biến thể từ vựng của suburbs"
+          "bucket": 0
         },
         {
           "word": "fields",
@@ -8986,12 +5363,7 @@ export const courseData51_75 = [
           "phonetic": "/fiːldz/",
           "vi": "cánh đồng",
           "example": "There are green fields behind the farm.",
-          "bucket": 0,
-          "collocations": [
-            "use fields",
-            "about fields"
-          ],
-          "wordFamily": "Biến thể từ vựng của fields"
+          "bucket": 0
         },
         {
           "word": "village",
@@ -8999,12 +5371,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈvɪlɪdʒ/",
           "vi": "ngôi làng",
           "example": "He grew up in a tiny country village.",
-          "bucket": 0,
-          "collocations": [
-            "use village",
-            "about village"
-          ],
-          "wordFamily": "Biến thể từ vựng của village"
+          "bucket": 0
         },
         {
           "word": "city centre",
@@ -9012,12 +5379,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈsɪti ˈsɛntə/",
           "vi": "trung tâm thành phố",
           "example": "Traffic is heavy in the city centre.",
-          "bucket": 0,
-          "collocations": [
-            "use city centre",
-            "about city centre"
-          ],
-          "wordFamily": "Biến thể từ vựng của city centre"
+          "bucket": 0
         },
         {
           "word": "noisy",
@@ -9025,12 +5387,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈnɔɪzi/",
           "vi": "ồn ào, huyên náo",
           "example": "The town is very noisy at rush hour.",
-          "bucket": 1,
-          "collocations": [
-            "use noisy",
-            "about noisy"
-          ],
-          "wordFamily": "Biến thể từ vựng của noisy"
+          "bucket": 1
         },
         {
           "word": "quiet",
@@ -9038,12 +5395,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkwaɪət/",
           "vi": "yên tĩnh, thanh bình",
           "example": "The countryside is extremely quiet.",
-          "bucket": 1,
-          "collocations": [
-            "use quiet",
-            "about quiet"
-          ],
-          "wordFamily": "Biến thể từ vựng của quiet"
+          "bucket": 1
         },
         {
           "word": "crowded",
@@ -9051,12 +5403,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkraʊdɪd/",
           "vi": "đông đúc",
           "example": "The shopping streets are very crowded.",
-          "bucket": 1,
-          "collocations": [
-            "use crowded",
-            "about crowded"
-          ],
-          "wordFamily": "Biến thể từ vựng của crowded"
+          "bucket": 1
         },
         {
           "word": "polluted",
@@ -9064,12 +5411,7 @@ export const courseData51_75 = [
           "phonetic": "/pəˈluːtɪd/",
           "vi": "bị ô nhiễm",
           "example": "Air in big cities can be polluted.",
-          "bucket": 1,
-          "collocations": [
-            "use polluted",
-            "about polluted"
-          ],
-          "wordFamily": "Biến thể từ vựng của polluted"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -9112,44 +5454,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 60:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"suburbs\"",
-              "value": "suburbsful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"fields\"",
-              "value": "fieldsful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"village\"",
-              "value": "villageful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"city centre\"",
-              "value": "Cụm từ liên quan đến city centre"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"noisy\"",
-              "value": "Ví dụ: very noisy, extremely noisy"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"quiet\"",
-              "value": "Ví dụ: very quiet, extremely quiet"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -9204,150 +5509,6 @@ export const courseData51_75 = [
           "word": "polluted",
           "target": "Descriptions (Mô tả)",
           "vi": "bị ô nhiễm"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới suburbs",
-          "target": "Locations (Địa điểm)",
-          "vi": "vùng ngoại ô"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới fields",
-          "target": "Locations (Địa điểm)",
-          "vi": "cánh đồng"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới village",
-          "target": "Locations (Địa điểm)",
-          "vi": "ngôi làng"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới city centre",
-          "target": "Locations (Địa điểm)",
-          "vi": "trung tâm thành phố"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới noisy",
-          "target": "Descriptions (Mô tả)",
-          "vi": "ồn ào, huyên náo"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới quiet",
-          "target": "Descriptions (Mô tả)",
-          "vi": "yên tĩnh, thanh bình"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới crowded",
-          "target": "Descriptions (Mô tả)",
-          "vi": "đông đúc"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới polluted",
-          "target": "Descriptions (Mô tả)",
-          "vi": "bị ô nhiễm"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới suburbs",
-          "target": "Locations (Địa điểm)",
-          "vi": "vùng ngoại ô"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới fields",
-          "target": "Locations (Địa điểm)",
-          "vi": "cánh đồng"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới village",
-          "target": "Locations (Địa điểm)",
-          "vi": "ngôi làng"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới city centre",
-          "target": "Locations (Địa điểm)",
-          "vi": "trung tâm thành phố"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới noisy",
-          "target": "Descriptions (Mô tả)",
-          "vi": "ồn ào, huyên náo"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới quiet",
-          "target": "Descriptions (Mô tả)",
-          "vi": "yên tĩnh, thanh bình"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới crowded",
-          "target": "Descriptions (Mô tả)",
-          "vi": "đông đúc"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới polluted",
-          "target": "Descriptions (Mô tả)",
-          "vi": "bị ô nhiễm"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới suburbs",
-          "target": "Locations (Địa điểm)",
-          "vi": "vùng ngoại ô"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới fields",
-          "target": "Locations (Địa điểm)",
-          "vi": "cánh đồng"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới village",
-          "target": "Locations (Địa điểm)",
-          "vi": "ngôi làng"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới city centre",
-          "target": "Locations (Địa điểm)",
-          "vi": "trung tâm thành phố"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới noisy",
-          "target": "Descriptions (Mô tả)",
-          "vi": "ồn ào, huyên náo"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới quiet",
-          "target": "Descriptions (Mô tả)",
-          "vi": "yên tĩnh, thanh bình"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới crowded",
-          "target": "Descriptions (Mô tả)",
-          "vi": "đông đúc"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới polluted",
-          "target": "Descriptions (Mô tả)",
-          "vi": "bị ô nhiễm"
         }
       ]
     },
@@ -9356,39 +5517,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"vùng ngoại ô\"?",
         "options": [
           "suburbs",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "fields",
+          "village",
+          "city centre"
         ],
         "a": "suburbs"
       },
       {
         "q": "Từ nào có nghĩa là \"cánh đồng\"?",
         "options": [
+          "village",
           "fields",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "city centre",
+          "noisy"
         ],
         "a": "fields"
       },
       {
         "q": "Từ nào có nghĩa là \"ngôi làng\"?",
         "options": [
+          "city centre",
+          "noisy",
           "village",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "quiet"
         ],
         "a": "village"
       },
       {
         "q": "Từ nào có nghĩa là \"trung tâm thành phố\"?",
         "options": [
-          "city centre",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "noisy",
+          "quiet",
+          "crowded",
+          "city centre"
         ],
         "a": "city centre"
       },
@@ -9396,161 +5557,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"ồn ào, huyên náo\"?",
         "options": [
           "noisy",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "quiet",
+          "crowded",
+          "polluted"
         ],
         "a": "noisy"
       },
       {
         "q": "Từ nào có nghĩa là \"yên tĩnh, thanh bình\"?",
         "options": [
+          "crowded",
           "quiet",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "polluted",
+          "suburbs"
         ],
         "a": "quiet"
       },
       {
         "q": "Từ nào có nghĩa là \"đông đúc\"?",
         "options": [
+          "polluted",
+          "suburbs",
           "crowded",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "fields"
         ],
         "a": "crowded"
       },
       {
         "q": "Từ nào có nghĩa là \"bị ô nhiễm\"?",
         "options": [
-          "polluted",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "suburbs",
+          "fields",
+          "village",
+          "polluted"
         ],
         "a": "polluted"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vùng ngoại ô\"?",
-        "options": [
-          "suburbs",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "suburbs"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cánh đồng\"?",
-        "options": [
-          "fields",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fields"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"ngôi làng\"?",
-        "options": [
-          "village",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "village"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"trung tâm thành phố\"?",
-        "options": [
-          "city centre",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "city centre"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"ồn ào, huyên náo\"?",
-        "options": [
-          "noisy",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "noisy"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"yên tĩnh, thanh bình\"?",
-        "options": [
-          "quiet",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "quiet"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đông đúc\"?",
-        "options": [
-          "crowded",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "crowded"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bị ô nhiễm\"?",
-        "options": [
-          "polluted",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "polluted"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vùng ngoại ô\"?",
-        "options": [
-          "suburbs",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "suburbs"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cánh đồng\"?",
-        "options": [
-          "fields",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fields"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"ngôi làng\"?",
-        "options": [
-          "village",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "village"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"trung tâm thành phố\"?",
-        "options": [
-          "city centre",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "city centre"
       }
     ],
     "typingGame": [
@@ -9593,66 +5634,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"bị ô nhiễm\"",
         "hint": "p_l_u_e_",
         "a": "polluted"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vùng ngoại ô\"",
-        "hint": "s_b_r_s",
-        "a": "suburbs"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cánh đồng\"",
-        "hint": "f_e_d_",
-        "a": "fields"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"ngôi làng\"",
-        "hint": "v_l_a_e",
-        "a": "village"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"trung tâm thành phố\"",
-        "hint": "c_t_ _e_t_e",
-        "a": "city centre"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"ồn ào, huyên náo\"",
-        "hint": "n_i_y",
-        "a": "noisy"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"yên tĩnh, thanh bình\"",
-        "hint": "q_i_t",
-        "a": "quiet"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đông đúc\"",
-        "hint": "c_o_d_d",
-        "a": "crowded"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bị ô nhiễm\"",
-        "hint": "p_l_u_e_",
-        "a": "polluted"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vùng ngoại ô\"",
-        "hint": "s_b_r_s",
-        "a": "suburbs"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cánh đồng\"",
-        "hint": "f_e_d_",
-        "a": "fields"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"ngôi làng\"",
-        "hint": "v_l_a_e",
-        "a": "village"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"trung tâm thành phố\"",
-        "hint": "c_t_ _e_t_e",
-        "a": "city centre"
       }
     ],
     "textbookExercises": [
@@ -9710,8 +5691,8 @@ export const courseData51_75 = [
             "options": [
               "ồn ào, huyên náo",
               "yên tĩnh, thanh bình",
-              "bị ô nhiễm",
-              "đông đúc"
+              "đông đúc",
+              "bị ô nhiễm"
             ],
             "answer": "ồn ào, huyên náo",
             "explanation": "Từ \"noisy\" có nghĩa chính xác là \"ồn ào, huyên náo\"."
@@ -9720,10 +5701,10 @@ export const courseData51_75 = [
             "id": "ex_60_2_1",
             "text": "quiet",
             "options": [
-              "ồn ào, huyên náo",
-              "bị ô nhiễm",
+              "yên tĩnh, thanh bình",
               "đông đúc",
-              "yên tĩnh, thanh bình"
+              "bị ô nhiễm",
+              "ồn ào, huyên náo"
             ],
             "answer": "yên tĩnh, thanh bình",
             "explanation": "Từ \"quiet\" có nghĩa chính xác là \"yên tĩnh, thanh bình\"."
@@ -9732,10 +5713,10 @@ export const courseData51_75 = [
             "id": "ex_60_2_2",
             "text": "crowded",
             "options": [
-              "yên tĩnh, thanh bình",
+              "đông đúc",
               "bị ô nhiễm",
               "ồn ào, huyên náo",
-              "đông đúc"
+              "yên tĩnh, thanh bình"
             ],
             "answer": "đông đúc",
             "explanation": "Từ \"crowded\" có nghĩa chính xác là \"đông đúc\"."
@@ -9744,10 +5725,10 @@ export const courseData51_75 = [
             "id": "ex_60_2_3",
             "text": "polluted",
             "options": [
-              "đông đúc",
-              "yên tĩnh, thanh bình",
               "bị ô nhiễm",
-              "ồn ào, huyên náo"
+              "ồn ào, huyên náo",
+              "yên tĩnh, thanh bình",
+              "đông đúc"
             ],
             "answer": "bị ô nhiễm",
             "explanation": "Từ \"polluted\" có nghĩa chính xác là \"bị ô nhiễm\"."
@@ -9878,8 +5859,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "They live in the peaceful suburbs of London.",
-        "trans": "Đọc to câu này."
+        "text": "They live in the peaceful suburbs of London."
       }
     ]
   },
@@ -9961,12 +5941,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtræfɪk laɪts/",
           "vi": "đèn giao thông",
           "example": "Stop at the red traffic lights.",
-          "bucket": 0,
-          "collocations": [
-            "use traffic lights",
-            "about traffic lights"
-          ],
-          "wordFamily": "Biến thể từ vựng của traffic lights"
+          "bucket": 0
         },
         {
           "word": "crossroads",
@@ -9974,12 +5949,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkrɒsrəʊdz/",
           "vi": "ngã tư đường",
           "example": "Turn right at the next crossroads.",
-          "bucket": 0,
-          "collocations": [
-            "use crossroads",
-            "about crossroads"
-          ],
-          "wordFamily": "Biến thể từ vựng của crossroads"
+          "bucket": 0
         },
         {
           "word": "roundabout",
@@ -9987,12 +5957,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈraʊndəbaʊt/",
           "vi": "vòng xuyến, bùng binh",
           "example": "Take the second exit at the roundabout.",
-          "bucket": 0,
-          "collocations": [
-            "use roundabout",
-            "about roundabout"
-          ],
-          "wordFamily": "Biến thể từ vựng của roundabout"
+          "bucket": 0
         },
         {
           "word": "pedestrian crossing",
@@ -10000,12 +5965,7 @@ export const courseData51_75 = [
           "phonetic": "/pɪˈdɛstrɪən ˈkrɒsɪŋ/",
           "vi": "vạch qua đường cho người đi bộ",
           "example": "Always use the pedestrian crossing.",
-          "bucket": 0,
-          "collocations": [
-            "use pedestrian crossing",
-            "about pedestrian crossing"
-          ],
-          "wordFamily": "Biến thể từ vựng của pedestrian crossing"
+          "bucket": 0
         },
         {
           "word": "turn left",
@@ -10013,12 +5973,7 @@ export const courseData51_75 = [
           "phonetic": "/tɜːn lɛft/",
           "vi": "rẽ trái",
           "example": "Go straight on, then turn left.",
-          "bucket": 1,
-          "collocations": [
-            "use turn left",
-            "about turn left"
-          ],
-          "wordFamily": "Biến thể từ vựng của turn left"
+          "bucket": 1
         },
         {
           "word": "accident",
@@ -10026,12 +5981,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈæksɪdənt/",
           "vi": "vụ tai nạn",
           "example": "There was a car accident on the bridge.",
-          "bucket": 1,
-          "collocations": [
-            "use accident",
-            "about accident"
-          ],
-          "wordFamily": "Biến thể từ vựng của accident"
+          "bucket": 1
         },
         {
           "word": "crash",
@@ -10039,12 +5989,7 @@ export const courseData51_75 = [
           "phonetic": "/kræʃ/",
           "vi": "đâm sầm vào / vụ va chạm",
           "example": "He crashed his car into a tree.",
-          "bucket": 1,
-          "collocations": [
-            "use crash",
-            "about crash"
-          ],
-          "wordFamily": "Biến thể từ vựng của crash"
+          "bucket": 1
         },
         {
           "word": "overtake",
@@ -10052,12 +5997,7 @@ export const courseData51_75 = [
           "phonetic": "/ˌəʊvəˈteɪk/",
           "vi": "vượt lên (xe khác)",
           "example": "It is dangerous to overtake on a bend.",
-          "bucket": 1,
-          "collocations": [
-            "use overtake",
-            "about overtake"
-          ],
-          "wordFamily": "Biến thể từ vựng của overtake"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -10100,44 +6040,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 61:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"traffic lights\"",
-              "value": "Các dạng từ loại khác của \"traffic lights\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"crossroads\"",
-              "value": "crossroadsful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"roundabout\"",
-              "value": "roundaboutful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"pedestrian crossing\"",
-              "value": "Cụm từ liên quan đến pedestrian crossing"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"turn left\"",
-              "value": "Cụm từ liên quan đến turn left"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"accident\"",
-              "value": "Ví dụ: have a accident, make a accident, good accident"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -10192,150 +6095,6 @@ export const courseData51_75 = [
           "word": "overtake",
           "target": "Events & Actions (Hành động)",
           "vi": "vượt lên (xe khác)"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới traffic lights",
-          "target": "Road Features (Giao thông)",
-          "vi": "đèn giao thông"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới crossroads",
-          "target": "Road Features (Giao thông)",
-          "vi": "ngã tư đường"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới roundabout",
-          "target": "Road Features (Giao thông)",
-          "vi": "vòng xuyến, bùng binh"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới pedestrian crossing",
-          "target": "Road Features (Giao thông)",
-          "vi": "vạch qua đường cho người đi bộ"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới turn left",
-          "target": "Events & Actions (Hành động)",
-          "vi": "rẽ trái"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới accident",
-          "target": "Events & Actions (Hành động)",
-          "vi": "vụ tai nạn"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới crash",
-          "target": "Events & Actions (Hành động)",
-          "vi": "đâm sầm vào / vụ va chạm"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới overtake",
-          "target": "Events & Actions (Hành động)",
-          "vi": "vượt lên (xe khác)"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới traffic lights",
-          "target": "Road Features (Giao thông)",
-          "vi": "đèn giao thông"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới crossroads",
-          "target": "Road Features (Giao thông)",
-          "vi": "ngã tư đường"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới roundabout",
-          "target": "Road Features (Giao thông)",
-          "vi": "vòng xuyến, bùng binh"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới pedestrian crossing",
-          "target": "Road Features (Giao thông)",
-          "vi": "vạch qua đường cho người đi bộ"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới turn left",
-          "target": "Events & Actions (Hành động)",
-          "vi": "rẽ trái"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới accident",
-          "target": "Events & Actions (Hành động)",
-          "vi": "vụ tai nạn"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới crash",
-          "target": "Events & Actions (Hành động)",
-          "vi": "đâm sầm vào / vụ va chạm"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới overtake",
-          "target": "Events & Actions (Hành động)",
-          "vi": "vượt lên (xe khác)"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới traffic lights",
-          "target": "Road Features (Giao thông)",
-          "vi": "đèn giao thông"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới crossroads",
-          "target": "Road Features (Giao thông)",
-          "vi": "ngã tư đường"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới roundabout",
-          "target": "Road Features (Giao thông)",
-          "vi": "vòng xuyến, bùng binh"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới pedestrian crossing",
-          "target": "Road Features (Giao thông)",
-          "vi": "vạch qua đường cho người đi bộ"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới turn left",
-          "target": "Events & Actions (Hành động)",
-          "vi": "rẽ trái"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới accident",
-          "target": "Events & Actions (Hành động)",
-          "vi": "vụ tai nạn"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới crash",
-          "target": "Events & Actions (Hành động)",
-          "vi": "đâm sầm vào / vụ va chạm"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới overtake",
-          "target": "Events & Actions (Hành động)",
-          "vi": "vượt lên (xe khác)"
         }
       ]
     },
@@ -10344,39 +6103,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"đèn giao thông\"?",
         "options": [
           "traffic lights",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "crossroads",
+          "roundabout",
+          "pedestrian crossing"
         ],
         "a": "traffic lights"
       },
       {
         "q": "Từ nào có nghĩa là \"ngã tư đường\"?",
         "options": [
+          "roundabout",
           "crossroads",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "pedestrian crossing",
+          "turn left"
         ],
         "a": "crossroads"
       },
       {
         "q": "Từ nào có nghĩa là \"vòng xuyến, bùng binh\"?",
         "options": [
+          "pedestrian crossing",
+          "turn left",
           "roundabout",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "accident"
         ],
         "a": "roundabout"
       },
       {
         "q": "Từ nào có nghĩa là \"vạch qua đường cho người đi bộ\"?",
         "options": [
-          "pedestrian crossing",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "turn left",
+          "accident",
+          "crash",
+          "pedestrian crossing"
         ],
         "a": "pedestrian crossing"
       },
@@ -10384,161 +6143,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"rẽ trái\"?",
         "options": [
           "turn left",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "accident",
+          "crash",
+          "overtake"
         ],
         "a": "turn left"
       },
       {
         "q": "Từ nào có nghĩa là \"vụ tai nạn\"?",
         "options": [
+          "crash",
           "accident",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "overtake",
+          "traffic lights"
         ],
         "a": "accident"
       },
       {
         "q": "Từ nào có nghĩa là \"đâm sầm vào / vụ va chạm\"?",
         "options": [
+          "overtake",
+          "traffic lights",
           "crash",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "crossroads"
         ],
         "a": "crash"
       },
       {
         "q": "Từ nào có nghĩa là \"vượt lên (xe khác)\"?",
         "options": [
-          "overtake",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "traffic lights",
+          "crossroads",
+          "roundabout",
+          "overtake"
         ],
         "a": "overtake"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đèn giao thông\"?",
-        "options": [
-          "traffic lights",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "traffic lights"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"ngã tư đường\"?",
-        "options": [
-          "crossroads",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "crossroads"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vòng xuyến, bùng binh\"?",
-        "options": [
-          "roundabout",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "roundabout"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vạch qua đường cho người đi bộ\"?",
-        "options": [
-          "pedestrian crossing",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "pedestrian crossing"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"rẽ trái\"?",
-        "options": [
-          "turn left",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "turn left"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vụ tai nạn\"?",
-        "options": [
-          "accident",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "accident"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đâm sầm vào / vụ va chạm\"?",
-        "options": [
-          "crash",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "crash"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vượt lên (xe khác)\"?",
-        "options": [
-          "overtake",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "overtake"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đèn giao thông\"?",
-        "options": [
-          "traffic lights",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "traffic lights"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"ngã tư đường\"?",
-        "options": [
-          "crossroads",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "crossroads"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vòng xuyến, bùng binh\"?",
-        "options": [
-          "roundabout",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "roundabout"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"vạch qua đường cho người đi bộ\"?",
-        "options": [
-          "pedestrian crossing",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "pedestrian crossing"
       }
     ],
     "typingGame": [
@@ -10581,66 +6220,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"vượt lên (xe khác)\"",
         "hint": "o_e_t_k_",
         "a": "overtake"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đèn giao thông\"",
-        "hint": "t_a_f_c_l_g_t_",
-        "a": "traffic lights"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"ngã tư đường\"",
-        "hint": "c_o_s_o_d_",
-        "a": "crossroads"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vòng xuyến, bùng binh\"",
-        "hint": "r_u_d_b_u_",
-        "a": "roundabout"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vạch qua đường cho người đi bộ\"",
-        "hint": "p_d_s_r_a_ _r_s_i_g",
-        "a": "pedestrian crossing"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"rẽ trái\"",
-        "hint": "t_r_ _e_t",
-        "a": "turn left"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vụ tai nạn\"",
-        "hint": "a_c_d_n_",
-        "a": "accident"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đâm sầm vào / vụ va chạm\"",
-        "hint": "c_a_h",
-        "a": "crash"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vượt lên (xe khác)\"",
-        "hint": "o_e_t_k_",
-        "a": "overtake"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đèn giao thông\"",
-        "hint": "t_a_f_c_l_g_t_",
-        "a": "traffic lights"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"ngã tư đường\"",
-        "hint": "c_o_s_o_d_",
-        "a": "crossroads"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vòng xuyến, bùng binh\"",
-        "hint": "r_u_d_b_u_",
-        "a": "roundabout"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"vạch qua đường cho người đi bộ\"",
-        "hint": "p_d_s_r_a_ _r_s_i_g",
-        "a": "pedestrian crossing"
       }
     ],
     "textbookExercises": [
@@ -10696,10 +6275,10 @@ export const courseData51_75 = [
             "id": "ex_61_2_0",
             "text": "turn left",
             "options": [
-              "vượt lên (xe khác)",
-              "đâm sầm vào / vụ va chạm",
+              "rẽ trái",
               "vụ tai nạn",
-              "rẽ trái"
+              "đâm sầm vào / vụ va chạm",
+              "vượt lên (xe khác)"
             ],
             "answer": "rẽ trái",
             "explanation": "Từ \"turn left\" có nghĩa chính xác là \"rẽ trái\"."
@@ -10708,10 +6287,10 @@ export const courseData51_75 = [
             "id": "ex_61_2_1",
             "text": "accident",
             "options": [
-              "rẽ trái",
               "vụ tai nạn",
               "đâm sầm vào / vụ va chạm",
-              "vượt lên (xe khác)"
+              "vượt lên (xe khác)",
+              "rẽ trái"
             ],
             "answer": "vụ tai nạn",
             "explanation": "Từ \"accident\" có nghĩa chính xác là \"vụ tai nạn\"."
@@ -10720,10 +6299,10 @@ export const courseData51_75 = [
             "id": "ex_61_2_2",
             "text": "crash",
             "options": [
-              "rẽ trái",
-              "vụ tai nạn",
               "đâm sầm vào / vụ va chạm",
-              "vượt lên (xe khác)"
+              "vượt lên (xe khác)",
+              "rẽ trái",
+              "vụ tai nạn"
             ],
             "answer": "đâm sầm vào / vụ va chạm",
             "explanation": "Từ \"crash\" có nghĩa chính xác là \"đâm sầm vào / vụ va chạm\"."
@@ -10733,9 +6312,9 @@ export const courseData51_75 = [
             "text": "overtake",
             "options": [
               "vượt lên (xe khác)",
-              "đâm sầm vào / vụ va chạm",
+              "rẽ trái",
               "vụ tai nạn",
-              "rẽ trái"
+              "đâm sầm vào / vụ va chạm"
             ],
             "answer": "vượt lên (xe khác)",
             "explanation": "Từ \"overtake\" có nghĩa chính xác là \"vượt lên (xe khác)\"."
@@ -10845,12 +6424,12 @@ export const courseData51_75 = [
           },
           {
             "id": "ex_61_5_2",
-            "text": "This [blank] is very important.",
+            "text": "He [blank] his car into a tree.",
             "answers": [
-              "crash"
+              "crashed"
             ],
             "hint": "đâm sầm vào / vụ va chạm",
-            "explanation": "Từ cần điền là \"crash\" (Động từ / Danh từ)."
+            "explanation": "Từ vựng cốt lõi là \"crash\" (Động từ / Danh từ), nghĩa \"đâm sầm vào / vụ va chạm\". Trong câu này nó ở dạng \"crashed\", nên đáp án cần gõ là \"crashed\"."
           },
           {
             "id": "ex_61_5_3",
@@ -10866,8 +6445,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "Stop at the red traffic lights.",
-        "trans": "Đọc to câu này."
+        "text": "Stop at the red traffic lights."
       }
     ]
   },
@@ -10949,12 +6527,7 @@ export const courseData51_75 = [
           "phonetic": "/kəʊtʃ/",
           "vi": "xe khách đường dài",
           "example": "We traveled to London by coach.",
-          "bucket": 0,
-          "collocations": [
-            "use coach",
-            "about coach"
-          ],
-          "wordFamily": "Biến thể từ vựng của coach"
+          "bucket": 0
         },
         {
           "word": "bus stop",
@@ -10962,12 +6535,7 @@ export const courseData51_75 = [
           "phonetic": "/bʌs stɒp/",
           "vi": "điểm dừng xe buýt",
           "example": "Wait for the number 10 at the bus stop.",
-          "bucket": 0,
-          "collocations": [
-            "use bus stop",
-            "about bus stop"
-          ],
-          "wordFamily": "Biến thể từ vựng của bus stop"
+          "bucket": 0
         },
         {
           "word": "platform",
@@ -10975,12 +6543,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈplætfɔːm/",
           "vi": "sân ga (đợi tàu)",
           "example": "The train departs from platform three.",
-          "bucket": 0,
-          "collocations": [
-            "use platform",
-            "about platform"
-          ],
-          "wordFamily": "Biến thể từ vựng của platform"
+          "bucket": 0
         },
         {
           "word": "fare",
@@ -10988,12 +6551,7 @@ export const courseData51_75 = [
           "phonetic": "/feə/",
           "vi": "giá vé tàu/xe",
           "example": "The bus fare is two pounds.",
-          "bucket": 0,
-          "collocations": [
-            "use fare",
-            "about fare"
-          ],
-          "wordFamily": "Biến thể từ vựng của fare"
+          "bucket": 0
         },
         {
           "word": "get off",
@@ -11001,12 +6559,7 @@ export const courseData51_75 = [
           "phonetic": "/gɛt ɒf/",
           "vi": "xuống xe (buýt, tàu)",
           "example": "Get off at the next station.",
-          "bucket": 1,
-          "collocations": [
-            "use get off",
-            "about get off"
-          ],
-          "wordFamily": "Biến thể từ vựng của get off"
+          "bucket": 1
         },
         {
           "word": "get on",
@@ -11014,12 +6567,7 @@ export const courseData51_75 = [
           "phonetic": "/gɛt ɒn/",
           "vi": "lên xe (buýt, tàu)",
           "example": "Get on the train quickly.",
-          "bucket": 1,
-          "collocations": [
-            "use get on",
-            "about get on"
-          ],
-          "wordFamily": "Biến thể từ vựng của get on"
+          "bucket": 1
         },
         {
           "word": "catch",
@@ -11027,12 +6575,7 @@ export const courseData51_75 = [
           "phonetic": "/kætʃ/",
           "vi": "bắt (chuyến tàu, xe buýt)",
           "example": "I need to catch the early bus.",
-          "bucket": 1,
-          "collocations": [
-            "use catch",
-            "about catch"
-          ],
-          "wordFamily": "Biến thể từ vựng của catch"
+          "bucket": 1
         },
         {
           "word": "miss",
@@ -11040,12 +6583,7 @@ export const courseData51_75 = [
           "phonetic": "/mɪs/",
           "vi": "bỏ lỡ (chuyến đi)",
           "example": "Hurry up or we will miss the flight.",
-          "bucket": 1,
-          "collocations": [
-            "use miss",
-            "about miss"
-          ],
-          "wordFamily": "Biến thể từ vựng của miss"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -11088,44 +6626,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 62:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"coach\"",
-              "value": "coachful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"bus stop\"",
-              "value": "bus stopful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"platform\"",
-              "value": "platformful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"fare\"",
-              "value": "Ví dụ: have a fare, make a fare, good fare"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"get off\"",
-              "value": "Cụm từ liên quan đến get off"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"get on\"",
-              "value": "Cụm từ liên quan đến get on"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -11180,150 +6681,6 @@ export const courseData51_75 = [
           "word": "miss",
           "target": "Travel Verbs (Hành động)",
           "vi": "bỏ lỡ (chuyến đi)"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới coach",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "xe khách đường dài"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới bus stop",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "điểm dừng xe buýt"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới platform",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "sân ga (đợi tàu)"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới fare",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "giá vé tàu/xe"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới get off",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "xuống xe (buýt, tàu)"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới get on",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "lên xe (buýt, tàu)"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới catch",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "bắt (chuyến tàu, xe buýt)"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới miss",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "bỏ lỡ (chuyến đi)"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới coach",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "xe khách đường dài"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới bus stop",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "điểm dừng xe buýt"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới platform",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "sân ga (đợi tàu)"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới fare",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "giá vé tàu/xe"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới get off",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "xuống xe (buýt, tàu)"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới get on",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "lên xe (buýt, tàu)"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới catch",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "bắt (chuyến tàu, xe buýt)"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới miss",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "bỏ lỡ (chuyến đi)"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới coach",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "xe khách đường dài"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới bus stop",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "điểm dừng xe buýt"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới platform",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "sân ga (đợi tàu)"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới fare",
-          "target": "Vehicles & Places (Xe & Trạm)",
-          "vi": "giá vé tàu/xe"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới get off",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "xuống xe (buýt, tàu)"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới get on",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "lên xe (buýt, tàu)"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới catch",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "bắt (chuyến tàu, xe buýt)"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới miss",
-          "target": "Travel Verbs (Hành động)",
-          "vi": "bỏ lỡ (chuyến đi)"
         }
       ]
     },
@@ -11332,39 +6689,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"xe khách đường dài\"?",
         "options": [
           "coach",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "bus stop",
+          "platform",
+          "fare"
         ],
         "a": "coach"
       },
       {
         "q": "Từ nào có nghĩa là \"điểm dừng xe buýt\"?",
         "options": [
+          "platform",
           "bus stop",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "fare",
+          "get off"
         ],
         "a": "bus stop"
       },
       {
         "q": "Từ nào có nghĩa là \"sân ga (đợi tàu)\"?",
         "options": [
+          "fare",
+          "get off",
           "platform",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "get on"
         ],
         "a": "platform"
       },
       {
         "q": "Từ nào có nghĩa là \"giá vé tàu/xe\"?",
         "options": [
-          "fare",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "get off",
+          "get on",
+          "catch",
+          "fare"
         ],
         "a": "fare"
       },
@@ -11372,161 +6729,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"xuống xe (buýt, tàu)\"?",
         "options": [
           "get off",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "get on",
+          "catch",
+          "miss"
         ],
         "a": "get off"
       },
       {
         "q": "Từ nào có nghĩa là \"lên xe (buýt, tàu)\"?",
         "options": [
+          "catch",
           "get on",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "miss",
+          "coach"
         ],
         "a": "get on"
       },
       {
         "q": "Từ nào có nghĩa là \"bắt (chuyến tàu, xe buýt)\"?",
         "options": [
+          "miss",
+          "coach",
           "catch",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "bus stop"
         ],
         "a": "catch"
       },
       {
         "q": "Từ nào có nghĩa là \"bỏ lỡ (chuyến đi)\"?",
         "options": [
-          "miss",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "coach",
+          "bus stop",
+          "platform",
+          "miss"
         ],
         "a": "miss"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"xe khách đường dài\"?",
-        "options": [
-          "coach",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "coach"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"điểm dừng xe buýt\"?",
-        "options": [
-          "bus stop",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "bus stop"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sân ga (đợi tàu)\"?",
-        "options": [
-          "platform",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "platform"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"giá vé tàu/xe\"?",
-        "options": [
-          "fare",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fare"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"xuống xe (buýt, tàu)\"?",
-        "options": [
-          "get off",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "get off"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"lên xe (buýt, tàu)\"?",
-        "options": [
-          "get on",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "get on"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bắt (chuyến tàu, xe buýt)\"?",
-        "options": [
-          "catch",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "catch"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bỏ lỡ (chuyến đi)\"?",
-        "options": [
-          "miss",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "miss"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"xe khách đường dài\"?",
-        "options": [
-          "coach",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "coach"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"điểm dừng xe buýt\"?",
-        "options": [
-          "bus stop",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "bus stop"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sân ga (đợi tàu)\"?",
-        "options": [
-          "platform",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "platform"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"giá vé tàu/xe\"?",
-        "options": [
-          "fare",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fare"
       }
     ],
     "typingGame": [
@@ -11569,66 +6806,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"bỏ lỡ (chuyến đi)\"",
         "hint": "m_s_",
         "a": "miss"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"xe khách đường dài\"",
-        "hint": "c_a_h",
-        "a": "coach"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"điểm dừng xe buýt\"",
-        "hint": "b_s_s_o_",
-        "a": "bus stop"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sân ga (đợi tàu)\"",
-        "hint": "p_a_f_r_",
-        "a": "platform"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"giá vé tàu/xe\"",
-        "hint": "f_r_",
-        "a": "fare"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"xuống xe (buýt, tàu)\"",
-        "hint": "g_t_o_f",
-        "a": "get off"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"lên xe (buýt, tàu)\"",
-        "hint": "g_t_o_",
-        "a": "get on"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bắt (chuyến tàu, xe buýt)\"",
-        "hint": "c_t_h",
-        "a": "catch"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bỏ lỡ (chuyến đi)\"",
-        "hint": "m_s_",
-        "a": "miss"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"xe khách đường dài\"",
-        "hint": "c_a_h",
-        "a": "coach"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"điểm dừng xe buýt\"",
-        "hint": "b_s_s_o_",
-        "a": "bus stop"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sân ga (đợi tàu)\"",
-        "hint": "p_a_f_r_",
-        "a": "platform"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"giá vé tàu/xe\"",
-        "hint": "f_r_",
-        "a": "fare"
       }
     ],
     "textbookExercises": [
@@ -11684,9 +6861,9 @@ export const courseData51_75 = [
             "id": "ex_62_2_0",
             "text": "get off",
             "options": [
-              "bắt (chuyến tàu, xe buýt)",
-              "lên xe (buýt, tàu)",
               "xuống xe (buýt, tàu)",
+              "lên xe (buýt, tàu)",
+              "bắt (chuyến tàu, xe buýt)",
               "bỏ lỡ (chuyến đi)"
             ],
             "answer": "xuống xe (buýt, tàu)",
@@ -11696,10 +6873,10 @@ export const courseData51_75 = [
             "id": "ex_62_2_1",
             "text": "get on",
             "options": [
+              "lên xe (buýt, tàu)",
               "bắt (chuyến tàu, xe buýt)",
               "bỏ lỡ (chuyến đi)",
-              "xuống xe (buýt, tàu)",
-              "lên xe (buýt, tàu)"
+              "xuống xe (buýt, tàu)"
             ],
             "answer": "lên xe (buýt, tàu)",
             "explanation": "Từ \"get on\" có nghĩa chính xác là \"lên xe (buýt, tàu)\"."
@@ -11708,10 +6885,10 @@ export const courseData51_75 = [
             "id": "ex_62_2_2",
             "text": "catch",
             "options": [
-              "xuống xe (buýt, tàu)",
-              "lên xe (buýt, tàu)",
               "bắt (chuyến tàu, xe buýt)",
-              "bỏ lỡ (chuyến đi)"
+              "bỏ lỡ (chuyến đi)",
+              "xuống xe (buýt, tàu)",
+              "lên xe (buýt, tàu)"
             ],
             "answer": "bắt (chuyến tàu, xe buýt)",
             "explanation": "Từ \"catch\" có nghĩa chính xác là \"bắt (chuyến tàu, xe buýt)\"."
@@ -11720,10 +6897,10 @@ export const courseData51_75 = [
             "id": "ex_62_2_3",
             "text": "miss",
             "options": [
-              "bắt (chuyến tàu, xe buýt)",
-              "lên xe (buýt, tàu)",
               "bỏ lỡ (chuyến đi)",
-              "xuống xe (buýt, tàu)"
+              "xuống xe (buýt, tàu)",
+              "lên xe (buýt, tàu)",
+              "bắt (chuyến tàu, xe buýt)"
             ],
             "answer": "bỏ lỡ (chuyến đi)",
             "explanation": "Từ \"miss\" có nghĩa chính xác là \"bỏ lỡ (chuyến đi)\"."
@@ -11817,7 +6994,7 @@ export const courseData51_75 = [
             "id": "ex_62_5_0",
             "text": "[blank] at the next station.",
             "answers": [
-              "get off"
+              "Get off"
             ],
             "hint": "xuống xe (buýt, tàu)",
             "explanation": "Từ cần điền là \"get off\" (Cụm động từ)."
@@ -11826,7 +7003,7 @@ export const courseData51_75 = [
             "id": "ex_62_5_1",
             "text": "[blank] the train quickly.",
             "answers": [
-              "get on"
+              "Get on"
             ],
             "hint": "lên xe (buýt, tàu)",
             "explanation": "Từ cần điền là \"get on\" (Cụm động từ)."
@@ -11854,8 +7031,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "We traveled to London by coach.",
-        "trans": "Đọc to câu này."
+        "text": "We traveled to London by coach."
       }
     ]
   },
@@ -11937,12 +7113,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈsæləri/",
           "vi": "tiền lương tháng",
           "example": "Engineers earn a high salary.",
-          "bucket": 0,
-          "collocations": [
-            "use salary",
-            "about salary"
-          ],
-          "wordFamily": "Biến thể từ vựng của salary"
+          "bucket": 0
         },
         {
           "word": "wage",
@@ -11950,12 +7121,7 @@ export const courseData51_75 = [
           "phonetic": "/weɪdʒ/",
           "vi": "tiền công (trả theo giờ/tuần)",
           "example": "His weekly wage is paid in cash.",
-          "bucket": 0,
-          "collocations": [
-            "use wage",
-            "about wage"
-          ],
-          "wordFamily": "Biến thể từ vựng của wage"
+          "bucket": 0
         },
         {
           "word": "working hours",
@@ -11963,12 +7129,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈwɜːkɪŋ ˈaʊəz/",
           "vi": "giờ làm việc",
           "example": "My working hours are 9 to 5.",
-          "bucket": 0,
-          "collocations": [
-            "use working hours",
-            "about working hours"
-          ],
-          "wordFamily": "Biến thể từ vựng của working hours"
+          "bucket": 0
         },
         {
           "word": "tax",
@@ -11976,12 +7137,7 @@ export const courseData51_75 = [
           "phonetic": "/tæks/",
           "vi": "tiền thuế",
           "example": "The government collects income tax.",
-          "bucket": 0,
-          "collocations": [
-            "use tax",
-            "about tax"
-          ],
-          "wordFamily": "Biến thể từ vựng của tax"
+          "bucket": 0
         },
         {
           "word": "What do you do?",
@@ -11989,12 +7145,7 @@ export const courseData51_75 = [
           "phonetic": "/wɒt duː juː duː/",
           "vi": "Bạn làm nghề gì?",
           "example": "What do you do? I'm a teacher.",
-          "bucket": 1,
-          "collocations": [
-            "use What do you do?",
-            "about What do you do?"
-          ],
-          "wordFamily": "Biến thể từ vựng của What do you do?"
+          "bucket": 1
         },
         {
           "word": "do overtime",
@@ -12002,12 +7153,7 @@ export const courseData51_75 = [
           "phonetic": "/duː ˈəʊvətaɪm/",
           "vi": "làm thêm giờ",
           "example": "I have to do overtime this weekend.",
-          "bucket": 1,
-          "collocations": [
-            "use do overtime",
-            "about do overtime"
-          ],
-          "wordFamily": "Biến thể từ vựng của do overtime"
+          "bucket": 1
         },
         {
           "word": "earn",
@@ -12015,12 +7161,7 @@ export const courseData51_75 = [
           "phonetic": "/ɜːn/",
           "vi": "kiếm được tiền",
           "example": "How much do you earn per month?",
-          "bucket": 1,
-          "collocations": [
-            "use earn",
-            "about earn"
-          ],
-          "wordFamily": "Biến thể từ vựng của earn"
+          "bucket": 1
         },
         {
           "word": "get paid",
@@ -12028,12 +7169,7 @@ export const courseData51_75 = [
           "phonetic": "/gɛt peɪd/",
           "vi": "được trả lương",
           "example": "We get paid on the last day of the month.",
-          "bucket": 1,
-          "collocations": [
-            "use get paid",
-            "about get paid"
-          ],
-          "wordFamily": "Biến thể từ vựng của get paid"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -12076,44 +7212,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 63:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"salary\"",
-              "value": "salaryful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"wage\"",
-              "value": "wageful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"working hours\"",
-              "value": "Các dạng từ loại khác của \"working hours\" đang được cập nhật."
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"tax\"",
-              "value": "Ví dụ: have a tax, make a tax, good tax"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"What do you do?\"",
-              "value": "Cụm từ liên quan đến What do you do?"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"do overtime\"",
-              "value": "Cụm từ liên quan đến do overtime"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -12168,150 +7267,6 @@ export const courseData51_75 = [
           "word": "get paid",
           "target": "Actions (Hành động)",
           "vi": "được trả lương"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới salary",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "tiền lương tháng"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới wage",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "tiền công (trả theo giờ/tuần)"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới working hours",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "giờ làm việc"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới tax",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "tiền thuế"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới What do you do?",
-          "target": "Actions (Hành động)",
-          "vi": "Bạn làm nghề gì?"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới do overtime",
-          "target": "Actions (Hành động)",
-          "vi": "làm thêm giờ"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới earn",
-          "target": "Actions (Hành động)",
-          "vi": "kiếm được tiền"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới get paid",
-          "target": "Actions (Hành động)",
-          "vi": "được trả lương"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới salary",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "tiền lương tháng"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới wage",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "tiền công (trả theo giờ/tuần)"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới working hours",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "giờ làm việc"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới tax",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "tiền thuế"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới What do you do?",
-          "target": "Actions (Hành động)",
-          "vi": "Bạn làm nghề gì?"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới do overtime",
-          "target": "Actions (Hành động)",
-          "vi": "làm thêm giờ"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới earn",
-          "target": "Actions (Hành động)",
-          "vi": "kiếm được tiền"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới get paid",
-          "target": "Actions (Hành động)",
-          "vi": "được trả lương"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới salary",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "tiền lương tháng"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới wage",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "tiền công (trả theo giờ/tuần)"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới working hours",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "giờ làm việc"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới tax",
-          "target": "Job Elements (Yếu tố công việc)",
-          "vi": "tiền thuế"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới What do you do?",
-          "target": "Actions (Hành động)",
-          "vi": "Bạn làm nghề gì?"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới do overtime",
-          "target": "Actions (Hành động)",
-          "vi": "làm thêm giờ"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới earn",
-          "target": "Actions (Hành động)",
-          "vi": "kiếm được tiền"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới get paid",
-          "target": "Actions (Hành động)",
-          "vi": "được trả lương"
         }
       ]
     },
@@ -12320,39 +7275,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"tiền lương tháng\"?",
         "options": [
           "salary",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "wage",
+          "working hours",
+          "tax"
         ],
         "a": "salary"
       },
       {
         "q": "Từ nào có nghĩa là \"tiền công (trả theo giờ/tuần)\"?",
         "options": [
+          "working hours",
           "wage",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "tax",
+          "What do you do?"
         ],
         "a": "wage"
       },
       {
         "q": "Từ nào có nghĩa là \"giờ làm việc\"?",
         "options": [
+          "tax",
+          "What do you do?",
           "working hours",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "do overtime"
         ],
         "a": "working hours"
       },
       {
         "q": "Từ nào có nghĩa là \"tiền thuế\"?",
         "options": [
-          "tax",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "What do you do?",
+          "do overtime",
+          "earn",
+          "tax"
         ],
         "a": "tax"
       },
@@ -12360,161 +7315,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"Bạn làm nghề gì?\"?",
         "options": [
           "What do you do?",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "do overtime",
+          "earn",
+          "get paid"
         ],
         "a": "What do you do?"
       },
       {
         "q": "Từ nào có nghĩa là \"làm thêm giờ\"?",
         "options": [
+          "earn",
           "do overtime",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "get paid",
+          "salary"
         ],
         "a": "do overtime"
       },
       {
         "q": "Từ nào có nghĩa là \"kiếm được tiền\"?",
         "options": [
+          "get paid",
+          "salary",
           "earn",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "wage"
         ],
         "a": "earn"
       },
       {
         "q": "Từ nào có nghĩa là \"được trả lương\"?",
         "options": [
-          "get paid",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "salary",
+          "wage",
+          "working hours",
+          "get paid"
         ],
         "a": "get paid"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiền lương tháng\"?",
-        "options": [
-          "salary",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "salary"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiền công (trả theo giờ/tuần)\"?",
-        "options": [
-          "wage",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "wage"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"giờ làm việc\"?",
-        "options": [
-          "working hours",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "working hours"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiền thuế\"?",
-        "options": [
-          "tax",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "tax"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"Bạn làm nghề gì?\"?",
-        "options": [
-          "What do you do?",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "What do you do?"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"làm thêm giờ\"?",
-        "options": [
-          "do overtime",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "do overtime"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"kiếm được tiền\"?",
-        "options": [
-          "earn",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "earn"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"được trả lương\"?",
-        "options": [
-          "get paid",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "get paid"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiền lương tháng\"?",
-        "options": [
-          "salary",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "salary"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiền công (trả theo giờ/tuần)\"?",
-        "options": [
-          "wage",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "wage"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"giờ làm việc\"?",
-        "options": [
-          "working hours",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "working hours"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiền thuế\"?",
-        "options": [
-          "tax",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "tax"
       }
     ],
     "typingGame": [
@@ -12557,66 +7392,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"được trả lương\"",
         "hint": "g_t_p_i_",
         "a": "get paid"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiền lương tháng\"",
-        "hint": "s_l_r_",
-        "a": "salary"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiền công (trả theo giờ/tuần)\"",
-        "hint": "w_g_",
-        "a": "wage"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"giờ làm việc\"",
-        "hint": "w_r_i_g_h_u_s",
-        "a": "working hours"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiền thuế\"",
-        "hint": "t_x",
-        "a": "tax"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"Bạn làm nghề gì?\"",
-        "hint": "W_a_ _o_y_u_d_?",
-        "a": "What do you do?"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"làm thêm giờ\"",
-        "hint": "d_ _v_r_i_e",
-        "a": "do overtime"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"kiếm được tiền\"",
-        "hint": "e_r_",
-        "a": "earn"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"được trả lương\"",
-        "hint": "g_t_p_i_",
-        "a": "get paid"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiền lương tháng\"",
-        "hint": "s_l_r_",
-        "a": "salary"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiền công (trả theo giờ/tuần)\"",
-        "hint": "w_g_",
-        "a": "wage"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"giờ làm việc\"",
-        "hint": "w_r_i_g_h_u_s",
-        "a": "working hours"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiền thuế\"",
-        "hint": "t_x",
-        "a": "tax"
       }
     ],
     "textbookExercises": [
@@ -12684,10 +7459,10 @@ export const courseData51_75 = [
             "id": "ex_63_2_1",
             "text": "do overtime",
             "options": [
-              "Bạn làm nghề gì?",
               "làm thêm giờ",
               "kiếm được tiền",
-              "được trả lương"
+              "được trả lương",
+              "Bạn làm nghề gì?"
             ],
             "answer": "làm thêm giờ",
             "explanation": "Từ \"do overtime\" có nghĩa chính xác là \"làm thêm giờ\"."
@@ -12696,10 +7471,10 @@ export const courseData51_75 = [
             "id": "ex_63_2_2",
             "text": "earn",
             "options": [
-              "Bạn làm nghề gì?",
-              "làm thêm giờ",
+              "kiếm được tiền",
               "được trả lương",
-              "kiếm được tiền"
+              "Bạn làm nghề gì?",
+              "làm thêm giờ"
             ],
             "answer": "kiếm được tiền",
             "explanation": "Từ \"earn\" có nghĩa chính xác là \"kiếm được tiền\"."
@@ -12709,9 +7484,9 @@ export const courseData51_75 = [
             "text": "get paid",
             "options": [
               "được trả lương",
+              "Bạn làm nghề gì?",
               "làm thêm giờ",
-              "kiếm được tiền",
-              "Bạn làm nghề gì?"
+              "kiếm được tiền"
             ],
             "answer": "được trả lương",
             "explanation": "Từ \"get paid\" có nghĩa chính xác là \"được trả lương\"."
@@ -12803,7 +7578,7 @@ export const courseData51_75 = [
         "questions": [
           {
             "id": "ex_63_5_0",
-            "text": "[blank]? I'm a teacher.",
+            "text": "[blank] I'm a teacher.",
             "answers": [
               "What do you do?"
             ],
@@ -12842,8 +7617,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "Engineers earn a high salary.",
-        "trans": "Đọc to câu này."
+        "text": "Engineers earn a high salary."
       }
     ]
   },
@@ -12925,12 +7699,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈdɛntɪst/",
           "vi": "nha sĩ",
           "example": "The dentist checked my teeth.",
-          "bucket": 0,
-          "collocations": [
-            "use dentist",
-            "about dentist"
-          ],
-          "wordFamily": "Biến thể từ vựng của dentist"
+          "bucket": 0
         },
         {
           "word": "lawyer",
@@ -12938,12 +7707,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈlɔːjə/",
           "vi": "luật sư",
           "example": "The lawyer gave me legal advice.",
-          "bucket": 0,
-          "collocations": [
-            "use lawyer",
-            "about lawyer"
-          ],
-          "wordFamily": "Biến thể từ vựng của lawyer"
+          "bucket": 0
         },
         {
           "word": "plumber",
@@ -12951,12 +7715,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈplʌmə/",
           "vi": "thợ sửa ống nước (b câm)",
           "example": "Call a plumber to fix the leak.",
-          "bucket": 0,
-          "collocations": [
-            "use plumber",
-            "about plumber"
-          ],
-          "wordFamily": "Biến thể từ vựng của plumber"
+          "bucket": 0
         },
         {
           "word": "mechanic",
@@ -12964,12 +7723,7 @@ export const courseData51_75 = [
           "phonetic": "/mɪˈkænɪk/",
           "vi": "thợ cơ khí, thợ sửa xe",
           "example": "The mechanic repaired my car engine.",
-          "bucket": 0,
-          "collocations": [
-            "use mechanic",
-            "about mechanic"
-          ],
-          "wordFamily": "Biến thể từ vựng của mechanic"
+          "bucket": 0
         },
         {
           "word": "architect",
@@ -12977,12 +7731,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɑːkɪtɛkt/",
           "vi": "kiến trúc sư",
           "example": "The architect designed a new bridge.",
-          "bucket": 1,
-          "collocations": [
-            "use architect",
-            "about architect"
-          ],
-          "wordFamily": "Biến thể từ vựng của architect"
+          "bucket": 1
         },
         {
           "word": "hairdresser",
@@ -12990,12 +7739,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈheəˌdrɛsə/",
           "vi": "thợ làm tóc",
           "example": "My hairdresser styled my hair beautifully.",
-          "bucket": 1,
-          "collocations": [
-            "use hairdresser",
-            "about hairdresser"
-          ],
-          "wordFamily": "Biến thể từ vựng của hairdresser"
+          "bucket": 1
         },
         {
           "word": "soldier",
@@ -13003,12 +7747,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈsəʊldʒə/",
           "vi": "người lính, bộ đội",
           "example": "The soldier fought bravely for his country.",
-          "bucket": 1,
-          "collocations": [
-            "use soldier",
-            "about soldier"
-          ],
-          "wordFamily": "Biến thể từ vựng của soldier"
+          "bucket": 1
         },
         {
           "word": "accountant",
@@ -13016,12 +7755,7 @@ export const courseData51_75 = [
           "phonetic": "/əˈkaʊntənt/",
           "vi": "kế toán viên",
           "example": "An accountant manages the company finances.",
-          "bucket": 1,
-          "collocations": [
-            "use accountant",
-            "about accountant"
-          ],
-          "wordFamily": "Biến thể từ vựng của accountant"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -13064,44 +7798,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 64:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"dentist\"",
-              "value": "dentistful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"lawyer\"",
-              "value": "lawyerful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"plumber\"",
-              "value": "plumberful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"mechanic\"",
-              "value": "Ví dụ: have a mechanic, make a mechanic, good mechanic"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"architect\"",
-              "value": "Ví dụ: have a architect, make a architect, good architect"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"hairdresser\"",
-              "value": "Ví dụ: have a hairdresser, make a hairdresser, good hairdresser"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -13156,150 +7853,6 @@ export const courseData51_75 = [
           "word": "accountant",
           "target": "Professions B (Nghề nghiệp B)",
           "vi": "kế toán viên"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới dentist",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "nha sĩ"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới lawyer",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "luật sư"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới plumber",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "thợ sửa ống nước (b câm)"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới mechanic",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "thợ cơ khí, thợ sửa xe"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới architect",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "kiến trúc sư"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới hairdresser",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "thợ làm tóc"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới soldier",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "người lính, bộ đội"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới accountant",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "kế toán viên"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới dentist",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "nha sĩ"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới lawyer",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "luật sư"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới plumber",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "thợ sửa ống nước (b câm)"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới mechanic",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "thợ cơ khí, thợ sửa xe"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới architect",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "kiến trúc sư"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới hairdresser",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "thợ làm tóc"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới soldier",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "người lính, bộ đội"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới accountant",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "kế toán viên"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới dentist",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "nha sĩ"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới lawyer",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "luật sư"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới plumber",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "thợ sửa ống nước (b câm)"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới mechanic",
-          "target": "Professions A (Nghề nghiệp A)",
-          "vi": "thợ cơ khí, thợ sửa xe"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới architect",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "kiến trúc sư"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới hairdresser",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "thợ làm tóc"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới soldier",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "người lính, bộ đội"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới accountant",
-          "target": "Professions B (Nghề nghiệp B)",
-          "vi": "kế toán viên"
         }
       ]
     },
@@ -13308,39 +7861,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"nha sĩ\"?",
         "options": [
           "dentist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "lawyer",
+          "plumber",
+          "mechanic"
         ],
         "a": "dentist"
       },
       {
         "q": "Từ nào có nghĩa là \"luật sư\"?",
         "options": [
+          "plumber",
           "lawyer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "mechanic",
+          "architect"
         ],
         "a": "lawyer"
       },
       {
         "q": "Từ nào có nghĩa là \"thợ sửa ống nước (b câm)\"?",
         "options": [
+          "mechanic",
+          "architect",
           "plumber",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "hairdresser"
         ],
         "a": "plumber"
       },
       {
         "q": "Từ nào có nghĩa là \"thợ cơ khí, thợ sửa xe\"?",
         "options": [
-          "mechanic",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "architect",
+          "hairdresser",
+          "soldier",
+          "mechanic"
         ],
         "a": "mechanic"
       },
@@ -13348,161 +7901,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"kiến trúc sư\"?",
         "options": [
           "architect",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "hairdresser",
+          "soldier",
+          "accountant"
         ],
         "a": "architect"
       },
       {
         "q": "Từ nào có nghĩa là \"thợ làm tóc\"?",
         "options": [
+          "soldier",
           "hairdresser",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "accountant",
+          "dentist"
         ],
         "a": "hairdresser"
       },
       {
         "q": "Từ nào có nghĩa là \"người lính, bộ đội\"?",
         "options": [
+          "accountant",
+          "dentist",
           "soldier",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "lawyer"
         ],
         "a": "soldier"
       },
       {
         "q": "Từ nào có nghĩa là \"kế toán viên\"?",
         "options": [
-          "accountant",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "dentist",
+          "lawyer",
+          "plumber",
+          "accountant"
         ],
         "a": "accountant"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nha sĩ\"?",
-        "options": [
-          "dentist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "dentist"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"luật sư\"?",
-        "options": [
-          "lawyer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "lawyer"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thợ sửa ống nước (b câm)\"?",
-        "options": [
-          "plumber",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "plumber"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thợ cơ khí, thợ sửa xe\"?",
-        "options": [
-          "mechanic",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "mechanic"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"kiến trúc sư\"?",
-        "options": [
-          "architect",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "architect"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thợ làm tóc\"?",
-        "options": [
-          "hairdresser",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "hairdresser"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"người lính, bộ đội\"?",
-        "options": [
-          "soldier",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "soldier"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"kế toán viên\"?",
-        "options": [
-          "accountant",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "accountant"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nha sĩ\"?",
-        "options": [
-          "dentist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "dentist"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"luật sư\"?",
-        "options": [
-          "lawyer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "lawyer"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thợ sửa ống nước (b câm)\"?",
-        "options": [
-          "plumber",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "plumber"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thợ cơ khí, thợ sửa xe\"?",
-        "options": [
-          "mechanic",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "mechanic"
       }
     ],
     "typingGame": [
@@ -13545,66 +7978,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"kế toán viên\"",
         "hint": "a_c_u_t_n_",
         "a": "accountant"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nha sĩ\"",
-        "hint": "d_n_i_t",
-        "a": "dentist"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"luật sư\"",
-        "hint": "l_w_e_",
-        "a": "lawyer"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thợ sửa ống nước (b câm)\"",
-        "hint": "p_u_b_r",
-        "a": "plumber"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thợ cơ khí, thợ sửa xe\"",
-        "hint": "m_c_a_i_",
-        "a": "mechanic"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"kiến trúc sư\"",
-        "hint": "a_c_i_e_t",
-        "a": "architect"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thợ làm tóc\"",
-        "hint": "h_i_d_e_s_r",
-        "a": "hairdresser"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"người lính, bộ đội\"",
-        "hint": "s_l_i_r",
-        "a": "soldier"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"kế toán viên\"",
-        "hint": "a_c_u_t_n_",
-        "a": "accountant"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nha sĩ\"",
-        "hint": "d_n_i_t",
-        "a": "dentist"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"luật sư\"",
-        "hint": "l_w_e_",
-        "a": "lawyer"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thợ sửa ống nước (b câm)\"",
-        "hint": "p_u_b_r",
-        "a": "plumber"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thợ cơ khí, thợ sửa xe\"",
-        "hint": "m_c_a_i_",
-        "a": "mechanic"
       }
     ],
     "textbookExercises": [
@@ -13660,10 +8033,10 @@ export const courseData51_75 = [
             "id": "ex_64_2_0",
             "text": "architect",
             "options": [
-              "kế toán viên",
+              "kiến trúc sư",
               "thợ làm tóc",
               "người lính, bộ đội",
-              "kiến trúc sư"
+              "kế toán viên"
             ],
             "answer": "kiến trúc sư",
             "explanation": "Từ \"architect\" có nghĩa chính xác là \"kiến trúc sư\"."
@@ -13672,10 +8045,10 @@ export const courseData51_75 = [
             "id": "ex_64_2_1",
             "text": "hairdresser",
             "options": [
-              "kiến trúc sư",
-              "kế toán viên",
               "thợ làm tóc",
-              "người lính, bộ đội"
+              "người lính, bộ đội",
+              "kế toán viên",
+              "kiến trúc sư"
             ],
             "answer": "thợ làm tóc",
             "explanation": "Từ \"hairdresser\" có nghĩa chính xác là \"thợ làm tóc\"."
@@ -13684,10 +8057,10 @@ export const courseData51_75 = [
             "id": "ex_64_2_2",
             "text": "soldier",
             "options": [
-              "thợ làm tóc",
-              "kiến trúc sư",
+              "người lính, bộ đội",
               "kế toán viên",
-              "người lính, bộ đội"
+              "kiến trúc sư",
+              "thợ làm tóc"
             ],
             "answer": "người lính, bộ đội",
             "explanation": "Từ \"soldier\" có nghĩa chính xác là \"người lính, bộ đội\"."
@@ -13697,9 +8070,9 @@ export const courseData51_75 = [
             "text": "accountant",
             "options": [
               "kế toán viên",
+              "kiến trúc sư",
               "thợ làm tóc",
-              "người lính, bộ đội",
-              "kiến trúc sư"
+              "người lính, bộ đội"
             ],
             "answer": "kế toán viên",
             "explanation": "Từ \"accountant\" có nghĩa chính xác là \"kế toán viên\"."
@@ -13830,8 +8203,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "The dentist checked my teeth.",
-        "trans": "Đọc to câu này."
+        "text": "The dentist checked my teeth."
       }
     ]
   },
@@ -13913,12 +8285,7 @@ export const courseData51_75 = [
           "phonetic": "/bi prəˈməʊtɪd/",
           "vi": "được thăng chức",
           "example": "He worked hard to be promoted to manager.",
-          "bucket": 0,
-          "collocations": [
-            "use be promoted",
-            "about be promoted"
-          ],
-          "wordFamily": "Biến thể từ vựng của be promoted"
+          "bucket": 0
         },
         {
           "word": "apply for",
@@ -13926,12 +8293,7 @@ export const courseData51_75 = [
           "phonetic": "/əˈplaɪ fɔː/",
           "vi": "nộp đơn xin việc",
           "example": "She decided to apply for the new job.",
-          "bucket": 0,
-          "collocations": [
-            "use apply for",
-            "about apply for"
-          ],
-          "wordFamily": "Biến thể từ vựng của apply for"
+          "bucket": 0
         },
         {
           "word": "interview",
@@ -13939,12 +8301,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɪntəvjuː/",
           "vi": "cuộc phỏng vấn / phỏng vấn",
           "example": "I have a job interview tomorrow morning.",
-          "bucket": 0,
-          "collocations": [
-            "use interview",
-            "about interview"
-          ],
-          "wordFamily": "Biến thể từ vựng của interview"
+          "bucket": 0
         },
         {
           "word": "retire",
@@ -13952,12 +8309,7 @@ export const courseData51_75 = [
           "phonetic": "/rɪˈtaɪə/",
           "vi": "nghỉ hưu",
           "example": "My grandfather will retire at 65.",
-          "bucket": 0,
-          "collocations": [
-            "use retire",
-            "about retire"
-          ],
-          "wordFamily": "Biến thể từ vựng của retire"
+          "bucket": 0
         },
         {
           "word": "resign",
@@ -13965,12 +8317,7 @@ export const courseData51_75 = [
           "phonetic": "/rɪˈzaɪn/",
           "vi": "từ chức, xin thôi việc",
           "example": "She will resign from her post next week.",
-          "bucket": 1,
-          "collocations": [
-            "use resign",
-            "about resign"
-          ],
-          "wordFamily": "Biến thể từ vựng của resign"
+          "bucket": 1
         },
         {
           "word": "unemployed",
@@ -13978,12 +8325,7 @@ export const courseData51_75 = [
           "phonetic": "/ˌʌnɪmˈplɔɪd/",
           "vi": "thất nghiệp",
           "example": "The factory closed and he is now unemployed.",
-          "bucket": 1,
-          "collocations": [
-            "use unemployed",
-            "about unemployed"
-          ],
-          "wordFamily": "Biến thể từ vựng của unemployed"
+          "bucket": 1
         },
         {
           "word": "sack",
@@ -13991,12 +8333,7 @@ export const courseData51_75 = [
           "phonetic": "/sæk/",
           "vi": "sa thải, đuổi việc",
           "example": "They will sack him if he is always late.",
-          "bucket": 1,
-          "collocations": [
-            "use sack",
-            "about sack"
-          ],
-          "wordFamily": "Biến thể từ vựng của sack"
+          "bucket": 1
         },
         {
           "word": "quit",
@@ -14004,12 +8341,7 @@ export const courseData51_75 = [
           "phonetic": "/kwɪt/",
           "vi": "bỏ việc, từ bỏ",
           "example": "I hate this job, I want to quit.",
-          "bucket": 1,
-          "collocations": [
-            "use quit",
-            "about quit"
-          ],
-          "wordFamily": "Biến thể từ vựng của quit"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -14052,44 +8384,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 65:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"be promoted\"",
-              "value": "Các dạng từ loại khác của \"be promoted\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"apply for\"",
-              "value": "Các dạng từ loại khác của \"apply for\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"interview\"",
-              "value": "interviewer (Danh từ), interviewful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"retire\"",
-              "value": "Ví dụ: retire quickly, always retire"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"resign\"",
-              "value": "Ví dụ: resign quickly, always resign"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"unemployed\"",
-              "value": "Ví dụ: very unemployed, extremely unemployed"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -14144,150 +8439,6 @@ export const courseData51_75 = [
           "word": "quit",
           "target": "Career Problems (Khó khăn)",
           "vi": "bỏ việc, từ bỏ"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới be promoted",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "được thăng chức"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới apply for",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "nộp đơn xin việc"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới interview",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "cuộc phỏng vấn / phỏng vấn"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới retire",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "nghỉ hưu"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới resign",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "từ chức, xin thôi việc"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới unemployed",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "thất nghiệp"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới sack",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "sa thải, đuổi việc"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới quit",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "bỏ việc, từ bỏ"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới be promoted",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "được thăng chức"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới apply for",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "nộp đơn xin việc"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới interview",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "cuộc phỏng vấn / phỏng vấn"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới retire",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "nghỉ hưu"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới resign",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "từ chức, xin thôi việc"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới unemployed",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "thất nghiệp"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới sack",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "sa thải, đuổi việc"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới quit",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "bỏ việc, từ bỏ"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới be promoted",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "được thăng chức"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới apply for",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "nộp đơn xin việc"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới interview",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "cuộc phỏng vấn / phỏng vấn"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới retire",
-          "target": "Career Progression (Sự thăng tiến)",
-          "vi": "nghỉ hưu"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới resign",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "từ chức, xin thôi việc"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới unemployed",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "thất nghiệp"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới sack",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "sa thải, đuổi việc"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới quit",
-          "target": "Career Problems (Khó khăn)",
-          "vi": "bỏ việc, từ bỏ"
         }
       ]
     },
@@ -14296,39 +8447,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"được thăng chức\"?",
         "options": [
           "be promoted",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "apply for",
+          "interview",
+          "retire"
         ],
         "a": "be promoted"
       },
       {
         "q": "Từ nào có nghĩa là \"nộp đơn xin việc\"?",
         "options": [
+          "interview",
           "apply for",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "retire",
+          "resign"
         ],
         "a": "apply for"
       },
       {
         "q": "Từ nào có nghĩa là \"cuộc phỏng vấn / phỏng vấn\"?",
         "options": [
+          "retire",
+          "resign",
           "interview",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "unemployed"
         ],
         "a": "interview"
       },
       {
         "q": "Từ nào có nghĩa là \"nghỉ hưu\"?",
         "options": [
-          "retire",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "resign",
+          "unemployed",
+          "sack",
+          "retire"
         ],
         "a": "retire"
       },
@@ -14336,161 +8487,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"từ chức, xin thôi việc\"?",
         "options": [
           "resign",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "unemployed",
+          "sack",
+          "quit"
         ],
         "a": "resign"
       },
       {
         "q": "Từ nào có nghĩa là \"thất nghiệp\"?",
         "options": [
+          "sack",
           "unemployed",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "quit",
+          "be promoted"
         ],
         "a": "unemployed"
       },
       {
         "q": "Từ nào có nghĩa là \"sa thải, đuổi việc\"?",
         "options": [
+          "quit",
+          "be promoted",
           "sack",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "apply for"
         ],
         "a": "sack"
       },
       {
         "q": "Từ nào có nghĩa là \"bỏ việc, từ bỏ\"?",
         "options": [
-          "quit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "be promoted",
+          "apply for",
+          "interview",
+          "quit"
         ],
         "a": "quit"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"được thăng chức\"?",
-        "options": [
-          "be promoted",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "be promoted"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nộp đơn xin việc\"?",
-        "options": [
-          "apply for",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "apply for"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cuộc phỏng vấn / phỏng vấn\"?",
-        "options": [
-          "interview",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "interview"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nghỉ hưu\"?",
-        "options": [
-          "retire",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "retire"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"từ chức, xin thôi việc\"?",
-        "options": [
-          "resign",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "resign"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thất nghiệp\"?",
-        "options": [
-          "unemployed",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "unemployed"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sa thải, đuổi việc\"?",
-        "options": [
-          "sack",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "sack"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bỏ việc, từ bỏ\"?",
-        "options": [
-          "quit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "quit"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"được thăng chức\"?",
-        "options": [
-          "be promoted",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "be promoted"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nộp đơn xin việc\"?",
-        "options": [
-          "apply for",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "apply for"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cuộc phỏng vấn / phỏng vấn\"?",
-        "options": [
-          "interview",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "interview"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nghỉ hưu\"?",
-        "options": [
-          "retire",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "retire"
       }
     ],
     "typingGame": [
@@ -14533,66 +8564,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"bỏ việc, từ bỏ\"",
         "hint": "q_i_",
         "a": "quit"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"được thăng chức\"",
-        "hint": "b_ _r_m_t_d",
-        "a": "be promoted"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nộp đơn xin việc\"",
-        "hint": "a_p_y_f_r",
-        "a": "apply for"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cuộc phỏng vấn / phỏng vấn\"",
-        "hint": "i_t_r_i_w",
-        "a": "interview"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nghỉ hưu\"",
-        "hint": "r_t_r_",
-        "a": "retire"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"từ chức, xin thôi việc\"",
-        "hint": "r_s_g_",
-        "a": "resign"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thất nghiệp\"",
-        "hint": "u_e_p_o_e_",
-        "a": "unemployed"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sa thải, đuổi việc\"",
-        "hint": "s_c_",
-        "a": "sack"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bỏ việc, từ bỏ\"",
-        "hint": "q_i_",
-        "a": "quit"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"được thăng chức\"",
-        "hint": "b_ _r_m_t_d",
-        "a": "be promoted"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nộp đơn xin việc\"",
-        "hint": "a_p_y_f_r",
-        "a": "apply for"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cuộc phỏng vấn / phỏng vấn\"",
-        "hint": "i_t_r_i_w",
-        "a": "interview"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nghỉ hưu\"",
-        "hint": "r_t_r_",
-        "a": "retire"
       }
     ],
     "textbookExercises": [
@@ -14648,10 +8619,10 @@ export const courseData51_75 = [
             "id": "ex_65_2_0",
             "text": "resign",
             "options": [
-              "bỏ việc, từ bỏ",
+              "từ chức, xin thôi việc",
               "thất nghiệp",
               "sa thải, đuổi việc",
-              "từ chức, xin thôi việc"
+              "bỏ việc, từ bỏ"
             ],
             "answer": "từ chức, xin thôi việc",
             "explanation": "Từ \"resign\" có nghĩa chính xác là \"từ chức, xin thôi việc\"."
@@ -14660,10 +8631,10 @@ export const courseData51_75 = [
             "id": "ex_65_2_1",
             "text": "unemployed",
             "options": [
-              "từ chức, xin thôi việc",
-              "bỏ việc, từ bỏ",
               "thất nghiệp",
-              "sa thải, đuổi việc"
+              "sa thải, đuổi việc",
+              "bỏ việc, từ bỏ",
+              "từ chức, xin thôi việc"
             ],
             "answer": "thất nghiệp",
             "explanation": "Từ \"unemployed\" có nghĩa chính xác là \"thất nghiệp\"."
@@ -14672,10 +8643,10 @@ export const courseData51_75 = [
             "id": "ex_65_2_2",
             "text": "sack",
             "options": [
-              "bỏ việc, từ bỏ",
               "sa thải, đuổi việc",
-              "thất nghiệp",
-              "từ chức, xin thôi việc"
+              "bỏ việc, từ bỏ",
+              "từ chức, xin thôi việc",
+              "thất nghiệp"
             ],
             "answer": "sa thải, đuổi việc",
             "explanation": "Từ \"sack\" có nghĩa chính xác là \"sa thải, đuổi việc\"."
@@ -14684,10 +8655,10 @@ export const courseData51_75 = [
             "id": "ex_65_2_3",
             "text": "quit",
             "options": [
+              "bỏ việc, từ bỏ",
               "từ chức, xin thôi việc",
-              "sa thải, đuổi việc",
               "thất nghiệp",
-              "bỏ việc, từ bỏ"
+              "sa thải, đuổi việc"
             ],
             "answer": "bỏ việc, từ bỏ",
             "explanation": "Từ \"quit\" có nghĩa chính xác là \"bỏ việc, từ bỏ\"."
@@ -14818,8 +8789,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "He worked hard to be promoted to manager.",
-        "trans": "Đọc to câu này."
+        "text": "He worked hard to be promoted to manager."
       }
     ]
   },
@@ -14901,12 +8871,7 @@ export const courseData51_75 = [
           "phonetic": "/ʃəʊ ˈsʌmwʌn əˈraʊnd/",
           "vi": "dẫn ai đó đi tham quan (nơi làm việc)",
           "example": "The manager will show you around the office.",
-          "bucket": 0,
-          "collocations": [
-            "use show someone around",
-            "about show someone around"
-          ],
-          "wordFamily": "Biến thể từ vựng của show someone around"
+          "bucket": 0
         },
         {
           "word": "filing cabinet",
@@ -14914,12 +8879,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈfaɪlɪŋ ˈkæbɪnɪt/",
           "vi": "tủ đựng hồ sơ tài liệu",
           "example": "Put the documents in the filing cabinet.",
-          "bucket": 0,
-          "collocations": [
-            "use filing cabinet",
-            "about filing cabinet"
-          ],
-          "wordFamily": "Biến thể từ vựng của filing cabinet"
+          "bucket": 0
         },
         {
           "word": "photocopier",
@@ -14927,12 +8887,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈfəʊtəʊˌkɒpɪə/",
           "vi": "máy photocopy",
           "example": "The photocopier is out of paper.",
-          "bucket": 0,
-          "collocations": [
-            "use photocopier",
-            "about photocopier"
-          ],
-          "wordFamily": "Biến thể từ vựng của photocopier"
+          "bucket": 0
         },
         {
           "word": "paperwork",
@@ -14940,12 +8895,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈpeɪpəwɜːk/",
           "vi": "công việc giấy tờ",
           "example": "I have a lot of paperwork to do today.",
-          "bucket": 0,
-          "collocations": [
-            "use paperwork",
-            "about paperwork"
-          ],
-          "wordFamily": "Biến thể từ vựng của paperwork"
+          "bucket": 0
         },
         {
           "word": "assembly line",
@@ -14953,12 +8903,7 @@ export const courseData51_75 = [
           "phonetic": "/əˈsɛmbli laɪn/",
           "vi": "dây chuyền lắp ráp",
           "example": "Cars are built on an assembly line.",
-          "bucket": 1,
-          "collocations": [
-            "use assembly line",
-            "about assembly line"
-          ],
-          "wordFamily": "Biến thể từ vựng của assembly line"
+          "bucket": 1
         },
         {
           "word": "goods",
@@ -14966,12 +8911,7 @@ export const courseData51_75 = [
           "phonetic": "/gʊdz/",
           "vi": "hàng hóa",
           "example": "The factory produces leather goods.",
-          "bucket": 1,
-          "collocations": [
-            "use goods",
-            "about goods"
-          ],
-          "wordFamily": "Biến thể từ vựng của goods"
+          "bucket": 1
         },
         {
           "word": "manufacture",
@@ -14979,12 +8919,7 @@ export const courseData51_75 = [
           "phonetic": "/ˌmænjʊˈfæktʃə/",
           "vi": "sản xuất, chế tạo (công nghiệp)",
           "example": "They manufacture computer parts here.",
-          "bucket": 1,
-          "collocations": [
-            "use manufacture",
-            "about manufacture"
-          ],
-          "wordFamily": "Biến thể từ vựng của manufacture"
+          "bucket": 1
         },
         {
           "word": "warehouse",
@@ -14992,12 +8927,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈweəhaʊs/",
           "vi": "nhà kho, kho bãi",
           "example": "Finished products are stored in the warehouse.",
-          "bucket": 1,
-          "collocations": [
-            "use warehouse",
-            "about warehouse"
-          ],
-          "wordFamily": "Biến thể từ vựng của warehouse"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -15040,44 +8970,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 66:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"show someone around\"",
-              "value": "Các dạng từ loại khác của \"show someone around\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"filing cabinet\"",
-              "value": "Các dạng từ loại khác của \"filing cabinet\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"photocopier\"",
-              "value": "photocopierful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"paperwork\"",
-              "value": "Ví dụ: have a paperwork, make a paperwork, good paperwork"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"assembly line\"",
-              "value": "Cụm từ liên quan đến assembly line"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"goods\"",
-              "value": "Ví dụ: have a goods, make a goods, good goods"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -15132,150 +9025,6 @@ export const courseData51_75 = [
           "word": "warehouse",
           "target": "Factory (Nhà máy)",
           "vi": "nhà kho, kho bãi"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới show someone around",
-          "target": "Office (Văn phòng)",
-          "vi": "dẫn ai đó đi tham quan (nơi làm việc)"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới filing cabinet",
-          "target": "Office (Văn phòng)",
-          "vi": "tủ đựng hồ sơ tài liệu"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới photocopier",
-          "target": "Office (Văn phòng)",
-          "vi": "máy photocopy"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới paperwork",
-          "target": "Office (Văn phòng)",
-          "vi": "công việc giấy tờ"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới assembly line",
-          "target": "Factory (Nhà máy)",
-          "vi": "dây chuyền lắp ráp"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới goods",
-          "target": "Factory (Nhà máy)",
-          "vi": "hàng hóa"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới manufacture",
-          "target": "Factory (Nhà máy)",
-          "vi": "sản xuất, chế tạo (công nghiệp)"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới warehouse",
-          "target": "Factory (Nhà máy)",
-          "vi": "nhà kho, kho bãi"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới show someone around",
-          "target": "Office (Văn phòng)",
-          "vi": "dẫn ai đó đi tham quan (nơi làm việc)"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới filing cabinet",
-          "target": "Office (Văn phòng)",
-          "vi": "tủ đựng hồ sơ tài liệu"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới photocopier",
-          "target": "Office (Văn phòng)",
-          "vi": "máy photocopy"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới paperwork",
-          "target": "Office (Văn phòng)",
-          "vi": "công việc giấy tờ"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới assembly line",
-          "target": "Factory (Nhà máy)",
-          "vi": "dây chuyền lắp ráp"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới goods",
-          "target": "Factory (Nhà máy)",
-          "vi": "hàng hóa"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới manufacture",
-          "target": "Factory (Nhà máy)",
-          "vi": "sản xuất, chế tạo (công nghiệp)"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới warehouse",
-          "target": "Factory (Nhà máy)",
-          "vi": "nhà kho, kho bãi"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới show someone around",
-          "target": "Office (Văn phòng)",
-          "vi": "dẫn ai đó đi tham quan (nơi làm việc)"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới filing cabinet",
-          "target": "Office (Văn phòng)",
-          "vi": "tủ đựng hồ sơ tài liệu"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới photocopier",
-          "target": "Office (Văn phòng)",
-          "vi": "máy photocopy"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới paperwork",
-          "target": "Office (Văn phòng)",
-          "vi": "công việc giấy tờ"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới assembly line",
-          "target": "Factory (Nhà máy)",
-          "vi": "dây chuyền lắp ráp"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới goods",
-          "target": "Factory (Nhà máy)",
-          "vi": "hàng hóa"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới manufacture",
-          "target": "Factory (Nhà máy)",
-          "vi": "sản xuất, chế tạo (công nghiệp)"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới warehouse",
-          "target": "Factory (Nhà máy)",
-          "vi": "nhà kho, kho bãi"
         }
       ]
     },
@@ -15284,39 +9033,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"dẫn ai đó đi tham quan (nơi làm việc)\"?",
         "options": [
           "show someone around",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "filing cabinet",
+          "photocopier",
+          "paperwork"
         ],
         "a": "show someone around"
       },
       {
         "q": "Từ nào có nghĩa là \"tủ đựng hồ sơ tài liệu\"?",
         "options": [
+          "photocopier",
           "filing cabinet",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "paperwork",
+          "assembly line"
         ],
         "a": "filing cabinet"
       },
       {
         "q": "Từ nào có nghĩa là \"máy photocopy\"?",
         "options": [
+          "paperwork",
+          "assembly line",
           "photocopier",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "goods"
         ],
         "a": "photocopier"
       },
       {
         "q": "Từ nào có nghĩa là \"công việc giấy tờ\"?",
         "options": [
-          "paperwork",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "assembly line",
+          "goods",
+          "manufacture",
+          "paperwork"
         ],
         "a": "paperwork"
       },
@@ -15324,161 +9073,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"dây chuyền lắp ráp\"?",
         "options": [
           "assembly line",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "goods",
+          "manufacture",
+          "warehouse"
         ],
         "a": "assembly line"
       },
       {
         "q": "Từ nào có nghĩa là \"hàng hóa\"?",
         "options": [
+          "manufacture",
           "goods",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "warehouse",
+          "show someone around"
         ],
         "a": "goods"
       },
       {
         "q": "Từ nào có nghĩa là \"sản xuất, chế tạo (công nghiệp)\"?",
         "options": [
+          "warehouse",
+          "show someone around",
           "manufacture",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "filing cabinet"
         ],
         "a": "manufacture"
       },
       {
         "q": "Từ nào có nghĩa là \"nhà kho, kho bãi\"?",
         "options": [
-          "warehouse",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "show someone around",
+          "filing cabinet",
+          "photocopier",
+          "warehouse"
         ],
         "a": "warehouse"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"dẫn ai đó đi tham quan (nơi làm việc)\"?",
-        "options": [
-          "show someone around",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "show someone around"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tủ đựng hồ sơ tài liệu\"?",
-        "options": [
-          "filing cabinet",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "filing cabinet"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"máy photocopy\"?",
-        "options": [
-          "photocopier",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "photocopier"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"công việc giấy tờ\"?",
-        "options": [
-          "paperwork",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "paperwork"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"dây chuyền lắp ráp\"?",
-        "options": [
-          "assembly line",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "assembly line"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"hàng hóa\"?",
-        "options": [
-          "goods",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "goods"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sản xuất, chế tạo (công nghiệp)\"?",
-        "options": [
-          "manufacture",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "manufacture"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nhà kho, kho bãi\"?",
-        "options": [
-          "warehouse",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "warehouse"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"dẫn ai đó đi tham quan (nơi làm việc)\"?",
-        "options": [
-          "show someone around",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "show someone around"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tủ đựng hồ sơ tài liệu\"?",
-        "options": [
-          "filing cabinet",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "filing cabinet"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"máy photocopy\"?",
-        "options": [
-          "photocopier",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "photocopier"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"công việc giấy tờ\"?",
-        "options": [
-          "paperwork",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "paperwork"
       }
     ],
     "typingGame": [
@@ -15521,66 +9150,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"nhà kho, kho bãi\"",
         "hint": "w_r_h_u_e",
         "a": "warehouse"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"dẫn ai đó đi tham quan (nơi làm việc)\"",
-        "hint": "s_o_ _o_e_n_ _r_u_d",
-        "a": "show someone around"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tủ đựng hồ sơ tài liệu\"",
-        "hint": "f_l_n_ _a_i_e_",
-        "a": "filing cabinet"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"máy photocopy\"",
-        "hint": "p_o_o_o_i_r",
-        "a": "photocopier"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"công việc giấy tờ\"",
-        "hint": "p_p_r_o_k",
-        "a": "paperwork"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"dây chuyền lắp ráp\"",
-        "hint": "a_s_m_l_ _i_e",
-        "a": "assembly line"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"hàng hóa\"",
-        "hint": "g_o_s",
-        "a": "goods"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sản xuất, chế tạo (công nghiệp)\"",
-        "hint": "m_n_f_c_u_e",
-        "a": "manufacture"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nhà kho, kho bãi\"",
-        "hint": "w_r_h_u_e",
-        "a": "warehouse"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"dẫn ai đó đi tham quan (nơi làm việc)\"",
-        "hint": "s_o_ _o_e_n_ _r_u_d",
-        "a": "show someone around"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tủ đựng hồ sơ tài liệu\"",
-        "hint": "f_l_n_ _a_i_e_",
-        "a": "filing cabinet"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"máy photocopy\"",
-        "hint": "p_o_o_o_i_r",
-        "a": "photocopier"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"công việc giấy tờ\"",
-        "hint": "p_p_r_o_k",
-        "a": "paperwork"
       }
     ],
     "textbookExercises": [
@@ -15591,12 +9160,12 @@ export const courseData51_75 = [
         "questions": [
           {
             "id": "ex_66_1_0",
-            "text": "The correct word is [blank].",
+            "text": "The manager will [blank] the office.",
             "answers": [
-              "show someone around"
+              "show you around"
             ],
             "hint": "dẫn ai đó đi tham quan (nơi làm việc)",
-            "explanation": "Từ cần điền là \"show someone around\" (Cụm từ), mang nghĩa là \"dẫn ai đó đi tham quan (nơi làm việc)\"."
+            "explanation": "Từ vựng cốt lõi là \"show someone around\" (Cụm từ), nghĩa \"dẫn ai đó đi tham quan (nơi làm việc)\". Trong câu này nó ở dạng \"show you around\", nên đáp án cần gõ là \"show you around\"."
           },
           {
             "id": "ex_66_1_1",
@@ -15648,10 +9217,10 @@ export const courseData51_75 = [
             "id": "ex_66_2_1",
             "text": "goods",
             "options": [
-              "sản xuất, chế tạo (công nghiệp)",
               "hàng hóa",
-              "dây chuyền lắp ráp",
-              "nhà kho, kho bãi"
+              "sản xuất, chế tạo (công nghiệp)",
+              "nhà kho, kho bãi",
+              "dây chuyền lắp ráp"
             ],
             "answer": "hàng hóa",
             "explanation": "Từ \"goods\" có nghĩa chính xác là \"hàng hóa\"."
@@ -15673,8 +9242,8 @@ export const courseData51_75 = [
             "text": "warehouse",
             "options": [
               "nhà kho, kho bãi",
-              "hàng hóa",
               "dây chuyền lắp ráp",
+              "hàng hóa",
               "sản xuất, chế tạo (công nghiệp)"
             ],
             "answer": "nhà kho, kho bãi",
@@ -15806,8 +9375,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "The manager will show you around the office.",
-        "trans": "Đọc to câu này."
+        "text": "The manager will show you around the office."
       }
     ]
   },
@@ -15889,12 +9457,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtɜːnˌəʊvə/",
           "vi": "doanh thu, tổng thu nhập",
           "example": "The company has an annual turnover of $5 million.",
-          "bucket": 0,
-          "collocations": [
-            "use turnover",
-            "about turnover"
-          ],
-          "wordFamily": "Biến thể từ vựng của turnover"
+          "bucket": 0
         },
         {
           "word": "profit",
@@ -15902,12 +9465,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈprɒfɪt/",
           "vi": "lợi nhuận",
           "example": "We hope to make a profit this year.",
-          "bucket": 0,
-          "collocations": [
-            "use profit",
-            "about profit"
-          ],
-          "wordFamily": "Biến thể từ vựng của profit"
+          "bucket": 0
         },
         {
           "word": "loss",
@@ -15915,12 +9473,7 @@ export const courseData51_75 = [
           "phonetic": "/lɒs/",
           "vi": "sự thua lỗ, thất thoát",
           "example": "The business suffered a heavy loss.",
-          "bucket": 0,
-          "collocations": [
-            "use loss",
-            "about loss"
-          ],
-          "wordFamily": "Biến thể từ vựng của loss"
+          "bucket": 0
         },
         {
           "word": "make a profit",
@@ -15928,12 +9481,7 @@ export const courseData51_75 = [
           "phonetic": "/meɪk ə ˈprɒfɪt/",
           "vi": "tạo ra lợi nhuận, sinh lời",
           "example": "It takes time for a startup to make a profit.",
-          "bucket": 0,
-          "collocations": [
-            "use make a profit",
-            "about make a profit"
-          ],
-          "wordFamily": "Biến thể từ vựng của make a profit"
+          "bucket": 0
         },
         {
           "word": "rise",
@@ -15941,12 +9489,7 @@ export const courseData51_75 = [
           "phonetic": "/raɪz/",
           "vi": "tăng lên / sự tăng",
           "example": "Prices continue to rise every month.",
-          "bucket": 1,
-          "collocations": [
-            "use rise",
-            "about rise"
-          ],
-          "wordFamily": "Biến thể từ vựng của rise"
+          "bucket": 1
         },
         {
           "word": "fall",
@@ -15954,12 +9497,7 @@ export const courseData51_75 = [
           "phonetic": "/fɔːl/",
           "vi": "giảm xuống / sự giảm",
           "example": "Sales fall during the winter season.",
-          "bucket": 1,
-          "collocations": [
-            "use fall",
-            "about fall"
-          ],
-          "wordFamily": "Biến thể từ vựng của fall"
+          "bucket": 1
         },
         {
           "word": "inflation",
@@ -15967,12 +9505,7 @@ export const courseData51_75 = [
           "phonetic": "/ɪnˈfleɪʃn/",
           "vi": "lạm phát",
           "example": "High inflation means money loses its value.",
-          "bucket": 1,
-          "collocations": [
-            "use inflation",
-            "about inflation"
-          ],
-          "wordFamily": "Biến thể từ vựng của inflation"
+          "bucket": 1
         },
         {
           "word": "interest rate",
@@ -15980,12 +9513,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɪntrɪst reɪt/",
           "vi": "lãi suất",
           "example": "The bank increased the interest rate on loans.",
-          "bucket": 1,
-          "collocations": [
-            "use interest rate",
-            "about interest rate"
-          ],
-          "wordFamily": "Biến thể từ vựng của interest rate"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -16028,44 +9556,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 67:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"turnover\"",
-              "value": "turnoverful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"profit\"",
-              "value": "profitful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"loss\"",
-              "value": "lossful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"make a profit\"",
-              "value": "Cụm từ liên quan đến make a profit"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"rise\"",
-              "value": "Ví dụ: rise quickly, always rise"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"fall\"",
-              "value": "Ví dụ: fall quickly, always fall"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -16120,150 +9611,6 @@ export const courseData51_75 = [
           "word": "interest rate",
           "target": "Market Movements (Biến động)",
           "vi": "lãi suất"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới turnover",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "doanh thu, tổng thu nhập"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới profit",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "lợi nhuận"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới loss",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "sự thua lỗ, thất thoát"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới make a profit",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "tạo ra lợi nhuận, sinh lời"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới rise",
-          "target": "Market Movements (Biến động)",
-          "vi": "tăng lên / sự tăng"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới fall",
-          "target": "Market Movements (Biến động)",
-          "vi": "giảm xuống / sự giảm"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới inflation",
-          "target": "Market Movements (Biến động)",
-          "vi": "lạm phát"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới interest rate",
-          "target": "Market Movements (Biến động)",
-          "vi": "lãi suất"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới turnover",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "doanh thu, tổng thu nhập"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới profit",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "lợi nhuận"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới loss",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "sự thua lỗ, thất thoát"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới make a profit",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "tạo ra lợi nhuận, sinh lời"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới rise",
-          "target": "Market Movements (Biến động)",
-          "vi": "tăng lên / sự tăng"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới fall",
-          "target": "Market Movements (Biến động)",
-          "vi": "giảm xuống / sự giảm"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới inflation",
-          "target": "Market Movements (Biến động)",
-          "vi": "lạm phát"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới interest rate",
-          "target": "Market Movements (Biến động)",
-          "vi": "lãi suất"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới turnover",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "doanh thu, tổng thu nhập"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới profit",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "lợi nhuận"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới loss",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "sự thua lỗ, thất thoát"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới make a profit",
-          "target": "Finance Terms (Tài chính)",
-          "vi": "tạo ra lợi nhuận, sinh lời"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới rise",
-          "target": "Market Movements (Biến động)",
-          "vi": "tăng lên / sự tăng"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới fall",
-          "target": "Market Movements (Biến động)",
-          "vi": "giảm xuống / sự giảm"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới inflation",
-          "target": "Market Movements (Biến động)",
-          "vi": "lạm phát"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới interest rate",
-          "target": "Market Movements (Biến động)",
-          "vi": "lãi suất"
         }
       ]
     },
@@ -16272,39 +9619,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"doanh thu, tổng thu nhập\"?",
         "options": [
           "turnover",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "profit",
+          "loss",
+          "make a profit"
         ],
         "a": "turnover"
       },
       {
         "q": "Từ nào có nghĩa là \"lợi nhuận\"?",
         "options": [
+          "loss",
           "profit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "make a profit",
+          "rise"
         ],
         "a": "profit"
       },
       {
         "q": "Từ nào có nghĩa là \"sự thua lỗ, thất thoát\"?",
         "options": [
+          "make a profit",
+          "rise",
           "loss",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "fall"
         ],
         "a": "loss"
       },
       {
         "q": "Từ nào có nghĩa là \"tạo ra lợi nhuận, sinh lời\"?",
         "options": [
-          "make a profit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "rise",
+          "fall",
+          "inflation",
+          "make a profit"
         ],
         "a": "make a profit"
       },
@@ -16312,161 +9659,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"tăng lên / sự tăng\"?",
         "options": [
           "rise",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "fall",
+          "inflation",
+          "interest rate"
         ],
         "a": "rise"
       },
       {
         "q": "Từ nào có nghĩa là \"giảm xuống / sự giảm\"?",
         "options": [
+          "inflation",
           "fall",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "interest rate",
+          "turnover"
         ],
         "a": "fall"
       },
       {
         "q": "Từ nào có nghĩa là \"lạm phát\"?",
         "options": [
+          "interest rate",
+          "turnover",
           "inflation",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "profit"
         ],
         "a": "inflation"
       },
       {
         "q": "Từ nào có nghĩa là \"lãi suất\"?",
         "options": [
-          "interest rate",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "turnover",
+          "profit",
+          "loss",
+          "interest rate"
         ],
         "a": "interest rate"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"doanh thu, tổng thu nhập\"?",
-        "options": [
-          "turnover",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "turnover"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"lợi nhuận\"?",
-        "options": [
-          "profit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "profit"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sự thua lỗ, thất thoát\"?",
-        "options": [
-          "loss",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "loss"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tạo ra lợi nhuận, sinh lời\"?",
-        "options": [
-          "make a profit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "make a profit"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tăng lên / sự tăng\"?",
-        "options": [
-          "rise",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "rise"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"giảm xuống / sự giảm\"?",
-        "options": [
-          "fall",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "fall"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"lạm phát\"?",
-        "options": [
-          "inflation",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "inflation"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"lãi suất\"?",
-        "options": [
-          "interest rate",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "interest rate"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"doanh thu, tổng thu nhập\"?",
-        "options": [
-          "turnover",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "turnover"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"lợi nhuận\"?",
-        "options": [
-          "profit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "profit"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sự thua lỗ, thất thoát\"?",
-        "options": [
-          "loss",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "loss"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tạo ra lợi nhuận, sinh lời\"?",
-        "options": [
-          "make a profit",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "make a profit"
       }
     ],
     "typingGame": [
@@ -16509,66 +9736,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"lãi suất\"",
         "hint": "i_t_r_s_ _a_e",
         "a": "interest rate"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"doanh thu, tổng thu nhập\"",
-        "hint": "t_r_o_e_",
-        "a": "turnover"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"lợi nhuận\"",
-        "hint": "p_o_i_",
-        "a": "profit"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sự thua lỗ, thất thoát\"",
-        "hint": "l_s_",
-        "a": "loss"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tạo ra lợi nhuận, sinh lời\"",
-        "hint": "m_k_ _ _r_f_t",
-        "a": "make a profit"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tăng lên / sự tăng\"",
-        "hint": "r_s_",
-        "a": "rise"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"giảm xuống / sự giảm\"",
-        "hint": "f_l_",
-        "a": "fall"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"lạm phát\"",
-        "hint": "i_f_a_i_n",
-        "a": "inflation"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"lãi suất\"",
-        "hint": "i_t_r_s_ _a_e",
-        "a": "interest rate"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"doanh thu, tổng thu nhập\"",
-        "hint": "t_r_o_e_",
-        "a": "turnover"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"lợi nhuận\"",
-        "hint": "p_o_i_",
-        "a": "profit"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sự thua lỗ, thất thoát\"",
-        "hint": "l_s_",
-        "a": "loss"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tạo ra lợi nhuận, sinh lời\"",
-        "hint": "m_k_ _ _r_f_t",
-        "a": "make a profit"
       }
     ],
     "textbookExercises": [
@@ -16625,8 +9792,8 @@ export const courseData51_75 = [
             "text": "rise",
             "options": [
               "tăng lên / sự tăng",
-              "lạm phát",
               "giảm xuống / sự giảm",
+              "lạm phát",
               "lãi suất"
             ],
             "answer": "tăng lên / sự tăng",
@@ -16636,10 +9803,10 @@ export const courseData51_75 = [
             "id": "ex_67_2_1",
             "text": "fall",
             "options": [
-              "lãi suất",
-              "tăng lên / sự tăng",
+              "giảm xuống / sự giảm",
               "lạm phát",
-              "giảm xuống / sự giảm"
+              "lãi suất",
+              "tăng lên / sự tăng"
             ],
             "answer": "giảm xuống / sự giảm",
             "explanation": "Từ \"fall\" có nghĩa chính xác là \"giảm xuống / sự giảm\"."
@@ -16648,10 +9815,10 @@ export const courseData51_75 = [
             "id": "ex_67_2_2",
             "text": "inflation",
             "options": [
-              "giảm xuống / sự giảm",
-              "lãi suất",
               "lạm phát",
-              "tăng lên / sự tăng"
+              "lãi suất",
+              "tăng lên / sự tăng",
+              "giảm xuống / sự giảm"
             ],
             "answer": "lạm phát",
             "explanation": "Từ \"inflation\" có nghĩa chính xác là \"lạm phát\"."
@@ -16660,10 +9827,10 @@ export const courseData51_75 = [
             "id": "ex_67_2_3",
             "text": "interest rate",
             "options": [
-              "tăng lên / sự tăng",
               "lãi suất",
-              "lạm phát",
-              "giảm xuống / sự giảm"
+              "tăng lên / sự tăng",
+              "giảm xuống / sự giảm",
+              "lạm phát"
             ],
             "answer": "lãi suất",
             "explanation": "Từ \"interest rate\" có nghĩa chính xác là \"lãi suất\"."
@@ -16794,8 +9961,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "The company has an annual turnover of $5 million.",
-        "trans": "Đọc to câu này."
+        "text": "The company has an annual turnover of $5 million."
       }
     ]
   },
@@ -16877,12 +10043,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈmɑːkɪt ʃeə/",
           "vi": "thị phần (phần trăm thị trường)",
           "example": "Apple has a huge market share in smartphones.",
-          "bucket": 0,
-          "collocations": [
-            "use market share",
-            "about market share"
-          ],
-          "wordFamily": "Biến thể từ vựng của market share"
+          "bucket": 0
         },
         {
           "word": "image",
@@ -16890,12 +10051,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɪmɪdʒ/",
           "vi": "hình ảnh (thương hiệu)",
           "example": "The scandal ruined the company's image.",
-          "bucket": 0,
-          "collocations": [
-            "use image",
-            "about image"
-          ],
-          "wordFamily": "Biến thể từ vựng của image"
+          "bucket": 0
         },
         {
           "word": "campaign",
@@ -16903,12 +10059,7 @@ export const courseData51_75 = [
           "phonetic": "/kæmˈpeɪn/",
           "vi": "chiến dịch (quảng cáo, tiếp thị)",
           "example": "They launched a new advertising campaign.",
-          "bucket": 0,
-          "collocations": [
-            "use campaign",
-            "about campaign"
-          ],
-          "wordFamily": "Biến thể từ vựng của campaign"
+          "bucket": 0
         },
         {
           "word": "brand",
@@ -16916,12 +10067,7 @@ export const courseData51_75 = [
           "phonetic": "/brænd/",
           "vi": "thương hiệu, nhãn hiệu",
           "example": "Nike is a well-known sports brand.",
-          "bucket": 0,
-          "collocations": [
-            "use brand",
-            "about brand"
-          ],
-          "wordFamily": "Biến thể từ vựng của brand"
+          "bucket": 0
         },
         {
           "word": "competitor",
@@ -16929,12 +10075,7 @@ export const courseData51_75 = [
           "phonetic": "/kəmˈpɛtɪtə/",
           "vi": "đối thủ cạnh tranh",
           "example": "We must lower prices to beat our competitors.",
-          "bucket": 1,
-          "collocations": [
-            "use competitor",
-            "about competitor"
-          ],
-          "wordFamily": "Biến thể từ vựng của competitor"
+          "bucket": 1
         },
         {
           "word": "consumer",
@@ -16942,12 +10083,7 @@ export const courseData51_75 = [
           "phonetic": "/kənˈsjuːmə/",
           "vi": "người tiêu dùng",
           "example": "The product is popular among young consumers.",
-          "bucket": 1,
-          "collocations": [
-            "use consumer",
-            "about consumer"
-          ],
-          "wordFamily": "Biến thể từ vựng của consumer"
+          "bucket": 1
         },
         {
           "word": "target",
@@ -16955,12 +10091,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtɑːgɪt/",
           "vi": "mục tiêu / nhắm tới",
           "example": "Our target audience is teenagers.",
-          "bucket": 1,
-          "collocations": [
-            "use target",
-            "about target"
-          ],
-          "wordFamily": "Biến thể từ vựng của target"
+          "bucket": 1
         },
         {
           "word": "launch",
@@ -16968,12 +10099,7 @@ export const courseData51_75 = [
           "phonetic": "/lɔːntʃ/",
           "vi": "tung ra (sản phẩm), ra mắt",
           "example": "They will launch a new phone model next week.",
-          "bucket": 1,
-          "collocations": [
-            "use launch",
-            "about launch"
-          ],
-          "wordFamily": "Biến thể từ vựng của launch"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -17016,44 +10142,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 68:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"market share\"",
-              "value": "Các dạng từ loại khác của \"market share\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"image\"",
-              "value": "imageful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"campaign\"",
-              "value": "campaignful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"brand\"",
-              "value": "Ví dụ: have a brand, make a brand, good brand"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"competitor\"",
-              "value": "Ví dụ: have a competitor, make a competitor, good competitor"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"consumer\"",
-              "value": "Ví dụ: have a consumer, make a consumer, good consumer"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -17108,150 +10197,6 @@ export const courseData51_75 = [
           "word": "launch",
           "target": "Market Players (Đối tượng)",
           "vi": "tung ra (sản phẩm), ra mắt"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới market share",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "thị phần (phần trăm thị trường)"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới image",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "hình ảnh (thương hiệu)"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới campaign",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "chiến dịch (quảng cáo, tiếp thị)"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới brand",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "thương hiệu, nhãn hiệu"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới competitor",
-          "target": "Market Players (Đối tượng)",
-          "vi": "đối thủ cạnh tranh"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới consumer",
-          "target": "Market Players (Đối tượng)",
-          "vi": "người tiêu dùng"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới target",
-          "target": "Market Players (Đối tượng)",
-          "vi": "mục tiêu / nhắm tới"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới launch",
-          "target": "Market Players (Đối tượng)",
-          "vi": "tung ra (sản phẩm), ra mắt"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới market share",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "thị phần (phần trăm thị trường)"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới image",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "hình ảnh (thương hiệu)"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới campaign",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "chiến dịch (quảng cáo, tiếp thị)"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới brand",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "thương hiệu, nhãn hiệu"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới competitor",
-          "target": "Market Players (Đối tượng)",
-          "vi": "đối thủ cạnh tranh"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới consumer",
-          "target": "Market Players (Đối tượng)",
-          "vi": "người tiêu dùng"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới target",
-          "target": "Market Players (Đối tượng)",
-          "vi": "mục tiêu / nhắm tới"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới launch",
-          "target": "Market Players (Đối tượng)",
-          "vi": "tung ra (sản phẩm), ra mắt"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới market share",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "thị phần (phần trăm thị trường)"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới image",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "hình ảnh (thương hiệu)"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới campaign",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "chiến dịch (quảng cáo, tiếp thị)"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới brand",
-          "target": "Marketing Concepts (Khái niệm)",
-          "vi": "thương hiệu, nhãn hiệu"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới competitor",
-          "target": "Market Players (Đối tượng)",
-          "vi": "đối thủ cạnh tranh"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới consumer",
-          "target": "Market Players (Đối tượng)",
-          "vi": "người tiêu dùng"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới target",
-          "target": "Market Players (Đối tượng)",
-          "vi": "mục tiêu / nhắm tới"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới launch",
-          "target": "Market Players (Đối tượng)",
-          "vi": "tung ra (sản phẩm), ra mắt"
         }
       ]
     },
@@ -17260,39 +10205,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"thị phần (phần trăm thị trường)\"?",
         "options": [
           "market share",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "image",
+          "campaign",
+          "brand"
         ],
         "a": "market share"
       },
       {
         "q": "Từ nào có nghĩa là \"hình ảnh (thương hiệu)\"?",
         "options": [
+          "campaign",
           "image",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "brand",
+          "competitor"
         ],
         "a": "image"
       },
       {
         "q": "Từ nào có nghĩa là \"chiến dịch (quảng cáo, tiếp thị)\"?",
         "options": [
+          "brand",
+          "competitor",
           "campaign",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "consumer"
         ],
         "a": "campaign"
       },
       {
         "q": "Từ nào có nghĩa là \"thương hiệu, nhãn hiệu\"?",
         "options": [
-          "brand",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "competitor",
+          "consumer",
+          "target",
+          "brand"
         ],
         "a": "brand"
       },
@@ -17300,161 +10245,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"đối thủ cạnh tranh\"?",
         "options": [
           "competitor",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "consumer",
+          "target",
+          "launch"
         ],
         "a": "competitor"
       },
       {
         "q": "Từ nào có nghĩa là \"người tiêu dùng\"?",
         "options": [
+          "target",
           "consumer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "launch",
+          "market share"
         ],
         "a": "consumer"
       },
       {
         "q": "Từ nào có nghĩa là \"mục tiêu / nhắm tới\"?",
         "options": [
+          "launch",
+          "market share",
           "target",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "image"
         ],
         "a": "target"
       },
       {
         "q": "Từ nào có nghĩa là \"tung ra (sản phẩm), ra mắt\"?",
         "options": [
-          "launch",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "market share",
+          "image",
+          "campaign",
+          "launch"
         ],
         "a": "launch"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thị phần (phần trăm thị trường)\"?",
-        "options": [
-          "market share",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "market share"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"hình ảnh (thương hiệu)\"?",
-        "options": [
-          "image",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "image"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chiến dịch (quảng cáo, tiếp thị)\"?",
-        "options": [
-          "campaign",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "campaign"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thương hiệu, nhãn hiệu\"?",
-        "options": [
-          "brand",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "brand"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đối thủ cạnh tranh\"?",
-        "options": [
-          "competitor",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "competitor"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"người tiêu dùng\"?",
-        "options": [
-          "consumer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "consumer"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"mục tiêu / nhắm tới\"?",
-        "options": [
-          "target",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "target"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tung ra (sản phẩm), ra mắt\"?",
-        "options": [
-          "launch",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "launch"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thị phần (phần trăm thị trường)\"?",
-        "options": [
-          "market share",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "market share"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"hình ảnh (thương hiệu)\"?",
-        "options": [
-          "image",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "image"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chiến dịch (quảng cáo, tiếp thị)\"?",
-        "options": [
-          "campaign",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "campaign"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thương hiệu, nhãn hiệu\"?",
-        "options": [
-          "brand",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "brand"
       }
     ],
     "typingGame": [
@@ -17497,66 +10322,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"tung ra (sản phẩm), ra mắt\"",
         "hint": "l_u_c_",
         "a": "launch"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thị phần (phần trăm thị trường)\"",
-        "hint": "m_r_e_ _h_r_",
-        "a": "market share"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"hình ảnh (thương hiệu)\"",
-        "hint": "i_a_e",
-        "a": "image"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chiến dịch (quảng cáo, tiếp thị)\"",
-        "hint": "c_m_a_g_",
-        "a": "campaign"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thương hiệu, nhãn hiệu\"",
-        "hint": "b_a_d",
-        "a": "brand"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đối thủ cạnh tranh\"",
-        "hint": "c_m_e_i_o_",
-        "a": "competitor"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"người tiêu dùng\"",
-        "hint": "c_n_u_e_",
-        "a": "consumer"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"mục tiêu / nhắm tới\"",
-        "hint": "t_r_e_",
-        "a": "target"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tung ra (sản phẩm), ra mắt\"",
-        "hint": "l_u_c_",
-        "a": "launch"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thị phần (phần trăm thị trường)\"",
-        "hint": "m_r_e_ _h_r_",
-        "a": "market share"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"hình ảnh (thương hiệu)\"",
-        "hint": "i_a_e",
-        "a": "image"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chiến dịch (quảng cáo, tiếp thị)\"",
-        "hint": "c_m_a_g_",
-        "a": "campaign"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thương hiệu, nhãn hiệu\"",
-        "hint": "b_a_d",
-        "a": "brand"
       }
     ],
     "textbookExercises": [
@@ -17613,9 +10378,9 @@ export const courseData51_75 = [
             "text": "competitor",
             "options": [
               "đối thủ cạnh tranh",
-              "tung ra (sản phẩm), ra mắt",
               "người tiêu dùng",
-              "mục tiêu / nhắm tới"
+              "mục tiêu / nhắm tới",
+              "tung ra (sản phẩm), ra mắt"
             ],
             "answer": "đối thủ cạnh tranh",
             "explanation": "Từ \"competitor\" có nghĩa chính xác là \"đối thủ cạnh tranh\"."
@@ -17624,10 +10389,10 @@ export const courseData51_75 = [
             "id": "ex_68_2_1",
             "text": "consumer",
             "options": [
-              "đối thủ cạnh tranh",
               "người tiêu dùng",
               "mục tiêu / nhắm tới",
-              "tung ra (sản phẩm), ra mắt"
+              "tung ra (sản phẩm), ra mắt",
+              "đối thủ cạnh tranh"
             ],
             "answer": "người tiêu dùng",
             "explanation": "Từ \"consumer\" có nghĩa chính xác là \"người tiêu dùng\"."
@@ -17636,10 +10401,10 @@ export const courseData51_75 = [
             "id": "ex_68_2_2",
             "text": "target",
             "options": [
-              "đối thủ cạnh tranh",
+              "mục tiêu / nhắm tới",
               "tung ra (sản phẩm), ra mắt",
-              "người tiêu dùng",
-              "mục tiêu / nhắm tới"
+              "đối thủ cạnh tranh",
+              "người tiêu dùng"
             ],
             "answer": "mục tiêu / nhắm tới",
             "explanation": "Từ \"target\" có nghĩa chính xác là \"mục tiêu / nhắm tới\"."
@@ -17649,9 +10414,9 @@ export const courseData51_75 = [
             "text": "launch",
             "options": [
               "tung ra (sản phẩm), ra mắt",
-              "mục tiêu / nhắm tới",
+              "đối thủ cạnh tranh",
               "người tiêu dùng",
-              "đối thủ cạnh tranh"
+              "mục tiêu / nhắm tới"
             ],
             "answer": "tung ra (sản phẩm), ra mắt",
             "explanation": "Từ \"launch\" có nghĩa chính xác là \"tung ra (sản phẩm), ra mắt\"."
@@ -17743,21 +10508,21 @@ export const courseData51_75 = [
         "questions": [
           {
             "id": "ex_68_5_0",
-            "text": "This [blank] is very important.",
+            "text": "We must lower prices to beat our [blank].",
             "answers": [
-              "competitor"
+              "competitors"
             ],
             "hint": "đối thủ cạnh tranh",
-            "explanation": "Từ cần điền là \"competitor\" (Danh từ)."
+            "explanation": "Từ vựng cốt lõi là \"competitor\" (Danh từ), nghĩa \"đối thủ cạnh tranh\". Trong câu này nó ở dạng \"competitors\", nên đáp án cần gõ là \"competitors\"."
           },
           {
             "id": "ex_68_5_1",
-            "text": "This [blank] is very important.",
+            "text": "The product is popular among young [blank].",
             "answers": [
-              "consumer"
+              "consumers"
             ],
             "hint": "người tiêu dùng",
-            "explanation": "Từ cần điền là \"consumer\" (Danh từ)."
+            "explanation": "Từ vựng cốt lõi là \"consumer\" (Danh từ), nghĩa \"người tiêu dùng\". Trong câu này nó ở dạng \"consumers\", nên đáp án cần gõ là \"consumers\"."
           },
           {
             "id": "ex_68_5_2",
@@ -17782,8 +10547,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "Apple has a huge market share in smartphones.",
-        "trans": "Đọc to câu này."
+        "text": "Apple has a huge market share in smartphones."
       }
     ]
   },
@@ -17865,12 +10629,7 @@ export const courseData51_75 = [
           "phonetic": "/fəˈtɒgrəfi/",
           "vi": "nhiếp ảnh, thú vui chụp ảnh",
           "example": "He loves nature photography.",
-          "bucket": 0,
-          "collocations": [
-            "use photography",
-            "about photography"
-          ],
-          "wordFamily": "Biến thể từ vựng của photography"
+          "bucket": 0
         },
         {
           "word": "play cards",
@@ -17878,12 +10637,7 @@ export const courseData51_75 = [
           "phonetic": "/pleɪ kɑːdz/",
           "vi": "chơi bài (tulơkhơ)",
           "example": "We often play cards on Friday nights.",
-          "bucket": 0,
-          "collocations": [
-            "use play cards",
-            "about play cards"
-          ],
-          "wordFamily": "Biến thể từ vựng của play cards"
+          "bucket": 0
         },
         {
           "word": "gardening",
@@ -17891,12 +10645,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈgɑːdnɪŋ/",
           "vi": "thú vui làm vườn",
           "example": "Gardening is a relaxing hobby.",
-          "bucket": 0,
-          "collocations": [
-            "use gardening",
-            "about gardening"
-          ],
-          "wordFamily": "Biến thể từ vựng của gardening"
+          "bucket": 0
         },
         {
           "word": "collect",
@@ -17904,12 +10653,7 @@ export const courseData51_75 = [
           "phonetic": "/kəˈlɛkt/",
           "vi": "sưu tập (tem, đồng xu)",
           "example": "He likes to collect old stamps.",
-          "bucket": 0,
-          "collocations": [
-            "use collect",
-            "about collect"
-          ],
-          "wordFamily": "Biến thể từ vựng của collect"
+          "bucket": 0
         },
         {
           "word": "spare time",
@@ -17917,12 +10661,7 @@ export const courseData51_75 = [
           "phonetic": "/speə taɪm/",
           "vi": "thời gian rảnh rỗi",
           "example": "What do you do in your spare time?",
-          "bucket": 1,
-          "collocations": [
-            "use spare time",
-            "about spare time"
-          ],
-          "wordFamily": "Biến thể từ vựng của spare time"
+          "bucket": 1
         },
         {
           "word": "free time",
@@ -17930,12 +10669,7 @@ export const courseData51_75 = [
           "phonetic": "/friː taɪm/",
           "vi": "thời gian rảnh (như spare time)",
           "example": "I read books in my free time.",
-          "bucket": 1,
-          "collocations": [
-            "use free time",
-            "about free time"
-          ],
-          "wordFamily": "Biến thể từ vựng của free time"
+          "bucket": 1
         },
         {
           "word": "camera",
@@ -17943,12 +10677,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkæmrə/",
           "vi": "máy ảnh",
           "example": "She bought a digital camera for her holiday.",
-          "bucket": 1,
-          "collocations": [
-            "use camera",
-            "about camera"
-          ],
-          "wordFamily": "Biến thể từ vựng của camera"
+          "bucket": 1
         },
         {
           "word": "equipment",
@@ -17956,12 +10685,7 @@ export const courseData51_75 = [
           "phonetic": "/ɪˈkwɪpmənt/",
           "vi": "dụng cụ, trang thiết bị",
           "example": "You need special equipment for rock climbing.",
-          "bucket": 1,
-          "collocations": [
-            "use equipment",
-            "about equipment"
-          ],
-          "wordFamily": "Biến thể từ vựng của equipment"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -18004,44 +10728,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 69:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"photography\"",
-              "value": "photographyful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"play cards\"",
-              "value": "Các dạng từ loại khác của \"play cards\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"gardening\"",
-              "value": "gardeningful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"collect\"",
-              "value": "Ví dụ: collect quickly, always collect"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"spare time\"",
-              "value": "Cụm từ liên quan đến spare time"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"free time\"",
-              "value": "Cụm từ liên quan đến free time"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -18096,150 +10783,6 @@ export const courseData51_75 = [
           "word": "equipment",
           "target": "Time & Gear (Thời gian & Dụng cụ)",
           "vi": "dụng cụ, trang thiết bị"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới photography",
-          "target": "Activities (Hoạt động)",
-          "vi": "nhiếp ảnh, thú vui chụp ảnh"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới play cards",
-          "target": "Activities (Hoạt động)",
-          "vi": "chơi bài (tulơkhơ)"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới gardening",
-          "target": "Activities (Hoạt động)",
-          "vi": "thú vui làm vườn"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới collect",
-          "target": "Activities (Hoạt động)",
-          "vi": "sưu tập (tem, đồng xu)"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới spare time",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "thời gian rảnh rỗi"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới free time",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "thời gian rảnh (như spare time)"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới camera",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "máy ảnh"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới equipment",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "dụng cụ, trang thiết bị"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới photography",
-          "target": "Activities (Hoạt động)",
-          "vi": "nhiếp ảnh, thú vui chụp ảnh"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới play cards",
-          "target": "Activities (Hoạt động)",
-          "vi": "chơi bài (tulơkhơ)"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới gardening",
-          "target": "Activities (Hoạt động)",
-          "vi": "thú vui làm vườn"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới collect",
-          "target": "Activities (Hoạt động)",
-          "vi": "sưu tập (tem, đồng xu)"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới spare time",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "thời gian rảnh rỗi"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới free time",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "thời gian rảnh (như spare time)"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới camera",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "máy ảnh"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới equipment",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "dụng cụ, trang thiết bị"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới photography",
-          "target": "Activities (Hoạt động)",
-          "vi": "nhiếp ảnh, thú vui chụp ảnh"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới play cards",
-          "target": "Activities (Hoạt động)",
-          "vi": "chơi bài (tulơkhơ)"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới gardening",
-          "target": "Activities (Hoạt động)",
-          "vi": "thú vui làm vườn"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới collect",
-          "target": "Activities (Hoạt động)",
-          "vi": "sưu tập (tem, đồng xu)"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới spare time",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "thời gian rảnh rỗi"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới free time",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "thời gian rảnh (như spare time)"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới camera",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "máy ảnh"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới equipment",
-          "target": "Time & Gear (Thời gian & Dụng cụ)",
-          "vi": "dụng cụ, trang thiết bị"
         }
       ]
     },
@@ -18248,39 +10791,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"nhiếp ảnh, thú vui chụp ảnh\"?",
         "options": [
           "photography",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "play cards",
+          "gardening",
+          "collect"
         ],
         "a": "photography"
       },
       {
         "q": "Từ nào có nghĩa là \"chơi bài (tulơkhơ)\"?",
         "options": [
+          "gardening",
           "play cards",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "collect",
+          "spare time"
         ],
         "a": "play cards"
       },
       {
         "q": "Từ nào có nghĩa là \"thú vui làm vườn\"?",
         "options": [
+          "collect",
+          "spare time",
           "gardening",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "free time"
         ],
         "a": "gardening"
       },
       {
         "q": "Từ nào có nghĩa là \"sưu tập (tem, đồng xu)\"?",
         "options": [
-          "collect",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "spare time",
+          "free time",
+          "camera",
+          "collect"
         ],
         "a": "collect"
       },
@@ -18288,161 +10831,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"thời gian rảnh rỗi\"?",
         "options": [
           "spare time",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "free time",
+          "camera",
+          "equipment"
         ],
         "a": "spare time"
       },
       {
         "q": "Từ nào có nghĩa là \"thời gian rảnh (như spare time)\"?",
         "options": [
+          "camera",
           "free time",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "equipment",
+          "photography"
         ],
         "a": "free time"
       },
       {
         "q": "Từ nào có nghĩa là \"máy ảnh\"?",
         "options": [
+          "equipment",
+          "photography",
           "camera",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "play cards"
         ],
         "a": "camera"
       },
       {
         "q": "Từ nào có nghĩa là \"dụng cụ, trang thiết bị\"?",
         "options": [
-          "equipment",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "photography",
+          "play cards",
+          "gardening",
+          "equipment"
         ],
         "a": "equipment"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nhiếp ảnh, thú vui chụp ảnh\"?",
-        "options": [
-          "photography",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "photography"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chơi bài (tulơkhơ)\"?",
-        "options": [
-          "play cards",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "play cards"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thú vui làm vườn\"?",
-        "options": [
-          "gardening",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "gardening"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sưu tập (tem, đồng xu)\"?",
-        "options": [
-          "collect",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "collect"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thời gian rảnh rỗi\"?",
-        "options": [
-          "spare time",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "spare time"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thời gian rảnh (như spare time)\"?",
-        "options": [
-          "free time",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "free time"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"máy ảnh\"?",
-        "options": [
-          "camera",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "camera"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"dụng cụ, trang thiết bị\"?",
-        "options": [
-          "equipment",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "equipment"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nhiếp ảnh, thú vui chụp ảnh\"?",
-        "options": [
-          "photography",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "photography"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chơi bài (tulơkhơ)\"?",
-        "options": [
-          "play cards",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "play cards"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thú vui làm vườn\"?",
-        "options": [
-          "gardening",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "gardening"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sưu tập (tem, đồng xu)\"?",
-        "options": [
-          "collect",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "collect"
       }
     ],
     "typingGame": [
@@ -18485,66 +10908,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"dụng cụ, trang thiết bị\"",
         "hint": "e_u_p_e_t",
         "a": "equipment"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nhiếp ảnh, thú vui chụp ảnh\"",
-        "hint": "p_o_o_r_p_y",
-        "a": "photography"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chơi bài (tulơkhơ)\"",
-        "hint": "p_a_ _a_d_",
-        "a": "play cards"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thú vui làm vườn\"",
-        "hint": "g_r_e_i_g",
-        "a": "gardening"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sưu tập (tem, đồng xu)\"",
-        "hint": "c_l_e_t",
-        "a": "collect"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thời gian rảnh rỗi\"",
-        "hint": "s_a_e_t_m_",
-        "a": "spare time"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thời gian rảnh (như spare time)\"",
-        "hint": "f_e_ _i_e",
-        "a": "free time"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"máy ảnh\"",
-        "hint": "c_m_r_",
-        "a": "camera"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"dụng cụ, trang thiết bị\"",
-        "hint": "e_u_p_e_t",
-        "a": "equipment"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nhiếp ảnh, thú vui chụp ảnh\"",
-        "hint": "p_o_o_r_p_y",
-        "a": "photography"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chơi bài (tulơkhơ)\"",
-        "hint": "p_a_ _a_d_",
-        "a": "play cards"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thú vui làm vườn\"",
-        "hint": "g_r_e_i_g",
-        "a": "gardening"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sưu tập (tem, đồng xu)\"",
-        "hint": "c_l_e_t",
-        "a": "collect"
       }
     ],
     "textbookExercises": [
@@ -18575,7 +10938,7 @@ export const courseData51_75 = [
             "id": "ex_69_1_2",
             "text": "[blank] is a relaxing hobby.",
             "answers": [
-              "gardening"
+              "Gardening"
             ],
             "hint": "thú vui làm vườn",
             "explanation": "Từ cần điền là \"gardening\" (Danh từ), mang nghĩa là \"thú vui làm vườn\"."
@@ -18612,10 +10975,10 @@ export const courseData51_75 = [
             "id": "ex_69_2_1",
             "text": "free time",
             "options": [
-              "thời gian rảnh rỗi",
               "thời gian rảnh (như spare time)",
               "máy ảnh",
-              "dụng cụ, trang thiết bị"
+              "dụng cụ, trang thiết bị",
+              "thời gian rảnh rỗi"
             ],
             "answer": "thời gian rảnh (như spare time)",
             "explanation": "Từ \"free time\" có nghĩa chính xác là \"thời gian rảnh (như spare time)\"."
@@ -18624,10 +10987,10 @@ export const courseData51_75 = [
             "id": "ex_69_2_2",
             "text": "camera",
             "options": [
-              "dụng cụ, trang thiết bị",
               "máy ảnh",
-              "thời gian rảnh (như spare time)",
-              "thời gian rảnh rỗi"
+              "dụng cụ, trang thiết bị",
+              "thời gian rảnh rỗi",
+              "thời gian rảnh (như spare time)"
             ],
             "answer": "máy ảnh",
             "explanation": "Từ \"camera\" có nghĩa chính xác là \"máy ảnh\"."
@@ -18637,9 +11000,9 @@ export const courseData51_75 = [
             "text": "equipment",
             "options": [
               "dụng cụ, trang thiết bị",
-              "máy ảnh",
+              "thời gian rảnh rỗi",
               "thời gian rảnh (như spare time)",
-              "thời gian rảnh rỗi"
+              "máy ảnh"
             ],
             "answer": "dụng cụ, trang thiết bị",
             "explanation": "Từ \"equipment\" có nghĩa chính xác là \"dụng cụ, trang thiết bị\"."
@@ -18770,8 +11133,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "He loves nature photography.",
-        "trans": "Đọc to câu này."
+        "text": "He loves nature photography."
       }
     ]
   },
@@ -18853,12 +11215,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtɛnɪs kɔːt/",
           "vi": "sân thi đấu quần vợt",
           "example": "We played a match on the clay tennis court.",
-          "bucket": 0,
-          "collocations": [
-            "use tennis court",
-            "about tennis court"
-          ],
-          "wordFamily": "Biến thể từ vựng của tennis court"
+          "bucket": 0
         },
         {
           "word": "pitch",
@@ -18866,12 +11223,7 @@ export const courseData51_75 = [
           "phonetic": "/pɪtʃ/",
           "vi": "sân cỏ (bóng đá, rugby)",
           "example": "The football pitch is very wet today.",
-          "bucket": 0,
-          "collocations": [
-            "use pitch",
-            "about pitch"
-          ],
-          "wordFamily": "Biến thể từ vựng của pitch"
+          "bucket": 0
         },
         {
           "word": "racket",
@@ -18879,12 +11231,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈrækɪt/",
           "vi": "cái vợt (tennis, cầu lông)",
           "example": "He bought a new tennis racket.",
-          "bucket": 0,
-          "collocations": [
-            "use racket",
-            "about racket"
-          ],
-          "wordFamily": "Biến thể từ vựng của racket"
+          "bucket": 0
         },
         {
           "word": "net",
@@ -18892,12 +11239,7 @@ export const courseData51_75 = [
           "phonetic": "/nɛt/",
           "vi": "tấm lưới (thể thao)",
           "example": "The tennis ball hit the net.",
-          "bucket": 0,
-          "collocations": [
-            "use net",
-            "about net"
-          ],
-          "wordFamily": "Biến thể từ vựng của net"
+          "bucket": 0
         },
         {
           "word": "referee",
@@ -18905,12 +11247,7 @@ export const courseData51_75 = [
           "phonetic": "/ˌrɛfəˈriː/",
           "vi": "trọng tài",
           "example": "The referee blew the whistle.",
-          "bucket": 1,
-          "collocations": [
-            "use referee",
-            "about referee"
-          ],
-          "wordFamily": "Biến thể từ vựng của referee"
+          "bucket": 1
         },
         {
           "word": "umpire",
@@ -18918,12 +11255,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈʌmpaɪə/",
           "vi": "trọng tài (quần vợt, bóng chày)",
           "example": "The umpire shouted 'Out!'.",
-          "bucket": 1,
-          "collocations": [
-            "use umpire",
-            "about umpire"
-          ],
-          "wordFamily": "Biến thể từ vựng của umpire"
+          "bucket": 1
         },
         {
           "word": "goal",
@@ -18931,12 +11263,7 @@ export const courseData51_75 = [
           "phonetic": "/gəʊl/",
           "vi": "khung thành, bàn thắng",
           "example": "He scored a fantastic goal in the final.",
-          "bucket": 1,
-          "collocations": [
-            "use goal",
-            "about goal"
-          ],
-          "wordFamily": "Biến thể từ vựng của goal"
+          "bucket": 1
         },
         {
           "word": "captain",
@@ -18944,12 +11271,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkæptɪn/",
           "vi": "đội trưởng",
           "example": "She is the captain of the school team.",
-          "bucket": 1,
-          "collocations": [
-            "use captain",
-            "about captain"
-          ],
-          "wordFamily": "Biến thể từ vựng của captain"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -18992,44 +11314,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 70:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"tennis court\"",
-              "value": "Các dạng từ loại khác của \"tennis court\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"pitch\"",
-              "value": "pitchful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"racket\"",
-              "value": "racketful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"net\"",
-              "value": "Ví dụ: have a net, make a net, good net"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"referee\"",
-              "value": "Ví dụ: have a referee, make a referee, good referee"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"umpire\"",
-              "value": "Ví dụ: have a umpire, make a umpire, good umpire"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -19084,150 +11369,6 @@ export const courseData51_75 = [
           "word": "captain",
           "target": "People & Goals (Người & Bàn thắng)",
           "vi": "đội trưởng"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới tennis court",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "sân thi đấu quần vợt"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới pitch",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "sân cỏ (bóng đá, rugby)"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới racket",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "cái vợt (tennis, cầu lông)"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới net",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "tấm lưới (thể thao)"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới referee",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "trọng tài"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới umpire",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "trọng tài (quần vợt, bóng chày)"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới goal",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "khung thành, bàn thắng"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới captain",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "đội trưởng"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới tennis court",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "sân thi đấu quần vợt"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới pitch",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "sân cỏ (bóng đá, rugby)"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới racket",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "cái vợt (tennis, cầu lông)"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới net",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "tấm lưới (thể thao)"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới referee",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "trọng tài"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới umpire",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "trọng tài (quần vợt, bóng chày)"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới goal",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "khung thành, bàn thắng"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới captain",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "đội trưởng"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới tennis court",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "sân thi đấu quần vợt"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới pitch",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "sân cỏ (bóng đá, rugby)"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới racket",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "cái vợt (tennis, cầu lông)"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới net",
-          "target": "Equipment & Places (Dụng cụ & Sân)",
-          "vi": "tấm lưới (thể thao)"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới referee",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "trọng tài"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới umpire",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "trọng tài (quần vợt, bóng chày)"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới goal",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "khung thành, bàn thắng"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới captain",
-          "target": "People & Goals (Người & Bàn thắng)",
-          "vi": "đội trưởng"
         }
       ]
     },
@@ -19236,39 +11377,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"sân thi đấu quần vợt\"?",
         "options": [
           "tennis court",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "pitch",
+          "racket",
+          "net"
         ],
         "a": "tennis court"
       },
       {
         "q": "Từ nào có nghĩa là \"sân cỏ (bóng đá, rugby)\"?",
         "options": [
+          "racket",
           "pitch",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "net",
+          "referee"
         ],
         "a": "pitch"
       },
       {
         "q": "Từ nào có nghĩa là \"cái vợt (tennis, cầu lông)\"?",
         "options": [
+          "net",
+          "referee",
           "racket",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "umpire"
         ],
         "a": "racket"
       },
       {
         "q": "Từ nào có nghĩa là \"tấm lưới (thể thao)\"?",
         "options": [
-          "net",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "referee",
+          "umpire",
+          "goal",
+          "net"
         ],
         "a": "net"
       },
@@ -19276,161 +11417,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"trọng tài\"?",
         "options": [
           "referee",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "umpire",
+          "goal",
+          "captain"
         ],
         "a": "referee"
       },
       {
         "q": "Từ nào có nghĩa là \"trọng tài (quần vợt, bóng chày)\"?",
         "options": [
+          "goal",
           "umpire",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "captain",
+          "tennis court"
         ],
         "a": "umpire"
       },
       {
         "q": "Từ nào có nghĩa là \"khung thành, bàn thắng\"?",
         "options": [
+          "captain",
+          "tennis court",
           "goal",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "pitch"
         ],
         "a": "goal"
       },
       {
         "q": "Từ nào có nghĩa là \"đội trưởng\"?",
         "options": [
-          "captain",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "tennis court",
+          "pitch",
+          "racket",
+          "captain"
         ],
         "a": "captain"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sân thi đấu quần vợt\"?",
-        "options": [
-          "tennis court",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "tennis court"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sân cỏ (bóng đá, rugby)\"?",
-        "options": [
-          "pitch",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "pitch"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cái vợt (tennis, cầu lông)\"?",
-        "options": [
-          "racket",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "racket"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tấm lưới (thể thao)\"?",
-        "options": [
-          "net",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "net"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"trọng tài\"?",
-        "options": [
-          "referee",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "referee"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"trọng tài (quần vợt, bóng chày)\"?",
-        "options": [
-          "umpire",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "umpire"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"khung thành, bàn thắng\"?",
-        "options": [
-          "goal",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "goal"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đội trưởng\"?",
-        "options": [
-          "captain",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "captain"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sân thi đấu quần vợt\"?",
-        "options": [
-          "tennis court",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "tennis court"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sân cỏ (bóng đá, rugby)\"?",
-        "options": [
-          "pitch",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "pitch"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cái vợt (tennis, cầu lông)\"?",
-        "options": [
-          "racket",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "racket"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tấm lưới (thể thao)\"?",
-        "options": [
-          "net",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "net"
       }
     ],
     "typingGame": [
@@ -19473,66 +11494,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"đội trưởng\"",
         "hint": "c_p_a_n",
         "a": "captain"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sân thi đấu quần vợt\"",
-        "hint": "t_n_i_ _o_r_",
-        "a": "tennis court"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sân cỏ (bóng đá, rugby)\"",
-        "hint": "p_t_h",
-        "a": "pitch"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cái vợt (tennis, cầu lông)\"",
-        "hint": "r_c_e_",
-        "a": "racket"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tấm lưới (thể thao)\"",
-        "hint": "n_t",
-        "a": "net"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"trọng tài\"",
-        "hint": "r_f_r_e",
-        "a": "referee"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"trọng tài (quần vợt, bóng chày)\"",
-        "hint": "u_p_r_",
-        "a": "umpire"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"khung thành, bàn thắng\"",
-        "hint": "g_a_",
-        "a": "goal"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đội trưởng\"",
-        "hint": "c_p_a_n",
-        "a": "captain"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sân thi đấu quần vợt\"",
-        "hint": "t_n_i_ _o_r_",
-        "a": "tennis court"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sân cỏ (bóng đá, rugby)\"",
-        "hint": "p_t_h",
-        "a": "pitch"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cái vợt (tennis, cầu lông)\"",
-        "hint": "r_c_e_",
-        "a": "racket"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tấm lưới (thể thao)\"",
-        "hint": "n_t",
-        "a": "net"
       }
     ],
     "textbookExercises": [
@@ -19589,9 +11550,9 @@ export const courseData51_75 = [
             "text": "referee",
             "options": [
               "trọng tài",
-              "đội trưởng",
               "trọng tài (quần vợt, bóng chày)",
-              "khung thành, bàn thắng"
+              "khung thành, bàn thắng",
+              "đội trưởng"
             ],
             "answer": "trọng tài",
             "explanation": "Từ \"referee\" có nghĩa chính xác là \"trọng tài\"."
@@ -19600,10 +11561,10 @@ export const courseData51_75 = [
             "id": "ex_70_2_1",
             "text": "umpire",
             "options": [
-              "trọng tài",
               "trọng tài (quần vợt, bóng chày)",
               "khung thành, bàn thắng",
-              "đội trưởng"
+              "đội trưởng",
+              "trọng tài"
             ],
             "answer": "trọng tài (quần vợt, bóng chày)",
             "explanation": "Từ \"umpire\" có nghĩa chính xác là \"trọng tài (quần vợt, bóng chày)\"."
@@ -19612,10 +11573,10 @@ export const courseData51_75 = [
             "id": "ex_70_2_2",
             "text": "goal",
             "options": [
+              "khung thành, bàn thắng",
               "đội trưởng",
               "trọng tài",
-              "trọng tài (quần vợt, bóng chày)",
-              "khung thành, bàn thắng"
+              "trọng tài (quần vợt, bóng chày)"
             ],
             "answer": "khung thành, bàn thắng",
             "explanation": "Từ \"goal\" có nghĩa chính xác là \"khung thành, bàn thắng\"."
@@ -19624,10 +11585,10 @@ export const courseData51_75 = [
             "id": "ex_70_2_3",
             "text": "captain",
             "options": [
+              "đội trưởng",
               "trọng tài",
               "trọng tài (quần vợt, bóng chày)",
-              "khung thành, bàn thắng",
-              "đội trưởng"
+              "khung thành, bàn thắng"
             ],
             "answer": "đội trưởng",
             "explanation": "Từ \"captain\" có nghĩa chính xác là \"đội trưởng\"."
@@ -19758,8 +11719,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "We played a match on the clay tennis court.",
-        "trans": "Đọc to câu này."
+        "text": "We played a match on the clay tennis court."
       }
     ]
   },
@@ -19841,12 +11801,7 @@ export const courseData51_75 = [
           "phonetic": "/wɪn/",
           "vi": "giành chiến thắng",
           "example": "We hope to win the final match.",
-          "bucket": 0,
-          "collocations": [
-            "use win",
-            "about win"
-          ],
-          "wordFamily": "Biến thể từ vựng của win"
+          "bucket": 0
         },
         {
           "word": "lose",
@@ -19854,12 +11809,7 @@ export const courseData51_75 = [
           "phonetic": "/luːz/",
           "vi": "thua cuộc",
           "example": "Nobody likes to lose a game.",
-          "bucket": 0,
-          "collocations": [
-            "use lose",
-            "about lose"
-          ],
-          "wordFamily": "Biến thể từ vựng của lose"
+          "bucket": 0
         },
         {
           "word": "draw",
@@ -19867,12 +11817,7 @@ export const courseData51_75 = [
           "phonetic": "/drɔː/",
           "vi": "tỷ số hòa / hòa nhau",
           "example": "The match ended in a 1-1 draw.",
-          "bucket": 0,
-          "collocations": [
-            "use draw",
-            "about draw"
-          ],
-          "wordFamily": "Biến thể từ vựng của draw"
+          "bucket": 0
         },
         {
           "word": "beat",
@@ -19880,12 +11825,7 @@ export const courseData51_75 = [
           "phonetic": "/biːt/",
           "vi": "đánh bại (đối thủ)",
           "example": "Arsenal beat Chelsea 2-0.",
-          "bucket": 0,
-          "collocations": [
-            "use beat",
-            "about beat"
-          ],
-          "wordFamily": "Biến thể từ vựng của beat"
+          "bucket": 0
         },
         {
           "word": "latest score",
@@ -19893,12 +11833,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈleɪtɪst skɔː/",
           "vi": "tỉ số mới nhất",
           "example": "What is the latest score in the match?",
-          "bucket": 1,
-          "collocations": [
-            "use latest score",
-            "about latest score"
-          ],
-          "wordFamily": "Biến thể từ vựng của latest score"
+          "bucket": 1
         },
         {
           "word": "half-time",
@@ -19906,12 +11841,7 @@ export const courseData51_75 = [
           "phonetic": "/hɑːf taɪm/",
           "vi": "thời gian nghỉ giữa hai hiệp",
           "example": "The players rested at half-time.",
-          "bucket": 1,
-          "collocations": [
-            "use half-time",
-            "about half-time"
-          ],
-          "wordFamily": "Biến thể từ vựng của half-time"
+          "bucket": 1
         },
         {
           "word": "score",
@@ -19919,12 +11849,7 @@ export const courseData51_75 = [
           "phonetic": "/skɔː/",
           "vi": "ghi bàn / tỷ số",
           "example": "He tried hard to score a goal.",
-          "bucket": 1,
-          "collocations": [
-            "use score",
-            "about score"
-          ],
-          "wordFamily": "Biến thể từ vựng của score"
+          "bucket": 1
         },
         {
           "word": "competition",
@@ -19932,12 +11857,7 @@ export const courseData51_75 = [
           "phonetic": "/ˌkɒmpɪˈtɪʃn/",
           "vi": "cuộc thi đấu, giải đấu",
           "example": "She won a gold medal in the competition.",
-          "bucket": 1,
-          "collocations": [
-            "use competition",
-            "about competition"
-          ],
-          "wordFamily": "Biến thể từ vựng của competition"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -19980,44 +11900,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 71:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"win\"",
-              "value": "winer (Danh từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"lose\"",
-              "value": "loseer (Danh từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"draw\"",
-              "value": "drawer (Danh từ), drawful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"beat\"",
-              "value": "Ví dụ: beat quickly, always beat"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"latest score\"",
-              "value": "Cụm từ liên quan đến latest score"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"half-time\"",
-              "value": "Ví dụ: have a half-time, make a half-time, good half-time"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -20072,150 +11955,6 @@ export const courseData51_75 = [
           "word": "competition",
           "target": "Match Progress (Diễn biến trận)",
           "vi": "cuộc thi đấu, giải đấu"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới win",
-          "target": "Results (Kết quả)",
-          "vi": "giành chiến thắng"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới lose",
-          "target": "Results (Kết quả)",
-          "vi": "thua cuộc"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới draw",
-          "target": "Results (Kết quả)",
-          "vi": "tỷ số hòa / hòa nhau"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới beat",
-          "target": "Results (Kết quả)",
-          "vi": "đánh bại (đối thủ)"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới latest score",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "tỉ số mới nhất"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới half-time",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "thời gian nghỉ giữa hai hiệp"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới score",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "ghi bàn / tỷ số"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới competition",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "cuộc thi đấu, giải đấu"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới win",
-          "target": "Results (Kết quả)",
-          "vi": "giành chiến thắng"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới lose",
-          "target": "Results (Kết quả)",
-          "vi": "thua cuộc"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới draw",
-          "target": "Results (Kết quả)",
-          "vi": "tỷ số hòa / hòa nhau"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới beat",
-          "target": "Results (Kết quả)",
-          "vi": "đánh bại (đối thủ)"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới latest score",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "tỉ số mới nhất"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới half-time",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "thời gian nghỉ giữa hai hiệp"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới score",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "ghi bàn / tỷ số"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới competition",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "cuộc thi đấu, giải đấu"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới win",
-          "target": "Results (Kết quả)",
-          "vi": "giành chiến thắng"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới lose",
-          "target": "Results (Kết quả)",
-          "vi": "thua cuộc"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới draw",
-          "target": "Results (Kết quả)",
-          "vi": "tỷ số hòa / hòa nhau"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới beat",
-          "target": "Results (Kết quả)",
-          "vi": "đánh bại (đối thủ)"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới latest score",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "tỉ số mới nhất"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới half-time",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "thời gian nghỉ giữa hai hiệp"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới score",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "ghi bàn / tỷ số"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới competition",
-          "target": "Match Progress (Diễn biến trận)",
-          "vi": "cuộc thi đấu, giải đấu"
         }
       ]
     },
@@ -20224,39 +11963,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"giành chiến thắng\"?",
         "options": [
           "win",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "lose",
+          "draw",
+          "beat"
         ],
         "a": "win"
       },
       {
         "q": "Từ nào có nghĩa là \"thua cuộc\"?",
         "options": [
+          "draw",
           "lose",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "beat",
+          "latest score"
         ],
         "a": "lose"
       },
       {
         "q": "Từ nào có nghĩa là \"tỷ số hòa / hòa nhau\"?",
         "options": [
+          "beat",
+          "latest score",
           "draw",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "half-time"
         ],
         "a": "draw"
       },
       {
         "q": "Từ nào có nghĩa là \"đánh bại (đối thủ)\"?",
         "options": [
-          "beat",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "latest score",
+          "half-time",
+          "score",
+          "beat"
         ],
         "a": "beat"
       },
@@ -20264,161 +12003,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"tỉ số mới nhất\"?",
         "options": [
           "latest score",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "half-time",
+          "score",
+          "competition"
         ],
         "a": "latest score"
       },
       {
         "q": "Từ nào có nghĩa là \"thời gian nghỉ giữa hai hiệp\"?",
         "options": [
+          "score",
           "half-time",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "competition",
+          "win"
         ],
         "a": "half-time"
       },
       {
         "q": "Từ nào có nghĩa là \"ghi bàn / tỷ số\"?",
         "options": [
+          "competition",
+          "win",
           "score",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "lose"
         ],
         "a": "score"
       },
       {
         "q": "Từ nào có nghĩa là \"cuộc thi đấu, giải đấu\"?",
         "options": [
-          "competition",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "win",
+          "lose",
+          "draw",
+          "competition"
         ],
         "a": "competition"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"giành chiến thắng\"?",
-        "options": [
-          "win",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "win"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thua cuộc\"?",
-        "options": [
-          "lose",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "lose"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tỷ số hòa / hòa nhau\"?",
-        "options": [
-          "draw",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "draw"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đánh bại (đối thủ)\"?",
-        "options": [
-          "beat",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "beat"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tỉ số mới nhất\"?",
-        "options": [
-          "latest score",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "latest score"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thời gian nghỉ giữa hai hiệp\"?",
-        "options": [
-          "half-time",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "half-time"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"ghi bàn / tỷ số\"?",
-        "options": [
-          "score",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "score"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"cuộc thi đấu, giải đấu\"?",
-        "options": [
-          "competition",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "competition"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"giành chiến thắng\"?",
-        "options": [
-          "win",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "win"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thua cuộc\"?",
-        "options": [
-          "lose",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "lose"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tỷ số hòa / hòa nhau\"?",
-        "options": [
-          "draw",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "draw"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đánh bại (đối thủ)\"?",
-        "options": [
-          "beat",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "beat"
       }
     ],
     "typingGame": [
@@ -20461,66 +12080,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"cuộc thi đấu, giải đấu\"",
         "hint": "c_m_e_i_i_n",
         "a": "competition"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"giành chiến thắng\"",
-        "hint": "w_n",
-        "a": "win"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thua cuộc\"",
-        "hint": "l_s_",
-        "a": "lose"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tỷ số hòa / hòa nhau\"",
-        "hint": "d_a_",
-        "a": "draw"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đánh bại (đối thủ)\"",
-        "hint": "b_a_",
-        "a": "beat"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tỉ số mới nhất\"",
-        "hint": "l_t_s_ _c_r_",
-        "a": "latest score"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thời gian nghỉ giữa hai hiệp\"",
-        "hint": "h_l_-_i_e",
-        "a": "half-time"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"ghi bàn / tỷ số\"",
-        "hint": "s_o_e",
-        "a": "score"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"cuộc thi đấu, giải đấu\"",
-        "hint": "c_m_e_i_i_n",
-        "a": "competition"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"giành chiến thắng\"",
-        "hint": "w_n",
-        "a": "win"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thua cuộc\"",
-        "hint": "l_s_",
-        "a": "lose"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tỷ số hòa / hòa nhau\"",
-        "hint": "d_a_",
-        "a": "draw"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đánh bại (đối thủ)\"",
-        "hint": "b_a_",
-        "a": "beat"
       }
     ],
     "textbookExercises": [
@@ -20588,10 +12147,10 @@ export const courseData51_75 = [
             "id": "ex_71_2_1",
             "text": "half-time",
             "options": [
-              "cuộc thi đấu, giải đấu",
+              "thời gian nghỉ giữa hai hiệp",
               "ghi bàn / tỷ số",
-              "tỉ số mới nhất",
-              "thời gian nghỉ giữa hai hiệp"
+              "cuộc thi đấu, giải đấu",
+              "tỉ số mới nhất"
             ],
             "answer": "thời gian nghỉ giữa hai hiệp",
             "explanation": "Từ \"half-time\" có nghĩa chính xác là \"thời gian nghỉ giữa hai hiệp\"."
@@ -20602,8 +12161,8 @@ export const courseData51_75 = [
             "options": [
               "ghi bàn / tỷ số",
               "cuộc thi đấu, giải đấu",
-              "thời gian nghỉ giữa hai hiệp",
-              "tỉ số mới nhất"
+              "tỉ số mới nhất",
+              "thời gian nghỉ giữa hai hiệp"
             ],
             "answer": "ghi bàn / tỷ số",
             "explanation": "Từ \"score\" có nghĩa chính xác là \"ghi bàn / tỷ số\"."
@@ -20613,9 +12172,9 @@ export const courseData51_75 = [
             "text": "competition",
             "options": [
               "cuộc thi đấu, giải đấu",
-              "ghi bàn / tỷ số",
+              "tỉ số mới nhất",
               "thời gian nghỉ giữa hai hiệp",
-              "tỉ số mới nhất"
+              "ghi bàn / tỷ số"
             ],
             "answer": "cuộc thi đấu, giải đấu",
             "explanation": "Từ \"competition\" có nghĩa chính xác là \"cuộc thi đấu, giải đấu\"."
@@ -20746,8 +12305,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "We hope to win the final match.",
-        "trans": "Đọc to câu này."
+        "text": "We hope to win the final match."
       }
     ]
   },
@@ -20829,12 +12387,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɔːdiəns/",
           "vi": "khán giả (trong khán phòng, nhà hát)",
           "example": "The audience clapped loudly after the play.",
-          "bucket": 0,
-          "collocations": [
-            "use audience",
-            "about audience"
-          ],
-          "wordFamily": "Biến thể từ vựng của audience"
+          "bucket": 0
         },
         {
           "word": "actor",
@@ -20842,12 +12395,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈæktə/",
           "vi": "nam diễn viên",
           "example": "He is a famous Hollywood actor.",
-          "bucket": 0,
-          "collocations": [
-            "use actor",
-            "about actor"
-          ],
-          "wordFamily": "Biến thể từ vựng của actor"
+          "bucket": 0
         },
         {
           "word": "actress",
@@ -20855,12 +12403,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈæktrəs/",
           "vi": "nữ diễn viên",
           "example": "The leading actress gave a great performance.",
-          "bucket": 0,
-          "collocations": [
-            "use actress",
-            "about actress"
-          ],
-          "wordFamily": "Biến thể từ vựng của actress"
+          "bucket": 0
         },
         {
           "word": "director",
@@ -20868,12 +12411,7 @@ export const courseData51_75 = [
           "phonetic": "/dɪˈrɛktə/",
           "vi": "đạo diễn",
           "example": "Steven Spielberg is a great film director.",
-          "bucket": 0,
-          "collocations": [
-            "use director",
-            "about director"
-          ],
-          "wordFamily": "Biến thể từ vựng của director"
+          "bucket": 0
         },
         {
           "word": "thriller",
@@ -20881,12 +12419,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈθrɪlə/",
           "vi": "phim kinh dị giật gân",
           "example": "We watched a scary thriller last night.",
-          "bucket": 1,
-          "collocations": [
-            "use thriller",
-            "about thriller"
-          ],
-          "wordFamily": "Biến thể từ vựng của thriller"
+          "bucket": 1
         },
         {
           "word": "comedy",
@@ -20894,12 +12427,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈkɒmɪdi/",
           "vi": "hài kịch, phim hài",
           "example": "I prefer watching a funny comedy.",
-          "bucket": 1,
-          "collocations": [
-            "use comedy",
-            "about comedy"
-          ],
-          "wordFamily": "Biến thể từ vựng của comedy"
+          "bucket": 1
         },
         {
           "word": "stage",
@@ -20907,12 +12435,7 @@ export const courseData51_75 = [
           "phonetic": "/steɪdʒ/",
           "vi": "sân khấu",
           "example": "The actors walked onto the stage.",
-          "bucket": 1,
-          "collocations": [
-            "use stage",
-            "about stage"
-          ],
-          "wordFamily": "Biến thể từ vựng của stage"
+          "bucket": 1
         },
         {
           "word": "review",
@@ -20920,12 +12443,7 @@ export const courseData51_75 = [
           "phonetic": "/rɪˈvjuː/",
           "vi": "bài nhận xét, đánh giá (phim, kịch)",
           "example": "The film got good reviews from critics.",
-          "bucket": 1,
-          "collocations": [
-            "use review",
-            "about review"
-          ],
-          "wordFamily": "Biến thể từ vựng của review"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -20968,44 +12486,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 72:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"audience\"",
-              "value": "audienceful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"actor\"",
-              "value": "actorful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"actress\"",
-              "value": "actressful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"director\"",
-              "value": "Ví dụ: have a director, make a director, good director"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"thriller\"",
-              "value": "Ví dụ: have a thriller, make a thriller, good thriller"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"comedy\"",
-              "value": "Ví dụ: have a comedy, make a comedy, good comedy"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -21060,150 +12541,6 @@ export const courseData51_75 = [
           "word": "review",
           "target": "Genres & Elements (Thể loại & Yếu tố)",
           "vi": "bài nhận xét, đánh giá (phim, kịch)"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới audience",
-          "target": "People (Con người)",
-          "vi": "khán giả (trong khán phòng, nhà hát)"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới actor",
-          "target": "People (Con người)",
-          "vi": "nam diễn viên"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới actress",
-          "target": "People (Con người)",
-          "vi": "nữ diễn viên"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới director",
-          "target": "People (Con người)",
-          "vi": "đạo diễn"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới thriller",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "phim kinh dị giật gân"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới comedy",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "hài kịch, phim hài"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới stage",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "sân khấu"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới review",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "bài nhận xét, đánh giá (phim, kịch)"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới audience",
-          "target": "People (Con người)",
-          "vi": "khán giả (trong khán phòng, nhà hát)"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới actor",
-          "target": "People (Con người)",
-          "vi": "nam diễn viên"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới actress",
-          "target": "People (Con người)",
-          "vi": "nữ diễn viên"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới director",
-          "target": "People (Con người)",
-          "vi": "đạo diễn"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới thriller",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "phim kinh dị giật gân"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới comedy",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "hài kịch, phim hài"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới stage",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "sân khấu"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới review",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "bài nhận xét, đánh giá (phim, kịch)"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới audience",
-          "target": "People (Con người)",
-          "vi": "khán giả (trong khán phòng, nhà hát)"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới actor",
-          "target": "People (Con người)",
-          "vi": "nam diễn viên"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới actress",
-          "target": "People (Con người)",
-          "vi": "nữ diễn viên"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới director",
-          "target": "People (Con người)",
-          "vi": "đạo diễn"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới thriller",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "phim kinh dị giật gân"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới comedy",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "hài kịch, phim hài"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới stage",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "sân khấu"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới review",
-          "target": "Genres & Elements (Thể loại & Yếu tố)",
-          "vi": "bài nhận xét, đánh giá (phim, kịch)"
         }
       ]
     },
@@ -21212,39 +12549,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"khán giả (trong khán phòng, nhà hát)\"?",
         "options": [
           "audience",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "actor",
+          "actress",
+          "director"
         ],
         "a": "audience"
       },
       {
         "q": "Từ nào có nghĩa là \"nam diễn viên\"?",
         "options": [
+          "actress",
           "actor",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "director",
+          "thriller"
         ],
         "a": "actor"
       },
       {
         "q": "Từ nào có nghĩa là \"nữ diễn viên\"?",
         "options": [
+          "director",
+          "thriller",
           "actress",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "comedy"
         ],
         "a": "actress"
       },
       {
         "q": "Từ nào có nghĩa là \"đạo diễn\"?",
         "options": [
-          "director",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "thriller",
+          "comedy",
+          "stage",
+          "director"
         ],
         "a": "director"
       },
@@ -21252,161 +12589,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"phim kinh dị giật gân\"?",
         "options": [
           "thriller",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "comedy",
+          "stage",
+          "review"
         ],
         "a": "thriller"
       },
       {
         "q": "Từ nào có nghĩa là \"hài kịch, phim hài\"?",
         "options": [
+          "stage",
           "comedy",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "review",
+          "audience"
         ],
         "a": "comedy"
       },
       {
         "q": "Từ nào có nghĩa là \"sân khấu\"?",
         "options": [
+          "review",
+          "audience",
           "stage",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "actor"
         ],
         "a": "stage"
       },
       {
         "q": "Từ nào có nghĩa là \"bài nhận xét, đánh giá (phim, kịch)\"?",
         "options": [
-          "review",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "audience",
+          "actor",
+          "actress",
+          "review"
         ],
         "a": "review"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"khán giả (trong khán phòng, nhà hát)\"?",
-        "options": [
-          "audience",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "audience"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nam diễn viên\"?",
-        "options": [
-          "actor",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "actor"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nữ diễn viên\"?",
-        "options": [
-          "actress",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "actress"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đạo diễn\"?",
-        "options": [
-          "director",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "director"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"phim kinh dị giật gân\"?",
-        "options": [
-          "thriller",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "thriller"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"hài kịch, phim hài\"?",
-        "options": [
-          "comedy",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "comedy"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"sân khấu\"?",
-        "options": [
-          "stage",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "stage"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bài nhận xét, đánh giá (phim, kịch)\"?",
-        "options": [
-          "review",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "review"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"khán giả (trong khán phòng, nhà hát)\"?",
-        "options": [
-          "audience",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "audience"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nam diễn viên\"?",
-        "options": [
-          "actor",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "actor"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nữ diễn viên\"?",
-        "options": [
-          "actress",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "actress"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"đạo diễn\"?",
-        "options": [
-          "director",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "director"
       }
     ],
     "typingGame": [
@@ -21449,66 +12666,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"bài nhận xét, đánh giá (phim, kịch)\"",
         "hint": "r_v_e_",
         "a": "review"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"khán giả (trong khán phòng, nhà hát)\"",
-        "hint": "a_d_e_c_",
-        "a": "audience"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nam diễn viên\"",
-        "hint": "a_t_r",
-        "a": "actor"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nữ diễn viên\"",
-        "hint": "a_t_e_s",
-        "a": "actress"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đạo diễn\"",
-        "hint": "d_r_c_o_",
-        "a": "director"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"phim kinh dị giật gân\"",
-        "hint": "t_r_l_e_",
-        "a": "thriller"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"hài kịch, phim hài\"",
-        "hint": "c_m_d_",
-        "a": "comedy"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"sân khấu\"",
-        "hint": "s_a_e",
-        "a": "stage"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bài nhận xét, đánh giá (phim, kịch)\"",
-        "hint": "r_v_e_",
-        "a": "review"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"khán giả (trong khán phòng, nhà hát)\"",
-        "hint": "a_d_e_c_",
-        "a": "audience"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nam diễn viên\"",
-        "hint": "a_t_r",
-        "a": "actor"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nữ diễn viên\"",
-        "hint": "a_t_e_s",
-        "a": "actress"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"đạo diễn\"",
-        "hint": "d_r_c_o_",
-        "a": "director"
       }
     ],
     "textbookExercises": [
@@ -21576,10 +12733,10 @@ export const courseData51_75 = [
             "id": "ex_72_2_1",
             "text": "comedy",
             "options": [
-              "phim kinh dị giật gân",
-              "bài nhận xét, đánh giá (phim, kịch)",
               "hài kịch, phim hài",
-              "sân khấu"
+              "sân khấu",
+              "bài nhận xét, đánh giá (phim, kịch)",
+              "phim kinh dị giật gân"
             ],
             "answer": "hài kịch, phim hài",
             "explanation": "Từ \"comedy\" có nghĩa chính xác là \"hài kịch, phim hài\"."
@@ -21588,10 +12745,10 @@ export const courseData51_75 = [
             "id": "ex_72_2_2",
             "text": "stage",
             "options": [
-              "hài kịch, phim hài",
-              "phim kinh dị giật gân",
               "sân khấu",
-              "bài nhận xét, đánh giá (phim, kịch)"
+              "bài nhận xét, đánh giá (phim, kịch)",
+              "phim kinh dị giật gân",
+              "hài kịch, phim hài"
             ],
             "answer": "sân khấu",
             "explanation": "Từ \"stage\" có nghĩa chính xác là \"sân khấu\"."
@@ -21601,9 +12758,9 @@ export const courseData51_75 = [
             "text": "review",
             "options": [
               "bài nhận xét, đánh giá (phim, kịch)",
-              "sân khấu",
+              "phim kinh dị giật gân",
               "hài kịch, phim hài",
-              "phim kinh dị giật gân"
+              "sân khấu"
             ],
             "answer": "bài nhận xét, đánh giá (phim, kịch)",
             "explanation": "Từ \"review\" có nghĩa chính xác là \"bài nhận xét, đánh giá (phim, kịch)\"."
@@ -21722,20 +12879,19 @@ export const courseData51_75 = [
           },
           {
             "id": "ex_72_5_3",
-            "text": "This [blank] is very important.",
+            "text": "The film got good [blank] from critics.",
             "answers": [
-              "review"
+              "reviews"
             ],
             "hint": "bài nhận xét, đánh giá (phim, kịch)",
-            "explanation": "Từ cần điền là \"review\" (Danh từ)."
+            "explanation": "Từ vựng cốt lõi là \"review\" (Danh từ), nghĩa \"bài nhận xét, đánh giá (phim, kịch)\". Trong câu này nó ở dạng \"reviews\", nên đáp án cần gõ là \"reviews\"."
           }
         ]
       }
     ],
     "speaking": [
       {
-        "text": "The audience clapped loudly after the play.",
-        "trans": "Đọc to câu này."
+        "text": "The audience clapped loudly after the play."
       }
     ]
   },
@@ -21817,12 +12973,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɔːkɪstrə/",
           "vi": "dàn nhạc giao hưởng",
           "example": "The orchestra played Beethoven beautifully.",
-          "bucket": 0,
-          "collocations": [
-            "use orchestra",
-            "about orchestra"
-          ],
-          "wordFamily": "Biến thể từ vựng của orchestra"
+          "bucket": 0
         },
         {
           "word": "composer",
@@ -21830,12 +12981,7 @@ export const courseData51_75 = [
           "phonetic": "/kəmˈpəʊzə/",
           "vi": "nhà soạn nhạc",
           "example": "Mozart was a brilliant composer.",
-          "bucket": 0,
-          "collocations": [
-            "use composer",
-            "about composer"
-          ],
-          "wordFamily": "Biến thể từ vựng của composer"
+          "bucket": 0
         },
         {
           "word": "painting",
@@ -21843,12 +12989,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈpeɪntɪŋ/",
           "vi": "bức tranh hội họa",
           "example": "She bought a beautiful oil painting.",
-          "bucket": 0,
-          "collocations": [
-            "use painting",
-            "about painting"
-          ],
-          "wordFamily": "Biến thể từ vựng của painting"
+          "bucket": 0
         },
         {
           "word": "exhibition",
@@ -21856,12 +12997,7 @@ export const courseData51_75 = [
           "phonetic": "/ˌɛksɪˈbɪʃn/",
           "vi": "buổi triển lãm",
           "example": "We visited an art exhibition in Paris.",
-          "bucket": 0,
-          "collocations": [
-            "use exhibition",
-            "about exhibition"
-          ],
-          "wordFamily": "Biến thể từ vựng của exhibition"
+          "bucket": 0
         },
         {
           "word": "novelist",
@@ -21869,12 +13005,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈnɒvəlɪst/",
           "vi": "tiểu thuyết gia, nhà văn",
           "example": "Charles Dickens is a classic novelist.",
-          "bucket": 1,
-          "collocations": [
-            "use novelist",
-            "about novelist"
-          ],
-          "wordFamily": "Biến thể từ vựng của novelist"
+          "bucket": 1
         },
         {
           "word": "poetry",
@@ -21882,12 +13013,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈpəʊɪtri/",
           "vi": "thơ ca",
           "example": "He writes romantic poetry in his free time.",
-          "bucket": 1,
-          "collocations": [
-            "use poetry",
-            "about poetry"
-          ],
-          "wordFamily": "Biến thể từ vựng của poetry"
+          "bucket": 1
         },
         {
           "word": "author",
@@ -21895,12 +13021,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɔːθə/",
           "vi": "tác giả (sách, báo)",
           "example": "Who is the author of this book?",
-          "bucket": 1,
-          "collocations": [
-            "use author",
-            "about author"
-          ],
-          "wordFamily": "Biến thể từ vựng của author"
+          "bucket": 1
         },
         {
           "word": "chapter",
@@ -21908,12 +13029,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtʃæptə/",
           "vi": "chương sách",
           "example": "Read the first chapter for your homework.",
-          "bucket": 1,
-          "collocations": [
-            "use chapter",
-            "about chapter"
-          ],
-          "wordFamily": "Biến thể từ vựng của chapter"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -21956,44 +13072,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 73:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"orchestra\"",
-              "value": "orchestraful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"composer\"",
-              "value": "composerful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"painting\"",
-              "value": "paintingful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"exhibition\"",
-              "value": "Ví dụ: have a exhibition, make a exhibition, good exhibition"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"novelist\"",
-              "value": "Ví dụ: have a novelist, make a novelist, good novelist"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"poetry\"",
-              "value": "Ví dụ: have a poetry, make a poetry, good poetry"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -22048,150 +13127,6 @@ export const courseData51_75 = [
           "word": "chapter",
           "target": "Literature (Văn học)",
           "vi": "chương sách"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới orchestra",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "dàn nhạc giao hưởng"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới composer",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "nhà soạn nhạc"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới painting",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "bức tranh hội họa"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới exhibition",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "buổi triển lãm"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới novelist",
-          "target": "Literature (Văn học)",
-          "vi": "tiểu thuyết gia, nhà văn"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới poetry",
-          "target": "Literature (Văn học)",
-          "vi": "thơ ca"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới author",
-          "target": "Literature (Văn học)",
-          "vi": "tác giả (sách, báo)"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới chapter",
-          "target": "Literature (Văn học)",
-          "vi": "chương sách"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới orchestra",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "dàn nhạc giao hưởng"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới composer",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "nhà soạn nhạc"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới painting",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "bức tranh hội họa"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới exhibition",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "buổi triển lãm"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới novelist",
-          "target": "Literature (Văn học)",
-          "vi": "tiểu thuyết gia, nhà văn"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới poetry",
-          "target": "Literature (Văn học)",
-          "vi": "thơ ca"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới author",
-          "target": "Literature (Văn học)",
-          "vi": "tác giả (sách, báo)"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới chapter",
-          "target": "Literature (Văn học)",
-          "vi": "chương sách"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới orchestra",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "dàn nhạc giao hưởng"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới composer",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "nhà soạn nhạc"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới painting",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "bức tranh hội họa"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới exhibition",
-          "target": "Music & Art (Nhạc & Họa)",
-          "vi": "buổi triển lãm"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới novelist",
-          "target": "Literature (Văn học)",
-          "vi": "tiểu thuyết gia, nhà văn"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới poetry",
-          "target": "Literature (Văn học)",
-          "vi": "thơ ca"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới author",
-          "target": "Literature (Văn học)",
-          "vi": "tác giả (sách, báo)"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới chapter",
-          "target": "Literature (Văn học)",
-          "vi": "chương sách"
         }
       ]
     },
@@ -22200,39 +13135,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"dàn nhạc giao hưởng\"?",
         "options": [
           "orchestra",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "composer",
+          "painting",
+          "exhibition"
         ],
         "a": "orchestra"
       },
       {
         "q": "Từ nào có nghĩa là \"nhà soạn nhạc\"?",
         "options": [
+          "painting",
           "composer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "exhibition",
+          "novelist"
         ],
         "a": "composer"
       },
       {
         "q": "Từ nào có nghĩa là \"bức tranh hội họa\"?",
         "options": [
+          "exhibition",
+          "novelist",
           "painting",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "poetry"
         ],
         "a": "painting"
       },
       {
         "q": "Từ nào có nghĩa là \"buổi triển lãm\"?",
         "options": [
-          "exhibition",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "novelist",
+          "poetry",
+          "author",
+          "exhibition"
         ],
         "a": "exhibition"
       },
@@ -22240,161 +13175,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"tiểu thuyết gia, nhà văn\"?",
         "options": [
           "novelist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "poetry",
+          "author",
+          "chapter"
         ],
         "a": "novelist"
       },
       {
         "q": "Từ nào có nghĩa là \"thơ ca\"?",
         "options": [
+          "author",
           "poetry",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "chapter",
+          "orchestra"
         ],
         "a": "poetry"
       },
       {
         "q": "Từ nào có nghĩa là \"tác giả (sách, báo)\"?",
         "options": [
+          "chapter",
+          "orchestra",
           "author",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "composer"
         ],
         "a": "author"
       },
       {
         "q": "Từ nào có nghĩa là \"chương sách\"?",
         "options": [
-          "chapter",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "orchestra",
+          "composer",
+          "painting",
+          "chapter"
         ],
         "a": "chapter"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"dàn nhạc giao hưởng\"?",
-        "options": [
-          "orchestra",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "orchestra"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nhà soạn nhạc\"?",
-        "options": [
-          "composer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "composer"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bức tranh hội họa\"?",
-        "options": [
-          "painting",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "painting"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"buổi triển lãm\"?",
-        "options": [
-          "exhibition",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "exhibition"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiểu thuyết gia, nhà văn\"?",
-        "options": [
-          "novelist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "novelist"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"thơ ca\"?",
-        "options": [
-          "poetry",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "poetry"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tác giả (sách, báo)\"?",
-        "options": [
-          "author",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "author"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chương sách\"?",
-        "options": [
-          "chapter",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "chapter"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"dàn nhạc giao hưởng\"?",
-        "options": [
-          "orchestra",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "orchestra"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nhà soạn nhạc\"?",
-        "options": [
-          "composer",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "composer"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bức tranh hội họa\"?",
-        "options": [
-          "painting",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "painting"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"buổi triển lãm\"?",
-        "options": [
-          "exhibition",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "exhibition"
       }
     ],
     "typingGame": [
@@ -22437,66 +13252,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"chương sách\"",
         "hint": "c_a_t_r",
         "a": "chapter"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"dàn nhạc giao hưởng\"",
-        "hint": "o_c_e_t_a",
-        "a": "orchestra"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nhà soạn nhạc\"",
-        "hint": "c_m_o_e_",
-        "a": "composer"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bức tranh hội họa\"",
-        "hint": "p_i_t_n_",
-        "a": "painting"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"buổi triển lãm\"",
-        "hint": "e_h_b_t_o_",
-        "a": "exhibition"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiểu thuyết gia, nhà văn\"",
-        "hint": "n_v_l_s_",
-        "a": "novelist"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"thơ ca\"",
-        "hint": "p_e_r_",
-        "a": "poetry"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tác giả (sách, báo)\"",
-        "hint": "a_t_o_",
-        "a": "author"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chương sách\"",
-        "hint": "c_a_t_r",
-        "a": "chapter"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"dàn nhạc giao hưởng\"",
-        "hint": "o_c_e_t_a",
-        "a": "orchestra"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nhà soạn nhạc\"",
-        "hint": "c_m_o_e_",
-        "a": "composer"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bức tranh hội họa\"",
-        "hint": "p_i_t_n_",
-        "a": "painting"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"buổi triển lãm\"",
-        "hint": "e_h_b_t_o_",
-        "a": "exhibition"
       }
     ],
     "textbookExercises": [
@@ -22552,10 +13307,10 @@ export const courseData51_75 = [
             "id": "ex_73_2_0",
             "text": "novelist",
             "options": [
-              "tác giả (sách, báo)",
               "tiểu thuyết gia, nhà văn",
-              "chương sách",
-              "thơ ca"
+              "thơ ca",
+              "tác giả (sách, báo)",
+              "chương sách"
             ],
             "answer": "tiểu thuyết gia, nhà văn",
             "explanation": "Từ \"novelist\" có nghĩa chính xác là \"tiểu thuyết gia, nhà văn\"."
@@ -22564,10 +13319,10 @@ export const courseData51_75 = [
             "id": "ex_73_2_1",
             "text": "poetry",
             "options": [
-              "tiểu thuyết gia, nhà văn",
               "thơ ca",
               "tác giả (sách, báo)",
-              "chương sách"
+              "chương sách",
+              "tiểu thuyết gia, nhà văn"
             ],
             "answer": "thơ ca",
             "explanation": "Từ \"poetry\" có nghĩa chính xác là \"thơ ca\"."
@@ -22576,10 +13331,10 @@ export const courseData51_75 = [
             "id": "ex_73_2_2",
             "text": "author",
             "options": [
-              "chương sách",
               "tác giả (sách, báo)",
-              "thơ ca",
-              "tiểu thuyết gia, nhà văn"
+              "chương sách",
+              "tiểu thuyết gia, nhà văn",
+              "thơ ca"
             ],
             "answer": "tác giả (sách, báo)",
             "explanation": "Từ \"author\" có nghĩa chính xác là \"tác giả (sách, báo)\"."
@@ -22588,9 +13343,9 @@ export const courseData51_75 = [
             "id": "ex_73_2_3",
             "text": "chapter",
             "options": [
-              "thơ ca",
               "chương sách",
               "tiểu thuyết gia, nhà văn",
+              "thơ ca",
               "tác giả (sách, báo)"
             ],
             "answer": "chương sách",
@@ -22722,8 +13477,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "The orchestra played Beethoven beautifully.",
-        "trans": "Đọc to câu này."
+        "text": "The orchestra played Beethoven beautifully."
       }
     ]
   },
@@ -22805,12 +13559,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈhɛdlaɪn/",
           "vi": "tiêu đề bài báo",
           "example": "The news was on the front page headline.",
-          "bucket": 0,
-          "collocations": [
-            "use headline",
-            "about headline"
-          ],
-          "wordFamily": "Biến thể từ vựng của headline"
+          "bucket": 0
         },
         {
           "word": "article",
@@ -22818,12 +13567,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɑːtɪkl/",
           "vi": "bài báo",
           "example": "I read an interesting article about science.",
-          "bucket": 0,
-          "collocations": [
-            "use article",
-            "about article"
-          ],
-          "wordFamily": "Biến thể từ vựng của article"
+          "bucket": 0
         },
         {
           "word": "advertisement",
@@ -22831,12 +13575,7 @@ export const courseData51_75 = [
           "phonetic": "/ədˈvɜːtɪsmənt/",
           "vi": "mục quảng cáo",
           "example": "They put an advertisement in the local paper.",
-          "bucket": 0,
-          "collocations": [
-            "use advertisement",
-            "about advertisement"
-          ],
-          "wordFamily": "Biến thể từ vựng của advertisement"
+          "bucket": 0
         },
         {
           "word": "interview",
@@ -22844,12 +13583,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɪntəvjuː/",
           "vi": "bài phỏng vấn",
           "example": "The paper published an interview with the Mayor.",
-          "bucket": 0,
-          "collocations": [
-            "use interview",
-            "about interview"
-          ],
-          "wordFamily": "Biến thể từ vựng của interview"
+          "bucket": 0
         },
         {
           "word": "journalist",
@@ -22857,12 +13591,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈdʒɜːnəlɪst/",
           "vi": "nhà báo, ký giả",
           "example": "The journalist asked the politician tough questions.",
-          "bucket": 1,
-          "collocations": [
-            "use journalist",
-            "about journalist"
-          ],
-          "wordFamily": "Biến thể từ vựng của journalist"
+          "bucket": 1
         },
         {
           "word": "editor",
@@ -22870,12 +13599,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈɛdɪtə/",
           "vi": "tổng biên tập",
           "example": "The editor decides which stories to print.",
-          "bucket": 1,
-          "collocations": [
-            "use editor",
-            "about editor"
-          ],
-          "wordFamily": "Biến thể từ vựng của editor"
+          "bucket": 1
         },
         {
           "word": "tabloid",
@@ -22883,12 +13607,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtæblɔɪd/",
           "vi": "báo lá cải (khổ nhỏ, nhiều hình ảnh)",
           "example": "He reads a tabloid for celebrity gossip.",
-          "bucket": 1,
-          "collocations": [
-            "use tabloid",
-            "about tabloid"
-          ],
-          "wordFamily": "Biến thể từ vựng của tabloid"
+          "bucket": 1
         },
         {
           "word": "broadsheet",
@@ -22896,12 +13615,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈbrɔːdʃiːt/",
           "vi": "báo khổ lớn (nghiêm túc, chính thống)",
           "example": "Broadsheets contain serious political news.",
-          "bucket": 1,
-          "collocations": [
-            "use broadsheet",
-            "about broadsheet"
-          ],
-          "wordFamily": "Biến thể từ vựng của broadsheet"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -22944,44 +13658,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 74:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"headline\"",
-              "value": "headlineful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"article\"",
-              "value": "articleful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"advertisement\"",
-              "value": "advertisementful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"interview\"",
-              "value": "Ví dụ: have a interview, make a interview, good interview"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"journalist\"",
-              "value": "Ví dụ: have a journalist, make a journalist, good journalist"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"editor\"",
-              "value": "Ví dụ: have a editor, make a editor, good editor"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -23036,150 +13713,6 @@ export const courseData51_75 = [
           "word": "broadsheet",
           "target": "People & Types (Người & Thể loại báo)",
           "vi": "báo khổ lớn (nghiêm túc, chính thống)"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới headline",
-          "target": "Content (Nội dung)",
-          "vi": "tiêu đề bài báo"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới article",
-          "target": "Content (Nội dung)",
-          "vi": "bài báo"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới advertisement",
-          "target": "Content (Nội dung)",
-          "vi": "mục quảng cáo"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới interview",
-          "target": "Content (Nội dung)",
-          "vi": "bài phỏng vấn"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới journalist",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "nhà báo, ký giả"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới editor",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "tổng biên tập"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới tabloid",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "báo lá cải (khổ nhỏ, nhiều hình ảnh)"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới broadsheet",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "báo khổ lớn (nghiêm túc, chính thống)"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới headline",
-          "target": "Content (Nội dung)",
-          "vi": "tiêu đề bài báo"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới article",
-          "target": "Content (Nội dung)",
-          "vi": "bài báo"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới advertisement",
-          "target": "Content (Nội dung)",
-          "vi": "mục quảng cáo"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới interview",
-          "target": "Content (Nội dung)",
-          "vi": "bài phỏng vấn"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới journalist",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "nhà báo, ký giả"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới editor",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "tổng biên tập"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới tabloid",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "báo lá cải (khổ nhỏ, nhiều hình ảnh)"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới broadsheet",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "báo khổ lớn (nghiêm túc, chính thống)"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới headline",
-          "target": "Content (Nội dung)",
-          "vi": "tiêu đề bài báo"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới article",
-          "target": "Content (Nội dung)",
-          "vi": "bài báo"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới advertisement",
-          "target": "Content (Nội dung)",
-          "vi": "mục quảng cáo"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới interview",
-          "target": "Content (Nội dung)",
-          "vi": "bài phỏng vấn"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới journalist",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "nhà báo, ký giả"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới editor",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "tổng biên tập"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới tabloid",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "báo lá cải (khổ nhỏ, nhiều hình ảnh)"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới broadsheet",
-          "target": "People & Types (Người & Thể loại báo)",
-          "vi": "báo khổ lớn (nghiêm túc, chính thống)"
         }
       ]
     },
@@ -23188,39 +13721,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"tiêu đề bài báo\"?",
         "options": [
           "headline",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "article",
+          "advertisement",
+          "interview"
         ],
         "a": "headline"
       },
       {
         "q": "Từ nào có nghĩa là \"bài báo\"?",
         "options": [
+          "advertisement",
           "article",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "interview",
+          "journalist"
         ],
         "a": "article"
       },
       {
         "q": "Từ nào có nghĩa là \"mục quảng cáo\"?",
         "options": [
+          "interview",
+          "journalist",
           "advertisement",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "editor"
         ],
         "a": "advertisement"
       },
       {
         "q": "Từ nào có nghĩa là \"bài phỏng vấn\"?",
         "options": [
-          "interview",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "journalist",
+          "editor",
+          "tabloid",
+          "interview"
         ],
         "a": "interview"
       },
@@ -23228,161 +13761,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"nhà báo, ký giả\"?",
         "options": [
           "journalist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "editor",
+          "tabloid",
+          "broadsheet"
         ],
         "a": "journalist"
       },
       {
         "q": "Từ nào có nghĩa là \"tổng biên tập\"?",
         "options": [
+          "tabloid",
           "editor",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "broadsheet",
+          "headline"
         ],
         "a": "editor"
       },
       {
         "q": "Từ nào có nghĩa là \"báo lá cải (khổ nhỏ, nhiều hình ảnh)\"?",
         "options": [
+          "broadsheet",
+          "headline",
           "tabloid",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "article"
         ],
         "a": "tabloid"
       },
       {
         "q": "Từ nào có nghĩa là \"báo khổ lớn (nghiêm túc, chính thống)\"?",
         "options": [
-          "broadsheet",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "headline",
+          "article",
+          "advertisement",
+          "broadsheet"
         ],
         "a": "broadsheet"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiêu đề bài báo\"?",
-        "options": [
-          "headline",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "headline"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bài báo\"?",
-        "options": [
-          "article",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "article"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"mục quảng cáo\"?",
-        "options": [
-          "advertisement",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "advertisement"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bài phỏng vấn\"?",
-        "options": [
-          "interview",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "interview"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"nhà báo, ký giả\"?",
-        "options": [
-          "journalist",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "journalist"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tổng biên tập\"?",
-        "options": [
-          "editor",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "editor"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"báo lá cải (khổ nhỏ, nhiều hình ảnh)\"?",
-        "options": [
-          "tabloid",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "tabloid"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"báo khổ lớn (nghiêm túc, chính thống)\"?",
-        "options": [
-          "broadsheet",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "broadsheet"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tiêu đề bài báo\"?",
-        "options": [
-          "headline",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "headline"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bài báo\"?",
-        "options": [
-          "article",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "article"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"mục quảng cáo\"?",
-        "options": [
-          "advertisement",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "advertisement"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bài phỏng vấn\"?",
-        "options": [
-          "interview",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "interview"
       }
     ],
     "typingGame": [
@@ -23425,66 +13838,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"báo khổ lớn (nghiêm túc, chính thống)\"",
         "hint": "b_o_d_h_e_",
         "a": "broadsheet"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiêu đề bài báo\"",
-        "hint": "h_a_l_n_",
-        "a": "headline"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bài báo\"",
-        "hint": "a_t_c_e",
-        "a": "article"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"mục quảng cáo\"",
-        "hint": "a_v_r_i_e_e_t",
-        "a": "advertisement"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bài phỏng vấn\"",
-        "hint": "i_t_r_i_w",
-        "a": "interview"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"nhà báo, ký giả\"",
-        "hint": "j_u_n_l_s_",
-        "a": "journalist"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tổng biên tập\"",
-        "hint": "e_i_o_",
-        "a": "editor"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"báo lá cải (khổ nhỏ, nhiều hình ảnh)\"",
-        "hint": "t_b_o_d",
-        "a": "tabloid"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"báo khổ lớn (nghiêm túc, chính thống)\"",
-        "hint": "b_o_d_h_e_",
-        "a": "broadsheet"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tiêu đề bài báo\"",
-        "hint": "h_a_l_n_",
-        "a": "headline"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bài báo\"",
-        "hint": "a_t_c_e",
-        "a": "article"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"mục quảng cáo\"",
-        "hint": "a_v_r_i_e_e_t",
-        "a": "advertisement"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bài phỏng vấn\"",
-        "hint": "i_t_r_i_w",
-        "a": "interview"
       }
     ],
     "textbookExercises": [
@@ -23552,9 +13905,9 @@ export const courseData51_75 = [
             "id": "ex_74_2_1",
             "text": "editor",
             "options": [
-              "báo khổ lớn (nghiêm túc, chính thống)",
-              "báo lá cải (khổ nhỏ, nhiều hình ảnh)",
               "tổng biên tập",
+              "báo lá cải (khổ nhỏ, nhiều hình ảnh)",
+              "báo khổ lớn (nghiêm túc, chính thống)",
               "nhà báo, ký giả"
             ],
             "answer": "tổng biên tập",
@@ -23564,10 +13917,10 @@ export const courseData51_75 = [
             "id": "ex_74_2_2",
             "text": "tabloid",
             "options": [
-              "nhà báo, ký giả",
-              "tổng biên tập",
               "báo lá cải (khổ nhỏ, nhiều hình ảnh)",
-              "báo khổ lớn (nghiêm túc, chính thống)"
+              "báo khổ lớn (nghiêm túc, chính thống)",
+              "nhà báo, ký giả",
+              "tổng biên tập"
             ],
             "answer": "báo lá cải (khổ nhỏ, nhiều hình ảnh)",
             "explanation": "Từ \"tabloid\" có nghĩa chính xác là \"báo lá cải (khổ nhỏ, nhiều hình ảnh)\"."
@@ -23576,9 +13929,9 @@ export const courseData51_75 = [
             "id": "ex_74_2_3",
             "text": "broadsheet",
             "options": [
-              "tổng biên tập",
-              "nhà báo, ký giả",
               "báo khổ lớn (nghiêm túc, chính thống)",
+              "nhà báo, ký giả",
+              "tổng biên tập",
               "báo lá cải (khổ nhỏ, nhiều hình ảnh)"
             ],
             "answer": "báo khổ lớn (nghiêm túc, chính thống)",
@@ -23698,20 +14051,19 @@ export const courseData51_75 = [
           },
           {
             "id": "ex_74_5_3",
-            "text": "This [blank] is very important.",
+            "text": "[blank] contain serious political news.",
             "answers": [
-              "broadsheet"
+              "Broadsheets"
             ],
             "hint": "báo khổ lớn (nghiêm túc, chính thống)",
-            "explanation": "Từ cần điền là \"broadsheet\" (Danh từ)."
+            "explanation": "Từ vựng cốt lõi là \"broadsheet\" (Danh từ), nghĩa \"báo khổ lớn (nghiêm túc, chính thống)\". Trong câu này nó ở dạng \"Broadsheets\", nên đáp án cần gõ là \"Broadsheets\"."
           }
         ]
       }
     ],
     "speaking": [
       {
-        "text": "The news was on the front page headline.",
-        "trans": "Đọc to câu này."
+        "text": "The news was on the front page headline."
       }
     ]
   },
@@ -23793,12 +14145,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈprəʊgræm/",
           "vi": "chương trình TV (cách viết Anh-Anh)",
           "example": "What is your favorite television programme?",
-          "bucket": 0,
-          "collocations": [
-            "use programme",
-            "about programme"
-          ],
-          "wordFamily": "Biến thể từ vựng của programme"
+          "bucket": 0
         },
         {
           "word": "soap opera",
@@ -23806,12 +14153,7 @@ export const courseData51_75 = [
           "phonetic": "/səʊp ˈɒprə/",
           "vi": "phim truyền hình dài tập",
           "example": "My grandmother watches a soap opera every evening.",
-          "bucket": 0,
-          "collocations": [
-            "use soap opera",
-            "about soap opera"
-          ],
-          "wordFamily": "Biến thể từ vựng của soap opera"
+          "bucket": 0
         },
         {
           "word": "documentary",
@@ -23819,12 +14161,7 @@ export const courseData51_75 = [
           "phonetic": "/ˌdɒkjuˈmɛntri/",
           "vi": "phim tài liệu",
           "example": "We saw a documentary about wild lions.",
-          "bucket": 0,
-          "collocations": [
-            "use documentary",
-            "about documentary"
-          ],
-          "wordFamily": "Biến thể từ vựng của documentary"
+          "bucket": 0
         },
         {
           "word": "the news",
@@ -23832,12 +14169,7 @@ export const courseData51_75 = [
           "phonetic": "/ðə njuːz/",
           "vi": "bản tin thời sự",
           "example": "The news is broadcast at 7 PM.",
-          "bucket": 0,
-          "collocations": [
-            "use the news",
-            "about the news"
-          ],
-          "wordFamily": "Biến thể từ vựng của the news"
+          "bucket": 0
         },
         {
           "word": "turn on",
@@ -23845,12 +14177,7 @@ export const courseData51_75 = [
           "phonetic": "/tɜːn ɒn/",
           "vi": "bật lên (thiết bị)",
           "example": "Turn on the TV to watch the football.",
-          "bucket": 1,
-          "collocations": [
-            "use turn on",
-            "about turn on"
-          ],
-          "wordFamily": "Biến thể từ vựng của turn on"
+          "bucket": 1
         },
         {
           "word": "turn off",
@@ -23858,12 +14185,7 @@ export const courseData51_75 = [
           "phonetic": "/tɜːn ɒf/",
           "vi": "tắt đi",
           "example": "Turn off the television before going to sleep.",
-          "bucket": 1,
-          "collocations": [
-            "use turn off",
-            "about turn off"
-          ],
-          "wordFamily": "Biến thể từ vựng của turn off"
+          "bucket": 1
         },
         {
           "word": "remote control",
@@ -23871,12 +14193,7 @@ export const courseData51_75 = [
           "phonetic": "/rɪˈməʊt kənˈtrəʊl/",
           "vi": "điều khiển từ xa",
           "example": "Pass me the remote control, please.",
-          "bucket": 1,
-          "collocations": [
-            "use remote control",
-            "about remote control"
-          ],
-          "wordFamily": "Biến thể từ vựng của remote control"
+          "bucket": 1
         },
         {
           "word": "channel",
@@ -23884,12 +14201,7 @@ export const courseData51_75 = [
           "phonetic": "/ˈtʃænl/",
           "vi": "kênh truyền hình",
           "example": "Change the channel; this movie is boring.",
-          "bucket": 1,
-          "collocations": [
-            "use channel",
-            "about channel"
-          ],
-          "wordFamily": "Biến thể từ vựng của channel"
+          "bucket": 1
         }
       ],
       "practicalUsage": [
@@ -23932,44 +14244,7 @@ export const courseData51_75 = [
           ]
         }
       ],
-      "discoveryCorner": [
-        {
-          "heading": "💡 Góc khám phá: Word Families (Họ từ)",
-          "intro": "Mở rộng vốn từ vựng bằng cách học các từ cùng gốc của Unit 75:",
-          "details": [
-            {
-              "title": "Họ từ (Word Family) của \"programme\"",
-              "value": "programmeful (Tính từ)"
-            },
-            {
-              "title": "Họ từ (Word Family) của \"soap opera\"",
-              "value": "Các dạng từ loại khác của \"soap opera\" đang được cập nhật."
-            },
-            {
-              "title": "Họ từ (Word Family) của \"documentary\"",
-              "value": "documentaryful (Tính từ)"
-            }
-          ]
-        },
-        {
-          "heading": "🔥 Góc khám phá: Collocations (Cụm từ đi kèm)",
-          "intro": "Học cách sử dụng từ tự nhiên như người bản xứ:",
-          "details": [
-            {
-              "title": "Cụm từ (Collocations) với \"the news\"",
-              "value": "Cụm từ liên quan đến the news"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"turn on\"",
-              "value": "Cụm từ liên quan đến turn on"
-            },
-            {
-              "title": "Cụm từ (Collocations) với \"turn off\"",
-              "value": "Cụm từ liên quan đến turn off"
-            }
-          ]
-        }
-      ]
+      "discoveryCorner": []
     },
     "dragDrop": {
       "buckets": [
@@ -24024,150 +14299,6 @@ export const courseData51_75 = [
           "word": "channel",
           "target": "Actions & Gear (Hành động & Dụng cụ)",
           "vi": "kênh truyền hình"
-        },
-        {
-          "id": "dd_8",
-          "word": "liên quan tới programme",
-          "target": "Programs (Chương trình)",
-          "vi": "chương trình TV (cách viết Anh-Anh)"
-        },
-        {
-          "id": "dd_9",
-          "word": "liên quan tới soap opera",
-          "target": "Programs (Chương trình)",
-          "vi": "phim truyền hình dài tập"
-        },
-        {
-          "id": "dd_10",
-          "word": "liên quan tới documentary",
-          "target": "Programs (Chương trình)",
-          "vi": "phim tài liệu"
-        },
-        {
-          "id": "dd_11",
-          "word": "liên quan tới the news",
-          "target": "Programs (Chương trình)",
-          "vi": "bản tin thời sự"
-        },
-        {
-          "id": "dd_12",
-          "word": "liên quan tới turn on",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "bật lên (thiết bị)"
-        },
-        {
-          "id": "dd_13",
-          "word": "liên quan tới turn off",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "tắt đi"
-        },
-        {
-          "id": "dd_14",
-          "word": "liên quan tới remote control",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "điều khiển từ xa"
-        },
-        {
-          "id": "dd_15",
-          "word": "liên quan tới channel",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "kênh truyền hình"
-        },
-        {
-          "id": "dd_16",
-          "word": "liên quan tới programme",
-          "target": "Programs (Chương trình)",
-          "vi": "chương trình TV (cách viết Anh-Anh)"
-        },
-        {
-          "id": "dd_17",
-          "word": "liên quan tới soap opera",
-          "target": "Programs (Chương trình)",
-          "vi": "phim truyền hình dài tập"
-        },
-        {
-          "id": "dd_18",
-          "word": "liên quan tới documentary",
-          "target": "Programs (Chương trình)",
-          "vi": "phim tài liệu"
-        },
-        {
-          "id": "dd_19",
-          "word": "liên quan tới the news",
-          "target": "Programs (Chương trình)",
-          "vi": "bản tin thời sự"
-        },
-        {
-          "id": "dd_20",
-          "word": "liên quan tới turn on",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "bật lên (thiết bị)"
-        },
-        {
-          "id": "dd_21",
-          "word": "liên quan tới turn off",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "tắt đi"
-        },
-        {
-          "id": "dd_22",
-          "word": "liên quan tới remote control",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "điều khiển từ xa"
-        },
-        {
-          "id": "dd_23",
-          "word": "liên quan tới channel",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "kênh truyền hình"
-        },
-        {
-          "id": "dd_24",
-          "word": "liên quan tới programme",
-          "target": "Programs (Chương trình)",
-          "vi": "chương trình TV (cách viết Anh-Anh)"
-        },
-        {
-          "id": "dd_25",
-          "word": "liên quan tới soap opera",
-          "target": "Programs (Chương trình)",
-          "vi": "phim truyền hình dài tập"
-        },
-        {
-          "id": "dd_26",
-          "word": "liên quan tới documentary",
-          "target": "Programs (Chương trình)",
-          "vi": "phim tài liệu"
-        },
-        {
-          "id": "dd_27",
-          "word": "liên quan tới the news",
-          "target": "Programs (Chương trình)",
-          "vi": "bản tin thời sự"
-        },
-        {
-          "id": "dd_28",
-          "word": "liên quan tới turn on",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "bật lên (thiết bị)"
-        },
-        {
-          "id": "dd_29",
-          "word": "liên quan tới turn off",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "tắt đi"
-        },
-        {
-          "id": "dd_30",
-          "word": "liên quan tới remote control",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "điều khiển từ xa"
-        },
-        {
-          "id": "dd_31",
-          "word": "liên quan tới channel",
-          "target": "Actions & Gear (Hành động & Dụng cụ)",
-          "vi": "kênh truyền hình"
         }
       ]
     },
@@ -24176,39 +14307,39 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"chương trình TV (cách viết Anh-Anh)\"?",
         "options": [
           "programme",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "soap opera",
+          "documentary",
+          "the news"
         ],
         "a": "programme"
       },
       {
         "q": "Từ nào có nghĩa là \"phim truyền hình dài tập\"?",
         "options": [
+          "documentary",
           "soap opera",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "the news",
+          "turn on"
         ],
         "a": "soap opera"
       },
       {
         "q": "Từ nào có nghĩa là \"phim tài liệu\"?",
         "options": [
+          "the news",
+          "turn on",
           "documentary",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "turn off"
         ],
         "a": "documentary"
       },
       {
         "q": "Từ nào có nghĩa là \"bản tin thời sự\"?",
         "options": [
-          "the news",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "turn on",
+          "turn off",
+          "remote control",
+          "the news"
         ],
         "a": "the news"
       },
@@ -24216,161 +14347,41 @@ export const courseData51_75 = [
         "q": "Từ nào có nghĩa là \"bật lên (thiết bị)\"?",
         "options": [
           "turn on",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "turn off",
+          "remote control",
+          "channel"
         ],
         "a": "turn on"
       },
       {
         "q": "Từ nào có nghĩa là \"tắt đi\"?",
         "options": [
+          "remote control",
           "turn off",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "channel",
+          "programme"
         ],
         "a": "turn off"
       },
       {
         "q": "Từ nào có nghĩa là \"điều khiển từ xa\"?",
         "options": [
+          "channel",
+          "programme",
           "remote control",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "soap opera"
         ],
         "a": "remote control"
       },
       {
         "q": "Từ nào có nghĩa là \"kênh truyền hình\"?",
         "options": [
-          "channel",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
+          "programme",
+          "soap opera",
+          "documentary",
+          "channel"
         ],
         "a": "channel"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chương trình TV (cách viết Anh-Anh)\"?",
-        "options": [
-          "programme",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "programme"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"phim truyền hình dài tập\"?",
-        "options": [
-          "soap opera",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "soap opera"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"phim tài liệu\"?",
-        "options": [
-          "documentary",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "documentary"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bản tin thời sự\"?",
-        "options": [
-          "the news",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "the news"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bật lên (thiết bị)\"?",
-        "options": [
-          "turn on",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "turn on"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"tắt đi\"?",
-        "options": [
-          "turn off",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "turn off"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"điều khiển từ xa\"?",
-        "options": [
-          "remote control",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "remote control"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"kênh truyền hình\"?",
-        "options": [
-          "channel",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "channel"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"chương trình TV (cách viết Anh-Anh)\"?",
-        "options": [
-          "programme",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "programme"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"phim truyền hình dài tập\"?",
-        "options": [
-          "soap opera",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "soap opera"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"phim tài liệu\"?",
-        "options": [
-          "documentary",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "documentary"
-      },
-      {
-        "q": "Từ nào có nghĩa là \"bản tin thời sự\"?",
-        "options": [
-          "the news",
-          "wrong_word_1",
-          "wrong_word_2",
-          "wrong_word_3"
-        ],
-        "a": "the news"
       }
     ],
     "typingGame": [
@@ -24413,66 +14424,6 @@ export const courseData51_75 = [
         "q": "Gõ từ tiếng Anh có nghĩa là: \"kênh truyền hình\"",
         "hint": "c_a_n_l",
         "a": "channel"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chương trình TV (cách viết Anh-Anh)\"",
-        "hint": "p_o_r_m_e",
-        "a": "programme"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"phim truyền hình dài tập\"",
-        "hint": "s_a_ _p_r_",
-        "a": "soap opera"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"phim tài liệu\"",
-        "hint": "d_c_m_n_a_y",
-        "a": "documentary"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bản tin thời sự\"",
-        "hint": "t_e_n_w_",
-        "a": "the news"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bật lên (thiết bị)\"",
-        "hint": "t_r_ _n",
-        "a": "turn on"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"tắt đi\"",
-        "hint": "t_r_ _f_",
-        "a": "turn off"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"điều khiển từ xa\"",
-        "hint": "r_m_t_ _o_t_o_",
-        "a": "remote control"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"kênh truyền hình\"",
-        "hint": "c_a_n_l",
-        "a": "channel"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"chương trình TV (cách viết Anh-Anh)\"",
-        "hint": "p_o_r_m_e",
-        "a": "programme"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"phim truyền hình dài tập\"",
-        "hint": "s_a_ _p_r_",
-        "a": "soap opera"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"phim tài liệu\"",
-        "hint": "d_c_m_n_a_y",
-        "a": "documentary"
-      },
-      {
-        "q": "Gõ từ tiếng Anh có nghĩa là: \"bản tin thời sự\"",
-        "hint": "t_e_n_w_",
-        "a": "the news"
       }
     ],
     "textbookExercises": [
@@ -24512,7 +14463,7 @@ export const courseData51_75 = [
             "id": "ex_75_1_3",
             "text": "[blank] is broadcast at 7 PM.",
             "answers": [
-              "the news"
+              "The news"
             ],
             "hint": "bản tin thời sự",
             "explanation": "Từ cần điền là \"the news\" (Cụm danh từ), mang nghĩa là \"bản tin thời sự\"."
@@ -24528,10 +14479,10 @@ export const courseData51_75 = [
             "id": "ex_75_2_0",
             "text": "turn on",
             "options": [
-              "tắt đi",
-              "kênh truyền hình",
               "bật lên (thiết bị)",
-              "điều khiển từ xa"
+              "tắt đi",
+              "điều khiển từ xa",
+              "kênh truyền hình"
             ],
             "answer": "bật lên (thiết bị)",
             "explanation": "Từ \"turn on\" có nghĩa chính xác là \"bật lên (thiết bị)\"."
@@ -24540,10 +14491,10 @@ export const courseData51_75 = [
             "id": "ex_75_2_1",
             "text": "turn off",
             "options": [
-              "kênh truyền hình",
               "tắt đi",
-              "bật lên (thiết bị)",
-              "điều khiển từ xa"
+              "điều khiển từ xa",
+              "kênh truyền hình",
+              "bật lên (thiết bị)"
             ],
             "answer": "tắt đi",
             "explanation": "Từ \"turn off\" có nghĩa chính xác là \"tắt đi\"."
@@ -24553,9 +14504,9 @@ export const courseData51_75 = [
             "text": "remote control",
             "options": [
               "điều khiển từ xa",
-              "tắt đi",
+              "kênh truyền hình",
               "bật lên (thiết bị)",
-              "kênh truyền hình"
+              "tắt đi"
             ],
             "answer": "điều khiển từ xa",
             "explanation": "Từ \"remote control\" có nghĩa chính xác là \"điều khiển từ xa\"."
@@ -24565,9 +14516,9 @@ export const courseData51_75 = [
             "text": "channel",
             "options": [
               "kênh truyền hình",
+              "bật lên (thiết bị)",
               "tắt đi",
-              "điều khiển từ xa",
-              "bật lên (thiết bị)"
+              "điều khiển từ xa"
             ],
             "answer": "kênh truyền hình",
             "explanation": "Từ \"channel\" có nghĩa chính xác là \"kênh truyền hình\"."
@@ -24661,7 +14612,7 @@ export const courseData51_75 = [
             "id": "ex_75_5_0",
             "text": "[blank] the TV to watch the football.",
             "answers": [
-              "turn on"
+              "Turn on"
             ],
             "hint": "bật lên (thiết bị)",
             "explanation": "Từ cần điền là \"turn on\" (Cụm động từ)."
@@ -24670,7 +14621,7 @@ export const courseData51_75 = [
             "id": "ex_75_5_1",
             "text": "[blank] the television before going to sleep.",
             "answers": [
-              "turn off"
+              "Turn off"
             ],
             "hint": "tắt đi",
             "explanation": "Từ cần điền là \"turn off\" (Cụm động từ)."
@@ -24698,8 +14649,7 @@ export const courseData51_75 = [
     ],
     "speaking": [
       {
-        "text": "What is your favorite television programme?",
-        "trans": "Đọc to câu này."
+        "text": "What is your favorite television programme?"
       }
     ]
   }
