@@ -592,7 +592,7 @@ export const courseData = [
       {
         "exNum": "1.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_1_1_q1",
@@ -626,7 +626,7 @@ export const courseData = [
       {
         "exNum": "1.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_1_err_1",
@@ -645,7 +645,7 @@ export const courseData = [
       {
         "exNum": "1.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_1_3_q1",
@@ -780,7 +780,7 @@ export const courseData = [
       {
         "exNum": "1.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Study Routines (Thói quen)",
           "Language Practice (Thực hành)"
@@ -831,7 +831,7 @@ export const courseData = [
       {
         "exNum": "1.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_1_5_q1",
@@ -1259,7 +1259,7 @@ export const courseData = [
       {
         "exNum": "2.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_2_1_q1",
@@ -1302,7 +1302,7 @@ export const courseData = [
       {
         "exNum": "2.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_2_err_1",
@@ -1321,7 +1321,7 @@ export const courseData = [
       {
         "exNum": "2.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_2_3_q1",
@@ -1456,7 +1456,7 @@ export const courseData = [
       {
         "exNum": "2.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Entry Details (Chi tiết từ)",
           "Semantic Relations (Mối quan hệ nghĩa)"
@@ -1507,7 +1507,7 @@ export const courseData = [
       {
         "exNum": "2.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_2_5_q1",
@@ -1944,7 +1944,7 @@ export const courseData = [
       {
         "exNum": "3.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_3_1_q1",
@@ -1987,7 +1987,7 @@ export const courseData = [
       {
         "exNum": "3.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_3_err_1",
@@ -2006,7 +2006,7 @@ export const courseData = [
       {
         "exNum": "3.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_3_3_q1",
@@ -2141,7 +2141,7 @@ export const courseData = [
       {
         "exNum": "3.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Dictionary Types (Loại từ điển)",
           "Reference Data (Thông tin tra cứu)"
@@ -2192,7 +2192,7 @@ export const courseData = [
       {
         "exNum": "3.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_3_5_q1",
@@ -2629,7 +2629,7 @@ export const courseData = [
       {
         "exNum": "4.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_4_1_q1",
@@ -2672,7 +2672,7 @@ export const courseData = [
       {
         "exNum": "4.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_4_err_1",
@@ -2691,7 +2691,7 @@ export const courseData = [
       {
         "exNum": "4.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_4_3_q1",
@@ -2826,7 +2826,7 @@ export const courseData = [
       {
         "exNum": "4.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Nouns & Numbers (Danh từ & Dạng số)",
           "Grammar & Words (Từ loại & Cấu tạo)"
@@ -2877,7 +2877,7 @@ export const courseData = [
       {
         "exNum": "4.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_4_5_q1",
@@ -3318,7 +3318,7 @@ export const courseData = [
       {
         "exNum": "5.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_5_1_q1",
@@ -3361,7 +3361,7 @@ export const courseData = [
       {
         "exNum": "5.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_5_err_1",
@@ -3380,7 +3380,7 @@ export const courseData = [
       {
         "exNum": "5.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_5_3_q1",
@@ -3515,7 +3515,7 @@ export const courseData = [
       {
         "exNum": "5.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Pronunciation Errors (Lỗi phát âm)",
           "Acoustic Elements (Yếu tố âm thanh)"
@@ -3566,7 +3566,7 @@ export const courseData = [
       {
         "exNum": "5.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_5_5_q1",
@@ -4003,7 +4003,7 @@ export const courseData = [
       {
         "exNum": "6.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_6_1_q1",
@@ -4046,7 +4046,7 @@ export const courseData = [
       {
         "exNum": "6.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_6_err_1",
@@ -4065,7 +4065,7 @@ export const courseData = [
       {
         "exNum": "6.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_6_3_q1",
@@ -4200,7 +4200,7 @@ export const courseData = [
       {
         "exNum": "6.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Teacher Actions (Hành động giáo viên)",
           "Student Tasks (Nhiệm vụ học sinh)"
@@ -4251,7 +4251,7 @@ export const courseData = [
       {
         "exNum": "6.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_6_5_q1",
@@ -4683,7 +4683,7 @@ export const courseData = [
       {
         "exNum": "7.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_7_1_q1",
@@ -4726,7 +4726,7 @@ export const courseData = [
       {
         "exNum": "7.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_7_err_1",
@@ -4745,7 +4745,7 @@ export const courseData = [
       {
         "exNum": "7.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_7_3_q1",
@@ -4880,7 +4880,7 @@ export const courseData = [
       {
         "exNum": "7.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Negative Meanings (Nghĩa phủ định)",
           "Shift Variations (Đại diện biến thể)"
@@ -4931,7 +4931,7 @@ export const courseData = [
       {
         "exNum": "7.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_7_5_q1",
@@ -5368,7 +5368,7 @@ export const courseData = [
       {
         "exNum": "8.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_8_1_q1",
@@ -5411,7 +5411,7 @@ export const courseData = [
       {
         "exNum": "8.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_8_err_1",
@@ -5430,7 +5430,7 @@ export const courseData = [
       {
         "exNum": "8.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_8_3_q1",
@@ -5565,7 +5565,7 @@ export const courseData = [
       {
         "exNum": "8.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Abstract Outcomes (-ment & -ness)",
           "States & Qualities (-ity & -tion)"
@@ -5616,7 +5616,7 @@ export const courseData = [
       {
         "exNum": "8.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_8_5_q1",
@@ -6053,7 +6053,7 @@ export const courseData = [
       {
         "exNum": "9.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_9_1_q1",
@@ -6096,7 +6096,7 @@ export const courseData = [
       {
         "exNum": "9.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_9_err_1",
@@ -6115,7 +6115,7 @@ export const courseData = [
       {
         "exNum": "9.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_9_3_q1",
@@ -6250,7 +6250,7 @@ export const courseData = [
       {
         "exNum": "9.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Quality Attributes (-able & -y)",
           "Identity Attributes (-ive, -ful & -less)"
@@ -6301,7 +6301,7 @@ export const courseData = [
       {
         "exNum": "9.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_9_5_q1",
@@ -6738,7 +6738,7 @@ export const courseData = [
       {
         "exNum": "10.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_10_1_q1",
@@ -6781,7 +6781,7 @@ export const courseData = [
       {
         "exNum": "10.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_10_err_1",
@@ -6800,7 +6800,7 @@ export const courseData = [
       {
         "exNum": "10.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_10_3_q1",
@@ -6935,7 +6935,7 @@ export const courseData = [
       {
         "exNum": "10.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Nouns from Verbs (Động từ -> Danh từ)",
           "Verbs from Nouns (Danh từ -> Động từ)"
@@ -6986,7 +6986,7 @@ export const courseData = [
       {
         "exNum": "10.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_10_5_q1",
@@ -7423,7 +7423,7 @@ export const courseData = [
       {
         "exNum": "11.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_11_1_q1",
@@ -7466,7 +7466,7 @@ export const courseData = [
       {
         "exNum": "11.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_11_err_1",
@@ -7485,7 +7485,7 @@ export const courseData = [
       {
         "exNum": "11.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_11_3_q1",
@@ -7620,7 +7620,7 @@ export const courseData = [
       {
         "exNum": "11.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Commercial & Gear (Thiết bị & Thương mại)",
           "Daily & Social (Sinh hoạt xã hội)"
@@ -7671,7 +7671,7 @@ export const courseData = [
       {
         "exNum": "11.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_11_5_q1",
@@ -8108,7 +8108,7 @@ export const courseData = [
       {
         "exNum": "12.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_12_1_q1",
@@ -8151,7 +8151,7 @@ export const courseData = [
       {
         "exNum": "12.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_12_err_1",
@@ -8170,7 +8170,7 @@ export const courseData = [
       {
         "exNum": "12.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_12_3_q1",
@@ -8305,7 +8305,7 @@ export const courseData = [
       {
         "exNum": "12.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Appearance & Quality (Ngoại hình & Trạng thái)",
           "Personality Traits (Tính cách con người)"
@@ -8356,7 +8356,7 @@ export const courseData = [
       {
         "exNum": "12.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_12_5_q1",
@@ -8797,7 +8797,7 @@ export const courseData = [
       {
         "exNum": "13.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_13_1_q1",
@@ -8840,7 +8840,7 @@ export const courseData = [
       {
         "exNum": "13.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_13_err_1",
@@ -8859,7 +8859,7 @@ export const courseData = [
       {
         "exNum": "13.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_13_3_q1",
@@ -8994,7 +8994,7 @@ export const courseData = [
       {
         "exNum": "13.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Verbs + Nouns (Kết hợp Động + Danh)",
           "Adjectives + Nouns (Kết hợp Tính + Danh)"
@@ -9045,7 +9045,7 @@ export const courseData = [
       {
         "exNum": "13.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_13_5_q1",
@@ -9473,7 +9473,7 @@ export const courseData = [
       {
         "exNum": "14.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_14_1_q1",
@@ -9516,7 +9516,7 @@ export const courseData = [
       {
         "exNum": "14.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_14_err_1",
@@ -9535,7 +9535,7 @@ export const courseData = [
       {
         "exNum": "14.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_14_3_q1",
@@ -9670,7 +9670,7 @@ export const courseData = [
       {
         "exNum": "14.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Verb + Preposition (Động từ + Giới từ)",
           "Adjective + Preposition (Tính từ + Giới từ)"
@@ -9721,7 +9721,7 @@ export const courseData = [
       {
         "exNum": "14.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_14_5_q1",
@@ -10158,7 +10158,7 @@ export const courseData = [
       {
         "exNum": "15.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_15_1_q1",
@@ -10201,7 +10201,7 @@ export const courseData = [
       {
         "exNum": "15.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_15_err_1",
@@ -10220,7 +10220,7 @@ export const courseData = [
       {
         "exNum": "15.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_15_3_q1",
@@ -10355,7 +10355,7 @@ export const courseData = [
       {
         "exNum": "15.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Preposition 'On' & 'By' (Giới từ On và By)",
           "Preposition 'In' & 'At' (Giới từ In và At)"
@@ -10406,7 +10406,7 @@ export const courseData = [
       {
         "exNum": "15.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_15_5_q1",
@@ -10847,7 +10847,7 @@ export const courseData = [
       {
         "exNum": "16.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_16_1_q1",
@@ -10890,7 +10890,7 @@ export const courseData = [
       {
         "exNum": "16.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_16_err_1",
@@ -10909,7 +10909,7 @@ export const courseData = [
       {
         "exNum": "16.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_16_3_q1",
@@ -11044,7 +11044,7 @@ export const courseData = [
       {
         "exNum": "16.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Literal Meanings (Nghĩa trực tiếp)",
           "Idiomatic Meanings (Nghĩa chuyển hóa)"
@@ -11095,7 +11095,7 @@ export const courseData = [
       {
         "exNum": "16.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_16_5_q1",
@@ -11536,7 +11536,7 @@ export const courseData = [
       {
         "exNum": "17.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_17_1_q1",
@@ -11579,7 +11579,7 @@ export const courseData = [
       {
         "exNum": "17.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_17_err_1",
@@ -11598,7 +11598,7 @@ export const courseData = [
       {
         "exNum": "17.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_17_3_q1",
@@ -11733,7 +11733,7 @@ export const courseData = [
       {
         "exNum": "17.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Separable Verbs (Có thể tách rời)",
           "Inseparable Verbs (Không thể tách rời)"
@@ -11784,7 +11784,7 @@ export const courseData = [
       {
         "exNum": "17.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_17_5_q1",
@@ -12221,7 +12221,7 @@ export const courseData = [
       {
         "exNum": "18.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_18_1_q1",
@@ -12264,7 +12264,7 @@ export const courseData = [
       {
         "exNum": "18.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_18_err_1",
@@ -12283,7 +12283,7 @@ export const courseData = [
       {
         "exNum": "18.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_18_3_q1",
@@ -12418,7 +12418,7 @@ export const courseData = [
       {
         "exNum": "18.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Communicative Idioms (Xã giao)",
           "Functional Phrases (Cụm từ chức năng)"
@@ -12469,7 +12469,7 @@ export const courseData = [
       {
         "exNum": "18.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_18_5_q1",
@@ -12947,7 +12947,7 @@ export const courseData = [
       {
         "exNum": "19.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_19_1_q1",
@@ -12990,7 +12990,7 @@ export const courseData = [
       {
         "exNum": "19.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_19_err_1",
@@ -13009,7 +13009,7 @@ export const courseData = [
       {
         "exNum": "19.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_19_3_q1",
@@ -13144,7 +13144,7 @@ export const courseData = [
       {
         "exNum": "19.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Make & Do Actions (Lao động & Sáng tạo)",
           "Have & Take Actions (Trải nghiệm & Di chuyển)"
@@ -13195,7 +13195,7 @@ export const courseData = [
       {
         "exNum": "19.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_19_5_q1",
@@ -13636,7 +13636,7 @@ export const courseData = [
       {
         "exNum": "20.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_20_1_q1",
@@ -13679,7 +13679,7 @@ export const courseData = [
       {
         "exNum": "20.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_20_err_1",
@@ -13698,7 +13698,7 @@ export const courseData = [
       {
         "exNum": "20.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_20_3_q1",
@@ -13833,7 +13833,7 @@ export const courseData = [
       {
         "exNum": "20.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Give & Keep Collocations (Giữ & Cho)",
           "Break, Catch & See (Phá vỡ, Bắt & Gặp)"
@@ -13884,7 +13884,7 @@ export const courseData = [
       {
         "exNum": "20.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_20_5_q1",
@@ -14325,7 +14325,7 @@ export const courseData = [
       {
         "exNum": "21.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_21_1_q1",
@@ -14368,7 +14368,7 @@ export const courseData = [
       {
         "exNum": "21.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_21_err_1",
@@ -14387,7 +14387,7 @@ export const courseData = [
       {
         "exNum": "21.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_21_3_q1",
@@ -14522,7 +14522,7 @@ export const courseData = [
       {
         "exNum": "21.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Status Changes (Thay đổi trạng thái)",
           "Daily Transactions (Đạt được & Di chuyển)"
@@ -14573,7 +14573,7 @@ export const courseData = [
       {
         "exNum": "21.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_21_5_q1",
@@ -15010,7 +15010,7 @@ export const courseData = [
       {
         "exNum": "22.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_22_1_q1",
@@ -15053,7 +15053,7 @@ export const courseData = [
       {
         "exNum": "22.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_22_err_1",
@@ -15072,7 +15072,7 @@ export const courseData = [
       {
         "exNum": "22.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_22_3_q1",
@@ -15207,7 +15207,7 @@ export const courseData = [
       {
         "exNum": "22.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Active Movements (Chuyển động năng động)",
           "State Changes & Transit (Thay đổi & Xe cộ)"
@@ -15258,7 +15258,7 @@ export const courseData = [
       {
         "exNum": "22.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_22_5_q1",
@@ -15695,7 +15695,7 @@ export const courseData = [
       {
         "exNum": "23.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_23_1_q1",
@@ -15729,7 +15729,7 @@ export const courseData = [
       {
         "exNum": "23.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_23_err_1",
@@ -15748,7 +15748,7 @@ export const courseData = [
       {
         "exNum": "23.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_23_3_q1",
@@ -15883,7 +15883,7 @@ export const courseData = [
       {
         "exNum": "23.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Thanks & Appreciation (Lời cảm ơn)",
           "Apologies & Excuses (Xin lỗi & Thanh minh)"
@@ -15934,7 +15934,7 @@ export const courseData = [
       {
         "exNum": "23.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_23_5_q1",
@@ -16371,7 +16371,7 @@ export const courseData = [
       {
         "exNum": "24.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_24_1_q1",
@@ -16414,7 +16414,7 @@ export const courseData = [
       {
         "exNum": "24.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_24_err_1",
@@ -16433,7 +16433,7 @@ export const courseData = [
       {
         "exNum": "24.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_24_3_q1",
@@ -16568,7 +16568,7 @@ export const courseData = [
       {
         "exNum": "24.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Offers & Invites (Đề xuất & Lời mời)",
           "Requests & Lending (Yêu cầu & Vay mượn)"
@@ -16619,7 +16619,7 @@ export const courseData = [
       {
         "exNum": "24.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_24_5_q1",
@@ -17056,7 +17056,7 @@ export const courseData = [
       {
         "exNum": "25.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_25_1_q1",
@@ -17099,7 +17099,7 @@ export const courseData = [
       {
         "exNum": "25.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_25_err_1",
@@ -17118,7 +17118,7 @@ export const courseData = [
       {
         "exNum": "25.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_25_3_q1",
@@ -17253,7 +17253,7 @@ export const courseData = [
       {
         "exNum": "25.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Agreeing & Sharing (Đồng tình)",
           "Disagreeing & Point (Bác bỏ phản biện)"
@@ -17304,7 +17304,7 @@ export const courseData = [
       {
         "exNum": "25.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_25_5_q1",
@@ -17741,7 +17741,7 @@ export const courseData = [
       {
         "exNum": "26.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_26_1_q1",
@@ -17784,7 +17784,7 @@ export const courseData = [
       {
         "exNum": "26.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_26_err_1",
@@ -17803,7 +17803,7 @@ export const courseData = [
       {
         "exNum": "26.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_26_3_q1",
@@ -17938,7 +17938,7 @@ export const courseData = [
       {
         "exNum": "26.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Celebrations & Wishes (Lời chúc mừng)",
           "Safe & Peace Expressions (Đi lại & Chia buồn)"
@@ -17989,7 +17989,7 @@ export const courseData = [
       {
         "exNum": "26.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_26_5_q1",
@@ -18430,7 +18430,7 @@ export const courseData = [
       {
         "exNum": "27.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_27_1_q1",
@@ -18473,7 +18473,7 @@ export const courseData = [
       {
         "exNum": "27.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_27_err_1",
@@ -18492,7 +18492,7 @@ export const courseData = [
       {
         "exNum": "27.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_27_3_q1",
@@ -18627,7 +18627,7 @@ export const courseData = [
       {
         "exNum": "27.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Uncountable Nouns (Không đếm được)",
           "Plural-Only Nouns (Luôn ở dạng số nhiều)"
@@ -18678,7 +18678,7 @@ export const courseData = [
       {
         "exNum": "27.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_27_5_q1",
@@ -19115,7 +19115,7 @@ export const courseData = [
       {
         "exNum": "28.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_28_1_q1",
@@ -19158,7 +19158,7 @@ export const courseData = [
       {
         "exNum": "28.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_28_err_1",
@@ -19177,7 +19177,7 @@ export const courseData = [
       {
         "exNum": "28.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_28_3_q1",
@@ -19312,7 +19312,7 @@ export const courseData = [
       {
         "exNum": "28.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Followed by -ing (Động từ + V-ing)",
           "Followed by infinitive (Động từ + to-V)"
@@ -19363,7 +19363,7 @@ export const courseData = [
       {
         "exNum": "28.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_28_5_q1",
@@ -19800,7 +19800,7 @@ export const courseData = [
       {
         "exNum": "29.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_29_1_q1",
@@ -19843,7 +19843,7 @@ export const courseData = [
       {
         "exNum": "29.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_29_err_1",
@@ -19862,7 +19862,7 @@ export const courseData = [
       {
         "exNum": "29.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_29_3_q1",
@@ -19997,7 +19997,7 @@ export const courseData = [
       {
         "exNum": "29.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Verb + Object + to-V (Cấu trúc có tân ngữ)",
           "Verb + 'that' clause (Mệnh đề liên kết 'that')"
@@ -20048,7 +20048,7 @@ export const courseData = [
       {
         "exNum": "29.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_29_5_q1",
@@ -20485,7 +20485,7 @@ export const courseData = [
       {
         "exNum": "30.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_30_1_q1",
@@ -20528,7 +20528,7 @@ export const courseData = [
       {
         "exNum": "30.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_30_err_1",
@@ -20547,7 +20547,7 @@ export const courseData = [
       {
         "exNum": "30.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_30_3_q1",
@@ -20682,7 +20682,7 @@ export const courseData = [
       {
         "exNum": "30.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Adjectives ending -ed / -ing (Hậu tố cảm xúc)",
           "Extreme Adjectives (Tính từ cực độ)"
@@ -20733,7 +20733,7 @@ export const courseData = [
       {
         "exNum": "30.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_30_5_q1",
@@ -21170,7 +21170,7 @@ export const courseData = [
       {
         "exNum": "31.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_31_1_q1",
@@ -21213,7 +21213,7 @@ export const courseData = [
       {
         "exNum": "31.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_31_err_1",
@@ -21232,7 +21232,7 @@ export const courseData = [
       {
         "exNum": "31.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_31_3_q1",
@@ -21367,7 +21367,7 @@ export const courseData = [
       {
         "exNum": "31.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Basic Position (Vị trí cơ bản)",
           "Relative Direction (Phương hướng tương đối)"
@@ -21418,7 +21418,7 @@ export const courseData = [
       {
         "exNum": "31.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_31_5_q1",
@@ -21855,7 +21855,7 @@ export const courseData = [
       {
         "exNum": "32.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_32_1_q1",
@@ -21898,7 +21898,7 @@ export const courseData = [
       {
         "exNum": "32.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_32_err_1",
@@ -21917,7 +21917,7 @@ export const courseData = [
       {
         "exNum": "32.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_32_3_q1",
@@ -22052,7 +22052,7 @@ export const courseData = [
       {
         "exNum": "32.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Frequency Adverbs (Tần suất hoạt động)",
           "Degree Adverbs (Mức độ bổ nghĩa)"
@@ -22103,7 +22103,7 @@ export const courseData = [
       {
         "exNum": "32.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_32_5_q1",
@@ -22540,7 +22540,7 @@ export const courseData = [
       {
         "exNum": "33.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_33_1_q1",
@@ -22583,7 +22583,7 @@ export const courseData = [
       {
         "exNum": "33.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_33_err_1",
@@ -22602,7 +22602,7 @@ export const courseData = [
       {
         "exNum": "33.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_33_3_q1",
@@ -22737,7 +22737,7 @@ export const courseData = [
       {
         "exNum": "33.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Time Connectors (Liên từ mốc thời gian)",
           "Sequence Connectors (Từ nối trình tự trước sau)"
@@ -22788,7 +22788,7 @@ export const courseData = [
       {
         "exNum": "33.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_33_5_q1",
@@ -23225,7 +23225,7 @@ export const courseData = [
       {
         "exNum": "34.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_34_1_q1",
@@ -23268,7 +23268,7 @@ export const courseData = [
       {
         "exNum": "34.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_34_err_1",
@@ -23287,7 +23287,7 @@ export const courseData = [
       {
         "exNum": "34.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_34_3_q1",
@@ -23422,7 +23422,7 @@ export const courseData = [
       {
         "exNum": "34.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Addition Connectors (Liên từ bổ sung thêm)",
           "Contrast Connectors (Liên từ tương phản đối lập)"
@@ -23473,7 +23473,7 @@ export const courseData = [
       {
         "exNum": "34.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_34_5_q1",
@@ -23910,7 +23910,7 @@ export const courseData = [
       {
         "exNum": "35.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_35_1_q1",
@@ -23953,7 +23953,7 @@ export const courseData = [
       {
         "exNum": "35.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_35_err_1",
@@ -23972,7 +23972,7 @@ export const courseData = [
       {
         "exNum": "35.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_35_3_q1",
@@ -24107,7 +24107,7 @@ export const courseData = [
       {
         "exNum": "35.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Comparison (So sánh giống & khác)",
           "Conditional Connectors (Điều kiện ràng buộc)"
@@ -24158,7 +24158,7 @@ export const courseData = [
       {
         "exNum": "35.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_35_5_q1",
@@ -24595,7 +24595,7 @@ export const courseData = [
       {
         "exNum": "36.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_36_1_q1",
@@ -24638,7 +24638,7 @@ export const courseData = [
       {
         "exNum": "36.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_36_err_1",
@@ -24657,7 +24657,7 @@ export const courseData = [
       {
         "exNum": "36.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_36_3_q1",
@@ -24792,7 +24792,7 @@ export const courseData = [
       {
         "exNum": "36.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Reason & Purpose (Lý do & Mục đích)",
           "Result Connectors (Kết quả hệ quả)"
@@ -24843,7 +24843,7 @@ export const courseData = [
       {
         "exNum": "36.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_36_5_q1",
@@ -25280,7 +25280,7 @@ export const courseData = [
       {
         "exNum": "37.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_37_1_q1",
@@ -25323,7 +25323,7 @@ export const courseData = [
       {
         "exNum": "37.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_37_err_1",
@@ -25342,7 +25342,7 @@ export const courseData = [
       {
         "exNum": "37.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_37_3_q1",
@@ -25477,7 +25477,7 @@ export const courseData = [
       {
         "exNum": "37.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Geographical Features (Địa lý tự nhiên)",
           "Natural Phenomena (Hiện tượng thiên nhiên)"
@@ -25528,7 +25528,7 @@ export const courseData = [
       {
         "exNum": "37.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_37_5_q1",
@@ -25965,7 +25965,7 @@ export const courseData = [
       {
         "exNum": "38.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_38_1_q1",
@@ -26008,7 +26008,7 @@ export const courseData = [
       {
         "exNum": "38.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_38_err_1",
@@ -26027,7 +26027,7 @@ export const courseData = [
       {
         "exNum": "38.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_38_3_q1",
@@ -26162,7 +26162,7 @@ export const courseData = [
       {
         "exNum": "38.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Atmosphere States (Trạng thái khí quyển)",
           "Precipitation & Wind (Hiện tượng Mưa & Gió)"
@@ -26213,7 +26213,7 @@ export const courseData = [
       {
         "exNum": "38.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_38_5_q1",
@@ -26654,7 +26654,7 @@ export const courseData = [
       {
         "exNum": "39.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_39_1_q1",
@@ -26697,7 +26697,7 @@ export const courseData = [
       {
         "exNum": "39.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_39_err_1",
@@ -26716,7 +26716,7 @@ export const courseData = [
       {
         "exNum": "39.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_39_3_q1",
@@ -26851,7 +26851,7 @@ export const courseData = [
       {
         "exNum": "39.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Agriculture (Nông nghiệp trồng trọt)",
           "Mining & Resources (Khai khoáng khoáng sản)"
@@ -26902,7 +26902,7 @@ export const courseData = [
       {
         "exNum": "39.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_39_5_q1",
@@ -27339,7 +27339,7 @@ export const courseData = [
       {
         "exNum": "40.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_40_1_q1",
@@ -27382,7 +27382,7 @@ export const courseData = [
       {
         "exNum": "40.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_40_err_1",
@@ -27401,7 +27401,7 @@ export const courseData = [
       {
         "exNum": "40.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_40_3_q1",
@@ -27536,7 +27536,7 @@ export const courseData = [
       {
         "exNum": "40.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Mammals & Birds (Thú & Chim)",
           "Insects & Reptiles (Côn trùng & Bò sát)"
@@ -27587,7 +27587,7 @@ export const courseData = [
       {
         "exNum": "40.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_40_5_q1",
@@ -28024,7 +28024,7 @@ export const courseData = [
       {
         "exNum": "41.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_41_1_q1",
@@ -28067,7 +28067,7 @@ export const courseData = [
       {
         "exNum": "41.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_41_err_1",
@@ -28086,7 +28086,7 @@ export const courseData = [
       {
         "exNum": "41.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_41_3_q1",
@@ -28221,7 +28221,7 @@ export const courseData = [
       {
         "exNum": "41.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "European Geography (Đất nước & Con người Châu Âu)",
           "Asian & Arabic (Đất nước & Ngôn ngữ Châu Á & Trung Đông)"
@@ -28272,7 +28272,7 @@ export const courseData = [
       {
         "exNum": "41.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_41_5_q1",
@@ -28709,7 +28709,7 @@ export const courseData = [
       {
         "exNum": "42.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_42_1_q1",
@@ -28743,7 +28743,7 @@ export const courseData = [
       {
         "exNum": "42.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_42_err_1",
@@ -28762,7 +28762,7 @@ export const courseData = [
       {
         "exNum": "42.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_42_3_q1",
@@ -28897,7 +28897,7 @@ export const courseData = [
       {
         "exNum": "42.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Body Parts (Bộ phận cơ thể con người)",
           "Body Actions (Hành động chuyển động vật lý)"
@@ -28948,7 +28948,7 @@ export const courseData = [
       {
         "exNum": "42.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_42_5_q1",
@@ -29389,7 +29389,7 @@ export const courseData = [
       {
         "exNum": "43.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_43_1_q1",
@@ -29432,7 +29432,7 @@ export const courseData = [
       {
         "exNum": "43.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_43_err_1",
@@ -29451,7 +29451,7 @@ export const courseData = [
       {
         "exNum": "43.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_43_3_q1",
@@ -29586,7 +29586,7 @@ export const courseData = [
       {
         "exNum": "43.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Heights & Builds (Chiều cao & Vóc dáng)",
           "Hair & Skins (Mái tóc & Da dẻ)"
@@ -29637,7 +29637,7 @@ export const courseData = [
       {
         "exNum": "43.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_43_5_q1",
@@ -30074,7 +30074,7 @@ export const courseData = [
       {
         "exNum": "44.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_44_1_q1",
@@ -30117,7 +30117,7 @@ export const courseData = [
       {
         "exNum": "44.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_44_err_1",
@@ -30136,7 +30136,7 @@ export const courseData = [
       {
         "exNum": "44.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_44_3_q1",
@@ -30271,7 +30271,7 @@ export const courseData = [
       {
         "exNum": "44.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Positive Qualities (Nét tính cách tích cực)",
           "Negative Qualities (Nét tính cách tiêu cực)"
@@ -30322,7 +30322,7 @@ export const courseData = [
       {
         "exNum": "44.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_44_5_q1",
@@ -30759,7 +30759,7 @@ export const courseData = [
       {
         "exNum": "45.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_45_1_q1",
@@ -30802,7 +30802,7 @@ export const courseData = [
       {
         "exNum": "45.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_45_err_1",
@@ -30821,7 +30821,7 @@ export const courseData = [
       {
         "exNum": "45.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_45_3_q1",
@@ -30956,7 +30956,7 @@ export const courseData = [
       {
         "exNum": "45.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Internal Feelings (Cảm xúc nội tâm)",
           "Physical Expressions (Biểu cảm hành động vật lý)"
@@ -31007,7 +31007,7 @@ export const courseData = [
       {
         "exNum": "45.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_45_5_q1",
@@ -31444,7 +31444,7 @@ export const courseData = [
       {
         "exNum": "46.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_46_1_q1",
@@ -31487,7 +31487,7 @@ export const courseData = [
       {
         "exNum": "46.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_46_err_1",
@@ -31506,7 +31506,7 @@ export const courseData = [
       {
         "exNum": "46.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_46_3_q1",
@@ -31641,7 +31641,7 @@ export const courseData = [
       {
         "exNum": "46.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Kinship & Blood (Họ hàng ruột thịt)",
           "Social & Work mates (Đồng nghiệp & Bạn bè xã hội)"
@@ -31692,7 +31692,7 @@ export const courseData = [
       {
         "exNum": "46.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_46_5_q1",
@@ -32129,7 +32129,7 @@ export const courseData = [
       {
         "exNum": "47.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_47_1_q1",
@@ -32172,7 +32172,7 @@ export const courseData = [
       {
         "exNum": "47.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_47_err_1",
@@ -32191,7 +32191,7 @@ export const courseData = [
       {
         "exNum": "47.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_47_3_q1",
@@ -32326,7 +32326,7 @@ export const courseData = [
       {
         "exNum": "47.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Early Stages (Giai đoạn đầu đời)",
           "Adult & Late Stages (Trưởng thành & Về già)"
@@ -32377,7 +32377,7 @@ export const courseData = [
       {
         "exNum": "47.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_47_5_q1",
@@ -32814,7 +32814,7 @@ export const courseData = [
       {
         "exNum": "48.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_48_1_q1",
@@ -32857,7 +32857,7 @@ export const courseData = [
       {
         "exNum": "48.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_48_err_1",
@@ -32876,7 +32876,7 @@ export const courseData = [
       {
         "exNum": "48.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_48_3_q1",
@@ -33011,7 +33011,7 @@ export const courseData = [
       {
         "exNum": "48.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Morning routines (Sinh hoạt buổi sáng)",
           "Evening routines (Sinh hoạt buổi chiều tối)"
@@ -33062,7 +33062,7 @@ export const courseData = [
       {
         "exNum": "48.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_48_5_q1",
@@ -33499,7 +33499,7 @@ export const courseData = [
       {
         "exNum": "49.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_49_1_q1",
@@ -33542,7 +33542,7 @@ export const courseData = [
       {
         "exNum": "49.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_49_err_1",
@@ -33561,7 +33561,7 @@ export const courseData = [
       {
         "exNum": "49.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_49_3_q1",
@@ -33696,7 +33696,7 @@ export const courseData = [
       {
         "exNum": "49.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Building Types (Các dạng nhà ở)",
           "Building Elements (Bộ phận cấu trúc xây dựng)"
@@ -33747,7 +33747,7 @@ export const courseData = [
       {
         "exNum": "49.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_49_5_q1",
@@ -34188,7 +34188,7 @@ export const courseData = [
       {
         "exNum": "50.1",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the first half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:",
         "questions": [
           {
             "id": "ex_50_1_q1",
@@ -34231,7 +34231,7 @@ export const courseData = [
       {
         "exNum": "50.2",
         "type": "error_correction",
-        "instruction": "Find and correct the grammatical or vocabulary errors in these sentences:",
+        "instruction": "Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:",
         "questions": [
           {
             "id": "ex_50_err_1",
@@ -34250,7 +34250,7 @@ export const courseData = [
       {
         "exNum": "50.3",
         "type": "matching",
-        "instruction": "Match the English words on the left with their correct Vietnamese meanings on the right:",
+        "instruction": "Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:",
         "questions": [
           {
             "id": "ex_50_3_q1",
@@ -34385,7 +34385,7 @@ export const courseData = [
       {
         "exNum": "50.4",
         "type": "categorization",
-        "instruction": "Organise the words into their correct semantic categories:",
+        "instruction": "Xếp các từ vào đúng nhóm nghĩa của chúng:",
         "categories": [
           "Living Room Assets (Tiện ích phòng khách)",
           "Kitchen Appliances (Thiết bị đồ dùng nhà bếp)"
@@ -34436,7 +34436,7 @@ export const courseData = [
       {
         "exNum": "50.5",
         "type": "fill_in_blanks",
-        "instruction": "Complete the sentences using the correct words from the second half of this unit:",
+        "instruction": "Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:",
         "questions": [
           {
             "id": "ex_50_5_q1",

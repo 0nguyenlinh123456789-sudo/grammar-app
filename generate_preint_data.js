@@ -1124,7 +1124,7 @@ function compileTextbookExercises(unit) {
   const ex1 = {
     exNum: `${unitNum}.1`,
     type: 'fill_in_blanks',
-    instruction: 'Complete the sentences using the correct words from the first half of this unit:',
+    instruction: 'Điền từ đúng vào chỗ trống, dùng các từ ở nửa đầu bài này:',
     questions: firstHalfWords.filter(canBlank).map((w, idx) => fillBlankQuestion(w, unitNum, `ex_${unitNum}_1_q${idx + 1}`))
   };
 
@@ -1132,7 +1132,7 @@ function compileTextbookExercises(unit) {
   const ex2 = {
     exNum: `${unitNum}.2`,
     type: 'error_correction',
-    instruction: 'Find and correct the grammatical or vocabulary errors in these sentences:',
+    instruction: 'Tìm và sửa lỗi ngữ pháp hoặc dùng từ sai trong các câu sau:',
     // KHÔNG fallback: unit nào chưa có bài sửa lỗi curated thì DỪNG. Nhánh
     // `|| [...]` cũ tự ghép câu kiểu "I study make a mistake every days." —
     // đúng loại rác đã phải dọn (AUDIT_SU_PHAM.md mục 9).
@@ -1144,7 +1144,7 @@ function compileTextbookExercises(unit) {
   const ex3 = {
     exNum: `${unitNum}.3`,
     type: 'matching',
-    instruction: 'Match the English words on the left with their correct Vietnamese meanings on the right:',
+    instruction: 'Ghép từ tiếng Anh bên trái với nghĩa tiếng Việt tương ứng bên phải:',
     questions: words.map((w, idx) => {
       return {
         id: `ex_${unitNum}_3_q${idx + 1}`,
@@ -1162,7 +1162,7 @@ function compileTextbookExercises(unit) {
   const ex4 = {
     exNum: `${unitNum}.4`,
     type: 'categorization',
-    instruction: 'Organise the words into their correct semantic categories:',
+    instruction: 'Xếp các từ vào đúng nhóm nghĩa của chúng:',
     categories: buckets,
     questions: words.map(w => {
       return {
@@ -1177,7 +1177,7 @@ function compileTextbookExercises(unit) {
   const ex5 = {
     exNum: `${unitNum}.5`,
     type: 'fill_in_blanks',
-    instruction: 'Complete the sentences using the correct words from the second half of this unit:',
+    instruction: 'Điền từ đúng vào chỗ trống, dùng các từ ở nửa sau bài này:',
     questions: secondHalfWords.filter(canBlank).map((w, idx) => fillBlankQuestion(w, unitNum, `ex_${unitNum}_5_q${idx + 1}`))
   };
 

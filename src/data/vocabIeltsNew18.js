@@ -3,7 +3,7 @@ export const vocabIeltsNew18 = [
   {
     id: "ethics-philosophy-ielts", category: "ielts",
     title: "🤔 Ethics & Philosophy (100 Words) (B2-C1)",
-    description: "100 profound vocabulary words focusing on moral dilemmas, ethical principles, beliefs, and philosophical concepts for IELTS.",
+    description: "100 từ vựng trình độ cao về những tình thế lưỡng nan đạo đức, nguyên tắc luân lý, niềm tin và khái niệm triết học — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"ethic",vi:"đạo lý",type:"(n)",ipa:"/ˈeθ.ɪk/",example:"A strong work ethic is essential for success.",viExample:"Một đạo lý làm việc mạnh mẽ là điều cốt yếu cho sự thành công."},
@@ -113,7 +113,7 @@ export const vocabIeltsNew18 = [
   {
     id: "art-architecture-ielts", category: "ielts",
     title: "🏛️ Art & Architecture (100 Words) (B2-C1)",
-    description: "100 sophisticated vocabulary words about visual arts, structural design, aesthetics, and cultural heritage for IELTS preparation.",
+    description: "100 từ vựng trình độ cao về nghệ thuật thị giác, thiết kế kiến trúc, thẩm mỹ và di sản văn hoá — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"art",vi:"nghệ thuật",type:"(n)",ipa:"/ɑːt/",example:"Modern art often challenges traditional aesthetic boundaries.",viExample:"Nghệ thuật hiện đại thường xuyên thách thức những ranh giới thẩm mỹ truyền thống."},
