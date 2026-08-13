@@ -6,12 +6,24 @@ import { PenTool, RotateCcw, Sparkles } from 'lucide-react';
 // Math.random() lúc sinh file nên thứ tự bị ĐÓNG BĂNG trong dữ liệu: mở lại
 // unit lần thứ hai vẫn đúng vị trí cũ, người học nhớ vị trí thay vì nhớ từ.
 // Generator giờ rải đáp án theo công thức xác định, còn việc trộn là của UI.
+// mulberry32: dùng Math.imul để phép nhân ở lại trong 32-bit. Bản LCG viết
+// thường (s * 1103515245) vượt 2^53 nên JS làm tròn mất bit thấp, kết quả đo
+// được chỉ ra 19/24 hoán vị — có thế cờ không bao giờ xuất hiện.
+const rngFrom = (seed) => {
+    let a = seed >>> 0;
+    return () => {
+        a = (a + 0x6d2b79f5) >>> 0;
+        let t = Math.imul(a ^ (a >>> 15), 1 | a);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+};
+
 const shuffled = (arr, seed) => {
     const out = [...arr];
-    let s = seed;
+    const rand = rngFrom(seed);
     for (let i = out.length - 1; i > 0; i--) {
-        s = (s * 1103515245 + 12345) % 2147483648;
-        const j = s % (i + 1);
+        const j = Math.floor(rand() * (i + 1));
         [out[i], out[j]] = [out[j], out[i]];
     }
     return out;

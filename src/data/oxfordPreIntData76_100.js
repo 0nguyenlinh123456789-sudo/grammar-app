@@ -11637,12 +11637,6 @@ export const courseData76_100 = [
         ]
       },
       {
-        "exNum": "95.4",
-        "type": "error_correction",
-        "instruction": "Tìm và sửa lỗi sai trong các câu sau (Chú ý chính tả và ngữ pháp):",
-        "questions": []
-      },
-      {
         "exNum": "95.5",
         "type": "fill_in_blanks",
         "instruction": "Ôn tập tổng hợp: Điền từ thích hợp vào chỗ trống:",

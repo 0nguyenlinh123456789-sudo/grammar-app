@@ -25,8 +25,9 @@ function blankExample(w, unitNum, placeholder) {
   if (hits.length > 1) {
     throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}: "${target}" xuất hiện ${hits.length} lần trong "${w.example}" — đục lỗ sẽ tạo 2 chỗ trống nhưng chỉ có 1 đáp án.`);
   }
+  // `surface` lấy từ CHÍNH lần khớp đã dùng để đục lỗ (xem generate_preint_data.js).
   const sentence = w.example.replace(re, (m, pre) => pre + placeholder);
-  const surface = w.example.match(new RegExp(`${escaped}(?![A-Za-z])`, 'i'))[0];
+  const surface = hits[0].replace(/^[^A-Za-z]/, '');
   return { sentence, surface };
 }
 
@@ -621,7 +622,10 @@ function compileUnit(unit) {
     ))
   };
 
-  const textbookExercises = [ex1, ex2, ex3, ex4, ex5];
+  // Bài nào không còn câu nào thì BỎ HẲN khỏi danh sách — không ship cái vỏ
+  // rỗng. (ex4 chỉ rút từ 2 mục từ; unit 95 có cả hai đều dùng dạng chia nên
+  // bài "sửa câu lỗi sai" của nó không còn câu nào.)
+  const textbookExercises = [ex1, ex2, ex3, ex4, ex5].filter((ex) => (ex.questions || []).length > 0);
 
   return {
     id: "pre_" + unitNum,
@@ -653,7 +657,9 @@ function assertCleanOutput(units) {
     for (const t of (u.typingGame || [])) {
       if (TEMPLATE.test(t.a) || FAKE_SYN.test(t.a)) throw new Error(`[assertCleanOutput] ${u.id}: typing rác "${t.a}"`);
     }
+    if (!(u.textbookExercises || []).length) throw new Error(`[assertCleanOutput] ${u.id}: không còn bài tập sách giáo khoa nào`);
     for (const ex of (u.textbookExercises || [])) {
+      if (!(ex.questions || []).length) throw new Error(`[assertCleanOutput] ${u.id}: bài ${ex.exNum} (${ex.type}) không có câu nào — phải bỏ hẳn bài, không ship vỏ rỗng`);
       if (ex.type !== 'fill_in_blanks') continue;
       for (const q of (ex.questions || [])) {
         const holes = (q.text.match(/\[blank\]/g) || []).length;

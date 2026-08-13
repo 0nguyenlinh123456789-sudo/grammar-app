@@ -50,8 +50,11 @@ function blankExample(w, unitNum, placeholder) {
   if (hits.length > 1) {
     throw new Error(`[generate_preint_data] DỪNG - unit ${unitNum}: "${target}" xuất hiện ${hits.length} lần trong "${w.example}" — đục lỗ sẽ tạo 2 chỗ trống nhưng chỉ có 1 đáp án.`);
   }
+  // `surface` phải lấy từ CHÍNH lần khớp đã dùng để đục lỗ (hits[0] có thể kèm
+  // ký tự đứng trước do nhóm bắt) — dùng regex khác sẽ có nguy cơ khớp chỗ
+  // khác và trả về sai kiểu hoa/thường cho đáp án.
   const sentence = w.example.replace(re, (m, pre) => pre + placeholder);
-  const surface = w.example.match(new RegExp(`${escaped}(?![A-Za-z])`, 'i'))[0];
+  const surface = hits[0].replace(/^[^A-Za-z]/, '');
   return { sentence, surface };
 }
 
@@ -1178,7 +1181,8 @@ function compileTextbookExercises(unit) {
     questions: secondHalfWords.filter(canBlank).map((w, idx) => fillBlankQuestion(w, unitNum, `ex_${unitNum}_5_q${idx + 1}`))
   };
 
-  return [ex1, ex2, ex3, ex4, ex5];
+  // Bài nào không còn câu nào thì BỎ HẲN — không ship cái vỏ rỗng.
+  return [ex1, ex2, ex3, ex4, ex5].filter((ex) => (ex.questions || []).length > 0);
 }
 
 // Helper to compile Unit data into complete 3-Tier structures, Quizzes, Drag Drops and Typing Games
@@ -1576,7 +1580,9 @@ function assertCleanOutput(units) {
     }
     // Câu điền trống: đúng MỘT chỗ trống, và đáp án phải là đoạn có thật trong
     // câu (chống lỗi "đục lỗ dạng chia nhưng đáp án ghi dạng nguyên mẫu").
+    if (!(u.textbookExercises || []).length) throw new Error(`[assertCleanOutput] ${u.id}: không còn bài tập sách giáo khoa nào`);
     for (const ex of (u.textbookExercises || [])) {
+      if (!(ex.questions || []).length) throw new Error(`[assertCleanOutput] ${u.id}: bài ${ex.exNum} (${ex.type}) không có câu nào — phải bỏ hẳn bài, không ship vỏ rỗng`);
       if (ex.type !== 'fill_in_blanks') continue;
       for (const q of (ex.questions || [])) {
         const holes = (q.text.match(/\[blank\]/g) || []).length;
