@@ -1,27 +1,53 @@
 // File: src/components/oxford/QuizTab.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { PenTool, RotateCcw, Sparkles } from 'lucide-react';
+
+// Xáo trộn thứ tự đáp án Ở RUNTIME (hạng mục #3). Trước đây generator gọi
+// Math.random() lúc sinh file nên thứ tự bị ĐÓNG BĂNG trong dữ liệu: mở lại
+// unit lần thứ hai vẫn đúng vị trí cũ, người học nhớ vị trí thay vì nhớ từ.
+// Generator giờ rải đáp án theo công thức xác định, còn việc trộn là của UI.
+const shuffled = (arr, seed) => {
+    const out = [...arr];
+    let s = seed;
+    for (let i = out.length - 1; i > 0; i--) {
+        s = (s * 1103515245 + 12345) % 2147483648;
+        const j = s % (i + 1);
+        [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out;
+};
 
 const QuizTab = ({ unitData }) => {
     const [qIdx, setQIdx] = useState(0);
     const [sel, setSel] = useState(null);
     const [status, setStatus] = useState('idle');
     const [score, setScore] = useState(0);
+    // Đổi khi bấm "Làm lại từ đầu" → lượt mới có thứ tự đáp án khác.
+    const [round, setRound] = useState(() => Math.floor(Math.random() * 100000));
 
     useEffect(() => {
         setQIdx(0);
         setSel(null);
         setStatus('idle');
         setScore(0);
+        setRound(Math.floor(Math.random() * 100000));
     }, [unitData?.id]);
 
-    const curr = unitData?.quiz?.[qIdx];
+    const raw = unitData?.quiz?.[qIdx];
+    // Trộn theo (lượt, số thứ tự câu) để thứ tự ổn định trong lúc đang trả lời
+    // câu đó, nhưng đổi giữa các lượt làm bài.
+    const options = useMemo(
+        () => (raw?.options ? shuffled(raw.options, round + qIdx * 7919 + 1) : []),
+        [raw, round, qIdx]
+    );
+    const curr = raw && { ...raw, options };
 
     const resetQuiz = () => {
-        setQIdx(0); 
-        setSel(null); 
-        setStatus('idle'); 
+        setQIdx(0);
+        setSel(null);
+        setStatus('idle');
         setScore(0);
+        setRound(Math.floor(Math.random() * 100000));
     };
 
     const handleSelect = (option) => {

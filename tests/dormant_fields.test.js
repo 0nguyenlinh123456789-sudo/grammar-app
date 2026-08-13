@@ -2,11 +2,16 @@
 // CHỐT CHẶN "BOM HẸN GIỜ" TRƯỜNG DỮ LIỆU RÁC ĐANG NẰM IM — phát hiện (e3) 2026-08-12.
 //
 // Bối cảnh: trường `wordFamily` trong src/data (unit.words[] và theory.coreVocab[])
-// chứa 2.313 giá trị máy-sinh: hậu tố ghép mù quáng ("reviseer (Danh từ)",
+// chứa giá trị máy-sinh: hậu tố ghép mù quáng ("reviseer (Danh từ)",
 // "washbasinful (Tính từ)") và filler "Từ loại: [X]. Hãy tra cứu thêm các biến
 // thể từ loại của...". Hiện KHÔNG component nào render trường này nên rác chưa
 // tới mắt người học — nhưng chỉ cần một người viết component đọc nó là rác
 // hiển thị ngay, không qua bất kỳ lớp lọc nào.
+//
+// Cập nhật 2026-08-13 (#3): sinh lại 3 file Oxford Pre-Int đã XÓA HẲN trường
+// này khỏi chúng — kiểm kê từ 2.313 xuống còn 1.520 giá trị, tất cả nằm ở
+// oxfordData*.js và oxfordAdvancedData*.js (chưa có generator trong repo).
+// Test vẫn phải giữ cho tới khi hai cụm file đó cũng được dọn.
 //
 // Test này FAIL nếu bất kỳ file nào ngoài src/data/ tham chiếu `wordFamily`.
 // Nếu bạn CỐ Ý muốn render wordFamily: trước tiên phải dọn/sinh lại dữ liệu
@@ -36,7 +41,7 @@ function walk(dir, out = []) {
   return out;
 }
 
-test('trường wordFamily (2.313 giá trị máy-sinh) không được code nào đọc/render', () => {
+test('trường wordFamily (1.520 giá trị máy-sinh còn lại) không được code nào đọc/render', () => {
   const offenders = [];
   for (const file of walk(SRC)) {
     const text = readFileSync(file, 'utf8');
