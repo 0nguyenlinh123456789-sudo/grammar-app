@@ -2,8 +2,8 @@
 export const vocabIeltsNew20 = [
   {
     id: "history-culture-ielts-p2", category: "ielts",
-    title: "🏺 Lịch Sử & Văn Hóa (100 Từ) (B2-C1) – Phần 2",
-    description: "100 từ vựng nâng cao về di sản, truyền thống, các sự kiện lịch sử và sự đa dạng văn hóa.",
+    title: "🏺 Lịch Sử & Văn Hóa (B2-C1) – Phần 2",
+    description: "97 từ vựng nâng cao về di sản, truyền thống, các sự kiện lịch sử và sự đa dạng văn hóa.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"history",vi:"lịch sử",type:"(n)",ipa:"/ˈhɪs.tər.i/",example:"We can learn many valuable lessons from history.",viExample:"Chúng ta có thể học được nhiều bài học giá trị từ lịch sử.",synonyms:"past, antiquity",antonyms:""},

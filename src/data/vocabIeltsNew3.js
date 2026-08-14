@@ -2,7 +2,7 @@
 export const vocabIeltsNew3 = [
   {
     id: "crime-law-advanced-ielts", category: "ielts",
-    title: "⚖️ Tội Phạm & Pháp Luật Nâng Cao (100 Từ) (B2-C1)",
+    title: "⚖️ Tội Phạm & Pháp Luật Nâng Cao (B2-C1)",
     description: "100 từ vựng IELTS chuyên sâu về hệ thống pháp luật, tội phạm học và hình phạt.",
     level: "B2-C1", examTags: ["IELTS Band 6-8", "VSTEP C1"],
     words: [
@@ -112,7 +112,7 @@ export const vocabIeltsNew3 = [
   },
   {
     id: "media-communication-ielts", category: "ielts",
-    title: "📰 Truyền Thông & Giao Tiếp (100 Từ) (B2-C1)",
+    title: "📰 Truyền Thông & Giao Tiếp (B2-C1)",
     description: "100 từ vựng IELTS về báo chí, truyền thông đại chúng, tin tức và quảng cáo.",
     level: "B2-C1", examTags: ["IELTS Band 6-7", "VSTEP C1"],
     words: [

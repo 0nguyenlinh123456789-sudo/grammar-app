@@ -2,8 +2,8 @@
 export const vocabBeginnerNew4 = [
   {
     id: "family-people-beginner", category: "beginner",
-    title: "👨‍👩‍👧‍👦 Gia Đình & Con Người (100 Từ) (A1-A2)",
-    description: "100 từ vựng cơ bản về các thành viên gia đình, các mối quan hệ và con người.",
+    title: "👨‍👩‍👧‍👦 Gia Đình & Con Người (A1-A2)",
+    description: "90 từ vựng cơ bản về các thành viên gia đình, các mối quan hệ và con người.",
     level: "A1-A2", examTags: ["Người mới bắt đầu", "VSTEP A1"],
     words: [
       {en:"family",vi:"gia đình",type:"(n)",ipa:"/ˈfæm.əl.i/",example:"I love my family.",viExample:"Tôi yêu gia đình của tôi."},
@@ -102,8 +102,8 @@ export const vocabBeginnerNew4 = [
   },
   {
     id: "house-rooms-beginner", category: "beginner",
-    title: "🏠 Ngôi Nhà & Các Phòng (100 Từ) (A1-A2)",
-    description: "100 từ vựng cơ bản về các phòng trong nhà, đồ đạc và vật dụng gia đình.",
+    title: "🏠 Ngôi Nhà & Các Phòng (A1-A2)",
+    description: "89 từ vựng cơ bản về các phòng trong nhà, đồ đạc và vật dụng gia đình.",
     level: "A1-A2", examTags: ["Người mới bắt đầu", "VSTEP A1"],
     words: [
       {en:"house",vi:"ngôi nhà",type:"(n)",ipa:"/haʊs/",example:"We live in a big house.",viExample:"Chúng tôi sống trong một ngôi nhà lớn."},

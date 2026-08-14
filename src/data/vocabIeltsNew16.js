@@ -2,7 +2,7 @@
 export const vocabIeltsNew16 = [
   {
     id: "environment-energy-ielts", category: "ielts",
-    title: "🌍 Environment & Energy (82 Words) (B2-C1)",
+    title: "🌍 Environment & Energy (B2-C1)",
     description: "82 từ vựng trình độ cao về các vấn đề môi trường, biến đổi khí hậu và năng lượng tái tạo — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
@@ -94,7 +94,7 @@ export const vocabIeltsNew16 = [
   },
   {
     id: "government-politics-ielts", category: "ielts",
-    title: "🏛️ Government & Politics (80 Words) (B2-C1)",
+    title: "🏛️ Government & Politics (B2-C1)",
     description: "80 từ vựng trình độ cao về thể chế chính trị, quản trị nhà nước, lập pháp và nghĩa vụ công dân — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [

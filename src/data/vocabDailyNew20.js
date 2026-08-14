@@ -2,7 +2,7 @@
 export const vocabDailyNew20 = [
   {
     id: "food-dining-daily", category: "daily",
-    title: "🍔 Đồ Ăn & Ăn Uống (100 Từ) (A2-B1)",
+    title: "🍔 Đồ Ăn & Ăn Uống (A2-B1)",
     description: "100 từ vựng thông dụng về các loại thực phẩm, bữa ăn, cách nấu nướng và trải nghiệm ăn uống nhà hàng.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
@@ -112,8 +112,8 @@ export const vocabDailyNew20 = [
   },
   {
     id: "shopping-clothes-daily", category: "daily",
-    title: "🛍️ Mua Sắm & Quần Áo (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các loại trang phục, phụ kiện, cửa hàng và các hoạt động mua sắm.",
+    title: "🛍️ Mua Sắm & Quần Áo (A2-B1)",
+    description: "90 từ vựng thông dụng về các loại trang phục, phụ kiện, cửa hàng và các hoạt động mua sắm.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"shop / store",vi:"cửa hàng",type:"(n)",ipa:"/ʃɒp/ /stɔːr/",example:"I am going to the shop.",viExample:"Tôi đang đi đến cửa hàng."},

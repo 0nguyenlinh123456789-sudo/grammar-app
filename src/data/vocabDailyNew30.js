@@ -2,8 +2,8 @@
 export const vocabDailyNew30 = [
   {
     id: "sports-fitness-daily", category: "daily",
-    title: "⚽ Thể Thao & Thể Hình (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các môn thể thao, thiết bị tập luyện, và sức khỏe thể chất.",
+    title: "⚽ Thể Thao & Thể Hình (A2-B1)",
+    description: "50 từ vựng thông dụng về các môn thể thao, thiết bị tập luyện, và sức khỏe thể chất.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"sport",vi:"thể thao",type:"(n)",ipa:"/spɔːt/",example:"I like playing sport.",viExample:"Tôi thích chơi thể thao."},
@@ -62,8 +62,8 @@ export const vocabDailyNew30 = [
   },
   {
     id: "music-entertainment-daily", category: "daily",
-    title: "🎸 Âm Nhạc & Giải Trí (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các thể loại nhạc, nhạc cụ, phim ảnh và các hoạt động giải trí.",
+    title: "🎸 Âm Nhạc & Giải Trí (A2-B1)",
+    description: "50 từ vựng thông dụng về các thể loại nhạc, nhạc cụ, phim ảnh và các hoạt động giải trí.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"music",vi:"âm nhạc",type:"(n)",ipa:"/ˈmjuː.zɪk/",example:"I listen to music every day.",viExample:"Tôi nghe nhạc mỗi ngày."},

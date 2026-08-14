@@ -2,7 +2,7 @@
 export const vocabVstepNew4 = [
   {
     id: "health-medicine-vstep", category: "vstep",
-    title: "🏥 Y Tế & Sức Khỏe (100 Từ) (B1-B2)",
+    title: "🏥 Y Tế & Sức Khỏe (B1-B2)",
     description: "100 từ vựng về bệnh tật, điều trị, bệnh viện, lối sống lành mạnh.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
@@ -112,7 +112,7 @@ export const vocabVstepNew4 = [
   },
   {
     id: "technology-internet-vstep", category: "vstep",
-    title: "💻 Công Nghệ & Internet (100 Từ) (B1-B2)",
+    title: "💻 Công Nghệ & Internet (B1-B2)",
     description: "100 từ vựng về máy tính, mạng, phần mềm, trí tuệ nhân tạo.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [

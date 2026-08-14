@@ -2,8 +2,8 @@
 export const vocabDailyNew3 = [
   {
     id: "money-banking-daily", category: "daily",
-    title: "💰 Tiền Bạc & Ngân Hàng (100 Từ) (A2-B1)",
-    description: "100 từ vựng về tiền tệ, thanh toán, ngân hàng và tài chính cá nhân.",
+    title: "💰 Tiền Bạc & Ngân Hàng (A2-B1)",
+    description: "99 từ vựng về tiền tệ, thanh toán, ngân hàng và tài chính cá nhân.",
     level: "A2-B1", examTags: ["Giao tiếp hằng ngày", "VSTEP A2-B1"],
     words: [
       {en:"money",vi:"tiền",type:"(n)",ipa:"/ˈmʌn.i/",example:"I don't have enough money.",viExample:"Tôi không có đủ tiền."},
@@ -111,7 +111,7 @@ export const vocabDailyNew3 = [
   },
   {
     id: "health-body-daily", category: "daily",
-    title: "🩺 Sức Khỏe & Cơ Thể (100 Từ) (A2-B1)",
+    title: "🩺 Sức Khỏe & Cơ Thể (A2-B1)",
     description: "100 từ vựng về các bộ phận cơ thể, tình trạng sức khỏe, bệnh tật và y tế.",
     level: "A2-B1", examTags: ["Giao tiếp hằng ngày", "VSTEP A2-B1"],
     words: [

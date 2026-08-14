@@ -2,8 +2,8 @@
 export const vocabBeginnerNew20 = [
   {
     id: "animals-nature-beginner", category: "beginner",
-    title: "🐶 Động Vật & Thiên Nhiên (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các loài vật nuôi, động vật hoang dã và các yếu tố tự nhiên.",
+    title: "🐶 Động Vật & Thiên Nhiên (A1)",
+    description: "99 từ vựng cơ bản về các loài vật nuôi, động vật hoang dã và các yếu tố tự nhiên.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"animal",vi:"động vật",type:"(n)",ipa:"/ˈæn.ɪ.məl/",example:"I love animals.",viExample:"Tôi yêu các loài động vật."},
@@ -111,8 +111,8 @@ export const vocabBeginnerNew20 = [
   },
   {
     id: "places-buildings-beginner-p2", category: "beginner",
-    title: "🏢 Nơi Chốn & Tòa Nhà (100 Từ) (A1) – Phần 2",
-    description: "100 từ vựng cơ bản về các địa điểm công cộng, các loại tòa nhà và phương hướng trong thị trấn.",
+    title: "🏢 Nơi Chốn & Tòa Nhà (A1) – Phần 2",
+    description: "94 từ vựng cơ bản về các địa điểm công cộng, các loại tòa nhà và phương hướng trong thị trấn.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"place",vi:"nơi chốn/địa điểm",type:"(n)",ipa:"/pleɪs/",example:"This is a nice place.",viExample:"Đây là một nơi đẹp."},

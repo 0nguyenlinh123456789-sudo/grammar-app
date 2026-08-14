@@ -2,7 +2,7 @@
 export const vocabIeltsNew17 = [
   {
     id: "crime-law-ielts", category: "ielts",
-    title: "⚖️ Crime & Law (100 Words) (B2-C1)",
+    title: "⚖️ Crime & Law (B2-C1)",
     description: "100 từ vựng trình độ cao về hệ thống pháp luật, tội phạm, công lý và thực thi pháp luật — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
@@ -112,7 +112,7 @@ export const vocabIeltsNew17 = [
   },
   {
     id: "space-exploration-ielts-p2", category: "ielts",
-    title: "🚀 Space & Exploration (100 Words) (B2-C1) – Phần 2",
+    title: "🚀 Space & Exploration (B2-C1) – Phần 2",
     description: "100 từ vựng trình độ cao về thiên văn học, vũ trụ, du hành không gian và khám phá khoa học — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [

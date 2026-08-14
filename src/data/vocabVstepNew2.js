@@ -5,8 +5,8 @@ export const vocabVstepNew2 = [
   {
     id: "sustainable-tourism-vstep",
     category: "vstep",
-    title: "🌍 Du Lịch Bền Vững (100 Từ) (B1-B2)",
-    description: "100 từ vựng về du lịch có trách nhiệm, bảo vệ môi trường và văn hóa.",
+    title: "🌍 Du Lịch Bền Vững (B1-B2)",
+    description: "92 từ vựng về du lịch có trách nhiệm, bảo vệ môi trường và văn hóa.",
     level: "B1-B2",
     examTags: ["VSTEP B1-B2"],
     words: [
@@ -109,8 +109,8 @@ export const vocabVstepNew2 = [
   {
     id: "water-pollution-vstep",
     category: "vstep",
-    title: "💧 Ô Nhiễm Nước & Biển (100 Từ) (B1-B2)",
-    description: "100 từ vựng về ô nhiễm nguồn nước, biển, nhựa đại dương và giải pháp bảo vệ.",
+    title: "💧 Ô Nhiễm Nước & Biển (B1-B2)",
+    description: "91 từ vựng về ô nhiễm nguồn nước, biển, nhựa đại dương và giải pháp bảo vệ.",
     level: "B1-B2",
     examTags: ["VSTEP B1-B2", "IELTS Band 5-6"],
     words: [

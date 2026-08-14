@@ -2,8 +2,8 @@
 export const vocabDailyNew9 = [
   {
     id: "money-shopping-daily", category: "daily",
-    title: "💵 Tiền Bạc & Mua Sắm (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp hàng ngày về tiền bạc, chi tiêu, các cửa hàng và hoạt động mua sắm.",
+    title: "💵 Tiền Bạc & Mua Sắm (A2-B1)",
+    description: "99 từ vựng giao tiếp hàng ngày về tiền bạc, chi tiêu, các cửa hàng và hoạt động mua sắm.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"money",vi:"tiền",type:"(n)",ipa:"/ˈmʌn.i/",example:"I don't have much money.",viExample:"Tôi không có nhiều tiền."},
@@ -111,8 +111,8 @@ export const vocabDailyNew9 = [
   },
   {
     id: "places-directions-daily", category: "daily",
-    title: "📍 Địa Điểm & Chỉ Đường (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp về các địa điểm trong thành phố, cách hỏi đường và chỉ đường.",
+    title: "📍 Địa Điểm & Chỉ Đường (A2-B1)",
+    description: "99 từ vựng giao tiếp về các địa điểm trong thành phố, cách hỏi đường và chỉ đường.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"place",vi:"địa điểm/nơi chốn",type:"(n)",ipa:"/pleɪs/",example:"This is a great place for a picnic.",viExample:"Đây là một nơi tuyệt vời cho một chuyến dã ngoại."},

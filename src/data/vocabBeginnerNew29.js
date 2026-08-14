@@ -3,8 +3,8 @@ export const vocabBeginnerNew29 = [
   
   {
     id: "numbers-time-beginner-p2", category: "beginner",
-    title: "🔢 Chữ Số & Thời Gian (100 Từ) (A1) – Phần 2",
-    description: "100 từ vựng cơ bản về các con số đếm, thứ ngày tháng, và cách diễn đạt thời gian trong ngày.",
+    title: "🔢 Chữ Số & Thời Gian (A1) – Phần 2",
+    description: "50 từ vựng cơ bản về các con số đếm, thứ ngày tháng, và cách diễn đạt thời gian trong ngày.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"number",vi:"con số",type:"(n)",ipa:"/ˈnʌm.bər/",example:"What is your phone number?",viExample:"Số điện thoại của bạn là gì?"},

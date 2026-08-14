@@ -2,8 +2,8 @@
 export const vocabDailyNew21 = [
   {
     id: "housing-home-daily", category: "daily",
-    title: "🏡 Nhà Ở & Mái Ấm (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các loại nhà ở, phòng ốc, đồ đạc nội thất và các công việc nhà.",
+    title: "🏡 Nhà Ở & Mái Ấm (A2-B1)",
+    description: "69 từ vựng thông dụng về các loại nhà ở, phòng ốc, đồ đạc nội thất và các công việc nhà.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"house",vi:"ngôi nhà",type:"(n)",ipa:"/haʊs/",example:"We live in a big house.",viExample:"Chúng tôi sống trong một ngôi nhà lớn."},
@@ -81,8 +81,8 @@ export const vocabDailyNew21 = [
   },
   {
     id: "transport-travel-daily", category: "daily",
-    title: "🚗 Giao Thông & Đi Lại (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các phương tiện giao thông, các bộ phận của đường phố và hoạt động du lịch.",
+    title: "🚗 Giao Thông & Đi Lại (A2-B1)",
+    description: "63 từ vựng thông dụng về các phương tiện giao thông, các bộ phận của đường phố và hoạt động du lịch.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"transport / transportation",vi:"phương tiện giao thông/sự vận chuyển",type:"(n)",ipa:"/ˈtræn.spɔːt/ /ˌtræn.spɔːˈteɪ.ʃən/",example:"Public transport is cheap here.",viExample:"Phương tiện giao thông công cộng thì rẻ ở đây."},

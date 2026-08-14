@@ -2,8 +2,8 @@
 export const vocabBeginnerNew3 = [
   {
     id: "school-learning-beginner", category: "beginner",
-    title: "🎒 Trường Học & Học Tập (100 Từ) (A1-A2)",
-    description: "100 từ vựng cơ bản về lớp học, môn học, dụng cụ học tập.",
+    title: "🎒 Trường Học & Học Tập (A1-A2)",
+    description: "99 từ vựng cơ bản về lớp học, môn học, dụng cụ học tập.",
     level: "A1-A2", examTags: ["Người mới bắt đầu", "VSTEP A1"],
     words: [
       {en:"school",vi:"trường học",type:"(n)",ipa:"/skuːl/",example:"I go to school by bus.",viExample:"Tôi đi học bằng xe buýt."},
@@ -111,8 +111,8 @@ export const vocabBeginnerNew3 = [
   },
   {
     id: "hobbies-free-time-beginner", category: "beginner",
-    title: "🎨 Sở Thích & Thời Gian Rảnh (100 Từ) (A1-A2)",
-    description: "100 từ vựng cơ bản về các hoạt động giải trí, sở thích và thể thao.",
+    title: "🎨 Sở Thích & Thời Gian Rảnh (A1-A2)",
+    description: "91 từ vựng cơ bản về các hoạt động giải trí, sở thích và thể thao.",
     level: "A1-A2", examTags: ["Người mới bắt đầu", "VSTEP A1"],
     words: [
       {en:"hobby",vi:"sở thích",type:"(n)",ipa:"/ˈhɒb.i/",example:"My hobby is collecting stamps.",viExample:"Sở thích của tôi là sưu tập tem."},

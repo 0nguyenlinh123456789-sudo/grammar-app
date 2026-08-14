@@ -2,8 +2,8 @@
 export const vocabIeltsNew24 = [
   {
     id: "history-past-ielts", category: "ielts",
-    title: "🏛️ Lịch Sử & Quá Khứ (100 Từ) (B2-C1)",
-    description: "100 từ vựng nâng cao về các sự kiện lịch sử, di tích, khảo cổ học và sự phát triển của nhân loại qua các thời kỳ.",
+    title: "🏛️ Lịch Sử & Quá Khứ (B2-C1)",
+    description: "50 từ vựng nâng cao về các sự kiện lịch sử, di tích, khảo cổ học và sự phát triển của nhân loại qua các thời kỳ.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"history",vi:"lịch sử",type:"(n)",ipa:"/ˈhɪs.tər.i/",example:"We can learn many lessons from history.",viExample:"Chúng ta có thể học nhiều bài học từ lịch sử.",synonyms:"the past",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew24 = [
   },
   {
     id: "global-issues-politics-ielts", category: "ielts",
-    title: "🌍 Vấn Đề Toàn Cầu & Chính Trị (100 Từ) (B2-C1)",
-    description: "100 từ vựng nâng cao về các thách thức toàn cầu, chính sách quốc tế, hệ thống chính phủ và các khái niệm chính trị.",
+    title: "🌍 Vấn Đề Toàn Cầu & Chính Trị (B2-C1)",
+    description: "50 từ vựng nâng cao về các thách thức toàn cầu, chính sách quốc tế, hệ thống chính phủ và các khái niệm chính trị.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"globalization",vi:"sự toàn cầu hóa",type:"(n)",ipa:"/ˌɡləʊ.bəl.aɪˈzeɪ.ʃən/",example:"Globalization has interconnected the world's economies.",viExample:"Sự toàn cầu hóa đã kết nối các nền kinh tế của thế giới với nhau.",synonyms:"internationalization",antonyms:""},

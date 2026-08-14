@@ -2,7 +2,7 @@
 export const vocabIeltsNew2 = [
   {
     id: "globalisation-ielts", category: "ielts",
-    title: "🌍 Toàn Cầu Hóa (100 Từ) (B2-C1)",
+    title: "🌍 Toàn Cầu Hóa (B2-C1)",
     description: "100 từ vựng IELTS chủ đề toàn cầu hóa, kinh tế quốc tế, trao đổi văn hóa.",
     level: "B2-C1", examTags: ["IELTS Band 6-7"],
     words: [
@@ -112,7 +112,7 @@ export const vocabIeltsNew2 = [
   },
   {
     id: "education-advanced-ielts", category: "ielts",
-    title: "🎓 Giáo Dục Nâng Cao (100 Từ) (B2-C1)",
+    title: "🎓 Giáo Dục Nâng Cao (B2-C1)",
     description: "100 từ vựng IELTS về phương pháp giáo dục, đại học, nghiên cứu, chính sách.",
     level: "B2-C1", examTags: ["IELTS Band 6-7", "VSTEP C1"],
     words: [

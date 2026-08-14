@@ -2,7 +2,7 @@
 export const vocabDailyNew4 = [
   {
     id: "weather-seasons-daily", category: "daily",
-    title: "🌦️ Thời Tiết & Các Mùa (100 Từ) (A2-B1)",
+    title: "🌦️ Thời Tiết & Các Mùa (A2-B1)",
     description: "100 từ vựng về thời tiết, khí hậu, hiện tượng tự nhiên và các mùa trong năm.",
     level: "A2-B1", examTags: ["Giao tiếp hằng ngày", "VSTEP A2"],
     words: [
@@ -112,8 +112,8 @@ export const vocabDailyNew4 = [
   },
   {
     id: "animals-nature-daily", category: "daily",
-    title: "🐾 Động Vật & Thiên Nhiên (100 Từ) (A2-B1)",
-    description: "100 từ vựng về các loài động vật hoang dã, vật nuôi, cây cối và môi trường tự nhiên.",
+    title: "🐾 Động Vật & Thiên Nhiên (A2-B1)",
+    description: "95 từ vựng về các loài động vật hoang dã, vật nuôi, cây cối và môi trường tự nhiên.",
     level: "A2-B1", examTags: ["Giao tiếp hằng ngày", "VSTEP A2-B1"],
     words: [
       {en:"animal",vi:"động vật",type:"(n)",ipa:"/ˈæn.ɪ.məl/",example:"We saw many animals at the zoo.",viExample:"Chúng tôi thấy nhiều động vật ở sở thú."},

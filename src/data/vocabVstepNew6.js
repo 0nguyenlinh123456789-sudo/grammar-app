@@ -2,7 +2,7 @@
 export const vocabVstepNew6 = [
   {
     id: "space-exploration-vstep", category: "vstep",
-    title: "🚀 Vũ Trụ & Khám Phá (100 Từ) (B1-B2)",
+    title: "🚀 Vũ Trụ & Khám Phá (B1-B2)",
     description: "100 từ vựng về thiên văn học, hành tinh, thám hiểm không gian.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
@@ -112,7 +112,7 @@ export const vocabVstepNew6 = [
   },
   {
     id: "history-archaeology-vstep", category: "vstep",
-    title: "🏛️ Lịch Sử & Khảo Cổ Học (100 Từ) (B1-B2)",
+    title: "🏛️ Lịch Sử & Khảo Cổ Học (B1-B2)",
     description: "100 từ vựng về các thời kỳ lịch sử, di tích, khảo cổ và văn hóa cổ đại.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [

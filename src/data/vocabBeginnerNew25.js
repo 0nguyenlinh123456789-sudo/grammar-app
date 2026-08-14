@@ -3,8 +3,8 @@ export const vocabBeginnerNew25 = [
   
   {
     id: "colors-shapes-beginner-p3", category: "beginner",
-    title: "🎨 Màu Sắc & Hình Khối (100 Từ) (A1) – Phần 3",
-    description: "100 từ vựng cơ bản về các màu sắc, hình dạng không gian, và các khái niệm liên quan đến vẻ bề ngoài.",
+    title: "🎨 Màu Sắc & Hình Khối (A1) – Phần 3",
+    description: "50 từ vựng cơ bản về các màu sắc, hình dạng không gian, và các khái niệm liên quan đến vẻ bề ngoài.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"color / colour",vi:"màu sắc",type:"(n)",ipa:"/ˈkʌl.ər/",example:"What color is it?",viExample:"Nó là màu gì?"},

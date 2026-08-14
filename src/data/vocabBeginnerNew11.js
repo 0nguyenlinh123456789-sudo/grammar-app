@@ -2,8 +2,8 @@
 export const vocabBeginnerNew11 = [
   {
     id: "colors-shapes-beginner-p2", category: "beginner",
-    title: "🎨 Màu Sắc & Hình Khối (100 Từ) (A1-A2) – Phần 2",
-    description: "100 từ vựng tiếng Anh cơ bản về các màu sắc, hình dáng, kích thước và cách miêu tả bề ngoài.",
+    title: "🎨 Màu Sắc & Hình Khối (A1-A2) – Phần 2",
+    description: "91 từ vựng tiếng Anh cơ bản về các màu sắc, hình dáng, kích thước và cách miêu tả bề ngoài.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"color",vi:"màu sắc",type:"(n)",ipa:"/ˈkʌl.ər/",example:"What is your favorite color?",viExample:"Màu sắc yêu thích của bạn là gì?"},
@@ -103,8 +103,8 @@ export const vocabBeginnerNew11 = [
   },
   {
     id: "clothes-accessories-beginner", category: "beginner",
-    title: "👗 Trang Phục & Phụ Kiện (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các loại quần áo, giày dép, phụ kiện và cách ăn mặc hàng ngày.",
+    title: "👗 Trang Phục & Phụ Kiện (A1-A2)",
+    description: "90 từ vựng tiếng Anh cơ bản về các loại quần áo, giày dép, phụ kiện và cách ăn mặc hàng ngày.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"clothes",vi:"quần áo",type:"(n)",ipa:"/kləʊðz/",example:"I need to pack my clothes for the trip.",viExample:"Tôi cần phải đóng gói quần áo của mình cho chuyến đi."},

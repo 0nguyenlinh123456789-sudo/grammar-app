@@ -2,8 +2,8 @@
 export const vocabIeltsNew27 = [
   {
     id: "literature-writing-ielts", category: "ielts",
-    title: "📖 Văn Học & Viết Lách (100 Từ) (C1-C2)",
-    description: "100 từ vựng chuyên sâu về văn chương, kỹ năng viết lách, phân tích tác phẩm và các thể loại văn học.",
+    title: "📖 Văn Học & Viết Lách (C1-C2)",
+    description: "50 từ vựng chuyên sâu về văn chương, kỹ năng viết lách, phân tích tác phẩm và các thể loại văn học.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"literature",vi:"văn học/giới văn chương",type:"(n)",ipa:"/ˈlɪt.rə.tʃər/",example:"She has a master's degree in English literature.",viExample:"Cô ấy có một bằng thạc sĩ về văn học Anh.",synonyms:"letters",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew27 = [
   },
   {
     id: "art-design-ielts-p2", category: "ielts",
-    title: "🎨 Nghệ Thuật & Thiết Kế (100 Từ) (C1-C2) – Phần 2",
-    description: "100 từ vựng nâng cao về các trào lưu nghệ thuật, kỹ thuật thiết kế, mỹ thuật và sự sáng tạo thẩm mỹ.",
+    title: "🎨 Nghệ Thuật & Thiết Kế (C1-C2) – Phần 2",
+    description: "50 từ vựng nâng cao về các trào lưu nghệ thuật, kỹ thuật thiết kế, mỹ thuật và sự sáng tạo thẩm mỹ.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"art",vi:"nghệ thuật",type:"(n)",ipa:"/ɑːt/",example:"Modern art is very subjective.",viExample:"Nghệ thuật hiện đại thì rất chủ quan.",synonyms:"",antonyms:""},

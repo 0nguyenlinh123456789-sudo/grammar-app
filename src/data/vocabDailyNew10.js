@@ -2,7 +2,7 @@
 export const vocabDailyNew10 = [
   {
     id: "family-relationships-daily", category: "daily",
-    title: "👨‍👩‍👧 Gia Đình & Các Mối Quan Hệ (100 Từ) (A2-B1)",
+    title: "👨‍👩‍👧 Gia Đình & Các Mối Quan Hệ (A2-B1)",
     description: "100 từ vựng giao tiếp hàng ngày về các thành viên trong gia đình, họ hàng, bạn bè và các mối quan hệ xã hội.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
@@ -112,7 +112,7 @@ export const vocabDailyNew10 = [
   },
   {
     id: "hobbies-free-time-daily", category: "daily",
-    title: "🎨 Sở Thích & Thời Gian Rảnh (100 Từ) (A2-B1)",
+    title: "🎨 Sở Thích & Thời Gian Rảnh (A2-B1)",
     description: "100 từ vựng giao tiếp về các hoạt động giải trí, sở thích cá nhân, thể thao và cách sử dụng thời gian rảnh rỗi.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

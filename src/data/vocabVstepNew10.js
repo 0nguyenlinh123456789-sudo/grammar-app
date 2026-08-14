@@ -2,8 +2,8 @@
 export const vocabVstepNew10 = [
   {
     id: "environment-climate-vstep", category: "vstep",
-    title: "🌍 Môi Trường & Khí Hậu (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về các vấn đề môi trường, thiên tai, biến đổi khí hậu và bảo tồn.",
+    title: "🌍 Môi Trường & Khí Hậu (B1-B2)",
+    description: "90 từ vựng VSTEP về các vấn đề môi trường, thiên tai, biến đổi khí hậu và bảo tồn.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"environment",vi:"môi trường",type:"(n)",ipa:"/ɪnˈvaɪ.rən.mənt/",example:"We must protect the environment.",viExample:"Chúng ta phải bảo vệ môi trường."},
@@ -102,8 +102,8 @@ export const vocabVstepNew10 = [
   },
   {
     id: "science-technology-vstep", category: "vstep",
-    title: "🔬 Khoa Học & Công Nghệ (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về phát minh, máy móc, Internet và những tiến bộ khoa học.",
+    title: "🔬 Khoa Học & Công Nghệ (B1-B2)",
+    description: "90 từ vựng VSTEP về phát minh, máy móc, Internet và những tiến bộ khoa học.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"science",vi:"khoa học",type:"(n)",ipa:"/ˈsaɪ.əns/",example:"She is studying computer science.",viExample:"Cô ấy đang học khoa học máy tính."},

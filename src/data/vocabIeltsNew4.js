@@ -2,7 +2,7 @@
 export const vocabIeltsNew4 = [
   {
     id: "science-tech-advanced-ielts", category: "ielts",
-    title: "🔬 Khoa Học & Công Nghệ Nâng Cao (100 Từ) (C1-C2)",
+    title: "🔬 Khoa Học & Công Nghệ Nâng Cao (C1-C2)",
     description: "100 từ vựng IELTS chuyên sâu về công nghệ đột phá, đạo đức khoa học và đổi mới.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
@@ -112,8 +112,8 @@ export const vocabIeltsNew4 = [
   },
   {
     id: "language-linguistics-ielts", category: "ielts",
-    title: "🗣️ Ngôn Ngữ & Ngôn Ngữ Học (100 Từ) (B2-C1)",
-    description: "100 từ vựng IELTS về cấu trúc ngôn ngữ, song ngữ, giao tiếp và sự phát triển của tiếng nói.",
+    title: "🗣️ Ngôn Ngữ & Ngôn Ngữ Học (B2-C1)",
+    description: "99 từ vựng IELTS về cấu trúc ngôn ngữ, song ngữ, giao tiếp và sự phát triển của tiếng nói.",
     level: "B2-C1", examTags: ["IELTS Band 6-8", "VSTEP C1"],
     words: [
       {en:"language",vi:"ngôn ngữ",type:"(n)",ipa:"/ˈlæŋ.ɡwɪdʒ/",example:"English is a global language.",viExample:"Tiếng Anh là ngôn ngữ toàn cầu."},

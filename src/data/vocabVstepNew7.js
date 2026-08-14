@@ -2,7 +2,7 @@
 export const vocabVstepNew7 = [
   {
     id: "art-entertainment-vstep", category: "vstep",
-    title: "🎭 Nghệ Thuật & Giải Trí (100 Từ) (B1-B2)",
+    title: "🎭 Nghệ Thuật & Giải Trí (B1-B2)",
     description: "100 từ vựng VSTEP về các loại hình nghệ thuật, biểu diễn, điện ảnh và âm nhạc.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
@@ -112,7 +112,7 @@ export const vocabVstepNew7 = [
   },
   {
     id: "politics-government-vstep", category: "vstep",
-    title: "🏛️ Chính Trị & Chính Phủ (100 Từ) (B2-C1)",
+    title: "🏛️ Chính Trị & Chính Phủ (B2-C1)",
     description: "100 từ vựng VSTEP nâng cao về hệ thống chính trị, luật pháp, bầu cử và chính sách.",
     level: "B2-C1", examTags: ["VSTEP B2-C1"],
     words: [

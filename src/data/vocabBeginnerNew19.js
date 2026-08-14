@@ -2,8 +2,8 @@
 export const vocabBeginnerNew19 = [
   {
     id: "jobs-work-beginner", category: "beginner",
-    title: "💼 Nghề Nghiệp & Làm Việc (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các công việc, nghề nghiệp phổ biến và nơi làm việc.",
+    title: "💼 Nghề Nghiệp & Làm Việc (A1)",
+    description: "81 từ vựng cơ bản về các công việc, nghề nghiệp phổ biến và nơi làm việc.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"job",vi:"công việc",type:"(n)",ipa:"/dʒɒb/",example:"I have a good job.",viExample:"Tôi có một công việc tốt."},
@@ -93,8 +93,8 @@ export const vocabBeginnerNew19 = [
   },
   {
     id: "transportation-beginner", category: "beginner",
-    title: "🚗 Phương Tiện Giao Thông (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các loại xe cộ, phương tiện đi lại và giao thông trên đường phố.",
+    title: "🚗 Phương Tiện Giao Thông (A1)",
+    description: "79 từ vựng cơ bản về các loại xe cộ, phương tiện đi lại và giao thông trên đường phố.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"car",vi:"xe ô tô",type:"(n)",ipa:"/kɑːr/",example:"I drive a car.",viExample:"Tôi lái một chiếc xe ô tô."},

@@ -2,8 +2,8 @@
 export const vocabBeginnerNew16 = [
   {
     id: "feelings-senses-beginner", category: "beginner",
-    title: "😊 Cảm Xúc & Giác Quan (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản dành cho người mới bắt đầu về các loại cảm xúc, tâm trạng và 5 giác quan của con người.",
+    title: "😊 Cảm Xúc & Giác Quan (A1)",
+    description: "96 từ vựng cơ bản dành cho người mới bắt đầu về các loại cảm xúc, tâm trạng và 5 giác quan của con người.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"feel",vi:"cảm thấy",type:"(v)",ipa:"/fiːl/",example:"I feel good today.",viExample:"Hôm nay tôi cảm thấy tốt."},
@@ -108,7 +108,7 @@ export const vocabBeginnerNew16 = [
   },
   {
     id: "clothes-beginner", category: "beginner",
-    title: "👕 Quần Áo (100 Từ) (A1)",
+    title: "👕 Quần Áo (A1)",
     description: "100 từ vựng cơ bản về các loại quần áo, giày dép, phụ kiện và cách mặc đồ.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [

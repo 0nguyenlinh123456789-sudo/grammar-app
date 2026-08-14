@@ -5972,7 +5972,7 @@ const vocabFinalData = [
     "id": "ielts-academic-vocab",
     "category": "ielts",
     "title": "🏛️ Từ Vựng Học Thuật IELTS 7.0+",
-    "description": "Danh sách 100 từ học thuật cao cấp nhất — AWL (Academic Word List) — dùng nhiều nhất trong IELTS Writing Task 2 Band 7-8. Mỗi từ kèm cách dùng trong câu học thuật.",
+    "description": "Danh sách 101 từ học thuật cao cấp nhất — AWL (Academic Word List) — dùng nhiều nhất trong IELTS Writing Task 2 Band 7-8. Mỗi từ kèm cách dùng trong câu học thuật.",
     "level": "C1",
     "examTags": [
       "IELTS Band 7+",

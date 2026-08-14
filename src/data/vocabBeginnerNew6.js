@@ -2,8 +2,8 @@
 export const vocabBeginnerNew6 = [
   {
     id: "clothes-fashion-beginner", category: "beginner",
-    title: "👗 Quần Áo & Thời Trang (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các loại trang phục, phụ kiện và cách ăn mặc.",
+    title: "👗 Quần Áo & Thời Trang (A1-A2)",
+    description: "98 từ vựng tiếng Anh cơ bản về các loại trang phục, phụ kiện và cách ăn mặc.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"clothes",vi:"quần áo",type:"(n)",ipa:"/kləʊðz/",example:"I need to buy some new clothes.",viExample:"Tôi cần mua một số quần áo mới."},
@@ -110,8 +110,8 @@ export const vocabBeginnerNew6 = [
   },
   {
     id: "colors-shapes-beginner", category: "beginner",
-    title: "🔴 Màu Sắc & Hình Khối (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các loại màu sắc, hình dáng, đường nét và kích thước.",
+    title: "🔴 Màu Sắc & Hình Khối (A1-A2)",
+    description: "90 từ vựng tiếng Anh cơ bản về các loại màu sắc, hình dáng, đường nét và kích thước.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"color",vi:"màu sắc",type:"(n)",ipa:"/ˈkʌl.ər/",example:"What is your favorite color?",viExample:"Màu sắc yêu thích của bạn là gì?"},

@@ -2,8 +2,8 @@
 export const vocabBeginnerNew21 = [
   {
     id: "daily-routine-beginner", category: "beginner",
-    title: "⏰ Thói Quen Hằng Ngày (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các hoạt động thường ngày, thời gian và các công việc nhà.",
+    title: "⏰ Thói Quen Hằng Ngày (A1)",
+    description: "99 từ vựng cơ bản về các hoạt động thường ngày, thời gian và các công việc nhà.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"wake up",vi:"thức giấc",type:"(phrasal verb)",ipa:"/weɪk ʌp/",example:"I wake up early.",viExample:"Tôi thức giấc sớm."},
@@ -111,7 +111,7 @@ export const vocabBeginnerNew21 = [
   },
   {
     id: "action-verbs-beginner", category: "beginner",
-    title: "🏃 Động Từ Chỉ Hành Động (100 Từ) (A1)",
+    title: "🏃 Động Từ Chỉ Hành Động (A1)",
     description: "100 động từ cơ bản mô tả các chuyển động, hoạt động thể chất và trạng thái hành động hằng ngày.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [

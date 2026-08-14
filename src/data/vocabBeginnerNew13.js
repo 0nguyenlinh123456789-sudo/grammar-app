@@ -2,8 +2,8 @@
 export const vocabBeginnerNew13 = [
   {
     id: "food-drinks-beginner-p2", category: "beginner",
-    title: "🍔 Đồ Ăn & Thức Uống (100 Từ) (A1-A2) – Phần 2",
-    description: "100 từ vựng tiếng Anh cơ bản về các loại thức ăn, đồ uống, trái cây, rau củ và các bữa ăn trong ngày.",
+    title: "🍔 Đồ Ăn & Thức Uống (A1-A2) – Phần 2",
+    description: "94 từ vựng tiếng Anh cơ bản về các loại thức ăn, đồ uống, trái cây, rau củ và các bữa ăn trong ngày.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"food",vi:"thức ăn/đồ ăn",type:"(n)",ipa:"/fuːd/",example:"I like Italian food.",viExample:"Tôi thích đồ ăn Ý."},
@@ -106,8 +106,8 @@ export const vocabBeginnerNew13 = [
   },
   {
     id: "days-months-beginner-p2", category: "beginner",
-    title: "📅 Ngày Tháng & Thời Gian (100 Từ) (A1-A2) – Phần 2",
-    description: "100 từ vựng tiếng Anh cơ bản về các thứ trong tuần, các tháng, các mùa, và cách nói thời gian.",
+    title: "📅 Ngày Tháng & Thời Gian (A1-A2) – Phần 2",
+    description: "90 từ vựng tiếng Anh cơ bản về các thứ trong tuần, các tháng, các mùa, và cách nói thời gian.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"time",vi:"thời gian",type:"(n)",ipa:"/taɪm/",example:"What time is it?",viExample:"Bây giờ là mấy giờ?"},

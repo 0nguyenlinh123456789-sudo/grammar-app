@@ -2,8 +2,8 @@
 export const vocabDailyNew28 = [
   {
     id: "technology-gadgets-daily-p2", category: "daily",
-    title: "💻 Công Nghệ & Thiết Bị (100 Từ) (A2-B1) – Phần 2",
-    description: "100 từ vựng thông dụng về máy tính, điện thoại, các thiết bị điện tử và phần mềm tiện ích.",
+    title: "💻 Công Nghệ & Thiết Bị (A2-B1) – Phần 2",
+    description: "50 từ vựng thông dụng về máy tính, điện thoại, các thiết bị điện tử và phần mềm tiện ích.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"technology",vi:"công nghệ",type:"(n)",ipa:"/tekˈnɒl.ə.dʒi/",example:"Modern technology makes life easier.",viExample:"Công nghệ hiện đại làm cho cuộc sống trở nên dễ dàng hơn."},
@@ -62,8 +62,8 @@ export const vocabDailyNew28 = [
   },
   {
     id: "communication-internet-daily", category: "daily",
-    title: "🌐 Giao Tiếp & Internet (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về mạng internet, mạng xã hội, giao tiếp trực tuyến và thư điện tử.",
+    title: "🌐 Giao Tiếp & Internet (A2-B1)",
+    description: "50 từ vựng thông dụng về mạng internet, mạng xã hội, giao tiếp trực tuyến và thư điện tử.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"internet",vi:"mạng internet",type:"(n)",ipa:"/ˈɪn.tə.net/",example:"I surf the internet every day.",viExample:"Tôi lướt mạng internet mỗi ngày."},

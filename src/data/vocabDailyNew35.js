@@ -2,8 +2,8 @@
 export const vocabDailyNew35 = [
   {
     id: "social-issues-daily", category: "daily",
-    title: "🤝 Vấn Đề Xã Hội & Cộng Đồng (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các vấn đề xã hội, hoạt động cộng đồng và giúp đỡ lẫn nhau.",
+    title: "🤝 Vấn Đề Xã Hội & Cộng Đồng (A2-B1)",
+    description: "50 từ vựng thông dụng về các vấn đề xã hội, hoạt động cộng đồng và giúp đỡ lẫn nhau.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"society",vi:"xã hội",type:"(n)",ipa:"/səˈsaɪ.ə.ti/",example:"We live in a modern society.",viExample:"Chúng ta sống trong một xã hội hiện đại."},
@@ -62,8 +62,8 @@ export const vocabDailyNew35 = [
   },
   {
     id: "beliefs-values-daily", category: "daily",
-    title: "🕊️ Niềm Tin & Giá Trị (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các giá trị tinh thần, tôn giáo và phẩm chất cá nhân.",
+    title: "🕊️ Niềm Tin & Giá Trị (A2-B1)",
+    description: "50 từ vựng thông dụng về các giá trị tinh thần, tôn giáo và phẩm chất cá nhân.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"believe",vi:"tin tưởng",type:"(v)",ipa:"/bɪˈliːv/",example:"I believe you.",viExample:"Tôi tin tưởng bạn."},

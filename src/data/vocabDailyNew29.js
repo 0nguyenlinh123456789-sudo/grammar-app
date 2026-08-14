@@ -2,8 +2,8 @@
 export const vocabDailyNew29 = [
   {
     id: "weather-seasons-daily-p3", category: "daily",
-    title: "🌦️ Thời Tiết & Mùa (100 Từ) (A2-B1) – Phần 3",
-    description: "100 từ vựng thông dụng về các hiện tượng thời tiết, nhiệt độ, các mùa trong năm và dự báo thời tiết.",
+    title: "🌦️ Thời Tiết & Mùa (A2-B1) – Phần 3",
+    description: "50 từ vựng thông dụng về các hiện tượng thời tiết, nhiệt độ, các mùa trong năm và dự báo thời tiết.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"weather",vi:"thời tiết",type:"(n)",ipa:"/ˈweð.ər/",example:"The weather is nice today.",viExample:"Thời tiết hôm nay thì đẹp."},
@@ -62,8 +62,8 @@ export const vocabDailyNew29 = [
   },
   {
     id: "nature-environment-daily-p2", category: "daily",
-    title: "🌲 Thiên Nhiên & Môi Trường (100 Từ) (A2-B1) – Phần 2",
-    description: "100 từ vựng thông dụng về cảnh quan thiên nhiên, các loài thực vật, động vật và bảo vệ môi trường.",
+    title: "🌲 Thiên Nhiên & Môi Trường (A2-B1) – Phần 2",
+    description: "50 từ vựng thông dụng về cảnh quan thiên nhiên, các loài thực vật, động vật và bảo vệ môi trường.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"nature",vi:"thiên nhiên",type:"(n)",ipa:"/ˈneɪ.tʃər/",example:"We must protect nature.",viExample:"Chúng ta phải bảo vệ thiên nhiên."},

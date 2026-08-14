@@ -2,8 +2,8 @@
 export const vocabVstepNew14 = [
   {
     id: "space-astronomy-vstep", category: "vstep",
-    title: "🚀 Vũ Trụ & Thiên Văn Học (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về khám phá không gian, các hành tinh, hiện tượng thiên văn và công nghệ vũ trụ.",
+    title: "🚀 Vũ Trụ & Thiên Văn Học (B1-B2)",
+    description: "80 từ vựng VSTEP về khám phá không gian, các hành tinh, hiện tượng thiên văn và công nghệ vũ trụ.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"space",vi:"không gian/vũ trụ",type:"(n)",ipa:"/speɪs/",example:"Humans have always dreamed of exploring space.",viExample:"Con người luôn mơ ước khám phá vũ trụ."},
@@ -92,8 +92,8 @@ export const vocabVstepNew14 = [
   },
   {
     id: "energy-resources-vstep", category: "vstep",
-    title: "⚡ Năng Lượng & Tài Nguyên (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về các nguồn năng lượng, tài nguyên thiên nhiên, sự tiêu thụ và bảo tồn năng lượng.",
+    title: "⚡ Năng Lượng & Tài Nguyên (B1-B2)",
+    description: "80 từ vựng VSTEP về các nguồn năng lượng, tài nguyên thiên nhiên, sự tiêu thụ và bảo tồn năng lượng.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"energy",vi:"năng lượng",type:"(n)",ipa:"/ˈen.ə.dʒi/",example:"We need to find clean sources of energy.",viExample:"Chúng ta cần tìm những nguồn năng lượng sạch."},

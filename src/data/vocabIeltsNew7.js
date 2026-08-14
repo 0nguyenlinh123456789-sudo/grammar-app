@@ -2,8 +2,8 @@
 export const vocabIeltsNew7 = [
   {
     id: "art-literature-ielts", category: "ielts",
-    title: "🎨 Nghệ Thuật & Văn Học (100 Từ) (C1-C2)",
-    description: "100 từ vựng IELTS chuyên sâu về hội họa, kiến trúc, văn chương và các trào lưu nghệ thuật.",
+    title: "🎨 Nghệ Thuật & Văn Học (C1-C2)",
+    description: "99 từ vựng IELTS chuyên sâu về hội họa, kiến trúc, văn chương và các trào lưu nghệ thuật.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"art",vi:"nghệ thuật",type:"(n)",ipa:"/ɑːt/",example:"He is an expert in modern art.",viExample:"Ông ấy là một chuyên gia về nghệ thuật hiện đại."},
@@ -111,8 +111,8 @@ export const vocabIeltsNew7 = [
   },
   {
     id: "psychology-mind-ielts", category: "ielts",
-    title: "🧠 Tâm Lý Học & Tâm Trí (100 Từ) (C1-C2)",
-    description: "100 từ vựng IELTS về tâm lý con người, hành vi, nhận thức và các rối loạn tinh thần.",
+    title: "🧠 Tâm Lý Học & Tâm Trí (C1-C2)",
+    description: "91 từ vựng IELTS về tâm lý con người, hành vi, nhận thức và các rối loạn tinh thần.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"psychology",vi:"tâm lý học",type:"(n)",ipa:"/saɪˈkɒl.ə.dʒi/",example:"She has a degree in psychology.",viExample:"Cô ấy có bằng cử nhân tâm lý học."},

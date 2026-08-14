@@ -2,8 +2,8 @@
 export const vocabIeltsNew9 = [
   {
     id: "history-civilizations-ielts", category: "ielts",
-    title: "🏺 Lịch Sử & Nền Văn Minh (100 Từ) (C1-C2)",
-    description: "100 từ vựng IELTS chuyên sâu về lịch sử nhân loại, các nền văn minh cổ đại, khảo cổ học và các sự kiện lịch sử.",
+    title: "🏺 Lịch Sử & Nền Văn Minh (C1-C2)",
+    description: "85 từ vựng IELTS chuyên sâu về lịch sử nhân loại, các nền văn minh cổ đại, khảo cổ học và các sự kiện lịch sử.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"history",vi:"lịch sử",type:"(n)",ipa:"/ˈhɪs.tər.i/",example:"She is studying modern European history.",viExample:"Cô ấy đang nghiên cứu lịch sử châu Âu hiện đại."},
@@ -97,8 +97,8 @@ export const vocabIeltsNew9 = [
   },
   {
     id: "geography-earth-ielts", category: "ielts",
-    title: "🌍 Địa Lý & Trái Đất (100 Từ) (C1-C2)",
-    description: "100 từ vựng IELTS về cấu trúc Trái Đất, địa hình, các hiện tượng địa lý và khí hậu.",
+    title: "🌍 Địa Lý & Trái Đất (C1-C2)",
+    description: "84 từ vựng IELTS về cấu trúc Trái Đất, địa hình, các hiện tượng địa lý và khí hậu.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"geography",vi:"địa lý/địa lý học",type:"(n)",ipa:"/dʒiˈɒɡ.rə.fi/",example:"She has a degree in physical geography.",viExample:"Cô ấy có một tấm bằng về địa lý tự nhiên."},

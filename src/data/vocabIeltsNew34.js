@@ -2,8 +2,8 @@
 export const vocabIeltsNew34 = [
   {
     id: "global-issues-politics-ielts-p2", category: "ielts",
-    title: "🌍 Vấn Đề Toàn Cầu & Chính Trị (100 Từ) (C1-C2) – Phần 2",
-    description: "100 từ vựng nâng cao về các vấn đề quốc tế, chính sách toàn cầu và hệ thống chính trị.",
+    title: "🌍 Vấn Đề Toàn Cầu & Chính Trị (C1-C2) – Phần 2",
+    description: "50 từ vựng nâng cao về các vấn đề quốc tế, chính sách toàn cầu và hệ thống chính trị.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"globalization / globalisation",vi:"toàn cầu hóa",type:"(n)",ipa:"/ˌɡləʊ.bəl.aɪˈzeɪ.ʃən/",example:"The impact of globalization.",viExample:"Tác động của toàn cầu hóa.",synonyms:"internationalization",antonyms:"isolationism"},
@@ -62,8 +62,8 @@ export const vocabIeltsNew34 = [
   },
   {
     id: "language-communication-ielts", category: "ielts",
-    title: "🗣️ Ngôn Ngữ & Giao Tiếp (100 Từ) (C1-C2)",
-    description: "100 từ vựng chuyên sâu về ngôn ngữ học, sự giao tiếp đa văn hóa và rào cản ngôn ngữ.",
+    title: "🗣️ Ngôn Ngữ & Giao Tiếp (C1-C2)",
+    description: "50 từ vựng chuyên sâu về ngôn ngữ học, sự giao tiếp đa văn hóa và rào cản ngôn ngữ.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"language",vi:"ngôn ngữ",type:"(n)",ipa:"/ˈlæŋ.ɡwɪdʒ/",example:"English is a global language.",viExample:"Tiếng Anh là một ngôn ngữ toàn cầu.",synonyms:"tongue, speech",antonyms:""},

@@ -6,7 +6,7 @@ export const vocabVstepNew1 = [
   {
     id: "urban-traffic-vstep",
     category: "vstep",
-    title: "🚦 Giao Thông Đô Thị (100 Từ) (B1-B2)",
+    title: "🚦 Giao Thông Đô Thị (B1-B2)",
     description: "100 từ vựng về giao thông đô thị, tắc nghẽn, phương tiện công cộng. Hay gặp trong VSTEP Reading & Writing.",
     level: "B1-B2",
     examTags: ["VSTEP B1-B2", "IELTS Band 5-6"],
@@ -118,8 +118,8 @@ export const vocabVstepNew1 = [
   {
     id: "agriculture-food-security-vstep",
     category: "vstep",
-    title: "🌾 Nông Nghiệp & An Ninh Lương Thực (100 Từ) (B1-B2)",
-    description: "100 từ vựng về nông nghiệp, canh tác, an ninh lương thực. Chủ đề thường gặp trong VSTEP Reading & Writing Task 2.",
+    title: "🌾 Nông Nghiệp & An Ninh Lương Thực (B1-B2)",
+    description: "69 từ vựng về nông nghiệp, canh tác, an ninh lương thực. Chủ đề thường gặp trong VSTEP Reading & Writing Task 2.",
     level: "B1-B2",
     examTags: ["VSTEP B1-B2", "IELTS Band 5-6"],
     words: [

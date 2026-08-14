@@ -2,8 +2,8 @@
 export const vocabVstepNew13 = [
   {
     id: "transport-logistics-vstep", category: "vstep",
-    title: "🚚 Giao Thông & Kho Vận (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về hệ thống giao thông, vận tải hàng hóa, logistics và cơ sở hạ tầng.",
+    title: "🚚 Giao Thông & Kho Vận (B1-B2)",
+    description: "90 từ vựng VSTEP về hệ thống giao thông, vận tải hàng hóa, logistics và cơ sở hạ tầng.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"transportation",vi:"giao thông vận tải/sự chuyên chở",type:"(n)",ipa:"/ˌtræn.spɔːˈteɪ.ʃən/",example:"Public transportation in this city is excellent.",viExample:"Giao thông công cộng ở thành phố này rất xuất sắc."},
@@ -102,8 +102,8 @@ export const vocabVstepNew13 = [
   },
   {
     id: "urbanization-city-vstep", category: "vstep",
-    title: "🏙 Đô Thị Hóa & Cuộc Sống Thành Phố (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về sự phát triển đô thị, các vấn đề của thành phố và phong cách sống đô thị.",
+    title: "🏙 Đô Thị Hóa & Cuộc Sống Thành Phố (B1-B2)",
+    description: "89 từ vựng VSTEP về sự phát triển đô thị, các vấn đề của thành phố và phong cách sống đô thị.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"urban",vi:"thuộc về đô thị",type:"(adj)",ipa:"/ˈɜː.bən/",example:"Traffic noise is a common urban problem.",viExample:"Tiếng ồn giao thông là một vấn đề đô thị phổ biến."},

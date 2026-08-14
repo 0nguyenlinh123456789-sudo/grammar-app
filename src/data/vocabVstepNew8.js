@@ -2,8 +2,8 @@
 export const vocabVstepNew8 = [
   {
     id: "crime-law-vstep", category: "vstep",
-    title: "⚖️ Tội Phạm & Luật Pháp (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về hệ thống pháp luật, tòa án, tội phạm và công lý.",
+    title: "⚖️ Tội Phạm & Luật Pháp (B1-B2)",
+    description: "90 từ vựng VSTEP về hệ thống pháp luật, tòa án, tội phạm và công lý.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"law",vi:"luật pháp",type:"(n)",ipa:"/lɔː/",example:"Everyone must obey the law.",viExample:"Mọi người phải tuân thủ luật pháp."},
@@ -102,8 +102,8 @@ export const vocabVstepNew8 = [
   },
   {
     id: "society-culture-vstep", category: "vstep",
-    title: "🌍 Xã Hội & Văn Hóa (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về các vấn đề xã hội, lối sống, phong tục và sự đa dạng văn hóa.",
+    title: "🌍 Xã Hội & Văn Hóa (B1-B2)",
+    description: "90 từ vựng VSTEP về các vấn đề xã hội, lối sống, phong tục và sự đa dạng văn hóa.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"society",vi:"xã hội",type:"(n)",ipa:"/səˈsaɪ.ə.ti/",example:"Technology has changed modern society.",viExample:"Công nghệ đã thay đổi xã hội hiện đại."},

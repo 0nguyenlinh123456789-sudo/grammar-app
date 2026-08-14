@@ -2,8 +2,8 @@
 export const vocabDailyNew27 = [
   {
     id: "health-medicine-daily", category: "daily",
-    title: "🏥 Sức Khỏe & Y Tế (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các triệu chứng bệnh, các loại thuốc, cơ sở y tế và cách chăm sóc sức khỏe.",
+    title: "🏥 Sức Khỏe & Y Tế (A2-B1)",
+    description: "50 từ vựng thông dụng về các triệu chứng bệnh, các loại thuốc, cơ sở y tế và cách chăm sóc sức khỏe.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"health",vi:"sức khỏe",type:"(n)",ipa:"/helθ/",example:"Smoking is bad for your health.",viExample:"Hút thuốc thì tồi tệ cho sức khỏe của bạn."},
@@ -62,8 +62,8 @@ export const vocabDailyNew27 = [
   },
   {
     id: "food-cooking-daily-p2", category: "daily",
-    title: "🍳 Ẩm Thực & Nấu Ăn (100 Từ) (A2-B1) – Phần 2",
-    description: "100 từ vựng thông dụng về các phương pháp chế biến, dụng cụ nhà bếp và trải nghiệm ẩm thực.",
+    title: "🍳 Ẩm Thực & Nấu Ăn (A2-B1) – Phần 2",
+    description: "50 từ vựng thông dụng về các phương pháp chế biến, dụng cụ nhà bếp và trải nghiệm ẩm thực.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"cook",vi:"nấu ăn/đầu bếp",type:"(v/n)",ipa:"/kʊk/",example:"He loves to cook dinner.",viExample:"Anh ấy yêu thích việc nấu bữa tối."},

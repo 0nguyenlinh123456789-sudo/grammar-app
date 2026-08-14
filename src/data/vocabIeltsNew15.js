@@ -2,7 +2,7 @@
 export const vocabIeltsNew15 = [
   {
     id: "media-advertising-ielts-p2", category: "ielts",
-    title: "📺 Media & Advertising (100 Words) (B2-C1) – Phần 2",
+    title: "📺 Media & Advertising (B2-C1) – Phần 2",
     description: "100 từ vựng trình độ cao về truyền thông đại chúng, chiến lược quảng cáo, chủ nghĩa tiêu dùng và báo chí — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
@@ -112,7 +112,7 @@ export const vocabIeltsNew15 = [
   },
   {
     id: "technology-internet-ielts", category: "ielts",
-    title: "💻 Technology & Internet (90 Words) (B2-C1)",
+    title: "💻 Technology & Internet (B2-C1)",
     description: "90 từ vựng trình độ cao về tiến bộ công nghệ số, internet, trí tuệ nhân tạo và an ninh mạng — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [

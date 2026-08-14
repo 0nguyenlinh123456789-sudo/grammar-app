@@ -2,8 +2,8 @@
 export const vocabIeltsNew29 = [
   {
     id: "business-economy-ielts-p2", category: "ielts",
-    title: "💼 Kinh Doanh & Kinh Tế (100 Từ) (C1-C2) – Phần 2",
-    description: "100 từ vựng nâng cao về các nguyên lý kinh tế học, tài chính doanh nghiệp, đầu tư và thị trường.",
+    title: "💼 Kinh Doanh & Kinh Tế (C1-C2) – Phần 2",
+    description: "50 từ vựng nâng cao về các nguyên lý kinh tế học, tài chính doanh nghiệp, đầu tư và thị trường.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"economy",vi:"nền kinh tế",type:"(n)",ipa:"/iˈkɒn.ə.mi/",example:"The global economy is recovering slowly.",viExample:"Nền kinh tế toàn cầu đang phục hồi một cách chậm chạp.",synonyms:"financial system",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew29 = [
   },
   {
     id: "globalization-trade-ielts", category: "ielts",
-    title: "🌍 Toàn Cầu Hóa & Thương Mại (100 Từ) (C1-C2)",
-    description: "100 từ vựng nâng cao về sự hội nhập quốc tế, thương mại tự do, thuế quan và đa dạng văn hóa toàn cầu.",
+    title: "🌍 Toàn Cầu Hóa & Thương Mại (C1-C2)",
+    description: "50 từ vựng nâng cao về sự hội nhập quốc tế, thương mại tự do, thuế quan và đa dạng văn hóa toàn cầu.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"globalization / globalisation",vi:"sự toàn cầu hóa",type:"(n)",ipa:"/ˌɡləʊ.bəl.aɪˈzeɪ.ʃən/",example:"Globalization has connected markets worldwide.",viExample:"Sự toàn cầu hóa đã kết nối các thị trường trên toàn thế giới.",synonyms:"internationalization",antonyms:"isolationism"},

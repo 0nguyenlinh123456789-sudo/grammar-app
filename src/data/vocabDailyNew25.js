@@ -2,8 +2,8 @@
 export const vocabDailyNew25 = [
   {
     id: "entertainment-media-daily-p2", category: "daily",
-    title: "🎬 Giải Trí & Truyền Thông (100 Từ) (A2-B1) – Phần 2",
-    description: "100 từ vựng thông dụng về các loại hình giải trí, phim ảnh, âm nhạc, báo chí và các phương tiện truyền thông.",
+    title: "🎬 Giải Trí & Truyền Thông (A2-B1) – Phần 2",
+    description: "50 từ vựng thông dụng về các loại hình giải trí, phim ảnh, âm nhạc, báo chí và các phương tiện truyền thông.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"entertainment",vi:"sự giải trí",type:"(n)",ipa:"/ˌen.təˈteɪn.mənt/",example:"There is plenty of entertainment in the city.",viExample:"Có nhiều sự giải trí trong thành phố."},
@@ -62,8 +62,8 @@ export const vocabDailyNew25 = [
   },
   {
     id: "culture-traditions-daily", category: "daily",
-    title: "🏮 Văn Hóa & Truyền Thống (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về phong tục tập quán, các ngày lễ hội, tôn giáo và sự đa dạng văn hóa.",
+    title: "🏮 Văn Hóa & Truyền Thống (A2-B1)",
+    description: "50 từ vựng thông dụng về phong tục tập quán, các ngày lễ hội, tôn giáo và sự đa dạng văn hóa.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"culture",vi:"văn hóa",type:"(n)",ipa:"/ˈkʌl.tʃər/",example:"I love learning about different cultures.",viExample:"Tôi yêu thích việc học hỏi về những nền văn hóa khác nhau."},

@@ -2,8 +2,8 @@
 export const vocabIeltsNew32 = [
   {
     id: "food-agriculture-ielts-p2", category: "ielts",
-    title: "🌾 Thực Phẩm & Nông Nghiệp (100 Từ) (C1-C2) – Phần 2",
-    description: "100 từ vựng nâng cao về an ninh lương thực, canh tác nông nghiệp, và ngành công nghiệp thực phẩm.",
+    title: "🌾 Thực Phẩm & Nông Nghiệp (C1-C2) – Phần 2",
+    description: "50 từ vựng nâng cao về an ninh lương thực, canh tác nông nghiệp, và ngành công nghiệp thực phẩm.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"agriculture",vi:"nông nghiệp",type:"(n)",ipa:"/ˈæɡ.rɪ.kʌl.tʃər/",example:"The economy relies heavily on agriculture.",viExample:"Nền kinh tế phụ thuộc nhiều vào nông nghiệp.",synonyms:"farming",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew32 = [
   },
   {
     id: "energy-resources-ielts", category: "ielts",
-    title: "⚡ Năng Lượng & Tài Nguyên (100 Từ) (C1-C2)",
-    description: "100 từ vựng chuyên sâu về các nguồn năng lượng, khai thác tài nguyên và khủng hoảng năng lượng.",
+    title: "⚡ Năng Lượng & Tài Nguyên (C1-C2)",
+    description: "50 từ vựng chuyên sâu về các nguồn năng lượng, khai thác tài nguyên và khủng hoảng năng lượng.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"energy",vi:"năng lượng",type:"(n)",ipa:"/ˈen.ə.dʒi/",example:"Renewable energy.",viExample:"Năng lượng có thể tái tạo.",synonyms:"power",antonyms:""},

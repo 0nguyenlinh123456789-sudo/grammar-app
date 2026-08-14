@@ -2,8 +2,8 @@
 export const vocabDailyNew32 = [
   {
     id: "crime-law-daily", category: "daily",
-    title: "⚖️ Tội Phạm & Pháp Luật (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về hệ thống pháp luật, các loại tội phạm và công tác điều tra của cảnh sát.",
+    title: "⚖️ Tội Phạm & Pháp Luật (A2-B1)",
+    description: "50 từ vựng thông dụng về hệ thống pháp luật, các loại tội phạm và công tác điều tra của cảnh sát.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"law",vi:"pháp luật/luật",type:"(n)",ipa:"/lɔː/",example:"You must obey the law.",viExample:"Bạn phải tuân theo pháp luật."},
@@ -62,8 +62,8 @@ export const vocabDailyNew32 = [
   },
   {
     id: "emergency-safety-daily", category: "daily",
-    title: "🚑 Khẩn Cấp & An Toàn (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các tình huống khẩn cấp, cứu hộ, và các biện pháp phòng ngừa an toàn.",
+    title: "🚑 Khẩn Cấp & An Toàn (A2-B1)",
+    description: "50 từ vựng thông dụng về các tình huống khẩn cấp, cứu hộ, và các biện pháp phòng ngừa an toàn.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"emergency",vi:"tình trạng khẩn cấp",type:"(n)",ipa:"/ɪˈmɜː.dʒən.si/",example:"Call 911 in an emergency.",viExample:"Hãy gọi 911 trong một tình trạng khẩn cấp."},

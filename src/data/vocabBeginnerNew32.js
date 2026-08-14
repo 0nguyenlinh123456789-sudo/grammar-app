@@ -2,8 +2,8 @@
 export const vocabBeginnerNew32 = [
   {
     id: "technology-devices-beginner", category: "beginner",
-    title: "💻 Công Nghệ & Thiết Bị (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các thiết bị điện tử, máy tính và đồ gia dụng công nghệ.",
+    title: "💻 Công Nghệ & Thiết Bị (A1)",
+    description: "50 từ vựng cơ bản về các thiết bị điện tử, máy tính và đồ gia dụng công nghệ.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"technology",vi:"công nghệ",type:"(n)",ipa:"/tekˈnɒl.ə.dʒi/",example:"Modern technology.",viExample:"Công nghệ hiện đại."},
@@ -62,8 +62,8 @@ export const vocabBeginnerNew32 = [
   },
   {
     id: "communication-internet-beginner", category: "beginner",
-    title: "🌐 Giao Tiếp & Internet (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các hoạt động trực tuyến, mạng xã hội, và cách giữ liên lạc.",
+    title: "🌐 Giao Tiếp & Internet (A1)",
+    description: "50 từ vựng cơ bản về các hoạt động trực tuyến, mạng xã hội, và cách giữ liên lạc.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"internet",vi:"mạng internet",type:"(n)",ipa:"/ˈɪn.tə.net/",example:"Use the internet.",viExample:"Hãy sử dụng mạng internet."},

@@ -2,8 +2,8 @@
 export const vocabDailyNew26 = [
   {
     id: "weather-climate-daily", category: "daily",
-    title: "🌦️ Thời Tiết & Khí Hậu (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các hiện tượng thời tiết, dự báo thời tiết, các mùa và biến đổi khí hậu cơ bản.",
+    title: "🌦️ Thời Tiết & Khí Hậu (A2-B1)",
+    description: "50 từ vựng thông dụng về các hiện tượng thời tiết, dự báo thời tiết, các mùa và biến đổi khí hậu cơ bản.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"weather",vi:"thời tiết",type:"(n)",ipa:"/ˈweð.ər/",example:"What is the weather like today?",viExample:"Thời tiết hôm nay như thế nào?"},
@@ -62,8 +62,8 @@ export const vocabDailyNew26 = [
   },
   {
     id: "nature-environment-daily", category: "daily",
-    title: "🌲 Thiên Nhiên & Môi Trường (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về cảnh quan thiên nhiên, thực vật, và các vấn đề bảo vệ môi trường cơ bản.",
+    title: "🌲 Thiên Nhiên & Môi Trường (A2-B1)",
+    description: "50 từ vựng thông dụng về cảnh quan thiên nhiên, thực vật, và các vấn đề bảo vệ môi trường cơ bản.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"nature",vi:"thiên nhiên/tự nhiên",type:"(n)",ipa:"/ˈneɪ.tʃər/",example:"I love walking in nature.",viExample:"Tôi yêu thích việc đi dạo trong thiên nhiên."},

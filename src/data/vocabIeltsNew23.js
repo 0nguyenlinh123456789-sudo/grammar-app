@@ -2,8 +2,8 @@
 export const vocabIeltsNew23 = [
   {
     id: "arts-culture-ielts", category: "ielts",
-    title: "🎨 Nghệ Thuật & Văn Hóa (100 Từ) (B2-C1)",
-    description: "100 từ vựng nâng cao về nghệ thuật thị giác, biểu diễn, di sản và các khái niệm văn hóa trừu tượng.",
+    title: "🎨 Nghệ Thuật & Văn Hóa (B2-C1)",
+    description: "50 từ vựng nâng cao về nghệ thuật thị giác, biểu diễn, di sản và các khái niệm văn hóa trừu tượng.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"culture",vi:"văn hóa",type:"(n)",ipa:"/ˈkʌl.tʃər/",example:"We must respect the culture of other nations.",viExample:"Chúng ta phải tôn trọng văn hóa của các quốc gia khác.",synonyms:"civilization, society",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew23 = [
   },
   {
     id: "media-communication-ielts-p2", category: "ielts",
-    title: "📱 Truyền Thông & Giao Tiếp (100 Từ) (B2-C1) – Phần 2",
-    description: "100 từ vựng nâng cao về các phương tiện truyền thông đại chúng, báo chí, mạng xã hội và phương thức giao tiếp.",
+    title: "📱 Truyền Thông & Giao Tiếp (B2-C1) – Phần 2",
+    description: "50 từ vựng nâng cao về các phương tiện truyền thông đại chúng, báo chí, mạng xã hội và phương thức giao tiếp.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"media",vi:"phương tiện truyền thông",type:"(n)",ipa:"/ˈmiː.di.ə/",example:"The mass media has a powerful influence on public opinion.",viExample:"Các phương tiện truyền thông đại chúng có một sự ảnh hưởng mạnh mẽ lên dư luận.",synonyms:"press, broadcasting",antonyms:""},

@@ -2,8 +2,8 @@
 export const vocabDailyNew23 = [
   {
     id: "work-jobs-daily", category: "daily",
-    title: "💼 Công Việc & Nghề Nghiệp (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các ngành nghề, nơi làm việc, các hoạt động văn phòng và tuyển dụng.",
+    title: "💼 Công Việc & Nghề Nghiệp (A2-B1)",
+    description: "56 từ vựng thông dụng về các ngành nghề, nơi làm việc, các hoạt động văn phòng và tuyển dụng.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"work",vi:"làm việc/công việc",type:"(v/n)",ipa:"/wɜːk/",example:"I work in a hospital.",viExample:"Tôi làm việc trong một bệnh viện."},
@@ -68,8 +68,8 @@ export const vocabDailyNew23 = [
   },
   {
     id: "technology-gadgets-daily", category: "daily",
-    title: "💻 Công Nghệ & Thiết Bị (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về máy tính, điện thoại thông minh, internet và các hoạt động công nghệ số.",
+    title: "💻 Công Nghệ & Thiết Bị (A2-B1)",
+    description: "50 từ vựng thông dụng về máy tính, điện thoại thông minh, internet và các hoạt động công nghệ số.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"technology",vi:"công nghệ",type:"(n)",ipa:"/tekˈnɒl.ə.dʒi/",example:"Technology changes very fast.",viExample:"Công nghệ thay đổi rất nhanh."},

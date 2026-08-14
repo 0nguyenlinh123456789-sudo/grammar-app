@@ -6,7 +6,7 @@ export const vocabMegaData = [
   {
     "id": "population-migration-vstep",
     "category": "vstep",
-    "title": "👥 Dân Số & Di Cư (100 Từ) (B2)",
+    "title": "👥 Dân Số & Di Cư (B2)",
     "description": "Tăng dân số, di cư, đô thị hóa và tác động xã hội.",
     "level": "B2",
     "examTags": [
@@ -765,8 +765,8 @@ export const vocabMegaData = [
   {
     "id": "housing-architecture-ielts",
     "category": "ielts",
-    "title": "🏠 Housing & Architecture (100 Từ) (B2-C1)",
-    "description": "100 từ vựng về nhà ở, kiến trúc, xây dựng, homeless và đô thị hóa.",
+    "title": "🏠 Housing & Architecture (B2-C1)",
+    "description": "81 từ vựng về nhà ở, kiến trúc, xây dựng, homeless và đô thị hóa.",
     "level": "B2-C1",
     "examTags": [
       "IELTS Band 6-7"

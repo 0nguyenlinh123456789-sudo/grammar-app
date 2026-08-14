@@ -2,8 +2,8 @@
 export const vocabIeltsNew6 = [
   {
     id: "health-medicine-advanced-ielts", category: "ielts",
-    title: "🏥 Y Tế & Sức Khỏe Nâng Cao (100 Từ) (C1-C2)",
-    description: "100 từ vựng IELTS chuyên sâu về y tế công cộng, giải phẫu học, dược lý và dịch tễ học.",
+    title: "🏥 Y Tế & Sức Khỏe Nâng Cao (C1-C2)",
+    description: "90 từ vựng IELTS chuyên sâu về y tế công cộng, giải phẫu học, dược lý và dịch tễ học.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"anatomy",vi:"giải phẫu học",type:"(n)",ipa:"/əˈnæt.ə.mi/",example:"Medical students must study human anatomy.",viExample:"Sinh viên y khoa phải nghiên cứu giải phẫu học cơ thể người."},
@@ -102,8 +102,8 @@ export const vocabIeltsNew6 = [
   },
   {
     id: "space-exploration-ielts", category: "ielts",
-    title: "🚀 Không Gian & Khám Phá (100 Từ) (B2-C1)",
-    description: "100 từ vựng IELTS về vũ trụ, thiên văn học, sứ mệnh không gian và công nghệ vệ tinh.",
+    title: "🚀 Không Gian & Khám Phá (B2-C1)",
+    description: "90 từ vựng IELTS về vũ trụ, thiên văn học, sứ mệnh không gian và công nghệ vệ tinh.",
     level: "B2-C1", examTags: ["IELTS Band 6-8", "VSTEP C1"],
     words: [
       {en:"space",vi:"không gian/vũ trụ",type:"(n)",ipa:"/speɪs/",example:"The astronauts traveled into deep space.",viExample:"Các phi hành gia đã du hành vào không gian sâu thẳm."},

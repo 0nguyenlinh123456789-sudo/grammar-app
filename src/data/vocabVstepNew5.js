@@ -2,7 +2,7 @@
 export const vocabVstepNew5 = [
   {
     id: "environment-conservation-vstep", category: "vstep",
-    title: "🌍 Môi Trường & Bảo Tồn (100 Từ) (B1-B2)",
+    title: "🌍 Môi Trường & Bảo Tồn (B1-B2)",
     description: "100 từ vựng về ô nhiễm, biến đổi khí hậu, bảo tồn thiên nhiên, năng lượng.",
     level: "B1-B2", examTags: ["VSTEP B1-B2", "IELTS Band 6"],
     words: [
@@ -112,7 +112,7 @@ export const vocabVstepNew5 = [
   },
   {
     id: "work-career-vstep", category: "vstep",
-    title: "💼 Công Việc & Nghề Nghiệp (100 Từ) (B1-B2)",
+    title: "💼 Công Việc & Nghề Nghiệp (B1-B2)",
     description: "100 từ vựng về việc làm, phỏng vấn, đồng nghiệp, văn phòng.",
     level: "B1-B2", examTags: ["VSTEP B1-B2", "Giao tiếp hằng ngày"],
     words: [

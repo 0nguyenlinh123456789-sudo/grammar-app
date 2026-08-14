@@ -2,8 +2,8 @@
 export const vocabVstepNew11 = [
   {
     id: "media-journalism-vstep", category: "vstep",
-    title: "📰 Truyền Thông & Báo Chí (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về báo đài, tin tức, mạng xã hội và ngành truyền thông.",
+    title: "📰 Truyền Thông & Báo Chí (B1-B2)",
+    description: "86 từ vựng VSTEP về báo đài, tin tức, mạng xã hội và ngành truyền thông.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"media",vi:"phương tiện truyền thông",type:"(n)",ipa:"/ˈmiː.di.ə/",example:"The mass media has a huge influence on society.",viExample:"Các phương tiện truyền thông đại chúng có ảnh hưởng lớn đến xã hội."},
@@ -98,8 +98,8 @@ export const vocabVstepNew11 = [
   },
   {
     id: "crime-punishment-vstep", category: "vstep",
-    title: "⚖️ Tội Phạm & Hình Phạt (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về các loại tội phạm, hệ thống pháp luật, xét xử và hình phạt.",
+    title: "⚖️ Tội Phạm & Hình Phạt (B1-B2)",
+    description: "77 từ vựng VSTEP về các loại tội phạm, hệ thống pháp luật, xét xử và hình phạt.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"crime",vi:"tội ác/tội phạm",type:"(n)",ipa:"/kraɪm/",example:"He committed a serious crime.",viExample:"Anh ta đã phạm một tội ác nghiêm trọng."},

@@ -5,8 +5,8 @@
 export const vocabVstepNew3 = [
   {
     id: "traditions-festivals-vstep", category: "vstep",
-    title: "🎊 Truyền Thống & Lễ Hội VN (100 Từ) (B1-B2)",
-    description: "100 từ vựng về lễ hội, phong tục, văn hóa dân gian Việt Nam.",
+    title: "🎊 Truyền Thống & Lễ Hội VN (B1-B2)",
+    description: "97 từ vựng về lễ hội, phong tục, văn hóa dân gian Việt Nam.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"tradition",vi:"truyền thống",type:"(n)",ipa:"/trəˈdɪʃ.ən/",example:"Vietnam has many beautiful traditions.",viExample:"Việt Nam có nhiều truyền thống đẹp."},
@@ -112,8 +112,8 @@ export const vocabVstepNew3 = [
   },
   {
     id: "e-learning-vstep", category: "vstep",
-    title: "💻 Giáo Dục Trực Tuyến (100 Từ) (B1-B2)",
-    description: "100 từ vựng về học trực tuyến, nền tảng số, giáo dục từ xa.",
+    title: "💻 Giáo Dục Trực Tuyến (B1-B2)",
+    description: "77 từ vựng về học trực tuyến, nền tảng số, giáo dục từ xa.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"e-learning",vi:"học trực tuyến",type:"(n)",ipa:"/ˈiː.lɜː.nɪŋ/",example:"E-learning became essential during the pandemic.",viExample:"Học trực tuyến trở nên cần thiết trong đại dịch."},

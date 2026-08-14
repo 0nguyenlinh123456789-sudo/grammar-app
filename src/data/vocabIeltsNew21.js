@@ -2,8 +2,8 @@
 export const vocabIeltsNew21 = [
   {
     id: "business-economy-ielts", category: "ielts",
-    title: "📈 Kinh Doanh & Kinh Tế (100 Từ) (B2-C1)",
-    description: "100 từ vựng nâng cao về thương mại, tài chính, doanh nghiệp và kinh tế học vi mô/vĩ mô.",
+    title: "📈 Kinh Doanh & Kinh Tế (B2-C1)",
+    description: "75 từ vựng nâng cao về thương mại, tài chính, doanh nghiệp và kinh tế học vi mô/vĩ mô.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"economy",vi:"nền kinh tế",type:"(n)",ipa:"/ɪˈkɒn.ə.mi/",example:"The global economy is slowly recovering from the crisis.",viExample:"Nền kinh tế toàn cầu đang dần phục hồi từ cuộc khủng hoảng.",synonyms:"financial system",antonyms:""},
@@ -87,8 +87,8 @@ export const vocabIeltsNew21 = [
   },
   {
     id: "transport-tourism-ielts", category: "ielts",
-    title: "✈️ Giao Thông & Du Lịch (100 Từ) (B2-C1)",
-    description: "100 từ vựng nâng cao về các phương thức vận tải, cơ sở hạ tầng giao thông và ngành công nghiệp du lịch.",
+    title: "✈️ Giao Thông & Du Lịch (B2-C1)",
+    description: "55 từ vựng nâng cao về các phương thức vận tải, cơ sở hạ tầng giao thông và ngành công nghiệp du lịch.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"transportation",vi:"giao thông vận tải",type:"(n)",ipa:"/ˌtræn.spɔːˈteɪ.ʃən/",example:"Public transportation is essential for reducing traffic.",viExample:"Giao thông vận tải công cộng là thiết yếu cho việc giảm thiểu giao thông.",synonyms:"transit, transport",antonyms:""},

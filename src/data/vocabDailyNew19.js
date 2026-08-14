@@ -2,7 +2,7 @@
 export const vocabDailyNew19 = [
   {
     id: "family-relationships-daily-p2", category: "daily",
-    title: "👨‍👩‍👧‍👦 Gia Đình & Mối Quan Hệ (100 Từ) (A2-B1) – Phần 2",
+    title: "👨‍👩‍👧‍👦 Gia Đình & Mối Quan Hệ (A2-B1) – Phần 2",
     description: "100 từ vựng thông dụng về các thành viên trong gia đình, họ hàng, tình bạn và các mối quan hệ xã hội.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
@@ -112,8 +112,8 @@ export const vocabDailyNew19 = [
   },
   {
     id: "hobbies-interests-daily", category: "daily",
-    title: "🎨 Sở Thích & Đam Mê (100 Từ) (A2-B1)",
-    description: "100 từ vựng cơ bản về các hoạt động giải trí, sở thích cá nhân và thời gian rảnh rỗi.",
+    title: "🎨 Sở Thích & Đam Mê (A2-B1)",
+    description: "95 từ vựng cơ bản về các hoạt động giải trí, sở thích cá nhân và thời gian rảnh rỗi.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"hobby",vi:"sở thích",type:"(n)",ipa:"/ˈhɒb.i/",example:"What is your favorite hobby?",viExample:"Sở thích yêu thích của bạn là gì?"},

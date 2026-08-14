@@ -2,7 +2,7 @@
 export const vocabBeginnerNew10 = [
   {
     id: "jobs-occupations-beginner", category: "beginner",
-    title: "💼 Nghề Nghiệp & Công Việc (100 Từ) (A1-A2)",
+    title: "💼 Nghề Nghiệp & Công Việc (A1-A2)",
     description: "100 từ vựng tiếng Anh cơ bản về các nghề nghiệp phổ biến, nơi làm việc và các hoạt động liên quan đến công việc.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
@@ -112,8 +112,8 @@ export const vocabBeginnerNew10 = [
   },
   {
     id: "body-health-beginner-p2", category: "beginner",
-    title: "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2) – Phần 2",
-    description: "100 từ vựng tiếng Anh cơ bản về các bộ phận cơ thể người, tình trạng sức khỏe và các bệnh ốm đau thông thường.",
+    title: "💪 Cơ Thể & Sức Khỏe (A1-A2) – Phần 2",
+    description: "91 từ vựng tiếng Anh cơ bản về các bộ phận cơ thể người, tình trạng sức khỏe và các bệnh ốm đau thông thường.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"body",vi:"cơ thể/thân thể",type:"(n)",ipa:"/ˈbɒd.i/",example:"Exercise is good for your body.",viExample:"Tập thể dục rất tốt cho cơ thể của bạn."},

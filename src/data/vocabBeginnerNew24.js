@@ -2,8 +2,8 @@
 export const vocabBeginnerNew24 = [
   {
     id: "house-rooms-beginner-p2", category: "beginner",
-    title: "🏠 Ngôi Nhà & Căn Phòng (100 Từ) (A1) – Phần 2",
-    description: "100 từ vựng cơ bản nhất về các loại nhà, các phòng, đồ đạc trong nhà và các vật dụng thường ngày.",
+    title: "🏠 Ngôi Nhà & Căn Phòng (A1) – Phần 2",
+    description: "50 từ vựng cơ bản nhất về các loại nhà, các phòng, đồ đạc trong nhà và các vật dụng thường ngày.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"house",vi:"ngôi nhà",type:"(n)",ipa:"/haʊs/",example:"This is my house.",viExample:"Đây là ngôi nhà của tôi."},
@@ -62,8 +62,8 @@ export const vocabBeginnerNew24 = [
   },
   {
     id: "clothes-accessories-beginner-p2", category: "beginner",
-    title: "👕 Quần Áo & Phụ Kiện (100 Từ) (A1) – Phần 2",
-    description: "100 từ vựng cơ bản về các loại trang phục, màu sắc quần áo, và cách ăn mặc hàng ngày.",
+    title: "👕 Quần Áo & Phụ Kiện (A1) – Phần 2",
+    description: "50 từ vựng cơ bản về các loại trang phục, màu sắc quần áo, và cách ăn mặc hàng ngày.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"clothes",vi:"quần áo",type:"(n)",ipa:"/kləʊðz/",example:"I like your new clothes.",viExample:"Tôi thích những bộ quần áo mới của bạn."},

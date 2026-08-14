@@ -2,8 +2,8 @@
 export const vocabDailyNew14 = [
   {
     id: "clothes-fashion-daily-p2", category: "daily",
-    title: "👗 Quần Áo & Thời Trang (100 Từ) (A2-B1) – Phần 2",
-    description: "100 từ vựng giao tiếp về các loại trang phục, phụ kiện, thời trang và cách ăn mặc.",
+    title: "👗 Quần Áo & Thời Trang (A2-B1) – Phần 2",
+    description: "86 từ vựng giao tiếp về các loại trang phục, phụ kiện, thời trang và cách ăn mặc.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"clothes",vi:"quần áo (nói chung)",type:"(n)",ipa:"/kləʊðz/",example:"I need to buy some new clothes for the party.",viExample:"Tôi cần mua một vài bộ quần áo mới cho bữa tiệc."},
@@ -98,8 +98,8 @@ export const vocabDailyNew14 = [
   },
   {
     id: "house-furniture-daily", category: "daily",
-    title: "🏠 Ngôi Nhà & Đồ Nội Thất (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp về các phòng trong nhà, đồ nội thất, thiết bị gia dụng và công việc nhà.",
+    title: "🏠 Ngôi Nhà & Đồ Nội Thất (A2-B1)",
+    description: "77 từ vựng giao tiếp về các phòng trong nhà, đồ nội thất, thiết bị gia dụng và công việc nhà.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"house",vi:"ngôi nhà",type:"(n)",ipa:"/haʊs/",example:"They bought a new house in the suburbs.",viExample:"Họ đã mua một ngôi nhà mới ở vùng ngoại ô."},

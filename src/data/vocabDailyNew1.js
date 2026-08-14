@@ -2,8 +2,8 @@
 export const vocabDailyNew1 = [
   {
     id: "shopping-market-daily", category: "daily",
-    title: "🛒 Đi Chợ & Mua Sắm (100 Từ) (A2-B1)",
-    description: "100 từ vựng về mua sắm, đi chợ, siêu thị, trả giá, thanh toán.",
+    title: "🛒 Đi Chợ & Mua Sắm (A2-B1)",
+    description: "97 từ vựng về mua sắm, đi chợ, siêu thị, trả giá, thanh toán.",
     level: "A2-B1", examTags: ["Giao tiếp hằng ngày", "VSTEP A2"],
     words: [
       {en:"market",vi:"chợ",type:"(n)",ipa:"/ˈmɑː.kɪt/",example:"The local market sells fresh vegetables.",viExample:"Chợ địa phương bán rau tươi."},

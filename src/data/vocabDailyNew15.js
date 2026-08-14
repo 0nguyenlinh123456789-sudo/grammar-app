@@ -2,8 +2,8 @@
 export const vocabDailyNew15 = [
   {
     id: "shopping-money-daily", category: "daily",
-    title: "🛒 Mua Sắm & Tiền Bạc (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp về hoạt động mua sắm, thanh toán, quản lý tiền bạc và siêu thị.",
+    title: "🛒 Mua Sắm & Tiền Bạc (A2-B1)",
+    description: "76 từ vựng giao tiếp về hoạt động mua sắm, thanh toán, quản lý tiền bạc và siêu thị.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"shop",vi:"cửa hàng/mua sắm",type:"(n/v)",ipa:"/ʃɒp/",example:"I need to shop for some new clothes.",viExample:"Tôi cần mua sắm một vài quần áo mới."},
@@ -88,8 +88,8 @@ export const vocabDailyNew15 = [
   },
   {
     id: "free-time-hobbies-daily", category: "daily",
-    title: "🎨 Thời Gian Rảnh & Sở Thích (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp về các hoạt động giải trí, sở thích, thể thao và cách tận hưởng thời gian rảnh rỗi.",
+    title: "🎨 Thời Gian Rảnh & Sở Thích (A2-B1)",
+    description: "76 từ vựng giao tiếp về các hoạt động giải trí, sở thích, thể thao và cách tận hưởng thời gian rảnh rỗi.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"hobby",vi:"sở thích",type:"(n)",ipa:"/ˈhɒb.i/",example:"My favorite hobby is reading books.",viExample:"Sở thích yêu thích của tôi là đọc sách."},

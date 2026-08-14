@@ -2,8 +2,8 @@
 export const vocabIeltsNew25 = [
   {
     id: "science-space-ielts", category: "ielts",
-    title: "🔬 Khoa Học & Không Gian (100 Từ) (B2-C1)",
-    description: "100 từ vựng nâng cao về các lĩnh vực khoa học, nghiên cứu vũ trụ, vật lý và công nghệ khám phá không gian.",
+    title: "🔬 Khoa Học & Không Gian (B2-C1)",
+    description: "50 từ vựng nâng cao về các lĩnh vực khoa học, nghiên cứu vũ trụ, vật lý và công nghệ khám phá không gian.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"science",vi:"khoa học",type:"(n)",ipa:"/ˈsaɪ.əns/",example:"Advancements in science have improved our lives.",viExample:"Những tiến bộ trong khoa học đã cải thiện cuộc sống của chúng ta.",synonyms:"",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew25 = [
   },
   {
     id: "architecture-urban-ielts", category: "ielts",
-    title: "🏙️ Kiến Trúc & Quy Hoạch (100 Từ) (B2-C1)",
-    description: "100 từ vựng nâng cao về các công trình kiến trúc, quy hoạch đô thị, cơ sở hạ tầng và thiết kế xây dựng.",
+    title: "🏙️ Kiến Trúc & Quy Hoạch (B2-C1)",
+    description: "50 từ vựng nâng cao về các công trình kiến trúc, quy hoạch đô thị, cơ sở hạ tầng và thiết kế xây dựng.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"architecture",vi:"kiến trúc/ngành kiến trúc",type:"(n)",ipa:"/ˈɑː.kɪ.tek.tʃər/",example:"He studies modern architecture.",viExample:"Anh ấy nghiên cứu kiến trúc hiện đại.",synonyms:"building design",antonyms:""},

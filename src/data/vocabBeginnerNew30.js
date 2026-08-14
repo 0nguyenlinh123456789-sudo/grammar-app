@@ -2,8 +2,8 @@
 export const vocabBeginnerNew30 = [
   {
     id: "money-shopping-beginner", category: "beginner",
-    title: "💰 Tiền Bạc & Mua Sắm (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về tiền tệ, các hoạt động mua bán, cửa hàng và giá cả.",
+    title: "💰 Tiền Bạc & Mua Sắm (A1)",
+    description: "50 từ vựng cơ bản về tiền tệ, các hoạt động mua bán, cửa hàng và giá cả.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"money",vi:"tiền bạc",type:"(n)",ipa:"/ˈmʌn.i/",example:"I need some money.",viExample:"Tôi cần một ít tiền."},
@@ -62,8 +62,8 @@ export const vocabBeginnerNew30 = [
   },
   {
     id: "clothes-fashion-beginner-p2", category: "beginner",
-    title: "👗 Quần Áo & Thời Trang (100 Từ) (A1) – Phần 2",
-    description: "100 từ vựng cơ bản về các loại trang phục, phụ kiện và cách miêu tả quần áo.",
+    title: "👗 Quần Áo & Thời Trang (A1) – Phần 2",
+    description: "50 từ vựng cơ bản về các loại trang phục, phụ kiện và cách miêu tả quần áo.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"clothes",vi:"quần áo",type:"(n)",ipa:"/kləʊðz/",example:"Put on your clothes.",viExample:"Hãy mặc quần áo của bạn vào."},

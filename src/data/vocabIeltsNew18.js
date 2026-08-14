@@ -2,7 +2,7 @@
 export const vocabIeltsNew18 = [
   {
     id: "ethics-philosophy-ielts", category: "ielts",
-    title: "🤔 Ethics & Philosophy (100 Words) (B2-C1)",
+    title: "🤔 Ethics & Philosophy (B2-C1)",
     description: "100 từ vựng trình độ cao về những tình thế lưỡng nan đạo đức, nguyên tắc luân lý, niềm tin và khái niệm triết học — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
@@ -112,7 +112,7 @@ export const vocabIeltsNew18 = [
   },
   {
     id: "art-architecture-ielts", category: "ielts",
-    title: "🏛️ Art & Architecture (100 Words) (B2-C1)",
+    title: "🏛️ Art & Architecture (B2-C1)",
     description: "100 từ vựng trình độ cao về nghệ thuật thị giác, thiết kế kiến trúc, thẩm mỹ và di sản văn hoá — dùng cho ôn thi IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [

@@ -5,8 +5,8 @@ export const vocabExtraData2 = [
   {
     id: "success-mindset-100",
     category: "ielts",
-    title: "🌟 Thành Công & Phát Triển Bản Thân (100 Từ) (B1-C1)",
-    description: "Bộ 100 từ vựng đỉnh cao về phát triển bản thân, tư duy lãnh đạo. Đầy đủ từ đồng nghĩa, trái nghĩa, siêu hay cho IELTS & TOEIC!",
+    title: "🌟 Thành Công & Phát Triển Bản Thân (B1-C1)",
+    description: "Bộ 101 từ vựng đỉnh cao về phát triển bản thân, tư duy lãnh đạo. Đầy đủ từ đồng nghĩa, trái nghĩa, siêu hay cho IELTS & TOEIC!",
     level: "B1-C1",
     examTags: ["IELTS Band 6+", "TOEIC 700+", "Life"],
     words: [
@@ -1128,8 +1128,8 @@ export const vocabExtraData2 = [
   {
     id: "school-life-100",
     category: "beginner",
-    title: "🏫 Đời Sống Học Đường & Vật Dụng (100 Từ) (A1-A2)",
-    description: "100 từ vựng nền tảng cực kỳ quen thuộc về học tập, lớp học, dụng cụ học tập và giao tiếp cơ bản tại trường lớp.",
+    title: "🏫 Đời Sống Học Đường & Vật Dụng (A1-A2)",
+    description: "101 từ vựng nền tảng cực kỳ quen thuộc về học tập, lớp học, dụng cụ học tập và giao tiếp cơ bản tại trường lớp.",
     level: "A1-A2",
     examTags: ["Basic", "Kids", "Daily"],
     words: [
@@ -2251,7 +2251,7 @@ export const vocabExtraData2 = [
   {
     id: "digital-society-100",
     category: "ielts",
-    title: "🌐 Xã Hội Số & Quyền Riêng Tư (100 Từ) (B2-C1)",
+    title: "🌐 Xã Hội Số & Quyền Riêng Tư (B2-C1)",
     description: "100 từ vựng nâng cao cực hay về công nghệ, internet, an toàn thông tin, bảo mật và tương tác xã hội trong kỷ nguyên số.",
     level: "B2-C1",
     examTags: ["IELTS Band 6.5+", "Tech", "Society"],

@@ -2,7 +2,7 @@
 export const vocabDailyNew12 = [
   {
     id: "entertainment-media-daily", category: "daily",
-    title: "🍿 Giải Trí & Truyền Thông (100 Từ) (A2-B1)",
+    title: "🍿 Giải Trí & Truyền Thông (A2-B1)",
     description: "100 từ vựng giao tiếp về các hoạt động giải trí, xem phim, nghe nhạc, báo chí và mạng xã hội.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
@@ -112,8 +112,8 @@ export const vocabDailyNew12 = [
   },
   {
     id: "technology-internet-daily-p2", category: "daily",
-    title: "💻 Công Nghệ & Mạng Internet (100 Từ) (A2-B1) – Phần 2",
-    description: "100 từ vựng giao tiếp về các thiết bị công nghệ, phần mềm, các hoạt động trên internet và kỹ năng máy tính cơ bản.",
+    title: "💻 Công Nghệ & Mạng Internet (A2-B1) – Phần 2",
+    description: "89 từ vựng giao tiếp về các thiết bị công nghệ, phần mềm, các hoạt động trên internet và kỹ năng máy tính cơ bản.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"technology",vi:"công nghệ",type:"(n)",ipa:"/tekˈnɒl.ə.dʒi/",example:"Modern technology makes our lives easier.",viExample:"Công nghệ hiện đại làm cho cuộc sống của chúng ta dễ dàng hơn."},

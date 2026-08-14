@@ -47,7 +47,7 @@ export const roadmapData = [
       },
       {
         id: 'm_s4',
-        title: '✈️ Từ Vựng: Du Lịch & Giao Thông (117 từ) (A1-A2)',
+        title: '✈️ Từ Vựng: Du Lịch & Giao Thông (A1-A2)',
         type: 'vstep',
         targetId: 'travel-transport',
         desc: '🕐 ~5 giờ | 117 từ về phương tiện, sân bay, đặt vé, chỉ đường. Sau bài: đủ vốn từ để hỏi đường và đặt vé tại nước ngoài. Hay gặp trong TOEIC Part 3.',
@@ -57,7 +57,7 @@ export const roadmapData = [
       },
       {
         id: 'm_s5',
-        title: '👨‍👩‍👧 Từ Vựng: Gia Đình & Quan Hệ (101 từ) (A1)',
+        title: '👨‍👩‍👧 Từ Vựng: Gia Đình & Quan Hệ (A1)',
         type: 'vstep',
         targetId: 'family-relationships',
         desc: '🕐 ~4 giờ | 101 từ mô tả các thành viên gia đình, mối quan hệ xã hội, cảm xúc trong gia đình. Sau bài: tự giới thiệu gia đình bằng tiếng Anh trôi chảy.',
@@ -67,7 +67,7 @@ export const roadmapData = [
       },
       {
         id: 'm_s6',
-        title: '🍎 Từ Vựng: Thức Ăn & Nấu Nướng (101 từ) (A2)',
+        title: '🍎 Từ Vựng: Thức Ăn & Nấu Nướng (A2)',
         type: 'vstep',
         targetId: 'food-cooking',
         desc: '🕐 ~4 giờ | 101 từ về thức ăn, phương pháp nấu, gọi món nhà hàng. Sau bài: gọi được đồ ăn tại nhà hàng nước ngoài và đọc thực đơn tiếng Anh.',

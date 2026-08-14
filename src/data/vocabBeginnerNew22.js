@@ -2,8 +2,8 @@
 export const vocabBeginnerNew22 = [
   {
     id: "feelings-emotions-beginner", category: "beginner",
-    title: "😊 Cảm Xúc & Cảm Giác (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản mô tả các trạng thái cảm xúc, cảm giác vật lý và những từ biểu cảm thông dụng.",
+    title: "😊 Cảm Xúc & Cảm Giác (A1)",
+    description: "92 từ vựng cơ bản mô tả các trạng thái cảm xúc, cảm giác vật lý và những từ biểu cảm thông dụng.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"feel",vi:"cảm thấy",type:"(v)",ipa:"/fiːl/",example:"How do you feel?",viExample:"Bạn cảm thấy thế nào?"},
@@ -104,8 +104,8 @@ export const vocabBeginnerNew22 = [
   },
   {
     id: "weather-seasons-beginner-p3", category: "beginner",
-    title: "🌤️ Thời Tiết & Mùa (100 Từ) (A1) – Phần 3",
-    description: "100 từ vựng cơ bản về các hiện tượng thời tiết, nhiệt độ, các mùa trong năm và thiên nhiên.",
+    title: "🌤️ Thời Tiết & Mùa (A1) – Phần 3",
+    description: "85 từ vựng cơ bản về các hiện tượng thời tiết, nhiệt độ, các mùa trong năm và thiên nhiên.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"weather",vi:"thời tiết",type:"(n)",ipa:"/ˈweð.ər/",example:"The weather is nice today.",viExample:"Hôm nay thời tiết thì đẹp."},

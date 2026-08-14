@@ -2,8 +2,8 @@
 export const vocabDailyNew13 = [
   {
     id: "education-learning-daily", category: "daily",
-    title: "📚 Giáo Dục & Học Tập (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp về trường học, việc học tập, các môn học và dụng cụ học tập.",
+    title: "📚 Giáo Dục & Học Tập (A2-B1)",
+    description: "92 từ vựng giao tiếp về trường học, việc học tập, các môn học và dụng cụ học tập.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"education",vi:"nền giáo dục/sự giáo dục",type:"(n)",ipa:"/ˌedʒ.ʊˈkeɪ.ʃən/",example:"Education is very important for children.",viExample:"Sự giáo dục là rất quan trọng đối với trẻ em."},
@@ -104,8 +104,8 @@ export const vocabDailyNew13 = [
   },
   {
     id: "jobs-careers-daily", category: "daily",
-    title: "💼 Công Việc & Nghề Nghiệp (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp về các loại nghề nghiệp, nơi làm việc, tiền lương và quá trình xin việc.",
+    title: "💼 Công Việc & Nghề Nghiệp (A2-B1)",
+    description: "101 từ vựng giao tiếp về các loại nghề nghiệp, nơi làm việc, tiền lương và quá trình xin việc.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"job",vi:"công việc",type:"(n)",ipa:"/dʒɒb/",example:"I need to find a new job.",viExample:"Tôi cần tìm một công việc mới."},

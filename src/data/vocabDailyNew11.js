@@ -2,7 +2,7 @@
 export const vocabDailyNew11 = [
   {
     id: "transport-driving-daily", category: "daily",
-    title: "🚗 Giao Thông & Lái Xe (100 Từ) (A2-B1)",
+    title: "🚗 Giao Thông & Lái Xe (A2-B1)",
     description: "100 từ vựng giao tiếp hàng ngày về các phương tiện giao thông, việc lái xe, đường phố và các biển báo.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
@@ -112,7 +112,7 @@ export const vocabDailyNew11 = [
   },
   {
     id: "clothes-fashion-daily", category: "daily",
-    title: "👗 Quần Áo & Thời Trang (100 Từ) (A2-B1)",
+    title: "👗 Quần Áo & Thời Trang (A2-B1)",
     description: "100 từ vựng giao tiếp về các loại trang phục, phụ kiện, phong cách ăn mặc và việc mua sắm quần áo.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

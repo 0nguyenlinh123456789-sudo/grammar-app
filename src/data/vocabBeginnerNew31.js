@@ -2,8 +2,8 @@
 export const vocabBeginnerNew31 = [
   {
     id: "nature-animals-beginner", category: "beginner",
-    title: "🌳 Thiên Nhiên & Động Vật (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các yếu tố tự nhiên, động vật nuôi, và động vật hoang dã.",
+    title: "🌳 Thiên Nhiên & Động Vật (A1)",
+    description: "50 từ vựng cơ bản về các yếu tố tự nhiên, động vật nuôi, và động vật hoang dã.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"nature",vi:"thiên nhiên",type:"(n)",ipa:"/ˈneɪ.tʃər/",example:"I love nature.",viExample:"Tôi yêu thiên nhiên."},
@@ -62,8 +62,8 @@ export const vocabBeginnerNew31 = [
   },
   {
     id: "weather-seasons-beginner-p4", category: "beginner",
-    title: "🌦️ Thời Tiết & Mùa (100 Từ) (A1) – Phần 4",
-    description: "100 từ vựng cơ bản về các hiện tượng thời tiết thông thường và bốn mùa trong năm.",
+    title: "🌦️ Thời Tiết & Mùa (A1) – Phần 4",
+    description: "50 từ vựng cơ bản về các hiện tượng thời tiết thông thường và bốn mùa trong năm.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"weather",vi:"thời tiết",type:"(n)",ipa:"/ˈweð.ər/",example:"Good weather.",viExample:"Thời tiết tốt."},

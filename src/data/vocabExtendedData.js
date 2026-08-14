@@ -5,7 +5,7 @@ const vocabExtendedData = [
     "category": "ielts",
     "level": "B2-C1",
     "title": "🏥 Sức Khỏe & Y Tế",
-    "description": "Từ vựng y tế thiết yếu cho IELTS, VSTEP và giao tiếp thực tế. 120 từ được các bác sĩ, điều dưỡng và bệnh nhân sử dụng hàng ngày.",
+    "description": "Từ vựng y tế thiết yếu cho IELTS, VSTEP và giao tiếp thực tế. 109 từ được các bác sĩ, điều dưỡng và bệnh nhân sử dụng hàng ngày.",
     "words": [
       {
         "en": "symptom",

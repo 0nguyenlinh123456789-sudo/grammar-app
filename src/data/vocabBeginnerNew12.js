@@ -2,8 +2,8 @@
 export const vocabBeginnerNew12 = [
   {
     id: "animals-pets-beginner-p2", category: "beginner",
-    title: "🐾 Động Vật & Thú Cưng (100 Từ) (A1-A2) – Phần 2",
-    description: "100 từ vựng tiếng Anh cơ bản về các loài động vật hoang dã, vật nuôi trong nhà và các bộ phận của chúng.",
+    title: "🐾 Động Vật & Thú Cưng (A1-A2) – Phần 2",
+    description: "91 từ vựng tiếng Anh cơ bản về các loài động vật hoang dã, vật nuôi trong nhà và các bộ phận của chúng.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"animal",vi:"động vật/con vật",type:"(n)",ipa:"/ˈæn.ɪ.məl/",example:"The lion is a wild animal.",viExample:"Sư tử là một loài động vật hoang dã."},
@@ -103,8 +103,8 @@ export const vocabBeginnerNew12 = [
   },
   {
     id: "places-buildings-beginner", category: "beginner",
-    title: "🏙️ Địa Điểm & Tòa Nhà (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các địa điểm công cộng, các loại tòa nhà trong thành phố và khu vực xung quanh.",
+    title: "🏙️ Địa Điểm & Tòa Nhà (A1-A2)",
+    description: "86 từ vựng tiếng Anh cơ bản về các địa điểm công cộng, các loại tòa nhà trong thành phố và khu vực xung quanh.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"place",vi:"địa điểm/nơi chốn",type:"(n)",ipa:"/pleɪs/",example:"This is a beautiful place.",viExample:"Đây là một địa điểm tuyệt đẹp."},

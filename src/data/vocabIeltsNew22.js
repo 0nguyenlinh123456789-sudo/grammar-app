@@ -2,8 +2,8 @@
 export const vocabIeltsNew22 = [
   {
     id: "health-medicine-ielts", category: "ielts",
-    title: "🏥 Sức Khỏe & Y Tế (100 Từ) (B2-C1)",
-    description: "100 từ vựng nâng cao về bệnh tật, chăm sóc sức khỏe, hệ thống y tế và phương pháp điều trị.",
+    title: "🏥 Sức Khỏe & Y Tế (B2-C1)",
+    description: "50 từ vựng nâng cao về bệnh tật, chăm sóc sức khỏe, hệ thống y tế và phương pháp điều trị.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"healthcare",vi:"chăm sóc sức khỏe",type:"(n)",ipa:"/ˈhelθ.keər/",example:"Access to quality healthcare is a fundamental human right.",viExample:"Sự tiếp cận đến chăm sóc sức khỏe chất lượng là một quyền cơ bản của con người.",synonyms:"medical services",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew22 = [
   },
   {
     id: "law-crime-ielts-p2", category: "ielts",
-    title: "⚖️ Luật Pháp & Tội Phạm (100 Từ) (B2-C1) – Phần 2",
-    description: "100 từ vựng nâng cao về hệ thống pháp luật, các loại tội phạm, và quá trình tư pháp.",
+    title: "⚖️ Luật Pháp & Tội Phạm (B2-C1) – Phần 2",
+    description: "50 từ vựng nâng cao về hệ thống pháp luật, các loại tội phạm, và quá trình tư pháp.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"law",vi:"luật pháp/luật",type:"(n)",ipa:"/lɔː/",example:"Everyone must obey the law.",viExample:"Mọi người đều phải tuân theo luật pháp.",synonyms:"legislation, rule",antonyms:""},

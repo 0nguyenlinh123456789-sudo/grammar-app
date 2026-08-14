@@ -2,8 +2,8 @@
 export const vocabDailyNew16 = [
   {
     id: "city-life-daily", category: "daily",
-    title: "🏙️ Cuộc Sống Thành Phố (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp về thành phố, đường phố, giao thông, các tòa nhà và cuộc sống đô thị.",
+    title: "🏙️ Cuộc Sống Thành Phố (A2-B1)",
+    description: "91 từ vựng giao tiếp về thành phố, đường phố, giao thông, các tòa nhà và cuộc sống đô thị.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"city",vi:"thành phố",type:"(n)",ipa:"/ˈsɪt.i/",example:"I live in a big city.",viExample:"Tôi sống ở một thành phố lớn."},
@@ -103,8 +103,8 @@ export const vocabDailyNew16 = [
   },
   {
     id: "countryside-nature-daily", category: "daily",
-    title: "🌳 Nông Thôn & Thiên Nhiên (100 Từ) (A2-B1)",
-    description: "100 từ vựng tiếng Anh giao tiếp về phong cảnh, các yếu tố thiên nhiên, làng quê và cuộc sống nông thôn.",
+    title: "🌳 Nông Thôn & Thiên Nhiên (A2-B1)",
+    description: "90 từ vựng tiếng Anh giao tiếp về phong cảnh, các yếu tố thiên nhiên, làng quê và cuộc sống nông thôn.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"countryside",vi:"vùng nông thôn",type:"(n)",ipa:"/ˈkʌn.tri.saɪd/",example:"I want to live in the countryside when I retire.",viExample:"Tôi muốn sống ở vùng nông thôn khi tôi nghỉ hưu."},

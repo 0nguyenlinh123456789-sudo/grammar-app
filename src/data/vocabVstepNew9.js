@@ -2,7 +2,7 @@
 export const vocabVstepNew9 = [
   {
     id: "media-press-vstep", category: "vstep",
-    title: "📰 Truyền Thông & Báo Chí (100 Từ) (B1-B2)",
+    title: "📰 Truyền Thông & Báo Chí (B1-B2)",
     description: "100 từ vựng VSTEP về báo đài, truyền hình, tin tức và mạng xã hội.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
@@ -112,8 +112,8 @@ export const vocabVstepNew9 = [
   },
   {
     id: "medicine-healthcare-vstep", category: "vstep",
-    title: "🏥 Y Tế & Chăm Sóc Sức Khỏe (100 Từ) (B1-B2)",
-    description: "100 từ vựng VSTEP về bệnh viện, triệu chứng bệnh, phương pháp điều trị và lối sống khỏe.",
+    title: "🏥 Y Tế & Chăm Sóc Sức Khỏe (B1-B2)",
+    description: "99 từ vựng VSTEP về bệnh viện, triệu chứng bệnh, phương pháp điều trị và lối sống khỏe.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
       {en:"health",vi:"sức khỏe",type:"(n)",ipa:"/helθ/",example:"Smoking is bad for your health.",viExample:"Hút thuốc có hại cho sức khỏe của bạn."},

@@ -2,8 +2,8 @@
 export const vocabBeginnerNew14 = [
   {
     id: "weather-seasons-beginner-p2", category: "beginner",
-    title: "☀️ Thời Tiết & Các Mùa (100 Từ) (A1-A2) – Phần 2",
-    description: "100 từ vựng tiếng Anh cơ bản về hiện tượng thời tiết, nhiệt độ, các mùa trong năm và thiên nhiên.",
+    title: "☀️ Thời Tiết & Các Mùa (A1-A2) – Phần 2",
+    description: "91 từ vựng tiếng Anh cơ bản về hiện tượng thời tiết, nhiệt độ, các mùa trong năm và thiên nhiên.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"weather",vi:"thời tiết",type:"(n)",ipa:"/ˈweð.ər/",example:"What is the weather like today?",viExample:"Thời tiết hôm nay như thế nào?"},
@@ -103,8 +103,8 @@ export const vocabBeginnerNew14 = [
   },
   {
     id: "city-transport-beginner", category: "beginner",
-    title: "🏙️ Thành Phố & Giao Thông (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các phương tiện đi lại, giao thông, đường phố và các hoạt động trong thành phố.",
+    title: "🏙️ Thành Phố & Giao Thông (A1-A2)",
+    description: "80 từ vựng tiếng Anh cơ bản về các phương tiện đi lại, giao thông, đường phố và các hoạt động trong thành phố.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"car",vi:"xe ô tô",type:"(n)",ipa:"/kɑːr/",example:"He drives a red car to work.",viExample:"Anh ấy lái một chiếc xe ô tô màu đỏ đi làm."},

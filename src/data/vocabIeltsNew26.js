@@ -2,8 +2,8 @@
 export const vocabIeltsNew26 = [
   {
     id: "philosophy-ethics-ielts", category: "ielts",
-    title: "🤔 Triết Học & Đạo Đức (100 Từ) (C1-C2)",
-    description: "100 từ vựng chuyên sâu về các tư tưởng triết học, hệ thống đạo đức, giá trị nhân sinh và lý luận logic.",
+    title: "🤔 Triết Học & Đạo Đức (C1-C2)",
+    description: "50 từ vựng chuyên sâu về các tư tưởng triết học, hệ thống đạo đức, giá trị nhân sinh và lý luận logic.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"philosophy",vi:"triết học/triết lý",type:"(n)",ipa:"/fɪˈlɒs.ə.fi/",example:"He studies ancient Greek philosophy.",viExample:"Ông ấy nghiên cứu triết học Hy Lạp cổ đại.",synonyms:"beliefs, ideology",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew26 = [
   },
   {
     id: "psychology-mind-ielts-p2", category: "ielts",
-    title: "🧠 Tâm Lý & Tâm Trí (100 Từ) (C1-C2) – Phần 2",
-    description: "100 từ vựng nâng cao về tâm lý học, trạng thái cảm xúc, nhận thức và các hội chứng tâm lý.",
+    title: "🧠 Tâm Lý & Tâm Trí (C1-C2) – Phần 2",
+    description: "50 từ vựng nâng cao về tâm lý học, trạng thái cảm xúc, nhận thức và các hội chứng tâm lý.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"psychology",vi:"tâm lý học",type:"(n)",ipa:"/saɪˈkɒl.ə.dʒi/",example:"She has a degree in psychology.",viExample:"Cô ấy có một bằng cấp về tâm lý học.",synonyms:"",antonyms:""},

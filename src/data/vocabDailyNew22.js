@@ -2,8 +2,8 @@
 export const vocabDailyNew22 = [
   {
     id: "health-body-daily-p2", category: "daily",
-    title: "💪 Sức Khỏe & Cơ Thể (100 Từ) (A2-B1) – Phần 2",
-    description: "100 từ vựng thông dụng về các bộ phận cơ thể con người, các bệnh thường gặp và việc chăm sóc sức khỏe cá nhân.",
+    title: "💪 Sức Khỏe & Cơ Thể (A2-B1) – Phần 2",
+    description: "60 từ vựng thông dụng về các bộ phận cơ thể con người, các bệnh thường gặp và việc chăm sóc sức khỏe cá nhân.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"body",vi:"cơ thể",type:"(n)",ipa:"/ˈbɒd.i/",example:"Exercise is good for your body.",viExample:"Tập thể dục thì tốt cho cơ thể của bạn."},
@@ -72,8 +72,8 @@ export const vocabDailyNew22 = [
   },
   {
     id: "education-school-daily-p2", category: "daily",
-    title: "🏫 Giáo Dục & Trường Học (100 Từ) (A2-B1) – Phần 2",
-    description: "100 từ vựng thông dụng về trường học, lớp học, các môn học và các hoạt động giáo dục.",
+    title: "🏫 Giáo Dục & Trường Học (A2-B1) – Phần 2",
+    description: "50 từ vựng thông dụng về trường học, lớp học, các môn học và các hoạt động giáo dục.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"school",vi:"trường học",type:"(n)",ipa:"/skuːl/",example:"I go to school by bus.",viExample:"Tôi đi đến trường bằng xe buýt."},

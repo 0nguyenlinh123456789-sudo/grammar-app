@@ -2,8 +2,8 @@
 export const vocabDailyNew31 = [
   {
     id: "transport-vehicles-daily", category: "daily",
-    title: "🚗 Giao Thông & Phương Tiện (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các loại xe, phương tiện công cộng, biển báo và luật giao thông.",
+    title: "🚗 Giao Thông & Phương Tiện (A2-B1)",
+    description: "50 từ vựng thông dụng về các loại xe, phương tiện công cộng, biển báo và luật giao thông.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"transport",vi:"giao thông/vận tải",type:"(n/v)",ipa:"/ˈtræn.spɔːt/",example:"Public transport is cheap.",viExample:"Giao thông công cộng thì rẻ."},
@@ -62,8 +62,8 @@ export const vocabDailyNew31 = [
   },
   {
     id: "hotel-accommodation-daily", category: "daily",
-    title: "🏨 Khách Sạn & Chỗ Ở (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về đặt phòng khách sạn, các loại phòng, dịch vụ và tiện nghi lưu trú.",
+    title: "🏨 Khách Sạn & Chỗ Ở (A2-B1)",
+    description: "50 từ vựng thông dụng về đặt phòng khách sạn, các loại phòng, dịch vụ và tiện nghi lưu trú.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"hotel",vi:"khách sạn",type:"(n)",ipa:"/həʊˈtel/",example:"A five-star hotel.",viExample:"Một khách sạn năm sao."},

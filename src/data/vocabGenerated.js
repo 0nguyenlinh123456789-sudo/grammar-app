@@ -5,7 +5,7 @@ export const vocabGeneratedData = [
   {
     "id": "sustainable-tourism-vstep",
     "category": "vstep",
-    "title": "🌍 Du Lịch Bền Vững (100 Từ) (B1-B2)",
+    "title": "🌍 Du Lịch Bền Vững (B1-B2)",
     "description": "100 từ vựng về du lịch có trách nhiệm, bảo vệ môi trường và văn hóa địa phương.",
     "level": "B1-B2",
     "examTags": [

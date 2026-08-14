@@ -2,8 +2,8 @@
 export const vocabBeginnerNew27 = [
   {
     id: "hobbies-games-beginner", category: "beginner",
-    title: "🎨 Sở Thích & Trò Chơi (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các hoạt động giải trí, trò chơi, thể thao nhẹ nhàng và sở thích cá nhân.",
+    title: "🎨 Sở Thích & Trò Chơi (A1)",
+    description: "50 từ vựng cơ bản về các hoạt động giải trí, trò chơi, thể thao nhẹ nhàng và sở thích cá nhân.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"hobby",vi:"sở thích",type:"(n)",ipa:"/ˈhɒb.i/",example:"My hobby is reading.",viExample:"Sở thích của tôi là việc đọc sách."},
@@ -62,8 +62,8 @@ export const vocabBeginnerNew27 = [
   },
   {
     id: "transport-vehicles-beginner-p2", category: "beginner",
-    title: "🚗 Giao Thông & Xe Cộ (100 Từ) (A1) – Phần 2",
-    description: "100 từ vựng cơ bản về các loại phương tiện đi lại, giao thông đường bộ và các động từ di chuyển.",
+    title: "🚗 Giao Thông & Xe Cộ (A1) – Phần 2",
+    description: "50 từ vựng cơ bản về các loại phương tiện đi lại, giao thông đường bộ và các động từ di chuyển.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"transport",vi:"sự giao thông/phương tiện vận chuyển",type:"(n)",ipa:"/ˈtræn.spɔːt/",example:"Public transport is cheap.",viExample:"Phương tiện giao thông công cộng thì rẻ."},

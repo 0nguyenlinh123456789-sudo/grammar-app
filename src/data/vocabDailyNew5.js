@@ -2,7 +2,7 @@
 export const vocabDailyNew5 = [
   {
     id: "shopping-stores-daily", category: "daily",
-    title: "🛍️ Mua Sắm & Cửa Hàng (100 Từ) (A2-B1)",
+    title: "🛍️ Mua Sắm & Cửa Hàng (A2-B1)",
     description: "100 từ vựng về mua sắm, siêu thị, trung tâm thương mại và các mặt hàng.",
     level: "A2-B1", examTags: ["Giao tiếp hằng ngày", "VSTEP A2-B1"],
     words: [
@@ -112,8 +112,8 @@ export const vocabDailyNew5 = [
   },
   {
     id: "technology-internet-daily", category: "daily",
-    title: "💻 Công Nghệ & Internet (100 Từ) (A2-B1)",
-    description: "100 từ vựng về máy tính, mạng internet, thiết bị điện tử và phần mềm.",
+    title: "💻 Công Nghệ & Internet (A2-B1)",
+    description: "99 từ vựng về máy tính, mạng internet, thiết bị điện tử và phần mềm.",
     level: "A2-B1", examTags: ["Giao tiếp hằng ngày", "VSTEP A2-B1"],
     words: [
       {en:"technology",vi:"công nghệ",type:"(n)",ipa:"/tekˈnɒl.ə.dʒi/",example:"Modern technology makes life easier.",viExample:"Công nghệ hiện đại làm cuộc sống dễ dàng hơn."},

@@ -3,8 +3,8 @@ export const vocabBeginnerNew26 = [
   
   {
     id: "human-body-beginner", category: "beginner",
-    title: "🧍 Cơ Thể Người (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các bộ phận trên cơ thể con người, khuôn mặt, tay chân và các chuyển động.",
+    title: "🧍 Cơ Thể Người (A1)",
+    description: "50 từ vựng cơ bản về các bộ phận trên cơ thể con người, khuôn mặt, tay chân và các chuyển động.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"body",vi:"cơ thể",type:"(n)",ipa:"/ˈbɒd.i/",example:"Exercise is good for your body.",viExample:"Việc tập thể dục thì tốt cho cơ thể của bạn."},

@@ -2,7 +2,7 @@
 export const vocabVstepNew15 = [
   {
     id: "history-civilizations-vstep", category: "vstep",
-    title: "🏛️ Lịch Sử & Nền Văn Minh (100 Từ) (B1-B2)",
+    title: "🏛️ Lịch Sử & Nền Văn Minh (B1-B2)",
     description: "100 từ vựng VSTEP về lịch sử loài người, các nền văn minh cổ đại, khảo cổ học và các sự kiện lịch sử.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
@@ -112,7 +112,7 @@ export const vocabVstepNew15 = [
   },
   {
     id: "arts-literature-vstep", category: "vstep",
-    title: "🎭 Nghệ Thuật & Văn Học (100 Từ) (B1-B2)",
+    title: "🎭 Nghệ Thuật & Văn Học (B1-B2)",
     description: "100 từ vựng VSTEP về các loại hình nghệ thuật, sáng tác văn chương, kịch nghệ và cảm thụ thẩm mỹ.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [

@@ -2,8 +2,8 @@
 export const vocabDailyNew33 = [
   {
     id: "environment-ecology-daily", category: "daily",
-    title: "🌍 Môi Trường & Sinh Thái (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về bảo vệ môi trường, ô nhiễm và các vấn đề sinh thái toàn cầu.",
+    title: "🌍 Môi Trường & Sinh Thái (A2-B1)",
+    description: "50 từ vựng thông dụng về bảo vệ môi trường, ô nhiễm và các vấn đề sinh thái toàn cầu.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"environment",vi:"môi trường",type:"(n)",ipa:"/ɪnˈvaɪ.rən.mənt/",example:"Protect the environment.",viExample:"Hãy bảo vệ môi trường."},
@@ -62,8 +62,8 @@ export const vocabDailyNew33 = [
   },
   {
     id: "arts-culture-daily", category: "daily",
-    title: "🎨 Nghệ Thuật & Văn Hóa (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các loại hình nghệ thuật, triển lãm, và phong tục truyền thống.",
+    title: "🎨 Nghệ Thuật & Văn Hóa (A2-B1)",
+    description: "50 từ vựng thông dụng về các loại hình nghệ thuật, triển lãm, và phong tục truyền thống.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"art",vi:"nghệ thuật",type:"(n)",ipa:"/ɑːt/",example:"A work of art.",viExample:"Một tác phẩm nghệ thuật."},

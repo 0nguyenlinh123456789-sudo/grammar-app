@@ -3,8 +3,8 @@ export const vocabBeginnerNew35 = [
   
   {
     id: "numbers-quantity-beginner", category: "beginner",
-    title: "🔢 Số Đếm & Số Lượng (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các con số, số thứ tự và các từ chỉ số lượng thường gặp.",
+    title: "🔢 Số Đếm & Số Lượng (A1)",
+    description: "50 từ vựng cơ bản về các con số, số thứ tự và các từ chỉ số lượng thường gặp.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"number",vi:"con số",type:"(n)",ipa:"/ˈnʌm.bər/",example:"A phone number.",viExample:"Một số điện thoại."},

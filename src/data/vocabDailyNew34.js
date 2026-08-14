@@ -2,8 +2,8 @@
 export const vocabDailyNew34 = [
   {
     id: "science-technology-daily", category: "daily",
-    title: "🔬 Khoa Học & Công Nghệ (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về nghiên cứu khoa học, không gian vũ trụ và tiến bộ công nghệ.",
+    title: "🔬 Khoa Học & Công Nghệ (A2-B1)",
+    description: "50 từ vựng thông dụng về nghiên cứu khoa học, không gian vũ trụ và tiến bộ công nghệ.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"science",vi:"khoa học",type:"(n)",ipa:"/ˈsaɪ.əns/",example:"I like studying science.",viExample:"Tôi thích học khoa học."},
@@ -62,8 +62,8 @@ export const vocabDailyNew34 = [
   },
   {
     id: "media-news-daily", category: "daily",
-    title: "📰 Truyền Thông & Tin Tức (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về báo chí, đài phát thanh truyền hình, và mạng xã hội.",
+    title: "📰 Truyền Thông & Tin Tức (A2-B1)",
+    description: "50 từ vựng thông dụng về báo chí, đài phát thanh truyền hình, và mạng xã hội.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"media",vi:"phương tiện truyền thông",type:"(n)",ipa:"/ˈmiː.di.ə/",example:"Social media.",viExample:"Mạng xã hội."},

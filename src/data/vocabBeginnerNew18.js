@@ -2,8 +2,8 @@
 export const vocabBeginnerNew18 = [
   {
     id: "family-people-beginner-p3", category: "beginner",
-    title: "👨‍👩‍👧‍👦 Gia Đình & Mọi Người (100 Từ) (A1) – Phần 3",
-    description: "100 từ vựng cơ bản về các thành viên trong gia đình, các mối quan hệ và con người xung quanh bạn.",
+    title: "👨‍👩‍👧‍👦 Gia Đình & Mọi Người (A1) – Phần 3",
+    description: "96 từ vựng cơ bản về các thành viên trong gia đình, các mối quan hệ và con người xung quanh bạn.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"family",vi:"gia đình",type:"(n)",ipa:"/ˈfæm.əl.i/",example:"My family is big.",viExample:"Gia đình tôi thì lớn."},
@@ -108,7 +108,7 @@ export const vocabBeginnerNew18 = [
   },
   {
     id: "body-parts-beginner", category: "beginner",
-    title: "💪 Bộ Phận Cơ Thể (100 Từ) (A1)",
+    title: "💪 Bộ Phận Cơ Thể (A1)",
     description: "100 từ vựng cơ bản về các bộ phận trên cơ thể con người, từ đầu đến chân và các động từ đi kèm.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [

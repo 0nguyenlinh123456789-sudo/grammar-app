@@ -2,8 +2,8 @@
 export const vocabBeginnerNew17 = [
   {
     id: "time-dates-beginner", category: "beginner",
-    title: "⏰ Thời Gian & Ngày Tháng (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về giờ giấc, ngày, tháng, mùa và các cụm từ chỉ thời gian thông dụng.",
+    title: "⏰ Thời Gian & Ngày Tháng (A1)",
+    description: "93 từ vựng cơ bản về giờ giấc, ngày, tháng, mùa và các cụm từ chỉ thời gian thông dụng.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"time",vi:"thời gian/lần",type:"(n)",ipa:"/taɪm/",example:"What time is it?",viExample:"Bây giờ là mấy giờ?"},
@@ -105,8 +105,8 @@ export const vocabBeginnerNew17 = [
   },
   {
     id: "numbers-shapes-beginner", category: "beginner",
-    title: "🔢 Số Đếm & Hình Khối (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các con số, số lượng, toán học cơ bản và các hình khối trong tiếng Anh.",
+    title: "🔢 Số Đếm & Hình Khối (A1)",
+    description: "92 từ vựng cơ bản về các con số, số lượng, toán học cơ bản và các hình khối trong tiếng Anh.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"number",vi:"con số",type:"(n)",ipa:"/ˈnʌm.bər/",example:"Pick a number from 1 to 10.",viExample:"Hãy chọn một con số từ 1 đến 10."},

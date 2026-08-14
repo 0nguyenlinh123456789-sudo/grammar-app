@@ -2,7 +2,7 @@
 export const vocabDailyNew8 = [
   {
     id: "education-school-daily", category: "daily",
-    title: "🎒 Giáo Dục & Trường Học (100 Từ) (A2-B1)",
+    title: "🎒 Giáo Dục & Trường Học (A2-B1)",
     description: "100 từ vựng giao tiếp hàng ngày về trường lớp, môn học, giáo viên và việc học tập.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
@@ -112,7 +112,7 @@ export const vocabDailyNew8 = [
   },
   {
     id: "work-career-daily", category: "daily",
-    title: "💼 Công Việc & Sự Nghiệp (100 Từ) (A2-B1)",
+    title: "💼 Công Việc & Sự Nghiệp (A2-B1)",
     description: "100 từ vựng giao tiếp về môi trường làm việc, nghề nghiệp, văn phòng và tìm kiếm việc làm.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

@@ -2,8 +2,8 @@
 export const vocabBeginnerNew34 = [
   {
     id: "travel-transport-beginner", category: "beginner",
-    title: "✈️ Du Lịch & Giao Thông (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các phương tiện giao thông và các chuyến đi du lịch.",
+    title: "✈️ Du Lịch & Giao Thông (A1)",
+    description: "50 từ vựng cơ bản về các phương tiện giao thông và các chuyến đi du lịch.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"travel",vi:"du lịch/đi lại",type:"(v/n)",ipa:"/ˈtræv.əl/",example:"I like to travel.",viExample:"Tôi thích đi du lịch."},
@@ -62,8 +62,8 @@ export const vocabBeginnerNew34 = [
   },
   {
     id: "places-directions-beginner", category: "beginner",
-    title: "📍 Nơi Chốn & Phương Hướng (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các địa điểm trong thành phố và cách chỉ đường.",
+    title: "📍 Nơi Chốn & Phương Hướng (A1)",
+    description: "50 từ vựng cơ bản về các địa điểm trong thành phố và cách chỉ đường.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"place",vi:"nơi chốn/địa điểm",type:"(n)",ipa:"/pleɪs/",example:"A nice place.",viExample:"Một nơi tốt đẹp."},

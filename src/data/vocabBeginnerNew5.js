@@ -2,8 +2,8 @@
 export const vocabBeginnerNew5 = [
   {
     id: "food-meals-beginner", category: "beginner",
-    title: "🍔 Đồ Ăn & Bữa Ăn (100 Từ) (A1-A2)",
-    description: "100 từ vựng cơ bản về các loại thức ăn, đồ uống và các bữa ăn trong ngày.",
+    title: "🍔 Đồ Ăn & Bữa Ăn (A1-A2)",
+    description: "101 từ vựng cơ bản về các loại thức ăn, đồ uống và các bữa ăn trong ngày.",
     level: "A1-A2", examTags: ["Người mới bắt đầu", "VSTEP A1"],
     words: [
       {en:"food",vi:"đồ ăn/thức ăn",type:"(n)",ipa:"/fuːd/",example:"I like Italian food.",viExample:"Tôi thích đồ ăn Ý."},
@@ -113,8 +113,8 @@ export const vocabBeginnerNew5 = [
   },
   {
     id: "body-health-beginner", category: "beginner",
-    title: "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2)",
-    description: "100 từ vựng cơ bản về các bộ phận trên cơ thể con người, cảm giác và tình trạng sức khỏe.",
+    title: "💪 Cơ Thể & Sức Khỏe (A1-A2)",
+    description: "93 từ vựng cơ bản về các bộ phận trên cơ thể con người, cảm giác và tình trạng sức khỏe.",
     level: "A1-A2", examTags: ["Người mới bắt đầu", "VSTEP A1"],
     words: [
       {en:"body",vi:"cơ thể",type:"(n)",ipa:"/ˈbɒd.i/",example:"Exercise is good for your body.",viExample:"Tập thể dục tốt cho cơ thể bạn."},

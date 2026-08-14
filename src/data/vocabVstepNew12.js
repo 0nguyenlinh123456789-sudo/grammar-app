@@ -2,7 +2,7 @@
 export const vocabVstepNew12 = [
   {
     id: "business-finance-vstep", category: "vstep",
-    title: "🏢 Kinh Doanh & Tài Chính (100 Từ) (B1-B2)",
+    title: "🏢 Kinh Doanh & Tài Chính (B1-B2)",
     description: "100 từ vựng VSTEP về hoạt động kinh doanh, tài chính doanh nghiệp, đầu tư và ngân hàng.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [
@@ -112,7 +112,7 @@ export const vocabVstepNew12 = [
   },
   {
     id: "economy-trade-vstep", category: "vstep",
-    title: "🌍 Kinh Tế & Giao Thương (100 Từ) (B1-B2)",
+    title: "🌍 Kinh Tế & Giao Thương (B1-B2)",
     description: "100 từ vựng VSTEP về kinh tế vĩ mô, thương mại quốc tế, xuất nhập khẩu và toàn cầu hóa.",
     level: "B1-B2", examTags: ["VSTEP B1-B2"],
     words: [

@@ -2,8 +2,8 @@
 export const vocabIeltsNew1 = [
   {
     id: "crime-punishment-ielts", category: "ielts",
-    title: "⚖️ Crime & Punishment (100 Từ) (B2-C1)",
-    description: "100 từ vựng về tội phạm, hệ thống tư pháp, tù, phục hồi.",
+    title: "⚖️ Crime & Punishment (B2-C1)",
+    description: "98 từ vựng về tội phạm, hệ thống tư pháp, tù, phục hồi.",
     level: "B2-C1", examTags: ["IELTS Band 6-7"],
     words: [
       {en:"crime",vi:"tội phạm",type:"(n)",ipa:"/kraɪm/",example:"Crime rates have decreased recently.",viExample:"Tỷ lệ tội phạm đã giảm gần đây."},

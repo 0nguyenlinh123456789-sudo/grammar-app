@@ -2,8 +2,8 @@
 export const vocabBeginnerNew23 = [
   {
     id: "family-relatives-beginner", category: "beginner",
-    title: "👨‍👩‍👧 Gia Đình & Họ Hàng (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các thành viên trong gia đình, các mối quan hệ họ hàng và tình trạng hôn nhân.",
+    title: "👨‍👩‍👧 Gia Đình & Họ Hàng (A1)",
+    description: "50 từ vựng cơ bản về các thành viên trong gia đình, các mối quan hệ họ hàng và tình trạng hôn nhân.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"family",vi:"gia đình",type:"(n)",ipa:"/ˈfæm.əl.i/",example:"I love my family.",viExample:"Tôi yêu gia đình của mình."},
@@ -62,8 +62,8 @@ export const vocabBeginnerNew23 = [
   },
   {
     id: "time-calendar-beginner", category: "beginner",
-    title: "⏳ Thời Gian & Lịch (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về cách nói giờ, các ngày trong tuần, các tháng trong năm và những khoảng thời gian.",
+    title: "⏳ Thời Gian & Lịch (A1)",
+    description: "53 từ vựng cơ bản về cách nói giờ, các ngày trong tuần, các tháng trong năm và những khoảng thời gian.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"time",vi:"thời gian/giờ",type:"(n)",ipa:"/taɪm/",example:"What time is it?",viExample:"Bây giờ là mấy giờ?"},

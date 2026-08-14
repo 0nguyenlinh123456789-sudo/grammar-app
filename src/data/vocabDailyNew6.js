@@ -2,7 +2,7 @@
 export const vocabDailyNew6 = [
   {
     id: "hobbies-entertainment-daily", category: "daily",
-    title: "🎨 Sở Thích & Giải Trí (100 Từ) (A2-B1)",
+    title: "🎨 Sở Thích & Giải Trí (A2-B1)",
     description: "100 từ vựng giao tiếp hàng ngày về các hoạt động giải trí, sở thích cá nhân và thời gian rảnh rỗi.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
@@ -112,8 +112,8 @@ export const vocabDailyNew6 = [
   },
   {
     id: "emotions-feelings-daily", category: "daily",
-    title: "😊 Cảm Xúc & Cảm Giác (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp về các loại cảm xúc, tâm trạng và cách biểu đạt cảm nhận cá nhân.",
+    title: "😊 Cảm Xúc & Cảm Giác (A2-B1)",
+    description: "99 từ vựng giao tiếp về các loại cảm xúc, tâm trạng và cách biểu đạt cảm nhận cá nhân.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"feel",vi:"cảm thấy",type:"(v)",ipa:"/fiːl/",example:"How do you feel today?",viExample:"Hôm nay bạn cảm thấy thế nào?"},

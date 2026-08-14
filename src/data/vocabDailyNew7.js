@@ -2,8 +2,8 @@
 export const vocabDailyNew7 = [
   {
     id: "food-cooking-daily", category: "daily",
-    title: "🍔 Đồ Ăn & Nấu Nướng (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp hàng ngày về các loại thực phẩm, bữa ăn và dụng cụ nhà bếp.",
+    title: "🍔 Đồ Ăn & Nấu Nướng (A2-B1)",
+    description: "90 từ vựng giao tiếp hàng ngày về các loại thực phẩm, bữa ăn và dụng cụ nhà bếp.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"food",vi:"đồ ăn/thực phẩm",type:"(n)",ipa:"/fuːd/",example:"I love Italian food.",viExample:"Tôi yêu đồ ăn Ý."},
@@ -102,8 +102,8 @@ export const vocabDailyNew7 = [
   },
   {
     id: "health-fitness-daily", category: "daily",
-    title: "💪 Sức Khỏe & Thể Hình (100 Từ) (A2-B1)",
-    description: "100 từ vựng giao tiếp về các vấn đề sức khỏe, bệnh tật thông thường và lối sống lành mạnh.",
+    title: "💪 Sức Khỏe & Thể Hình (A2-B1)",
+    description: "89 từ vựng giao tiếp về các vấn đề sức khỏe, bệnh tật thông thường và lối sống lành mạnh.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"health",vi:"sức khỏe",type:"(n)",ipa:"/helθ/",example:"Smoking is bad for your health.",viExample:"Hút thuốc có hại cho sức khỏe của bạn."},

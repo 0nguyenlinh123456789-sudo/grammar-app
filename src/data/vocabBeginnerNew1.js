@@ -2,8 +2,8 @@
 export const vocabBeginnerNew1 = [
   {
     id: "family-relationships-beginner", category: "beginner",
-    title: "👨‍👩‍👧‍👦 Gia Đình & Các Mối Quan Hệ (100 Từ) (A1-A2)",
-    description: "100 từ vựng cơ bản về gia đình, người thân, các mối quan hệ.",
+    title: "👨‍👩‍👧‍👦 Gia Đình & Các Mối Quan Hệ (A1-A2)",
+    description: "98 từ vựng cơ bản về gia đình, người thân, các mối quan hệ.",
     level: "A1-A2", examTags: ["Người mới bắt đầu", "VSTEP A1"],
     words: [
       {en:"family",vi:"gia đình",type:"(n)",ipa:"/ˈfæm.ə.li/",example:"My family has five members.",viExample:"Gia đình tôi có năm thành viên."},

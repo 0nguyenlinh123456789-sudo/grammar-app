@@ -2,7 +2,7 @@
 export const vocabDailyNew2 = [
   {
     id: "transportation-driving-daily", category: "daily",
-    title: "🚗 Giao Thông & Lái Xe (100 Từ) (A2-B1)",
+    title: "🚗 Giao Thông & Lái Xe (A2-B1)",
     description: "100 từ vựng về phương tiện đi lại, luật giao thông, đường phố.",
     level: "A2-B1", examTags: ["Giao tiếp hằng ngày", "VSTEP A2"],
     words: [
@@ -112,7 +112,7 @@ export const vocabDailyNew2 = [
   },
   {
     id: "public-facilities-daily", category: "daily",
-    title: "🏢 Tiện Ích Công Cộng (100 Từ) (A2-B1)",
+    title: "🏢 Tiện Ích Công Cộng (A2-B1)",
     description: "100 từ vựng về các tòa nhà, công trình công cộng, nơi chốn trong thành phố.",
     level: "A2-B1", examTags: ["Giao tiếp hằng ngày", "VSTEP A2"],
     words: [

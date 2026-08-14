@@ -2,8 +2,8 @@
 export const vocabDailyNew17 = [
   {
     id: "feelings-emotions-daily", category: "daily",
-    title: "😊 Cảm Xúc & Tâm Trạng (100 Từ) (A2-B1)",
-    description: "100 từ vựng cơ bản về cảm xúc, tâm trạng và cách biểu đạt tình cảm trong giao tiếp hằng ngày.",
+    title: "😊 Cảm Xúc & Tâm Trạng (A2-B1)",
+    description: "97 từ vựng cơ bản về cảm xúc, tâm trạng và cách biểu đạt tình cảm trong giao tiếp hằng ngày.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"happy",vi:"vui vẻ/hạnh phúc",type:"(adj)",ipa:"/ˈhæp.i/",example:"She was very happy with her new dress.",viExample:"Cô ấy đã rất vui vẻ với chiếc váy mới của mình."},
@@ -109,7 +109,7 @@ export const vocabDailyNew17 = [
   },
   {
     id: "technology-daily-life", category: "daily",
-    title: "📱 Công Nghệ Trong Đời Sống (100 Từ) (A2-B1)",
+    title: "📱 Công Nghệ Trong Đời Sống (A2-B1)",
     description: "100 từ vựng thông dụng về máy tính, điện thoại, internet và công nghệ trong cuộc sống hằng ngày.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [

@@ -2,8 +2,8 @@
 export const vocabIeltsNew28 = [
   {
     id: "society-demographics-ielts", category: "ielts",
-    title: "👥 Xã Hội & Nhân Khẩu Học (100 Từ) (C1-C2)",
-    description: "100 từ vựng nâng cao về cơ cấu xã hội, sự thay đổi dân số, và các vấn đề đô thị hóa.",
+    title: "👥 Xã Hội & Nhân Khẩu Học (C1-C2)",
+    description: "50 từ vựng nâng cao về cơ cấu xã hội, sự thay đổi dân số, và các vấn đề đô thị hóa.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"society",vi:"xã hội",type:"(n)",ipa:"/səˈsaɪ.ə.ti/",example:"Modern society faces many challenges.",viExample:"Xã hội hiện đại đối mặt với nhiều thử thách.",synonyms:"community",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew28 = [
   },
   {
     id: "law-crime-ielts-p3", category: "ielts",
-    title: "⚖️ Luật Pháp & Tội Phạm (100 Từ) (C1-C2) – Phần 3",
-    description: "100 từ vựng chuyên sâu về hệ thống tư pháp, các loại tội phạm, hình phạt và an ninh xã hội.",
+    title: "⚖️ Luật Pháp & Tội Phạm (C1-C2) – Phần 3",
+    description: "50 từ vựng chuyên sâu về hệ thống tư pháp, các loại tội phạm, hình phạt và an ninh xã hội.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"law",vi:"luật pháp/đạo luật",type:"(n)",ipa:"/lɔː/",example:"Everyone must obey the law.",viExample:"Mọi người phải tuân theo luật pháp.",synonyms:"legislation, rule",antonyms:""},

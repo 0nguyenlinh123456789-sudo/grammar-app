@@ -2,7 +2,7 @@
 export const vocabBeginnerNew2 = [
   {
     id: "food-drinks-beginner", category: "beginner",
-    title: "🍔 Đồ Ăn & Thức Uống (100 Từ) (A1-A2)",
+    title: "🍔 Đồ Ăn & Thức Uống (A1-A2)",
     description: "100 từ vựng cơ bản về các món ăn, đồ uống, và bữa ăn hằng ngày.",
     level: "A1-A2", examTags: ["Người mới bắt đầu", "VSTEP A1"],
     words: [
@@ -112,8 +112,8 @@ export const vocabBeginnerNew2 = [
   },
   {
     id: "clothes-colors-beginner", category: "beginner",
-    title: "👗 Quần Áo & Màu Sắc (100 Từ) (A1-A2)",
-    description: "100 từ vựng cơ bản về trang phục, phụ kiện và các màu sắc.",
+    title: "👗 Quần Áo & Màu Sắc (A1-A2)",
+    description: "91 từ vựng cơ bản về trang phục, phụ kiện và các màu sắc.",
     level: "A1-A2", examTags: ["Người mới bắt đầu", "VSTEP A1"],
     words: [
       {en:"clothes",vi:"quần áo",type:"(n)",ipa:"/kləʊðz/",example:"I need to wash my clothes.",viExample:"Tôi cần giặt quần áo của tôi."},

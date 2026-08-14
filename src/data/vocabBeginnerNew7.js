@@ -2,8 +2,8 @@
 export const vocabBeginnerNew7 = [
   {
     id: "animals-pets-beginner", category: "beginner",
-    title: "🐶 Động Vật & Thú Cưng (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các loài vật nuôi, động vật hoang dã và các bộ phận cơ thể của chúng.",
+    title: "🐶 Động Vật & Thú Cưng (A1-A2)",
+    description: "89 từ vựng tiếng Anh cơ bản về các loài vật nuôi, động vật hoang dã và các bộ phận cơ thể của chúng.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"animal",vi:"động vật/con vật",type:"(n)",ipa:"/ˈæn.ɪ.məl/",example:"I love all kinds of animals.",viExample:"Tôi yêu tất cả các loài động vật."},
@@ -101,8 +101,8 @@ export const vocabBeginnerNew7 = [
   },
   {
     id: "weather-seasons-beginner", category: "beginner",
-    title: "🌤 Thời Tiết & Mùa (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các hiện tượng thời tiết, nhiệt độ và 4 mùa trong năm.",
+    title: "🌤 Thời Tiết & Mùa (A1-A2)",
+    description: "87 từ vựng tiếng Anh cơ bản về các hiện tượng thời tiết, nhiệt độ và 4 mùa trong năm.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"weather",vi:"thời tiết",type:"(n)",ipa:"/ˈweð.ər/",example:"What is the weather like today?",viExample:"Thời tiết hôm nay thế nào?"},

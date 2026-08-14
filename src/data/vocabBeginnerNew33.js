@@ -2,8 +2,8 @@
 export const vocabBeginnerNew33 = [
   {
     id: "shopping-stores-beginner", category: "beginner",
-    title: "🛒 Mua Sắm & Cửa Hàng (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các địa điểm mua sắm, hoạt động mua bán và các mặt hàng thông dụng.",
+    title: "🛒 Mua Sắm & Cửa Hàng (A1)",
+    description: "50 từ vựng cơ bản về các địa điểm mua sắm, hoạt động mua bán và các mặt hàng thông dụng.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"shop",vi:"cửa hàng/mua sắm",type:"(n/v)",ipa:"/ʃɒp/",example:"A toy shop.",viExample:"Một cửa hàng đồ chơi."},
@@ -62,8 +62,8 @@ export const vocabBeginnerNew33 = [
   },
   {
     id: "money-banking-beginner", category: "beginner",
-    title: "💰 Tiền Bạc & Ngân Hàng (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về tiền tệ, các loại thẻ và hoạt động tại ngân hàng.",
+    title: "💰 Tiền Bạc & Ngân Hàng (A1)",
+    description: "50 từ vựng cơ bản về tiền tệ, các loại thẻ và hoạt động tại ngân hàng.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"money",vi:"tiền bạc",type:"(n)",ipa:"/ˈmʌn.i/",example:"I have some money.",viExample:"Tôi có một ít tiền."},

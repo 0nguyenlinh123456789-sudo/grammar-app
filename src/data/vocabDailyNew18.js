@@ -2,8 +2,8 @@
 export const vocabDailyNew18 = [
   {
     id: "body-health-daily", category: "daily",
-    title: "💪 Cơ Thể & Sức Khỏe (100 Từ) (A2-B1)",
-    description: "100 từ vựng thông dụng về các bộ phận cơ thể con người, tình trạng sức khỏe và y tế cơ bản.",
+    title: "💪 Cơ Thể & Sức Khỏe (A2-B1)",
+    description: "99 từ vựng thông dụng về các bộ phận cơ thể con người, tình trạng sức khỏe và y tế cơ bản.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"body",vi:"cơ thể",type:"(n)",ipa:"/ˈbɒd.i/",example:"Exercise is good for your body.",viExample:"Tập thể dục thì tốt cho cơ thể của bạn."},
@@ -111,8 +111,8 @@ export const vocabDailyNew18 = [
   },
   {
     id: "weather-seasons-daily-p2", category: "daily",
-    title: "☀️ Thời Tiết & Bốn Mùa (100 Từ) (A2-B1) – Phần 2",
-    description: "100 từ vựng thông dụng về các hiện tượng thời tiết, các mùa trong năm và thiên nhiên.",
+    title: "☀️ Thời Tiết & Bốn Mùa (A2-B1) – Phần 2",
+    description: "90 từ vựng thông dụng về các hiện tượng thời tiết, các mùa trong năm và thiên nhiên.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"weather",vi:"thời tiết",type:"(n)",ipa:"/ˈweð.ər/",example:"What is the weather like today?",viExample:"Thời tiết hôm nay như thế nào?"},

@@ -2,8 +2,8 @@
 export const vocabBeginnerNew15 = [
   {
     id: "family-people-beginner-p2", category: "beginner",
-    title: "👨‍👩‍👧 Gia Đình & Con Người (100 Từ) (A1-A2) – Phần 2",
-    description: "100 từ vựng tiếng Anh cơ bản về các thành viên trong gia đình, các mối quan hệ, các giai đoạn cuộc đời và con người.",
+    title: "👨‍👩‍👧 Gia Đình & Con Người (A1-A2) – Phần 2",
+    description: "81 từ vựng tiếng Anh cơ bản về các thành viên trong gia đình, các mối quan hệ, các giai đoạn cuộc đời và con người.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"family",vi:"gia đình",type:"(n)",ipa:"/ˈfæm.əl.i/",example:"I have a big family.",viExample:"Tôi có một gia đình lớn."},
@@ -93,8 +93,8 @@ export const vocabBeginnerNew15 = [
   },
   {
     id: "body-health-beginner-p3", category: "beginner",
-    title: "💪 Cơ Thể & Sức Khỏe (100 Từ) (A1-A2) – Phần 3",
-    description: "100 từ vựng tiếng Anh cơ bản về các bộ phận trên cơ thể người, sức khỏe, bệnh tật và việc chăm sóc bản thân.",
+    title: "💪 Cơ Thể & Sức Khỏe (A1-A2) – Phần 3",
+    description: "71 từ vựng tiếng Anh cơ bản về các bộ phận trên cơ thể người, sức khỏe, bệnh tật và việc chăm sóc bản thân.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"body",vi:"cơ thể",type:"(n)",ipa:"/ˈbɒd.i/",example:"Exercise is good for your body.",viExample:"Tập thể dục thì tốt cho cơ thể của bạn."},

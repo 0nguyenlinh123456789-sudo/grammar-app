@@ -2,8 +2,8 @@
 export const vocabBeginnerNew8 = [
   {
     id: "rooms-furniture-beginner", category: "beginner",
-    title: "🛋 Các Phòng & Đồ Nội Thất (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các phòng trong nhà và các đồ dùng, nội thất gia đình.",
+    title: "🛋 Các Phòng & Đồ Nội Thất (A1-A2)",
+    description: "90 từ vựng tiếng Anh cơ bản về các phòng trong nhà và các đồ dùng, nội thất gia đình.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"house",vi:"ngôi nhà",type:"(n)",ipa:"/haʊs/",example:"We live in a big house.",viExample:"Chúng tôi sống trong một ngôi nhà lớn."},
@@ -102,8 +102,8 @@ export const vocabBeginnerNew8 = [
   },
   {
     id: "transport-vehicles-beginner", category: "beginner",
-    title: "🚗 Phương Tiện Giao Thông (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các loại xe cộ, giao thông và việc đi lại.",
+    title: "🚗 Phương Tiện Giao Thông (A1-A2)",
+    description: "88 từ vựng tiếng Anh cơ bản về các loại xe cộ, giao thông và việc đi lại.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"transport",vi:"phương tiện giao thông/vận tải",type:"(n)",ipa:"/ˈtræn.spɔːt/",example:"Public transport is cheap here.",viExample:"Phương tiện giao thông công cộng ở đây rất rẻ."},

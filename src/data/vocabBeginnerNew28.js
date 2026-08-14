@@ -2,8 +2,8 @@
 export const vocabBeginnerNew28 = [
   {
     id: "school-classroom-beginner", category: "beginner",
-    title: "🏫 Trường Học & Lớp Học (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về đồ dùng học tập, các môn học, và các hoạt động diễn ra trong trường lớp.",
+    title: "🏫 Trường Học & Lớp Học (A1)",
+    description: "50 từ vựng cơ bản về đồ dùng học tập, các môn học, và các hoạt động diễn ra trong trường lớp.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"school",vi:"trường học",type:"(n)",ipa:"/skuːl/",example:"I go to school every day.",viExample:"Tôi đi đến trường mỗi ngày."},
@@ -62,8 +62,8 @@ export const vocabBeginnerNew28 = [
   },
   {
     id: "jobs-professions-beginner", category: "beginner",
-    title: "👨‍🍳 Nghề Nghiệp & Công Việc (100 Từ) (A1)",
-    description: "100 từ vựng cơ bản về các ngành nghề, nơi làm việc và các hoạt động liên quan đến công việc.",
+    title: "👨‍🍳 Nghề Nghiệp & Công Việc (A1)",
+    description: "50 từ vựng cơ bản về các ngành nghề, nơi làm việc và các hoạt động liên quan đến công việc.",
     level: "A1", examTags: ["Cơ Bản", "A1"],
     words: [
       {en:"job",vi:"công việc/nghề nghiệp",type:"(n)",ipa:"/dʒɒb/",example:"I have a new job.",viExample:"Tôi có một công việc mới."},

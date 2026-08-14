@@ -2,7 +2,7 @@
 export const vocabIeltsNew19 = [
   {
     id: "energy-environment-ielts", category: "ielts",
-    title: "⚡ Năng Lượng & Môi Trường (100 Từ) (B2-C1)",
+    title: "⚡ Năng Lượng & Môi Trường (B2-C1)",
     description: "100 từ vựng nâng cao chủ đề Năng lượng, sự phát triển bền vững và bảo vệ môi trường, thường gặp trong IELTS Writing Task 2.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
@@ -112,8 +112,8 @@ export const vocabIeltsNew19 = [
   },
   {
     id: "politics-society-ielts", category: "ielts",
-    title: "🏛️ Chính Trị & Xã Hội (100 Từ) (B2-C1)",
-    description: "100 từ vựng nâng cao về hệ thống chính trị, luật pháp, tội phạm và các vấn đề xã hội thường gặp trong IELTS.",
+    title: "🏛️ Chính Trị & Xã Hội (B2-C1)",
+    description: "94 từ vựng nâng cao về hệ thống chính trị, luật pháp, tội phạm và các vấn đề xã hội thường gặp trong IELTS.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"politics",vi:"chính trị",type:"(n)",ipa:"/ˈpɒl.ə.tɪks/",example:"He decided to enter politics after finishing law school.",viExample:"Anh ấy đã quyết định bước vào giới chính trị sau khi hoàn thành trường luật.",synonyms:"government, public affairs",antonyms:""},

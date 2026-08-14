@@ -2,8 +2,8 @@
 export const vocabIeltsNew33 = [
   {
     id: "media-journalism-ielts", category: "ielts",
-    title: "📰 Truyền Thông & Báo Chí (100 Từ) (C1-C2)",
-    description: "100 từ vựng nâng cao về các phương tiện truyền thông đại chúng, tin tức, và đạo đức báo chí.",
+    title: "📰 Truyền Thông & Báo Chí (C1-C2)",
+    description: "50 từ vựng nâng cao về các phương tiện truyền thông đại chúng, tin tức, và đạo đức báo chí.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"media",vi:"phương tiện truyền thông",type:"(n)",ipa:"/ˈmiː.di.ə/",example:"Mass media influences public opinion.",viExample:"Phương tiện truyền thông đại chúng ảnh hưởng đến dư luận công chúng.",synonyms:"press, broadcasting",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew33 = [
   },
   {
     id: "sports-competition-ielts", category: "ielts",
-    title: "🏆 Thể Thao & Thi Đấu (100 Từ) (C1-C2)",
-    description: "100 từ vựng chuyên sâu về các sự kiện thể thao, tinh thần thi đấu, và các vấn đề liên quan đến thể thao chuyên nghiệp.",
+    title: "🏆 Thể Thao & Thi Đấu (C1-C2)",
+    description: "50 từ vựng chuyên sâu về các sự kiện thể thao, tinh thần thi đấu, và các vấn đề liên quan đến thể thao chuyên nghiệp.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"sport",vi:"thể thao",type:"(n)",ipa:"/spɔːt/",example:"Professional sport.",viExample:"Thể thao chuyên nghiệp.",synonyms:"athletics",antonyms:""},

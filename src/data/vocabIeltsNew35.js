@@ -2,8 +2,8 @@
 export const vocabIeltsNew35 = [
   {
     id: "music-performing-arts-ielts", category: "ielts",
-    title: "🎭 Âm Nhạc & Nghệ Thuật Biểu Diễn (100 Từ) (C1-C2)",
-    description: "100 từ vựng nâng cao về các loại hình nghệ thuật sân khấu, âm nhạc cổ điển và trình diễn nghệ thuật.",
+    title: "🎭 Âm Nhạc & Nghệ Thuật Biểu Diễn (C1-C2)",
+    description: "50 từ vựng nâng cao về các loại hình nghệ thuật sân khấu, âm nhạc cổ điển và trình diễn nghệ thuật.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"performance",vi:"sự biểu diễn",type:"(n)",ipa:"/pəˈfɔː.məns/",example:"A live performance.",viExample:"Một sự biểu diễn trực tiếp.",synonyms:"show, presentation",antonyms:""},
@@ -62,8 +62,8 @@ export const vocabIeltsNew35 = [
   },
   {
     id: "literature-poetry-ielts-p2", category: "ielts",
-    title: "📚 Văn Học & Thi Ca (100 Từ) (C1-C2) – Phần 2",
-    description: "100 từ vựng chuyên sâu về các thể loại văn học, thơ ca và phân tích tác phẩm nghệ thuật.",
+    title: "📚 Văn Học & Thi Ca (C1-C2) – Phần 2",
+    description: "50 từ vựng chuyên sâu về các thể loại văn học, thơ ca và phân tích tác phẩm nghệ thuật.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
       {en:"literature",vi:"văn học",type:"(n)",ipa:"/ˈlɪt.rə.tʃər/",example:"Classic literature.",viExample:"Văn học cổ điển.",synonyms:"writings",antonyms:""},

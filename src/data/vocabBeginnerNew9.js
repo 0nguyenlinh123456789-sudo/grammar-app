@@ -2,8 +2,8 @@
 export const vocabBeginnerNew9 = [
   {
     id: "numbers-time-beginner", category: "beginner",
-    title: "🔢 Con Số & Thời Gian (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các con số đếm, số thứ tự và cách diễn đạt thời gian.",
+    title: "🔢 Con Số & Thời Gian (A1-A2)",
+    description: "89 từ vựng tiếng Anh cơ bản về các con số đếm, số thứ tự và cách diễn đạt thời gian.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"number",vi:"con số",type:"(n)",ipa:"/ˈnʌm.bər/",example:"What is your phone number?",viExample:"Số điện thoại của bạn là gì?"},
@@ -101,8 +101,8 @@ export const vocabBeginnerNew9 = [
   },
   {
     id: "days-months-beginner", category: "beginner",
-    title: "📅 Ngày & Tháng (100 Từ) (A1-A2)",
-    description: "100 từ vựng tiếng Anh cơ bản về các ngày trong tuần, các tháng trong năm, các mùa và thời tiết.",
+    title: "📅 Ngày & Tháng (A1-A2)",
+    description: "86 từ vựng tiếng Anh cơ bản về các ngày trong tuần, các tháng trong năm, các mùa và thời tiết.",
     level: "A1-A2", examTags: ["Từ Vựng Cơ Bản", "A1", "A2"],
     words: [
       {en:"Monday",vi:"thứ Hai",type:"(n)",ipa:"/ˈmʌn.deɪ/",example:"I go to work on Monday.",viExample:"Tôi đi làm vào thứ Hai."},
