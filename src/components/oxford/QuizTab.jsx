@@ -1,6 +1,8 @@
 // File: src/components/oxford/QuizTab.jsx
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { PenTool, RotateCcw, Sparkles } from 'lucide-react';
+import MasteryVerdict from '../common/MasteryVerdict';
+import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 
 // Xáo trộn thứ tự đáp án Ở RUNTIME (hạng mục #3). Trước đây generator gọi
 // Math.random() lúc sinh file nên thứ tự bị ĐÓNG BĂNG trong dữ liệu: mở lại
@@ -29,13 +31,18 @@ const shuffled = (arr, seed) => {
     return out;
 };
 
-const QuizTab = ({ unitData }) => {
+const QuizTab = ({ unitData, onFinish }) => {
     const [qIdx, setQIdx] = useState(0);
     const [sel, setSel] = useState(null);
     const [status, setStatus] = useState('idle');
     const [score, setScore] = useState(0);
     // Đổi khi bấm "Làm lại từ đầu" → lượt mới có thứ tự đáp án khác.
     const [round, setRound] = useState(() => Math.floor(Math.random() * 100000));
+    // Phiên chấm first-attempt (hạng mục #1). Bài trắc nghiệm này là đường DUY
+    // NHẤT để đánh dấu hoàn thành một unit Oxford — nút "HOÀN THÀNH UNIT" bấm
+    // phát ăn ngay đã bị xoá.
+    const sessionRef = useRef(createSession());
+    const [verdict, setVerdict] = useState(null);
 
     useEffect(() => {
         setQIdx(0);
@@ -43,6 +50,8 @@ const QuizTab = ({ unitData }) => {
         setStatus('idle');
         setScore(0);
         setRound(Math.floor(Math.random() * 100000));
+        sessionRef.current = createSession();
+        setVerdict(null);
     }, [unitData?.id]);
 
     const raw = unitData?.quiz?.[qIdx];
@@ -60,13 +69,17 @@ const QuizTab = ({ unitData }) => {
         setStatus('idle');
         setScore(0);
         setRound(Math.floor(Math.random() * 100000));
+        sessionRef.current = createSession();
+        setVerdict(null);
     };
 
     const handleSelect = (option) => {
         if (status !== 'idle') return; // Prevent double clicks
         setSel(option);
-        
-        if (option === curr.a) {
+
+        const isRight = option === curr.a;
+        recordAnswer(sessionRef.current, qIdx, isRight, 'mcq');
+        if (isRight) {
             setStatus('true');
             setScore(s => s + 1);
         } else {
@@ -79,6 +92,12 @@ const QuizTab = ({ unitData }) => {
                 setStatus('idle');
                 setSel(null);
                 setQIdx(prev => prev + 1);
+            } else {
+                // Câu cuối: chốt phiên và báo lên trên. Đạt ngưỡng thì unit mới
+                // được đánh dấu hoàn thành; chưa đạt vẫn tính là một phiên học.
+                const evidence = sessionEvidence(sessionRef.current);
+                setVerdict(evidence);
+                onFinish?.(evidence);
             }
         }, 1500);
     };
@@ -133,7 +152,8 @@ const QuizTab = ({ unitData }) => {
             {status !== 'idle' && qIdx === unitData.quiz.length - 1 && (
                 <div className="mt-8 p-6 bg-slate-50 border-4 border-slate-800 border-dashed rounded-3xl text-center animate-in zoom-in">
                     <h4 className="text-3xl font-black mb-2">Hoàn thành bài Test!</h4>
-                    <p className="text-xl font-bold text-slate-600 mb-6">Điểm của bạn: {score}/{unitData.quiz.length}</p>
+                    <p className="text-xl font-bold text-slate-600">Điểm của bạn: {score}/{unitData.quiz.length}</p>
+                    <div className="mb-6"><MasteryVerdict evidence={verdict} /></div>
                     <button onClick={resetQuiz} className="px-8 py-3 bg-slate-800 text-white font-black text-lg rounded-xl hover:bg-slate-700 transition cursor-pointer">Làm Lại Từ Đầu</button>
                 </div>
             )}

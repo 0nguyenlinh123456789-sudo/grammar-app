@@ -46,16 +46,20 @@ export default function OxfordVocab({ unitData, completedMilestones = [], comple
                     <p className="text-slate-500 dark:text-slate-400 font-bold text-xs md:text-sm mt-1">{unitData.description}</p>
                 </div>
                 <div className="shrink-0">
+                    {/* ĐÃ XOÁ nút "HOÀN THÀNH UNIT (+20 XP)" bấm phát ăn ngay
+                        (hạng mục #1). Bấm một cái là được đánh dấu hoàn thành,
+                        +20 XP, cộng chuỗi ngày học — không cần trả lời câu nào.
+                        Nay unit chỉ hoàn thành qua bài trắc nghiệm đạt ngưỡng. */}
                     {isCompleted ? (
                         <div className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-100 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-400 font-black border-[3px] border-emerald-800 dark:border-emerald-700 rounded-xl shadow-[2px_2px_0_0_#065f46] dark:shadow-[2px_2px_0_0_#020617] text-xs">
                             ✓ ĐÃ HOÀN THÀNH (+20 XP)
                         </div>
                     ) : (
-                        <button 
-                            onClick={() => completeMilestone(unitData.id, 20)}
+                        <button
+                            onClick={() => setActiveTab('quiz')}
                             className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-300 dark:bg-yellow-450 text-slate-900 dark:text-slate-900 font-black border-[3px] border-slate-800 dark:border-slate-700 rounded-xl shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:shadow-[2px_2px_0_0_#020617] hover:bg-yellow-400 dark:hover:bg-yellow-500 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer text-xs font-sans font-bold"
                         >
-                            🌟 HOÀN THÀNH UNIT (+20 XP)
+                            🌟 LÀM BÀI TEST ĐỂ HOÀN THÀNH
                         </button>
                     )}
                 </div>
@@ -81,7 +85,12 @@ export default function OxfordVocab({ unitData, completedMilestones = [], comple
                 {activeTab === "flashcard" && <FlashcardTab unitData={unitData} />}
                 {activeTab === "dragdrop" && <DragDropTab unitData={unitData} />}
                 {activeTab === "typing" && <TypingTab unitData={unitData} />}
-                {activeTab === "quiz" && <QuizTab unitData={unitData} />}
+                {activeTab === "quiz" && (
+                    <QuizTab
+                        unitData={unitData}
+                        onFinish={(evidence) => completeMilestone?.(unitData.id, 20, evidence)}
+                    />
+                )}
                 {activeTab === "practice" && <PracticeTab unitData={unitData} />}
             </div>
         </div>
