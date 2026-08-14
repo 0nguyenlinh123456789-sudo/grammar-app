@@ -89,6 +89,7 @@ import { SHOW_IELTS_FOUNDATION } from './utils/localOnly';
 import { tryConsumeFreezes } from './utils/streakFreeze';
 import OnboardingWizard from './components/common/OnboardingWizard';
 import { needsOnboarding } from './utils/onboarding';
+import { isPassing, saveScore } from './utils/mastery';
 
 // Page/Route layer — lazy-loaded so each route ships as its own chunk and the
 // initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
@@ -486,25 +487,20 @@ export default function App() {
     }
   };
 
-  const completeMilestone = (id, xpBonus = 20) => {
-    if (!id || completedMilestonesRef.current.includes(id)) return;
-    completedMilestonesRef.current = [...completedMilestonesRef.current, id];
-    setCompletedMilestones(prev => prev.includes(id) ? prev : [...prev, id]);
-    setXp(prev => prev + xpBonus);
-
-    // Update Daily Streak
+  // ĐƯỜNG 1 — ĐỀU ĐẶN (QĐ2): một phiên học đã làm xong thì tính vào chuỗi ngày
+  // học và mục tiêu ngày, BẤT KỂ đúng sai. Đi học là được ghi nhận.
+  const recordSession = (xpEarned = 0) => {
     const today = new Date();
     const todayStr = today.toDateString();
 
-    // Update today's goal stats (reset if it's a new day)
     setDailyStats(prev => {
       const base = prev.date === todayStr ? prev : { date: todayStr, lessons: 0, xp: 0 };
-      return { ...base, lessons: base.lessons + 1, xp: base.xp + xpBonus };
+      return { ...base, lessons: base.lessons + 1, xp: base.xp + xpEarned };
     });
     setActivityHistory(prev => addLearningActivity(prev, {
       date: localDateKey(today),
       lessons: 1,
-      xp: xpBonus,
+      xp: xpEarned,
     }));
 
     if (lastActiveDateRef.current !== todayStr) {
@@ -525,7 +521,31 @@ export default function App() {
       lastActiveDateRef.current = todayStr;
       setLastActiveDate(todayStr);
     }
+  };
 
+  // ĐƯỜNG 2 — THÀNH TÍCH (QĐ2): XP thưởng + milestone + danh hiệu + chứng nhận,
+  // chỉ khi đạt ngưỡng độ chính xác (hạng mục #1).
+  //
+  // CỔNG MỞ SẴN CHO CALL SITE CHƯA CHUYỂN ĐỔI: `evidence === undefined` nghĩa
+  // là màn hình đó chưa gửi bằng chứng → xử lý y như trước, không ai mất gì.
+  // Chỉ CHẶN khi có bằng chứng và bằng chứng đó chưa đạt. Từng call site sẽ
+  // được chuyển sang gửi evidence trong các commit sau; khi đủ hết mới siết.
+  const completeMilestone = (id, xpBonus = 20, evidence) => {
+    const hasEvidence = evidence !== undefined;
+    const passed = !hasEvidence || isPassing(evidence);
+    const alreadyDone = !id || completedMilestonesRef.current.includes(id);
+
+    if (!passed || alreadyDone) {
+      // Chưa đạt, hoặc học lại bài đã xong: vẫn là một phiên học thật.
+      if (hasEvidence) recordSession(0);
+      return;
+    }
+
+    if (hasEvidence) saveScore(localStorage, id, evidence);
+    completedMilestonesRef.current = [...completedMilestonesRef.current, id];
+    setCompletedMilestones(prev => prev.includes(id) ? prev : [...prev, id]);
+    setXp(prev => prev + xpBonus);
+    recordSession(xpBonus);
     triggerConfetti();
   };
 

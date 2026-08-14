@@ -5,6 +5,9 @@ export const LEARNING_STORAGE_KEYS = [
   'dailyStats', 'activeOxfordBookId', 'oxfordUnitId', 'theme', 'soundMuted',
   'srsStore_v1', 'vocabLearningProgressV1', 'learningActivityV1', 'dailyGoalV1', 'placementResultV1', 'learningSyncUpdatedAtV1',
   'streakFreezeV1', 'errorBankV1', 'onboardingDoneV1', 'learningGoalV1', 'mockTestHistoryV1',
+  // Điểm đạt của từng milestone (hạng mục #1). Phải nằm trong sao lưu/đồng bộ,
+  // nếu không thì đổi máy là mọi bài đã xác minh tụt về "⏳ chưa xác minh".
+  'milestoneScoresV1',
 ];
 
 export function createLearningBackup(storage = localStorage) {
