@@ -88,13 +88,19 @@ export function saveScore(storage, milestoneId, evidence, nowIso) {
   if (!milestoneId || !isPassing(evidence)) return loadScores(storage);
   const scores = loadScores(storage);
   const prev = scores[milestoneId];
-  if (!prev || evidence.percent > prev.percent) {
+  // Ghi đè khi điểm cao hơn — HOẶC khi bản mới là bài đầy đủ còn bản cũ chỉ là
+  // xác minh nhanh 5 câu. Nếu chỉ so phần trăm thì một lần xác minh nhanh 5/5
+  // (100%) sẽ khoá vĩnh viễn, làm hết cả unit đạt 90% cũng không được nâng cấp
+  // bản ghi — tức là phạt người làm nhiều hơn.
+  const upgradesQuick = !!prev?.via && prev.via === 'quick' && evidence.via !== 'quick';
+  if (!prev || upgradesQuick || evidence.percent > prev.percent) {
     scores[milestoneId] = {
       correct: evidence.correct,
       total: evidence.total,
       percent: evidence.percent,
       threshold: evidence.threshold,
       passedAt: nowIso || new Date().toISOString(),
+      ...(evidence.via ? { via: evidence.via } : {}),
     };
     try { storage?.setItem(MASTERY_STORAGE_KEY, JSON.stringify(scores)); } catch { /* hết chỗ lưu thì bỏ qua */ }
   }
@@ -136,4 +142,23 @@ export function quickVerifyPassed(correct, total) {
   // Bộ đề ngắn hơn 5 câu (unit ít câu) thì quy về cùng tỉ lệ 4/5.
   const need = total >= QUICK_VERIFY_SIZE ? QUICK_VERIFY_PASS : Math.ceil(total * (QUICK_VERIFY_PASS / QUICK_VERIFY_SIZE));
   return correct >= need;
+}
+
+// Bài xác minh nhanh có ngưỡng RIÊNG là 4/5 = 80%, không dùng thresholdFor().
+// Lý do phải nói rõ: bộ 5 câu này toàn trắc nghiệm, thresholdFor() sẽ trả 85%
+// và 4/5 sẽ bị tính là TRƯỢT — đúng luật chung nhưng sai với luật xác minh
+// nhanh mà chủ dự án đã chốt. Đặt ngưỡng thẳng vào bằng chứng để dòng chữ
+// "cần ≥{threshold}%" hiện trên màn kết quả nói đúng cái vừa được chấm.
+export function buildQuickVerifyEvidence(correct, total) {
+  const safeTotal = Math.max(0, Number(total) || 0);
+  const safeCorrect = Math.min(Math.max(0, Number(correct) || 0), safeTotal);
+  const ratio = QUICK_VERIFY_PASS / QUICK_VERIFY_SIZE;
+  return {
+    correct: safeCorrect,
+    total: safeTotal,
+    percent: safeTotal > 0 ? Math.round((safeCorrect / safeTotal) * 100) : 0,
+    threshold: Math.round(ratio * 100),
+    passed: quickVerifyPassed(safeCorrect, safeTotal),
+    via: 'quick',
+  };
 }

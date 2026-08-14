@@ -202,12 +202,20 @@ Nghiệm thu:
 - Nút hoàn thành vô điều kiện ở `unitData.jsx:55`: xóa; unit hoàn thành qua QuizTab đạt ngưỡng.
 - Allowlist không-evidence: **duy nhất** call site của cụm IELTS (`IeltsFoundationPage.jsx:354`) — nhận diện theo id, không sửa file cụm đó.
 
-### #1b — Di trú người dùng cũ (làm cùng #1, đã duyệt)
+### #1b — Di trú người dùng cũ ✅ ĐÃ SHIP 2026-08-14
 - **Không xóa gì**: XP, streak, `completedMilestones` giữ nguyên trong storage.
 - Milestone cũ không có bản ghi `milestoneScoresV1` → gắn trạng thái **"⏳ Đã hoàn thành — chưa xác minh"** (vẫn đếm vào % lộ trình, không ai mất tiến độ nhìn thấy được).
 - Mỗi unit chưa xác minh có nút **"Xác minh nhanh (5 câu)"**: lấy 5 câu ngẫu nhiên từ bộ quiz của unit, đạt ≥4/5 → chuyển ✓ xác minh; không đạt → giữ "chưa xác minh" + gợi ý học lại. Không bao giờ hạ về chưa-hoàn-thành.
-- **Danh hiệu + chứng nhận đếm theo milestone đã xác minh** (hệ quả QĐ2: thành tích = chất lượng). % lộ trình và XP thì đếm cả hai loại. *(Đây là sub-quyết định duy nhất còn mở — nếu muốn danh hiệu đếm cả chưa-xác-minh thì nói, mặc định tôi làm verified-only.)*
-- Modal một lần khi mở bản mới: "Bunny English nâng cấp cách ghi nhận hoàn thành: từ nay cần đạt ≥80% để tính thành tích. Mọi XP, chuỗi ngày học và tiến độ cũ của bạn được giữ nguyên. Các bài hoàn thành trước đây chỉ cần xác minh nhanh 5 câu."
+- **Sub-quyết định đã chốt khi làm:** **chứng nhận** đếm verified-only; **huy hiệu vẫn đếm cả chưa-xác-minh**. Lý do đổi so với mặc định ghi ở trên: sau #0-A1, dàn danh hiệu đã được đổi tên thành *chuyên cần* ("🏆 Bậc Thầy Chuyên Cần", "10 chặng", "Chuỗi 7 ngày") — chúng đo nỗ lực, không tuyên bố năng lực, nên khoá chúng lại là phạt nhầm người. Chứng nhận là chỗ DUY NHẤT app nói với người ngoài rằng người học làm được, nên chỉ chỗ đó siết. % lộ trình + XP: đếm cả hai loại. Đổi ý thì sửa đúng khối `achievements` trong `WelcomePage.jsx` (dùng `verifiedCount` thay `completedCount`).
+- Modal một lần: `src/components/progress/MasteryMigrationNotice.jsx`. Nói rõ cả **hệ quả khó chịu** — ai đang mở được chứng nhận sẽ thấy nó khoá lại — vì không nói thì trông y hệt một cái lỗi.
+- Bài xác minh: `src/utils/quickVerify.js` (thuần, có test) + `src/components/progress/QuickVerifyModal.jsx` (nạp dữ liệu bằng import động, không kéo kho từ vựng vào trang chủ).
+  - Lộ trình chỉ có 2 loại chặng (19 ngữ pháp + 25 từ vựng, **0 Oxford**) nên chỉ có 2 bộ sinh câu hỏi. Ngữ pháp: dùng thẳng `topic.exercises` của người soạn. Từ vựng: trắc nghiệm nghĩa dựng từ `en`/`vi` có sẵn.
+  - **Nhiễu chọn theo NGHĨA, không theo từ** — đã đo: 12/25 chủ đề có từ trùng nghĩa tiếng Việt (travel-transport: 117 từ / 113 nghĩa), lấy nhiễu theo từ sẽ đẻ ra câu hỏi hai đáp án cùng đúng.
+  - **Ngưỡng riêng 80%** (`buildQuickVerifyEvidence`): bộ 5 câu toàn trắc nghiệm nên `thresholdFor()` trả 85%, tức 4/5 sẽ bị tính TRƯỢT và không lưu gì. Ghi ngưỡng thẳng vào bằng chứng để dòng "cần ≥x%" nói đúng cái vừa chấm.
+  - Bài đầy đủ luôn **nâng cấp** được bản ghi xác minh nhanh (kể cả khi điểm thấp hơn), để không phạt người làm nhiều hơn.
+  - Không đi qua `completeMilestone` mà qua `verifyMilestone` riêng: `completeMilestone` thoát sớm ở nhánh `alreadyDone` **trước khi** ghi điểm, mà mọi chặng cần xác minh đều đã hoàn thành → gọi qua đó là nút bấm xong không lưu gì.
+  - Xác minh nhanh chỉ tính **một** phiên học và chỉ khi thật sự chuyển sang ✓ — nếu không, di trú 44 chặng sẽ bơm 44 "buổi học" vào mục tiêu ngày trong mươi phút.
+- `resetRoadmap` xoá luôn `milestoneScoresV1`: giữ lại thì reset xong học lại một chặng sẽ hiện "đã xác minh" nhờ bản ghi cũ.
 
 ### File (gộp #1 + #1b)
 `src/utils/mastery.js` (mới), `src/App.jsx`, 7 component ngữ pháp, `src/pages/GrammarPage.jsx`, `src/components/oxford/QuizTab.jsx`, `src/components/unitData.jsx`, `src/pages/GamesPage.jsx`, `src/pages/VocabVstepPage.jsx`, `src/utils/backup.js`, `src/utils/progressSync.js`, `src/pages/WelcomePage.jsx` (badge chưa-xác-minh + modal di trú), `tests/core.test.js`.
@@ -227,4 +235,6 @@ Nghiệm thu:
 
 1. **Duyệt danh sách chuỗi #0** (nhóm A–D sửa theo đề xuất? nhóm E giữ hay sửa?) → tôi sửa ngay sau khi chốt.
 2. **Xác nhận QĐ4**: xóa `oxfordPreIntDataPart2.js` (0% pass, trùng id với dữ liệu đang dùng)?
-3. Sub-quyết định #1b: danh hiệu đếm verified-only (mặc định) hay đếm cả chưa-xác-minh?
+3. ~~Sub-quyết định #1b: danh hiệu đếm verified-only hay đếm cả chưa-xác-minh?~~ → **đã tự chốt khi làm**: huy hiệu (chuyên cần) đếm cả hai, chứng nhận đếm verified-only. Lý do + cách đổi ý ghi ở mục #1b.
+4. **190/244 tiêu đề chủ đề khai SAI số từ** ("(100 Từ)" mà thực có 50–99). Đề xuất: bỏ hẳn con số khỏi tiêu đề, vì giao diện đã hiển thị `activeTopic.words.length` thật. Chờ duyệt, **chưa đụng**.
+5. Backlog nhỏ: 3 từ của `sports-fitness-daily` đã xoá chưa có trong kho — `draw / tie` (hoà tỉ số), `medal`, `racket`.

@@ -25,10 +25,16 @@ import PlacementTest from '../components/placement/PlacementTest';
 import { recommendationFromPlacement } from '../utils/placement';
 import { pickNextMilestone, roadmapLevelFor, isReviewLevel } from '../utils/roadmapNav';
 import LearningReport from '../components/progress/LearningReport';
+import QuickVerifyModal from '../components/progress/QuickVerifyModal';
+import MasteryMigrationNotice from '../components/progress/MasteryMigrationNotice';
+import { shouldShowMigrationNotice, dismissMigrationNotice } from '../utils/masteryMigration';
+import { splitCompleted, isVerified } from '../utils/mastery';
 
 const WelcomePage = ({
   xp,
   completedMilestones = [],
+  milestoneScores = {},
+  verifyMilestone,
   setTopicId,
   setAppMode,
   setActiveVocabCategory,
@@ -93,9 +99,29 @@ const WelcomePage = ({
 
   const totalMilestonesCount = allMilestones.length;
   const completedCount = completedRoadmapMilestones.length;
-  const completionPercentage = totalMilestonesCount > 0 
-    ? Math.round((completedCount / totalMilestonesCount) * 100) 
+  const completionPercentage = totalMilestonesCount > 0
+    ? Math.round((completedCount / totalMilestonesCount) * 100)
     : 0;
+
+  // (#1b) Tách "đã hoàn thành" thành ĐÃ XÁC MINH / CHƯA XÁC MINH.
+  //
+  // Chỉ đếm trên các chặng CÓ TRONG LỘ TRÌNH: completedMilestones còn chứa id
+  // của trò chơi ("game-*") và của cụm IELTS Nền Tảng — những thứ không nằm
+  // trong 44 chặng. Đếm cả chúng thì số "chưa xác minh" sẽ sai, và chứng nhận
+  // (cần 44/44 đã xác minh) sẽ vĩnh viễn không bao giờ mở được.
+  const { verified: verifiedIds, unverified: unverifiedIds } =
+    splitCompleted(completedRoadmapMilestones.map((m) => m.targetId), milestoneScores);
+  const verifiedCount = verifiedIds.length;
+  const unverifiedMilestones = completedRoadmapMilestones.filter((m) => unverifiedIds.includes(m.targetId));
+
+  const [verifyTarget, setVerifyTarget] = useState(null);
+  const [showMigration, setShowMigration] = useState(false);
+  // Thông báo di trú chỉ hiện KHI THẬT SỰ có chặng cũ chưa xác minh, và chỉ một
+  // lần. Người mới cài app không bao giờ thấy nó.
+  useEffect(() => {
+    if (shouldShowMigrationNotice(localStorage, unverifiedMilestones.length)) setShowMigration(true);
+  }, [unverifiedMilestones.length]);
+  const closeMigration = () => { dismissMigrationNotice(localStorage); setShowMigration(false); };
 
   // Chặng tiếp theo: chặng chưa xong đầu tiên TỪ cấp độ mà bài test đầu vào
   // đề xuất trở lên (chưa làm test → hành vi cũ). Xem src/utils/roadmapNav.js.
@@ -246,6 +272,23 @@ const WelcomePage = ({
       {showNotebook && <WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} />}
       {showErrorReview && <ErrorReview onClose={() => setShowErrorReview(false)} />}
       {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
+      {showMigration && (
+        <MasteryMigrationNotice
+          unverifiedCount={unverifiedMilestones.length}
+          completedCount={completedCount}
+          totalMilestonesCount={totalMilestonesCount}
+          onClose={closeMigration}
+          onVerifyNow={() => { closeMigration(); setVerifyTarget(unverifiedMilestones[0] || null); }}
+        />
+      )}
+      {verifyTarget && (
+        <QuickVerifyModal
+          milestone={verifyTarget}
+          onClose={() => setVerifyTarget(null)}
+          onFinish={(evidence) => verifyMilestone?.(verifyTarget.targetId, evidence)}
+          onStudyAgain={(m) => launchMilestone(m)}
+        />
+      )}
       {showPlacement && (
         <PlacementTest
           onClose={() => setShowPlacement(false)}
@@ -557,7 +600,7 @@ const WelcomePage = ({
         {weeklyLessons === 0 && <p className="mt-4 text-center text-sm font-bold text-slate-500 dark:text-slate-400">Hoàn thành một chặng để bắt đầu tạo nhịp học của bạn.</p>}
       </section>
 
-      <LearningReport placementResult={placementResult} weeklyLessons={weeklyLessons} weeklyXp={weeklyXp} completionPercentage={completionPercentage} streak={streak} weeklyGoalDays={weeklyGoalDays} completedCount={completedCount} totalMilestonesCount={totalMilestonesCount} />
+      <LearningReport placementResult={placementResult} weeklyLessons={weeklyLessons} weeklyXp={weeklyXp} completionPercentage={completionPercentage} streak={streak} weeklyGoalDays={weeklyGoalDays} completedCount={completedCount} verifiedCount={verifiedCount} totalMilestonesCount={totalMilestonesCount} />
 
       {/* --- VƯỜN THÚ (bộ sưu tập thú cưng, mở khoá bằng việc học) --- */}
       <PetZoo done={completedMilestones} streak={streak} className="mb-10" />
@@ -672,6 +715,9 @@ const WelcomePage = ({
                 {level.milestones.map((m) => {
                   const absoluteIdx = allMilestones.findIndex(item => item.id === m.id) + 1;
                   const isDone = completedMilestones.includes(m.targetId);
+                  // (#1b) Chặng hoàn thành từ bản cũ không có bản ghi điểm →
+                  // "chưa xác minh". Vẫn là HOÀN THÀNH, vẫn đếm vào % lộ trình.
+                  const isMilestoneVerified = isDone && isVerified(milestoneScores, m.targetId);
                   const isActive = nextMilestone && nextMilestone.id === m.id;
                   
                   return (
@@ -732,10 +778,25 @@ const WelcomePage = ({
                           </div>
                           
                           <div className="shrink-0 flex sm:flex-col items-end gap-2 justify-between">
-                            {isDone ? (
+                            {isDone && isMilestoneVerified ? (
                               <span className="bg-emerald-100 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-400 border-2 border-emerald-800 dark:border-emerald-700 px-3 py-1 rounded-xl text-xs font-black flex items-center gap-1">
-                                HOÀN THÀNH
+                                ✓ HOÀN THÀNH
                               </span>
+                            ) : isDone ? (
+                              <div className="flex flex-col items-end gap-1.5">
+                                <span
+                                  title="Chặng này hoàn thành từ bản trước, khi app chưa chấm độ chính xác. Vẫn tính vào lộ trình và XP."
+                                  className="bg-amber-100 dark:bg-amber-950/40 text-amber-800 dark:text-amber-400 border-2 border-amber-700 dark:border-amber-600 px-3 py-1 rounded-xl text-xs font-black flex items-center gap-1 whitespace-nowrap"
+                                >
+                                  ⏳ HOÀN THÀNH — CHƯA XÁC MINH
+                                </span>
+                                <button
+                                  onClick={(e) => { e.stopPropagation(); setVerifyTarget(m); }}
+                                  className="text-[11px] font-black px-3 py-1.5 rounded-xl border-2 border-slate-800 dark:border-slate-600 bg-yellow-300 text-slate-900 shadow-[2px_2px_0_0_#1e293b] hover:bg-yellow-400 active:translate-y-0.5 active:shadow-none cursor-pointer whitespace-nowrap"
+                                >
+                                  XÁC MINH NHANH (5 CÂU)
+                                </button>
+                              </div>
                             ) : (
                               <Btn3D 
                                 onClick={(e) => {

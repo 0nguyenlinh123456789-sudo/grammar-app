@@ -89,7 +89,7 @@ import { SHOW_IELTS_FOUNDATION } from './utils/localOnly';
 import { tryConsumeFreezes } from './utils/streakFreeze';
 import OnboardingWizard from './components/common/OnboardingWizard';
 import { needsOnboarding } from './utils/onboarding';
-import { isPassing, saveScore } from './utils/mastery';
+import { isPassing, saveScore, loadScores, isVerified, MASTERY_STORAGE_KEY } from './utils/mastery';
 
 // Page/Route layer — lazy-loaded so each route ships as its own chunk and the
 // initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
@@ -177,6 +177,11 @@ export default function App() {
       return [];
     }
   });
+  // Điểm ĐÃ XÁC MINH của từng chặng (hạng mục #1). Giữ trong state chứ không
+  // đọc thẳng localStorage mỗi lần vẽ, để lộ trình đổi nhãn NGAY sau khi người
+  // học làm xong bài xác minh nhanh, không cần tải lại trang.
+  const [milestoneScores, setMilestoneScores] = useState(() => loadScores(localStorage));
+
   // Keep milestone awarding atomic across rapid clicks and child callbacks.
   // A state closure can lag behind when several exercises finish in one tick.
   const completedMilestonesRef = useRef(completedMilestones);
@@ -301,7 +306,7 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem('learningSyncUpdatedAtV1', String(Date.now()));
-  }, [xp, completedMilestones, streak, lastActiveDate, bestStreak, dailyStats, activityHistory, dailyGoal, placementResult]);
+  }, [xp, completedMilestones, streak, lastActiveDate, bestStreak, dailyStats, activityHistory, dailyGoal, placementResult, milestoneScores]);
 
   // Keep bestStreak in sync whenever the current streak sets a new record
   useEffect(() => {
@@ -460,6 +465,11 @@ export default function App() {
     localStorage.setItem('lastActiveDate', '');
     localStorage.setItem('dailyStats', JSON.stringify(freshDaily));
     localStorage.setItem('learningActivityV1', JSON.stringify([]));
+    // Xoá luôn điểm đã xác minh. Nếu giữ lại, người học reset xong làm lại một
+    // chặng sẽ thấy nó hiện "đã xác minh" ngay nhờ bản ghi CŨ — tức là một
+    // tuyên bố năng lực không có bằng chứng trong lượt học này.
+    setMilestoneScores({});
+    localStorage.removeItem(MASTERY_STORAGE_KEY);
     clearVocabProgress();
     // Note: bestStreak is a lifetime record — intentionally not reset.
   };
@@ -541,12 +551,29 @@ export default function App() {
       return;
     }
 
-    if (hasEvidence) saveScore(localStorage, id, evidence);
+    if (hasEvidence) setMilestoneScores(saveScore(localStorage, id, evidence));
     completedMilestonesRef.current = [...completedMilestonesRef.current, id];
     setCompletedMilestones(prev => prev.includes(id) ? prev : [...prev, id]);
     setXp(prev => prev + xpBonus);
     recordSession(xpBonus);
     triggerConfetti();
+  };
+
+  // XÁC MINH LẠI chặng ĐÃ hoàn thành (hạng mục #1b) — đường riêng, KHÔNG dùng
+  // completeMilestone. Lý do bắt buộc: completeMilestone thoát sớm ở nhánh
+  // `alreadyDone` TRƯỚC khi ghi điểm, mà mọi chặng cần xác minh đều đã nằm
+  // trong danh sách hoàn thành — gọi qua đó thì nút bấm xong không lưu gì cả.
+  // Không cộng XP: chặng đã được thưởng rồi. Vẫn tính là một phiên học (QĐ2).
+  const verifyMilestone = (id, evidence) => {
+    if (!id || !evidence) return;
+    const alreadyVerified = isVerified(loadScores(localStorage), id);
+    if (!isPassing(evidence)) return;
+    setMilestoneScores(saveScore(localStorage, id, evidence));
+    // Chỉ tính là một phiên học khi bài xác minh THỰC SỰ chuyển chặng sang đã
+    // xác minh. Bài này chỉ 5 câu: tính mọi lần bấm thì di trú 44 chặng sẽ bơm
+    // 44 "buổi học" vào mục tiêu ngày và chuỗi ngày trong mươi phút — đúng kiểu
+    // phần thưởng rỗng mà cả đợt này sinh ra để dẹp.
+    if (!alreadyVerified) recordSession(0);
   };
 
   // Render view coordinator (State-based Router)
@@ -568,6 +595,8 @@ export default function App() {
             xp={xp}
             completedMilestones={completedMilestones}
             completeMilestone={completeMilestone}
+            milestoneScores={milestoneScores}
+            verifyMilestone={verifyMilestone}
             setTopicId={setTopicId}
             setAppMode={setAppMode}
             setActiveVocabCategory={setActiveVocabCategory}
@@ -659,6 +688,8 @@ export default function App() {
             xp={xp}
             completedMilestones={completedMilestones}
             completeMilestone={completeMilestone}
+            milestoneScores={milestoneScores}
+            verifyMilestone={verifyMilestone}
             setTopicId={setTopicId}
             setAppMode={setAppMode}
             setActiveVocabCategory={setActiveVocabCategory}
