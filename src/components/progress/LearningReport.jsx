@@ -16,6 +16,9 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
   const awaitingVerification = completedCount >= totalMilestonesCount && totalMilestonesCount > 0 && !certificateReady;
 
   // Opens a clean printable page (parents can print or save as PDF).
+  // (#1b) Tờ giấy này cũng đi ra ngoài như chứng nhận, nên phải in KÈM số chặng
+  // đã xác minh: "hoàn thành 100%" đứng một mình trên giấy đưa phụ huynh là
+  // đúng loại tuyên bố mà cổng chứng nhận sinh ra để chặn.
   const printParentReport = () => {
     const skills = Object.entries(placementResult.skillStats || {})
       .map(([skill, stat]) => `<tr><td>${SKILL_LABELS[skill] || skill}</td><td style="text-align:right;font-weight:800">${Math.round((stat.correct / stat.total) * 100)}%</td></tr>`)
@@ -34,6 +37,7 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
       <div class="grid">
         <div class="stat">Trình độ đầu vào<b>${placementResult.levelLabel} (${placementResult.score}%)</b></div>
         <div class="stat">Hoàn thành lộ trình<b>${completionPercentage}%</b></div>
+        <div class="stat">Đã xác minh bằng bài kiểm tra<b>${verifiedCount}/${totalMilestonesCount} chặng</b></div>
         <div class="stat">Chặng học 7 ngày qua<b>${weeklyLessons} chặng (+${weeklyXp} XP)</b></div>
         <div class="stat">Chuỗi ngày hiện tại<b>${streak} ngày · ${weeklyGoalDays}/7 ngày đạt mục tiêu</b></div>
       </div>

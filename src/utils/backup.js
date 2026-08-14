@@ -8,6 +8,9 @@ export const LEARNING_STORAGE_KEYS = [
   // Điểm đạt của từng milestone (hạng mục #1). Phải nằm trong sao lưu/đồng bộ,
   // nếu không thì đổi máy là mọi bài đã xác minh tụt về "⏳ chưa xác minh".
   'milestoneScoresV1',
+  // Cờ "đã báo một lần về việc đổi cách đánh dấu hoàn thành" (#1b) — đi kèm để
+  // đổi máy không bị đọc lại thông báo di trú đã đọc rồi.
+  'masteryMigrationNoticeV1',
 ];
 
 export function createLearningBackup(storage = localStorage) {

@@ -185,10 +185,23 @@ async function importAggregate(file, pick) {
   try { return pick(await import(pathToFileURL(tmp).href)); } finally { fs.rmSync(tmp, { force: true }); }
 }
 
+// Test này KHÔNG tất định: mỗi lần chạy bốc một bộ 5 câu khác nhau trên cả 44
+// chặng — cố ý, vì như vậy mới quét được nhiều nguyên liệu hơn một lần chạy
+// gieo hạt cố định. Hệ quả cần biết trước: nếu hôm nay đỏ mà hôm qua xanh thì
+// đó là DỮ LIỆU ĐÃ ĐỔI, không phải test chập chờn — đọc thông báo lỗi để biết
+// chặng nào và câu nào hỏng.
 test('MỌI chặng trong lộ trình đều đủ nguyên liệu ra 5 câu xác minh', async () => {
-  const topics = await importAggregate('vocabVstepData.js', (m) => m.default);
+  const rawTopics = await importAggregate('vocabVstepData.js', (m) => m.default);
   const grammar = await importAggregate('grammarData.js', (m) => m.parsedGrammarData);
   const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
+  const { sanitizeVocabTopics } = await import(pathToFileURL(path.join(ROOT, 'src', 'utils', 'contentFilter.js')).href);
+
+  // Đo trên dữ liệu ĐÃ QUA LỚP LỌC RUNTIME — đúng cái QuickVerifyModal đọc.
+  // Hôm nay lớp lọc chỉ gỡ cặp example/viExample chứ không xoá từ nào, nên con
+  // số không đổi; ghim lại để nếu sau này lọc bắt đầu xoá từ thì test đo được
+  // ngay chứ không đo một kho khác với kho chạy thật.
+  const topics = sanitizeVocabTopics(rawTopics);
+  assert.equal(topics.length, rawTopics.length);
 
   const topicById = new Map(topics.map((t) => [t.id, t]));
   const grammarById = new Map(grammar.map((t) => [t.id, t]));
