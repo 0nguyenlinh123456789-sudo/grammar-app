@@ -134,11 +134,11 @@ function LandingSections({ onPricing }) {
     // (#0-B1) Không hứa "4 kỹ năng"/"luyện nghe": app chưa có bài nghe đoạn dài
     // hay chấm nói thật — chỉ nghe TTS từng từ/câu và đọc to so khớp văn bản.
     { icon: '🎧', title: 'Học đủ chiều', desc: 'Ngữ pháp & Từ vựng chuyên sâu, đọc hiểu song ngữ, nghe phát âm chuẩn từng từ và trò chơi ôn tập.' },
-    // (#0-E1) "xếp đúng trình độ" sẽ đúng sau khi hạng mục #2 nối kết quả
-    // placement vào lộ trình. Hiện placement chỉ hiện gợi ý, không điều hướng
-    // → dùng chữ trung tính. TODO(#2): khôi phục "xếp đúng trình độ" khi
-    // pickNextMilestone đã chạy theo level đề xuất.
-    { icon: '🗺️', title: 'Lộ trình A1 → C2', desc: '44 chặng từ mất gốc đến nâng cao, kèm test đầu vào đánh giá trình độ.' },
+    // (#0-E1 → #2 2026-08-13) Chữ này giờ đúng với cơ chế thật: làm xong test
+    // đầu vào, pickNextMilestone chọn chặng chưa xong đầu tiên TỪ cấp độ đo
+    // được trở lên và app mở thẳng chặng đó. Không hứa gì hơn thế — các cấp
+    // dưới chỉ được gắn nhãn "Ôn lại", vẫn mở học bình thường.
+    { icon: '🗺️', title: 'Lộ trình A1 → C2', desc: '44 chặng từ mất gốc đến nâng cao. Làm test đầu vào, app mở thẳng chặng đúng trình độ của bạn.' },
     { icon: '🤖', title: 'Gia sư AI', desc: 'Chấm bài viết, quét từ vựng từ ảnh và hỏi đáp ngữ pháp bằng AI Gemini.' },
     { icon: '🧠', title: 'Ôn đúng lúc sắp quên', desc: 'Từ vựng và câu làm sai tự quay lại theo lịch khoa học 3–7–14 ngày.' },
     { icon: '🎮', title: 'Học mà chơi', desc: '6 trò chơi từ vựng, vườn thú thỏ Bunny, huy hiệu và chuỗi ngày học.' },

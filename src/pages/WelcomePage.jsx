@@ -23,6 +23,7 @@ import { buildActivityWindow } from '../utils/activityHistory';
 import { countGoalDays, DAILY_GOAL_OPTIONS } from '../utils/dailyGoal';
 import PlacementTest from '../components/placement/PlacementTest';
 import { recommendationFromPlacement } from '../utils/placement';
+import { pickNextMilestone, roadmapLevelFor, isReviewLevel } from '../utils/roadmapNav';
 import LearningReport from '../components/progress/LearningReport';
 
 const WelcomePage = ({
@@ -46,7 +47,12 @@ const WelcomePage = ({
   theme,
   setTheme,
 }) => {
-  const [activeTab, setActiveTab] = useState('all'); // 'all', 'starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'
+  // Tab đang xem = tab người dùng TỰ BẤM, nếu chưa bấm thì lấy cấp độ mà bài
+  // test đầu vào đề xuất. Viết theo kiểu dẫn xuất (không phải useState khởi
+  // tạo một lần) để khi placementResult nạp xong từ localStorage, hoặc khi
+  // người học làm lại bài test ra band khác, tab tự nhảy mà KHÔNG cần tải lại
+  // trang — đây là một mục nghiệm thu của hạng mục #2.
+  const [manualTab, setManualTab] = useState(null); // 'all' | id cấp độ lộ trình
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [showReview, setShowReview] = useState(false);
   const [showPlacement, setShowPlacement] = useState(false);
@@ -91,11 +97,12 @@ const WelcomePage = ({
     ? Math.round((completedCount / totalMilestonesCount) * 100) 
     : 0;
 
-  // Find the next uncompleted milestone
-  const nextMilestoneIndex = allMilestones.findIndex(m => 
-    !completedMilestones.includes(m.targetId)
-  );
-  const nextMilestone = nextMilestoneIndex !== -1 ? allMilestones[nextMilestoneIndex] : null;
+  // Chặng tiếp theo: chặng chưa xong đầu tiên TỪ cấp độ mà bài test đầu vào
+  // đề xuất trở lên (chưa làm test → hành vi cũ). Xem src/utils/roadmapNav.js.
+  const recommendedLevel = roadmapLevelFor(placementResult?.level);
+  const nextMilestone = pickNextMilestone(allMilestones, completedMilestones, placementResult?.level);
+  const nextMilestoneIndex = nextMilestone ? allMilestones.indexOf(nextMilestone) : -1;
+  const activeTab = manualTab || recommendedLevel || 'all';
 
   // Handler to launch a milestone
   const launchMilestone = (milestone) => {
@@ -239,7 +246,21 @@ const WelcomePage = ({
       {showNotebook && <WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} />}
       {showErrorReview && <ErrorReview onClose={() => setShowErrorReview(false)} />}
       {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
-      {showPlacement && <PlacementTest onClose={() => setShowPlacement(false)} onComplete={(result) => { setPlacementResult?.(result); setShowPlacement(false); }} />}
+      {showPlacement && (
+        <PlacementTest
+          onClose={() => setShowPlacement(false)}
+          onComplete={(result) => {
+            setPlacementResult?.(result);
+            setShowPlacement(false);
+            // Làm xong test đầu vào thì VÀO THẲNG chặng phù hợp, không bắt
+            // người học tự đi tìm (hạng mục #2). Bỏ tab đang chọn tay để
+            // lộ trình nhảy về đúng cấp độ vừa đo được.
+            setManualTab(null);
+            const target = pickNextMilestone(allMilestones, completedMilestones, result?.level);
+            if (target) launchMilestone(target);
+          }}
+        />
+      )}
 
       {/* --- HERO DASHBOARD CARD --- */}
       <div className="bg-white dark:bg-slate-900 border-[4px] border-slate-800 dark:border-slate-700 rounded-[2.5rem] p-6 md:p-8 shadow-[10px_10px_0_0_#1c293b] dark:shadow-[10px_10px_0_0_#020617] mb-10 mt-4 relative overflow-hidden">
@@ -580,17 +601,23 @@ const WelcomePage = ({
         ].map(tab => (
           <button 
             key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => setManualTab(tab.id)}
             className={`cursor-pointer font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 transition-all text-sm whitespace-nowrap shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#020617] flex items-center gap-2 ${
               activeTab === tab.id 
                 ? 'bg-yellow-300 dark:bg-yellow-450 text-slate-900 translate-y-0.5 shadow-none' 
                 : 'bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
-            {tab.title} 
+            {tab.title}
             <span className="bg-slate-800 dark:bg-slate-900 text-white dark:text-slate-300 text-xs px-2 py-0.5 rounded-lg border-2 border-slate-800 dark:border-slate-950">
               {tab.count}
             </span>
+            {/* Đánh dấu tab ứng với kết quả test đầu vào — không khoá tab nào */}
+            {recommendedLevel === tab.id && (
+              <span className="bg-emerald-500 text-white text-[10px] px-2 py-0.5 rounded-lg border-2 border-slate-800 uppercase">
+                Đề xuất
+              </span>
+            )}
           </button>
         ))}
       </div>
@@ -612,7 +639,22 @@ const WelcomePage = ({
                     {level.icon || ['I','II','III','IV','V'][levelIdx] || levelIdx + 1}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl md:text-2xl font-black uppercase text-slate-900 dark:text-slate-100 leading-tight">{level.levelTitle}</h3>
+                    <h3 className="text-xl md:text-2xl font-black uppercase text-slate-900 dark:text-slate-100 leading-tight flex flex-wrap items-center gap-2">
+                      {level.levelTitle}
+                      {/* Dưới trình độ đề xuất: gắn nhãn "Ôn lại" cho biết
+                          không cần học lại từ đây — nhưng KHÔNG khoá, bấm vào
+                          vẫn học được bình thường. */}
+                      {isReviewLevel(level.level, placementResult?.level) && (
+                        <span className="text-[11px] font-black bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-2 border-slate-400 dark:border-slate-600 px-2 py-0.5 rounded-full normal-case">
+                          Ôn lại — dưới trình độ của bạn
+                        </span>
+                      )}
+                      {recommendedLevel === level.level && (
+                        <span className="text-[11px] font-black bg-emerald-500 text-white border-2 border-slate-800 px-2 py-0.5 rounded-full normal-case">
+                          Bắt đầu từ đây
+                        </span>
+                      )}
+                    </h3>
                     <p className="text-slate-500 dark:text-slate-400 font-bold text-xs md:text-sm mt-0.5">{level.levelDesc}</p>
                     {level.targetAudience && (
                       <div className="flex flex-wrap gap-1 mt-2">

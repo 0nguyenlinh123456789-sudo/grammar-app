@@ -136,7 +136,12 @@ Hai dữ kiện quyết định cho QĐ4:
 
 ---
 
-## HẠNG MỤC #2 — Nối placement test vào lộ trình (làm sau #0)
+## HẠNG MỤC #2 — Nối placement test vào lộ trình (làm sau #0) — **ĐÃ SHIP 2026-08-13**
+
+**Đã thi hành:** `src/utils/roadmapNav.js` (mới, thuần, 10 test ở `tests/roadmap_nav.test.js`) + `WelcomePage.jsx` + `AccessGate.jsx`. Tab lộ trình mặc định = cấp độ đề xuất (dẫn xuất `manualTab || recommendedLevel || 'all'`, không phải state khởi tạo một lần → đổi band là tab nhảy ngay, không cần tải lại trang); cấp độ dưới trình độ gắn nhãn "Ôn lại — dưới trình độ của bạn" nhưng KHÔNG khoá; làm xong test đầu vào là app mở thẳng chặng phù hợp. Chuỗi E1 ở `AccessGate` đã khôi phục theo đúng cơ chế thật.
+
+**Đầu vào `topicFamilies.json` — kết quả RỖNG, không phải bị bỏ qua:** đo được chỉ 1/25 chặng vstep nằm trong họ chủ đề trùng lặp, và **0 họ bị lộ trình dạy quá một lần** → không có gì để xếp lại. Đồng thời xác nhận 44/44 chặng vẫn trỏ đúng đích sau đợt đổi id `-pN` (25 vstep + 19 grammar, 0 hỏng), và 44 `targetId` đều duy nhất (khoá đánh dấu hoàn thành không đụng nhau).
+
 
 **ĐẦU VÀO BẮT BUỘC (bổ sung 2026-08-12):** `src/data/topicFamilies.json` (33 họ chủ đề, sinh bởi `scripts/build_topic_families.mjs`) — lộ trình phải xếp topic cùng họ theo trình tự khó dần, không để 10 topic sức khỏe rải rác khắp lộ trình. Kho topic đã khử trùng id (267 topic duy nhất, xem KE_HOACH_KHU_TRUNG_LAP.md).
 
