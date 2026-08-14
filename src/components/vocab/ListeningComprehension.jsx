@@ -7,8 +7,10 @@ import { Volume2, Snail, RefreshCw, CheckCircle2, XCircle, Headphones, Trophy } 
 import { playCorrect, playWrong, playComplete } from '../../utils/sound';
 import { recordReview } from '../../utils/srs';
 import { buildComprehension } from '../../utils/comprehension';
+import MasteryVerdict from '../common/MasteryVerdict';
+import { buildEvidence } from '../../utils/mastery';
 
-const ListeningComprehension = ({ activeTopic, playAudio }) => {
+const ListeningComprehension = ({ activeTopic, playAudio, onFinish }) => {
   const [pool, setPool] = useState([]);
   const [idx, setIdx] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -68,6 +70,10 @@ const ListeningComprehension = ({ activeTopic, playAudio }) => {
       } else {
         playComplete();
         setFinished(true);
+        // Báo kết quả lên trang chủ đề để làm bằng chứng độ chính xác (#1).
+        // `score` cộng 10 mỗi câu đúng nên chia 10 ra số câu; điểm câu vừa trả
+        // lời chưa vào state ở đây nên cộng thêm tay.
+        onFinish?.(buildEvidence(score / 10 + (correct ? 1 : 0), pool.length, Array(pool.length).fill('mcq')));
       }
     }, 1400);
   };
@@ -85,11 +91,13 @@ const ListeningComprehension = ({ activeTopic, playAudio }) => {
 
   if (finished) {
     const pct = Math.round((score / (pool.length * 10)) * 100);
+    const evidence = buildEvidence(score / 10, pool.length, Array(pool.length).fill('mcq'));
     return (
       <div className="w-full max-w-3xl bg-white dark:bg-slate-900 border-4 border-black dark:border-slate-700 rounded-3xl p-8 md:p-12 shadow-[10px_10px_0_0_rgba(0,0,0,1)] dark:shadow-[10px_10px_0_0_#020617] text-center animate-fade-in">
         <Trophy size={64} className="mx-auto text-yellow-500 fill-yellow-300 mb-4" />
         <h3 className="text-3xl font-black text-slate-800 dark:text-white mb-2">Hoàn thành luyện nghe!</h3>
-        <p className="text-xl font-bold text-slate-500 dark:text-slate-400 mb-6">Bạn đúng {score / 10}/{pool.length} câu ({pct}%)</p>
+        <p className="text-xl font-bold text-slate-500 dark:text-slate-400">Bạn đúng {score / 10}/{pool.length} câu ({pct}%)</p>
+        <div className="mb-6"><MasteryVerdict evidence={evidence} /></div>
         <button onClick={init} className="px-8 py-3 bg-cyan-400 font-black text-slate-900 border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0,1)] hover:bg-cyan-500 active:translate-y-1 active:shadow-none transition-all cursor-pointer inline-flex items-center gap-2">
           <RefreshCw size={20} /> Luyện lại
         </button>

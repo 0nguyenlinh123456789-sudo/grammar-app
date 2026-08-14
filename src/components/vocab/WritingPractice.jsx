@@ -4,7 +4,7 @@ import { CheckCircle2, XCircle, Eye } from 'lucide-react';
 import { recordReview } from '../../utils/srs';
 import { playCorrect, playWrong } from '../../utils/sound';
 
-const WritingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio, onWordChange }) => {
+const WritingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio, onWordChange, onAnswer }) => {
   const [writingInput, setWritingInput] = useState('');
   const [writingStatus, setWritingStatus] = useState(null); // 'correct', 'wrong', null
   const [showHint, setShowHint] = useState(false);
@@ -57,6 +57,9 @@ const WritingPractice = ({ currentWordIndex, totalWords, currentWord, playAudio,
     e.preventDefault();
     const correct = writingInput.trim().toLowerCase() === currentWord.en.toLowerCase();
     recordReview(currentWord, correct);
+    // Báo lên trang chủ đề làm bằng chứng độ chính xác (#1) — bên đó chỉ tính
+    // LẦN GÕ ĐẦU TIÊN của mỗi từ.
+    onAnswer?.(currentWord, correct);
     if (correct) {
       setWritingStatus('correct');
       playCorrect();

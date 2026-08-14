@@ -1,5 +1,5 @@
 // File: src/pages/VocabVstepPage.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Rocket, BookOpen, Volume2, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 import StoryWithHighlights from '../components/vocab/StoryWithHighlights';
 import Flashcard from '../components/vocab/Flashcard';
@@ -12,6 +12,11 @@ import ReadingComprehension from '../components/vocab/ReadingComprehension';
 import MascotLuna from '../components/common/MascotLuna';
 import { ChibiBadge } from '../components/common/ChibiAnimals';
 import { loadVocabProgress, saveVocabProgress } from '../utils/learningProgress';
+import MasteryVerdict from '../components/common/MasteryVerdict';
+import { createSession, recordAnswer, sessionEvidence, isPassing } from '../utils/mastery';
+
+// Bài gõ từ cần tối thiểu bấy nhiêu từ mới đủ căn cứ để kết luận đạt/chưa đạt.
+const MIN_TYPING_ANSWERS = 5;
 
 const MODES = [
   { key: 'flashcard', label: 'Nhận Diện', step: 1, icon: () => <span className="text-xl leading-none">🐰</span>, color: 'bg-blue-400', hoverColor: 'hover:bg-blue-50 dark:hover:bg-blue-900/30', activeText: 'text-white', inactiveIcon: '' },
@@ -35,6 +40,10 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
   const [mascotMood, setMascotMood] = useState('idle');
   const [mascotContext, setMascotContext] = useState('vocab');
   const [visitedModes, setVisitedModes] = useState(() => new Set(initialProgress.visitedModes));
+  // Bằng chứng độ chính xác của lượt học này (hạng mục #1).
+  const [listeningEvidence, setListeningEvidence] = useState(null);
+  const [typingEvidence, setTypingEvidence] = useState(null);
+  const typingSessionRef = useRef(createSession());
   const [studiedWordIndexes, setStudiedWordIndexes] = useState(() => new Set(initialProgress.studiedWordIndexes));
   const [progressTopicId, setProgressTopicId] = useState(activeTopic?.id || null);
 
@@ -47,6 +56,11 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
     setVisitedModes(new Set(saved.visitedModes));
     setStudiedWordIndexes(new Set(saved.studiedWordIndexes.filter((index) => index < wordCount)));
     setProgressTopicId(activeTopic.id);
+    // Bằng chứng độ chính xác thuộc về CHỦ ĐỀ đang học, đổi chủ đề là làm lại
+    // từ đầu — không mang điểm của chủ đề này sang mở khoá chủ đề khác.
+    setListeningEvidence(null);
+    setTypingEvidence(null);
+    typingSessionRef.current = createSession();
   }, [activeTopic]);
 
   useEffect(() => {
@@ -86,11 +100,18 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
 
   const handleComplete = () => {
     if (!canComplete) return;
-    completeMilestone(activeTopic.id, 20);
+    completeMilestone(activeTopic.id, 20, accuracyEvidence);
     setMascotMood('celebrate');
     setMascotContext('correct');
     setTimeout(() => { setMascotMood('happy'); }, 2500);
     setTimeout(() => { setMascotMood('idle'); }, 5000);
+  };
+
+  // Ghi nhận từng lần gõ từ ở chế độ "Gõ Từ Theo Nghĩa" — chỉ tính lần đầu của
+  // mỗi từ, để gõ lại đến khi đúng không đẩy được tỉ lệ lên.
+  const handleTypingAnswer = (word, correct) => {
+    recordAnswer(typingSessionRef.current, word?.en || word, correct, 'typing');
+    setTypingEvidence(sessionEvidence(typingSessionRef.current));
   };
 
   const handleModeChange = (modeKey) => {
@@ -106,7 +127,22 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
   const requiredModeCount = Math.min(4, availableModes.length);
   const wordRequirementMet = studiedWordIndexes.size >= requiredWordCount;
   const modeRequirementMet = visitedModes.size >= requiredModeCount;
-  const canComplete = wordRequirementMet && modeRequirementMet;
+
+  // ĐỘ CHÍNH XÁC (hạng mục #1). Trong 7 chế độ chỉ có 2 chế độ thật sự có
+  // đáp án đúng/sai: "Nghe – Chọn Nghĩa" và "Gõ Từ Theo Nghĩa". Năm chế độ còn
+  // lại (thẻ từ, cụm câu, hành động, câu chuyện, luyện nói) không chấm được, nên
+  // KHÔNG dùng làm bằng chứng — trước đây hoàn thành chủ đề chỉ cần "xem đủ
+  // chế độ + học đủ từ", tức là hoàn toàn không đo gì.
+  // Quy tắc: đạt ngưỡng ở MỘT TRONG HAI chế độ có chấm là đủ. Bài gõ từ tính
+  // theo các từ đã gõ trong lượt học này, cần ít nhất 5 từ mới đủ căn cứ.
+  const typingQualifies = typingEvidence && typingEvidence.total >= MIN_TYPING_ANSWERS;
+  const accuracyEvidence = (listeningEvidence?.passed && listeningEvidence)
+    || (typingQualifies && typingEvidence.passed && typingEvidence)
+    || listeningEvidence
+    || (typingQualifies ? typingEvidence : null)
+    || undefined;
+  const accuracyMet = isPassing(accuracyEvidence);
+  const canComplete = wordRequirementMet && modeRequirementMet && accuracyMet;
   const learningProgress = Math.round((
     Math.min(studiedWordIndexes.size / requiredWordCount, 1) * 0.6
     + Math.min(visitedModes.size / requiredModeCount, 1) * 0.4
@@ -175,6 +211,21 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
                 <span className="mx-2">·</span>
                 {modeRequirementMet ? '✓' : '○'} Đã trải nghiệm {visitedModes.size}/{requiredModeCount} chế độ
               </p>
+              {/* Điều kiện thứ ba (hạng mục #1): phải ĐO được độ chính xác.
+                  Hai chế độ có chấm là "Nghe – Chọn Nghĩa" và "Gõ Từ Theo
+                  Nghĩa"; đạt ngưỡng ở một trong hai là đủ. */}
+              <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">
+                {accuracyMet ? '✓' : '○'} Đạt ≥80% ở bài <strong>Nghe – Chọn Nghĩa</strong> hoặc <strong>Gõ Từ Theo Nghĩa</strong>
+                {listeningEvidence && <span className="ml-1 opacity-80">· nghe: {listeningEvidence.percent}%</span>}
+                {typingEvidence?.total > 0 && (
+                  <span className="ml-1 opacity-80">
+                    · gõ từ: {typingEvidence.percent}% ({typingEvidence.total}/{MIN_TYPING_ANSWERS} từ tối thiểu)
+                  </span>
+                )}
+              </p>
+              {!accuracyMet && (listeningEvidence || typingQualifies) && (
+                <MasteryVerdict evidence={accuracyEvidence} />
+              )}
             </div>
             <button
               onClick={handleComplete}
@@ -190,7 +241,9 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
               {canComplete ? '🌟 HOÀN THÀNH CHỦ ĐỀ (+20 XP)' : '🔒 HỌC THÊM ĐỂ MỞ KHÓA HOÀN THÀNH'}
             </button>
             <span id="vocab-completion-requirements" className="sr-only">
-              Cần học ít nhất {requiredWordCount} từ và trải nghiệm {requiredModeCount} chế độ.
+              Cần học ít nhất {requiredWordCount} từ, trải nghiệm {requiredModeCount} chế độ,
+              và đạt ít nhất 80% ở bài Nghe – Chọn Nghĩa hoặc bài Gõ Từ Theo Nghĩa
+              (bài gõ từ cần tối thiểu {MIN_TYPING_ANSWERS} từ).
             </span>
             </div>
           )}
@@ -254,6 +307,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
         <ListeningComprehension
           activeTopic={activeTopic}
           playAudio={playAudio}
+          onFinish={setListeningEvidence}
         />
       )}
 
@@ -322,6 +376,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
 
       {learningMode === 'writing' && (
         <WritingPractice
+          onAnswer={handleTypingAnswer}
           currentWordIndex={currentWordIndex}
           totalWords={totalWords}
           currentWord={currentWord}

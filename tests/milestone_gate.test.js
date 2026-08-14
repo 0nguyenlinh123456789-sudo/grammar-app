@@ -23,7 +23,6 @@ const SRC = path.join(ROOT, 'src');
 const EXEMPT = {
   'src/pages/IeltsFoundationPage.jsx': 'cụm IELTS Nền Tảng là bài VIDEO, không có câu hỏi để chấm; file này chủ dự án cấm sửa nên miễn trừ từ BÊN NGOÀI, nhận diện theo đường dẫn',
   'src/pages/GamesPage.jsx': 'trò chơi ôn tập tự chấm theo điểm số của chính nó, id "game-*" không nằm trong lộ trình 44 chặng',
-  'src/pages/VocabVstepPage.jsx': 'CHƯA GATE — 25/44 chặng lộ trình nằm ở đây; hoàn thành hiện vẫn tính theo "đã xem đủ chế độ + đã học đủ từ". Cần chốt lại thế nào là ĐẠT cho chủ đề từ vựng (chỉ 2/7 chế độ có chấm điểm) trước khi gate.',
 };
 
 function walk(dir, out = []) {
