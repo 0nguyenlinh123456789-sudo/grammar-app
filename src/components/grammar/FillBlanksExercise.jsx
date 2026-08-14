@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { PenLine, ChevronRight, Sparkles, Lightbulb, RotateCcw, CheckCircle2, XCircle } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
+import MasteryVerdict from '../common/MasteryVerdict';
+import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 import { recordError } from '../../utils/errorBank';
 
 const FillBlanksExercise = ({ exercises, setGlobalProgress, onComplete }) => {
@@ -9,6 +11,12 @@ const FillBlanksExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const [answer, setAnswer] = useState('');
   const [status, setStatus] = useState('idle'); // 'idle', 'correct', 'wrong'
   const [score, setScore] = useState(0);
+  // Phiên chấm theo LẦN TRẢ LỜI ĐẦU TIÊN (hạng mục #1): bấm lại câu vừa sai
+  // không ghi đè. `score` bên dưới chỉ để hiển thị.
+  const sessionRef = useRef(createSession());
+  const reportedRef = useRef(false);
+  // Kết quả phiên đưa vào state để màn kết quả không phải đọc ref lúc render.
+  const [verdict, setVerdict] = useState(null);
   const [showHint, setShowHint] = useState(false);
   const [attempts, setAttempts] = useState(0);
   const inputRef = useRef(null);
@@ -17,8 +25,13 @@ const FillBlanksExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const curr = exercises && exercisesLen > 0 ? exercises[qIdx] : null;
 
   useEffect(() => {
-    if (exercisesLen > 0 && qIdx === exercisesLen && onComplete) {
-      onComplete();
+    if (exercisesLen > 0 && qIdx === exercisesLen && onComplete && !reportedRef.current) {
+      // onComplete là arrow tạo mới mỗi render nên effect chạy lại liên tục ở
+      // màn kết quả — chốt để chỉ báo một lần cho mỗi lượt làm bài.
+      reportedRef.current = true;
+      const evidence = sessionEvidence(sessionRef.current);
+      setVerdict(evidence);
+      onComplete(evidence);
     }
   }, [qIdx, onComplete, exercisesLen]);
 
@@ -40,14 +53,24 @@ const FillBlanksExercise = ({ exercises, setGlobalProgress, onComplete }) => {
     
     if (correctAnswers.some(ca => ca === userAns)) {
       setStatus('correct');
+      recordAnswer(sessionRef.current, qIdx, true, 'typing');
       setScore(s => s + 1);
       setGlobalProgress(p => p + 1);
     } else {
       setStatus('wrong');
+      recordAnswer(sessionRef.current, qIdx, false, 'typing');
       setAttempts(prev => prev + 1);
       // First miss on this question feeds the error bank (Học từ lỗi sai).
       if (attempts === 0) recordError({ skill: 'grammar', prompt: curr.q, answer: curr.a, chosen: answer });
     }
+  };
+
+  const replay = () => {
+    sessionRef.current = createSession();
+    reportedRef.current = false;
+    setVerdict(null);
+    setQIdx(0);
+    setScore(0);
   };
 
   const next = () => {
@@ -79,14 +102,15 @@ const FillBlanksExercise = ({ exercises, setGlobalProgress, onComplete }) => {
         <div className="text-6xl mb-4">{percentage >= 80 ? '🎉' : percentage >= 50 ? '💪' : '📝'}</div>
         <h3 className="font-black text-3xl text-slate-900 dark:text-slate-100 mb-2">Kết Quả Điền Từ</h3>
         <p className="font-black text-5xl text-emerald-500 mb-2">{score}/{exercisesLen}</p>
-        <p className="text-slate-500 dark:text-slate-400 font-bold mb-6">({percentage}% chính xác)</p>
+        <p className="text-slate-500 dark:text-slate-400 font-bold mb-6">({percentage}%
+        <MasteryVerdict evidence={verdict} /> chính xác)</p>
         <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-4 mb-8 border-2 border-slate-300 dark:border-slate-600">
           <div 
             className={`h-full rounded-full transition-all duration-1000 ${percentage >= 80 ? 'bg-emerald-400' : percentage >= 50 ? 'bg-amber-400' : 'bg-rose-400'}`}
             style={{ width: `${percentage}%` }}
           />
         </div>
-        <Btn3D onClick={() => { setQIdx(0); setScore(0); }} className="text-lg">
+        <Btn3D onClick={replay} className="text-lg">
           <RotateCcw size={18} className="mr-2" /> Làm Lại
         </Btn3D>
       </div>

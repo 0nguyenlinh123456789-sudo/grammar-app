@@ -1,7 +1,9 @@
 // File: src/components/grammar/MatchingExercise.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link2, ChevronRight, Sparkles, RotateCcw, CheckCircle2, XCircle } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
+import MasteryVerdict from '../common/MasteryVerdict';
+import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 
 const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -11,6 +13,12 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const [shuffledRight, setShuffledRight] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
+  // Phiên chấm first-attempt (hạng mục #1): mỗi CẶP ghép là một câu, khoá theo
+  // (bộ đề, ô bên trái) nên ghép lại không ghi đè lần đầu.
+  const sessionRef = useRef(createSession());
+  const reportedRef = useRef(false);
+  // Kết quả phiên đưa vào state để màn kết quả không phải đọc ref lúc render.
+  const [verdict, setVerdict] = useState(null);
 
   const exercisesLen = exercises?.length || 0;
 
@@ -30,8 +38,13 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   }, [curr]);
 
   useEffect(() => {
-    if (exercisesLen > 0 && qIdx === exercisesLen && onComplete) {
-      onComplete();
+    if (exercisesLen > 0 && qIdx === exercisesLen && onComplete && !reportedRef.current) {
+      // onComplete là arrow tạo mới mỗi render nên effect chạy lại liên tục ở
+      // màn kết quả — chốt để chỉ báo một lần cho mỗi lượt làm bài.
+      reportedRef.current = true;
+      const evidence = sessionEvidence(sessionRef.current);
+      setVerdict(evidence);
+      onComplete(evidence);
     }
   }, [qIdx, onComplete, exercisesLen]);
 
@@ -68,9 +81,18 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
 
   const checkAll = () => {
     setShowResults(true);
+    for (const m of matches) recordAnswer(sessionRef.current, `${qIdx}:${m.leftIdx}`, m.correct, 'match');
     const correctCount = matches.filter(m => m.correct).length;
     setScore(prev => prev + correctCount);
     setGlobalProgress(p => p + correctCount);
+  };
+
+  const replay = () => {
+    sessionRef.current = createSession();
+    reportedRef.current = false;
+    setVerdict(null);
+    setQIdx(0);
+    setScore(0);
   };
 
   const next = () => {
@@ -106,6 +128,7 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
         <div className="text-6xl mb-4">{percentage >= 80 ? '🔗' : percentage >= 50 ? '🤝' : '🔄'}</div>
         <h3 className="font-black text-3xl text-slate-900 dark:text-slate-100 mb-2">Kết Quả Nối Câu</h3>
         <p className="font-black text-5xl text-emerald-500 mb-2">{score}/{totalPairs}</p>
+        <MasteryVerdict evidence={verdict} />
         <p className="text-slate-500 dark:text-slate-400 font-bold mb-6">({percentage}% chính xác)</p>
         <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-4 mb-8 border-2 border-slate-300 dark:border-slate-600">
           <div 
@@ -113,7 +136,7 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
             style={{ width: `${percentage}%` }}
           />
         </div>
-        <Btn3D onClick={() => { setQIdx(0); setScore(0); }} className="text-lg">
+        <Btn3D onClick={replay} className="text-lg">
           <RotateCcw size={18} className="mr-2" /> Làm Lại
         </Btn3D>
       </div>

@@ -1,13 +1,22 @@
 // File: src/components/grammar/SentenceBuilder.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Target, ChevronRight } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
+import MasteryVerdict from '../common/MasteryVerdict';
+import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 
 const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
   const [avail, setAvail] = useState([]);
   const [sel, setSel] = useState([]);
   const [correct, setCorrect] = useState(null);
+  // Bài này cho thử lại đến khi đúng nên không có bộ đếm điểm. Phiên
+  // first-attempt (hạng mục #1) chỉ ghi lần bấm 'Kiểm tra' ĐẦU TIÊN của mỗi
+  // câu — thử lại bao nhiêu lần cũng không ghi đè.
+  const sessionRef = useRef(createSession());
+  const reportedRef = useRef(false);
+  // Kết quả phiên đưa vào state để màn kết quả không phải đọc ref lúc render.
+  const [verdict, setVerdict] = useState(null);
 
   // Normalize sentences to support both formats:
   // Format A: { id, text, trans } (b1_01 to b1_25)
@@ -28,8 +37,11 @@ const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplet
   const curr = sentencesLen > 0 ? sentences[qIdx] : null;
 
   useEffect(() => {
-    if (sentencesLen > 0 && qIdx === sentencesLen && onComplete) {
-      onComplete();
+    if (sentencesLen > 0 && qIdx === sentencesLen && onComplete && !reportedRef.current) {
+      reportedRef.current = true;
+      const evidence = sessionEvidence(sessionRef.current);
+      setVerdict(evidence);
+      onComplete(evidence);
     }
   }, [qIdx, onComplete, sentencesLen]);
 
@@ -52,7 +64,9 @@ const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplet
   };
 
   const check = () => {
-    if (sel.map(x => x.w).join(' ') === curr.text) { 
+    const isRight = sel.map(x => x.w).join(' ') === curr.text;
+    recordAnswer(sessionRef.current, qIdx, isRight, 'build');
+    if (isRight) { 
       setCorrect(true); 
       setGlobalProgress(p => p + 2); 
       if ('speechSynthesis' in window) {
@@ -67,7 +81,8 @@ const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplet
     return (
       <div className="text-center font-black text-3xl mt-10">
         Hoàn thành vòng chơi! <br />
-        <Btn3D onClick={() => setQIdx(0)} className="mt-6">Chơi Lại</Btn3D>
+        <MasteryVerdict evidence={verdict} />
+        <Btn3D onClick={() => { sessionRef.current = createSession(); reportedRef.current = false; setVerdict(null); setQIdx(0); }} className="mt-6">Chơi Lại</Btn3D>
       </div>
     );
   }

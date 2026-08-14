@@ -2,6 +2,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { PenTool, ChevronRight, Sparkles } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
+import MasteryVerdict from '../common/MasteryVerdict';
+import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 
 const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -11,18 +13,38 @@ const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
   // Remember which questions have already granted global XP so replaying the
   // quiz ("Làm Lại") can't farm unlimited XP. Persists across replays.
   const awardedRef = useRef(new Set());
-  
+  // Phiên chấm theo LẦN TRẢ LỜI ĐẦU TIÊN (hạng mục #1) — riêng biệt với `score`
+  // hiển thị, để mọi bài tập dùng chung một định nghĩa "đạt".
+  const sessionRef = useRef(createSession());
+  const reportedRef = useRef(false);
+  // Kết quả phiên đưa vào state để màn kết quả không phải đọc ref lúc render.
+  const [verdict, setVerdict] = useState(null);
+
   const exercisesLen = exercises?.length || 0;
 
   const curr = exercises && exercisesLen > 0 ? exercises[qIdx] : null;
 
   useEffect(() => {
-    if (exercisesLen > 0 && qIdx === exercisesLen && onComplete) {
-      onComplete();
+    // reportedRef: onComplete là arrow tạo mới mỗi lần render nên effect này
+    // chạy lại liên tục khi đã ở màn kết quả — báo đúng MỘT lần cho mỗi lượt.
+    if (exercisesLen > 0 && qIdx === exercisesLen && onComplete && !reportedRef.current) {
+      reportedRef.current = true;
+      const evidence = sessionEvidence(sessionRef.current);
+      setVerdict(evidence);
+      onComplete(evidence);
     }
   }, [qIdx, onComplete, exercisesLen]);
 
+  const replay = () => {
+    sessionRef.current = createSession();
+    reportedRef.current = false;
+    setVerdict(null);
+    setQIdx(0);
+    setScore(0);
+  };
+
   const check = () => {
+    recordAnswer(sessionRef.current, qIdx, sel === curr.a, 'mcq');
     if (sel === curr.a) {
       setStatus('true');
       setScore(s => s + 1);
@@ -46,7 +68,8 @@ const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
     return (
       <div className="text-center font-black text-3xl mt-10">
         Điểm của bạn: {score}/{exercisesLen} <br/>
-        <Btn3D onClick={() => { setQIdx(0); setScore(0); }} className="mt-6">Làm Lại</Btn3D>
+        <MasteryVerdict evidence={verdict} />
+        <Btn3D onClick={replay} className="mt-6">Làm Lại</Btn3D>
       </div>
     );
   }

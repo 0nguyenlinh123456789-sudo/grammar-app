@@ -1,20 +1,33 @@
 // File: src/components/grammar/ErrorCorrectionExercise.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AlertTriangle, ChevronRight, Sparkles, RotateCcw, CheckCircle2, XCircle } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
+import MasteryVerdict from '../common/MasteryVerdict';
+import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 
 const ErrorCorrectionExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
   const [selectedWordIdx, setSelectedWordIdx] = useState(null);
   const [status, setStatus] = useState('idle');
   const [score, setScore] = useState(0);
+  // Phiên chấm theo LẦN TRẢ LỜI ĐẦU TIÊN (hạng mục #1): bấm lại câu vừa sai
+  // không ghi đè. `score` bên dưới chỉ để hiển thị.
+  const sessionRef = useRef(createSession());
+  const reportedRef = useRef(false);
+  // Kết quả phiên đưa vào state để màn kết quả không phải đọc ref lúc render.
+  const [verdict, setVerdict] = useState(null);
 
   const exercisesLen = exercises?.length || 0;
   const curr = exercises && exercisesLen > 0 ? exercises[qIdx] : null;
 
   useEffect(() => {
-    if (exercisesLen > 0 && qIdx === exercisesLen && onComplete) {
-      onComplete();
+    if (exercisesLen > 0 && qIdx === exercisesLen && onComplete && !reportedRef.current) {
+      // onComplete là arrow tạo mới mỗi render nên effect chạy lại liên tục ở
+      // màn kết quả — chốt để chỉ báo một lần cho mỗi lượt làm bài.
+      reportedRef.current = true;
+      const evidence = sessionEvidence(sessionRef.current);
+      setVerdict(evidence);
+      onComplete(evidence);
     }
   }, [qIdx, onComplete, exercisesLen]);
 
@@ -29,11 +42,21 @@ const ErrorCorrectionExercise = ({ exercises, setGlobalProgress, onComplete }) =
     
     if (isCorrect) {
       setStatus('correct');
+      recordAnswer(sessionRef.current, qIdx, true, 'select');
       setScore(s => s + 1);
       setGlobalProgress(p => p + 1);
     } else {
       setStatus('wrong');
+      recordAnswer(sessionRef.current, qIdx, false, 'select');
     }
+  };
+
+  const replay = () => {
+    sessionRef.current = createSession();
+    reportedRef.current = false;
+    setVerdict(null);
+    setQIdx(0);
+    setScore(0);
   };
 
   const next = () => {
@@ -49,6 +72,7 @@ const ErrorCorrectionExercise = ({ exercises, setGlobalProgress, onComplete }) =
         <div className="text-6xl mb-4">{percentage >= 80 ? '🏆' : percentage >= 50 ? '👍' : '📖'}</div>
         <h3 className="font-black text-3xl text-slate-900 dark:text-slate-100 mb-2">Kết Quả Sửa Lỗi</h3>
         <p className="font-black text-5xl text-emerald-500 mb-2">{score}/{exercisesLen}</p>
+        <MasteryVerdict evidence={verdict} />
         <p className="text-slate-500 dark:text-slate-400 font-bold mb-6">({percentage}% chính xác)</p>
         <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-4 mb-8 border-2 border-slate-300 dark:border-slate-600">
           <div 
@@ -56,7 +80,7 @@ const ErrorCorrectionExercise = ({ exercises, setGlobalProgress, onComplete }) =
             style={{ width: `${percentage}%` }}
           />
         </div>
-        <Btn3D onClick={() => { setQIdx(0); setScore(0); }} className="text-lg">
+        <Btn3D onClick={replay} className="text-lg">
           <RotateCcw size={18} className="mr-2" /> Làm Lại
         </Btn3D>
       </div>

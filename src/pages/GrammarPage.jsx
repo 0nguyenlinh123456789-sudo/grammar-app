@@ -86,7 +86,7 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
         <SentenceBuilder 
           sentences={topic.sentenceGame} 
           setGlobalProgress={setXp} 
-          onComplete={() => completeMilestone(topic.id, 25)}
+          onComplete={(evidence) => completeMilestone(topic.id, 25, evidence)}
         />
       )}
       {tab === 'ai' && (
@@ -96,7 +96,7 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
         <QuizEngine 
           exercises={topic.exercises} 
           setGlobalProgress={setXp} 
-          onComplete={() => completeMilestone(topic.id, 40)}
+          onComplete={(evidence) => completeMilestone(topic.id, 40, evidence)}
         />
       )}
       {tab === 'fillblanks' && (
@@ -104,7 +104,7 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
           <FillBlanksExercise
             exercises={topic.fillBlanks}
             setGlobalProgress={setXp}
-            onComplete={() => completeMilestone(topic.id, 30)}
+            onComplete={(evidence) => completeMilestone(topic.id, 30, evidence)}
           />
         ) : (
           <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
@@ -118,7 +118,7 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
           <ErrorCorrectionExercise
             exercises={topic.errorCorrection}
             setGlobalProgress={setXp}
-            onComplete={() => completeMilestone(topic.id, 30)}
+            onComplete={(evidence) => completeMilestone(topic.id, 30, evidence)}
           />
         ) : (
           <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
@@ -132,7 +132,7 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
           <TransformationExercise
             exercises={topic.transformation}
             setGlobalProgress={setXp}
-            onComplete={() => completeMilestone(topic.id, 35)}
+            onComplete={(evidence) => completeMilestone(topic.id, 35, evidence)}
           />
         ) : (
           <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
@@ -146,7 +146,7 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
           <MatchingExercise
             exercises={topic.matching}
             setGlobalProgress={setXp}
-            onComplete={() => completeMilestone(topic.id, 25)}
+            onComplete={(evidence) => completeMilestone(topic.id, 25, evidence)}
           />
         ) : (
           <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
@@ -160,7 +160,7 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
           <TrueFalseExercise
             exercises={topic.trueFalse}
             setGlobalProgress={setXp}
-            onComplete={() => completeMilestone(topic.id, 25)}
+            onComplete={(evidence) => completeMilestone(topic.id, 25, evidence)}
           />
         ) : (
           <div className="p-10 font-bold text-center text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-3xl border-4 border-slate-200 dark:border-slate-700 animate-fade-in mt-4">
