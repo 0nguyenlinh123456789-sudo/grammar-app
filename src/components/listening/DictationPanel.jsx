@@ -44,7 +44,11 @@ export default function DictationPanel({ onClose, onFinish, currentBand = null }
     el.play().catch(() => { /* trình duyệt chặn tự phát — người học bấm lại */ });
   }, []);
 
-  useEffect(() => { setGo(''); setKetQua(null); setHienGoiY(false); }, [idx]);
+  // Phải phụ thuộc cả `nhom` và `lan`, không chỉ `idx`. Nút đổi nhóm gọi
+  // setIdx(0) — nhưng nếu idx ĐANG là 0 thì React bỏ qua và effect không chạy
+  // lại: bộ câu mới nạp vào trong khi bài chấm cũ vẫn nằm trên màn hình, đối
+  // chiếu với một câu không còn được phát nữa.
+  useEffect(() => { setGo(''); setKetQua(null); setHienGoiY(false); }, [idx, nhom, lan]);
 
   if (!cur) {
     return <Khung onClose={onClose}>

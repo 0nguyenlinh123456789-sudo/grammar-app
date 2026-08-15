@@ -35,3 +35,5 @@ public/ielts-prep/
 # Bo nho dem tai ban ke giay phep audio (khong commit)
 .audio-cache/
 ung_vien_audio.tsv
+ung_vien_dot2.tsv
+ung_vien_all.tsv
