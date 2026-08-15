@@ -252,6 +252,440 @@ export const CAU_HOI = {
       why: '“my gut instinct was to turn around and head back down the mountain. I later found out that a dangerous bear had been sighted in the same area.”',
     },
   ],
+
+  // ---- Ask a Teacher ------------------------------------------------------
+
+  // Sew and Knit
+  'voa-7995839': [
+    {
+      q: 'Khác biệt cốt lõi giữa “sew” và “knit” là gì?',
+      opts: [
+        'Khâu là nối những mảnh vải đã có sẵn; đan là làm ra chính tấm vải từ sợi',
+        'Khâu làm bằng tay, đan làm bằng máy',
+        'Khâu dùng cho quần áo, đan dùng cho chăn màn',
+        'Khâu là nghề, đan là thú vui',
+      ],
+      a: 'Khâu là nối những mảnh vải đã có sẵn; đan là làm ra chính tấm vải từ sợi',
+      why: 'Bài nói: “when we sew, we connect pieces of fabric or cloth that are already made. When we knit, we make the cloth itself from strings called yarn.”',
+    },
+    {
+      q: 'Dụng cụ của hai việc khác nhau thế nào?',
+      opts: [
+        'Khâu dùng kim và chỉ (có thể có máy khâu); đan dùng hai que đan và sợi len dày',
+        'Cả hai đều dùng máy',
+        'Khâu dùng que đan, đan dùng kim chỉ',
+        'Cả hai đều chỉ dùng tay không',
+      ],
+      a: 'Khâu dùng kim và chỉ (có thể có máy khâu); đan dùng hai que đan và sợi len dày',
+      why: 'Bài nói: “To knit, a person uses thicker strings called yarn, along with two thin sticks called knitting needles.”',
+    },
+    {
+      q: 'Sợi đan dày hơn chỉ khâu bao nhiêu?',
+      opts: [
+        'Chỉ khâu thường dưới 1 mm, sợi đan khoảng 2–5 mm',
+        'Cả hai đều khoảng 1 mm',
+        'Sợi đan mỏng hơn chỉ khâu',
+        'Bài không nói tới độ dày',
+      ],
+      a: 'Chỉ khâu thường dưới 1 mm, sợi đan khoảng 2–5 mm',
+      why: 'Bài nói: “While sewing thread is often less than one millimeter thick, knitting yarn is generally two to five millimeters thick.”',
+    },
+    {
+      q: 'Người có nghề sửa quần áo cho vừa vặn được gọi là gì?',
+      opts: ['Tailor', 'Seamstress', 'Sewist', 'Knitter'],
+      a: 'Tailor',
+      why: 'Bài nói: “a person whose job is to sew or repair clothes to make them fit well is called a tailor.”',
+    },
+  ],
+
+  // Beach, Coast, Shore
+  'voa-7989017': [
+    {
+      q: 'Trong ba từ beach, coast, shore, từ nào có nghĩa CỤ THỂ nhất?',
+      opts: ['Beach', 'Coast', 'Shore', 'Cả ba đều như nhau'],
+      a: 'Beach',
+      why: 'Bài mở đầu phần giải thích bằng: “The word “beach” is the most specific of the three words.”',
+    },
+    {
+      q: 'Khác nhau giữa “at the beach” và “on the beach” là gì?',
+      opts: [
+        '“At the beach” nói chung về việc ở vùng biển; “on the beach” nói về hoạt động cụ thể ngay trên bãi',
+        '“At the beach” trang trọng hơn “on the beach”',
+        '“On the beach” chỉ dùng cho biển, “at the beach” dùng cho cả hồ',
+        'Hai cách nói hoàn toàn thay thế được cho nhau',
+      ],
+      a: '“At the beach” nói chung về việc ở vùng biển; “on the beach” nói về hoạt động cụ thể ngay trên bãi',
+      why: 'Bài nói: “We usually say “on the beach” when describing specific activities we do there”, còn “at the beach” dùng cho vùng chung quanh.',
+    },
+    {
+      q: 'Vì sao Baltimore vẫn được gọi là thành phố “East Coast” dù cách Đại Tây Dương vài chục kilômét?',
+      opts: [
+        'Vì “coast” có thể chỉ cả một vùng rộng, không chỉ mép nước',
+        'Vì Baltimore từng nằm sát biển',
+        'Vì đó là cách gọi sai nhưng đã thành quen',
+        'Vì Baltimore có cảng biển',
+      ],
+      a: 'Vì “coast” có thể chỉ cả một vùng rộng, không chỉ mép nước',
+      why: 'Bài nói: “We can use the word to describe a wide area, however. For example, Baltimore, Maryland is an East Coast city even though it is several kilometers from the Atlantic Ocean.”',
+    },
+    {
+      q: '“Shore” có luôn đồng nghĩa với “beach” không?',
+      opts: [
+        'Không — có thể cập bờ ở một bến cảng mà chẳng có bãi biển nào',
+        'Có, hai từ luôn thay thế được cho nhau',
+        'Không, vì “shore” chỉ dùng cho sông',
+        'Không, vì “shore” chỉ dùng cho hồ',
+      ],
+      a: 'Không — có thể cập bờ ở một bến cảng mà chẳng có bãi biển nào',
+      why: 'Bài nói: “you could also come to shore at a port with no beach in sight.”',
+    },
+  ],
+
+  // Appeal
+  'voa-7985917': [
+    {
+      q: 'Là động từ, “appeal” dùng cho loại yêu cầu nào?',
+      opts: [
+        'Yêu cầu trang trọng hoặc hệ trọng, không dùng cho việc vặt hằng ngày',
+        'Mọi loại yêu cầu, kể cả nhờ mua sữa',
+        'Chỉ yêu cầu trong toà án',
+        'Chỉ yêu cầu bằng văn bản',
+      ],
+      a: 'Yêu cầu trang trọng hoặc hệ trọng, không dùng cho việc vặt hằng ngày',
+      why: 'Bài nói: “appeal” means to make a request, often in official situations or involving important things. Generally, we do not use “appeal” for normal, everyday requests.',
+    },
+    {
+      q: 'Tính từ “appealing” mang nghĩa gì?',
+      opts: [
+        'Có sức hấp dẫn, dễ ưa',
+        'Đang được kháng cáo',
+        'Cần được giúp đỡ',
+        'Mang tính chính thức',
+      ],
+      a: 'Có sức hấp dẫn, dễ ưa',
+      why: 'Bài nói: “This forms the word “appealing,” which describes something that has a pleasing quality.”',
+    },
+    {
+      q: 'Trong toà án, toà CHẤP NHẬN và toà TỪ CHỐI một đơn kháng cáo được diễn đạt bằng động từ nào?',
+      opts: [
+        'granted và denied',
+        'accepted và refused',
+        'opened và closed',
+        'approved và cancelled',
+      ],
+      a: 'granted và denied',
+      why: 'Bài nói: “we can say the court “granted” the appeal. If the court rejects the appeal, we can say the court “denied” it.”',
+    },
+    {
+      q: 'Tính từ nào chỉ loại toà chuyên xử các vụ đã kháng cáo?',
+      opts: ['Appellate', 'Appealing', 'Appealed', 'Appealable'],
+      a: 'Appellate',
+      why: 'Bài nói: “The adjective “appellate” describes a kind of court that deals with cases that have been appealed.”',
+    },
+  ],
+
+  // Extend, Expand, etc.
+  'voa-7980779': [
+    {
+      q: 'Trong bốn động từ, từ nào KHÔNG dùng để nói về việc tăng thời gian?',
+      opts: ['Enlarge', 'Extend', 'Stretch out', 'Expand'],
+      a: 'Enlarge',
+      why: 'Bài nói: “Unlike the verb “extend,” we do not use “enlarge” to talk about an increase in time.”',
+    },
+    {
+      q: '“Expand” thường gắn với lĩnh vực nào nhất?',
+      opts: ['Kinh doanh và công nghiệp', 'Y tế', 'Địa lý', 'Giáo dục phổ thông'],
+      a: 'Kinh doanh và công nghiệp',
+      why: 'Bài nói: “We commonly use “expand” in connection with business or industry.”',
+    },
+    {
+      q: 'Khi nói “Learning a new language will stretch your mind”, người nói ngụ ý thêm điều gì?',
+      opts: [
+        'Sự tiến bộ đó có thể hơi khó và tốn nhiều công sức',
+        'Việc đó rất dễ dàng',
+        'Việc đó tốn nhiều tiền',
+        'Việc đó cần rất nhiều thời gian',
+      ],
+      a: 'Sự tiến bộ đó có thể hơi khó và tốn nhiều công sức',
+      why: 'Bài nói: “when we use the verb “stretch” in this way, we communicate the idea that the improvement might be a little difficult or take a lot of effort.”',
+    },
+    {
+      q: 'Câu “The Rocky Mountains extend from the United States into Canada” cho thấy “extend” còn dùng để tả gì?',
+      opts: [
+        'Khoảng cách hoặc phạm vi mà một vật trải dài tới',
+        'Thời gian tồn tại của dãy núi',
+        'Chiều cao của dãy núi',
+        'Số lượng người sống ở đó',
+      ],
+      a: 'Khoảng cách hoặc phạm vi mà một vật trải dài tới',
+      why: 'Bài nói: “We can also use “extend” to express the distance or the area something reaches.”',
+    },
+  ],
+
+  // Regimen
+  'voa-7966564': [
+    {
+      q: '“Regimen” nghĩa là gì?',
+      opts: [
+        'Một chế độ hoạt động lặp đi lặp lại, nhất là trong tập luyện',
+        'Một buổi tập duy nhất',
+        'Một loại thuốc',
+        'Một môn thể thao',
+      ],
+      a: 'Một chế độ hoạt động lặp đi lặp lại, nhất là trong tập luyện',
+      why: 'Bài nói: “A regimen is usual and repeated action, especially in training.”',
+    },
+    {
+      q: 'Danh từ đứng trước “regimen” (như trong “running regimen”) được gọi là gì?',
+      opts: [
+        'Attributive noun — danh từ dùng như tính từ',
+        'Compound verb',
+        'Quantifier',
+        'Modal noun',
+      ],
+      a: 'Attributive noun — danh từ dùng như tính từ',
+      why: 'Bài nói: “These are called attributive nouns. They act similarly to adjectives.”',
+    },
+    {
+      q: 'Muốn nói một chế độ GỒM những gì, bài gợi ý dùng cụm nào?',
+      opts: ['consist of', 'made by', 'depend on', 'take up'],
+      a: 'consist of',
+      why: 'Bài nói: “we can use the verb and preposition “consist of”.”',
+    },
+    {
+      q: 'Từ nào người bản ngữ đôi khi dùng thay cho “regimen”?',
+      opts: ['Routine', 'Practice', 'Session', 'Schedule'],
+      a: 'Routine',
+      why: 'Bài nói: “native speakers might substitute the word “routine” for “regimen” in some situations.”',
+    },
+  ],
+
+  // Regarding and Regardless
+  'voa-7958511': [
+    {
+      q: '“Regarding” có nghĩa gần nhất với từ nào?',
+      opts: ['About', 'Without', 'Because', 'Although'],
+      a: 'About',
+      why: 'Bài nói: “The word “regarding” in the second example means the same thing as the preposition “about” in the first example.”',
+    },
+    {
+      q: 'So với “about”, khi nào người ta hay dùng “regarding” hơn?',
+      opts: [
+        'Trong lời nói trang trọng',
+        'Trong hội thoại thân mật',
+        'Khi viết cho trẻ em',
+        'Khi nói nhanh',
+      ],
+      a: 'Trong lời nói trang trọng',
+      why: 'Bài nói: “it is more common to use “regarding” in formal speech than in informal communication.”',
+    },
+    {
+      q: 'Vì sao “regardless” lại có nghĩa “bất kể”?',
+      opts: [
+        'Vì hậu tố -less mang nghĩa “without”, nên regardless = without regard to',
+        'Vì nó bắt nguồn từ tiếng Latin',
+        'Vì nó là dạng phủ định của động từ regard',
+        'Vì nó luôn đứng đầu câu',
+      ],
+      a: 'Vì hậu tố -less mang nghĩa “without”, nên regardless = without regard to',
+      why: 'Bài nói: “This suffix means the same thing as the word “without.” So, “regardless” means “without regard to.”',
+    },
+    {
+      q: 'Sau cụm “in regard to” phải dùng loại từ gì?',
+      opts: [
+        'Danh từ, cụm danh từ hoặc mệnh đề danh từ',
+        'Động từ nguyên thể',
+        'Tính từ',
+        'Trạng từ',
+      ],
+      a: 'Danh từ, cụm danh từ hoặc mệnh đề danh từ',
+      why: 'Bài nói: “we use a noun, noun phrase, or noun clause after the expression “in regard to.”',
+    },
+  ],
+
+  // Apply and Application
+  'voa-7932638': [
+    {
+      q: 'Khi nào dùng “apply for” và khi nào dùng “apply to”?',
+      opts: [
+        '“Apply for” khi xin việc hoặc xin hỗ trợ tài chính; “apply to” khi xin vào trường học',
+        '“Apply for” khi xin vào trường; “apply to” khi xin việc',
+        'Hai cách dùng hoàn toàn thay thế được cho nhau',
+        '“Apply to” chỉ dùng trong văn viết',
+      ],
+      a: '“Apply for” khi xin việc hoặc xin hỗ trợ tài chính; “apply to” khi xin vào trường học',
+      why: 'Bài nói: “we say “apply for” when trying to get a job, we say “apply to” when we are trying to get accepted into a school or other program”, và “we say “apply for” when we are trying to get financial aid or special awards.”',
+    },
+    {
+      q: 'Cụm động từ nào dùng cho việc điền một đơn xin việc?',
+      opts: ['Fill out', 'Fill in for', 'Take up', 'Put down'],
+      a: 'Fill out',
+      why: 'Bài nói: “We commonly use the phrasal verb “fill out” to express the act of completing an application.”',
+    },
+    {
+      q: 'Ngoài nghĩa “nộp đơn”, “apply to” còn nghĩa gì?',
+      opts: [
+        'Có liên quan tới, hoặc đúng với một nhóm người hay sự vật',
+        'Đến gần một nơi nào đó',
+        'Chấp nhận một quy tắc',
+        'Trả lời một câu hỏi',
+      ],
+      a: 'Có liên quan tới, hoặc đúng với một nhóm người hay sự vật',
+      why: 'Bài nói: “It can mean that something relates to something else, or that something is true for all people or things.”',
+    },
+    {
+      q: '“Apply yourself” nghĩa là gì?',
+      opts: [
+        'Chăm chỉ làm việc suốt một thời gian để hoàn thành hoặc rèn được một kỹ năng',
+        'Tự nộp đơn thay vì nhờ người khác',
+        'Tự đánh giá bản thân',
+        'Tự học không cần thầy',
+      ],
+      a: 'Chăm chỉ làm việc suốt một thời gian để hoàn thành hoặc rèn được một kỹ năng',
+      why: 'Bài nói: “that means that you are working hard over a period of time to complete a project or develop a skill.”',
+    },
+  ],
+
+  // Remaining, Remainder, and Rest of
+  'voa-7927796': [
+    {
+      q: 'Vì sao không thể thay “the remaining countries” bằng “the remain”?',
+      opts: [
+        'Vì “remain” là động từ, mà ở đây cần một tính từ đứng trước danh từ',
+        'Vì “remain” là từ cổ, không còn dùng',
+        'Vì “remain” chỉ dùng số ít',
+        'Vì “remain” chỉ dùng trong văn nói',
+      ],
+      a: 'Vì “remain” là động từ, mà ở đây cần một tính từ đứng trước danh từ',
+      why: 'Bài nói: “the word “remain” is a verb, and the term “the rest” is a quantifier. To describe the word “countries,” we need to use an adjective.”',
+    },
+    {
+      q: 'Muốn dùng “the rest” để bổ nghĩa cho một danh từ thì phải viết thế nào?',
+      opts: [
+        '“The rest of the” — đủ bốn từ',
+        '“The rest” — hai từ là đủ',
+        '“Rest of” — hai từ',
+        '“The resting” — thêm đuôi -ing',
+      ],
+      a: '“The rest of the” — đủ bốn từ',
+      why: 'Bài nói: “you need to use four words. These four words are “the rest of the.”',
+    },
+    {
+      q: 'Giữa “the rest of the” và “the remainder of the”, cụm nào phổ biến hơn?',
+      opts: [
+        '“The rest of the”, nhất là trong tiếng Anh nói',
+        '“The remainder of the”, nhất là trong tiếng Anh nói',
+        'Hai cụm dùng ngang nhau',
+        'Cả hai đều hiếm gặp',
+      ],
+      a: '“The rest of the”, nhất là trong tiếng Anh nói',
+      why: 'Bài nói: “we use the quantifier “the rest of the” much more often, especially in spoken English, than “the remainder of the.”',
+    },
+    {
+      q: 'Trong toán học, “the remainder” chỉ cái gì?',
+      opts: [
+        'Phần dư khi chia hoặc phần còn lại khi trừ',
+        'Kết quả của phép nhân',
+        'Số lớn nhất trong một dãy',
+        'Số bị chia',
+      ],
+      a: 'Phần dư khi chia hoặc phần còn lại khi trừ',
+      why: 'Bài nói: “It can also be what is left over from the process of subtraction.”',
+    },
+  ],
+
+  // ---- Education Tips -----------------------------------------------------
+
+  // Learn New Skills with Microcredentials
+  'voa-7908673': [
+    {
+      q: 'UNESCO định nghĩa “microcredential” thế nào?',
+      opts: [
+        'Chứng chỉ nghề tập trung vào một nhóm kết quả học tập hẹp, học trong thời gian ngắn hơn chương trình đại học',
+        'Một tấm bằng đại học rút gọn hai năm',
+        'Một khoá học miễn phí hoàn toàn',
+        'Một kỳ thi do chính phủ tổ chức',
+      ],
+      a: 'Chứng chỉ nghề tập trung vào một nhóm kết quả học tập hẹp, học trong thời gian ngắn hơn chương trình đại học',
+      why: 'Bài nói: “professional certification that centers on a set of learning outcomes in a narrow field. It is completed over a shorter time than a traditional university program, from a week to a month.”',
+    },
+    {
+      q: 'Những lĩnh vực nào có nhiều microcredential nhất?',
+      opts: [
+        'Phân tích dữ liệu, hỗ trợ công nghệ thông tin và an ninh mạng',
+        'Y khoa, luật và kiến trúc',
+        'Nông nghiệp và du lịch',
+        'Nghệ thuật và âm nhạc',
+      ],
+      a: 'Phân tích dữ liệu, hỗ trợ công nghệ thông tin và an ninh mạng',
+      why: 'Bài nói: “The most popular fields in which microcredentials appear are data analytics, information technology support and cybersecurity.”',
+    },
+    {
+      q: 'Theo báo cáo của Coursera, bao nhiêu phần trăm trường đại học Mỹ có microcredential cũng công nhận tín chỉ cho chúng?',
+      opts: ['51 phần trăm', '15 phần trăm', '75 phần trăm', '90 phần trăm'],
+      a: '51 phần trăm',
+      why: 'Bài nói: “51 percent of colleges in the United States that offer microcredentials also provide school credit.”',
+    },
+    {
+      q: 'Học tài liệu và lấy chứng chỉ khác nhau ở điểm nào về chi phí?',
+      opts: [
+        'Nhiều nơi cho học tài liệu miễn phí, nhưng muốn lấy chứng chỉ thì phải trả tiền',
+        'Cả hai đều miễn phí',
+        'Cả hai đều phải trả tiền',
+        'Học thì mất phí, lấy chứng chỉ thì miễn phí',
+      ],
+      a: 'Nhiều nơi cho học tài liệu miễn phí, nhưng muốn lấy chứng chỉ thì phải trả tiền',
+      why: 'Bài nói: “Many of the course providers permit learners to use the materials for free, but to earn a certification, payment is required.”',
+    },
+  ],
+
+  // Tips for Better Writing
+  'voa-2453053': [
+    {
+      q: 'Điều đầu tiên bà Ahern-Dodson muốn người học nhận ra về việc viết là gì?',
+      opts: [
+        'Viết là việc khó với tất cả mọi người, ai rồi cũng có lúc bế tắc',
+        'Chỉ người học ngoại ngữ mới thấy viết khó',
+        'Viết sẽ dễ dần nếu luyện đủ nhiều',
+        'Viết là năng khiếu bẩm sinh',
+      ],
+      a: 'Viết là việc khó với tất cả mọi người, ai rồi cũng có lúc bế tắc',
+      why: 'Bà nói: “Writing is hard. All writers struggle at some point.”',
+    },
+    {
+      q: 'Theo bà, vì sao nhiều người có trải nghiệm tệ với việc viết?',
+      opts: [
+        'Vì họ chỉ lo bài viết cuối cùng phải trông thế nào — đủ mấy trang, đúng ngữ pháp',
+        'Vì họ không đọc đủ nhiều',
+        'Vì giáo viên chấm quá khắt khe',
+        'Vì họ viết bằng ngôn ngữ mẹ đẻ',
+      ],
+      a: 'Vì họ chỉ lo bài viết cuối cùng phải trông thế nào — đủ mấy trang, đúng ngữ pháp',
+      why: 'Bà nói: “they primarily focus on, and worry about, what the final product has to look like, like how many pages for a research essay?”',
+    },
+    {
+      q: 'Việc chỉ chăm chăm vào sản phẩm cuối cùng gây ra hậu quả gì?',
+      opts: [
+        'Rất khó bắt đầu viết',
+        'Bài viết dài hơn cần thiết',
+        'Ngữ pháp kém đi',
+        'Mất nhiều thời gian tìm tài liệu',
+      ],
+      a: 'Rất khó bắt đầu viết',
+      why: 'Bà nói: “focusing on the end makes it really hard to get started.”',
+    },
+    {
+      q: 'Bà khuyên chuyển sự chú ý sang đâu?',
+      opts: [
+        'Sang người đọc và điều mình thật sự muốn nói với họ',
+        'Sang việc chọn từ vựng hay hơn',
+        'Sang việc lập dàn ý chi tiết',
+        'Sang việc đọc thêm sách tham khảo',
+      ],
+      a: 'Sang người đọc và điều mình thật sự muốn nói với họ',
+      why: 'Bà nói: “Think about who your audience is, and what it is that you really want to say to them.”',
+    },
+  ],
 };
 
 export default CAU_HOI;

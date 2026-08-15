@@ -17,7 +17,14 @@ import { coTheDung, kiemTraBanGhi } from '../src/utils/audioLicense.js';
 
 // BÁNH CÓC — số bài nghe chỉ được tăng. Còn 14 bài đã thu thập nhưng CHƯA có
 // câu hỏi soạn tay; chúng cố tình không nằm ở đây.
-const BAI_TOI_THIEU = 6;
+// 6 (đợt đầu) → 16. Bốn bài đã thu thập nhưng CỐ TÌNH không đưa vào, mỗi bài
+// một lý do:
+//   voa-7920108 "How to Summon Others" — bản chép lời thủng lỗ: câu ví dụ nằm
+//     ngoài thẻ <p> nên bộ trích không lấy được. Bộ thu thập nay đã tự chặn.
+//   voa-7953635 "'Kitchen-Table' Is a Type of Politics" — nội dung chính trị,
+//     cùng lý do đã loại câu chính trị khỏi kho chép chính tả.
+//   voa-5345471, voa-6904240 (Everyday Grammar) — chưa soạn câu hỏi.
+const BAI_TOI_THIEU = 16;
 const CAU_HOI_MOI_BAI = 4;
 
 test('bánh cóc: số bài nghe theo đoạn chỉ được tăng', () => {

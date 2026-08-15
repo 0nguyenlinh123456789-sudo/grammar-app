@@ -54,6 +54,17 @@ async function docBai(duongDan, loat) {
   const doan = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map((m) => goHtml(m[1])).filter((x) => x.length > 40);
   if (doan.length < 3) return { bo: 'không tìm thấy bản chép lời' };
 
+  // BẢN CHÉP LỜI THỦNG LỖ — đã dính một lần với bài "How to Summon Others".
+  // Bộ trích chỉ lấy thẻ <p>, mà nhiều bài VOA đặt CÂU VÍ DỤ trong blockquote
+  // hoặc danh sách. Kết quả: bản chép lời còn nguyên câu dẫn "…we can summon
+  // them with the following:" nhưng mất hẳn phần ví dụ đi sau. Người học nghe
+  // thấy câu đó mà đọc lại thì không có — tệ hơn là không có bản chép lời, vì
+  // họ sẽ tưởng mình nghe nhầm.
+  // Dấu hiệu: một đoạn kết thúc bằng dấu hai chấm mà đoạn NGAY SAU cũng kết
+  // thúc bằng dấu hai chấm (phần ví dụ ở giữa đã bị mất), hoặc không còn đoạn nào.
+  const thung = doan.filter((p, i) => /:\s*$/.test(p) && (!doan[i + 1] || /:\s*$/.test(doan[i + 1])));
+  if (thung.length) return { bo: `bản chép lời thủng ${thung.length} chỗ — câu ví dụ nằm ngoài thẻ <p>` };
+
   // Dòng đầu thường là tiêu đề lặp lại; các dòng cuối là chân trang/bình luận.
   const than = doan.filter((p) => !/^(Words in This Story|_+$)/i.test(p));
   const soTu = than.join(' ').split(/\s+/).length;
