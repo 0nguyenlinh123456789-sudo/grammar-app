@@ -37,6 +37,9 @@ for (const b of bai) {
     series: b.series,
     audioUrl: b.audioUrl,
     secondsEstimated: b.secondsEstimated,
+    // Giữ lại bitrate ĐÃ ĐO để scripts/check_voa_links.mjs khỏi phải đoán —
+    // xem chú thích ở đầu file đó.
+    kbps: b.kbps,
     words: than.join(' ').split(/\s+/).length,
     transcript: than,
     glossary: tuKho,

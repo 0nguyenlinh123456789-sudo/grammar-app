@@ -12,8 +12,11 @@
 // Chạy:  node scripts/check_voa_links.mjs
 import { listeningPassages } from '../src/data/listeningPassages.js';
 
-const BITRATE = 64_000;
-
+// BITRATE LẤY TỪ CHÍNH BÀI ĐÓ, không ghi cứng. Con số 64 kbps từng nằm ở đây
+// và ở cả bộ thu thập — đúng cái kiểu chép luật ra hai chỗ vừa làm lọt dòng
+// giải nghĩa từ trong bản chép lời. Bài nào mã hoá khác mà ở đây vẫn tính bằng
+// 64 thì bộ kiểm sẽ kêu "file đã bị thay" trong khi file không hề đổi, và sau
+// vài lần kêu oan thì không ai tin nó nữa.
 async function kiem(b) {
   try {
     const res = await fetch(b.audioUrl, { method: 'HEAD' });
@@ -22,7 +25,8 @@ async function kiem(b) {
     const cors = res.headers.get('access-control-allow-origin') || '';
     if (cors !== '*') return `CORS đóng ("${cors}") — trình duyệt sẽ không phát được`;
     if (!bytes) return 'máy chủ không cho biết dung lượng';
-    const giay = Math.round((bytes * 8) / BITRATE);
+    if (!b.kbps) return 'bài này chưa có bitrate đã đo — chạy lại bộ thu thập với --remeasure';
+    const giay = Math.round((bytes * 8) / (b.kbps * 1000));
     // Lệch quá 20% so với con số đã lưu nghĩa là file đã bị thay bằng bản khác.
     const lech = Math.abs(giay - b.secondsEstimated) / b.secondsEstimated;
     if (lech > 0.2) return `độ dài đổi từ ~${b.secondsEstimated}s thành ~${giay}s — file có thể đã bị thay`;

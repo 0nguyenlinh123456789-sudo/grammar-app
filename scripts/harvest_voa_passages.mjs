@@ -36,6 +36,11 @@ const OUT = arg('out', 'voa_ung_vien.json');
 const GIAY_MIN = Number(arg('minSeconds', 60));
 const GIAY_MAX = Number(arg('maxSeconds', 300));
 const SO_TRANG = Number(arg('pages', 1)); // trang 0 là trang đầu, rồi ?p=1, ?p=2…
+// ĐO LẠI THỜI LƯỢNG cho những bài thu thập trước khi có bộ đọc bitrate.
+// Không có cờ này thì kho lẫn hai cách tính trong cùng một file: bài cũ tính
+// bằng 64 kbps ghi cứng và KHÔNG trừ thẻ ID3, bài mới thì có — hai nửa dữ liệu
+// nói hai chuyện khác nhau mà chú thích ở đầu file chỉ kể một chuyện.
+const DO_LAI = process.argv.includes('--remeasure');
 const HOM_NAY = arg('date', new Date().toISOString().slice(0, 10));
 
 // CHỦ ĐỀ KHÔNG ĐƯA VÀO BÀI HỌC — cùng năm nhóm đã dùng khi lọc câu chép chính
@@ -181,6 +186,26 @@ async function main() {
   const daXem = new Set();
   const bo = [];
   let them = 0;
+
+  if (DO_LAI) {
+    for (const b of ra) {
+      const head = await fetch(b.audioUrl, { method: 'HEAD' });
+      const bytes = Number(head.headers.get('content-length') || 0);
+      const dau = await fetch(b.audioUrl, { headers: { Range: 'bytes=0-65535' } });
+      const khung = docBitrate(Buffer.from(await dau.arrayBuffer()));
+      if (!bytes || !khung) { process.stderr.write(`  ! ${b.id}: không đo lại được\n`); continue; }
+      const giay = Math.round(((bytes - khung.tagBytes) * 8) / (khung.kbps * 1000));
+      if (giay !== b.secondsEstimated || b.kbps !== khung.kbps) {
+        process.stderr.write(`  ~ ${b.id}: ${b.secondsEstimated}s → ${giay}s (${khung.kbps} kbps, thẻ ID3 ${khung.tagBytes} byte)\n`);
+      }
+      b.bytes = bytes;
+      b.kbps = khung.kbps;
+      b.secondsEstimated = giay;
+    }
+    fs.writeFileSync(OUT, JSON.stringify(ra, null, 2));
+    process.stderr.write(`Đã đo lại ${ra.length} bài bằng bitrate đọc từ chính file.\n`);
+    return;
+  }
 
   for (const loat of LOAT_BAI) {
     // ?p=N là danh sách theo THỜI GIAN, 12 bài mỗi trang, các trang không lặp
