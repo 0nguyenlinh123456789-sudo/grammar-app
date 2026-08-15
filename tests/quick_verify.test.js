@@ -190,11 +190,18 @@ async function importAggregate(file, pick) {
 // gieo hạt cố định. Hệ quả cần biết trước: nếu hôm nay đỏ mà hôm qua xanh thì
 // đó là DỮ LIỆU ĐÃ ĐỔI, không phải test chập chờn — đọc thông báo lỗi để biết
 // chặng nào và câu nào hỏng.
+// Bao nhiêu chặng KHÔNG đủ 5 câu để xác minh nhanh — bánh cóc, chỉ được giảm.
+// Hiện tại đúng 100: toàn bộ unit sách Oxford Advanced, mỗi unit chỉ còn 2 câu
+// quiz sau đợt dọn nội dung máy-sinh. Giao diện ẨN nút và nói lý do cho đúng
+// 100 chặng này. Cách sửa gốc là bù độ dày cho sách đó (KE_HOACH_B2 việc 5.1);
+// làm xong thì hạ con số này xuống.
+const KHONG_DU_CAU_TOI_DA = 100;
+
 test('MỌI chặng trong lộ trình đều đủ nguyên liệu ra 5 câu xác minh', async () => {
   const rawTopics = await importAggregate('vocabVstepData.js', (m) => m.default);
   const grammar = await importAggregate('grammarData.js', (m) => m.parsedGrammarData);
   const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
-  const { sanitizeVocabTopics } = await import(pathToFileURL(path.join(ROOT, 'src', 'utils', 'contentFilter.js')).href);
+  const { sanitizeVocabTopics, sanitizeBook } = await import(pathToFileURL(path.join(ROOT, 'src', 'utils', 'contentFilter.js')).href);
 
   // Đo trên dữ liệu ĐÃ QUA LỚP LỌC RUNTIME — đúng cái QuickVerifyModal đọc.
   // Hôm nay lớp lọc chỉ gỡ cặp example/viExample chứ không xoá từ nào, nên con
@@ -203,22 +210,50 @@ test('MỌI chặng trong lộ trình đều đủ nguyên liệu ra 5 câu xác
   const topics = sanitizeVocabTopics(rawTopics);
   assert.equal(topics.length, rawTopics.length);
 
+  const OXFORD = [
+    [['oxfordData.js', 'courseData'], ['oxfordDataPart2.js', 'courseData'], ['oxfordDataPart3.js', 'courseData']],
+    [['oxfordPreIntData.js', 'courseData'], ['oxfordPreIntData51_75.js', 'courseData51_75'], ['oxfordPreIntData76_100.js', 'courseData76_100']],
+    [['oxfordAdvancedData1_25.js', 'courseData1_25'], ['oxfordAdvancedData26_50.js', 'courseData26_50'], ['oxfordAdvancedData51_75.js', 'courseData51_75'], ['oxfordAdvancedData76_100.js', 'courseData76_100']],
+  ];
+  const unitById = new Map();
+  for (const parts of OXFORD) {
+    let units = [];
+    for (const [f, k] of parts) units = units.concat((await import(pathToFileURL(path.join(DATA, f)).href))[k] || []);
+    for (const u of sanitizeBook(units)) unitById.set(u.id, u);
+  }
+
   const topicById = new Map(topics.map((t) => [t.id, t]));
   const grammarById = new Map(grammar.map((t) => [t.id, t]));
   const milestones = roadmapData.flatMap((l) => l.milestones);
-  assert.equal(milestones.length, 44);
+  assert.ok(milestones.length > 500, `lộ trình chỉ còn ${milestones.length} chặng — nghi bộ sinh lộ trình hỏng`);
 
-  const thieu = [];
+  const hong = [];     // sai thật — không được có cái nào
+  const khongDu = [];  // thiếu nguyên liệu — có bánh cóc, chỉ được giảm
   for (const m of milestones) {
-    const source = m.type === 'grammar' ? grammarById.get(m.targetId) : topicById.get(m.targetId);
-    if (!source || !hasQuickVerifySupply(m.type, source)) { thieu.push(`${m.id} (${m.type}) → ${m.targetId}`); continue; }
+    const source = m.type === 'grammar' ? grammarById.get(m.targetId)
+      : m.type === 'oxford' ? unitById.get(m.targetId)
+        : topicById.get(m.targetId);
+    if (!source) { hong.push(`${m.id} (${m.type}) → ${m.targetId}: KHÔNG TÌM THẤY nội dung`); continue; }
+    if (!hasQuickVerifySupply(m.type, source)) { khongDu.push(`${m.id} (${m.type}) → ${m.targetId}`); continue; }
     const qs = buildQuickVerify(m.type, source, QUICK_VERIFY_SIZE);
-    if (qs.length < QUICK_VERIFY_SIZE) { thieu.push(`${m.id}: chỉ ra được ${qs.length}/${QUICK_VERIFY_SIZE} câu`); continue; }
+    if (qs.length < QUICK_VERIFY_SIZE) { hong.push(`${m.id}: khai đủ nguyên liệu nhưng chỉ ra được ${qs.length}/${QUICK_VERIFY_SIZE} câu`); continue; }
     for (const q of qs) {
-      const dung = q.options.filter((o) => String(o).trim().toLowerCase() === String(q.answer).trim().toLowerCase());
-      if (dung.length !== 1) thieu.push(`${m.id}: câu "${q.prompt}" có ${dung.length} lựa chọn đúng`);
-      if (new Set(q.options).size !== q.options.length) thieu.push(`${m.id}: câu "${q.prompt}" có lựa chọn trùng nhau`);
+      // So SÁNH PHÂN BIỆT HOA THƯỜNG, đúng như lúc chấm ở QuickVerifyModal
+      // (`opt === cur.answer`). Trước đây chỗ này hạ hết về chữ thường rồi so,
+      // và nó báo đỏ nhầm hai câu hỏi VỀ CHÍNH VIỆC VIẾT HOA — nơi bốn lựa chọn
+      // chỉ khác nhau ở chữ hoa/thường thì đó chính là đề bài, không phải lỗi.
+      const dung = q.options.filter((o) => String(o).trim() === String(q.answer).trim());
+      if (dung.length !== 1) hong.push(`${m.id}: câu "${q.prompt}" có ${dung.length} lựa chọn đúng`);
+      if (new Set(q.options).size !== q.options.length) hong.push(`${m.id}: câu "${q.prompt}" có lựa chọn trùng nhau`);
     }
   }
-  assert.deepEqual(thieu, [], 'chặng sau không xác minh nhanh được — phải ẨN nút và nói lý do, không hạ số câu:\n  ' + thieu.join('\n  '));
+
+  // Chặng trỏ vào nội dung không tồn tại, hoặc sinh ra câu hỏi hỏng: KHÔNG BAO
+  // GIỜ được phép, dù chỉ một chặng.
+  assert.deepEqual(hong, [], 'chặng sau sinh ra bài xác minh HỎNG:\n  ' + hong.join('\n  '));
+
+  // Chặng thiếu nguyên liệu: được phép tồn tại (giao diện ẩn nút và nói lý do),
+  // nhưng số lượng chỉ được GIẢM.
+  assert.ok(khongDu.length <= KHONG_DU_CAU_TOI_DA,
+    `${khongDu.length} chặng không đủ ${QUICK_VERIFY_SIZE} câu, vượt mức đã ghi nhận (${KHONG_DU_CAU_TOI_DA}). Vài chặng đầu:\n  ` + khongDu.slice(0, 10).join('\n  '));
 });

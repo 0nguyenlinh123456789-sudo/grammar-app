@@ -601,6 +601,7 @@ export default function App() {
             setAppMode={setAppMode}
             setActiveVocabCategory={setActiveVocabCategory}
             setOxfordUnitId={selectOxfordUnit}
+            setActiveOxfordBookId={setActiveOxfordBookId}
             setVstepTopicId={setVstepTopicId}
             resetRoadmap={resetRoadmap}
             streak={streak}
@@ -694,6 +695,7 @@ export default function App() {
             setAppMode={setAppMode}
             setActiveVocabCategory={setActiveVocabCategory}
             setOxfordUnitId={selectOxfordUnit}
+            setActiveOxfordBookId={setActiveOxfordBookId}
             setVstepTopicId={setVstepTopicId}
             resetRoadmap={resetRoadmap}
             streak={streak}

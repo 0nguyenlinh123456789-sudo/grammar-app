@@ -1,526 +1,103 @@
 // File: src/data/roadmapData.js
-// 5-level English learning roadmap
-// Covers: Grammar, Vocabulary (IELTS/VSTEP/TOEIC/Business/Kids)
-// Designed for children AND adults, from zero → fluent
+// LỘ TRÌNH = 44 CHẶNG SOẠN TAY + PHẦN MÁY XẾP CHO NỘI DUNG CHƯA AI XẾP.
+//
+// Trước 2026-08-14 file này là 44 chặng viết tay, và đo được nó chỉ dẫn người
+// học qua 9% kho từ vựng, 24% ngữ pháp và 0/260 unit Oxford — tức là 2/3 khối
+// lượng nội dung đã có nằm ngoài mọi đường đi có hướng dẫn.
+//
+// Cách ghép (KE_HOACH_B2.md việc 1.2 · 1.3 · 1.4 · 1.5):
+//   - `roadmapCurated.js` — 44 chặng viết tay, KHÔNG BAO GIỜ bị máy ghi đè.
+//   - `roadmapGenerated.js` — do `scripts/build_roadmap.mjs` sinh, chỉ chứa
+//     phần chưa ai xếp; gặp targetId đã có bản viết tay là nhường.
+//   - File này ghép hai nguồn, bản viết tay luôn đứng TRƯỚC trong mỗi bậc.
+//
+// Thêm bậc `foundation` (A0) đứng đầu cho cụm "Mất gốc thật". Năm id bậc cũ
+// GIỮ NGUYÊN để không ai mất tiến độ và để roadmapNav/placement không phải
+// viết lại.
+import { roadmapCurated, additionalVocabTopics } from './roadmapCurated.js';
+import { roadmapGenerated, curatedMinutes } from './roadmapGenerated.js';
 
-export const roadmapData = [
-  {
-    level: 'starter',
-    levelTitle: '🌱 Khởi Đầu (Starter - A1)',
-    levelDesc: 'Bắt đầu từ con số 0. Học những từ và câu đầu tiên trong tiếng Anh. Dành cho trẻ em và người mới bắt đầu hoàn toàn.',
-    icon: '🌱',
-    color: 'border-green-400 bg-green-50 dark:bg-green-900/20 text-green-900 dark:text-green-100',
-    badgeColor: 'bg-green-500 text-white',
-    shadowColor: 'shadow-green-300',
-    targetAudience: ['👶 Trẻ em 5-8 tuổi', '🧑 Người lớn mới bắt đầu'],
-    skills: ['Nói những câu đơn giản', 'Giới thiệu bản thân', 'Đếm số & màu sắc', 'Chào hỏi cơ bản'],
-    milestones: [
-      {
-        id: 'm_s1',
-        title: '👶 Tiếng Anh Trẻ Em: Màu & Số (A1)',
-        type: 'vstep',
-        targetId: 'kids-starter',
-        desc: '🕐 ~3 giờ | Màu sắc, số 1-100, con vật, bộ phận cơ thể. Học qua bài hát & trò chơi. Sau bài này: nói tên màu, đếm số, nhận ra 50+ từ cơ bản.',
-        xp: 15,
-        exam: [],
-        kids: true,
-      },
-      {
-        id: 'm_s2',
-        title: '📚 Hiện Tại Đơn (Present Simple)',
-        type: 'grammar',
-        targetId: 'b1_01',
-        desc: '🕐 ~4 giờ | Nói về thói quen và sự thật: "I go to school. She drinks milk every day." Học cách chia động từ với He/She/It. Sau bài: viết 5 câu về thói quen hàng ngày.',
-        xp: 20,
-        exam: ['VSTEP A1', 'IELTS Band 3'],
-        kids: true,
-      },
-      {
-        id: 'm_s3',
-        title: '📖 Hiện Tại Tiếp Diễn (Present Continuous)',
-        type: 'grammar',
-        targetId: 'b1_02',
-        desc: '🕐 ~4 giờ | Mô tả hành động đang xảy ra: "I am learning English right now!" Phân biệt với Present Simple. Sau bài: mô tả được tranh ảnh bằng tiếng Anh.',
-        xp: 20,
-        exam: ['VSTEP A1'],
-        kids: true,
-      },
-      {
-        id: 'm_s4',
-        title: '✈️ Từ Vựng: Du Lịch & Giao Thông (A1-A2)',
-        type: 'vstep',
-        targetId: 'travel-transport',
-        desc: '🕐 ~5 giờ | 117 từ về phương tiện, sân bay, đặt vé, chỉ đường. Sau bài: đủ vốn từ để hỏi đường và đặt vé tại nước ngoài. Hay gặp trong TOEIC Part 3.',
-        xp: 15,
-        exam: ['VSTEP A1-A2', 'TOEIC'],
-        kids: false,
-      },
-      {
-        id: 'm_s5',
-        title: '👨‍👩‍👧 Từ Vựng: Gia Đình & Quan Hệ (A1)',
-        type: 'vstep',
-        targetId: 'family-relationships',
-        desc: '🕐 ~4 giờ | 101 từ mô tả các thành viên gia đình, mối quan hệ xã hội, cảm xúc trong gia đình. Sau bài: tự giới thiệu gia đình bằng tiếng Anh trôi chảy.',
-        xp: 15,
-        exam: ['VSTEP A1', 'IELTS Speaking'],
-        kids: true,
-      },
-      {
-        id: 'm_s6',
-        title: '🍎 Từ Vựng: Thức Ăn & Nấu Nướng (A2)',
-        type: 'vstep',
-        targetId: 'food-cooking',
-        desc: '🕐 ~4 giờ | 101 từ về thức ăn, phương pháp nấu, gọi món nhà hàng. Sau bài: gọi được đồ ăn tại nhà hàng nước ngoài và đọc thực đơn tiếng Anh.',
-        xp: 15,
-        exam: ['VSTEP A2', 'IELTS Band 4'],
-        kids: true,
-      },
-      {
-        id: 'm_s7',
-        title: '🛒 Từ Vựng: Mua Sắm & Cửa Hàng (A1)',
-        type: 'vstep',
-        targetId: 'shopping-stores-beginner',
-        desc: '🕐 ~3 giờ | Học cách mua sắm, tên các cửa hàng và cách hỏi giá tiền. Rất thiết thực khi đi siêu thị nước ngoài.',
-        xp: 15,
-        exam: ['VSTEP A1'],
-        kids: true,
-      },
-      {
-        id: 'm_s8',
-        title: '⏰ Từ Vựng: Thời Gian & Số Lượng (A1)',
-        type: 'vstep',
-        targetId: 'time-dates-beginner',
-        desc: '🕐 ~4 giờ | 100 từ vựng cơ bản nhất về giờ giấc, ngày tháng và các con số. Nền tảng không thể thiếu.',
-        xp: 15,
-        exam: ['VSTEP A1'],
-        kids: true,
-      },
-    ]
-  },
+export { additionalVocabTopics };
 
-  {
-    level: 'elementary',
-    levelTitle: '🌿 Sơ Cấp (Elementary - A2)',
-    levelDesc: 'Xây dựng nền tảng vững chắc với các thì quá khứ và từ vựng cuộc sống hàng ngày. Có thể giao tiếp đơn giản.',
-    icon: '🌿',
-    color: 'border-cyan-500 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-900 dark:text-cyan-100',
-    badgeColor: 'bg-cyan-500 text-white',
-    shadowColor: 'shadow-cyan-300',
-    targetAudience: ['🧒 Học sinh tiểu học', '👩 Người đi làm cơ bản'],
-    skills: ['Kể chuyện quá khứ', 'Hỏi và trả lời', 'Viết đoạn văn ngắn', 'Hiểu hội thoại đơn giản'],
-    milestones: [
-      {
-        id: 'm_e1',
-        title: '⏪ Quá Khứ Đơn (Past Simple)',
-        type: 'grammar',
-        targetId: 'b1_04',
-        desc: '🕐 ~5 giờ | Dùng V2/V-ed kể chuyện đã xảy ra: "I went, she cooked, they played." Học 40+ động từ bất quy tắc. Sau bài: viết nhật ký 10 câu về hôm qua bằng tiếng Anh.',
-        xp: 25,
-        exam: ['VSTEP A2', 'IELTS Band 4'],
-        kids: false,
-      },
-      {
-        id: 'm_e2',
-        title: '🔄 Quá Khứ Tiếp Diễn (Past Continuous)',
-        type: 'grammar',
-        targetId: 'b1_05',
-        desc: '🕐 ~4 giờ | "I was cooking when the phone rang." Kể hành động đang xảy ra khi chuyện khác chen vào. Sau bài: kể câu chuyện 5 câu có 2 hành động song song trong quá khứ.',
-        xp: 25,
-        exam: ['VSTEP A2-B1'],
-        kids: false,
-      },
-      {
-        id: 'm_e3',
-        title: '😊 Từ Vựng: Cảm Xúc & Tính Cách (B1)',
-        type: 'vstep',
-        targetId: 'emotions-personality',
-        desc: '🕐 ~4 giờ | 101 từ: anxious, determined, empathetic, stubborn, resilient... Chủ đề yêu thích IELTS Speaking Part 1. Sau bài: tự mô tả tính cách mình bằng 5-8 từ + giải thích.',
-        xp: 20,
-        exam: ['IELTS Speaking Band 4-5', 'VSTEP B1'],
-        kids: true,
-      },
-      {
-        id: 'm_e4',
-        title: '🐾 Từ Vựng: Động Vật & Thiên Nhiên (B1)',
-        type: 'vstep',
-        targetId: 'animals-pets',
-        desc: '🕐 ~3 giờ | 105 từ: wildlife, habitat, predator, endangered, extinct, mammal... Hay xuất hiện trong IELTS Reading passage về môi trường. Sau bài: đọc hiểu đoạn văn về động vật hoang dã.',
-        xp: 20,
-        exam: ['VSTEP B1', 'IELTS Band 4-5'],
-        kids: true,
-      },
-      {
-        id: 'm_e5',
-        title: '🌦️ Từ Vựng: Thời Tiết & Mùa (A2-B1)',
-        type: 'vstep',
-        targetId: 'weather-seasons',
-        desc: '🕐 ~3 giờ | 101 từ: forecast, humidity, heatwave, gale, drizzle, blizzard... Luyện nghe dự báo thời tiết thực tế BBC Weather. Sau bài: viết đoạn mô tả thời tiết yêu thích.',
-        xp: 20,
-        exam: ['VSTEP A2-B1'],
-        kids: true,
-      },
-      {
-        id: 'm_e6',
-        title: '🔧 Cụm Động Từ (Phrasal Verbs)',
-        type: 'grammar',
-        targetId: 'b1_26',
-        desc: '🕐 ~6 giờ | 50 phrasal verbs quan trọng nhất: give up, look after, run out of, put off, get on with... Mỗi cụm kèm 3 ví dụ câu thực tế. Sau bài: dùng 10 phrasal verbs tự nhiên trong hội thoại.',
-        xp: 30,
-        exam: ['IELTS Band 5', 'TOEIC 500+', 'VSTEP B1'],
-        kids: false,
-      },
-    ]
-  },
+export const ROADMAP_BANDS = ['foundation', 'starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'];
+export const CEFR_OF_BAND = {
+  foundation: 'A0', starter: 'A1', elementary: 'A2',
+  intermediate: 'B1', upper_intermediate: 'B2', advanced: 'C1',
+};
 
-  {
-    level: 'intermediate',
-    levelTitle: '⭐ Trung Cấp (Intermediate - B1)',
-    levelDesc: 'Làm chủ các thì hoàn thành, câu bị động cơ bản và từ vựng giao tiếp thực tế. Đủ để thi VSTEP B1 và IELTS Band 4-5.',
-    icon: '⭐',
-    color: 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-900 dark:text-emerald-100',
-    badgeColor: 'bg-emerald-500 text-white',
-    shadowColor: 'shadow-emerald-300',
-    targetAudience: ['👨‍🎓 Học sinh THPT', '👩‍💼 Nhân viên văn phòng'],
-    skills: ['Giao tiếp tự nhiên', 'Viết email đơn giản', 'Đọc hiểu văn bản', 'IELTS Band 4-5 / VSTEP B1'],
-    milestones: [
-      {
-        id: 'm_i1',
-        title: '✅ Hiện Tại Hoàn Thành (Present Perfect)',
-        type: 'grammar',
-        targetId: 'b1_06',
-        desc: '🕐 ~5 giờ | "Have you ever been to Paris? I have lived here since 2015." Phân biệt since/for, yet/already/just. Sau bài: trả lời 10 câu IELTS Speaking dùng Present Perfect tự nhiên.',
-        xp: 30,
-        exam: ['IELTS Band 5', 'VSTEP B1', 'TOEIC 500+'],
-        kids: false,
-      },
-      {
-        id: 'm_i2',
-        title: '🌍 Từ Vựng: Môi Trường (IELTS B1-B2)',
-        type: 'vstep',
-        targetId: 'nature-countryside',
-        desc: '🕐 ~5 giờ | 115 từ: climate change, pollution, sustainability, biodiversity, carbon footprint... Chủ đề ưa thích nhất IELTS Task 2. Sau bài: viết luận 250 từ về ô nhiễm không khí.',
-        xp: 25,
-        exam: ['IELTS Band 5-6', 'VSTEP B1-B2'],
-        kids: false,
-      },
-      {
-        id: 'm_i3',
-        title: '💻 Từ Vựng: Công Nghệ & Internet (B1)',
-        type: 'vstep',
-        targetId: 'technology-internet',
-        desc: '🕐 ~5 giờ | 120 từ: artificial intelligence, cryptocurrency, algorithm, cybersecurity, cloud computing... Từ vựng TOEIC phổ biến nhất. Sau bài: đọc hiểu bài báo công nghệ BBC/TechCrunch.',
-        xp: 25,
-        exam: ['IELTS Band 5-6', 'TOEIC 600+', 'VSTEP B1'],
-        kids: false,
-      },
-      {
-        id: 'm_i4',
-        title: '❓ Câu Hỏi Gián Tiếp (Embedded Questions)',
-        type: 'grammar',
-        targetId: 'b1_27',
-        desc: '🕐 ~4 giờ | "Could you tell me where the bank is?" thay vì "Where is the bank?" Lịch sự và chuyên nghiệp hơn nhiều. Sau bài: viết 10 câu hỏi lịch sự cho tình huống thực tế.',
-        xp: 30,
-        exam: ['IELTS Writing Band 6', 'VSTEP B1'],
-        kids: false,
-      },
-      {
-        id: 'm_i5',
-        title: '⚖️ Both / Either / Neither',
-        type: 'grammar',
-        targetId: 'b1_28',
-        desc: '🕐 ~3 giờ | Both languages are useful. Either option works. Neither solution is perfect. Hay xuất hiện trong IELTS Writing Task 2, Reading và VSTEP Reading. Sau bài: viết 5 câu so sánh hai lựa chọn.',
-        xp: 25,
-        exam: ['IELTS Writing', 'VSTEP B1'],
-        kids: false,
-      },
-      {
-        id: 'm_i6',
-        title: '🏥 Từ Vựng: Y Tế & Sức Khỏe (VSTEP/IELTS)',
-        type: 'vstep',
-        targetId: 'health-medical',
-        desc: '🕐 ~5 giờ | 120 từ y tế: symptom, diagnosis, prognosis, prescription, chronic, epidemic... Sau bài: tự mô tả triệu chứng bằng tiếng Anh và đọc hiểu bài báo y tế quốc tế.',
-        xp: 35,
-        exam: ['IELTS Band 5-7', 'VSTEP B1-B2', 'TOEIC 600+'],
-        kids: false,
-      },
-      {
-        id: 'm_i7',
-        title: '🤝 Từ Vựng: Xã Hội & Cộng Đồng (B1)',
-        type: 'vstep',
-        targetId: 'social-issues-daily',
-        desc: '🕐 ~4 giờ | Từ vựng thảo luận về các vấn đề xã hội, cộng đồng, tình nguyện và giúp đỡ người khác.',
-        xp: 30,
-        exam: ['VSTEP B1', 'TOEIC 500+'],
-        kids: false,
-      },
-      {
-        id: 'm_i8',
-        title: '📰 Từ Vựng: Truyền Thông & Tin Tức (B1)',
-        type: 'vstep',
-        targetId: 'media-news-daily',
-        desc: '🕐 ~4 giờ | Nắm vững 100 từ vựng để đọc báo, xem tin tức truyền hình và hiểu mạng xã hội tiếng Anh.',
-        xp: 30,
-        exam: ['VSTEP B1', 'TOEIC 600+'],
-        kids: false,
-      },
-    ]
-  },
+// Nhãn ngắn cho dàn tab lộ trình. Trước đây viết cứng trong WelcomePage nên
+// thêm bậc là phải sửa hai chỗ và số đếm thì lệch.
+export const BAND_TAB_LABEL = {
+  foundation: '⬜ A0 Mất Gốc',
+  starter: '🌱 A1 Khởi Đầu',
+  elementary: '🌿 A2 Sơ Cấp',
+  intermediate: '⭐ B1 Trung Cấp',
+  upper_intermediate: '🌟 B2 Trung Cao',
+  advanced: '🏆 C1 Cao Cấp',
+};
 
-  {
-    level: 'upper_intermediate',
-    levelTitle: '🌟 Trung Cao (Upper-Intermediate - B2)',
-    levelDesc: 'Nắm vững ngữ pháp phức tạp, từ vựng học thuật và kỹ năng viết luận. Mục tiêu IELTS Band 6-7 / VSTEP B2 / TOEIC 700+.',
-    icon: '🌟',
-    color: 'border-violet-500 bg-violet-50 dark:bg-violet-900/20 text-violet-900 dark:text-violet-100',
-    badgeColor: 'bg-violet-500 text-white',
-    shadowColor: 'shadow-violet-300',
-    targetAudience: ['🎓 Sinh viên đại học', '💼 Nhân viên có kinh nghiệm'],
-    skills: ['Viết luận học thuật', 'Phỏng vấn xin việc', 'IELTS Band 6-7', 'TOEIC 700+'],
-    milestones: [
-      {
-        id: 'm_u1',
-        title: '⏳ Quá Khứ Hoàn Thành (Past Perfect)',
-        type: 'grammar',
-        targetId: 'b2_02',
-        desc: '🕐 ~4 giờ | "She had already left when I arrived." — Kết hợp Past Perfect + Past Simple kể chuyện nhiều tầng thời gian. Sau bài: viết câu chuyện ngắn có chuỗi sự kiện phức tạp.',
-        xp: 35,
-        exam: ['IELTS Band 6', 'VSTEP B2'],
-        kids: false,
-      },
-      {
-        id: 'm_u2',
-        title: '🔀 Câu Bị Động Nâng Cao',
-        type: 'grammar',
-        targetId: 'b2_03',
-        desc: '🕐 ~5 giờ | "The project has been completed." + Causative: "I had my hair cut." Passive voice nâng cao — thiết yếu cho viết báo cáo chuyên nghiệp. Sau bài: viết báo cáo 200 từ.',
-        xp: 35,
-        exam: ['IELTS Band 6-7', 'VSTEP B2', 'TOEIC 700+'],
-        kids: false,
-      },
-      {
-        id: 'm_u3',
-        title: '💼 Từ Vựng: Kinh Doanh (TOEIC)',
-        type: 'vstep',
-        targetId: 'business-office',
-        desc: '🕐 ~5 giờ | 120 từ business: ROI, due diligence, synergy, KPI, stakeholder, merger... Sau bài: tham dự họp bằng tiếng Anh, viết email chuyên nghiệp, đọc hợp đồng cơ bản.',
-        xp: 40,
-        exam: ['TOEIC 700+', 'Business English', 'VSTEP B2'],
-        kids: false,
-      },
-      {
-        id: 'm_u4',
-        title: '🔗 Mệnh Đề Quan Hệ (Relative Clauses)',
-        type: 'grammar',
-        targetId: 'b2_05',
-        desc: '🕐 ~4 giờ | "The man who called you is here." Phân biệt defining (that/which) và non-defining (,which,). Sau bài: viết 8 câu phức với relative clauses, mô tả người/nơi/vật.',
-        xp: 35,
-        exam: ['IELTS Band 6-7', 'VSTEP B2'],
-        kids: false,
-      },
-      {
-        id: 'm_u5',
-        title: '🎭 Câu Điều Kiện (Conditionals)',
-        type: 'grammar',
-        targetId: 'b2_06',
-        desc: '🕐 ~5 giờ | Type 0,1,2,3 + Mixed: "If I had studied harder, I would be better now." Sau bài: nói về 3 quyết định đã qua + 3 tình huống giả định tương lai — IELTS Speaking Band 7.',
-        xp: 40,
-        exam: ['IELTS Band 7', 'VSTEP B2', 'TOEIC 750+'],
-        kids: false,
-      },
-      {
-        id: 'm_u6',
-        title: '📢 Câu Tường Thuật (Reported Speech)',
-        type: 'grammar',
-        targetId: 'b2_04',
-        desc: '🕐 ~4 giờ | "She said (that) she was tired." Backshifting tenses, say/tell/ask/advise. Rất hay trong VSTEP Listening Section 3-4 và IELTS Listening. Sau bài: chuyển 10 câu trực tiếp sang gián tiếp.',
-        xp: 35,
-        exam: ['VSTEP B2', 'IELTS Band 6'],
-        kids: false,
-      },
-      {
-        id: 'm_u7',
-        title: '🏠 Từ Vựng: Nhà Ở & Môi Trường Sống',
-        type: 'vstep',
-        targetId: 'daily-routine-time-management',
-        desc: '🕐 ~3 giờ | 101 từ: furnished, terraced, suburb, landlord, renovation, mortgage... IELTS Speaking Part 2 yêu thích. Sau bài: mô tả ngôi nhà mơ ước bằng tiếng Anh trong 2 phút.',
-        xp: 25,
-        exam: ['IELTS Speaking', 'VSTEP B1-B2'],
-        kids: false,
-      },
-    ]
-  },
+// Bậc A0 chưa từng tồn tại nên phải tự khai. Năm bậc còn lại lấy nguyên phần
+// mô tả người soạn đã viết trong roadmapCurated.
+const FOUNDATION_META = {
+  level: 'foundation',
+  levelTitle: '⬜ Mất Gốc (A0)',
+  levelDesc: 'Bảng chữ cái, cách phát âm, và cách đọc ký hiệu phiên âm IPA. Học xong cụm này mới dùng được phần còn lại của ứng dụng — vì mọi mục từ đều kèm IPA.',
+  icon: '⬜',
+  color: 'border-lime-400 bg-lime-50 dark:bg-lime-900/20 text-lime-900 dark:text-lime-100',
+  badgeColor: 'bg-lime-500 text-white',
+  shadowColor: 'shadow-lime-300',
+  targetAudience: ['🌱 Chưa biết gì về tiếng Anh', '🔤 Chưa đọc được phiên âm'],
+  skills: ['Đọc được bảng chữ cái', 'Đọc được phiên âm IPA', 'Phát âm đúng âm cuối', 'Đặt đúng trọng âm'],
+};
 
-  {
-    level: 'advanced',
-    levelTitle: '🏆 Cao Cấp (Advanced - C1/C2)',
-    levelDesc: 'Làm chủ ngữ pháp học thuật, đảo ngữ nâng cao, idioms và collocations. Chuẩn bị cho IELTS Band 7+ / VSTEP C1 / TOEIC 900+.',
-    icon: '🏆',
-    color: 'border-rose-500 bg-rose-50 dark:bg-rose-900/20 text-rose-900 dark:text-rose-100',
-    badgeColor: 'bg-rose-500 text-white',
-    shadowColor: 'shadow-rose-300',
-    targetAudience: ['🧑‍💼 Chuyên gia', '📚 Người thi học thuật', '✈️ Người sống/làm việc ở nước ngoài'],
-    skills: ['Viết academic essay', 'Thuyết trình chuyên nghiệp', 'IELTS 7+', 'TOEIC 900+'],
-    milestones: [
-      {
-        id: 'm_a1',
-        title: '🔄 Thì Nâng Cao (Advanced Tenses)',
-        type: 'grammar',
-        targetId: 'c1c2_1',
-        desc: '🕐 ~6 giờ | Perfect continuous: "She will have been working for 5 years." + Complex time clauses. Sau bài: viết bài luận về xu hướng xã hội dùng tất cả các thì phức tạp. Mục tiêu Band 7+.',
-        xp: 50,
-        exam: ['IELTS Band 7+', 'VSTEP C1'],
-        kids: false,
-      },
-      {
-        id: 'm_a2',
-        title: '🔁 Đảo Ngữ (Inversion)',
-        type: 'grammar',
-        targetId: 'c1c2_3',
-        desc: '🕐 ~5 giờ | Never have I seen such beauty. Not only did she pass... Hardly had I arrived when... Ấn tượng người chấm IELTS ngay lập tức. Sau bài: viết 10 câu đảo ngữ về chủ đề xã hội.',
-        xp: 50,
-        exam: ['IELTS Band 7-8', 'VSTEP C1-C2'],
-        kids: false,
-      },
-      {
-        id: 'm_a3',
-        title: '🎯 Collocations Nâng Cao',
-        type: 'grammar',
-        targetId: 'c1c2_20',
-        desc: '🕐 ~5 giờ | 100 cụm từ cố định: come to a conclusion, draw a distinction, make a significant contribution... Sau bài: dùng 15 collocations học thuật trong bài viết IELTS Task 2 — nói như người bản ngữ.',
-        xp: 45,
-        exam: ['IELTS Band 7+', 'TOEIC 850+', 'VSTEP C1'],
-        kids: false,
-      },
-      {
-        id: 'm_a4',
-        title: '📝 Thành Ngữ (Idioms)',
-        type: 'grammar',
-        targetId: 'c1c2_22',
-        desc: '🕐 ~4 giờ | 60 thành ngữ phổ biến: break a leg, hit the nail on the head, spill the beans, once in a blue moon... IELTS Speaking Band 7 tích cực dùng idioms tự nhiên. Sau bài: kể chuyện dùng 5 idioms.',
-        xp: 45,
-        exam: ['IELTS Band 7', 'VSTEP C1'],
-        kids: false,
-      },
-      {
-        id: 'm_a5',
-        title: '🌐 Mệnh Đề Giả Định (Subjunctive)',
-        type: 'grammar',
-        targetId: 'c1c2_5',
-        desc: '🕐 ~4 giờ | "I suggest that he study harder." (NOT studies!) It is essential that the report be submitted... Hình thức ngữ pháp cao cấp nhất trong tiếng Anh học thuật. Sau bài: viết đề xuất chính sách.',
-        xp: 50,
-        exam: ['IELTS Academic Band 7+', 'VSTEP C1-C2'],
-        kids: false,
-      },
-      {
-        id: 'm_a6',
-        title: '💼 Từ Vựng: Kinh Tế & Pháp Lý',
-        type: 'vstep',
-        targetId: 'economy-money',
-        desc: '🕐 ~6 giờ | macro/microeconomics, inflation, fiscal policy, jurisprudence, liability, plaintiff... Đủ để đọc The Economist không cần tra từ. Sau bài: tóm tắt bài báo kinh tế 300 từ bằng tiếng Anh.',
-        xp: 45,
-        exam: ['IELTS Academic Band 7', 'VSTEP C1', 'Business Advanced'],
-        kids: false,
-      },
-      {
-        id: 'm_a7',
-        title: '🎓 Từ Vựng: Giáo Dục Học Thuật',
-        type: 'vstep',
-        targetId: 'education-learning-advanced',
-        desc: '🕐 ~5 giờ | 100 từ AWL: hypothesis, methodology, curriculum, pedagogy, epistemology, discourse... Sau bài: viết abstract nghiên cứu khoa học 200 từ đạt chuẩn học thuật quốc tế.',
-        xp: 45,
-        exam: ['IELTS Academic Band 7-8', 'VSTEP C1-C2'],
-        kids: false,
-      },
-      {
-        id: 'm_a9',
-        title: '🧪 Từ Vựng: Khoa Học & Công Nghệ 2.0',
-        type: 'vstep',
-        targetId: 'science-tech-advanced',
-        desc: '🕐 ~5 giờ | 110 từ: CRISPR, quantum entanglement, neural network, biotech, gene editing, renewable... Từ vựng công nghệ tương lai. Sau bài: trình bày ý kiến về AI trong 3 phút bằng tiếng Anh.',
-        xp: 50,
-        exam: ['IELTS Academic Band 7+', 'VSTEP C1'],
-        kids: false,
-      },
-      {
-        id: 'm_a10',
-        title: '🧠 Từ Vựng: Tâm Lý & Hành Vi',
-        type: 'vstep',
-        targetId: 'psychology-emotions',
-        desc: '🕐 ~5 giờ | 105 từ: cognitive bias, neuroplasticity, confirmation bias, growth mindset, dopamine... Sau bài: viết phân tích hành vi con người dùng từ chuyên ngành tâm lý — IELTS Topic favourite.',
-        xp: 50,
-        exam: ['IELTS Band 7+', 'VSTEP C1', 'Psychology'],
-        kids: false,
-      },
-      {
-        id: 'm_a11',
-        title: '📰 Từ Vựng: Truyền Thông & Báo Chí',
-        type: 'vstep',
-        targetId: 'media-journalism',
-        desc: '🕐 ~4 giờ | 100 từ: fake news, algorithm, echo chamber, digital footprint, viral, paparazzi... Sau bài: phân tích tác động mạng xã hội bằng từ vựng học thuật — IELTS Mass Media aced.',
-        xp: 45,
-        exam: ['IELTS Band 7+', 'VSTEP C1'],
-        kids: false,
-      },
-      {
-        id: 'm_a12',
-        title: '🏛️ Từ Vựng Học Thuật IELTS 7.0+',
-        type: 'vstep',
-        targetId: 'ielts-academic-vocab',
-        desc: '🕐 ~7 giờ | AWL 100 từ quan trọng nhất: analyse, framework, paradigm, contextualise, synthesise... Từ đồng nghĩa + trái nghĩa + collocations. Sau bài: đạt Band 7 IELTS Writing Task 2.',
-        xp: 60,
-        exam: ['IELTS Academic Band 7-8', 'VSTEP C1-C2'],
-        kids: false,
-      },
-      {
-        id: 'm_a13',
-        title: '🌟 100 Từ Vựng: Thành Công & Tư Duy',
-        type: 'vstep',
-        targetId: 'success-mindset-100',
-        desc: '🕐 ~5 giờ | 100 từ: resilience, integrity, visionary, paradigm shift, grit, accountability... Kèm từ đồng nghĩa, trái nghĩa, cụm từ đi kèm. IELTS Speaking Part 3 & Writing advanced mastered.',
-        xp: 80,
-        exam: ['IELTS Band 6+', 'TOEIC 700+', 'Life'],
-        kids: false,
-      },
-      {
-        id: 'm_a8',
-        title: '🏆 Tổng Ôn C1/C2 — Đỉnh Cao!',
-        type: 'grammar',
-        targetId: 'c1c2_25',
-        desc: '🕐 ~8 giờ | Ôn tập toàn bộ C1/C2: advanced tenses, inversion, collocations, idioms, academic vocab. Làm đề thi thử IELTS Band 8 và VSTEP C2 hoàn chỉnh. Sau bài: tự tin thi thật — bạn đã sẵn sàng!',
-        xp: 100,
-        exam: ['IELTS Band 8+', 'VSTEP C2', 'TOEIC 900+'],
-        kids: false,
-      },
-      {
-        id: 'm_a14',
-        title: '🌍 Từ Vựng: Vấn Đề Toàn Cầu & Chính Trị',
-        type: 'vstep',
-        targetId: 'global-issues-politics-ielts',
-        desc: '🕐 ~6 giờ | Chủ đề khó bậc nhất trong IELTS. 100 từ vựng C1-C2 giúp bạn viết essay về các vấn đề vĩ mô xuất sắc.',
-        xp: 60,
-        exam: ['IELTS Band 7-8', 'VSTEP C1-C2'],
-        kids: false,
-      },
-      {
-        id: 'm_a15',
-        title: '🎭 Từ Vựng: Âm Nhạc & Nghệ Thuật Biểu Diễn',
-        type: 'vstep',
-        targetId: 'music-performing-arts-ielts',
-        desc: '🕐 ~5 giờ | Từ vựng nâng cao chuyên sâu về sân khấu, kịch nghệ, hòa nhạc và đánh giá thẩm mỹ.',
-        xp: 50,
-        exam: ['IELTS Band 7-8'],
-        kids: false,
-      },
-    ]
-  }
-];
+// XP theo KHỐI LƯỢNG THẬT của chặng, không phải con số bốc: ~5 XP cho mỗi 6
+// phút học, chặn trong khoảng 10–60 để không có chặng nào thưởng quá đà.
+const xpFromMinutes = (minutes) => Math.max(10, Math.min(60, Math.round((minutes || 0) / 6) * 5));
 
-// Roadmap milestones for intermediate level — Sports & Career
-// (These link to vocabFinalData topics for B1-B2 learners)
-export const additionalVocabTopics = [
-  { id: 'sports-fitness', level: 'B1', title: '⚽ Thể Thao & Sức Khỏe Thể Chất' },
-  { id: 'career-workplace', level: 'B2', title: '💼 Nghề Nghiệp & Sự Nghiệp' },
-  { id: 'shopping-finance', level: 'B1', title: '🛒 Mua Sắm & Tài Chính Cá Nhân' },
-  { id: 'kids-nature-animals', level: 'A1', title: '🌈 Động Vật & Thiên Nhiên (Trẻ Em)' },
-];
+const curatedByBand = new Map(roadmapCurated.map((l) => [l.level, l]));
 
+export const roadmapData = ROADMAP_BANDS.map((band) => {
+  const curated = curatedByBand.get(band);
+  const meta = curated
+    ? { ...curated, milestones: undefined }
+    : FOUNDATION_META;
+
+  const curatedMs = (curated?.milestones || []).map((m) => ({
+    ...m,
+    cefr: m.cefr || CEFR_OF_BAND[band],
+    minutes: curatedMinutes[m.targetId] ?? 0,
+    curated: true,
+  }));
+
+  const generatedMs = (roadmapGenerated[band] || []).map((m) => ({
+    ...m,
+    // id phải duy nhất trên toàn lộ trình: giao diện dùng nó làm khoá React và
+    // để biết chặng nào đang là "Học Tiếp". Tiến độ thì khoá theo targetId nên
+    // đổi id không làm ai mất gì.
+    id: `gen-${m.type}-${m.targetId}`,
+    xp: xpFromMinutes(m.minutes),
+    exam: [],
+    kids: false,
+    curated: false,
+  }));
+
+  return { ...meta, milestones: [...curatedMs, ...generatedMs] };
+});
+
+// ---- Số giờ: tính từ dữ liệu, không phải chữ viết tay ------------------------
+export function bandMinutes(band) {
+  const lv = roadmapData.find((l) => l.level === band);
+  return (lv?.milestones || []).reduce((s, m) => s + (m.minutes || 0), 0);
+}
+
+export function roadmapTotalMinutes() {
+  return roadmapData.reduce((s, l) => s + l.milestones.reduce((x, m) => x + (m.minutes || 0), 0), 0);
+}
+
+// Tổng giờ từ đầu lộ trình đến HẾT một bậc — dùng để nói với người học "để đạt
+// B2 bạn cần khoảng N giờ", bằng số đo chứ không bằng ước đoán.
+export function minutesThroughBand(band) {
+  const stop = ROADMAP_BANDS.indexOf(band);
+  if (stop < 0) return 0;
+  return ROADMAP_BANDS.slice(0, stop + 1).reduce((s, b) => s + bandMinutes(b), 0);
+}

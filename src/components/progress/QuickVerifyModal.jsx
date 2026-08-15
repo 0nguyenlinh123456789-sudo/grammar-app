@@ -12,7 +12,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { X, CheckCircle2, XCircle, ShieldCheck, RotateCcw, BookOpen } from 'lucide-react';
 import { buildQuickVerify, hasQuickVerifySupply } from '../../utils/quickVerify';
 import { buildQuickVerifyEvidence, QUICK_VERIFY_SIZE, QUICK_VERIFY_PASS } from '../../utils/mastery';
-import { sanitizeVocabTopics } from '../../utils/contentFilter';
+import { sanitizeVocabTopics, sanitizeBook } from '../../utils/contentFilter';
 import { playCorrect, playWrong, playComplete } from '../../utils/sound';
 
 async function loadSource(milestone) {
@@ -27,7 +27,35 @@ async function loadSource(milestone) {
     // bản đầu tiên, nên bản đầu tiên chính là bản mà lộ trình trỏ tới.
     return sanitizeVocabTopics(mod.default || []).find((t) => t.id === milestone.targetId) || null;
   }
+  if (milestone.type === 'oxford') {
+    // Nạp ĐÚNG quyển sách của chặng. Ba quyển cộng lại ~9MB nên không nạp cả ba
+    // chỉ để lấy một unit. So sánh id lỏng (==) có chủ ý: sách Elementary đánh
+    // id bằng SỐ, hai quyển kia bằng CHUỖI.
+    const same = (a, b) => String(a) === String(b);
+    const units = await loadOxfordUnits(milestone.bookId);
+    return units.find((u) => same(u.id, milestone.targetId)) || null;
+  }
   return null;
+}
+
+async function loadOxfordUnits(bookId) {
+  if (bookId === 'elementary') {
+    const [a, b, c] = await Promise.all([
+      import('../../data/oxfordData'), import('../../data/oxfordDataPart2'), import('../../data/oxfordDataPart3'),
+    ]);
+    return sanitizeBook([...a.courseData, ...b.courseData, ...c.courseData]);
+  }
+  if (bookId === 'pre_intermediate') {
+    const [a, b, c] = await Promise.all([
+      import('../../data/oxfordPreIntData'), import('../../data/oxfordPreIntData51_75'), import('../../data/oxfordPreIntData76_100'),
+    ]);
+    return sanitizeBook([...a.courseData, ...b.courseData51_75, ...c.courseData76_100]);
+  }
+  const [a, b, c, d] = await Promise.all([
+    import('../../data/oxfordAdvancedData1_25'), import('../../data/oxfordAdvancedData26_50'),
+    import('../../data/oxfordAdvancedData51_75'), import('../../data/oxfordAdvancedData76_100'),
+  ]);
+  return sanitizeBook([...a.courseData1_25, ...b.courseData26_50, ...c.courseData51_75, ...d.courseData76_100]);
 }
 
 const QuickVerifyModal = ({ milestone, onClose, onFinish, onStudyAgain }) => {

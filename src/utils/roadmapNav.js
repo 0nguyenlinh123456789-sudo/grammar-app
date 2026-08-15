@@ -8,7 +8,11 @@
 import { LEVELS } from './placement.js';
 
 // Thứ tự cấp độ CỦA LỘ TRÌNH (src/data/roadmapData.js) — dùng gạch DƯỚI.
-export const ROADMAP_LEVEL_ORDER = ['starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'];
+// 'foundation' (A0, cụm "Mất gốc thật") thêm 2026-08-14, đứng TRƯỚC starter.
+// Bài test đầu vào KHÔNG có bậc nào map sang đây — người làm test dù điểm thấp
+// nhất cũng được đề xuất bắt đầu ở 'starter'. Cụm A0 dành cho người tự biết
+// mình chưa đọc được phiên âm, và luôn mở sẵn để ai cũng quay lại được.
+export const ROADMAP_LEVEL_ORDER = ['foundation', 'starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'];
 
 // Map TƯỜNG MINH từ id của placement sang id của lộ trình.
 // CẠM BẪY: placement dùng 'upper-intermediate' (gạch NGANG), lộ trình dùng

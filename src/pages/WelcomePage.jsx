@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { roadmapData } from '../data/roadmapData';
+import { roadmapData, BAND_TAB_LABEL, bandMinutes, minutesThroughBand, roadmapTotalMinutes } from '../data/roadmapData';
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
@@ -39,6 +39,7 @@ const WelcomePage = ({
   setAppMode,
   setActiveVocabCategory,
   setOxfordUnitId,
+  setActiveOxfordBookId,
   setVstepTopicId,
   resetRoadmap,
   streak = 0,
@@ -130,6 +131,21 @@ const WelcomePage = ({
   const nextMilestoneIndex = nextMilestone ? allMilestones.indexOf(nextMilestone) : -1;
   const activeTab = manualTab || recommendedLevel || 'all';
 
+  // (1.5) 44 chặng soạn tay ghi giờ bằng chữ ngay trong mô tả ("🕐 ~4 giờ |").
+  // Đo lại từ nội dung thật thì tổng của 44 chặng đó là ~62 giờ chứ không phải
+  // ~201 giờ như đã ghi. Gỡ con số viết tay khỏi phần HIỂN THỊ và thay bằng số
+  // đo được — không sửa file của người soạn, và không để hai con số mâu thuẫn
+  // đứng cạnh nhau trên cùng một thẻ.
+  const stripClaimedHours = (desc) => String(desc || '').replace(/^🕐\s*~?\s*\d+\s*giờ\s*\|\s*/u, '');
+
+  const formatDuration = (minutes) => {
+    const m = Math.max(0, Math.round(minutes || 0));
+    if (m < 60) return `${m} phút`;
+    const h = Math.floor(m / 60);
+    const rest = m % 60;
+    return rest ? `${h} giờ ${rest} phút` : `${h} giờ`;
+  };
+
   // Handler to launch a milestone
   const launchMilestone = (milestone) => {
     if (milestone.type === 'grammar') {
@@ -138,6 +154,10 @@ const WelcomePage = ({
     } else if (milestone.type === 'oxford') {
       setAppMode('vocab');
       setActiveVocabCategory('OXFORD');
+      // Phải đặt SÁCH trước rồi mới đặt unit. Trang chủ chưa nạp dữ liệu Oxford
+      // (9MB, chỉ tải khi vào mục đó), nên hàm dò-sách-theo-unit trong App
+      // không tìm ra gì và sẽ mở nhầm unit đầu của quyển đang chọn.
+      if (milestone.bookId) setActiveOxfordBookId?.(milestone.bookId);
       setOxfordUnitId(milestone.targetId);
     } else if (milestone.type === 'vstep') {
       setAppMode('vocab');
@@ -145,6 +165,12 @@ const WelcomePage = ({
       setVstepTopicId(milestone.targetId);
     }
   };
+
+  // Lộ trình nay có 617 chặng. Đổ hết ra một trang thì cuộn mãi không tới và
+  // trình duyệt yếu thì đứng hình. Mặc định chỉ vẽ một CỬA SỔ quanh chặng đang
+  // học, có nút mở rộng — không giấu chặng nào, chỉ không vẽ hết cùng lúc.
+  const WINDOW_SIZE = 24;
+  const [expandedLevels, setExpandedLevels] = useState({});
 
   // Danh hiệu theo SỐ CHẶNG ĐÃ HỌC — đo sự chuyên cần, KHÔNG phải trình độ.
   // (#0-A1) Trước đây gắn nhãn CEFR ("C2 Master", "B1 Explorer"…) theo số
@@ -413,8 +439,15 @@ const WelcomePage = ({
             <span className="font-black text-slate-900 text-xs">{completionPercentage}%</span>
           </div>
         </div>
+        {/* (1.5) Số giờ ĐO TỪ SỐ BÀI THẬT, không phải con số viết tay. Nói
+            thẳng mốc B2 vì đó là cam kết của ứng dụng. */}
+        <p className="mt-3 text-xs font-bold text-slate-500 dark:text-slate-400">
+          Lộ trình có <span className="font-black text-slate-700 dark:text-slate-200">{totalMilestonesCount} chặng · ~{Math.round(roadmapTotalMinutes() / 60)} giờ học</span>.
+          Đi hết đến bậc B2 là khoảng <span className="font-black text-slate-700 dark:text-slate-200">{Math.round(minutesThroughBand('upper_intermediate') / 60)} giờ</span>.
+          Con số ước lượng từ số bài thật của từng chặng.
+        </p>
       </div>
- 
+
        {/* --- PERSONALIZED PLACEMENT CARD --- */}
        <section className="mb-10 bg-indigo-50 dark:bg-indigo-950/30 border-4 border-indigo-700 dark:border-indigo-500 rounded-3xl p-5 shadow-[6px_6px_0_0_#312e81] dark:shadow-[6px_6px_0_0_#020617] flex flex-col md:flex-row md:items-center justify-between gap-4">
          <div><p className="text-xs font-black uppercase tracking-widest text-indigo-600 dark:text-indigo-300">Lộ trình thông minh</p><h3 className="text-xl font-black mt-1">{recommendation.title}</h3><p className="text-sm font-bold text-slate-600 dark:text-slate-300 mt-1">{recommendation.body}</p></div>
@@ -634,13 +667,11 @@ const WelcomePage = ({
 
       {/* --- LEVEL TABS --- */}
       <div className="flex gap-2 mb-8 overflow-x-auto pb-2 scrollbar-hide shrink-0">
+        {/* Dàn tab DẪN XUẤT từ dữ liệu, không viết cứng: thêm bậc mới vào
+            roadmapData là tab tự mọc ra, và số đếm không bao giờ lệch. */}
         {[
           { id: 'all', title: 'TẤT CẢ LỘ TRÌNH', count: totalMilestonesCount },
-          { id: 'starter', title: '🌱 A1 Starter', count: roadmapData[0]?.milestones.length || 0 },
-          { id: 'elementary', title: '🌿 A2 Sơ Cấp', count: roadmapData[1]?.milestones.length || 0 },
-          { id: 'intermediate', title: '⭐ B1 Trung Cấp', count: roadmapData[2]?.milestones.length || 0 },
-          { id: 'upper_intermediate', title: '🌟 B2 Trung Cao', count: roadmapData[3]?.milestones.length || 0 },
-          { id: 'advanced', title: '🏆 C1/C2 Cao Cấp', count: roadmapData[4]?.milestones.length || 0 },
+          ...roadmapData.map((lv) => ({ id: lv.level, title: BAND_TAB_LABEL[lv.level] || lv.levelTitle, count: lv.milestones.length })),
         ].map(tab => (
           <button 
             key={tab.id}
@@ -699,6 +730,9 @@ const WelcomePage = ({
                       )}
                     </h3>
                     <p className="text-slate-500 dark:text-slate-400 font-bold text-xs md:text-sm mt-0.5">{level.levelDesc}</p>
+                    <p className="text-[11px] font-black text-slate-400 mt-1">
+                      {level.milestones.length} chặng · ~{formatDuration(bandMinutes(level.level))} · cộng dồn từ đầu lộ trình: ~{Math.round(minutesThroughBand(level.level) / 60)} giờ
+                    </p>
                     {level.targetAudience && (
                       <div className="flex flex-wrap gap-1 mt-2">
                         {level.targetAudience.map((aud, i) => (
@@ -710,9 +744,23 @@ const WelcomePage = ({
                 </div>
               )}
  
-              {/* Milestones in Level */}
+              {/* Milestones in Level — chỉ vẽ một CỬA SỔ quanh chặng đang học.
+                  Không chặng nào bị giấu: có nút mở hết ngay dưới. */}
+              {(() => {
+                const list = level.milestones;
+                const expanded = !!expandedLevels[level.level];
+                const activeIdx = list.findIndex((x) => nextMilestone && x.id === nextMilestone.id);
+                const anchor = activeIdx >= 0 ? activeIdx : list.findIndex((x) => !completedMilestones.includes(x.targetId));
+                const from = expanded ? 0 : Math.max(0, Math.min((anchor < 0 ? 0 : anchor) - 4, Math.max(0, list.length - WINDOW_SIZE)));
+                const to = expanded ? list.length : Math.min(list.length, from + WINDOW_SIZE);
+                const hidden = list.length - (to - from);
+                const shown = list.slice(from, to);
+                return (
               <div className="space-y-6">
-                {level.milestones.map((m) => {
+                {!expanded && from > 0 && (
+                  <p className="text-xs font-black text-slate-400 -mt-2">↑ {from} chặng phía trên (đã cuộn qua)</p>
+                )}
+                {shown.map((m) => {
                   const absoluteIdx = allMilestones.findIndex(item => item.id === m.id) + 1;
                   const isDone = completedMilestones.includes(m.targetId);
                   // (#1b) Chặng hoàn thành từ bản cũ không có bản ghi điểm →
@@ -772,7 +820,17 @@ const WelcomePage = ({
                             <h4 className="text-xl md:text-2xl font-black text-slate-900 dark:text-slate-100 flex items-center gap-2 leading-tight">
                               {m.title}
                             </h4>
-                            <p className="text-slate-500 dark:text-slate-400 font-bold text-xs md:text-sm leading-relaxed">{m.desc}</p>
+                            <p className="text-slate-500 dark:text-slate-400 font-bold text-xs md:text-sm leading-relaxed">{stripClaimedHours(m.desc)}</p>
+                            <div className="flex flex-wrap items-center gap-2 mt-1">
+                              {m.cefr && (
+                                <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-slate-800 text-white dark:bg-slate-700">{m.cefr}</span>
+                              )}
+                              {m.minutes > 0 && (
+                                <span title="Ước lượng ĐO TỪ SỐ BÀI THẬT của chặng, không phải con số viết tay" className="text-[10px] font-black px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-600">
+                                  🕐 ~{formatDuration(m.minutes)}
+                                </span>
+                              )}
+                            </div>
                             {getSkillBadges(m.type)}
                             {getExamBadge(m.exam)}
                           </div>
@@ -816,8 +874,26 @@ const WelcomePage = ({
                     </div>
                   );
                 })}
+                {hidden > 0 && (
+                  <button
+                    onClick={() => setExpandedLevels((prev) => ({ ...prev, [level.level]: !expanded }))}
+                    className="w-full py-3 rounded-2xl border-4 border-dashed border-slate-300 dark:border-slate-600 font-black text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
+                  >
+                    ↓ CÒN {hidden} CHẶNG NỮA Ở BẬC NÀY — BẤM ĐỂ XEM HẾT
+                  </button>
+                )}
+                {expanded && (
+                  <button
+                    onClick={() => setExpandedLevels((prev) => ({ ...prev, [level.level]: false }))}
+                    className="w-full py-3 rounded-2xl border-4 border-dashed border-slate-300 dark:border-slate-600 font-black text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
+                  >
+                    ↑ THU GỌN, CHỈ HIỆN QUANH CHẶNG ĐANG HỌC
+                  </button>
+                )}
               </div>
- 
+                );
+              })()}
+
             </div>
           ))}
       </div>

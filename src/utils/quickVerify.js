@@ -86,10 +86,36 @@ export function buildVocabQuickVerify(topic, size = QUICK_VERIFY_SIZE, rand = Ma
   return out;
 }
 
+// ---- Oxford ------------------------------------------------------------------
+// Unit Oxford có sẵn `quiz: [{ q, options, a }]` — dùng thẳng, cùng luật với
+// ngữ pháp: đáp án phải nằm trong danh sách lựa chọn.
+//
+// ⚠️ Sách Advanced chỉ còn 2 câu quiz/unit sau đợt dọn nội dung máy-sinh, nên
+// 100 unit Advanced KHÔNG đủ 5 câu để xác minh nhanh. Giao diện phải ẨN nút và
+// nói lý do — tuyệt đối không hạ số câu xuống rồi vẫn gọi là "đã xác minh".
+// Cách sửa gốc là bù độ dày cho sách đó (KE_HOACH_B2 việc 5.1).
+export function oxfordQuestionPool(unit) {
+  return (unit?.quiz || []).filter((e) => (
+    e && typeof e.q === 'string' && e.q.trim()
+    && Array.isArray(e.options) && e.options.length >= 2
+    && e.a !== undefined && e.options.includes(e.a)
+  ));
+}
+
+export function buildOxfordQuickVerify(unit, size = QUICK_VERIFY_SIZE, rand = Math.random) {
+  return shuffle(oxfordQuestionPool(unit), rand).slice(0, size).map((e, i) => ({
+    id: `o:${i}:${String(e.q).slice(0, 40)}`,
+    prompt: e.q,
+    options: shuffle(e.options, rand),
+    answer: e.a,
+  }));
+}
+
 // ---- Cửa vào chung -----------------------------------------------------------
 export function buildQuickVerify(type, source, size = QUICK_VERIFY_SIZE, rand = Math.random) {
   if (type === 'grammar') return buildGrammarQuickVerify(source, size, rand);
   if (type === 'vstep') return buildVocabQuickVerify(source, size, rand);
+  if (type === 'oxford') return buildOxfordQuickVerify(source, size, rand);
   return [];
 }
 
@@ -104,5 +130,6 @@ export function hasQuickVerifySupply(type, source, size = QUICK_VERIFY_SIZE) {
     const meanings = new Set(words.map((w) => norm(w.vi)));
     return meanings.size >= MIN_VOCAB_WORDS;
   }
+  if (type === 'oxford') return oxfordQuestionPool(source).length >= size;
   return false;
 }
