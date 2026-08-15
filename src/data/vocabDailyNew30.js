@@ -3,7 +3,7 @@ export const vocabDailyNew30 = [
   {
     id: "sports-fitness-daily", category: "daily",
     title: "⚽ Thể Thao & Thể Hình (A2-B1)",
-    description: "50 từ vựng thông dụng về các môn thể thao, thiết bị tập luyện, và sức khỏe thể chất.",
+    description: "51 từ vựng thông dụng về các môn thể thao, thiết bị tập luyện, và sức khỏe thể chất.",
     level: "A2-B1", examTags: ["Giao Tiếp", "A2", "B1"],
     words: [
       {en:"sport",vi:"thể thao",type:"(n)",ipa:"/spɔːt/",example:"I like playing sport.",viExample:"Tôi thích chơi thể thao."},
@@ -55,7 +55,8 @@ export const vocabDailyNew30 = [
       {en:"yoga",vi:"môn yo-ga",type:"(n)",ipa:"/ˈjəʊ.ɡə/",example:"She does yoga to relax.",viExample:"Cô ấy tập yo-ga để thư giãn."},
       {en:"ball",vi:"quả bóng",type:"(n)",ipa:"/bɔːl/",example:"A leather ball.",viExample:"Một quả bóng bằng da."},
       {en:"racket / racquet",vi:"cái vợt",type:"(n)",ipa:"/ˈræk.ɪt/",example:"A tennis racket.",viExample:"Một chiếc vợt quần vợt."},
-      {en:"net",vi:"tấm lưới",type:"(n)",ipa:"/net/",example:"Hit the ball over the net.",viExample:"Hãy đánh quả bóng qua tấm lưới."}
+      {en:"net",vi:"tấm lưới",type:"(n)",ipa:"/net/",example:"Hit the ball over the net.",viExample:"Hãy đánh quả bóng qua tấm lưới."},
+      {en:"medal",vi:"huy chương",type:"(n)",ipa:"/ˈmed.əl/",example:"She won a gold medal.",viExample:"Cô ấy đã giành được một huy chương vàng."}
     ],
     storyEn: "To maintain good health and fitness, you should play a sport or get some exercise. Whether you prefer a team game like football or basketball, or an individual activity like swimming in a pool or doing a yoga workout, moving your body makes your muscle strong and keeps you from feeling weak. In a football match, a professional player runs fast on the pitch to kick the ball and score a goal while the coach watches and the referee blows the whistle. In a tennis tournament, the athlete steps onto the court, holding a racket to hit the ball over the net. Sometimes they win and become the champion, and sometimes they lose or end in a draw. You do not have to be an Olympic athlete to enjoy physical activities. You can jog in the park, pass a ball with friends, or go to the gym to lift some weight. A daily run, a long jump, or simply learning to throw and catch a ball can be a great way to train and improve your overall fitness.",
     storyVi: "Để duy trì sức khỏe tốt và sự sung sức, bạn nên chơi một môn thể thao hoặc tập thể dục. Cho dù bạn thích một trò chơi đồng đội giống như bóng đá hoặc bóng rổ hơn, hay một hoạt động cá nhân giống như bơi lội trong hồ bơi hoặc tập một buổi tập luyện yo-ga, việc di chuyển cơ thể của bạn làm cho cơ bắp của bạn trở nên khỏe mạnh và giữ cho bạn khỏi cảm thấy yếu ớt. Trong một trận đấu bóng đá, một cầu thủ chuyên nghiệp chạy nhanh trên sân thi đấu để đá quả bóng và ghi một bàn thắng trong khi huấn luyện viên quan sát và trọng tài thổi còi. Trong một giải đấu quần vợt, vận động viên bước ra sân (tennis), cầm một chiếc vợt để đánh quả bóng qua tấm lưới. Đôi khi họ chiến thắng và trở thành nhà vô địch, và đôi khi họ thua cuộc hoặc kết thúc trong một tỉ số hòa. Bạn không cần phải là một vận động viên Olympic để tận hưởng những hoạt động thể chất. Bạn có thể chạy bộ (chậm) trong công viên, chuyền một quả bóng với những người bạn, hoặc đi đến phòng tập thể hình để nâng một ít tạ. Một buổi chạy bộ hằng ngày, một cú nhảy xa, hoặc đơn giản là học cách ném và bắt một quả bóng có thể là một cách tuyệt vời để rèn luyện và cải thiện sự sung sức tổng thể của bạn."

@@ -6,7 +6,7 @@ export const vocabVstepNew2 = [
     id: "sustainable-tourism-vstep",
     category: "vstep",
     title: "🌍 Du Lịch Bền Vững (B1-B2)",
-    description: "92 từ vựng về du lịch có trách nhiệm, bảo vệ môi trường và văn hóa.",
+    description: "95 từ vựng về du lịch có trách nhiệm, bảo vệ môi trường và văn hóa.",
     level: "B1-B2",
     examTags: ["VSTEP B1-B2"],
     words: [
@@ -102,6 +102,9 @@ export const vocabVstepNew2 = [
       {en:"archaeological",vi:"thuộc khảo cổ",type:"(adj)",ipa:"/ˌɑː.ki.əˈlɒdʒ.ɪ.kəl/",example:"Archaeological sites attract tourists.",viExample:"Di chỉ khảo cổ thu hút du khách."},
       {en:"embassy",vi:"đại sứ quán",type:"(n)",ipa:"/ˈem.bə.si/",example:"Contact the embassy if you lose your passport.",viExample:"Liên hệ đại sứ quán nếu mất hộ chiếu."},
       {en:"guidebook",vi:"sách hướng dẫn",type:"(n)",ipa:"/ˈɡaɪd.bʊk/",example:"Read the guidebook before your trip.",viExample:"Đọc sách hướng dẫn trước chuyến đi."},
+      {en:"trekking",vi:"đi bộ đường núi",type:"(n)",ipa:"/ˈtrek.ɪŋ/",example:"Sapa is famous for trekking adventures.",viExample:"Sapa nổi tiếng với những chuyến đi bộ đường núi phiêu lưu."},
+      {en:"pollution-free",vi:"không ô nhiễm",type:"(adj)",ipa:"/pəˈluː.ʃən friː/",example:"Cycling creates pollution-free transport.",viExample:"Đi xe đạp tạo phương tiện không ô nhiễm."},
+      {en:"revegetation",vi:"tái trồng cây",type:"(n)",ipa:"/ˌriː.vedʒ.ɪˈteɪ.ʃən/",example:"Revegetation projects restore damaged landscapes.",viExample:"Dự án tái trồng cây khôi phục cảnh quan bị hủy hoại."},
     ],
     storyEn: "Vietnam's tourism industry is embracing sustainability as travelers seek authentic experiences that protect the environment. Ecotourism destinations like Phong Nha national park and Cat Ba biosphere reserve attract backpackers who appreciate biodiversity and scenic landscapes. Community-based homestays offer cultural immersion, while eco-friendly resorts with green certification use renewable energy and treat wastewater properly. Responsible travelers bring reusable bottles, use reef-safe sunscreen, and buy fair trade handicrafts as souvenirs. However, overtourism threatens heritage sites, causing environmental degradation and pollution. Carbon offset programs, low-impact adventure tourism, and volunteer tourism initiatives provide livelihoods for local communities while preserving endangered habitats, mangroves, and wetlands. The future of tourism lies in regenerative practices and sustainable development, where every excursion and expedition leaves destinations better than before.",
     storyVi: "Ngành du lịch Việt Nam đang đón nhận tính bền vững khi du khách tìm kiếm trải nghiệm đích thực bảo vệ môi trường. Các điểm đến du lịch sinh thái như vườn quốc gia Phong Nha và khu dự trữ sinh quyển Cát Bà thu hút người du lịch bụi yêu đa dạng sinh học và cảnh quan. Homestay dựa vào cộng đồng cho trải nghiệm hòa mình văn hóa, trong khi khu nghỉ dưỡng thân thiện môi trường có chứng nhận xanh sử dụng năng lượng tái tạo và xử lý nước thải. Du khách có trách nhiệm mang chai tái sử dụng, dùng kem chống nắng an toàn cho san hô, và mua đồ thủ công thương mại công bằng. Tuy nhiên, du lịch quá tải đe dọa di sản, gây suy thoái môi trường. Chương trình bù đắp carbon, du lịch mạo hiểm tác động thấp và du lịch tình nguyện tạo sinh kế cho cộng đồng địa phương đồng thời bảo tồn môi trường sống, rừng ngập mặn và đất ngập nước."
