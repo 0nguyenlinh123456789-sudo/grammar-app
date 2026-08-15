@@ -19,18 +19,19 @@ import { laDongNgoaiBanThu } from '../src/utils/transcriptClean.js';
 // BÁNH CÓC — số bài nghe chỉ được tăng.
 // 6 → 16 → 32. Kho ứng viên hiện có 107 bài (đào 6 trang lưu trữ của bốn loạt
 // bài dạy học); 75 bài còn lại chưa soạn câu hỏi nên chưa nằm ở đây.
-// Sáu bài đã thu thập nhưng CỐ TÌNH không đưa vào, mỗi bài một lý do:
-//   voa-7920108 "How to Summon Others" — bản chép lời thủng lỗ: câu ví dụ nằm
-//     ngoài thẻ <p> nên bộ trích không lấy được. Bộ thu thập nay đã tự chặn.
+// Năm bài đã thu thập nhưng CỐ TÌNH không đưa vào, mỗi bài một lý do:
 //   voa-7953635 "'Kitchen-Table' Is a Type of Politics" — nội dung chính trị,
 //     cùng lý do đã loại câu chính trị khỏi kho chép chính tả.
-//   voa-5345471, voa-6904240 (Everyday Grammar) — chưa soạn câu hỏi.
 //   voa-7846622 "Mea Culpa", voa-7306802 "The Language of International
 //     Conflicts" — bộ thu thập tự gắn cờ chủ đề nhạy cảm (tôn giáo / chiến
 //     tranh). Xem CHU_DE_NHAY_CAM trong scripts/harvest_voa_passages.mjs.
 //   voa-7504500 "Breaking the Rules with Miley Cyrus' 'Flowers'" — bài phân
 //     tích lời một bài hát đang có bản quyền; đúng trường hợp VOA cảnh báo
 //     "may also contain" tư liệu bên thứ ba. Không đụng vào.
+// (voa-7920108 "How to Summon Others" TỪNG bị loại vì "bản chép lời thủng lỗ".
+//  Chẩn đoán đó SAI: ví dụ vẫn nằm trong thẻ <p>, chỉ là bộ lọc độ dài của
+//  chính tôi vứt đi. Bỏ bộ lọc độ dài thì bài nguyên vẹn — nay chỉ còn thiếu
+//  câu hỏi soạn tay.)
 const BAI_TOI_THIEU = 32;
 const CAU_HOI_MOI_BAI = 4;
 

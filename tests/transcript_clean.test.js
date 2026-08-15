@@ -7,6 +7,21 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { laDongNgoaiBanThu, locBanChepLoi, tachTuKho } from '../src/utils/transcriptClean.js';
+// Bộ dò lỗ thủng nằm trong bộ thu thập nhưng cùng một câu hỏi: bản chép lời có
+// khớp với bản thu không. Import được vì bộ thu thập chỉ chạy khi gọi trực tiếp.
+import { timLoThung } from '../scripts/harvest_voa_passages.mjs';
+
+test('bộ dò lỗ thủng: bắt được chỗ mất câu ví dụ, và KHÔNG kêu oan', () => {
+  // Chỗ thủng thật: câu dẫn kết thúc bằng dấu hai chấm rồi hết bài.
+  assert.equal(timLoThung(['Mở bài.', 'we can summon them with the following:']).length, 1);
+  // Hai câu dẫn liên tiếp — phần ví dụ ở giữa đã mất.
+  assert.equal(timLoThung(['Here are some tips:', 'Common problem:', 'Nội dung.']).length, 1);
+  // KHÔNG kêu oan khi ví dụ NGẮN vẫn còn — đây chính là ca đã làm 12 bài bị
+  // loại nhầm hồi bộ lọc còn vứt mọi đoạn dưới 40 ký tự.
+  assert.deepEqual(timLoThung(['We can simply say:', 'It’s noisy here.', 'Hết.']), []);
+  // Rác khung trang không được tính là "đoạn ví dụ" đứng chen vào.
+  assert.equal(timLoThung(['We can simply say:', 'Share', 'Follow us']).length, 1);
+});
 
 test('cắt đúng những dòng chỉ có trên trang web', () => {
   const phaiCat = [

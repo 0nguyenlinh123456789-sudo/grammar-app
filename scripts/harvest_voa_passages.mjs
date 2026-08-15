@@ -20,6 +20,7 @@
 // bài DẠY HỌC dưới đây do chính biên tập viên VOA viết và dựng trong phòng
 // thu — đó là trường hợp rõ ràng nhất thuộc phạm vi công cộng.
 import fs from 'fs';
+import { pathToFileURL } from 'url';
 
 const LOAT_BAI = [
   { id: 'ask-a-teacher', z: 5535, ten: 'Ask a Teacher' },
@@ -101,24 +102,60 @@ async function tai(url) {
   return res.text();
 }
 
+// RÁC KHUNG TRANG — kê đích danh, KHÔNG lọc theo độ dài.
+//
+// Bản trước bỏ mọi đoạn ngắn hơn 40 ký tự. Nghe thì hợp lý, nhưng đo ra thì
+// đúng những thứ bị vứt lại là NỘI DUNG QUÝ NHẤT: câu ví dụ ("It's noisy
+// here." 16 ký tự, "bit bet" 7 ký tự — cặp âm tối thiểu để luyện nghe), và câu
+// chào cuối bài mà phát thanh viên có đọc ("And that's Ask a Teacher."). Còn
+// rác thật thì chỉ có mười mấy chuỗi cố định, kê ra là hết.
+//
+// Bài học: lọc theo ĐỘ DÀI là đoán; kê đích danh là biết.
+const RAC = new Set([
+  'share', 'see comments', 'follow us', 'print', 'embed', 'direct link',
+  'no media source currently available', 'question', 'question`', 'answer',
+]);
+const LA_RAC = (s) => RAC.has(String(s).toLowerCase().trim().replace(/[.:]$/, ''));
+
+// BẢN CHÉP LỜI THỦNG LỖ — và một lần CHẨN ĐOÁN SAI cần ghi lại cho rõ.
+//
+// Lần đầu, bài "How to Summon Others" mất phần câu ví dụ. Tôi kết luận là VOA
+// đặt ví dụ ngoài thẻ <p> (trong blockquote) và ghi hẳn kết luận đó vào mã
+// nguồn lẫn ghi chú. KẾT LUẬN ĐÓ SAI. Ví dụ nằm trong thẻ <p> đàng hoàng —
+// "Could you come here, please?" — chỉ là chúng NGẮN, và chính bộ lọc "đoạn
+// phải dài hơn 40 ký tự" của tôi đã vứt chúng đi. Bỏ bộ lọc độ dài thì bài đó
+// nguyên vẹn, 44 đoạn.
+//
+// Lần thứ hai, bài "Feel, Feel Like", cùng một nguyên nhân, và lần này luật dò
+// cũ (hai đoạn liên tiếp cùng kết thúc bằng dấu hai chấm) không bắt được vì
+// các lỗ không nằm cạnh nhau. Kiểm lại 32 bài đã phát hành thì 12 bài thủng.
+//
+// Nói gọn: cả hai lần thủng đều DO TÔI, không do VOA. Chữa gốc bằng cách bỏ
+// bộ lọc độ dài (xem RAC ở trên); luật dưới đây giữ lại làm lưới chặn cuối,
+// vì vẫn còn khả năng VOA đặt ví dụ ở chỗ bộ trích không với tới.
+export function timLoThung(doanTho) {
+  const co = doanTho.filter((x) => x && !LA_RAC(x));
+  const lo = [];
+  for (let i = 0; i < co.length; i += 1) {
+    if (!/:\s*$/.test(co[i])) continue;
+    const sau = co[i + 1];
+    if (!sau) { lo.push(`“${co[i].slice(-45)}” — không còn đoạn nào sau đó`); continue; }
+    if (/:\s*$/.test(sau)) lo.push(`“${co[i].slice(-45)}” — đoạn ngay sau cũng kết thúc bằng dấu hai chấm`);
+  }
+  return lo;
+}
+
 async function docBai(duongDan, loat) {
   const html = await tai(GOC + duongDan);
   const mp3 = (html.match(/https?:\/\/[^"'\s]+\.mp3/) || [])[0];
   if (!mp3) return { bo: 'không có file âm thanh trên trang' };
 
-  const doan = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map((m) => goHtml(m[1])).filter((x) => x.length > 40);
+  const doanTho = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map((m) => goHtml(m[1])).filter((x) => x && !LA_RAC(x));
+  const doan = doanTho;
   if (doan.length < 3) return { bo: 'không tìm thấy bản chép lời' };
 
-  // BẢN CHÉP LỜI THỦNG LỖ — đã dính một lần với bài "How to Summon Others".
-  // Bộ trích chỉ lấy thẻ <p>, mà nhiều bài VOA đặt CÂU VÍ DỤ trong blockquote
-  // hoặc danh sách. Kết quả: bản chép lời còn nguyên câu dẫn "…we can summon
-  // them with the following:" nhưng mất hẳn phần ví dụ đi sau. Người học nghe
-  // thấy câu đó mà đọc lại thì không có — tệ hơn là không có bản chép lời, vì
-  // họ sẽ tưởng mình nghe nhầm.
-  // Dấu hiệu: một đoạn kết thúc bằng dấu hai chấm mà đoạn NGAY SAU cũng kết
-  // thúc bằng dấu hai chấm (phần ví dụ ở giữa đã bị mất), hoặc không còn đoạn nào.
-  const thung = doan.filter((p, i) => /:\s*$/.test(p) && (!doan[i + 1] || /:\s*$/.test(doan[i + 1])));
-  if (thung.length) return { bo: `bản chép lời thủng ${thung.length} chỗ — câu ví dụ nằm ngoài thẻ <p>` };
+  const thung = timLoThung(doanTho);
+  if (thung.length) return { bo: `bản chép lời thủng ${thung.length} chỗ: ${thung[0]}` };
 
   // Dòng đầu thường là tiêu đề lặp lại; các dòng cuối là chân trang/bình luận.
   const than = doan.filter((p) => !/^(Words in This Story|_+$)/i.test(p));
@@ -239,4 +276,10 @@ async function main() {
   if (bo.length) process.stderr.write('  ' + bo.join('\n  ') + '\n');
 }
 
-main().catch((e) => { process.stderr.write(`LỖI: ${e.message}\n`); process.exit(1); });
+// CHỈ CHẠY KHI ĐƯỢC GỌI TRỰC TIẾP. File này còn xuất `timLoThung` cho
+// scripts/audit_transcript_holes.mjs dùng lại; không có cái chốt này thì hễ ai
+// import nó là cả bộ thu thập chạy — tôi đã dính đúng thế: bộ kiểm lỗ thủng in
+// ra một mớ nhật ký thu thập không liên quan, che mất kết quả thật của nó.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((e) => { process.stderr.write(`LỖI: ${e.message}\n`); process.exit(1); });
+}
