@@ -23,7 +23,7 @@ import { buildActivityWindow } from '../utils/activityHistory';
 import { countGoalDays, DAILY_GOAL_OPTIONS } from '../utils/dailyGoal';
 import PlacementTest from '../components/placement/PlacementTest';
 import { recommendationFromPlacement } from '../utils/placement';
-import { pickNextMilestone, roadmapLevelFor, isReviewLevel, isSkippingAhead, currentBandOf } from '../utils/roadmapNav';
+import { pickNextInBand, recommendedBandFor, isReviewBand, isSkippingAhead, currentBandOf } from '../utils/roadmapNav';
 import LearningReport from '../components/progress/LearningReport';
 import QuickVerifyModal from '../components/progress/QuickVerifyModal';
 import MasteryMigrationNotice from '../components/progress/MasteryMigrationNotice';
@@ -126,8 +126,10 @@ const WelcomePage = ({
 
   // Chặng tiếp theo: chặng chưa xong đầu tiên TỪ cấp độ mà bài test đầu vào
   // đề xuất trở lên (chưa làm test → hành vi cũ). Xem src/utils/roadmapNav.js.
-  const recommendedLevel = roadmapLevelFor(placementResult?.level);
-  const nextMilestone = pickNextMilestone(allMilestones, completedMilestones, placementResult?.level);
+  // (4.1) Người chưa qua vòng A1 được giữ Ở TRONG cụm A0 cho tới khi học xong
+  // cụm đó — không phải chỉ được đẩy vào đúng một lần lúc làm xong bài test.
+  const recommendedLevel = recommendedBandFor(placementResult, allMilestones, completedMilestones);
+  const nextMilestone = pickNextInBand(allMilestones, completedMilestones, recommendedLevel);
   const nextMilestoneIndex = nextMilestone ? allMilestones.indexOf(nextMilestone) : -1;
   // Bậc người học đang đứng — dùng để cảnh báo nhảy cóc (việc 1.6).
   const currentBand = currentBandOf(nextMilestone);
@@ -327,14 +329,11 @@ const WelcomePage = ({
             // người học tự đi tìm (hạng mục #2). Bỏ tab đang chọn tay để
             // lộ trình nhảy về đúng cấp độ vừa đo được.
             setManualTab(null);
-            // (4.1) Chưa qua nổi vòng A1 → đưa vào cụm A0 "Mất gốc thật", không
-            // đưa vào A1. Bài test không map sang A0 (xem roadmapNav.js) nên
-            // chỗ này phải làm tường minh, và chỉ khi CÓ chặng A0 chưa xong —
-            // người đã học xong A0 rồi thì rơi về hành vi thường.
-            const preA1Target = result?.preA1
-              ? allMilestones.find((m) => m.levelId === 'foundation' && !completedMilestones.includes(m.targetId))
-              : null;
-            const target = preA1Target || pickNextMilestone(allMilestones, completedMilestones, result?.level);
+            // (4.1) Chưa qua nổi vòng A1 → vào cụm A0 "Mất gốc thật", không vào
+            // A1. Cùng một hàm với phần hiển thị bên trên, nên bậc được đề xuất
+            // ở đây và bậc mà trang chủ mở ra sau đó luôn là một.
+            const band = recommendedBandFor(result, allMilestones, completedMilestones);
+            const target = pickNextInBand(allMilestones, completedMilestones, band);
             if (target) launchMilestone(target);
           }}
         />
@@ -730,7 +729,7 @@ const WelcomePage = ({
                       {/* Dưới trình độ đề xuất: gắn nhãn "Ôn lại" cho biết
                           không cần học lại từ đây — nhưng KHÔNG khoá, bấm vào
                           vẫn học được bình thường. */}
-                      {isReviewLevel(level.level, placementResult?.level) && (
+                      {isReviewBand(level.level, recommendedLevel) && (
                         <span className="text-[11px] font-black bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-2 border-slate-400 dark:border-slate-600 px-2 py-0.5 rounded-full normal-case">
                           Ôn lại — dưới trình độ của bạn
                         </span>

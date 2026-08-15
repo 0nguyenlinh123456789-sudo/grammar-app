@@ -78,9 +78,9 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 
 | # | Việc | Vì sao | Nghiệm thu | RB | Công |
 |---|---|---|---|---|---|
-| 4.1 | **Test đầu vào 40–60 câu**, mỗi câu gắn nhãn cấp độ, có nhánh thích ứng, đủ 4 kỹ năng | Hiện **12 câu, 0 câu có nhãn cấp** → không tách nổi B2 với C1 | N7 xanh | A | Trung bình |
+| 4.1 | ✅ **XONG (Đợt 2)** — ngân hàng **50 câu, 10 câu/bậc A1→C1**, bài thích ứng hỏi 12–24 câu. Trình độ lấy từ **nấc thang**, không từ % đúng | Trước đó: 12 câu, 0 câu có nhãn cấp → không tách nổi B2 với C1 | N7 xanh (`tests/placement_bank.test.js`) | A | Trung bình |
 | 4.2 | **Bài thi cuối bậc A2 / B1 / B2** — đủ 4 kỹ năng, đạt mới được gắn nhãn bậc | Hiện chỉ có 2 đề thi thử × 20 câu, không gắn với bậc nào | N8 xanh | A (+**B** cho phần viết/nói) | Trung bình |
-| 4.3 | **Hồ sơ năng lực theo kỹ năng** — nghe/nói/đọc/viết riêng, không gộp một điểm | B2 nghe ≠ B2 viết; gộp lại là giấu điểm yếu | 4 thanh riêng trong Báo cáo tiến bộ | A | Nhỏ |
+| 4.3 | ✅ **XONG (Đợt 2)** — 4 kỹ năng CEFR tách riêng + 2 kỹ năng nền. Nghe/nói/viết hiện **“chưa đo được” kèm lý do**, không phải thanh 0% | B2 nghe ≠ B2 viết; gộp lại là giấu điểm yếu | 4 ô riêng trong Báo cáo tiến bộ (`tests/skill_profile.test.js`) | A | Nhỏ |
 | 4.4 | **Đổi điều kiện chứng nhận** sang "đã đạt bài thi cuối bậc B2" thay vì "đi hết lộ trình" | Chứng nhận là chỗ duy nhất app nói với người ngoài | chứng nhận ghi rõ bậc + ngày thi | A | Nhỏ |
 
 ### NHÓM 5 — Nền cho C1 (làm sau khi B2 xong)
@@ -109,8 +109,8 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 
 | Đợt | Gồm | Được gì sau đợt |
 |---|---|---|
-| **1** | 1.1 → 1.4 → 1.2 → 1.3 → 1.5 → 1.6 | Lộ trình liền mạch chữ cái→B2 dẫn qua ~450–590 giờ nội dung **đã có**. Đây là đợt đổi nhiều nhất trên mỗi giờ công. |
-| **2** | 4.1 → 4.3 | Biết người học đang ở đâu theo từng kỹ năng — mọi thứ sau đó dựa vào đây. |
+| ~~**1**~~ ✅ | 1.1 → 1.4 → 1.2 → 1.3 → 1.5 → 1.6 | Lộ trình liền mạch chữ cái→B2 dẫn qua ~450–590 giờ nội dung **đã có**. Đây là đợt đổi nhiều nhất trên mỗi giờ công. |
+| ~~**2**~~ ✅ | 4.1 → 4.3 | Biết người học đang ở đâu theo từng kỹ năng — mọi thứ sau đó dựa vào đây. |
 | **3** | 2.1 → 2.3 → 2.2 → 2.4 | Mở được cửa ải B1→B2 về nghe. |
 | **4** | 3.4 → 3.3 → 3.1 → 3.2 → 3.5 | Mở kỹ năng sản sinh và đọc hiểu ở mức văn bản. |
 | **5** | 4.2 → 4.4 | Chốt được cam kết: có bài thi cuối bậc B2 và chứng nhận gắn với nó. |

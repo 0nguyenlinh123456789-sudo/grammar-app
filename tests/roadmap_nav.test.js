@@ -10,6 +10,7 @@ import {
   PLACEMENT_TO_ROADMAP, PLACEMENT_LEVEL_IDS, ROADMAP_LEVEL_ORDER,
   pickNextMilestone, roadmapLevelFor, isReviewLevel,
   isSkippingAhead, currentBandOf, bandDistance,
+  recommendedBandFor, pickNextInBand, isReviewBand,
 } from '../src/utils/roadmapNav.js';
 import { roadmapData } from '../src/data/roadmapData.js';
 
@@ -123,6 +124,49 @@ test('không rõ người học đang ở đâu thì KHÔNG cảnh báo ai cả'
   // Bậc lạ không có trong thứ tự → coi như khoảng cách 0, không cảnh báo bừa.
   assert.equal(bandDistance('khong_co_that', 'advanced'), 0);
   assert.equal(isSkippingAhead('advanced', 'khong_co_that'), false);
+});
+
+// ---- (4.1) Người chưa qua vòng A1 phải Ở LẠI cụm A0 cho tới khi học xong ----
+
+test('preA1: chưa qua vòng A1 thì bậc đề xuất là foundation, không phải starter', () => {
+  const preA1 = { preA1: true, level: 'starter', cefr: null };
+  assert.equal(recommendedBandFor(preA1, ALL, []), 'foundation');
+
+  // ĐÂY LÀ LỖI ĐÃ DÍNH: cờ preA1 chỉ dùng đúng một lần lúc làm xong bài test,
+  // còn `level` lưu lại vẫn là 'starter'. Học xong bài A0 đầu tiên là app đẩy
+  // sang A1, vì foundation ở chỉ số 0 còn starter ở chỉ số 1.
+  const a0 = ALL.filter((m) => m.levelId === 'foundation');
+  assert.ok(a0.length > 0, 'lộ trình phải có cụm A0');
+  assert.equal(pickNextMilestone(ALL, [a0[0].targetId], 'starter').levelId, 'starter', 'ghi lại hành vi CŨ để thấy rõ chỗ sai');
+
+  const band = recommendedBandFor(preA1, ALL, [a0[0].targetId]);
+  assert.equal(pickNextInBand(ALL, [a0[0].targetId], band).id, a0[1].id, 'phải là bài A0 tiếp theo, không phải chặng A1');
+});
+
+test('preA1: học xong cụm A0 thì tự nhả ra, không giam người học lại', () => {
+  const preA1 = { preA1: true, level: 'starter', cefr: null };
+  const xongA0 = ALL.filter((m) => m.levelId === 'foundation').map((m) => m.targetId);
+  assert.equal(recommendedBandFor(preA1, ALL, xongA0), 'starter');
+  assert.equal(pickNextInBand(ALL, xongA0, 'starter').levelId, 'starter');
+});
+
+test('cụm A0 KHÔNG bị gắn nhãn "Ôn lại" với chính người đang học nó', () => {
+  // Lỗi cũ: isReviewLevel('foundation', 'starter') = true → cụm A0 hiện thu gọn
+  // dạng "Ôn lại" đúng với người mà nó là đường chính.
+  assert.equal(isReviewLevel('foundation', 'starter'), true, 'ghi lại hành vi CŨ');
+  assert.equal(isReviewBand('foundation', 'foundation'), false);
+  assert.equal(isReviewBand('starter', 'foundation'), false, 'A1 nằm TRÊN A0 nên không phải "Ôn lại"');
+  assert.equal(isReviewBand('foundation', 'intermediate'), true, 'với người B1 thì A0 đúng là ôn lại');
+  assert.equal(isReviewBand('starter', null), false, 'không có bậc đề xuất thì không gắn nhãn ai');
+});
+
+test('không có preA1 (kết quả cũ hoặc chưa làm test) thì giữ nguyên hành vi cũ', () => {
+  assert.equal(recommendedBandFor(null, ALL, []), null);
+  assert.equal(recommendedBandFor({ level: 'intermediate' }, ALL, []), 'intermediate');
+  assert.equal(recommendedBandFor({ level: 'upper-intermediate' }, ALL, []), 'upper_intermediate');
+  // pickNextInBand không có bậc → chặng dở đầu tiên, y như pickNextMilestone.
+  assert.equal(pickNextInBand(ALL, [], null).id, ALL[0].id);
+  assert.equal(pickNextInBand(null, null, 'advanced'), null);
 });
 
 test('cụm A0 đứng trước starter trong thứ tự bậc', () => {

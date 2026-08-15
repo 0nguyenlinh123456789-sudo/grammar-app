@@ -10,9 +10,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { placementBank } from '../src/data/placementBank.js';
 import {
-  CEFR_LADDER, SKILLS, ROUND_SIZE, MAX_ROUNDS, START_CEFR, PASS_RATIO,
+  CEFR_LADDER, SKILLS, ROUND_SIZE, MAX_ROUNDS, MIN_ROUNDS, START_CEFR, PASS_RATIO,
   createSession, currentQuestion, answerCurrent, placementResultFrom,
-  passMark, pickRound, highestCleared, progressOf,
+  passMark, pickRound, highestCleared, progressOf, roundBounds,
 } from '../src/utils/placementAdaptive.js';
 
 // Random cố định để kết quả lặp lại được (Math.random làm test chập chờn).
@@ -58,6 +58,20 @@ test('mỗi vòng bốc đủ câu, đúng bậc, đủ cả ba kỹ năng', () 
   }
 });
 
+test('số vòng công bố với người học phải là số ĐẠT ĐƯỢC, không phải số bậc trên thang', () => {
+  // Xuất phát từ A2, không bao giờ hỏi lại một bậc → đường dài nhất là
+  // A2→B1→B2→C1 = 4 vòng. Vòng thứ 5 KHÔNG TỒN TẠI, nên không được in ra.
+  assert.equal(MAX_ROUNDS, 4);
+  assert.equal(MIN_ROUNDS, 2);
+  assert.ok(MAX_ROUNDS < CEFR_LADDER.length, 'MAX_ROUNDS đang bằng số bậc — đó là mẫu số không với tới được');
+  // Đổi điểm xuất phát thì trần đổi theo: từ đáy/đỉnh thang là 5 vòng.
+  assert.deepEqual(roundBounds('A1'), { min: 1, max: 5 });
+  assert.deepEqual(roundBounds('C1'), { min: 1, max: 5 });
+  // Từ B1 thì cả hai chiều đều chỉ còn 3 bậc: B1→B2→C1 hoặc B1→A2→A1.
+  assert.deepEqual(roundBounds('B1'), { min: 2, max: 3 });
+  assert.deepEqual(roundBounds('bac-la'), roundBounds(START_CEFR));
+});
+
 test('luôn dừng và KHÔNG BAO GIỜ hỏi lại một câu — với mọi kiểu trả lời', () => {
   const patterns = [
     ['đúng hết', () => true],
@@ -66,21 +80,32 @@ test('luôn dừng và KHÔNG BAO GIỜ hỏi lại một câu — với mọi k
     ['chỉ đúng ngữ pháp', (q) => q.skill === 'grammar'],
     ['chỉ sai ngữ pháp', (q) => q.skill !== 'grammar'],
   ];
+  let dai = 0;
+  let ngan = Infinity;
+  let nhieuVongNhat = 0;
   for (const [ten, decide] of patterns) {
     for (const seed of [1, 2, 3, 11, 99]) {
       const { session, seenIds, result } = runSession(decide, seed);
       assert.equal(new Set(seenIds).size, seenIds.length, `[${ten}/seed ${seed}] có câu bị hỏi lại`);
       assert.ok(session.rounds.length <= MAX_ROUNDS, `[${ten}] quá ${MAX_ROUNDS} vòng`);
       assert.equal(new Set(session.visited).size, session.visited.length, `[${ten}] hỏi lại một bậc đã hỏi`);
-      // Số câu nằm trong khoảng đã công bố với người học (12–24).
-      assert.ok(seenIds.length >= ROUND_SIZE, `[${ten}] bài ngắn bất thường: ${seenIds.length} câu`);
+      // Số câu phải nằm ĐÚNG trong khoảng đã công bố với người học (12–24).
+      assert.ok(seenIds.length >= ROUND_SIZE * MIN_ROUNDS, `[${ten}] bài ngắn bất thường: ${seenIds.length} câu`);
       assert.ok(seenIds.length <= ROUND_SIZE * MAX_ROUNDS, `[${ten}] bài dài bất thường: ${seenIds.length} câu`);
+      dai = Math.max(dai, seenIds.length);
+      ngan = Math.min(ngan, seenIds.length);
+      nhieuVongNhat = Math.max(nhieuVongNhat, session.rounds.length);
       // Kết quả luôn dùng được: hoặc có bậc hợp lệ, hoặc là cờ preA1.
       assert.ok(result.cefr === null || CEFR_LADDER.includes(result.cefr), `[${ten}] bậc lạ: ${result.cefr}`);
       assert.equal(result.preA1, result.cefr === null);
       assert.ok(result.level, `[${ten}] thiếu id cấp độ — trang chủ sẽ không biết đưa người học đi đâu`);
     }
   }
+  // Cận trên và cận dưới phải ĐẠT ĐƯỢC, không chỉ "không bị vượt": một khoảng
+  // rộng hơn thực tế cũng là một con số sai in ra cho người học.
+  assert.equal(dai, ROUND_SIZE * MAX_ROUNDS, `bài dài nhất chỉ tới ${dai} câu, trong khi giao diện hứa tới ${ROUND_SIZE * MAX_ROUNDS}`);
+  assert.equal(ngan, ROUND_SIZE * MIN_ROUNDS, `bài ngắn nhất là ${ngan} câu, không khớp con số ${ROUND_SIZE * MIN_ROUNDS} đã công bố`);
+  assert.equal(nhieuVongNhat, MAX_ROUNDS, `chỉ đi được tối đa ${nhieuVongNhat} vòng, trong khi giao diện in "Vòng n/${MAX_ROUNDS}"`);
 });
 
 test('đúng hết → C1 (leo hết thang), và KHÔNG bị phần trăm kéo xuống', () => {
@@ -153,6 +178,10 @@ test('thanh tiến độ không bịa ra mẫu số: chỉ đếm trong vòng hi
   assert.equal(p.round, 1);
   assert.equal(p.roundSize, ROUND_SIZE);
   assert.equal(p.cefr, START_CEFR);
+  // Con số giao diện in ra phải đến TỪ ĐÂY, và phải là con số đạt được.
+  assert.equal(p.maxRounds, MAX_ROUNDS);
+  assert.equal(p.minQuestions, 12);
+  assert.equal(p.maxQuestions, 24);
 
   const s2 = answerCurrent(s, currentQuestion(s).answer);
   assert.equal(progressOf(s2).inRound, 1);

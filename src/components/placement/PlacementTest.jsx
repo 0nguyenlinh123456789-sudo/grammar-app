@@ -3,7 +3,6 @@ import { ArrowRight, CheckCircle2, Compass, Info, Lock, X } from 'lucide-react';
 import { placementBank } from '../../data/placementBank';
 import {
   createSession, currentQuestion, answerCurrent, placementResultFrom, progressOf,
-  ROUND_SIZE, MAX_ROUNDS,
 } from '../../utils/placementAdaptive';
 import { CEFR_LABEL } from '../../utils/placement';
 import { buildSkillProfile } from '../../utils/skillProfile';
@@ -51,7 +50,7 @@ export default function PlacementTest({ onComplete, onClose }) {
         ? <ResultView result={result} onComplete={onComplete} />
         : question && <>
           <div className="mt-6 flex items-center justify-between text-xs font-black text-slate-500">
-            <span>Vòng {progress.round}/{MAX_ROUNDS} · đang thử bậc {progress.cefr}</span>
+            <span>Vòng {progress.round}/{progress.maxRounds} · đang thử bậc {progress.cefr}</span>
             <span>Đã trả lời {progress.answered} câu</span>
           </div>
           <div className="h-3 rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-slate-700 mt-2 overflow-hidden">
@@ -59,7 +58,7 @@ export default function PlacementTest({ onComplete, onClose }) {
           </div>
           {/* Nói trước độ dài để không ai tưởng bài này dài vô tận. */}
           <p className="mt-2 text-[11px] font-bold text-slate-400">
-            Bài tự điều chỉnh độ khó: trả lời đúng thì lên bậc cao hơn, sai thì xuống bậc thấp hơn. Tổng cộng {ROUND_SIZE * 2}–{ROUND_SIZE * MAX_ROUNDS} câu.
+            Bài tự điều chỉnh độ khó: trả lời đúng thì lên bậc cao hơn, sai thì xuống bậc thấp hơn. Tổng cộng {progress.minQuestions}–{progress.maxQuestions} câu.
           </p>
 
           <p className="text-xs font-black uppercase text-slate-400 mt-8">{SKILL_VI[question.skill] || question.skill} · bậc {question.cefr}</p>

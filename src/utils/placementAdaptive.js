@@ -25,10 +25,30 @@ export const PER_SKILL_PER_ROUND = 2;
 export const ROUND_SIZE = SKILLS.length * PER_SKILL_PER_ROUND;
 export const PASS_RATIO = 2 / 3;
 
-// Không bao giờ hỏi lại một bậc đã hỏi → nhiều nhất là số bậc trên thang.
-// Người học trả lời từ 12 câu (qua/trượt ngay ở vòng đầu rồi hội tụ) đến 24 câu
-// (leo A2 → B1 → B2 → C1).
-export const MAX_ROUNDS = CEFR_LADDER.length;
+// SỐ VÒNG THẬT SỰ ĐẠT ĐƯỢC, không phải số bậc trên thang.
+//
+// Đã suýt in sai: đặt MAX_ROUNDS = CEFR_LADDER.length = 5 thì giao diện hiện
+// "Vòng 1/5" và "tổng cộng 12–30 câu" — mà xuất phát từ A2 và không bao giờ hỏi
+// lại một bậc, đường dài nhất chỉ là A2→B1→B2→C1 = 4 vòng = 24 câu. Vòng thứ 5
+// KHÔNG TỒN TẠI. Một mẫu số không với tới được cũng là một con số bịa, đúng loại
+// vừa mất hai đợt để dọn khỏi 235 tiêu đề.
+//
+// Tính theo điểm xuất phát vì createSession cho phép đổi `start`: từ A2 là 4
+// vòng, nhưng từ A1 (leo hết thang) hoặc từ C1 (rơi hết thang) là 5.
+export function roundBounds(start = START_CEFR) {
+  const i = CEFR_LADDER.indexOf(start);
+  if (i < 0) return roundBounds(START_CEFR);
+  const leoHet = CEFR_LADDER.length - i;   // qua liên tục, lên tới đỉnh
+  const roiHet = i + 1;                    // trượt liên tục, xuống tới đáy
+  return {
+    // Đứng ở hai đầu thang thì trượt/qua một cái là hết đường → dừng sau 1 vòng.
+    min: (i === 0 || i === CEFR_LADDER.length - 1) ? 1 : 2,
+    max: Math.max(leoHet, roiHet),
+  };
+}
+
+export const MAX_ROUNDS = roundBounds(START_CEFR).max;
+export const MIN_ROUNDS = roundBounds(START_CEFR).min;
 
 // Ngưỡng qua vòng tính theo SỐ CÂU THẬT SỰ ĐƯỢC HỎI, không phải theo ROUND_SIZE.
 // Nếu một bậc trong ngân hàng mỏng hơn dự tính thì vòng đó ngắn hơn, và ngưỡng
@@ -59,10 +79,12 @@ export function pickRound(bank, cefr, rand = Math.random) {
 
 export function createSession(bank = placementBank, { rand = Math.random, start = START_CEFR } = {}) {
   const cefr = CEFR_LADDER.includes(start) ? start : START_CEFR;
+  const bounds = roundBounds(cefr);
   return {
     bank,
     rand,
     cefr,
+    bounds,
     queue: pickRound(bank, cefr, rand),
     asked: [],          // { id, cefr, skill, chosen, correct }
     visited: [cefr],
@@ -82,7 +104,8 @@ export function currentQuestion(session) {
 // "câu N/tổng" vì tổng số câu CHƯA BIẾT cho tới khi bài kết thúc: hiển thị một
 // mẫu số bịa ra là nói dối người học ngay ở màn hình đầu tiên.
 export function progressOf(session) {
-  if (!session) return { answered: 0, round: 1, inRound: 0, roundSize: ROUND_SIZE, cefr: START_CEFR };
+  const bounds = session?.bounds || roundBounds(START_CEFR);
+  if (!session) return { answered: 0, round: 1, inRound: 0, roundSize: ROUND_SIZE, cefr: START_CEFR, maxRounds: bounds.max, minQuestions: ROUND_SIZE * bounds.min, maxQuestions: ROUND_SIZE * bounds.max };
   const inRound = session.asked.length - session.roundStart;
   return {
     answered: session.asked.length,
@@ -90,6 +113,10 @@ export function progressOf(session) {
     inRound,
     roundSize: inRound + session.queue.length,
     cefr: session.cefr,
+    // Số vòng/số câu ĐẠT ĐƯỢC THẬT — giao diện chỉ được lấy con số từ đây.
+    maxRounds: bounds.max,
+    minQuestions: ROUND_SIZE * bounds.min,
+    maxQuestions: ROUND_SIZE * bounds.max,
   };
 }
 
@@ -119,7 +146,7 @@ export function answerCurrent(session, choiceIndex) {
 
   // Dừng khi: hết thang (đã lên đỉnh hoặc xuống đáy), HOẶC bậc kế tiếp đã hỏi
   // rồi (qua bậc dưới rồi trượt bậc trên = đã kẹp đúng chỗ), HOẶC hết số vòng.
-  const stop = !nextCefr || session.visited.includes(nextCefr) || rounds.length >= MAX_ROUNDS;
+  const stop = !nextCefr || session.visited.includes(nextCefr) || rounds.length >= (session.bounds?.max ?? MAX_ROUNDS);
   if (stop) {
     return { ...session, asked, queue: [], rounds, cleared: clearedLevels, done: true };
   }

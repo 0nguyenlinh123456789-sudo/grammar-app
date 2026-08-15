@@ -45,20 +45,47 @@ export function roadmapLevelFor(placementLevelId) {
 //   3. xong sạch lộ trình → null (không còn gì để học tiếp).
 // `completedIds` so theo `targetId` — đúng như cách trang chủ đang đánh dấu.
 export function pickNextMilestone(allMilestones, completedIds, recommendedLevelId) {
+  return pickNextInBand(allMilestones, completedIds, roadmapLevelFor(recommendedLevelId));
+}
+
+// Cùng logic nhưng nhận thẳng id BẬC CỦA LỘ TRÌNH (gạch dưới), không đi qua map
+// placement. Cần bản này vì 'foundation' (A0) cố tình KHÔNG có trong
+// PLACEMENT_TO_ROADMAP — xem giải thích ở recommendedBandFor bên dưới.
+export function pickNextInBand(allMilestones, completedIds, bandId) {
   const list = Array.isArray(allMilestones) ? allMilestones : [];
   const done = new Set(completedIds || []);
   const firstUndone = list.find((m) => !done.has(m.targetId)) || null;
 
-  const target = roadmapLevelFor(recommendedLevelId);
-  if (!target) return firstUndone;
-
-  const from = ROADMAP_LEVEL_ORDER.indexOf(target);
+  if (!bandId) return firstUndone;
+  const from = ROADMAP_LEVEL_ORDER.indexOf(bandId);
   if (from < 0) return firstUndone;
 
   const fromLevel = list.find(
     (m) => !done.has(m.targetId) && ROADMAP_LEVEL_ORDER.indexOf(m.levelId) >= from
   );
   return fromLevel || firstUndone;
+}
+
+// (4.1) BẬC ĐƯỢC ĐỀ XUẤT, có tính tới người CHƯA QUA VÒNG A1.
+//
+// Lỗi đã dính: cờ `preA1` chỉ được dùng đúng MỘT LẦN, lúc bấm xong bài test,
+// để mở bài A0 đầu tiên. Còn mọi thứ lưu lại vẫn ghi level = 'starter', nên:
+//   - "chặng tiếp theo" bỏ qua sạch 12 chặng A0 (foundation ở chỉ số 0, còn
+//     starter ở chỉ số 1 → điều kiện `>= from` loại hết),
+//   - cụm A0 bị gắn nhãn "Ôn lại" và thu gọn — đúng với người mà nó là đường
+//     chính,
+//   - tab đang chọn nhảy sang A1.
+// Nghĩa là học xong bài A0 đầu tiên là app đẩy người mất gốc sang A1.
+//
+// Sửa ở đây chứ KHÔNG thêm 'foundation' vào PLACEMENT_TO_ROADMAP: bài test chỉ
+// hỏi từ A1 trở lên nên nó không có thẩm quyền khẳng định ai đó "ở bậc A0" —
+// nó chỉ biết người đó chưa qua vòng A1. Và khi cụm A0 đã học xong thì hàm này
+// tự trả về bậc bình thường, không giam ai lại đó.
+export function recommendedBandFor(placementResult, allMilestones, completedIds) {
+  const done = new Set(completedIds || []);
+  const conA0 = (allMilestones || []).some((m) => m.levelId === 'foundation' && !done.has(m.targetId));
+  if (placementResult?.preA1 && conA0) return 'foundation';
+  return roadmapLevelFor(placementResult?.level);
 }
 
 // (KE_HOACH_B2 việc 1.6) KHOÁ MỀM — CẢNH BÁO, KHÔNG CHẶN.
@@ -91,9 +118,14 @@ export function currentBandOf(nextMilestone) {
 // Vẫn mở được bình thường, không khoá: người học muốn ôn lại nền tảng là
 // quyền của họ.
 export function isReviewLevel(roadmapLevelId, recommendedLevelId) {
-  const target = roadmapLevelFor(recommendedLevelId);
-  if (!target) return false;
-  const from = ROADMAP_LEVEL_ORDER.indexOf(target);
+  return isReviewBand(roadmapLevelId, roadmapLevelFor(recommendedLevelId));
+}
+
+// Nhận thẳng id bậc lộ trình — dùng cho trường hợp bậc đề xuất là 'foundation',
+// bậc không có trong map placement.
+export function isReviewBand(roadmapLevelId, bandId) {
+  if (!bandId) return false;
+  const from = ROADMAP_LEVEL_ORDER.indexOf(bandId);
   const here = ROADMAP_LEVEL_ORDER.indexOf(roadmapLevelId);
   return from >= 0 && here >= 0 && here < from;
 }
