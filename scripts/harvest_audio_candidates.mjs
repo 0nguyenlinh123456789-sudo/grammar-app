@@ -32,6 +32,12 @@ const arg = (ten, macDinh) => {
 const LIMIT = Number(arg('limit', 60));
 const CACHE = arg('cache', '.audio-cache');
 const OUT = arg('out', 'ung_vien_audio.tsv');
+const MIN_TU = Number(arg('minWords', 4));
+const MAX_TU = Number(arg('maxWords', 12));
+// Danh sách id đã lấy rồi — để đợt sau không tải trùng đợt trước.
+const DA_CO = new Set(
+  arg('exclude', '') ? fs.readFileSync(arg('exclude'), 'utf8').split('\n').slice(1).map((l) => l.split('\t')[0]).filter(Boolean) : []
+);
 
 // Lộ trình có bậc trẻ em, và câu mẫu của Tatoeba là câu người dùng tự nhập —
 // trong nhóm dùng được đã thấy "Communism will never be reached in my lifetime",
@@ -88,22 +94,33 @@ async function main() {
 
   // Hỏi API cho tới khi đủ số ứng viên — KHÔNG hỏi hết vài nghìn câu.
   const ungVien = [];
-  const loai = { khacTiengAnh: 0, doDai: 0, kyTu: 0, chuDe: 0 };
-  for (const bt of dungDuoc) {
-    if (ungVien.length >= LIMIT) break;
-    const cau = await layCau(bt.sentenceId);
-    if (!cau) continue;
-    if (cau.lang !== 'eng') { loai.khacTiengAnh += 1; continue; }
-    const text = String(cau.text || '').trim();
-    const n = soTu(text);
-    if (n < 4 || n > 12) { loai.doDai += 1; continue; }
-    if (!CHU_HOP_LE.test(text)) { loai.kyTu += 1; continue; }
-    if (TU_LOAI.test(text)) { loai.chuDe += 1; continue; }
-    ungVien.push({ ...bt, text, words: n });
-    process.stderr.write(`  ${String(ungVien.length).padStart(3)}. ${text}\n`);
+  const loai = { daCo: 0, khacTiengAnh: 0, doDai: 0, kyTu: 0, chuDe: 0 };
+  // Hỏi API theo lô song song. Hỏi tuần tự thì phần lớn thời gian là ngồi chờ
+  // mạng — lọc 160 ứng viên mất hơn 10 phút và không kịp chạy hết.
+  const SONG_SONG = 8;
+  const conLai = dungDuoc.filter((bt) => {
+    if (DA_CO.has(bt.sentenceId)) { loai.daCo += 1; return false; }
+    return true;
+  });
+
+  for (let i = 0; i < conLai.length && ungVien.length < LIMIT; i += SONG_SONG) {
+    const lo = conLai.slice(i, i + SONG_SONG);
+    const cau = await Promise.all(lo.map((bt) => layCau(bt.sentenceId).catch(() => null)));
+    for (let k = 0; k < lo.length; k += 1) {
+      if (ungVien.length >= LIMIT) break;
+      if (!cau[k]) continue;
+      if (cau[k].lang !== 'eng') { loai.khacTiengAnh += 1; continue; }
+      const text = String(cau[k].text || '').trim();
+      const n = soTu(text);
+      if (n < MIN_TU || n > MAX_TU) { loai.doDai += 1; continue; }
+      if (!CHU_HOP_LE.test(text)) { loai.kyTu += 1; continue; }
+      if (TU_LOAI.test(text)) { loai.chuDe += 1; continue; }
+      ungVien.push({ ...lo[k], text, words: n });
+      process.stderr.write(`  ${String(ungVien.length).padStart(3)}. ${text}\n`);
+    }
   }
 
-  process.stderr.write(`\nĐã loại: ${loai.khacTiengAnh} câu không phải tiếng Anh, ${loai.doDai} câu quá ngắn/quá dài, ${loai.kyTu} câu có ký tự lạ, ${loai.chuDe} câu dính chủ đề nhạy cảm.\n`);
+  process.stderr.write(`\nĐã loại: ${loai.daCo} câu đã lấy từ đợt trước, ${loai.khacTiengAnh} câu không phải tiếng Anh, ${loai.doDai} câu ngoài khoảng ${MIN_TU}–${MAX_TU} từ, ${loai.kyTu} câu có ký tự lạ, ${loai.chuDe} câu dính chủ đề nhạy cảm.\n`);
 
   const dongTsv = ungVien.map((u) => [u.sentenceId, u.audioId, u.text, u.words, u.license, u.author, u.attributionUrl || `https://tatoeba.org/en/user/profile/${u.author}`, SOURCE, `https://tatoeba.org/en/sentences/show/${u.sentenceId}`, STATEMENT_URL].join('\t'));
   fs.writeFileSync(OUT, ['sentenceId\taudioId\ttext\twords\tlicense\tauthor\tattributionUrl\tsource\tsourceUrl\tlicenseStatementUrl', ...dongTsv].join('\n') + '\n');

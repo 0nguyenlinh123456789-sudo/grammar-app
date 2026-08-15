@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CheckCircle2, Ear, Headphones, Lightbulb, RefreshCw, Trophy, X } from 'lucide-react';
 import { audioManifest } from '../../data/audioManifest';
+import { NHOM_DO_DAI, nhomChoBac, chonBoCau, thongKeKho } from '../../utils/listeningPlan';
 import { chamChinhTa, goiY, NGUONG_DAT } from '../../utils/dictation';
 import { dongGhiCong } from '../../utils/audioLicense';
 import { playCorrect, playWrong, playComplete } from '../../utils/sound';
@@ -13,18 +14,16 @@ const SO_CAU = 5;
 // người thật thu, không phải speechSynthesis. Vì thế nó KHÔNG mang nhãn
 // "giọng máy đọc" — và cũng vì thế nó phải ghi công tác giả: các bản thu ở đây
 // là CC BY 4.0, thiếu dòng ghi công là vi phạm giấy phép.
-export default function DictationPanel({ onClose, onFinish }) {
+export default function DictationPanel({ onClose, onFinish, currentBand = null }) {
+  // Nhóm độ dài mặc định lấy theo bậc người học đang đứng trên lộ trình, nhưng
+  // đổi được bằng tay — đây là gợi ý điểm xuất phát, không phải khoá.
+  const [nhom, setNhom] = useState(() => nhomChoBac(currentBand));
+  const [lan, setLan] = useState(0);
+
   // Bốc bộ câu trong useEffect chứ không trong thân hàm render: Math.random gọi
   // lúc render là hàm không thuần, mỗi lần React vẽ lại có thể ra một bộ khác.
   const [bo, setBo] = useState([]);
-  useEffect(() => {
-    const list = [...audioManifest];
-    for (let i = list.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [list[i], list[j]] = [list[j], list[i]];
-    }
-    setBo(list.slice(0, SO_CAU));
-  }, []);
+  useEffect(() => { setBo(chonBoCau(audioManifest, nhom, SO_CAU)); }, [nhom, lan]);
 
   const [idx, setIdx] = useState(0);
   const [go, setGo] = useState('');
@@ -35,6 +34,7 @@ export default function DictationPanel({ onClose, onFinish }) {
   const audioRef = useRef(null);
 
   const cur = bo[idx];
+  const kho = thongKeKho(audioManifest);
 
   const phat = useCallback((rate = 1) => {
     const el = audioRef.current;
@@ -78,13 +78,30 @@ export default function DictationPanel({ onClose, onFinish }) {
         <Trophy size={56} className="mx-auto text-yellow-500 fill-yellow-300 mb-3" />
         <h3 className="text-2xl font-black">Xong buổi chép chính tả</h3>
         <p className="text-lg font-bold text-slate-500 mt-1">Đạt {dat}/{diem.length} câu (ngưỡng {Math.round(NGUONG_DAT * 100)}% số từ mỗi câu)</p>
-        <button onClick={() => window.location.reload()} className="mt-6 px-6 py-3 rounded-2xl bg-cyan-400 border-4 border-black font-black inline-flex items-center gap-2"><RefreshCw size={18} /> Làm bộ khác</button>
+        <button
+          onClick={() => { setDiem([]); setIdx(0); setXong(false); setLan((n) => n + 1); }}
+          className="mt-6 px-6 py-3 rounded-2xl bg-cyan-400 border-4 border-black font-black inline-flex items-center gap-2 cursor-pointer"
+        ><RefreshCw size={18} /> Làm bộ khác</button>
       </div>
       <GhiCong danhSach={bo} />
     </Khung>;
   }
 
   return <Khung onClose={onClose}>
+    {/* Chọn nhóm ĐỘ DÀI. Cố tình không gọi là "bậc A2/B1": kho bản thu là câu
+        rời, không ai gắn bậc cho chúng và tôi không có căn cứ để gắn. Câu dài
+        thì khó nghe hơn — đó là toàn bộ nội dung của phép chia này. */}
+    <div className="flex flex-wrap items-center gap-2 mb-3">
+      {NHOM_DO_DAI.map((g) => {
+        const co = kho[g.id] || 0;
+        return <button
+          key={g.id}
+          onClick={() => { if (co) { setNhom(g.id); setIdx(0); setDiem([]); setLan((n) => n + 1); } }}
+          disabled={!co}
+          className={`px-3 py-1.5 rounded-xl border-2 text-xs font-black transition-all disabled:opacity-40 ${nhom === g.id ? 'bg-cyan-200 dark:bg-cyan-950/50 border-cyan-600 text-cyan-900 dark:text-cyan-200' : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-600 cursor-pointer'}`}
+        >{g.label} <span className="font-bold opacity-60">({g.moTa} · {co})</span></button>;
+      })}
+    </div>
     <div className="flex items-center justify-between text-xs font-black text-slate-500">
       <span>Câu {idx + 1}/{bo.length}</span>
       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-700 dark:text-emerald-300"><Ear size={12} /> Giọng người thật</span>

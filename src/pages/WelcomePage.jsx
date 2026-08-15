@@ -305,7 +305,7 @@ const WelcomePage = ({
       {showNotebook && <WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} />}
       {showErrorReview && <ErrorReview onClose={() => setShowErrorReview(false)} />}
       {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
-      {showDictation && <DictationPanel onClose={() => setShowDictation(false)} />}
+      {showDictation && <DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} />}
       {showMigration && (
         <MasteryMigrationNotice
           unverifiedCount={unverifiedMilestones.length}
