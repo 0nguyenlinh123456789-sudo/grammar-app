@@ -13,6 +13,8 @@ import WordNotebook from '../components/vocab/WordNotebook';
 import ErrorReview from '../components/progress/ErrorReview';
 import MockTest from '../components/progress/MockTest';
 import DictationPanel from '../components/listening/DictationPanel';
+import ListeningPassagePanel from '../components/listening/ListeningPassagePanel';
+import { listeningPassages } from '../data/listeningPassages';
 import { audioManifest } from '../data/audioManifest';
 import { loadMockHistory } from '../utils/mockTest';
 import { getDueCount, getTotalCount } from '../utils/srs';
@@ -71,6 +73,7 @@ const WelcomePage = ({
   const [showErrorReview, setShowErrorReview] = useState(false);
   const [showMockTest, setShowMockTest] = useState(false);
   const [showDictation, setShowDictation] = useState(false);
+  const [showPassage, setShowPassage] = useState(false);
   const lastMock = loadMockHistory()[0] || null;
   const dueErrors = getDueErrorCount();
   const totalErrors = getErrorCount();
@@ -306,6 +309,7 @@ const WelcomePage = ({
       {showErrorReview && <ErrorReview onClose={() => setShowErrorReview(false)} />}
       {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
       {showDictation && <DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} />}
+      {showPassage && <ListeningPassagePanel onClose={() => setShowPassage(false)} />}
       {showMigration && (
         <MasteryMigrationNotice
           unverifiedCount={unverifiedMilestones.length}
@@ -613,7 +617,31 @@ const WelcomePage = ({
           onClick={() => setShowDictation(true)}
           className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-cyan-400 text-slate-900 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-cyan-500 transition-all cursor-pointer"
         >
-          LUYỆN NGHE
+          CHÉP CHÍNH TẢ
+        </button>
+      </div>
+
+      {/* --- (2.2) BÀI NGHE THEO ĐOẠN — nghe mạch nói, không nghe câu lẻ --- */}
+      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="bg-indigo-100 dark:bg-indigo-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+            <BookOpen size={26} className="text-indigo-600" />
+          </div>
+          <div>
+            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
+              Bài nghe theo đoạn
+              <span className="px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase">VOA</span>
+            </h3>
+            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+              {listeningPassages.length} bài 3–5 phút · nghe rồi trả lời câu hỏi hiểu ý, bản chép lời hiện ra sau khi trả lời xong.
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowPassage(true)}
+          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-indigo-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-indigo-500 transition-all cursor-pointer"
+        >
+          NGHE ĐOẠN
         </button>
       </div>
 

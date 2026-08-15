@@ -1,0 +1,111 @@
+// File: tests/listening_passages.test.js
+// BÀI NGHE THEO ĐOẠN (việc 2.2) — ghim chất lượng câu hỏi SOẠN TAY.
+//
+// Câu hỏi hiểu ý là chỗ dễ trượt nhất về phía nội dung máy-sinh: nhân một khuôn
+// mẫu ("Từ X nghĩa là gì?") lên cho mọi từ thì có ngay hàng trăm câu hỏi trông
+// như thật. Cả chuỗi dọn nội dung đã xoá đúng loại đó đi. Nên test này kiểm hai
+// thứ mà nội dung khuôn mẫu không qua nổi:
+//   - đáp án phải CÓ THẬT trong bản chép lời (không hỏi thứ ngoài bài),
+//   - phần giải thích phải dẫn được về bài, và các câu hỏi không được lặp khuôn.
+//
+// Và bài học từ lần trước: SO SÁNH PHÂN BIỆT HOA THƯỜNG. Bộ kiểm cũ của tôi hạ
+// hết về chữ thường rồi so, làm các câu hỏi VỀ VIỆC VIẾT HOA bị báo đỏ oan.
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { listeningPassages } from '../src/data/listeningPassages.js';
+import { coTheDung, kiemTraBanGhi } from '../src/utils/audioLicense.js';
+
+// BÁNH CÓC — số bài nghe chỉ được tăng. Còn 14 bài đã thu thập nhưng CHƯA có
+// câu hỏi soạn tay; chúng cố tình không nằm ở đây.
+const BAI_TOI_THIEU = 6;
+const CAU_HOI_MOI_BAI = 4;
+
+test('bánh cóc: số bài nghe theo đoạn chỉ được tăng', () => {
+  assert.ok(listeningPassages.length >= BAI_TOI_THIEU,
+    `còn ${listeningPassages.length} bài, dưới mốc ${BAI_TOI_THIEU} đã đạt được`);
+});
+
+test('mỗi bài có đủ hồ sơ giấy phép, và giấy phép phải dùng được', () => {
+  const loi = [];
+  const ids = new Set();
+  for (const b of listeningPassages) {
+    if (ids.has(b.id)) loi.push(`${b.id}: id trùng`);
+    ids.add(b.id);
+    if (!coTheDung(b.license)) loi.push(`${b.id}: giấy phép "${b.license}" không dùng được`);
+    // Dùng chung bộ kiểm hồ sơ với kho bản thu, chỉ khác là bài nghe không có
+    // file trong kho mà trỏ tới máy chủ VOA.
+    const gia = { ...b, file: 'x.mp3', text: b.title };
+    for (const l of kiemTraBanGhi(gia)) loi.push(`${b.id}: ${l}`);
+    if (!/^https:\/\//.test(b.audioUrl || '')) loi.push(`${b.id}: audioUrl phải là https`);
+    if (!/^https:\/\/learningenglish\.voanews\.com\//.test(b.sourceUrl || '')) loi.push(`${b.id}: sourceUrl không trỏ về trang gốc`);
+  }
+  assert.deepEqual(loi, [], 'hồ sơ bài nghe hỏng:\n  ' + loi.join('\n  '));
+});
+
+test('mỗi bài đủ số câu hỏi, đáp án nằm trong lựa chọn, lựa chọn không trùng', () => {
+  const loi = [];
+  for (const b of listeningPassages) {
+    if (b.questions.length < CAU_HOI_MOI_BAI) loi.push(`${b.id}: chỉ có ${b.questions.length} câu hỏi`);
+    for (const [i, q] of b.questions.entries()) {
+      const nhan = `${b.id} câu ${i + 1}`;
+      if (!q.q || q.q.length < 10) loi.push(`${nhan}: đề bài quá ngắn`);
+      if (!Array.isArray(q.opts) || q.opts.length < 3) loi.push(`${nhan}: cần ít nhất 3 lựa chọn`);
+      else {
+        // So sánh PHÂN BIỆT hoa thường — hai lựa chọn khác nhau ở chữ hoa là
+        // hai lựa chọn khác nhau.
+        if (new Set(q.opts).size !== q.opts.length) loi.push(`${nhan}: có hai lựa chọn trùng nhau → hai đáp án đúng`);
+        if (!q.opts.includes(q.a)) loi.push(`${nhan}: đáp án không nằm trong danh sách lựa chọn`);
+      }
+      if (!q.why || q.why.length < 20) loi.push(`${nhan}: thiếu phần dẫn lại nội dung bài`);
+    }
+  }
+  assert.deepEqual(loi, [], 'câu hỏi hỏng:\n  ' + loi.join('\n  '));
+});
+
+test('câu hỏi phải HỎI VỀ BÀI: phần giải thích dẫn được về bản chép lời', () => {
+  const chuan = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  const loi = [];
+  for (const b of listeningPassages) {
+    const than = chuan(b.transcript.join(' '));
+    for (const [i, q] of b.questions.entries()) {
+      // Phần "why" trích dẫn bài; lấy cụm tiếng Anh dài nhất trong đó rồi tìm
+      // trong bản chép lời. Không tìm thấy nghĩa là đang giải thích một thứ
+      // không có trong bài.
+      const trich = (q.why.match(/[A-Za-z][A-Za-z' ,]{25,}/g) || [])
+        .map(chuan).filter((x) => x.split(' ').length >= 5)
+        .sort((a, c) => c.length - a.length)[0];
+      if (!trich) { loi.push(`${b.id} câu ${i + 1}: phần giải thích không trích được câu nào từ bài`); continue; }
+      if (!than.includes(trich)) loi.push(`${b.id} câu ${i + 1}: trích dẫn "${trich.slice(0, 40)}…" KHÔNG có trong bản chép lời`);
+    }
+  }
+  assert.deepEqual(loi, [], 'câu hỏi không bám vào bài:\n  ' + loi.join('\n  '));
+});
+
+test('câu hỏi KHÔNG lặp khuôn mẫu — dấu hiệu của nội dung máy sinh', () => {
+  const tatCa = listeningPassages.flatMap((b) => b.questions.map((q) => q.q));
+  assert.equal(new Set(tatCa).size, tatCa.length, 'có hai câu hỏi giống hệt nhau');
+
+  // Nếu quá nửa số câu hỏi mở đầu bằng cùng một cụm 3 từ thì gần như chắc chắn
+  // chúng được nhân ra từ một khuôn.
+  const dem = {};
+  for (const q of tatCa) {
+    const dau = q.split(/\s+/).slice(0, 3).join(' ').toLowerCase();
+    dem[dau] = (dem[dau] || 0) + 1;
+  }
+  const nhieuNhat = Math.max(...Object.values(dem));
+  assert.ok(nhieuNhat <= tatCa.length / 2,
+    `${nhieuNhat}/${tatCa.length} câu hỏi mở đầu giống hệt nhau — nghi là sinh từ khuôn mẫu`);
+});
+
+test('bản chép lời đã cắt phần chân bài, không lẫn dòng giải nghĩa từ', () => {
+  const loi = [];
+  for (const b of listeningPassages) {
+    for (const p of b.transcript) {
+      if (/^Anna Matteo wrote/i.test(p)) loi.push(`${b.id}: còn dòng ghi tên người viết trong bản chép lời`);
+      if (/^.{1,25}\s+[-–]\s*(n|v|adj|adv)\b/i.test(p)) loi.push(`${b.id}: còn dòng giải nghĩa từ lẫn trong bản chép lời`);
+    }
+    assert.ok(b.transcript.length >= 5, `${b.id}: bản chép lời quá ngắn (${b.transcript.length} đoạn)`);
+    assert.ok(b.words >= 200, `${b.id}: chỉ ${b.words} từ — quá ngắn cho một bài nghe theo đoạn`);
+  }
+  assert.deepEqual(loi, [], loi.join('\n  '));
+});
