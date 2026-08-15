@@ -23,7 +23,7 @@ import { buildActivityWindow } from '../utils/activityHistory';
 import { countGoalDays, DAILY_GOAL_OPTIONS } from '../utils/dailyGoal';
 import PlacementTest from '../components/placement/PlacementTest';
 import { recommendationFromPlacement } from '../utils/placement';
-import { pickNextMilestone, roadmapLevelFor, isReviewLevel } from '../utils/roadmapNav';
+import { pickNextMilestone, roadmapLevelFor, isReviewLevel, isSkippingAhead, currentBandOf } from '../utils/roadmapNav';
 import LearningReport from '../components/progress/LearningReport';
 import QuickVerifyModal from '../components/progress/QuickVerifyModal';
 import MasteryMigrationNotice from '../components/progress/MasteryMigrationNotice';
@@ -129,6 +129,8 @@ const WelcomePage = ({
   const recommendedLevel = roadmapLevelFor(placementResult?.level);
   const nextMilestone = pickNextMilestone(allMilestones, completedMilestones, placementResult?.level);
   const nextMilestoneIndex = nextMilestone ? allMilestones.indexOf(nextMilestone) : -1;
+  // Bậc người học đang đứng — dùng để cảnh báo nhảy cóc (việc 1.6).
+  const currentBand = currentBandOf(nextMilestone);
   const activeTab = manualTab || recommendedLevel || 'all';
 
   // (1.5) 44 chặng soạn tay ghi giờ bằng chữ ngay trong mô tả ("🕐 ~4 giờ |").
@@ -814,6 +816,15 @@ const WelcomePage = ({
                               {isActive && (
                                 <span className="bg-yellow-300 dark:bg-yellow-450 text-slate-900 border-2 border-slate-800 dark:border-slate-700 px-2 py-0.5 rounded-lg text-xs font-black uppercase tracking-wider animate-pulse flex items-center gap-1 shadow-[1px_1px_0_0_#1e293b] dark:shadow-[1px_1px_0_0_#020617]">
                                   <Sparkles size={10} /> Học Tiếp
+                                </span>
+                              )}
+                              {/* (1.6) Khoá MỀM: cảnh báo, không chặn. */}
+                              {!isDone && isSkippingAhead(level.level, currentBand) && (
+                                <span
+                                  title="Chặng này cao hơn chỗ bạn đang học khá nhiều. Vẫn mở được, chỉ là sẽ khó."
+                                  className="bg-orange-100 dark:bg-orange-950/40 text-orange-800 dark:text-orange-300 border-2 border-orange-600 px-2 py-0.5 rounded-lg text-[10px] font-black uppercase"
+                                >
+                                  ⚠ Vượt cấp
                                 </span>
                               )}
                             </div>

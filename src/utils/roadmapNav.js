@@ -61,6 +61,32 @@ export function pickNextMilestone(allMilestones, completedIds, recommendedLevelI
   return fromLevel || firstUndone;
 }
 
+// (KE_HOACH_B2 việc 1.6) KHOÁ MỀM — CẢNH BÁO, KHÔNG CHẶN.
+//
+// Lộ trình nay 617 chặng trải 6 bậc. Bấm nhầm vào một chặng C1 khi đang học A2
+// thì người học gặp bài không làm nổi, trượt cổng 80%, rồi tưởng mình dốt.
+// Nhưng CHẶN CỨNG cũng sai: có người học lại, có người chỉ muốn xem trước, và
+// cả chuỗi dọn nội dung vừa rồi dựng trên nguyên tắc "báo, đừng âm thầm".
+// Nên: đi trước quá `allowed` bậc thì gắn nhãn cảnh báo, vẫn bấm vào học được.
+export function bandDistance(fromLevelId, toLevelId) {
+  const a = ROADMAP_LEVEL_ORDER.indexOf(fromLevelId);
+  const b = ROADMAP_LEVEL_ORDER.indexOf(toLevelId);
+  if (a < 0 || b < 0) return 0;
+  return b - a;
+}
+
+export function isSkippingAhead(milestoneLevelId, currentLevelId, allowed = 1) {
+  if (!milestoneLevelId || !currentLevelId) return false;
+  return bandDistance(currentLevelId, milestoneLevelId) > allowed;
+}
+
+// Bậc người học ĐANG ở: bậc của chặng "học tiếp". Chưa có chặng nào (xong sạch
+// lộ trình, hoặc dữ liệu rỗng) thì trả null — nghĩa là "không rõ", và khi không
+// rõ thì KHÔNG cảnh báo ai cả.
+export function currentBandOf(nextMilestone) {
+  return nextMilestone?.levelId || null;
+}
+
 // Cấp độ nằm DƯỚI trình độ đề xuất → hiển thị thu gọn dạng "Ôn lại".
 // Vẫn mở được bình thường, không khoá: người học muốn ôn lại nền tảng là
 // quyền của họ.

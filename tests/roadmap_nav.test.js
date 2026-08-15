@@ -9,6 +9,7 @@ import assert from 'node:assert/strict';
 import {
   PLACEMENT_TO_ROADMAP, PLACEMENT_LEVEL_IDS, ROADMAP_LEVEL_ORDER,
   pickNextMilestone, roadmapLevelFor, isReviewLevel,
+  isSkippingAhead, currentBandOf, bandDistance,
 } from '../src/utils/roadmapNav.js';
 import { roadmapData } from '../src/data/roadmapData.js';
 
@@ -95,4 +96,38 @@ test('cấp độ dưới trình độ đề xuất được gắn nhãn Ôn l�
 test('dữ liệu vào rỗng/hỏng không làm văng hàm', () => {
   assert.equal(pickNextMilestone(null, null, 'advanced'), null);
   assert.equal(pickNextMilestone([], [], 'advanced'), null);
+});
+
+// ---- (1.6) Khoá mềm: cảnh báo nhảy cóc, KHÔNG chặn --------------------------
+
+test('cảnh báo nhảy cóc: đi trước quá 1 bậc mới cảnh báo, và không bao giờ chặn', () => {
+  // Đang ở A2 (elementary): B1 là bước kế tiếp hợp lý → không cảnh báo.
+  assert.equal(isSkippingAhead('intermediate', 'elementary'), false);
+  // Nhảy thẳng lên B2 hoặc C1 → cảnh báo.
+  assert.equal(isSkippingAhead('upper_intermediate', 'elementary'), true);
+  assert.equal(isSkippingAhead('advanced', 'elementary'), true);
+  // Học lại bậc thấp hơn: KHÔNG phải nhảy cóc.
+  assert.equal(isSkippingAhead('foundation', 'elementary'), false);
+  assert.equal(isSkippingAhead('starter', 'advanced'), false);
+  // Cùng bậc.
+  assert.equal(isSkippingAhead('elementary', 'elementary'), false);
+});
+
+test('không rõ người học đang ở đâu thì KHÔNG cảnh báo ai cả', () => {
+  assert.equal(currentBandOf(null), null);
+  assert.equal(currentBandOf({}), null);
+  assert.equal(currentBandOf({ levelId: 'intermediate' }), 'intermediate');
+  // currentBand null → mọi chặng đều không bị gắn nhãn vượt cấp.
+  assert.equal(isSkippingAhead('advanced', null), false);
+  assert.equal(isSkippingAhead(null, 'starter'), false);
+  // Bậc lạ không có trong thứ tự → coi như khoảng cách 0, không cảnh báo bừa.
+  assert.equal(bandDistance('khong_co_that', 'advanced'), 0);
+  assert.equal(isSkippingAhead('advanced', 'khong_co_that'), false);
+});
+
+test('cụm A0 đứng trước starter trong thứ tự bậc', () => {
+  assert.equal(ROADMAP_LEVEL_ORDER[0], 'foundation');
+  assert.equal(bandDistance('foundation', 'starter'), 1);
+  // Bài test đầu vào không map sang A0: điểm thấp nhất vẫn ra 'starter'.
+  assert.ok(!Object.values(PLACEMENT_TO_ROADMAP).includes('foundation'));
 });
