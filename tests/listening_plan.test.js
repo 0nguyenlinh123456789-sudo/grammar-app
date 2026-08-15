@@ -22,7 +22,12 @@ import { ROADMAP_LEVEL_ORDER } from '../src/utils/roadmapNav.js';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 // BÁNH CÓC — chỉ được tăng. Thêm bản thu thì sửa số này lên.
-const BAN_THU_TOI_THIEU = 40;
+// 40 (đợt đầu) → 239 (mở rộng 15/08).
+const BAN_THU_TOI_THIEU = 239;
+
+// Mỗi nhóm độ dài phải đủ dày để bốc được một buổi 5 câu mà không phải mượn
+// nhóm khác. Nhóm mỏng thì người học ở bậc đó luôn nghe nhầm độ khó.
+const MOI_NHOM_TOI_THIEU = 40;
 
 const rand = (seed = 1) => { let s = seed; return () => { s = (s * 1103515245 + 12345) % 2147483648; return s / 2147483648; }; };
 
@@ -105,5 +110,18 @@ test('kho thật phải bốc được một buổi 5 câu cho MỌI bậc lộ 
     const bo = chonBoCau(audioManifest, nhomChoBac(bac), 5, rand(7));
     assert.equal(bo.length, 5, `bậc ${bac} chỉ bốc được ${bo.length} câu`);
     assert.equal(new Set(bo.map((e) => e.id)).size, 5, `bậc ${bac} có câu bị lặp trong cùng một buổi`);
+  }
+});
+
+test('mỗi nhóm độ dài đủ dày để KHÔNG phải mượn nhóm khác', () => {
+  const tk = thongKeKho(audioManifest);
+  const mong = Object.entries(tk).filter(([, n]) => n < MOI_NHOM_TOI_THIEU);
+  assert.deepEqual(mong, [],
+    `nhóm mỏng quá — người học ở bậc đó sẽ luôn phải nghe câu của nhóm khác: ${JSON.stringify(tk)}`);
+
+  // Và bốc đúng nhóm thì phải ra ĐÚNG nhóm đó, không lẫn.
+  for (const g of NHOM_DO_DAI) {
+    const bo = chonBoCau(audioManifest, g.id, 5, rand(11));
+    assert.ok(bo.every((e) => nhomCuaCau(e) === g.id), `bốc nhóm "${g.id}" mà lẫn câu nhóm khác dù kho đủ dày`);
   }
 });

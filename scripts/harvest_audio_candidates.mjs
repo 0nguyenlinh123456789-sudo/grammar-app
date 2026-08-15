@@ -18,9 +18,15 @@
 //   3. Lọc theo độ dài và loại bỏ chủ đề nhạy cảm, rồi in bảng.
 import fs from 'fs';
 import path from 'path';
+import readline from 'readline';
 import { coTheDung, lyDoTuChoi } from '../src/utils/audioLicense.js';
 
 const INDEX_URL = 'https://downloads.tatoeba.org/exports/sentences_with_audio.csv';
+// Bản xuất câu TIẾNG ANH (24,8 MB nén). Dùng bản này thay vì hỏi API từng câu:
+// bản kê giấy phép không có cột ngôn ngữ, mà API trả lời ~2,7 giây/lượt nên
+// lọc 160 ứng viên mất hơn nửa giờ và vẫn chưa xong. Đối chiếu tại chỗ mất
+// vài giây. Cần `bunzip2` (có sẵn trong Git Bash) để giải nén.
+const ENG_FILE = 'eng_sentences.tsv';
 const SOURCE = 'Tatoeba';
 const STATEMENT_URL = 'https://tatoeba.org/en/downloads';
 
@@ -43,7 +49,19 @@ const DA_CO = new Set(
 // trong nhóm dùng được đã thấy "Communism will never be reached in my lifetime",
 // "Creationism is a pseudo-science". Lọc máy không thay được người đọc duyệt,
 // nên nó chỉ là lưới thứ nhất; bảng in ra vẫn phải có người xem.
-const TU_LOAI = /\b(commun|fascis|nazi|creationis|abortion|kill|killed|murder|suicide|war|weapon|gun|drunk|hell|damn|stupid|idiot|racist|sex|porn|god|jesus|allah|islam|christian|jew|muslim|poorest|terroris)/i;
+const TU_LOAI = new RegExp([
+  // chính trị / hệ tư tưởng
+  'commun', 'fascis', 'nazi', 'soviet', 'president', 'election', 'politic',
+  // tôn giáo
+  'creationis', 'god', 'jesus', 'allah', 'islam', 'christian', 'jew', 'muslim', 'church', 'bible', 'pray',
+  // chết chóc, bạo lực, tội phạm
+  'abortion', 'kill', 'murder', 'suicide', 'die', 'died', 'dying', 'dead', 'blood', 'war', 'weapon', 'gun',
+  'army', 'soldier', 'prison', 'arrest', 'steal', 'stole', 'terroris',
+  // chất kích thích
+  'drunk', 'alcohol', 'beer', 'wine', 'cigarett', 'smok',
+  // xúc phạm
+  'hell', 'damn', 'stupid', 'idiot', 'crazy', 'insane', 'ugly', 'racist', 'hate', 'sex', 'porn', 'poorest',
+].map((t) => `\\b${t}`).join('|'), 'i');
 const CHU_HOP_LE = /^[A-Za-z0-9 ,.'"?!:;()-]+$/;
 
 async function taiBanKe() {
@@ -73,10 +91,28 @@ function locTheoGiayPhep(duongDan) {
   return { dungDuoc, thongKe };
 }
 
-async function layCau(sentenceId) {
-  const res = await fetch(`https://tatoeba.org/en/api_v0/sentence/${sentenceId}`);
-  if (!res.ok) return null;
-  return res.json().catch(() => null);
+// Đọc bản xuất câu tiếng Anh theo dòng, chỉ giữ những câu NẰM TRONG tập cần —
+// đọc cả file 108 MB vào bộ nhớ dạng chuỗi là ~216 MB, không cần thiết.
+async function docCauTiengAnh(canTim) {
+  const duongDan = path.join(CACHE, ENG_FILE);
+  if (!fs.existsSync(duongDan)) {
+    throw new Error(`không thấy ${duongDan}. Tải và giải nén trước:\n`
+      + `  curl -sL https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2 -o ${CACHE}/${ENG_FILE}.bz2\n`
+      + `  bunzip2 -kf ${CACHE}/${ENG_FILE}.bz2`);
+  }
+  const map = new Map();
+  const rl = readline.createInterface({ input: fs.createReadStream(duongDan, 'utf8'), crlfDelay: Infinity });
+  for await (const dong of rl) {
+    const nhay = dong.indexOf('\t');
+    if (nhay < 0) continue;
+    const id = dong.slice(0, nhay);
+    if (!canTim.has(id)) continue;
+    const conLai = dong.slice(nhay + 1);
+    const nhay2 = conLai.indexOf('\t');
+    if (nhay2 < 0) continue;
+    map.set(id, conLai.slice(nhay2 + 1).trim());
+  }
+  return map;
 }
 
 const soTu = (s) => String(s || '').trim().split(/\s+/).filter(Boolean).length;
@@ -95,29 +131,24 @@ async function main() {
   // Hỏi API cho tới khi đủ số ứng viên — KHÔNG hỏi hết vài nghìn câu.
   const ungVien = [];
   const loai = { daCo: 0, khacTiengAnh: 0, doDai: 0, kyTu: 0, chuDe: 0 };
-  // Hỏi API theo lô song song. Hỏi tuần tự thì phần lớn thời gian là ngồi chờ
-  // mạng — lọc 160 ứng viên mất hơn 10 phút và không kịp chạy hết.
-  const SONG_SONG = 8;
   const conLai = dungDuoc.filter((bt) => {
     if (DA_CO.has(bt.sentenceId)) { loai.daCo += 1; return false; }
     return true;
   });
 
-  for (let i = 0; i < conLai.length && ungVien.length < LIMIT; i += SONG_SONG) {
-    const lo = conLai.slice(i, i + SONG_SONG);
-    const cau = await Promise.all(lo.map((bt) => layCau(bt.sentenceId).catch(() => null)));
-    for (let k = 0; k < lo.length; k += 1) {
-      if (ungVien.length >= LIMIT) break;
-      if (!cau[k]) continue;
-      if (cau[k].lang !== 'eng') { loai.khacTiengAnh += 1; continue; }
-      const text = String(cau[k].text || '').trim();
-      const n = soTu(text);
-      if (n < MIN_TU || n > MAX_TU) { loai.doDai += 1; continue; }
-      if (!CHU_HOP_LE.test(text)) { loai.kyTu += 1; continue; }
-      if (TU_LOAI.test(text)) { loai.chuDe += 1; continue; }
-      ungVien.push({ ...lo[k], text, words: n });
-      process.stderr.write(`  ${String(ungVien.length).padStart(3)}. ${text}\n`);
-    }
+  const cauAnh = await docCauTiengAnh(new Set(conLai.map((bt) => bt.sentenceId)));
+  process.stderr.write(`Trong ${conLai.length} bản thu dùng được, có ${cauAnh.size} câu tiếng Anh.\n\n`);
+
+  for (const bt of conLai) {
+    if (ungVien.length >= LIMIT) break;
+    const text = cauAnh.get(bt.sentenceId);
+    if (!text) { loai.khacTiengAnh += 1; continue; }
+    const n = soTu(text);
+    if (n < MIN_TU || n > MAX_TU) { loai.doDai += 1; continue; }
+    if (!CHU_HOP_LE.test(text)) { loai.kyTu += 1; continue; }
+    if (TU_LOAI.test(text)) { loai.chuDe += 1; continue; }
+    ungVien.push({ ...bt, text, words: n });
+    process.stderr.write(`  ${String(ungVien.length).padStart(3)}. [${n} từ] ${text}\n`);
   }
 
   process.stderr.write(`\nĐã loại: ${loai.daCo} câu đã lấy từ đợt trước, ${loai.khacTiengAnh} câu không phải tiếng Anh, ${loai.doDai} câu ngoài khoảng ${MIN_TU}–${MAX_TU} từ, ${loai.kyTu} câu có ký tự lạ, ${loai.chuDe} câu dính chủ đề nhạy cảm.\n`);
