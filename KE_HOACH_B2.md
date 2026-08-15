@@ -70,12 +70,12 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 | 2.3 | ✅ **XONG (Đợt 3)** — nghe chép chính tả, chấm bằng so khớp dãy con dài nhất; thiếu từ đầu câu không kéo sập cả câu | Cơ chế rẻ, hiệu quả cao nhất cho nghe | `tests/dictation.test.js` | A | Nhỏ |
 | 2.4 | ✅ **XONG (Đợt 3)** — nhãn "Giọng máy đọc" ở phần nghe hiểu và phần Nghe của đề thi thử | Thiếu dữ liệu thì BÁO, không thay thế âm thầm | `MachineVoiceTag.jsx` | A | Nhỏ |
 
-> **Ghi chú cho việc 2.2 — đo thật ngày 2026-08-15, chưa quyết.**
-> Trở ngại KHÔNG phải là cắt file. Một bài nghe theo đoạn cần **bản chép lời khớp với đúng đoạn đó** để viết câu hỏi hiểu ý, để hiện lại sau khi nghe, và để kiểm được.
-> - **LibriVox**: có sẵn mục dài 60–150 giây (đếm được 119 mục trong 40 quyển đầu qua trường `playtime` của API, không cần cắt). Nhưng **không có văn bản khớp từng mục** — chỉ có liên kết tới cả quyển sách trên Gutenberg. Và văn phong là tiểu thuyết thế kỷ 19, sai hẳn ngữ vực cho người học B1/B2.
-> - **VOA Learning English**: có **cả bản chép lời và MP3 trên cùng một trang** (đã thử một bài: 1.592 từ + 1 file MP3) — đúng thứ 2.2 cần. Nhưng file dài ~13 phút nên **vẫn phải cắt**, và giấy phép phải xét từng bài.
+> **Ghi chú cho việc 2.2 — ĐÃ CHỐT 2026-08-15.**
+> Trở ngại hoá ra **không phải cắt file**, mà là **bản chép lời**: một bài nghe theo đoạn cần văn bản khớp đúng đoạn đó để viết câu hỏi, để hiện lại sau khi nghe, và để kiểm được. LibriVox có sẵn mục 60–150 giây (119 mục trong 40 quyển đầu) nhưng **không có văn bản khớp từng mục**, và văn phong tiểu thuyết thế kỷ 19 sai ngữ vực. VOA có **cả hai trên cùng một trang** → chọn VOA.
 >
-> Ba hướng: (a) cài `ffmpeg-static` làm dev dependency rồi cắt bài VOA theo đoạn; (b) chỉ lấy loạt bài VOA vốn đã ngắn (News Words ~1 phút); (c) ghi mốc bắt đầu/kết thúc trong manifest rồi cho trình phát tua — không đụng vào file, nhưng phải tải cả file dài về.
+> **Chốt: TRỎ THẲNG tới máy chủ VOA, KHÔNG sao chép file vào kho.** Lý do chính không phải dung lượng mà là **giấy phép**: VOA nói nội dung của họ *"may also contain"* tư liệu bên thứ ba không thuộc phạm vi công cộng. Sao chép về là phải khẳng định một điều không kiểm được từng bài; trỏ tới thì không phát hành lại gì cả. Đo được: máy chủ VOA trả `Access-Control-Allow-Origin: *` nên trình duyệt phát được.
+> **Cái giá:** đường dẫn có thể chết → giao diện **báo to** kèm liên kết trang gốc và mở luôn bản chép lời, cộng `scripts/check_voa_links.mjs` chạy tay (không đưa vào CI vì phụ thuộc mạng).
+> **Không cần `ffmpeg`.** Bản chép lời vẫn lưu trong kho vì cần cho câu hỏi — đó là phần VOA tự viết, thuộc trường hợp rõ ràng nhất của phạm vi công cộng.
 
 ### NHÓM 3 — Đọc hiểu và sản sinh
 
