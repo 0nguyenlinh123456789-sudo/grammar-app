@@ -75,7 +75,18 @@ Bộ kiểm tự động xác minh được: giấy phép, việc ghép cặp c�
 
 **Nó không xác minh được: chất lượng thu, tạp âm, accent, và người đọc có dễ nghe hay không.** Chưa ai nghe những file này. Muốn chắc thì phải có người nghe thử — tôi không nghe được.
 
-## 7. XIN Ý KIẾN
+## 7. VIỆC 2.2 (BÀI NGHE THEO ĐOẠN) VƯỚNG Ở ĐÂU — đo ngày 2026-08-15
+
+Trở ngại **không phải** là thiếu `ffmpeg` để cắt file. Trở ngại là **bản chép lời**: một bài nghe theo đoạn cần văn bản khớp với đúng đoạn đó, nếu không thì không viết được câu hỏi hiểu ý, không hiện lại được sau khi nghe, và không kiểm được bằng test.
+
+| Nguồn | Có đoạn ngắn sẵn? | Có bản chép lời khớp? | Kết luận |
+|---|---|---|---|
+| LibriVox | ✅ đếm được **119 mục dài 60–150 giây** trong 40 quyển đầu (trường `playtime` của API, không cần cắt) | ❌ chỉ có liên kết tới cả quyển trên Gutenberg | Ngữ vực cũng sai: tiểu thuyết thế kỷ 19 |
+| VOA Learning English | ❌ bài đã thử dài ~13 phút | ✅ **bản chép lời và MP3 nằm trên cùng một trang** (1.592 từ + 1 file) | Đúng thứ cần, nhưng phải cắt và phải xét giấy phép từng bài |
+
+Ba hướng, chưa chọn: (a) cài `ffmpeg-static` làm dev dependency rồi cắt bài VOA; (b) chỉ lấy loạt bài VOA vốn đã ngắn (News Words ~1 phút); (c) ghi mốc bắt đầu/kết thúc trong manifest rồi cho trình phát tua — không đụng vào file gốc, nhưng phải tải cả file dài về kho.
+
+## 8. XIN Ý KIẾN
 
 **Câu hỏi 1 — có nới sang CC BY-NC không?** Nếu ứng dụng miễn phí hoàn toàn thì kho dùng được nhảy từ 38.111 lên 1.157.890 (gấp 30 lần), và giọng CK là giọng Mỹ chuẩn, thu phòng, chất lượng đồng đều. Nhưng còn màn hình bán gói thì không được. **Đây là quyết định của bạn, không phải của tôi** — tôi đang mặc định chọn phương án an toàn.
 

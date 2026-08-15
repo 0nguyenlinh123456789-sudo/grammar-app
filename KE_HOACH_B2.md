@@ -59,10 +59,17 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 
 | # | Việc | Vì sao | Nghiệm thu | RB | Công |
 |---|---|---|---|---|---|
-| 2.1 | **Đưa audio người thật vào** — nguồn miễn phí/mở (LibriVox, Common Voice, Tatoeba audio, VOA Learning English…), tối thiểu **2 accent** | **0 file âm thanh** trong `public/`; giọng máy đọc không đưa ai lên B2 nghe được | N4 xanh | A | **Lớn** |
-| 2.2 | **Bài nghe theo ĐOẠN** (60–150 giây) kèm câu hỏi hiểu ý, không phải nghe câu lẻ chọn nghĩa | B2 đo khả năng theo dõi mạch nói, không đo nhận ra một từ | ≥60 bài nghe đoạn | A | Lớn |
-| 2.3 | **Nghe chép chính tả** (dictation) — gõ lại câu vừa nghe | Cơ chế rẻ, hiệu quả cao nhất cho nghe; dùng lại được audio của 2.1 | ≥1 bài/chặng B1+ | A | Nhỏ |
-| 2.4 | **Giữ giọng máy làm phương án dự phòng**, ghi rõ "giọng máy đọc" khi không có audio thật | Thiếu dữ liệu thì BÁO, không thay thế âm thầm | nhãn hiện trên UI | A | Nhỏ |
+| 2.1 | 🟡 **ĐANG DỞ (Đợt 3)** — đã dựng cổng giấy phép + bộ tải 4 lớp + kho bản thu đầu tiên. **N4 chưa đạt.** Xem `BAO_CAO_GIAY_PHEP_AUDIO.md` | Trước đó **0 file âm thanh** trong `public/` | N4 xanh | A | **Lớn** |
+| 2.2 | ⛔ **CHƯA BẮT ĐẦU — vướng bản chép lời, không phải vướng ffmpeg** (xem ghi chú dưới bảng) | B2 đo khả năng theo dõi mạch nói, không đo nhận ra một từ | ≥60 bài nghe đoạn | A | Lớn |
+| 2.3 | ✅ **XONG (Đợt 3)** — nghe chép chính tả, chấm bằng so khớp dãy con dài nhất; thiếu từ đầu câu không kéo sập cả câu | Cơ chế rẻ, hiệu quả cao nhất cho nghe | `tests/dictation.test.js` | A | Nhỏ |
+| 2.4 | ✅ **XONG (Đợt 3)** — nhãn "Giọng máy đọc" ở phần nghe hiểu và phần Nghe của đề thi thử | Thiếu dữ liệu thì BÁO, không thay thế âm thầm | `MachineVoiceTag.jsx` | A | Nhỏ |
+
+> **Ghi chú cho việc 2.2 — đo thật ngày 2026-08-15, chưa quyết.**
+> Trở ngại KHÔNG phải là cắt file. Một bài nghe theo đoạn cần **bản chép lời khớp với đúng đoạn đó** để viết câu hỏi hiểu ý, để hiện lại sau khi nghe, và để kiểm được.
+> - **LibriVox**: có sẵn mục dài 60–150 giây (đếm được 119 mục trong 40 quyển đầu qua trường `playtime` của API, không cần cắt). Nhưng **không có văn bản khớp từng mục** — chỉ có liên kết tới cả quyển sách trên Gutenberg. Và văn phong là tiểu thuyết thế kỷ 19, sai hẳn ngữ vực cho người học B1/B2.
+> - **VOA Learning English**: có **cả bản chép lời và MP3 trên cùng một trang** (đã thử một bài: 1.592 từ + 1 file MP3) — đúng thứ 2.2 cần. Nhưng file dài ~13 phút nên **vẫn phải cắt**, và giấy phép phải xét từng bài.
+>
+> Ba hướng: (a) cài `ffmpeg-static` làm dev dependency rồi cắt bài VOA theo đoạn; (b) chỉ lấy loạt bài VOA vốn đã ngắn (News Words ~1 phút); (c) ghi mốc bắt đầu/kết thúc trong manifest rồi cho trình phát tua — không đụng vào file, nhưng phải tải cả file dài về.
 
 ### NHÓM 3 — Đọc hiểu và sản sinh
 
