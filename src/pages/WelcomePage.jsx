@@ -3,7 +3,7 @@ import { roadmapData, BAND_TAB_LABEL, bandMinutes, minutesThroughBand, roadmapTo
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
-  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal, GraduationCap
+  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal, GraduationCap, Headphones
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
@@ -12,6 +12,8 @@ import SrsReview from '../components/vocab/SrsReview';
 import WordNotebook from '../components/vocab/WordNotebook';
 import ErrorReview from '../components/progress/ErrorReview';
 import MockTest from '../components/progress/MockTest';
+import DictationPanel from '../components/listening/DictationPanel';
+import { audioManifest } from '../data/audioManifest';
 import { loadMockHistory } from '../utils/mockTest';
 import { getDueCount, getTotalCount } from '../utils/srs';
 import { getDueErrorCount, getErrorCount } from '../utils/errorBank';
@@ -68,6 +70,7 @@ const WelcomePage = ({
   const [showNotebook, setShowNotebook] = useState(false);
   const [showErrorReview, setShowErrorReview] = useState(false);
   const [showMockTest, setShowMockTest] = useState(false);
+  const [showDictation, setShowDictation] = useState(false);
   const lastMock = loadMockHistory()[0] || null;
   const dueErrors = getDueErrorCount();
   const totalErrors = getErrorCount();
@@ -302,6 +305,7 @@ const WelcomePage = ({
       {showNotebook && <WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} />}
       {showErrorReview && <ErrorReview onClose={() => setShowErrorReview(false)} />}
       {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
+      {showDictation && <DictationPanel onClose={() => setShowDictation(false)} />}
       {showMigration && (
         <MasteryMigrationNotice
           unverifiedCount={unverifiedMilestones.length}
@@ -586,6 +590,30 @@ const WelcomePage = ({
           className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-emerald-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-emerald-500 transition-all cursor-pointer"
         >
           {lastMock ? 'THI LẠI' : 'THI THỬ NGAY'}
+        </button>
+      </div>
+
+      {/* --- (2.3) NGHE CHÉP CHÍNH TẢ — bài đầu tiên dùng giọng người thật --- */}
+      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="bg-cyan-100 dark:bg-cyan-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+            <Headphones size={26} className="text-cyan-600" />
+          </div>
+          <div>
+            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
+              Nghe chép chính tả
+              <span className="px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase">Giọng người thật</span>
+            </h3>
+            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+              {audioManifest.length} bản thu giọng người thật · nghe rồi gõ lại từng từ. Chấm theo từ, dấu câu không tính.
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowDictation(true)}
+          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-cyan-400 text-slate-900 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-cyan-500 transition-all cursor-pointer"
+        >
+          LUYỆN NGHE
         </button>
       </div>
 

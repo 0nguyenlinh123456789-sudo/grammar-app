@@ -19,7 +19,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 import {
   coTheDung, lyDoTuChoi, kiemTraBanGhi, dongGhiCong,
   GIAY_PHEP_CHO_PHEP, GIAY_PHEP_TU_CHOI, TRUONG_BAT_BUOC,
@@ -102,7 +102,9 @@ test('mọi file trong public/audio đều có bản ghi, và mọi bản ghi đ
     return;
   }
 
-  const { audioManifest } = await import(MANIFEST);
+  // pathToFileURL: trên Windows đường dẫn "d:\..." bị bộ nạp ESM hiểu là giao
+  // thức "d:" — đã dính ở đây một lần.
+  const { audioManifest } = await import(pathToFileURL(MANIFEST).href);
   const loi = [];
   const ids = new Set();
   for (const e of audioManifest) {
