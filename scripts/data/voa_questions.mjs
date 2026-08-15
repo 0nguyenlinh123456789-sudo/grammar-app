@@ -1414,6 +1414,741 @@ export const CAU_HOI = {
     },
   ],
 
+  // ===== ĐỢT 4 (16 bài) — mỗi bài viết sau khi đọc hết bản chép lời =====
+
+  // Perhaps and Maybe
+  'voa-7771274': [
+    {
+      q: 'Nghĩa của “perhaps” và “maybe” khác nhau thế nào?',
+      opts: ['Hai từ nghĩa như nhau, chỉ khác cách dùng', '“Perhaps” chắc chắn hơn', '“Maybe” chỉ dùng cho việc tương lai', 'Hai từ trái nghĩa nhau'],
+      a: 'Hai từ nghĩa như nhau, chỉ khác cách dùng',
+      why: 'Bài nói: “The two words mean the same thing” — cả hai đều diễn đạt việc mình đang đoán hoặc chưa chắc.',
+    },
+    {
+      q: 'Người nói tiếng Anh Mỹ dùng từ nào nhiều hơn, và làm sao biết được?',
+      opts: [
+        '“Maybe”, nhiều hơn gấp đôi, theo kho ngữ liệu tiếng Anh Mỹ đương đại',
+        '“Perhaps”, vì nghe trang trọng hơn',
+        'Hai từ dùng ngang nhau',
+        'Bài không đưa ra con số nào',
+      ],
+      a: '“Maybe”, nhiều hơn gấp đôi, theo kho ngữ liệu tiếng Anh Mỹ đương đại',
+      why: 'Các nhà nghiên cứu thấy “speakers of American English use ” “maybe” “more than twice as often as the word ” “perhaps.”',
+    },
+    {
+      q: 'Nếu thay “maybe” bằng “perhaps” trong câu trả lời đời thường thì nghe thế nào?',
+      opts: [
+        'Nghe quá trang trọng hoặc quá nghiêm trọng',
+        'Nghe thân mật hơn',
+        'Nghe không rõ nghĩa',
+        'Nghe giống hệt, không ai nhận ra',
+      ],
+      a: 'Nghe quá trang trọng hoặc quá nghiêm trọng',
+      why: 'Bài nói trong tình huống đó “it might sound too formal, or serious, in American English.”',
+    },
+    {
+      q: 'Khi người viết đặt một từ “Maybe.” đứng riêng thành một câu sau một lời tuyên bố, ý họ là gì?',
+      opts: [
+        'Tỏ rõ hơn cảm giác rằng lời tuyên bố đó có thể sai',
+        'Đồng ý hoàn toàn với lời tuyên bố',
+        'Nhắc lại lời tuyên bố cho rõ',
+        'Chuyển sang một chủ đề khác',
+      ],
+      a: 'Tỏ rõ hơn cảm giác rằng lời tuyên bố đó có thể sai',
+      why: 'Bài giải thích khi dùng “maybe” như vậy, “the writer communicates more strongly a feeling that the government officials might be wrong.”',
+    },
+  ],
+
+  // How to Summarize
+  'voa-7769761': [
+    {
+      q: 'Một bản tóm tắt (summary) là gì?',
+      opts: [
+        'Giải thích ngắn gọn các ý chính, không gồm mọi chi tiết',
+        'Bản chép lại toàn bộ nội dung cho gọn hơn',
+        'Danh sách các từ mới trong bài',
+        'Ý kiến riêng của người đọc về bài',
+      ],
+      a: 'Giải thích ngắn gọn các ý chính, không gồm mọi chi tiết',
+      why: 'Bài định nghĩa: “A summary briefly explains the main ideas of a piece of writing or a speech but does not include all the details.”',
+    },
+    {
+      q: 'Bước ĐẦU TIÊN của phương pháp trong bài là gì?',
+      opts: [
+        'Đọc hoặc nghe một lần mà không ghi chú gì cả',
+        'Gạch chân mọi từ mới',
+        'Viết ngay ý chính ra giấy',
+        'Dịch toàn bài sang tiếng mẹ đẻ',
+      ],
+      a: 'Đọc hoặc nghe một lần mà không ghi chú gì cả',
+      why: 'Bài dặn: “First, read or listen to the material one time without writing any notes” — để đầu óc tập trung vào việc hiểu ý.',
+    },
+    {
+      q: 'Vì sao nên để vài tiếng trôi qua giữa lúc ghi chú và lúc viết ý chính?',
+      opts: [
+        'Để xem mình có tự nhớ và sắp xếp được ý chính trong đầu không',
+        'Để chữ viết khô mực',
+        'Để hỏi ý kiến người khác trước',
+        'Để đọc lại bài thêm một lần nữa',
+      ],
+      a: 'Để xem mình có tự nhớ và sắp xếp được ý chính trong đầu không',
+      why: 'Bài nói: “This is a good way to see if you can remember and organize the main points in your mind.”',
+    },
+    {
+      q: 'Cách thứ hai bài gợi ý để chuẩn bị một bản tóm tắt là gì?',
+      opts: [
+        'Thử kể lại nội dung như đang nói chuyện với bạn bè, nói thành tiếng',
+        'Vẽ sơ đồ tư duy',
+        'Đếm số câu trong bài',
+        'Học thuộc đoạn mở đầu',
+      ],
+      a: 'Thử kể lại nội dung như đang nói chuyện với bạn bè, nói thành tiếng',
+      why: 'Bài gợi ý: “Try to explain the material as if you were talking about it with your friends or family.”',
+    },
+  ],
+
+  // Speaking Fluently
+  'voa-7750089': [
+    {
+      q: 'Theo bài, nói trôi chảy có phải là nói không mắc lỗi không?',
+      opts: [
+        'Không — trôi chảy là nói mà không phải ngừng lại quá nhiều',
+        'Đúng, trôi chảy nghĩa là không sai ngữ pháp',
+        'Đúng, và còn phải phát âm chuẩn giọng Mỹ',
+        'Bài không định nghĩa từ này',
+      ],
+      a: 'Không — trôi chảy là nói mà không phải ngừng lại quá nhiều',
+      why: 'Bài nói: “fluency is the ability to speak without stopping too much”, và còn là khả năng nói được về nhiều vấn đề.',
+    },
+    {
+      q: '“Input” trong bài nghĩa là gì?',
+      opts: [
+        'Thứ tiếng Anh mình nghe và đọc',
+        'Thứ tiếng Anh mình nói ra',
+        'Số giờ học mỗi tuần',
+        'Bài tập ngữ pháp',
+      ],
+      a: 'Thứ tiếng Anh mình nghe và đọc',
+      why: 'Bài nói rõ: “Input means the language you listen to and read.”',
+    },
+    {
+      q: 'Bài nói người học cần HAI thứ để trôi chảy — thứ thứ hai là gì?',
+      opts: [
+        'Luyện nói thật nhiều trong nhiều kiểu tình huống khác nhau',
+        'Học thuộc bảng động từ bất quy tắc',
+        'Sống ở nước nói tiếng Anh',
+        'Thi lấy một chứng chỉ quốc tế',
+      ],
+      a: 'Luyện nói thật nhiều trong nhiều kiểu tình huống khác nhau',
+      why: 'Bài nói: “The second thing learners need is a lot of practice speaking in different kinds of situations.”',
+    },
+    {
+      q: 'Quan hệ giữa lỗi ngữ pháp và sự trôi chảy theo bài là gì?',
+      opts: [
+        'Vẫn trôi chảy được dù sai ngữ pháp nhiều, nhưng không trôi chảy được nếu thiếu từ',
+        'Sai ngữ pháp thì chắc chắn không trôi chảy',
+        'Ngữ pháp quan trọng hơn từ vựng',
+        'Hai thứ không liên quan gì đến nhau',
+      ],
+      a: 'Vẫn trôi chảy được dù sai ngữ pháp nhiều, nhưng không trôi chảy được nếu thiếu từ',
+      why: 'Bài nói: “you can be fluent even if you make many grammar mistakes”, nhưng không thể trôi chảy nếu không biết đủ từ và cụm từ.',
+    },
+  ],
+
+  // Using 'Though' and 'However': Part 1
+  'voa-7652826': [
+    {
+      q: 'Hai từ “though” và “however” dùng để làm gì?',
+      opts: [
+        'Cho thấy quan hệ giữa các ý, thường là sự khác biệt',
+        'Nối hai danh từ với nhau',
+        'Đặt câu hỏi lịch sự',
+        'Nhấn mạnh thời gian của hành động',
+      ],
+      a: 'Cho thấy quan hệ giữa các ý, thường là sự khác biệt',
+      why: 'Bài nói hai từ này “are words that show a relationship between ideas”, thường diễn đạt sự khác nhau giữa hai điều.',
+    },
+    {
+      q: 'Trong tiếng Anh nói, “though” rất hay đứng ở đâu?',
+      opts: ['Cuối câu', 'Đầu câu', 'Ngay sau chủ ngữ', 'Giữa hai dấu phẩy'],
+      a: 'Cuối câu',
+      why: 'Bài nói ta dùng “though” nhiều khi nói, và “it is very common at the end of a sentence”, như câu “I like him, though.”',
+    },
+    {
+      q: '“However” phổ biến hơn ở dạng tiếng Anh nào?',
+      opts: ['Tiếng Anh viết', 'Tiếng Anh nói hằng ngày', 'Tiếng lóng', 'Tiếng Anh trong bài hát'],
+      a: 'Tiếng Anh viết',
+      why: 'Bài nói ngắn gọn rằng “However” “is very common in written English.”',
+    },
+    {
+      q: 'Trong tiếng Anh nói, “however” còn có cách dùng nào nữa?',
+      opts: [
+        'Làm cách nói mạnh hơn của “how”, và nhấn vào phần -ever',
+        'Thay cho “because”',
+        'Làm đại từ chỉ người',
+        'Làm cách nói nhẹ đi của “never”',
+      ],
+      a: 'Làm cách nói mạnh hơn của “how”, và nhấn vào phần -ever',
+      why: 'Bài nói “however” “can be used as a more forceful way of saying ” “how”, ví dụ “However will I choose?”',
+    },
+  ],
+
+  // Feel, Feel Like
+  'voa-7646528': [
+    {
+      q: '“Feel like” đi với một người hoặc một vật thì nghĩa là gì?',
+      opts: [
+        'Mình giống với người hoặc vật đó',
+        'Mình thích người hoặc vật đó',
+        'Mình chạm vào người hoặc vật đó',
+        'Mình nhớ người hoặc vật đó',
+      ],
+      a: 'Mình giống với người hoặc vật đó',
+      why: 'Bài nói “Feel like” “someone or something means that you are similar to the person or thing”, ví dụ “My feet feel like blocks of ice.”',
+    },
+    {
+      q: '“Jose feels like eating ice cream” nghĩa là gì?',
+      opts: [
+        'Anh ấy muốn ăn kem',
+        'Anh ấy thấy mình giống que kem',
+        'Anh ấy đang ăn kem',
+        'Anh ấy không thích kem',
+      ],
+      a: 'Anh ấy muốn ăn kem',
+      why: 'Bài giải thích “Feel like” “doing something means that you want to do it”, và động từ sau đó thường thêm -ing.',
+    },
+    {
+      q: 'Câu “Jose feels like ice cream.” (không có -ing) hiểu thế nào?',
+      opts: [
+        'Vẫn hiểu là anh ấy muốn ăn kem',
+        'Anh ấy thấy mình lạnh như kem',
+        'Câu đó sai ngữ pháp',
+        'Anh ấy đang bán kem',
+      ],
+      a: 'Vẫn hiểu là anh ấy muốn ăn kem',
+      why: 'Bài nói: “It is understood that he wants to eat ice cream or that she wants to watch a movie.”',
+    },
+    {
+      q: 'Câu nào dùng “feel” theo nghĩa CHẠM VÀO?',
+      opts: [
+        '“I feel the rough sand under my feet.”',
+        '“It feels cold outside.”',
+        '“He feels sure we are right.”',
+        '“I always feel thankful to my parents.”',
+      ],
+      a: '“I feel the rough sand under my feet.”',
+      why: 'Bài xếp câu “I feel the rough sand under my feet” vào nhóm “feel” mang nghĩa chạm vào một vật.',
+    },
+  ],
+
+  // Nobody, No one
+  'voa-7642124': [
+    {
+      q: '“Nobody” và “no one” thuộc loại từ nào?',
+      opts: ['Đại từ bất định', 'Danh từ riêng', 'Trạng từ phủ định', 'Liên từ'],
+      a: 'Đại từ bất định',
+      why: 'Bài nói: “Indefinite pronouns refer to people in a general and open way”, và “no” trong cả hai từ cho biết không có người nào.',
+    },
+    {
+      q: 'Nghĩa của hai từ này khác nhau nhiều không?',
+      opts: [
+        'Không khác gì đáng kể, và cả hai đều coi là số ít',
+        '“Nobody” mạnh hơn “no one”',
+        '“No one” chỉ dùng cho một người, “nobody” cho nhiều người',
+        'Một từ khẳng định, một từ phủ định',
+      ],
+      a: 'Không khác gì đáng kể, và cả hai đều coi là số ít',
+      why: 'Bài nói không có khác biệt lớn về nghĩa, và “Both are treated as singular nouns.”',
+    },
+    {
+      q: 'Từ nào trang trọng hơn, và hay gặp ở đâu?',
+      opts: [
+        '“No one”, hay gặp trong tiếng Anh viết',
+        '“Nobody”, hay gặp trong tiếng Anh viết',
+        '“No one”, chỉ dùng khi nói',
+        'Cả hai đều chỉ dùng khi viết',
+      ],
+      a: '“No one”, hay gặp trong tiếng Anh viết',
+      why: 'Bài nói “No one” trang trọng hơn một chút: “It is used more in written English”, còn “nobody” thì thiên về tiếng Anh nói.',
+    },
+    {
+      q: 'Câu “He was just a nobody five years ago.” có nghĩa gì?',
+      opts: [
+        'Đó là cách nói không tử tế rằng người ấy chẳng có tiếng tăm gì',
+        'Người ấy không có mặt ở đó',
+        'Người ấy còn rất trẻ',
+        'Người ấy sống một mình',
+      ],
+      a: 'Đó là cách nói không tử tế rằng người ấy chẳng có tiếng tăm gì',
+      why: 'Bài nói: “This is an unkind way to say that someone is not important or not well-known.”',
+    },
+  ],
+
+  // 'Ever' in Questions
+  'voa-7595360': [
+    {
+      q: 'Một trong các nghĩa của “ever” là gì?',
+      opts: ['“at any time” — vào bất cứ lúc nào', '“never” — không bao giờ', '“always” — luôn luôn', '“almost” — gần như'],
+      a: '“at any time” — vào bất cứ lúc nào',
+      why: 'Bài nhắc lại một số nghĩa của từ này: “we explained several meanings of ” “ever”, một trong đó là “at any time.”',
+    },
+    {
+      q: 'Dùng “ever” trong câu hỏi kiểu “have you ever…” để làm gì?',
+      opts: [
+        'Thêm sức nhấn, nhất là khi mình mong người nghe cũng nghĩ như mình',
+        'Làm câu hỏi trở nên lịch sự hơn',
+        'Đổi câu hỏi thành câu kể',
+        'Chỉ ra rằng việc đã xảy ra hôm qua',
+      ],
+      a: 'Thêm sức nhấn, nhất là khi mình mong người nghe cũng nghĩ như mình',
+      why: 'Bài nói ta dùng “ever” “if we expect people to agree with us, or have the same answer.”',
+    },
+    {
+      q: 'Câu “Will I ever be able to climb Mount Everest?” hàm ý gì?',
+      opts: [
+        'Người nói nghĩ câu trả lời là không',
+        'Người nói đang lên kế hoạch leo núi',
+        'Người nói đang hỏi xin lời khuyên',
+        'Người nói tin chắc mình sẽ leo được',
+      ],
+      a: 'Người nói nghĩ câu trả lời là không',
+      why: 'Bài nói trong những ví dụ này ta dùng “ever” “because we think the answer is no.”',
+    },
+    {
+      q: 'Người hỏi kiểu câu đó có chờ ai trả lời không?',
+      opts: [
+        'Không nhất thiết — có khi họ không mong ai trả lời cả',
+        'Có, họ luôn chờ một câu trả lời rõ ràng',
+        'Chỉ chờ trả lời nếu hỏi người quen',
+        'Bài không nói tới điều này',
+      ],
+      a: 'Không nhất thiết — có khi họ không mong ai trả lời cả',
+      why: 'Bài nói: “we may not expect anyone to actually answer the question.”',
+    },
+  ],
+
+  // ‘Must’ or ‘Have To’?
+  'voa-7508873': [
+    {
+      q: 'Trong tiếng Anh NÓI, “must” thường dùng để diễn đạt điều gì?',
+      opts: [
+        'Điều mình cho là nhiều khả năng đúng — gần nghĩa với “probably”',
+        'Một mệnh lệnh bắt buộc',
+        'Một lời mời',
+        'Một việc đã xảy ra rồi',
+      ],
+      a: 'Điều mình cho là nhiều khả năng đúng — gần nghĩa với “probably”',
+      why: 'Bài nói khi dùng “must” trong tiếng Anh nói thì “usually it is to express something we think is likely.”',
+    },
+    {
+      q: 'Câu “You must be cold after working all day in the rain.” tương đương câu nào?',
+      opts: [
+        '“You are probably cold after working all day in the rain.”',
+        '“You have to get warm right now.”',
+        '“You should not work in the rain.”',
+        '“You were cold all day in the rain.”',
+      ],
+      a: '“You are probably cold after working all day in the rain.”',
+      why: 'Bài đặt hai câu cạnh nhau để so sánh, câu thứ hai là “You are probably cold after working all day in the rain.”',
+    },
+    {
+      q: '“Gotta” là gì?',
+      opts: [
+        'Dạng rút gọn của “have got to”, rất hay dùng khi nói',
+        'Dạng quá khứ của “get”',
+        'Một cách nói trang trọng của “must”',
+        'Một từ chỉ dùng trong văn viết',
+      ],
+      a: 'Dạng rút gọn của “have got to”, rất hay dùng khi nói',
+      why: 'Bài nói “have to”, “have got to” và dạng rút gọn “gotta” “are used very often in spoken language to communicate requirement.”',
+    },
+    {
+      q: 'Chọn giữa “must” và “have to” dựa vào đâu?',
+      opts: [
+        'Vào ngữ cảnh: muốn nói về xác suất, hay muốn ra lệnh / nêu quy định',
+        'Vào việc câu dài hay ngắn',
+        'Vào chủ ngữ là số ít hay số nhiều',
+        'Vào việc câu ở thì nào',
+      ],
+      a: 'Vào ngữ cảnh: muốn nói về xác suất, hay muốn ra lệnh / nêu quy định',
+      why: 'Bài hỏi lại người học: “Or are you trying to give an order or announce a rule?”',
+    },
+  ],
+
+  // Different 'From' or 'Than'?
+  'voa-7553685': [
+    {
+      q: 'Có phải “different than” là sai không?',
+      opts: [
+        'Không sai — tiếng Anh Mỹ dùng cả hai cách',
+        'Sai hoàn toàn, phải luôn nói “different from”',
+        'Chỉ đúng khi viết',
+        'Chỉ đúng ở Anh, không đúng ở Mỹ',
+      ],
+      a: 'Không sai — tiếng Anh Mỹ dùng cả hai cách',
+      why: 'Bài nói dù sách ngữ pháp có thể bảo là sai, nhưng “in American English, we use both ” “different from” và “different than”.',
+    },
+    {
+      q: '“Different than” hay gặp ở đâu và đứng trước cái gì?',
+      opts: [
+        'Trong tiếng Anh nói, và hầu như luôn đứng trước một mệnh đề',
+        'Trong văn bản trang trọng, đứng trước danh từ',
+        'Trong thơ ca, đứng cuối câu',
+        'Chỉ trong câu hỏi',
+      ],
+      a: 'Trong tiếng Anh nói, và hầu như luôn đứng trước một mệnh đề',
+      why: 'Bài nói: “It is more informal, and it is almost always used before a clause.”',
+    },
+    {
+      q: 'Cách nào được dùng nhiều hơn hẳn?',
+      opts: ['“different from”', '“different than”', 'Hai cách ngang nhau', '“different to”'],
+      a: '“different from”',
+      why: 'Bài nói ta dùng “different from” “mostly in written English, and we use it far more often than ” “different than”.',
+    },
+    {
+      q: 'Với ví dụ của người hỏi, bài khuyên chọn cách nào và vì sao?',
+      opts: [
+        '“Different from”, vì ở đó nó đứng trước một cụm danh từ',
+        '“Different than”, vì câu đó là câu nói',
+        'Cách nào cũng như nhau, không cần chọn',
+        'Nên viết lại câu để tránh cả hai',
+      ],
+      a: '“Different from”, vì ở đó nó đứng trước một cụm danh từ',
+      why: 'Bài kết luận “different from” “is the better choice because it comes before a noun phrase.”',
+    },
+  ],
+
+  // Reduction and Assimilation
+  'voa-7466606': [
+    {
+      q: '“Assimilation” trong phát âm là hiện tượng gì?',
+      opts: [
+        'Hai âm khác nhau bắt đầu nghe thành giống nhau khi nói nhanh',
+        'Một âm bị bỏ hẳn đi',
+        'Một từ bị đọc chậm lại',
+        'Trọng âm chuyển sang âm tiết khác',
+      ],
+      a: 'Hai âm khác nhau bắt đầu nghe thành giống nhau khi nói nhanh',
+      why: 'Bài định nghĩa: “Two different sounds can start to sound the same when they are said quickly.”',
+    },
+    {
+      q: 'Trong từ “handbag”, âm /n/ biến thành âm gì?',
+      opts: [
+        'Thành /m/ — kết hợp giữa âm mũi và âm môi',
+        'Thành /ŋ/ — âm mũi cuống lưỡi',
+        'Bị bỏ hẳn, không còn âm nào',
+        'Thành /d/',
+      ],
+      a: 'Thành /m/ — kết hợp giữa âm mũi và âm môi',
+      why: 'Bài giải thích âm đó trở thành “a combination of a nasal sound and the labial sound”, vì bị âm /b/ trong “bag” kéo theo.',
+    },
+    {
+      q: 'Vì sao các từ chức năng như “to” và “and” hay bị rút gọn?',
+      opts: [
+        'Để dồn sự chú ý vào những từ mang nghĩa quan trọng hơn',
+        'Vì chúng khó phát âm',
+        'Vì chúng không cần thiết về ngữ pháp',
+        'Vì người nói quên mất chúng',
+      ],
+      a: 'Để dồn sự chú ý vào những từ mang nghĩa quan trọng hơn',
+      why: 'Bài nói: “This helps us to pay more attention to the more important words that carry meaning.”',
+    },
+    {
+      q: '“Want to” thành “wanna” qua những bước nào?',
+      opts: [
+        'Nguyên âm của “to” rút thành schwa, rồi hai âm /t/ rụng đi khi nói nhanh',
+        'Chữ “t” đổi thành chữ “n” trên giấy',
+        'Hai từ được viết dính vào nhau rồi mới đọc',
+        'Trọng âm chuyển sang từ “to”',
+      ],
+      a: 'Nguyên âm của “to” rút thành schwa, rồi hai âm /t/ rụng đi khi nói nhanh',
+      why: 'Bài mô tả: “want ta” thành “wanna” vì “sounds drop off in fast speech.”',
+    },
+  ],
+
+  // How to Summon Others
+  'voa-7920108': [
+    {
+      q: '“To summon” nghĩa là gì?',
+      opts: [
+        'Gọi ai đó đến có mặt, thường vì một việc quan trọng',
+        'Gửi thư mời dự tiệc',
+        'Gọi điện thoại cho người quen',
+        'Nhờ ai đó làm hộ một việc',
+      ],
+      a: 'Gọi ai đó đến có mặt, thường vì một việc quan trọng',
+      why: 'Bài định nghĩa: “To summon means to call for a person or persons to be present, often for an important meeting.”',
+    },
+    {
+      q: 'Bài đánh giá thế nào về những câu như “Could you come here, please?”',
+      opts: [
+        'Rất chung, lịch sự, và dùng được trong nhiều tình huống',
+        'Chỉ dùng được ở nơi làm việc',
+        'Quá trang trọng nên ít ai dùng',
+        'Chỉ dùng khi nói với trẻ con',
+      ],
+      a: 'Rất chung, lịch sự, và dùng được trong nhiều tình huống',
+      why: 'Bài nói: “These questions are very general, polite, and useful in a lot of situations.”',
+    },
+    {
+      q: 'Khi cha mẹ hoặc thầy cô nói “Come over here!”, thường sau đó là gì?',
+      opts: [
+        'Một lời mắng hoặc phê bình',
+        'Một lời khen',
+        'Một món quà',
+        'Một câu hỏi về bài học',
+      ],
+      a: 'Một lời mắng hoặc phê bình',
+      why: 'Bài nói kiểu gọi này “is followed by scolding, or criticism.”',
+    },
+    {
+      q: 'Giữa “would like to see you” và “wants to see you”, cách nào lịch sự hơn?',
+      opts: [
+        '“Would like” — lịch sự và trang trọng hơn một chút',
+        '“Wants to” — vì ngắn hơn',
+        'Hai cách hoàn toàn như nhau',
+        'Cách nào cũng bị coi là thiếu lịch sự',
+      ],
+      a: '“Would like” — lịch sự và trang trọng hơn một chút',
+      why: 'Bài nói: “English speakers usually consider the structure ” “would like” “to be a little more polite and formal.”',
+    },
+  ],
+
+  // Exploring the 'Butterfly Effect'
+  'voa-7835956': [
+    {
+      q: '“Butterfly effect” nghĩa là gì?',
+      opts: [
+        'Những thay đổi rất nhỏ dẫn tới thay đổi lớn và khó lường về sau',
+        'Một loài bướm gây hại cho mùa màng',
+        'Việc thay đổi ý kiến liên tục',
+        'Một hiện tượng chỉ có trong khí tượng học',
+      ],
+      a: 'Những thay đổi rất nhỏ dẫn tới thay đổi lớn và khó lường về sau',
+      why: 'Bài định nghĩa: “The butterfly effect is when very small changes lead to large and unpredictable changes in the future.”',
+    },
+    {
+      q: '“Butterfly effect” và “domino effect” giống nhau ở điểm nào?',
+      opts: [
+        'Cả hai đều là phản ứng dây chuyền — việc này kéo theo việc kia',
+        'Cả hai đều nói về thời tiết',
+        'Cả hai đều mang nghĩa xấu',
+        'Cả hai đều chỉ dùng trong khoa học',
+      ],
+      a: 'Cả hai đều là phản ứng dây chuyền — việc này kéo theo việc kia',
+      why: 'Bài nói: “The butterfly effect and domino effect are chain reactions.”',
+    },
+    {
+      q: 'Trong đoạn hội thoại, người mở hiệu sách mô tả quá trình khởi nghiệp bằng cụm nào?',
+      opts: [
+        '“Domino effect”',
+        '“Butterfly effect”',
+        '“Chain of command”',
+        '“Trial and error”',
+      ],
+      a: '“Domino effect”',
+      why: 'Người đó kể: “As soon as I finished the first thing, the next thing to do became clear”, rồi việc tiếp theo, rồi tiếp nữa.',
+    },
+    {
+      q: 'Vì sao chuyện hồi nhỏ hay la cà ở hiệu sách nhà bạn lại được gọi là “butterfly effect”?',
+      opts: [
+        'Vì một việc xảy ra rất lâu trước đó lại ảnh hưởng tới hiện tại',
+        'Vì hiệu sách có bán tranh bướm',
+        'Vì hai người bạn đó tình cờ gặp lại nhau',
+        'Vì việc đó xảy ra rất nhanh',
+      ],
+      a: 'Vì một việc xảy ra rất lâu trước đó lại ảnh hưởng tới hiện tại',
+      why: 'Người bạn nhận xét: “Something that happened a long time ago, affected your future today.”',
+    },
+  ],
+
+  // What Gives You 'Food for Thought'?
+  'voa-7692856': [
+    {
+      q: '“Food for thought” là gì?',
+      opts: [
+        'Điều đáng để nghĩ kỹ và cân nhắc cẩn thận',
+        'Món ăn giúp tăng trí nhớ',
+        'Một bữa ăn nhẹ giữa giờ học',
+        'Lời khuyên không nên nghe theo',
+      ],
+      a: 'Điều đáng để nghĩ kỹ và cân nhắc cẩn thận',
+      why: 'Bài định nghĩa: “It describes something that should be thought about and considered carefully.”',
+    },
+    {
+      q: 'Bài dùng cụm nào để tả việc nhìn ra điều mình chưa từng thấy?',
+      opts: [
+        '“Open our eyes” / “eye-opening”',
+        '“Close our eyes”',
+        '“Turn a blind eye”',
+        '“See eye to eye”',
+      ],
+      a: '“Open our eyes” / “eye-opening”',
+      why: 'Bài nói “food for thought” “can make us look at something with new eyes”, hay nói cách khác là mở mắt ta ra.',
+    },
+    {
+      q: '“To chew on something” khác “food for thought” ở chỗ nào?',
+      opts: [
+        'Nghĩa gần giống nhưng thân mật hơn nhiều',
+        'Nghĩa hoàn toàn trái ngược',
+        'Chỉ dùng khi nói về đồ ăn thật',
+        'Trang trọng hơn nhiều',
+      ],
+      a: 'Nghĩa gần giống nhưng thân mật hơn nhiều',
+      why: 'Bài giới thiệu một “phrasal verb that is similar to food for thought, although it is much more informal.”',
+    },
+    {
+      q: 'Muốn nói trang trọng hơn thì bài gợi ý dùng động từ nào?',
+      opts: [
+        '“Reflect” hoặc “contemplate”',
+        '“Chew” hoặc “digest”',
+        '“Eat” hoặc “taste”',
+        '“Look” hoặc “watch”',
+      ],
+      a: '“Reflect” hoặc “contemplate”',
+      why: 'Bài gợi ý: “If you want to sound more formal, you can use verbs like reflect or contemplate.”',
+    },
+  ],
+
+  // Walk Before You Can Run
+  'voa-7434600': [
+    {
+      q: '“Baby steps” nghĩa bóng là gì?',
+      opts: [
+        'Những bước nhỏ nối nhau dẫn tới một mục tiêu lớn',
+        'Cách dạy trẻ tập đi',
+        'Việc bỏ cuộc giữa chừng',
+        'Một bài tập thể dục nhẹ',
+      ],
+      a: 'Những bước nhỏ nối nhau dẫn tới một mục tiêu lớn',
+      why: 'Bài nói: “Small baby steps can lead to the bigger goal”, và cụm này còn dùng để khuyên ai đó chậm lại, kiên nhẫn.',
+    },
+    {
+      q: 'Vì sao bài lấy hình ảnh em bé tập đi?',
+      opts: [
+        'Vì càng đi nhiều thì bước chân càng vững',
+        'Vì em bé đi rất nhanh',
+        'Vì em bé không bao giờ ngã',
+        'Vì người lớn không cần tập đi nữa',
+      ],
+      a: 'Vì càng đi nhiều thì bước chân càng vững',
+      why: 'Bài tả: “The more they walk, the steadier they get on their feet.”',
+    },
+    {
+      q: 'Trong hội thoại, vì sao người bạn khuyên nên tập hợp âm trước?',
+      opts: [
+        'Vì hợp âm là nền móng của âm nhạc',
+        'Vì hợp âm dễ hơn giai điệu',
+        'Vì thầy giáo bắt buộc như vậy',
+        'Vì hợp âm nghe hay hơn',
+      ],
+      a: 'Vì hợp âm là nền móng của âm nhạc',
+      why: 'Người bạn nói hợp âm là nền của âm nhạc: “You need to know how to walk before you can run.”',
+    },
+    {
+      q: 'Bài kết bằng lời khuyên nào cho người học tiếng Anh?',
+      opts: [
+        'Đi từng bước nhỏ, học một ít mỗi ngày để khỏi kiệt sức',
+        'Học dồn vào cuối tuần',
+        'Chỉ học khi thấy hứng thú',
+        'Học thuộc càng nhiều từ càng tốt trong thời gian ngắn',
+      ],
+      a: 'Đi từng bước nhỏ, học một ít mỗi ngày để khỏi kiệt sức',
+      why: 'Bài khuyên: “To keep yourself from burning out, take baby steps”, học một ít mỗi ngày.',
+    },
+  ],
+
+  // Do You Color Inside or Outside the Lines?
+  'voa-7427555': [
+    {
+      q: '“Color inside the lines” nghĩa bóng là gì?',
+      opts: [
+        'Nghĩ và làm trong khuôn phép chung được chấp nhận',
+        'Vẽ đẹp và cẩn thận',
+        'Làm việc rất chậm',
+        'Không dám bày tỏ ý kiến',
+      ],
+      a: 'Nghĩ và làm trong khuôn phép chung được chấp nhận',
+      why: 'Bài giải thích cụm này “means to think or act within generally accepted guidelines”, tức là theo luật.',
+    },
+    {
+      q: 'Trẻ thường bắt đầu tô trong nét vẽ vào khoảng tuổi nào?',
+      opts: ['Từ hai đến năm tuổi', 'Trước một tuổi', 'Từ bảy đến mười tuổi', 'Chỉ khi đi học tiểu học'],
+      a: 'Từ hai đến năm tuổi',
+      why: 'Bài nói: “Then between the ages of two and five they start coloring inside the lines.”',
+    },
+    {
+      q: 'Cụm nào KHÔNG mang nghĩa “làm theo luật”?',
+      opts: [
+        '“Think outside the box”',
+        '“Play by the book”',
+        '“Stick to the script”',
+        '“Toe the line”',
+      ],
+      a: '“Think outside the box”',
+      why: 'Bài xếp cụm đó về phía người phá luật: “people who color outside the lines do not follow rules.”',
+    },
+    {
+      q: 'Bài mô tả những người phá luật bằng cách nói nào?',
+      opts: [
+        'Họ “go off script” — bỏ kịch bản mà ứng biến',
+        'Họ “stick to the script” — bám sát kịch bản',
+        'Họ “toe the line” — đứng đúng vạch',
+        'Họ “play by the book” — làm theo sách',
+      ],
+      a: 'Họ “go off script” — bỏ kịch bản mà ứng biến',
+      why: 'Bài viết: “Instead of sticking to the script they go off script”, họ ứng biến và mở lối mới.',
+    },
+  ],
+
+  // Tips for Writing: ‘They Say, I Say’
+  'voa-2598428': [
+    {
+      q: 'Công thức “They Say, I Say” là gì?',
+      opts: [
+        'Mở đầu bằng điều người khác đã nói về chủ đề, rồi mới trình bày ý mình',
+        'Trích dẫn thật nhiều tác giả nổi tiếng',
+        'Viết một đoạn kể chuyện rồi mới vào bài',
+        'Đặt câu hỏi rồi tự trả lời',
+      ],
+      a: 'Mở đầu bằng điều người khác đã nói về chủ đề, rồi mới trình bày ý mình',
+      why: 'Hai tác giả nói: “A paper should begin with what others have already said about the subject”, rồi người viết mới nêu ý riêng.',
+    },
+    {
+      q: 'Theo Cathy Birkenstein, phần khó nhất của viết học thuật là gì?',
+      opts: [
+        'Học cách đọc và nghĩ có phản biện',
+        'Chính tả và ngữ pháp',
+        'Cách trình bày trang giấy',
+        'Tìm đủ số trang theo yêu cầu',
+      ],
+      a: 'Học cách đọc và nghĩ có phản biện',
+      why: 'Bà nói hầu như ai cũng đặt câu được, còn “The difficult part is learning to read and think critically.”',
+    },
+    {
+      q: 'Bà cho rằng công thức đó dùng được ở đâu?',
+      opts: [
+        'Ở cả Facebook, email, thơ, tiểu thuyết — và ở nhiều thứ tiếng, trong đó có tiếng Việt',
+        'Chỉ trong bài luận đại học',
+        'Chỉ trong báo chí',
+        'Chỉ trong tiếng Anh, không dùng được ở tiếng khác',
+      ],
+      a: 'Ở cả Facebook, email, thơ, tiểu thuyết — và ở nhiều thứ tiếng, trong đó có tiếng Việt',
+      why: 'Bà nói dù bạn viết trên Facebook hay gửi email, “re writing a poem or a novel, and whether you” nói bằng tiếng Việt, tiếng Pháp hay tiếng Anh cũng vậy.',
+    },
+    {
+      q: 'Chưa biết viết gì thì bài khuyên bắt đầu thế nào?',
+      opts: [
+        'Tóm tắt một tác giả hay, tìm xem họ đang đáp lại ai, rồi xác định mình đứng ở đâu',
+        'Viết bừa một đoạn rồi sửa sau',
+        'Đọc thật nhiều sách trước đã',
+        'Chọn một đề tài thật hẹp',
+      ],
+      a: 'Tóm tắt một tác giả hay, tìm xem họ đang đáp lại ai, rồi xác định mình đứng ở đâu',
+      why: 'Bà khuyên: “summarize a good author, find out who that author is responding to”, rồi tìm ra cuộc tranh luận ở đó.',
+    },
+  ],
+
 };
 
 export default CAU_HOI;

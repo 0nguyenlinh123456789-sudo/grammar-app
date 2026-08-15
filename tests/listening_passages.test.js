@@ -17,8 +17,8 @@ import { coTheDung, kiemTraBanGhi } from '../src/utils/audioLicense.js';
 import { laDongNgoaiBanThu } from '../src/utils/transcriptClean.js';
 
 // BÁNH CÓC — số bài nghe chỉ được tăng.
-// 6 → 16 → 32. Kho ứng viên hiện có 107 bài (đào 6 trang lưu trữ của bốn loạt
-// bài dạy học); 75 bài còn lại chưa soạn câu hỏi nên chưa nằm ở đây.
+// 6 → 16 → 32 → 48. Kho ứng viên hiện có 116 bài (đào 6 trang lưu trữ của bốn
+// loạt bài dạy học); 68 bài còn lại chưa soạn câu hỏi nên chưa nằm ở đây.
 // Năm bài đã thu thập nhưng CỐ TÌNH không đưa vào, mỗi bài một lý do:
 //   voa-7953635 "'Kitchen-Table' Is a Type of Politics" — nội dung chính trị,
 //     cùng lý do đã loại câu chính trị khỏi kho chép chính tả.
@@ -32,7 +32,7 @@ import { laDongNgoaiBanThu } from '../src/utils/transcriptClean.js';
 //  Chẩn đoán đó SAI: ví dụ vẫn nằm trong thẻ <p>, chỉ là bộ lọc độ dài của
 //  chính tôi vứt đi. Bỏ bộ lọc độ dài thì bài nguyên vẹn — nay chỉ còn thiếu
 //  câu hỏi soạn tay.)
-const BAI_TOI_THIEU = 32;
+const BAI_TOI_THIEU = 48;
 const CAU_HOI_MOI_BAI = 4;
 
 test('bánh cóc: số bài nghe theo đoạn chỉ được tăng', () => {
