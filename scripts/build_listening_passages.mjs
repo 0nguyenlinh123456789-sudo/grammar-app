@@ -10,6 +10,7 @@
 // Chạy:  node scripts/build_listening_passages.mjs --in voa_chon.json
 import fs from 'fs';
 import { CAU_HOI } from './data/voa_questions.mjs';
+import { locBanChepLoi, tachTuKho } from '../src/utils/transcriptClean.js';
 
 const arg = (t, m) => { const i = process.argv.indexOf(`--${t}`); return i > -1 && process.argv[i + 1] ? process.argv[i + 1] : m; };
 const IN = arg('in', 'voa_chon.json');
@@ -23,16 +24,12 @@ for (const b of bai) {
   const hoi = CAU_HOI[b.id];
   if (!hoi || !hoi.length) { bo.push(`${b.id}: chưa có câu hỏi soạn tay`); continue; }
 
-  // Cắt phần chân bài: dòng chào cuối, dòng ghi tên người viết, và mục
-  // "Words in This Story" (giải nghĩa từ) — chúng không nằm trong mạch nghe.
-  const than = b.transcript.filter((p) => !/^(And that|Anna Matteo wrote|.{1,20}\s+[-–]\s*(n|v|adj|adv|phrase|phrasal verb)\b)/i.test(p));
-  const tuKho = b.transcript
-    .filter((p) => /^.{1,25}\s+[-–]\s*(n|v|adj|adv|phrase|phrasal verb)\b/i.test(p))
-    .map((p) => {
-      const m = p.match(/^(.{1,25}?)\s+[-–]\s*(n|v|adj|adv|phrase|phrasal verb)\b[.:]?\s*(.*)$/i);
-      return m ? { word: m[1].trim(), pos: m[2], meaning: m[3].trim() } : null;
-    })
-    .filter(Boolean);
+  // Cắt những dòng CÓ TRÊN TRANG WEB NHƯNG KHÔNG CÓ TRONG BẢN THU: dòng ghi
+  // tên người viết, lời mời bình luận, bảng ôn tập chỉ in trên giấy, và mục
+  // "Words in This Story". Luật nằm ở src/utils/transcriptClean.js — một bản
+  // duy nhất, dùng chung với bài kiểm.
+  const than = locBanChepLoi(b.transcript);
+  const tuKho = tachTuKho(b.transcript);
 
   ra.push({
     id: b.id,
@@ -72,9 +69,15 @@ fs.writeFileSync(OUT, `// File: src/data/listeningPassages.js
 // 2. \`questions\` là câu hỏi SOẠN TAY, không phải máy sinh. Câu hỏi hiểu ý
 //    sinh từ khuôn mẫu chính là loại nội dung máy-sinh đã bị xoá khỏi kho.
 //
-// 3. \`secondsEstimated\` là ƯỚC TÍNH suy từ dung lượng file ở 64 kbps — bitrate
-//    đo được từ khung MPEG của MỘT file. Giao diện phải hiển thị kèm chữ
-//    "khoảng", không in ra như con số đo được.
+// 3. \`secondsEstimated\` SUY TỪ dung lượng file và bitrate đọc được ở khung
+//    MPEG của CHÍNH file đó (bản trước ghi cứng 64 kbps vì đo từ một file duy
+//    nhất — đo lại cả kho thì đúng thật, nhưng đúng do may). Vẫn là suy ra
+//    chứ không phải đọc thời lượng, nên giao diện hiển thị kèm chữ "khoảng".
+//
+// 4. \`transcript\` chỉ giữ những dòng CÓ TRONG BẢN THU. Dòng ghi tên người
+//    viết, lời mời bình luận, bảng ôn tập chỉ in trên giấy đều bị cắt — xem
+//    src/utils/transcriptClean.js. Người học đọc thấy một câu mà tai không
+//    nghe thấy sẽ tưởng mình nghe sót.
 export const listeningPassages = [
 ${than}
 ];

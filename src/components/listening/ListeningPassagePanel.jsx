@@ -14,16 +14,38 @@ import { playCorrect, playWrong, playComplete } from '../../utils/sound';
 // phạm vi công cộng, nên trỏ tới thì ta không phát hành lại thứ mình không kiểm
 // được. Cái giá phải trả là bài có thể không tải được — và khi đó PHẢI BÁO TO
 // kèm đường dẫn tới trang gốc, tuyệt đối không để một nút phát chết lặng.
+// Bốn loạt bài của VOA có tính chất khác hẳn nhau (giải đáp cách dùng từ, kể
+// nguồn gốc thành ngữ, ngữ pháp, mẹo học), nên khi kho vượt 30 bài thì một
+// danh sách phẳng bắt người học cuộn mãi. Lọc theo loạt, KHÔNG lọc theo bậc:
+// các bài này không ai gắn bậc CEFR, đặt nhãn bậc lên là bịa — cùng lý do đã
+// phân nhóm bản thu theo độ dài câu chứ không theo bậc (listeningPlan.js).
+const CAC_LOAT = [...new Set(listeningPassages.map((b) => b.series))];
+
 export default function ListeningPassagePanel({ onClose }) {
   const [baiId, setBaiId] = useState(null);
+  const [loat, setLoat] = useState(null);
   const bai = listeningPassages.find((b) => b.id === baiId) || null;
+  const danhSach = loat ? listeningPassages.filter((b) => b.series === loat) : listeningPassages;
 
   if (!bai) return <Khung onClose={onClose} tieuDe="Bài nghe theo đoạn">
     <p className="text-sm font-bold text-slate-500 mt-1 mb-4">
       Nghe một đoạn 3–5 phút rồi trả lời câu hỏi hiểu ý. Bản chép lời hiện ra sau khi bạn trả lời xong.
     </p>
+    <div className="flex flex-wrap gap-2 mb-4">
+      {[null, ...CAC_LOAT].map((l) => <button
+        key={l || 'tat-ca'}
+        onClick={() => setLoat(l)}
+        className={`px-3 py-1.5 rounded-xl text-xs font-black border-3 transition-all cursor-pointer ${
+          loat === l
+            ? 'border-cyan-500 bg-cyan-500 text-white'
+            : 'border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300'
+        }`}
+      >
+        {l || `Tất cả (${listeningPassages.length})`}
+      </button>)}
+    </div>
     <div className="grid gap-3">
-      {listeningPassages.map((b) => <button
+      {danhSach.map((b) => <button
         key={b.id}
         onClick={() => setBaiId(b.id)}
         className="text-left p-4 rounded-2xl border-3 border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 transition-all cursor-pointer"

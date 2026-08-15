@@ -686,6 +686,734 @@ export const CAU_HOI = {
       why: 'Bà nói: “Think about who your audience is, and what it is that you really want to say to them.”',
     },
   ],
+  // ===== ĐỢT 3 (16 bài) — mỗi bài viết sau khi đọc hết bản chép lời =====
+
+  // Using the Phonetic Alphabet
+  'voa-7897823': [
+    {
+      q: 'Theo bài, “phoneme” (âm vị) là gì?',
+      opts: ['Mỗi âm riêng lẻ ta phát ra khi nói', 'Một chữ cái trong bảng chữ cái', 'Một từ ngắn có nghĩa', 'Một dấu nhấn trọng âm'],
+      a: 'Mỗi âm riêng lẻ ta phát ra khi nói',
+      why: 'Bài nói: “Each separate sound we make when we talk is called a phoneme.” Ví dụ từ “cat” có ba âm vị.',
+    },
+    {
+      q: 'Trong ví dụ với từ “cat”, ký hiệu phiên âm nào trông giống hệt chữ cái tiếng Anh?',
+      opts: ['Ký hiệu của chữ “t”', 'Ký hiệu của chữ “c”', 'Ký hiệu của nguyên âm ở giữa', 'Cả ba ký hiệu đều giống'],
+      a: 'Ký hiệu của chữ “t”',
+      why: 'Bài nói chỉ có ký hiệu của chữ “t” là “looks the same as the English letter for that sound.”',
+    },
+    {
+      q: 'Bài khuyên dùng bảng phiên âm để làm gì trước tiên?',
+      opts: [
+        'Nhận ra những âm mà chính mình đang thấy khó',
+        'Học thuộc toàn bộ 44 ký hiệu theo thứ tự',
+        'Thay chữ viết thường bằng ký hiệu khi ghi chép',
+        'Đoán cách viết chính tả của từ mới',
+      ],
+      a: 'Nhận ra những âm mà chính mình đang thấy khó',
+      why: 'Bài nói “Try to identify the phonemes that are difficult for you”, vì “small differences between some vowel sounds in American English may be difficult for some ” người không bản ngữ nghe ra.',
+    },
+    {
+      q: 'Bài chỉ ra công cụ nào cho nghe được âm thanh của TỪNG ký hiệu phiên âm?',
+      opts: [
+        'IPA Pronunciation Guide trên trang Vocabulary.com',
+        'Từ điển Merriam-Webster bản in',
+        'Bảng chữ cái quốc tế in trên giấy',
+        'Mục bình luận của VOA Learning English',
+      ],
+      a: 'IPA Pronunciation Guide trên trang Vocabulary.com',
+      why: 'Bài nói công cụ này “has an audio element so you can listen to the sound of each symbol.”',
+    },
+  ],
+
+  // Kinds and Types
+  'voa-7902900': [
+    {
+      q: 'Câu hỏi của tuần này gửi tới từ đâu?',
+      opts: ['Từ một người học ở Việt Nam', 'Từ một người học ở Nhật Bản', 'Từ một người học ở Ai Cập', 'Từ một giáo viên ở Ukraine'],
+      a: 'Từ một người học ở Việt Nam',
+      why: 'Mở đầu bài: “we answer a question from Ann in Vietnam about four words that help describe what group something belongs to.”',
+    },
+    {
+      q: 'Quan hệ giữa “kind” và “type” là gì?',
+      opts: [
+        'Là từ đồng nghĩa, nghĩa chung nhất trong bốn từ',
+        '“Kind” trang trọng hơn “type”',
+        '“Type” chỉ dùng cho vật, “kind” chỉ dùng cho người',
+        'Hai từ trái nghĩa nhau',
+      ],
+      a: 'Là từ đồng nghĩa, nghĩa chung nhất trong bốn từ',
+      why: 'Bài nói hai từ này “are synonyms”, còn “species” và “genre” thì “are more specific than the two words ” đó.',
+    },
+    {
+      q: 'Từ “species” dùng để phân loại nhóm nào?',
+      opts: ['Sinh vật sống', 'Tác phẩm nghệ thuật', 'Phương tiện giao thông', 'Các loại thời tiết'],
+      a: 'Sinh vật sống',
+      why: 'Bài lấy ví dụ: “Elephants, cats, dogs, and mice are different species of animals.”',
+    },
+    {
+      q: 'Từ “genre” dùng cho cái gì?',
+      opts: [
+        'Các thể loại của tác phẩm sáng tạo',
+        'Các loài động vật',
+        'Các loại phương tiện chạy điện',
+        'Các nhóm nghề nghiệp',
+      ],
+      a: 'Các thể loại của tác phẩm sáng tạo',
+      why: 'Bài nói ta dùng “genre” “to categorize styles of creative works”, ví dụ nhạc rock, hip-hop, cổ điển, jazz.',
+    },
+  ],
+
+  // It and That
+  'voa-7876003': [
+    {
+      q: 'Theo bài, ta thường dùng “it” để làm gì?',
+      opts: [
+        'Tả trạng thái chung của môi trường hoặc tình huống',
+        'Đáp lại một câu cụ thể vừa nghe',
+        'Nhấn mạnh một danh từ đã nhắc trước đó',
+        'Hỏi lại khi chưa nghe rõ',
+      ],
+      a: 'Tả trạng thái chung của môi trường hoặc tình huống',
+      why: 'Bài nói ta dùng “it” “to describe a general state of our environment or a situation.”',
+    },
+    {
+      q: 'Còn “that” thường dùng khi nào?',
+      opts: [
+        'Khi đáp lại một điều cụ thể ai đó vừa nói',
+        'Khi nói về thời tiết',
+        'Khi mở đầu một câu chuyện mới',
+        'Khi nói về một việc chưa xảy ra',
+      ],
+      a: 'Khi đáp lại một điều cụ thể ai đó vừa nói',
+      why: 'Bài nói ta thường dùng “that” “to answer something specific that someone said.”',
+    },
+    {
+      q: 'Ví dụ nào trong bài dùng “it” để nói về việc làm một điều gì đó nói chung?',
+      opts: [
+        '“It’s normal to feel nervous before giving a speech.”',
+        '“That is the best answer I can give you.”',
+        '“No, no, that is not what I mean.”',
+        '“Did Diane say she was leaving her job?”',
+      ],
+      a: '“It’s normal to feel nervous before giving a speech.”',
+      why: 'Bài đưa câu này ngay sau khi nói ta dùng “it” để tả việc làm gì đó nói chung: “s normal to feel nervous before giving a speech.”',
+    },
+    {
+      q: 'Có bao giờ ta dùng “it” để đáp lại một điều cụ thể không?',
+      opts: [
+        'Có — ví dụ khi ai đó hỏi bạn có thích một hoạt động nào không',
+        'Không bao giờ, đó luôn là chỗ của “that”',
+        'Chỉ khi viết, không dùng khi nói',
+        'Chỉ khi câu hỏi có từ để hỏi',
+      ],
+      a: 'Có — ví dụ khi ai đó hỏi bạn có thích một hoạt động nào không',
+      why: 'Bài viết rõ: “there are times when we use the word ” “it” để trả lời một điều cụ thể.',
+    },
+  ],
+
+  // Practice Your Listening
+  'voa-7847923': [
+    {
+      q: 'Người gửi câu hỏi gặp vấn đề gì khi luyện nghe?',
+      opts: [
+        'Nghe đi nghe lại nhiều đến mức thuộc lòng bản thu thay vì luyện nghe',
+        'Không tìm được tài liệu nghe miễn phí',
+        'Không nghe được giọng Anh-Anh',
+        'Nghe xong quên hết từ mới',
+      ],
+      a: 'Nghe đi nghe lại nhiều đến mức thuộc lòng bản thu thay vì luyện nghe',
+      why: 'Người hỏi viết: “I was actually memorizing the audio recording instead of practicing listening.”',
+    },
+    {
+      q: 'Bài khuyên chọn tài liệu nghe ở mức nào?',
+      opts: [
+        'Cao hơn trình độ hiện tại một chút',
+        'Đúng bằng trình độ hiện tại',
+        'Càng khó càng tốt',
+        'Thấp hơn trình độ để nghe cho trôi',
+      ],
+      a: 'Cao hơn trình độ hiện tại một chút',
+      why: 'Bài khuyên “try to find listening material that is just a bit above your ability”, để học từ mới mà không quá khó.',
+    },
+    {
+      q: '“Transcribing” trong bài là làm gì?',
+      opts: [
+        'Viết ra từng từ mình nghe được',
+        'Dịch bài nghe sang tiếng mẹ đẻ',
+        'Đọc to theo bản chép lời',
+        'Tóm tắt bài nghe bằng một câu',
+      ],
+      a: 'Viết ra từng từ mình nghe được',
+      why: 'Bài nói: “One of the best ways to practice listening is by writing every word you hear.”',
+    },
+    {
+      q: 'Vì sao cách chép lại giúp từ mới ở lại trong trí nhớ lâu hơn?',
+      opts: [
+        'Vì mình tự tìm ra đáp án cho một bài toán mình đã cố giải bằng tai',
+        'Vì viết tay làm tay nhớ được chữ',
+        'Vì mình phải tra từ điển nhiều lần',
+        'Vì mình nghe đi nghe lại nhiều lần hơn',
+      ],
+      a: 'Vì mình tự tìm ra đáp án cho một bài toán mình đã cố giải bằng tai',
+      why: 'Bài giải thích: “you are discovering the answer to a problem you have already tried to solve through listening.”',
+    },
+  ],
+
+  // Obviously and Apparently
+  'voa-7805936': [
+    {
+      q: 'Theo bài, có phải cái gì “obvious” thì ai cũng thấy rõ không?',
+      opts: [
+        'Không — có thứ chỉ hiển nhiên với người đủ kinh nghiệm hoặc hiểu biết',
+        'Đúng, hiển nhiên nghĩa là ai cũng thấy',
+        'Chỉ hiển nhiên khi nhìn tận mắt',
+        'Chỉ hiển nhiên trong văn viết trang trọng',
+      ],
+      a: 'Không — có thứ chỉ hiển nhiên với người đủ kinh nghiệm hoặc hiểu biết',
+      why: 'Bài nói: “some things are only obvious if you have enough experience or knowledge”, ví dụ thợ sửa xe lành nghề với người không biết gì về xe.',
+    },
+    {
+      q: 'Điểm khác nhau chính giữa trạng từ “apparently” và “obviously” là gì?',
+      opts: [
+        '“Apparently” dựa trên điều nghe/đọc được, chưa chắc chắn',
+        '“Apparently” trang trọng hơn nên chỉ dùng khi viết',
+        '“Obviously” chỉ đứng đầu câu, “apparently” chỉ đứng cuối câu',
+        'Hai từ hoàn toàn thay thế được cho nhau',
+      ],
+      a: '“Apparently” dựa trên điều nghe/đọc được, chưa chắc chắn',
+      why: 'Bài nói ý đó “is usually based on information we have heard or read rather than our own direct experience.”',
+    },
+    {
+      q: 'Nói “He’s obviously not a very good teacher” hàm ý gì?',
+      opts: [
+        'Người nói tin mình đủ thông tin để chắc chắn và cho rằng người khác cũng dễ đồng ý',
+        'Người nói chỉ nghe kể lại nên không dám chắc',
+        'Người nói đang hỏi ý kiến người nghe',
+        'Người nói muốn nói giảm cho lịch sự',
+      ],
+      a: 'Người nói tin mình đủ thông tin để chắc chắn và cho rằng người khác cũng dễ đồng ý',
+      why: 'Bài nói câu đó còn có nghĩa “you think others should easily understand or agree with what you are saying.”',
+    },
+    {
+      q: 'Sau “obvious” và “apparent” thường là giới từ nào?',
+      opts: ['“to” + đại từ tân ngữ', '“for” + danh từ', '“with” + đại từ', '“about” + danh động từ'],
+      a: '“to” + đại từ tân ngữ',
+      why: 'Bài cho ví dụ: “It was apparent to him that no one in the office had the right skills for the job.”',
+    },
+  ],
+
+  // Who’s and Whose
+  'voa-7693007': [
+    {
+      q: 'Cách dễ nhất để biết mình đang nghe “who’s” hay “whose” là gì?',
+      opts: [
+        'Nghe kỹ những từ đi ngay sau nó',
+        'Nghe xem người nói nhấn mạnh chỗ nào',
+        'Đợi đến hết câu rồi đoán theo ngữ cảnh',
+        'Nghe độ dài của nguyên âm',
+      ],
+      a: 'Nghe kỹ những từ đi ngay sau nó',
+      why: 'Bài nói: “The easiest way to know which word you are hearing is to listen for the words that follow it.”',
+    },
+    {
+      q: 'Sau “who’s” thường là loại từ nào?',
+      opts: ['Động từ', 'Danh từ', 'Tính từ sở hữu', 'Giới từ chỉ nơi chốn'],
+      a: 'Động từ',
+      why: 'Bài nói: “Often, the next word you hear after ” “who’s” là một động từ.',
+    },
+    {
+      q: 'Còn sau “whose” thì nên chờ nghe thấy gì?',
+      opts: [
+        'Một danh từ, hoặc các từ “this/that/these/those”',
+        'Một động từ ở thì hiện tại',
+        'Một trạng từ chỉ tần suất',
+        'Một liên từ',
+      ],
+      a: 'Một danh từ, hoặc các từ “this/that/these/those”',
+      why: 'Bài dặn: “you should listen for a noun after the pronoun ” “whose”, hoặc nghe các từ “this”, “that”, “these”, “those”.',
+    },
+    {
+      q: 'Ngoài “who is”, “who’s” còn có thể là dạng rút gọn của gì?',
+      opts: ['“who has”', '“who was”', '“who does”', '“who would”'],
+      a: '“who has”',
+      why: 'Bài nói: “Last, we can contract the word ” “who” với động từ “has”, nên “Who has already seen this film?” nghe thành “who’s”.',
+    },
+  ],
+
+  // Simple Past and Present Perfect
+  'voa-2752310': [
+    {
+      q: 'Khác biệt chính giữa “I saw the movie” và “I have seen the movie” là gì?',
+      opts: [
+        'Câu sau không cho biết xem vào lúc nào',
+        'Câu sau nói về việc chưa xảy ra',
+        'Câu trước trang trọng hơn',
+        'Câu trước nói về việc lặp lại nhiều lần',
+      ],
+      a: 'Câu sau không cho biết xem vào lúc nào',
+      why: 'Bài nói “I have seen the movie” “suggests that you saw the movie at an unknown time in the past.”',
+    },
+    {
+      q: 'Thì hiện tại hoàn thành được lập bằng công thức nào?',
+      opts: [
+        '“have” hoặc “has” + phân từ quá khứ',
+        '“did” + động từ nguyên thể',
+        '“was/were” + động từ thêm -ing',
+        '“will have” + động từ nguyên thể',
+      ],
+      a: '“have” hoặc “has” + phân từ quá khứ',
+      why: 'Bài nói ta lập thì này bằng “have” hay “has” “followed by the past participle form of the verb.”',
+    },
+    {
+      q: '“For” và “since” cho biết điều gì?',
+      opts: [
+        'Khoảng thời gian kéo dài của một hoạt động',
+        'Thời điểm chính xác của hành động',
+        'Số lần hành động lặp lại',
+        'Thái độ của người nói',
+      ],
+      a: 'Khoảng thời gian kéo dài của một hoạt động',
+      why: 'Bài nói hai từ này “are adverbs that tell about the duration of an activity”, trả lời câu hỏi “how long?”',
+    },
+    {
+      q: 'Bài mách người học chú ý vào đâu để chọn đúng thì?',
+      opts: [
+        'Vào các trạng từ trong câu',
+        'Vào chủ ngữ của câu',
+        'Vào độ dài của câu',
+        'Vào dấu câu ở cuối',
+      ],
+      a: 'Vào các trạng từ trong câu',
+      why: 'Bài nói: “Adverbs give hints, or clues, about which verb tense you should use.”',
+    },
+  ],
+
+  // In, On and At: Prepositions of Time and Place
+  'voa-3073690': [
+    {
+      q: 'Quy tắc chung của bài về ba giới từ in / on / at là gì?',
+      opts: [
+        'Đi từ chung đến cụ thể',
+        'Đi từ cụ thể đến chung',
+        'Tuỳ theo câu là câu hỏi hay câu kể',
+        'Tuỳ theo danh từ đếm được hay không',
+      ],
+      a: 'Đi từ chung đến cụ thể',
+      why: 'Bài nói: “the prepositions in, on, and at go from general to specific.”',
+    },
+    {
+      q: 'Dùng “in” cho những khoảng thời gian nào?',
+      opts: [
+        'Tháng, năm, thập kỷ, thế kỷ',
+        'Ngày trong tuần và ngày lễ',
+        'Giờ giấc chính xác',
+        'Các buổi trong ngày',
+      ],
+      a: 'Tháng, năm, thập kỷ, thế kỷ',
+      why: 'Bài nói: “English speakers use in to refer to a general, longer period of time, such as months, years, decades, or centuries.”',
+    },
+    {
+      q: 'Với địa chỉ chính xác hoặc ngã tư, dùng giới từ nào?',
+      opts: ['at', 'in', 'on', 'to'],
+      a: 'at',
+      why: 'Bài nói: “For exact addresses or intersections, we use the preposition at.”',
+    },
+    {
+      q: 'Ngoại lệ về phương tiện giao thông trong bài là gì?',
+      opts: [
+        'Dùng “on” với xe buýt, tàu, xe đạp — nhưng “in” với ô tô',
+        'Dùng “in” với mọi phương tiện',
+        'Dùng “at” với phương tiện công cộng',
+        'Dùng “on” với ô tô, “in” với xe đạp',
+      ],
+      a: 'Dùng “on” với xe buýt, tàu, xe đạp — nhưng “in” với ô tô',
+      why: 'Bài nói: “We use on for public vehicles like buses or trains, but also for smaller ones like a bicycle”, còn ô tô thì đi với “in”.',
+    },
+  ],
+
+  // It’s 'Kind of Just' Hedging
+  'voa-7689850': [
+    {
+      q: 'Trong câu “It kind of just saps your motivation to do anything”, động từ chính là từ nào và nghĩa gì?',
+      opts: [
+        '“sap” — làm cạn dần đi',
+        '“kind” — phân loại',
+        '“just” — vừa mới',
+        '“do” — làm',
+      ],
+      a: '“sap” — làm cạn dần đi',
+      why: 'Bài nói động từ là “sap”, “which means to use up the supply of something”, thường nói về sức lực hay năng lượng.',
+    },
+    {
+      q: '“Qualifier” là gì?',
+      opts: [
+        'Một từ làm thay đổi mức độ của từ hoặc cụm từ khác',
+        'Một loại câu hỏi mở',
+        'Một dạng của động từ',
+        'Một dấu hiệu của thì quá khứ',
+      ],
+      a: 'Một từ làm thay đổi mức độ của từ hoặc cụm từ khác',
+      why: 'Bài định nghĩa: “A qualifier is a word, usually an adjective or adverb, that changes the meaning of another word or phrase.”',
+    },
+    {
+      q: '“Hedging” trong ngôn ngữ nghĩa là gì?',
+      opts: [
+        'Nói giảm mức độ khẳng định, tỏ ra chưa chắc chắn',
+        'Nói mạnh hơn sự thật để gây chú ý',
+        'Nhắc lại lời người khác cho rõ',
+        'Dùng từ trang trọng khi nói chuyện công việc',
+      ],
+      a: 'Nói giảm mức độ khẳng định, tỏ ra chưa chắc chắn',
+      why: 'Bài nói một “hedge” “in language is often a way to express uncertainty or reduce the force of a statement.”',
+    },
+    {
+      q: 'Vì sao khi bạn mình thích ban nhạc, ta lại nói “it’s kind of loud for me”?',
+      opts: [
+        'Để giữ hoà khí, không làm bạn buồn',
+        'Vì thật sự chỉ hơi to một chút',
+        'Vì đó là cách nói trang trọng hơn',
+        'Vì ta chưa nghe rõ câu hỏi',
+      ],
+      a: 'Để giữ hoà khí, không làm bạn buồn',
+      why: 'Bài giải thích dùng “kind of” “is one way that speakers preserve their relationships with others.”',
+    },
+  ],
+
+  // How to Create Many Activities from One Video
+  'voa-6976225': [
+    {
+      q: 'Bài lấy video nào ra làm ví dụ?',
+      opts: [
+        '“The Big Snow”, bài 11 của Let’s Learn English Level 2',
+        'Một video trong loạt How to Pronounce',
+        'Một bản tin thời tiết của VOA',
+        'Một video trong loạt Everyday Grammar',
+      ],
+      a: '“The Big Snow”, bài 11 của Let’s Learn English Level 2',
+      why: 'Bài viết: “We will look at the video for The Big Snow, Lesson ” 11 của Let’s Learn English Level 2.',
+    },
+    {
+      q: 'Video đó dạy điểm ngữ pháp nào?',
+      opts: [
+        'Hiện tại hoàn thành và quá khứ hoàn thành',
+        'Câu điều kiện loại hai',
+        'Giới từ chỉ nơi chốn',
+        'Câu bị động',
+      ],
+      a: 'Hiện tại hoàn thành và quá khứ hoàn thành',
+      why: 'Bài nói: “The video teaches the present perfect and past perfect verb tenses.”',
+    },
+    {
+      q: 'Nhóm giáo viên trong buổi tập huấn nghĩ ra khoảng bao nhiêu ý tưởng hoạt động từ một video?',
+      opts: ['Khoảng 40', 'Khoảng 10', 'Khoảng 100', 'Đúng 4'],
+      a: 'Khoảng 40',
+      why: 'Bài viết: “The teachers came up with about ” 40 ý tưởng, từ hoạt động ngữ pháp tới hoạt động về chủ đề thời tiết.',
+    },
+    {
+      // Câu hỏi đầu tiên tôi viết cho bài này hỏi về trò "snowball game" — mà
+      // dòng mô tả trò đó CHỈ CÓ TRÊN TRANG WEB, phát thanh viên không đọc.
+      // Người nghe không thể trả lời được. Đổi sang một ý có trong bản thu.
+      q: 'Ngoài bản thân video, mỗi bài Let’s Learn English còn kèm theo gì?',
+      opts: [
+        'Một giáo án tải về được',
+        'Một bài kiểm tra chấm điểm tự động',
+        'Một bản dịch sang nhiều thứ tiếng',
+        'Một buổi học trực tuyến với giáo viên',
+      ],
+      a: 'Một giáo án tải về được',
+      why: 'Bài nói: “each Let’s Learn English video comes with a lesson plan that you can download.”',
+    },
+  ],
+
+  // Tips for Better Conversations in English at Work
+  'voa-5726549': [
+    {
+      q: 'Chiến lược đầu tiên bài đưa ra là gì?',
+      opts: [
+        'Đoán trước những gì mình sắp nghe',
+        'Ghi âm lại cuộc trò chuyện',
+        'Nhờ đồng nghiệp nói thay',
+        'Học thuộc toàn bộ tên sản phẩm',
+      ],
+      a: 'Đoán trước những gì mình sắp nghe',
+      why: 'Bài nói: “The first strategy is to predict what you will hear”, chẳng hạn khách hàng hay hỏi về việc đặt hàng.',
+    },
+    {
+      q: '“Focusing when you listen” nghĩa là làm gì?',
+      opts: [
+        'Lập sẵn danh sách từ khoá rồi chờ nghe đúng những từ đó',
+        'Nhìn thẳng vào mặt người nói',
+        'Tắt hết tiếng ồn xung quanh',
+        'Nghe đi nghe lại một đoạn nhiều lần',
+      ],
+      a: 'Lập sẵn danh sách từ khoá rồi chờ nghe đúng những từ đó',
+      why: 'Bài nói: “The next strategy is to prepare a list of those words and listen for them when a customer begins talking with you.”',
+    },
+    {
+      q: 'Câu nào bài gợi ý dùng ngay ở ĐẦU cuộc trò chuyện?',
+      opts: [
+        '“Would you please speak more slowly?”',
+        '“Did you say you want to order?”',
+        '“May I ask the name of the product you want to order?”',
+        '“I cannot find the button for ordering.”',
+      ],
+      a: '“Would you please speak more slowly?”',
+      why: 'Bài viết: “At the beginning of the conversation, you can ask, ” “Would you please speak more slowly?”',
+    },
+    {
+      q: '“Asking to clarify” là làm gì?',
+      opts: [
+        'Hỏi lại một câu ngắn để chắc mình nghe đúng từ khoá',
+        'Xin lỗi vì tiếng Anh chưa tốt',
+        'Nhờ khách hàng viết ra giấy',
+        'Chuyển máy cho người khác',
+      ],
+      a: 'Hỏi lại một câu ngắn để chắc mình nghe đúng từ khoá',
+      why: 'Bài dặn khi nghe thấy từ khoá đã đoán trước thì “you can ask the customer a short question to be sure.”',
+    },
+  ],
+
+  // Avoid Ineffective Study Methods
+  'voa-3795956': [
+    {
+      q: 'Hai cách ôn bài rất phổ biến nào bị bài đánh giá là kém hiệu quả?',
+      opts: [
+        'Đọc lại và tô/gạch chân',
+        'Tự kiểm tra và học nhóm',
+        'Chép lại bài và học thuộc',
+        'Làm đề thi thử và vẽ sơ đồ',
+      ],
+      a: 'Đọc lại và tô/gạch chân',
+      why: 'Nhà khoa học nhận thức Mary Pyc nói: “both rereading and highlighting are ineffective study tools.”',
+    },
+    {
+      q: 'Vì sao đọc lại kém hiệu quả?',
+      opts: [
+        'Vì thấy quen mắt nên tưởng mình đã biết, mà không chủ động lục lại kiến thức',
+        'Vì mất quá nhiều thời gian',
+        'Vì dễ đọc nhầm sang phần khác',
+        'Vì sách giáo khoa thường viết khó hiểu',
+      ],
+      a: 'Vì thấy quen mắt nên tưởng mình đã biết, mà không chủ động lục lại kiến thức',
+      why: 'Bà Pyc nói: “it is going to feel like you already know the information because you\'ve already read it.”',
+    },
+    {
+      q: 'Vấn đề THỨ HAI của việc tô đậm là gì?',
+      opts: [
+        'Người học không phải lúc nào cũng biết đâu mới là thông tin quan trọng nhất',
+        'Bút tô làm hỏng sách',
+        'Tô xong rồi không đọc lại nữa',
+        'Màu tô làm chữ khó đọc hơn',
+      ],
+      a: 'Người học không phải lúc nào cũng biết đâu mới là thông tin quan trọng nhất',
+      why: 'Bà Pyc nói: “Students aren\'t always aware of what the most important information is.”',
+    },
+    {
+      q: '“Spaced practice” nghĩa là gì?',
+      opts: [
+        'Ôn lại kiến thức rải ra theo thời gian thay vì dồn một lúc',
+        'Học ở nơi rộng rãi, thoáng đãng',
+        'Chừa khoảng trống trong vở để ghi thêm',
+        'Chia lớp thành các nhóm nhỏ',
+      ],
+      a: 'Ôn lại kiến thức rải ra theo thời gian thay vì dồn một lúc',
+      why: 'Bài giải thích: “This means to practice remembering the new information over time, instead of doing everything all at once.”',
+    },
+  ],
+
+  // 'Happy Thanksgiving'
+  'voa-7355854': [
+    {
+      q: 'Vào những năm 1300, từ “happy” mang nghĩa gì?',
+      opts: [
+        'May mắn, được vận may ưu ái',
+        'Khoẻ mạnh',
+        'Giàu lòng thương người',
+        'Yên tĩnh, bình lặng',
+      ],
+      a: 'May mắn, được vận may ưu ái',
+      why: 'Bài dẫn từ điển từ nguyên: “The Dictionary also tells us that the majority of the words for ” “happy” trong các ngôn ngữ châu Âu ban đầu đều có nghĩa “lucky”.',
+    },
+    {
+      q: 'Người nói tiếng Anh dùng từ nào nhiều hơn?',
+      opts: [
+        'Tính từ “happy”',
+        'Danh từ “happiness”',
+        'Hai từ dùng ngang nhau',
+        'Bài không nói tới chuyện này',
+      ],
+      a: 'Tính từ “happy”',
+      why: 'Theo Google Ngram Viewer, “we find that English speakers use ” “happy” nhiều hơn hẳn “happiness”.',
+    },
+    {
+      q: '“Happy” thường đứng sau loại động từ nào nhất?',
+      opts: [
+        'Động từ nối (linking verbs) như be, feel, seem',
+        'Động từ khuyết thiếu như can, must',
+        'Động từ chỉ chuyển động như go, run',
+        'Động từ ở thể bị động',
+      ],
+      a: 'Động từ nối (linking verbs) như be, feel, seem',
+      why: 'Bài giải thích động từ nối là: “These are verbs that link their subjects with their predicates.”',
+    },
+    {
+      q: 'Vì sao “Happy Thanksgiving” là một câu không hoàn chỉnh?',
+      opts: [
+        'Vì không có chủ ngữ — dạng đầy đủ là “I wish you a Happy Thanksgiving”',
+        'Vì thiếu dấu chấm câu',
+        'Vì “happy” đứng trước danh từ',
+        'Vì đó là một câu hỏi bị rút gọn',
+      ],
+      a: 'Vì không có chủ ngữ — dạng đầy đủ là “I wish you a Happy Thanksgiving”',
+      why: 'Bài nói: “The subject and main verb are understood between the speakers.”',
+    },
+  ],
+
+  // Expressions That ‘Stop You Cold’
+  'voa-7897488': [
+    {
+      q: 'Khi một thứ “stops cold” thì nghĩa là gì?',
+      opts: [
+        'Dừng hẳn, đột ngột, có phần bất ngờ',
+        'Chậm lại từ từ rồi mới dừng',
+        'Dừng vì trời quá lạnh',
+        'Tạm dừng rồi chạy tiếp',
+      ],
+      a: 'Dừng hẳn, đột ngột, có phần bất ngờ',
+      why: 'Bài nói: “it stops completely, suddenly, and perhaps with surprise.”',
+    },
+    {
+      q: 'Cụm nào KHÔNG cùng nghĩa với “stop someone cold”?',
+      opts: [
+        '“come in from the cold”',
+        '“stop someone dead in their tracks”',
+        '“stop someone on a dime”',
+        '“stop someone cold in my tracks”',
+      ],
+      a: '“come in from the cold”',
+      why: 'Bài xếp ba cụm kia cùng một nhóm: “Other variations of this expression include to stop ” (someone) dead in their tracks, on a dime.',
+    },
+    {
+      q: '“Cold call” là gì?',
+      opts: [
+        'Gọi hoặc đến gặp người mình không quen, thường để bán hàng, mà không ai yêu cầu trước',
+        'Gọi điện vào mùa đông',
+        'Gọi lại cho khách hàng cũ',
+        'Cuộc gọi bị cắt giữa chừng',
+      ],
+      a: 'Gọi hoặc đến gặp người mình không quen, thường để bán hàng, mà không ai yêu cầu trước',
+      why: 'Bài nói các cuộc gọi này là “unsolicited”: “This means that no one asked or requested contact.”',
+    },
+    {
+      q: '“Come in from the cold” khác “come into something cold” ở chỗ nào?',
+      opts: [
+        'Cụm đầu là được quay lại nhóm/cuộc sống bình thường; cụm sau là đến mà không chuẩn bị gì',
+        'Cụm đầu nói về thời tiết, cụm sau nói về công việc',
+        'Hai cụm nghĩa như nhau',
+        'Cụm đầu chỉ dùng trong kinh doanh',
+      ],
+      a: 'Cụm đầu là được quay lại nhóm/cuộc sống bình thường; cụm sau là đến mà không chuẩn bị gì',
+      why: 'Bài nói về cụm đầu: “It means you rejoin a group or a normal society again after being outside.”',
+    },
+  ],
+
+  // One Person's Trash Is Another Person's Treasure
+  'voa-7733886': [
+    {
+      q: 'Thành ngữ “one person’s trash is another person’s treasure” nghĩa là gì?',
+      opts: [
+        'Thứ người này thấy vô giá trị lại có thể rất quý với người khác',
+        'Người nghèo và người giàu nhìn tiền khác nhau',
+        'Đồ cũ bán lại thì được giá hơn',
+        'Đừng vứt đi thứ gì cả',
+      ],
+      a: 'Thứ người này thấy vô giá trị lại có thể rất quý với người khác',
+      why: 'Bài giải thích: “something that one person may consider worthless could be highly prized or valued by someone else.”',
+    },
+    {
+      q: 'Vì sao thành ngữ dùng “trash” chứ không dùng “rubbish” hay “garbage”?',
+      opts: [
+        'Vì âm “tr” trong trash và treasure nghe thuận tai hơn',
+        'Vì “rubbish” là từ của tiếng Anh-Anh',
+        'Vì “garbage” nghe nặng nghĩa hơn',
+        'Vì “trash” ngắn hơn hai từ kia',
+      ],
+      a: 'Vì âm “tr” trong trash và treasure nghe thuận tai hơn',
+      why: 'Bài nói âm “tr” “in trash and treasure makes the expression sound more natural.”',
+    },
+    {
+      q: 'Thành ngữ nào trong bài có nghĩa gần giống nhất?',
+      opts: [
+        '“different strokes for different folks”',
+        '“an eye for an eye”',
+        '“a point of no return”',
+        '“food for thought”',
+      ],
+      a: '“different strokes for different folks”',
+      why: 'Bài nói: “Another expression with a similar meaning is different strokes for different folks.”',
+    },
+    {
+      q: 'Vì sao không được đổi thành “different strokes for different people”?',
+      opts: [
+        'Vì đây là cụm cố định, đổi từ thì nghe không đúng',
+        'Vì “people” là số nhiều',
+        'Vì “folks” trang trọng hơn',
+        'Vì câu sẽ quá dài',
+      ],
+      a: 'Vì đây là cụm cố định, đổi từ thì nghe không đúng',
+      why: 'Bài nói: “as a set expression, we do not say ” “different strokes for different people” — “That just doesn\'t sound right.”',
+    },
+  ],
+
+  // Reaching the 'Tipping Point'
+  'voa-7750319': [
+    {
+      q: 'Từ điển Merriam-Webster định nghĩa “tipping point” thế nào?',
+      opts: [
+        'Điểm tới hạn mà vượt qua nó sẽ có thay đổi lớn, thường không ngăn được nữa',
+        'Thời điểm bắt đầu của một phong trào',
+        'Lúc một ý tưởng bị lãng quên',
+        'Điểm cân bằng giữa hai lựa chọn',
+      ],
+      a: 'Điểm tới hạn mà vượt qua nó sẽ có thay đổi lớn, thường không ngăn được nữa',
+      why: 'Từ điển định nghĩa là “the critical point in a situation, process, or system beyond which a significant and often unstoppable effect or change takes place.”',
+    },
+    {
+      q: 'Bài lấy ví dụ nào cho việc ĐÃ vượt qua điểm tới hạn?',
+      opts: [
+        'Trái Đất và hiện tượng nóng lên toàn cầu',
+        'Giá cả ở cửa hàng thực phẩm',
+        'Cơn giận của học sinh với cô giáo',
+        'Cuốn sách thứ hai của một nhà văn',
+      ],
+      a: 'Trái Đất và hiện tượng nóng lên toàn cầu',
+      why: 'Bài nói: “some scientists believe Earth may have passed the tipping point in global warming.”',
+    },
+    {
+      q: 'Cụm nào trong bài diễn đạt ý “quá muộn để quay lại”?',
+      opts: [
+        '“that ship has sailed” và “a point of no return”',
+        '“spreads like wildfire”',
+        '“crosses a threshold”',
+        '“an important decision has to be made”',
+      ],
+      a: '“that ship has sailed” và “a point of no return”',
+      why: 'Bài nói: “When something reaches a tipping point it is too late to turn back.”',
+    },
+    {
+      q: 'Malcolm Gladwell mô tả tipping point là khoảnh khắc gì?',
+      opts: [
+        'Khoảnh khắc một ý tưởng vượt ngưỡng và lan đi như cháy rừng',
+        'Khoảnh khắc một ý tưởng bị bác bỏ',
+        'Khoảnh khắc mọi người ngừng quan tâm',
+        'Khoảnh khắc một cuốn sách được xuất bản',
+      ],
+      a: 'Khoảnh khắc một ý tưởng vượt ngưỡng và lan đi như cháy rừng',
+      why: 'Ông viết đó là lúc một ý tưởng “crosses a threshold, tips, and spreads like wildfire.”',
+    },
+  ],
+
 };
 
 export default CAU_HOI;
