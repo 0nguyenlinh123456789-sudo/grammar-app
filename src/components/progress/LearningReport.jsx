@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Award, BarChart3, Printer, X } from 'lucide-react';
+import SkillProfile from './SkillProfile';
+import { buildSkillProfile, SKILL_LABEL } from '../../utils/skillProfile';
 
-const SKILL_LABELS = { grammar: 'Ngữ pháp', vocabulary: 'Từ vựng', reading: 'Đọc hiểu' };
-
-export default function LearningReport({ placementResult, weeklyLessons, weeklyXp, completionPercentage = 0, streak = 0, weeklyGoalDays = 0, completedCount = 0, verifiedCount = 0, totalMilestonesCount = 0 }) {
+export default function LearningReport({ placementResult, weeklyLessons, weeklyXp, completionPercentage = 0, streak = 0, weeklyGoalDays = 0, completedCount = 0, verifiedCount = 0, totalMilestonesCount = 0, onRetakePlacement }) {
   const [showCertificate, setShowCertificate] = useState(false);
   if (!placementResult) return null;
 
@@ -19,9 +19,14 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
   // (#1b) Tờ giấy này cũng đi ra ngoài như chứng nhận, nên phải in KÈM số chặng
   // đã xác minh: "hoàn thành 100%" đứng một mình trên giấy đưa phụ huynh là
   // đúng loại tuyên bố mà cổng chứng nhận sinh ra để chặn.
+  // (4.3) Tờ giấy này đi ra ngoài, nên nó phải nói cả những gì app CHƯA đo được.
+  // Bảng cũ chỉ in các kỹ năng có số; phụ huynh đọc xong tưởng đã đo đủ.
+  // Và `stat.correct / stat.total` với total = 0 in ra "NaN%" — đúng loại lỗi
+  // âm thầm đã dính ở chỗ đếm .length của unit Oxford.
   const printParentReport = () => {
-    const skills = Object.entries(placementResult.skillStats || {})
-      .map(([skill, stat]) => `<tr><td>${SKILL_LABELS[skill] || skill}</td><td style="text-align:right;font-weight:800">${Math.round((stat.correct / stat.total) * 100)}%</td></tr>`)
+    const profile = buildSkillProfile(placementResult);
+    const skills = [...(profile?.foundation || []), ...(profile?.cefrSkills || [])]
+      .map((s) => `<tr><td>${SKILL_LABEL[s.key] || s.key}</td><td style="text-align:right;font-weight:800${s.measured ? '' : ';color:#94a3b8'}">${s.measured ? `${s.percent}% (${s.correct}/${s.total})` : 'chưa đo được'}</td></tr>`)
       .join('');
     const win = window.open('', '_blank', 'width=720,height=900');
     if (!win) return;
@@ -42,6 +47,7 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
         <div class="stat">Chuỗi ngày hiện tại<b>${streak} ngày · ${weeklyGoalDays}/7 ngày đạt mục tiêu</b></div>
       </div>
       <table><tr><td style="color:#64748b;text-transform:uppercase;font-size:12px">Kỹ năng (test đầu vào)</td><td></td></tr>${skills}</table>
+      <p class="foot">Nghe, nói và viết chưa được đo: ứng dụng chưa có bài nghe giọng người thật, chưa có đề viết và đề nói được chấm.</p>
       <p class="foot">Báo cáo tạo tự động từ dữ liệu học trên Bunny English. In hoặc lưu PDF bằng Ctrl+P.</p>
       <script>window.print()</script></body></html>`);
     win.document.close();
@@ -49,8 +55,11 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
   return <>
     <section className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10" aria-labelledby="learning-report-title">
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4"><div className="flex items-center gap-3"><div className="w-11 h-11 rounded-2xl bg-emerald-100 dark:bg-emerald-950/40 border-3 border-slate-800 flex items-center justify-center"><BarChart3 className="text-emerald-600" size={23} /></div><div><h3 id="learning-report-title" className="text-lg font-black uppercase">Báo cáo tiến bộ</h3><p className="text-xs font-bold text-slate-500">Cập nhật từ bài test đầu vào và nhịp học gần đây</p></div></div><div className="flex gap-2 flex-wrap"><button onClick={printParentReport} className="px-3 py-1.5 rounded-xl bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-2 border-emerald-500 text-xs font-black flex items-center gap-1 cursor-pointer"><Printer size={14} /> Báo cáo phụ huynh</button><span className="px-3 py-1.5 rounded-xl bg-blue-100 text-blue-700 border-2 border-blue-500 text-xs font-black">{placementResult.levelLabel}</span>{certificateReady && <button onClick={() => setShowCertificate(true)} className="px-3 py-1.5 rounded-xl bg-yellow-300 border-2 border-slate-800 text-xs font-black flex items-center gap-1 cursor-pointer"><Award size={15} /> Chứng nhận</button>}</div></div>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5"><ReportStat label="Đầu vào" value={`${placementResult.score}%`} /><ReportStat label="Chặng tuần này" value={weeklyLessons} /><ReportStat label="XP tuần này" value={`+${weeklyXp}`} /><ReportStat label="Hoàn thành" value={`${completionPercentage}%`} /></div>
-      <div className="grid md:grid-cols-3 gap-4 mt-5">{Object.entries(placementResult.skillStats || {}).map(([skill, stat]) => { const percent = Math.round((stat.correct / stat.total) * 100); return <div key={skill}><div className="flex justify-between text-xs font-black mb-1"><span>{SKILL_LABELS[skill] || skill}</span><span>{percent}%</span></div><div className="h-3 rounded-full bg-slate-100 border-2 border-slate-700 overflow-hidden"><div className={`h-full ${percent >= 67 ? 'bg-emerald-400' : 'bg-amber-400'}`} style={{ width: `${percent}%` }} /></div></div>; })}</div>
+      {/* (4.1) Ô "Đầu vào" trước đây in phần trăm đúng. Với bài thích ứng, phần
+          trăm KHÔNG còn nói lên trình độ — bài leo đến khi sai nên ai cũng hội
+          tụ về quanh 50–60%. Ô này nay in BẬC; phần trăm lùi xuống dòng phụ. */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5"><ReportStat label="Bậc đầu vào" value={placementResult.cefr || placementResult.levelLabel} hint={placementResult.total ? `${placementResult.correct}/${placementResult.total} câu đúng` : null} /><ReportStat label="Chặng tuần này" value={weeklyLessons} /><ReportStat label="XP tuần này" value={`+${weeklyXp}`} /><ReportStat label="Hoàn thành" value={`${completionPercentage}%`} /></div>
+      <SkillProfile placementResult={placementResult} onRetake={onRetakePlacement} />
       {awaitingVerification
         ? <p className="mt-5 text-xs font-bold text-amber-700 dark:text-amber-400">Bạn đã đi hết lộ trình. Chứng nhận cần {totalMilestonesCount - verifiedCount} chặng nữa được xác minh (đã xác minh {verifiedCount}/{totalMilestonesCount}) — dùng nút “Xác minh nhanh (5 câu)” ngay trên từng chặng.</p>
         : !certificateReady && <p className="mt-5 text-xs font-bold text-slate-500">Hoàn thành và xác minh toàn bộ lộ trình để mở chứng nhận kết quả học tập. Đã xác minh {verifiedCount}/{totalMilestonesCount} chặng.</p>}
@@ -59,7 +68,7 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
   </>;
 }
 
-function ReportStat({ label, value }) { return <div className="rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 p-3"><p className="text-[10px] font-black uppercase text-slate-500">{label}</p><p className="text-xl font-black mt-1">{value}</p></div>; }
+function ReportStat({ label, value, hint = null }) { return <div className="rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 p-3"><p className="text-[10px] font-black uppercase text-slate-500">{label}</p><p className="text-xl font-black mt-1">{value}</p>{hint && <p className="text-[10px] font-bold text-slate-400 mt-0.5">{hint}</p>}</div>; }
 
 // (#0-D1) Chứng nhận CHUYÊN CẦN, không phải chứng nhận trình độ: điều kiện cấp
 // là học hết các chặng, nên thành tích in ra phải là số chặng. Trước đây in
