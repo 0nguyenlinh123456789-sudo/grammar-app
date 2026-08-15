@@ -8,6 +8,7 @@ import { playCorrect, playWrong, playComplete } from '../../utils/sound';
 import { recordReview } from '../../utils/srs';
 import { buildComprehension } from '../../utils/comprehension';
 import MasteryVerdict from '../common/MasteryVerdict';
+import MachineVoiceTag from '../common/MachineVoiceTag';
 import { buildEvidence } from '../../utils/mastery';
 
 const ListeningComprehension = ({ activeTopic, playAudio, onFinish }) => {
@@ -121,7 +122,7 @@ const ListeningComprehension = ({ activeTopic, playAudio, onFinish }) => {
       <div className="w-full bg-white dark:bg-slate-900 border-4 border-black dark:border-slate-700 rounded-3xl p-6 md:p-8 shadow-[10px_10px_0_0_rgba(0,0,0,1)] dark:shadow-[10px_10px_0_0_#020617] text-center">
         <p className="font-black text-slate-500 dark:text-slate-400 mb-4">🔊 Nghe rồi trả lời: <span className="text-slate-800 dark:text-slate-200">{cur.prompt}</span></p>
 
-        <div className="flex justify-center gap-3 mb-4">
+        <div className="flex justify-center gap-3 mb-2">
           <button onClick={() => speak(0.85)} className="w-16 h-16 rounded-full bg-cyan-300 hover:bg-cyan-400 border-4 border-black flex items-center justify-center shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all cursor-pointer">
             <Volume2 size={28} className="text-slate-800" />
           </button>
@@ -129,6 +130,8 @@ const ListeningComprehension = ({ activeTopic, playAudio, onFinish }) => {
             <Snail size={28} className="text-slate-800" />
           </button>
         </div>
+        {/* (2.4) Nói rõ đây là giọng tổng hợp, không phải người thật. */}
+        <div className="mb-4"><MachineVoiceTag /></div>
 
         {/* Show text only after answering, or if learner asks */}
         {(selected !== null || revealText) ? (

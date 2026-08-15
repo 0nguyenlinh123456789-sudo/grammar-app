@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Clock, GraduationCap, Volume2, X }
 import { MOCK_TESTS, SECTION_LABELS } from '../../data/mockTestData';
 import { scoreMockTest, saveMockAttempt, previousAttempt, weakestSection } from '../../utils/mockTest';
 import { recordError } from '../../utils/errorBank';
+import MachineVoiceTag from '../common/MachineVoiceTag';
 
 const fmtTime = (seconds) => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
 
@@ -192,11 +193,15 @@ export default function MockTest({ onClose }) {
     <div className="mt-4 flex items-center justify-between text-xs font-black text-slate-500"><span>Câu {index + 1}/{test.questions.length}</span><span>{SECTION_LABELS[question.section]}</span></div>
     <div className="h-3 rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-600 mt-2 overflow-hidden"><div className="h-full bg-emerald-500 transition-all" style={{ width: `${progress}%` }} /></div>
 
-    {question.audioText && (
+    {question.audioText && (<>
       <button onClick={() => speak(question.audioText)} className="mt-6 w-full py-4 rounded-2xl bg-indigo-100 dark:bg-indigo-950/40 border-3 border-indigo-500 text-indigo-800 dark:text-indigo-200 font-black flex items-center justify-center gap-2 cursor-pointer">
         <Volume2 size={20} /> NGHE ĐOẠN HỘI THOẠI (bấm lại để nghe thêm)
       </button>
-    )}
+      {/* (2.4) Phần "Nghe" của đề thi thử chạy bằng giọng tổng hợp. Đề thi là
+          chỗ dễ khiến người học tưởng mình đã luyện nghe như thi thật nhất,
+          nên nhãn ở đây quan trọng hơn mọi chỗ khác. */}
+      <div className="mt-2 text-center"><MachineVoiceTag /></div>
+    </>)}
 
     <h3 className="text-xl md:text-2xl font-black mt-6 leading-snug dark:text-white">{question.prompt}</h3>
 
