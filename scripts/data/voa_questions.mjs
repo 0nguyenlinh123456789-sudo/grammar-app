@@ -917,10 +917,14 @@ export const CAU_HOI = {
       why: 'Bài nói: “The easiest way to know which word you are hearing is to listen for the words that follow it.”',
     },
     {
-      q: 'Sau “who’s” thường là loại từ nào?',
+      // Sửa lại sau khi phục hồi được các câu ví dụ ngắn: bản chép lời nay có
+      // cả "Who's in the office today?" và "Who's the director of that film?",
+      // nên hỏi trống "thường là loại từ nào" thì lựa chọn "danh từ" cũng có
+      // chỗ dựa. Hỏi rõ "HAY GẶP NHẤT" mới khớp đúng chữ "Often" của bài.
+      q: 'Sau “who’s”, từ HAY GẶP NHẤT là loại nào?',
       opts: ['Động từ', 'Danh từ', 'Tính từ sở hữu', 'Giới từ chỉ nơi chốn'],
       a: 'Động từ',
-      why: 'Bài nói: “Often, the next word you hear after ” “who’s” là một động từ.',
+      why: 'Bài nói: “Often, the next word you hear after ” “who’s” là một động từ — đôi khi mới là cụm giới từ hay cụm danh từ.',
     },
     {
       q: 'Còn sau “whose” thì nên chờ nghe thấy gì?',

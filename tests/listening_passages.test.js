@@ -127,3 +127,22 @@ test('bản chép lời không lẫn dòng chỉ có trên trang web', () => {
   }
   assert.deepEqual(loi, [], loi.join('\n  '));
 });
+
+// LỖ THỦNG, KIỂM TRÊN DỮ LIỆU ĐÃ PHÁT HÀNH — không cần mạng.
+// Lý do 12 bài thủng lọt lên tận bản chạy thật: bộ dò lỗ chỉ chạy LÚC THU THẬP,
+// nên dữ liệu đã nằm trong kho thì không ai soi lại. scripts/audit_transcript_
+// holes.mjs soi lại được nhưng phải nhớ mà chạy tay. Bài kiểm này bắt cùng loại
+// lỗi ngay trong npm test: một câu dẫn kết thúc bằng dấu hai chấm mà sau nó
+// không còn gì, hoặc đoạn sau cũng là một câu dẫn, nghĩa là ví dụ ở giữa đã mất.
+test('không bài nào có câu dẫn bỏ lửng — ví dụ phải còn nguyên', () => {
+  const loi = [];
+  for (const b of listeningPassages) {
+    b.transcript.forEach((p, i) => {
+      if (!/:\s*$/.test(p)) return;
+      const sau = b.transcript[i + 1];
+      if (!sau) loi.push(`${b.id}: “${p.slice(-45)}” là đoạn CUỐI — ví dụ đi sau đã mất`);
+      else if (/:\s*$/.test(sau)) loi.push(`${b.id}: “${p.slice(-45)}” rồi lại một câu dẫn nữa — ví dụ ở giữa đã mất`);
+    });
+  }
+  assert.deepEqual(loi, [], 'bản chép lời thủng lỗ:\n  ' + loi.join('\n  '));
+});
