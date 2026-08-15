@@ -16,8 +16,9 @@ import {
   createAccessRecord, generateAccessCode, hashValue, normalizeAccessCode,
   signToken, validateRecord, verifyToken,
 } from '../src/server/accessCore.js';
-import { placementQuestions } from '../src/data/placementQuestions.js';
-import { recommendationFromPlacement, scorePlacement } from '../src/utils/placement.js';
+import { placementBank } from '../src/data/placementBank.js';
+import { recommendationFromPlacement } from '../src/utils/placement.js';
+import { createSession, currentQuestion, answerCurrent, placementResultFrom } from '../src/utils/placementAdaptive.js';
 import { scoreMockTest, toIeltsBand, toVstepScore, weakestSection } from '../src/utils/mockTest.js';
 import { createProgressSnapshot } from '../src/utils/progressSync.js';
 import { AccessResponseError, readAccessResponse } from '../src/utils/apiResponse.js';
@@ -415,9 +416,13 @@ test('access lifecycle creates, activates and remotely revokes a customer code',
 });
 
 test('placement scoring builds a level, skill profile and next recommendation', () => {
-  const answers = Object.fromEntries(placementQuestions.map((question) => [question.id, question.answer]));
-  const result = scorePlacement(placementQuestions, answers);
+  // (4.1) Bài nay là bài THÍCH ỨNG: không còn "chấm cả bộ câu hỏi một lượt".
+  // Trả lời đúng hết → leo hết thang → C1 → 'advanced'.
+  let session = createSession(placementBank);
+  while (!session.done) session = answerCurrent(session, currentQuestion(session).answer);
+  const result = placementResultFrom(session);
   assert.equal(result.score, 100);
+  assert.equal(result.cefr, 'C1');
   assert.equal(result.level, 'advanced');
   assert.deepEqual(result.focus, []);
   assert.match(recommendationFromPlacement(result).title, /C1/);

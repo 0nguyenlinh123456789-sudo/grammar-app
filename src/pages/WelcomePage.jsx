@@ -327,7 +327,14 @@ const WelcomePage = ({
             // người học tự đi tìm (hạng mục #2). Bỏ tab đang chọn tay để
             // lộ trình nhảy về đúng cấp độ vừa đo được.
             setManualTab(null);
-            const target = pickNextMilestone(allMilestones, completedMilestones, result?.level);
+            // (4.1) Chưa qua nổi vòng A1 → đưa vào cụm A0 "Mất gốc thật", không
+            // đưa vào A1. Bài test không map sang A0 (xem roadmapNav.js) nên
+            // chỗ này phải làm tường minh, và chỉ khi CÓ chặng A0 chưa xong —
+            // người đã học xong A0 rồi thì rơi về hành vi thường.
+            const preA1Target = result?.preA1
+              ? allMilestones.find((m) => m.levelId === 'foundation' && !completedMilestones.includes(m.targetId))
+              : null;
+            const target = preA1Target || pickNextMilestone(allMilestones, completedMilestones, result?.level);
             if (target) launchMilestone(target);
           }}
         />
@@ -452,8 +459,11 @@ const WelcomePage = ({
 
        {/* --- PERSONALIZED PLACEMENT CARD --- */}
        <section className="mb-10 bg-indigo-50 dark:bg-indigo-950/30 border-4 border-indigo-700 dark:border-indigo-500 rounded-3xl p-5 shadow-[6px_6px_0_0_#312e81] dark:shadow-[6px_6px_0_0_#020617] flex flex-col md:flex-row md:items-center justify-between gap-4">
-         <div><p className="text-xs font-black uppercase tracking-widest text-indigo-600 dark:text-indigo-300">Lộ trình thông minh</p><h3 className="text-xl font-black mt-1">{recommendation.title}</h3><p className="text-sm font-bold text-slate-600 dark:text-slate-300 mt-1">{recommendation.body}</p></div>
-         <button onClick={() => setShowPlacement(true)} className="shrink-0 px-5 py-3 rounded-2xl bg-white dark:bg-slate-900 border-3 border-slate-900 font-black shadow-[3px_3px_0_0_#312e81]">{placementResult ? 'LÀM LẠI TEST' : 'LÀM TEST 5 PHÚT'} <ArrowRight className="inline ml-1" size={17} /></button>
+         {/* (4.1) Nói thẳng độ dài THẬT của bài. Nhãn cũ là "LÀM TEST 5 PHÚT"
+             cho một bài 12 câu cố định; bài thích ứng dài 12–24 câu tuỳ người
+             trả lời, nên không có một con số phút nào đúng cho mọi người. */}
+         <div><p className="text-xs font-black uppercase tracking-widest text-indigo-600 dark:text-indigo-300">Lộ trình thông minh</p><h3 className="text-xl font-black mt-1">{recommendation.title}</h3><p className="text-sm font-bold text-slate-600 dark:text-slate-300 mt-1">{recommendation.body}</p><p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-1.5">Bài thích ứng 12–24 câu, mỗi câu gắn bậc A1→C1. Đo ngữ pháp, từ vựng, đọc hiểu.</p></div>
+         <button onClick={() => setShowPlacement(true)} className="shrink-0 px-5 py-3 rounded-2xl bg-white dark:bg-slate-900 border-3 border-slate-900 font-black shadow-[3px_3px_0_0_#312e81]">{placementResult ? 'LÀM LẠI TEST' : 'LÀM TEST XẾP BẬC'} <ArrowRight className="inline ml-1" size={17} /></button>
        </section>
 
        {/* --- QUICK RESUME CARD (NEXT GOAL) --- */}
@@ -635,7 +645,7 @@ const WelcomePage = ({
         {weeklyLessons === 0 && <p className="mt-4 text-center text-sm font-bold text-slate-500 dark:text-slate-400">Hoàn thành một chặng để bắt đầu tạo nhịp học của bạn.</p>}
       </section>
 
-      <LearningReport placementResult={placementResult} weeklyLessons={weeklyLessons} weeklyXp={weeklyXp} completionPercentage={completionPercentage} streak={streak} weeklyGoalDays={weeklyGoalDays} completedCount={completedCount} verifiedCount={verifiedCount} totalMilestonesCount={totalMilestonesCount} />
+      <LearningReport placementResult={placementResult} weeklyLessons={weeklyLessons} weeklyXp={weeklyXp} completionPercentage={completionPercentage} streak={streak} weeklyGoalDays={weeklyGoalDays} completedCount={completedCount} verifiedCount={verifiedCount} totalMilestonesCount={totalMilestonesCount} onRetakePlacement={() => setShowPlacement(true)} />
 
       {/* --- VƯỜN THÚ (bộ sưu tập thú cưng, mở khoá bằng việc học) --- */}
       <PetZoo done={completedMilestones} streak={streak} className="mb-10" />
