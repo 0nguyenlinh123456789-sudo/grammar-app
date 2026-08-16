@@ -47,6 +47,9 @@ async function loadAgg(file, pick) {
 const cf = await import(pathToFileURL(path.join(ROOT, 'src/utils/contentFilter.js')).href);
 const topics = cf.sanitizeVocabTopics(await loadAgg('vocabVstepData.js', (m) => m.default));
 const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
+// Luật tách ô + chọn từ nằm ở MỘT bản duy nhất, dùng chung với bộ sinh đề nói
+// (3.5) và bài kiểm đối chiếu ngược. Xem scripts/lib/vocab_pick.mjs.
+const { tachO, chonTu } = await import(pathToFileURL(path.join(ROOT, 'scripts/lib/vocab_pick.mjs')).href);
 
 const SACH_OXFORD = [
   { book: 'elementary', parts: [['oxfordData.js', 'courseData'], ['oxfordDataPart2.js', 'courseData'], ['oxfordDataPart3.js', 'courseData']] },
@@ -73,35 +76,6 @@ const KIEU_THEO_BAND = {
   upper_intermediate: { kieu: 'bai', min: 120, max: 200, phaiDung: 5 },
   advanced: { kieu: 'bai', min: 150, max: 250, phaiDung: 5 },
 };
-
-const SO_TU_MUC_TIEU = 8;
-
-// Chọn từ theo BƯỚC ĐỀU trên danh sách, không lấy 8 từ đầu và không random.
-// Lấy 8 từ đầu thì chủ đề 101 từ chỉ dùng tới 8% đầu bảng; random thì mỗi lần
-// sinh lại ra một đề khác, không so sánh được giữa hai lần chạy.
-// GOM NHIỀU TỪ TRONG MỘT Ô — bộ giáo trình Oxford viết `coreVocab` kiểu
-// "sun / rain / wind / cloud", "good -> better -> the best", "nice (+)".
-// Bản đầu của tôi lọc bằng một biểu thức khớp cả ô, nên 24 unit bị bỏ vì
-// "chỉ có 1 từ dùng được" — trong khi từ vẫn nằm nguyên đó, chỉ là dính nhau.
-// Bỏ chặng vì bộ lọc của mình quá chặt là đúng cái đã dính ở bản chép lời VOA
-// (lọc theo độ dài vứt mất câu ví dụ). Tách ô ra trước rồi mới lọc.
-function tachO(o) {
-  return String(o || '')
-    .replace(/\([^)]*\)/g, ' ')       // bỏ chú thích trong ngoặc: "nice (+)"
-    .replace(/->|→|,|;|\|/g, '/')     // mọi dấu ngăn đều quy về "/"
-    .split('/')
-    .map((s) => s.trim().toLowerCase())
-    .filter(Boolean);
-}
-
-function chonTu(ds, n = SO_TU_MUC_TIEU) {
-  const sach = ds.flatMap((w) => tachO(w?.en || w?.word))
-    .filter((w) => /^[a-z][a-z' -]{1,24}$/.test(w));
-  const rieng = [...new Set(sach)];
-  if (rieng.length <= n) return rieng;
-  const buoc = rieng.length / n;
-  return Array.from({ length: n }, (_, i) => rieng[Math.floor(i * buoc)]);
-}
 
 const topicById = new Map(topics.map((t) => [t.id, t]));
 const ra = [];

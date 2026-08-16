@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AlertTriangle, ArrowRight, CheckCircle2, PenLine, ScrollText, Sparkles, X, XCircle } from 'lucide-react';
 import { writingPrompts, KIEU_DE } from '../../data/writingPrompts';
 import { kiemTraDeViet, scoreWriting, scoreWritingWithAI } from '../../utils/writingScorer';
-import { luuBaiViet } from '../../utils/writingLog';
+import { luuBaiLam } from '../../utils/selfReportLog';
 import { deSinh, deTuChang, GHI_CHU_CHECKLIST_CHUNG } from '../../utils/writingBank';
 import { hasGeminiKey } from '../../utils/aiKey';
 
@@ -118,7 +118,7 @@ function LamBai({ de, onBack, onClose }) {
   const beMat = daNop ? scoreWriting(text) : null;
 
   const luu = () => {
-    luuBaiViet({ promptId: de.id, text, tuDanhGia: tick, dungBaiMau: moBaiMau });
+    luuBaiLam({ kyNang: 'writing', promptId: de.id, text, tuDanhGia: tick, dungBaiMau: moBaiMau });
     setDaLuu(true);
   };
 

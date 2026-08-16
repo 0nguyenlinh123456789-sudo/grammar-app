@@ -16,12 +16,15 @@ import DictationPanel from '../components/listening/DictationPanel';
 import ListeningPassagePanel from '../components/listening/ListeningPassagePanel';
 import { writingPrompts } from '../data/writingPrompts';
 import { SO_DE_THEO_CHANG } from '../data/writingCounts';
+// Chỉ CON SỐ, không phải kho đề — xem chú thích trong speakingCounts.js.
+import { SO_DE_NOI_THEO_CHANG } from '../data/speakingCounts';
 
 // Kho đề theo chặng nặng ~170 KB (531 đề × 8 từ mục tiêu). Nạp thẳng vào trang
 // chủ thì ai mở app cũng phải tải, kể cả người không bao giờ vào mục viết —
 // đo được: chunk trang chủ phình từ 743 KB lên 911 KB. Nên panel viết tách
 // chunk riêng, và trang chủ chỉ cần MỘT CON SỐ để hiển thị.
 const WritingPromptPanel = lazy(() => import('../components/writing/WritingPromptPanel'));
+const SpeakingPromptPanel = lazy(() => import('../components/speaking/SpeakingPromptPanel'));
 import { listeningPassages } from '../data/listeningPassages';
 import { audioManifest } from '../data/audioManifest';
 import { loadMockHistory } from '../utils/mockTest';
@@ -83,6 +86,7 @@ const WelcomePage = ({
   const [showDictation, setShowDictation] = useState(false);
   const [showPassage, setShowPassage] = useState(false);
   const [showWriting, setShowWriting] = useState(false);
+  const [showSpeaking, setShowSpeaking] = useState(false);
   const lastMock = loadMockHistory()[0] || null;
   const dueErrors = getDueErrorCount();
   const totalErrors = getErrorCount();
@@ -320,6 +324,7 @@ const WelcomePage = ({
       {showDictation && <DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} />}
       {showPassage && <ListeningPassagePanel onClose={() => setShowPassage(false)} />}
       {showWriting && <Suspense fallback={null}><WritingPromptPanel onClose={() => setShowWriting(false)} /></Suspense>}
+      {showSpeaking && <Suspense fallback={null}><SpeakingPromptPanel onClose={() => setShowSpeaking(false)} /></Suspense>}
       {showMigration && (
         <MasteryMigrationNotice
           unverifiedCount={unverifiedMilestones.length}
@@ -676,6 +681,30 @@ const WelcomePage = ({
           className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-violet-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-violet-500 transition-all cursor-pointer"
         >
           VIẾT
+        </button>
+      </div>
+
+      {/* --- (3.5) LUYỆN NÓI THEO CHỦ ĐỀ — mở rộng từ "đọc to một từ" --- */}
+      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="bg-purple-100 dark:bg-purple-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+            <span className="text-2xl" aria-hidden="true">🗣️</span>
+          </div>
+          <div>
+            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
+              Luyện nói theo chủ đề
+              <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-400 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase">Không chấm phát âm</span>
+            </h3>
+            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+              {SO_DE_NOI_THEO_CHANG} đề gắn với từng chặng B1 trở lên. Trình duyệt chỉ ghi lại <b>văn bản nó nghe được</b> — không phải đánh giá phát âm.
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowSpeaking(true)}
+          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-purple-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-purple-500 transition-all cursor-pointer"
+        >
+          NÓI
         </button>
       </div>
 

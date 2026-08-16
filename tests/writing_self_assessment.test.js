@@ -15,14 +15,16 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { buildSkillProfile, NOT_MEASURED_REASON } from '../src/utils/skillProfile.js';
-import { luuBaiViet, thongKeTuBaoCao, WRITING_LOG_KEY } from '../src/utils/writingLog.js';
+import { luuBaiLam, thongKeTuBaoCao, WRITING_LOG_KEY, SPEAKING_LOG_KEY } from '../src/utils/selfReportLog.js';
 import { LEARNING_STORAGE_KEYS } from '../src/utils/backup.js';
 
 // Bài viết là thứ NGƯỜI HỌC TỰ LÀM RA — mất là mất hẳn, không sinh lại được như
 // điểm số. Quên đưa khoá vào danh sách sao lưu thì đổi máy là trắng sổ.
 test('sổ bài viết nằm trong danh sách sao lưu/đồng bộ', () => {
-  assert.ok(LEARNING_STORAGE_KEYS.includes(WRITING_LOG_KEY),
-    `"${WRITING_LOG_KEY}" chưa có trong LEARNING_STORAGE_KEYS — đổi máy là mất hết bài đã viết`);
+  for (const k of [WRITING_LOG_KEY, SPEAKING_LOG_KEY]) {
+    assert.ok(LEARNING_STORAGE_KEYS.includes(k),
+      `"${k}" chưa có trong LEARNING_STORAGE_KEYS — đổi máy là mất hết thứ người học tự làm ra`);
+  }
 });
 
 const KET_QUA = {
@@ -77,7 +79,7 @@ test('không có hoạt động nào thì hồ sơ giữ nguyên hành vi cũ', 
 
 // Bản ghi trong sổ bài viết phải TỰ MANG cờ, không dựa vào chỗ gọi nhớ gắn.
 test('mọi bản ghi bài viết đều mang cờ tuBaoCao và KHÔNG có trường điểm', () => {
-  const ban = luuBaiViet({ promptId: 'w-a1-gioi-thieu', text: 'My name is Nam. I am from Hue.', tuDanhGia: [true, true, false, true] });
+  const ban = luuBaiLam({ promptId: 'w-a1-gioi-thieu', text: 'My name is Nam. I am from Hue.', tuDanhGia: [true, true, false, true] });
   assert.equal(ban.tuBaoCao, true);
   assert.equal(ban.soTieuChiTuThay, 3);
   for (const cam of ['score', 'diem', 'percent', 'phanTram', 'level']) {
@@ -86,13 +88,13 @@ test('mọi bản ghi bài viết đều mang cờ tuBaoCao và KHÔNG có trư�
 });
 
 test('bài rỗng thì không ghi gì', () => {
-  assert.equal(luuBaiViet({ promptId: 'w-a1-gioi-thieu', text: '   ' }), null);
-  assert.equal(luuBaiViet({ promptId: '', text: 'Hello there.' }), null);
+  assert.equal(luuBaiLam({ promptId: 'w-a1-gioi-thieu', text: '   ' }), null);
+  assert.equal(luuBaiLam({ promptId: '', text: 'Hello there.' }), null);
 });
 
 // Không có localStorage (chạy trong node) thì phải im lặng chịu, không vỡ.
 test('không có localStorage thì thống kê trả về rỗng, không ném lỗi', () => {
-  const tk = thongKeTuBaoCao();
+  const tk = thongKeTuBaoCao('writing');
   assert.equal(tk.soBai, 0);
   assert.equal(tk.tuBaoCao, true);
 });

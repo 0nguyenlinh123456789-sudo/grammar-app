@@ -83,7 +83,9 @@ function row(key, result) {
 //
 // Nên `measured` vẫn là false, `percent` vẫn là null, lý do "chưa đo được" vẫn
 // hiện. Hoạt động tự đánh giá chỉ thêm một dòng RIÊNG, nói rõ đó là tự báo cáo.
-// Truyền `hoatDong.writing = thongKeTuBaoCao()` từ writingLog.js vào đây.
+// Truyền `hoatDong.writing`/`hoatDong.speaking = thongKeTuBaoCao(kỹ năng)` từ
+// selfReportLog.js vào đây. Cùng một luật cho cả hai: THÊM một dòng, không đổi
+// `measured`, không đổi `percent`.
 export function buildSkillProfile(result, hoatDong = null) {
   if (!result) return null;
   const legacy = !result.version || result.version < 2;
@@ -99,7 +101,10 @@ export function buildSkillProfile(result, hoatDong = null) {
       ...r,
       // KHÔNG đổi `measured`, KHÔNG đổi `percent`. Chỉ thêm thông tin.
       tuBaoCao: { soBai: tk.soBai, soDe: tk.soDe, lanCuoi: tk.lanCuoi || null },
-      tuBaoCaoLabel: `Đã tự đánh giá ${tk.soBai} bài viết trên ${tk.soDe} đề — đây là bạn tự chấm, chưa phải điểm đo được.`,
+      // Danh từ phải theo KỸ NĂNG. Viết cứng "bài viết" thì ô Nói hiện ra
+      // "Đã tự đánh giá 5 bài viết" — nói sai với người học ngay ở dòng có
+      // nhiệm vụ nói thật.
+      tuBaoCaoLabel: `Đã tự đánh giá ${tk.soBai} ${tk.danhTu || 'lượt làm'} trên ${tk.soDe} đề — đây là bạn tự chấm, chưa phải điểm đo được.`,
     };
   };
   return {

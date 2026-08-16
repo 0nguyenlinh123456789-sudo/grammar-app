@@ -1,7 +1,7 @@
 import { AlertTriangle, Gauge } from 'lucide-react';
 import { buildSkillProfile } from '../../utils/skillProfile';
 import { CEFR_LABEL } from '../../utils/placement';
-import { thongKeTuBaoCao } from '../../utils/writingLog';
+import { thongKeTuBaoCao } from '../../utils/selfReportLog';
 
 // HỒ SƠ NĂNG LỰC THEO KỸ NĂNG (việc 4.3) — "B2 nghe ≠ B2 viết".
 //
@@ -12,9 +12,13 @@ import { thongKeTuBaoCao } from '../../utils/writingLog';
 // nhìn tới trong khi mới có một.
 // (3.4) Hoạt động TỰ ĐÁNH GIÁ bài viết hiện ở đây như một dòng RIÊNG, không
 // làm ô Viết đổi sang "đo được". Người tự chấm bài mình đang báo mức tự tin,
-// không phải mức năng lực — xem chú thích trong skillProfile.js và writingLog.js.
+// không phải mức năng lực — xem chú thích trong skillProfile.js và selfReportLog.js.
+// (3.5) Kỹ năng Nói đi qua ĐÚNG đường đó — cùng một sổ, cùng một lời hứa.
 export default function SkillProfile({ placementResult, onRetake }) {
-  const profile = buildSkillProfile(placementResult, { writing: thongKeTuBaoCao() });
+  const profile = buildSkillProfile(placementResult, {
+    writing: thongKeTuBaoCao('writing'),
+    speaking: thongKeTuBaoCao('speaking'),
+  });
   if (!profile) return null;
 
   return <section className="mt-6 pt-5 border-t-3 border-dashed border-slate-200 dark:border-slate-700">

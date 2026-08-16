@@ -73,6 +73,22 @@ Bài làm của học viên: "${text}"
 Phản hồi ngắn gọn bằng tiếng Việt gồm: (1) điểm /10, (2) lỗi ngữ pháp/chính tả và cách sửa, (3) một câu mẫu tự nhiên hơn. Không dùng markdown.` }];
   }
 
+  // NÓI (việc 3.5). Khác `writing` ở một điểm KHÔNG được nhầm: thứ gửi lên đây
+  // là BẢN CHỮ do trình duyệt nhận dạng, KHÔNG phải file âm thanh. Mô hình
+  // không nghe được gì cả, nên nó tuyệt đối không được cho điểm phát âm — và
+  // phải nói ra cả những chỗ bản nhận dạng có thể sai chứ không phải người nói
+  // sai. Cũng KHÔNG xin "điểm /10": một con số cho lượt nói mà chỉ nhìn chữ là
+  // con số bịa.
+  if (mode === 'speaking') {
+    const text = cleanText(payload.text);
+    if (!text) throw new Error('empty-input');
+    const topic = cleanText(payload.topicTitle, 200);
+    return [{ text: `Bạn là giáo viên tiếng Anh. Dưới đây là BẢN CHỮ do phần mềm nhận dạng giọng nói ghi lại từ một lượt nói${topic ? ` về chủ đề "${topic}"` : ''}. Bạn KHÔNG nghe được âm thanh.
+Bản chữ: "${text}"
+Vì chỉ có chữ, TUYỆT ĐỐI KHÔNG nhận xét về phát âm, trọng âm, ngữ điệu hay tốc độ, và KHÔNG cho điểm số.
+Phản hồi ngắn gọn bằng tiếng Việt gồm: (1) nội dung đã trả lời đúng trọng tâm đề chưa, (2) lỗi ngữ pháp hoặc cách dùng từ thấy được trong bản chữ và cách sửa, (3) một cách diễn đạt tự nhiên hơn cho một ý bất kỳ, (4) một câu nhắc rằng phần mềm nhận dạng có thể nghe sai nên vài chỗ lạ có thể không phải lỗi của người nói. Không dùng markdown.` }];
+  }
+
   if (mode === 'chat') {
     const question = cleanText(payload.question, 800);
     if (!question) throw new Error('empty-input');
