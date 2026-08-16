@@ -108,7 +108,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 > 2. **Không đụng `storyVi`.** Bản dịch có 656 lượt tương tự, nhưng nó là **bản chú giải xen kẽ** (`Sự đặt trước (Booking)`), không phải văn xuôi — viết hoa ở đó là đánh dấu đầu mục chú giải, và tiếng Việt không phải thứ người học đang học ở bài này.
 > 3. **Không mở rộng sang `words[].en`.** Chính kho từ cũng viết hoa danh từ chung (`"en": "Flight"`, `"en": "Lost property"`). Đây là lỗi cùng loại nhưng **rủi ro khác hẳn**: chuỗi `en` là khoá lưu tiến độ/SRS trong localStorage của người học, đổi nó là có thể xoá sạch tiến độ đã học. Cần một đợt riêng có bước chuyển khoá.
 >
-> **Một phát hiện ngoài phạm vi, đã sửa vì nó là lời nói sai với người học:** tiêu đề mục Câu Chuyện khẳng định *"Tất cả N từ xuất hiện trong câu chuyện này!"* — đo ra chỉ **đúng với 6/267 chủ đề**; toàn kho có **11.068/22.008 ô từ không hề xuất hiện** trong truyện của chính chủ đề đó. Nay hiện số đếm thật (`63/101 từ…`), đếm bằng chính luật khớp của lớp bôi vàng.
+> **Một phát hiện ngoài phạm vi, đã sửa vì nó là lời nói sai với người học:** tiêu đề mục Câu Chuyện khẳng định *"Tất cả N từ xuất hiện trong câu chuyện này!"* — đo ra chỉ **đúng với 4/267 chủ đề**; toàn kho chỉ **10.856/22.008 ô từ** thật sự được bôi vàng trong truyện của chính chủ đề đó. Nay hiện số đếm thật (`63/101 từ…`), đếm bằng **một lượt quét của chính bộ khớp bôi vàng** — không phải dò từng từ. Khác biệt có thật: dò từng từ ra 6/267 và 11.068 ô thiếu, vì nó tính cả `transport` nằm trong `public transport`, trong khi màn hình chỉ bôi vàng cụm dài. Con số hiện ra phải là **con số người học đếm lại được bằng cách đếm vệt vàng**.
 
 ### NHÓM 4 — Đo lường (không có thì không biết ai đang ở đâu)
 

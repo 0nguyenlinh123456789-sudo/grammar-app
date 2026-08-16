@@ -88,6 +88,10 @@ muc.push(
   ['history-civilizations-ielts', 'Enlightenment', 'tên thời kỳ Khai Sáng'],
   ['history-civilizations-ielts', 'Empire', 'trong tên riêng "Roman Empire"'],
   ['globalisation-ielts', 'Westernisation', 'phái sinh từ danh từ riêng "Western/West"'],
+
+  // Chữ hoa NẰM GIỮA cụm (bộ đo bắt được từ khi biết nhìn cả bên trong cụm):
+  ['business-office', 'Corporate Social Responsibility',
+    'tên khái niệm chuẩn (CSR) — tiếng Anh viết hoa cả ba chữ'],
 );
 
 export const HOA_HOP_LE = new Map(muc.map(([id, form, lyDo]) => [khoaHoa(id, form), lyDo]));

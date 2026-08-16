@@ -81,6 +81,22 @@ export function laPhanTuGhep(text, i) {
   return i > 0 && /[-’']/.test(text[i - 1]);
 }
 
+// Vị trí các chữ HOA ĐỨNG ĐẦU MỘT TIẾNG bên trong một cụm đã khớp.
+//
+// PHẢI nhìn cả chữ hoa NẰM GIỮA cụm, không chỉ chữ cái đầu. Bản đầu chỉ kiểm
+// `/^[A-Z]/` và đã để lọt đúng một chỗ thật: ô từ là `on time`, văn bản viết
+// `waste time on Time-consuming gossip`. Cụm dài khớp trước (`on Time`) nên chữ
+// `Time` bị NUỐT vào một khớp bắt đầu bằng chữ thường — bộ đo cũ không bao giờ
+// nhìn tới nó. Lỗi này tự giấu mình, nên phải kê thành luật chứ không sửa lẻ.
+export function viTriHoaTrongCum(raw) {
+  const ds = [];
+  for (let i = 0; i < raw.length; i += 1) {
+    if (!/[A-Z]/.test(raw[i])) continue;
+    if (i === 0 || /[\s'’-]/.test(raw[i - 1])) ds.push(i);
+  }
+  return ds;
+}
+
 function tuCuaChuDe(t) {
   return [...new Set((t.words || [])
     .map((w) => String(w.en || '').trim())
@@ -99,15 +115,23 @@ export function timHoaGiuaCau(topics) {
     let m;
     while ((m = re.exec(text))) {
       const raw = m[0];
-      if (!/^[A-Z]/.test(raw)) continue;            // đã thường rồi
       if (raw.length === 1) continue;               // "I", "A" đứng lẻ
-      if (!/[a-z]/.test(raw.slice(1))) continue;    // TOÀN HOA = tiêu đề phần
+      if (!/[a-z]/.test(raw)) continue;             // TOÀN HOA = tiêu đề phần
       if (laPhanTuGhep(text, m.index)) continue;
-      if (laDauCau(text, m.index)) continue;
+
+      const hoa = viTriHoaTrongCum(raw);
+      if (!hoa.length) continue;                    // đã thường hết rồi
+      // Chữ hoa ở vị trí 0 là ĐÚNG nếu đây là đầu câu; chữ hoa NẰM GIỮA cụm thì
+      // không bao giờ là đầu câu, nên luôn phải giải thích.
+      const dauCau = laDauCau(text, m.index);
+      const canSua = hoa.filter((i) => !(i === 0 && dauCau));
+      if (!canSua.length) continue;
+
       hits.push({
         topicId: t.id,
         form: raw,
         index: m.index,
+        viTriHoa: canSua,
         hopLe: HOA_HOP_LE.has(khoaHoa(t.id, raw)),
         nguCanh: text.slice(Math.max(0, m.index - 45), m.index + raw.length + 35).replace(/\n/g, '⏎'),
       });
@@ -163,7 +187,9 @@ function sua(topics, hits) {
     for (const h of [...ds].sort((a, b) => b.index - a.index)) {
       const doan = moi.slice(h.index, h.index + h.form.length);
       if (doan !== h.form) throw new Error(`${topicId}@${h.index}: mong "${h.form}", gặp "${doan}"`);
-      moi = moi.slice(0, h.index) + h.form[0].toLowerCase() + h.form.slice(1) + moi.slice(h.index + h.form.length);
+      let cum = h.form;
+      for (const i of h.viTriHoa) cum = cum.slice(0, i) + cum[i].toLowerCase() + cum.slice(i + 1);
+      moi = moi.slice(0, h.index) + cum + moi.slice(h.index + h.form.length);
       tongSua += 1;
     }
     if (moi.toLowerCase() !== van.toLowerCase()) throw new Error(`${topicId}: đổi nhiều hơn hoa/thường`);

@@ -86,6 +86,14 @@ test('phép đếm dùng đúng luật khớp của lớp bôi vàng', () => {
   assert.equal(demTuTrongTruyen('He made bookings.', [{ en: 'booking' }]).co, 0);
 });
 
+test('cụm dài nuốt từ ngắn — con số phải bằng SỐ VỆT VÀNG, không phải số từ có mặt', () => {
+  // Lớp bôi vàng ưu tiên cụm dài, nên "public transport" chỉ cho MỘT vệt vàng.
+  // Nếu đếm từng từ một thì ra 2, và người học đếm lại sẽ thấy lệch.
+  const d = demTuTrongTruyen('I use public transport daily.',
+    [{ en: 'transport' }, { en: 'public transport' }]);
+  assert.deepEqual(d, { co: 1, tong: 2 });
+});
+
 // Bốn trường hợp "đầu câu" được gọi tên trong bộ đo. Nếu có ai nới bộ đo, ở đây đỏ.
 test('bộ đo nhận đúng bốn kiểu đầu câu', () => {
   assert.equal(laDauCau('Booking is fine', 0), true, 'đầu chuỗi');

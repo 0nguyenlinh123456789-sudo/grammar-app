@@ -75,16 +75,25 @@ export function buildVocabRegex(words) {
 // toàn kho có 11.068/22.008 ô từ KHÔNG hề xuất hiện trong truyện của chính chủ
 // đề đó. Nói một con số sai với người học còn tệ hơn không nói.
 //
-// Dùng ĐÚNG `buildVocabRegex` mà lớp bôi vàng dùng, nên con số này luôn khớp
-// với số từ được bôi vàng trên màn hình — không phải hai phép đếm khác nhau.
+// Đếm bằng MỘT lượt quét của chính `buildVocabRegex`, đúng như lớp bôi vàng
+// quét — không phải bằng cách dò từng từ một.
+//
+// Khác biệt này có thật, không phải chuyện làm cho gọn: bộ khớp ưu tiên cụm
+// DÀI trước, nên trong "public transport" thì ô từ `transport` bị cụm dài nuốt
+// mất và KHÔNG được bôi vàng riêng. Dò từng từ sẽ tính `transport` là "có" và
+// cho ra con số lớn hơn số vệt vàng người học đếm được trên màn hình. Ở một
+// tính năng mà lý do tồn tại là "nói con số sai với người học còn tệ hơn không
+// nói", con số phải là con số họ đếm lại được.
 export function demTuTrongTruyen(storyText, vocabList) {
   const words = (vocabList || []).map((w) => w?.en).filter(Boolean);
   const tong = words.length;
   const text = String(storyText || '');
   if (!text || tong === 0) return { co: 0, tong };
-  const co = words.filter((w) => {
-    const re = buildVocabRegex([w]);
-    return re ? re.test(text) : false;
-  }).length;
+  const re = buildVocabRegex(words);
+  if (!re) return { co: 0, tong };
+  const thay = new Set();
+  let m;
+  while ((m = re.exec(text)) !== null) thay.add(m[0].toLowerCase());
+  const co = words.filter((w) => thay.has(String(w).toLowerCase())).length;
   return { co, tong };
 }
