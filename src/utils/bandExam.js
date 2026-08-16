@@ -102,10 +102,29 @@ export function docLichSuThi() {
   return load();
 }
 
+// Bản ghi ĐỌC RA phải luôn có đủ hình dạng tờ chứng nhận cần in. Bản ghi cũ,
+// bản ghi bị cắt cụt, hay bản ghi ai đó sửa tay trong localStorage đều có thể
+// thiếu `phan`/`phanKhongTinh` — và `.map` trên `undefined` sẽ NÉM LỖI ngay
+// giữa tờ giấy đi ra ngoài. Chuẩn hoá lúc đọc, đúng như đã làm với bản ghi
+// thiếu `kyNang` ở selfReportLog.js.
+function chuanHoa(k) {
+  if (!k || typeof k !== 'object') return null;
+  return {
+    ...k,
+    phan: Array.isArray(k.phan) ? k.phan : [],
+    phanKhongTinh: Array.isArray(k.phanKhongTinh) ? k.phanKhongTinh : [],
+    moTaCanCu: k.moTaCanCu || 'Bản ghi cũ không lưu lại căn cứ chấm của lượt thi này.',
+    lucLam: k.lucLam || null,
+  };
+}
+
 /** Lượt ĐẠT gần nhất của một bậc — căn cứ duy nhất để gắn nhãn bậc. */
 export function luotDatGanNhat(cefr) {
-  const ds = load().filter((k) => k.cefr === cefr && k.dat);
-  return ds.length ? ds[ds.length - 1] : null;
+  const ds = load().filter((k) => k?.cefr === cefr && k?.dat).map(chuanHoa).filter(Boolean);
+  // Bản ghi không có ngày thi thì KHÔNG dùng làm căn cứ in giấy: nghiệm thu của
+  // việc 4.4 đòi ghi rõ bậc VÀ ngày thi, in một tờ giấy thiếu ngày thì thà không in.
+  const co = ds.filter((k) => k.lucLam);
+  return co.length ? co[co.length - 1] : null;
 }
 
 /** Bậc cao nhất người học đã ĐẠT bằng bài thi cuối bậc, hoặc null. */

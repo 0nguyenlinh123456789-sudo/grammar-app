@@ -212,3 +212,43 @@ test('con số bản thu ở trang chủ khớp bảng kê thật, và trang ch�
   assert.ok(!/from '[^']*audioManifest'/.test(src),
     'WelcomePage.jsx import cả bảng kê bản thu — kéo ~85 KB vào thứ ai mở app cũng phải tải');
 });
+
+// Bản ghi kết quả nằm trong localStorage của người học và được in ra TỜ GIẤY ĐI
+// RA NGOÀI. Bản ghi cũ / bị cắt cụt / sửa tay mà thiếu `phan` thì `.map` sẽ ném
+// lỗi ngay giữa tờ chứng nhận. Cùng loại lỗi đã chặn ở selfReportLog.js.
+test('bản ghi kết quả THIẾU TRƯỜNG vẫn đọc ra được hình dạng tờ giấy cần in', async () => {
+  const kho = new Map();
+  globalThis.localStorage = {
+    getItem: (k) => (kho.has(k) ? kho.get(k) : null),
+    setItem: (k, v) => kho.set(k, String(v)),
+    removeItem: (k) => kho.delete(k),
+  };
+  const { luotDatGanNhat, BAND_EXAM_KEY } = await import('../src/utils/bandExam.js');
+
+  kho.set(BAND_EXAM_KEY, JSON.stringify([
+    { examId: 'exam-b1', cefr: 'B1', dat: true, lucLam: '2026-08-16T00:00:00.000Z' }, // thiếu phan/phanKhongTinh
+  ]));
+  const k = luotDatGanNhat('B1');
+  assert.ok(Array.isArray(k.phan) && Array.isArray(k.phanKhongTinh), 'phải chuẩn hoá thành mảng rỗng, không để undefined');
+  assert.ok(k.moTaCanCu, 'thiếu căn cứ thì phải nói ra, không để trống');
+  assert.doesNotThrow(() => k.phan.map((p) => p.nhan).join(', '));
+
+  // Không có ngày thi thì KHÔNG in giấy: nghiệm thu 4.4 đòi ghi rõ ngày thi.
+  kho.set(BAND_EXAM_KEY, JSON.stringify([{ examId: 'exam-b2', cefr: 'B2', dat: true }]));
+  assert.equal(luotDatGanNhat('B2'), null, 'bản ghi không có ngày thi không được dùng làm căn cứ in giấy');
+});
+
+// Mã không trùng KHÔNG có nghĩa là nội dung không trùng: test "không trùng
+// placementBank" so MÃ, nên nó không bắt được một câu hỏi bị viết lại bằng lời
+// khác. Đây là chỗ đã dính thật — hai câu B2 lúc đầu chính là câu hỏi của bài
+// nghe luyện tập viết lại. Test này so NỘI DUNG với đúng bài nghe được dùng.
+test('câu hỏi Nghe B2 không trùng nội dung với câu hỏi của chính bài nghe luyện tập', () => {
+  const e = bandExams.find((x) => x.cefr === 'B2');
+  const nghe = e.sections.find((s) => s.key === 'listening');
+  const bai = listeningPassages.find((b) => b.id === nghe.passageId);
+  const chuan = (t) => String(t).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  const cu = (bai.questions || []).map((q) => chuan(q.q));
+  const trung = nghe.items.filter((it) => cu.includes(chuan(it.prompt)));
+  assert.deepEqual(trung.map((t) => t.id), [],
+    'câu thi trùng nguyên văn câu hỏi luyện tập — người đã luyện bài đó biết sẵn đáp án');
+});

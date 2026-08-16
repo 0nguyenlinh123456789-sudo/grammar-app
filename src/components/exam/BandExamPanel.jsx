@@ -130,7 +130,10 @@ function LamBai({ exam, onBack, onClose }) {
   return <Khung onClose={onClose} onBack={onBack} tieuDe={exam.name} phu={`Bậc ${exam.cefr}`}>
     {!ketQua && <>
       <p className="mt-3 text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-800 rounded-2xl p-3">
-        Đạt/chưa đạt được quyết định <b>chỉ bởi phần Nghe và Đọc</b> ({soCauChamDuoc} câu, mỗi phần cần đúng từ {Math.round(NGUONG_DAT * 100)}% trở lên).
+        {/* Nói ĐÚNG SỐ CÂU phải đúng, không chỉ phần trăm: 70% của 6 câu làm
+            tròn lên là 5, nên "70%" một mình là con số dễ hiểu nhầm thành 4. */}
+        Đạt/chưa đạt được quyết định <b>chỉ bởi phần Nghe và Đọc</b> — mỗi phần cần đúng ít nhất{' '}
+        {phanChamDuoc(exam).map((p) => `${p.nhan} ${Math.ceil(p.items.length * NGUONG_DAT)}/${p.items.length}`).join(' · ')}.
         Phần Viết và Nói bên dưới vẫn phải làm nhưng <b>không tính vào kết quả</b>.
       </p>
 
