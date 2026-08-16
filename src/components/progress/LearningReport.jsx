@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Award, BarChart3, Printer, X } from 'lucide-react';
 import SkillProfile from './SkillProfile';
 import { buildSkillProfile, SKILL_LABEL } from '../../utils/skillProfile';
+import { luotDatGanNhat, bacDaDat } from '../../utils/bandExam';
 
 export default function LearningReport({ placementResult, weeklyLessons, weeklyXp, completionPercentage = 0, streak = 0, weeklyGoalDays = 0, completedCount = 0, verifiedCount = 0, totalMilestonesCount = 0, onRetakePlacement }) {
   const [showCertificate, setShowCertificate] = useState(false);
@@ -12,7 +13,20 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
   // làm được, nên nó phải dựa trên bằng chứng chấm điểm. Các con số còn lại
   // trong báo cáo (% lộ trình, XP, chuỗi ngày) vẫn đếm cả chặng chưa xác minh:
   // đó là phần thưởng cho sự chuyên cần, không phải tuyên bố năng lực.
-  const certificateReady = totalMilestonesCount > 0 && verifiedCount >= totalMilestonesCount;
+  // (4.4) TỜ GIẤY NÀY GIỜ CÓ HAI CĂN CỨ KHÁC NHAU, VÀ IN RA CẢ HAI.
+  //
+  // Việc 4.4 yêu cầu đổi điều kiện cấp sang "đã đạt bài thi cuối bậc". Nhưng
+  // ghi chú (#0-D1) đã cố ý biến tờ này thành CHỨNG NHẬN CHUYÊN CẦN chứ không
+  // phải chứng nhận trình độ — bỏ điều kiện cũ đi là xoá mất thứ đó. Nên:
+  //
+  //   • đi hết + xác minh toàn bộ lộ trình  → in số chặng (chuyên cần, như cũ);
+  //   • ĐẠT bài thi cuối bậc                → in thêm BẬC và NGÀY THI.
+  //
+  // NHÃN BẬC CHỈ ĐẾN TỪ BÀI THI. Đi hết lộ trình không đẻ ra một bậc nào, vì đi
+  // hết lộ trình không phải một phép đo năng lực.
+  const bacThi = bacDaDat();
+  const luotThi = bacThi ? luotDatGanNhat(bacThi) : null;
+  const certificateReady = (totalMilestonesCount > 0 && verifiedCount >= totalMilestonesCount) || !!luotThi;
   const awaitingVerification = completedCount >= totalMilestonesCount && totalMilestonesCount > 0 && !certificateReady;
 
   // Opens a clean printable page (parents can print or save as PDF).
@@ -60,11 +74,14 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
           tụ về quanh 50–60%. Ô này nay in BẬC; phần trăm lùi xuống dòng phụ. */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5"><ReportStat label="Bậc đầu vào" value={placementResult.cefr || placementResult.levelLabel} hint={placementResult.total ? `${placementResult.correct}/${placementResult.total} câu đúng` : null} /><ReportStat label="Chặng tuần này" value={weeklyLessons} /><ReportStat label="XP tuần này" value={`+${weeklyXp}`} /><ReportStat label="Hoàn thành" value={`${completionPercentage}%`} /></div>
       <SkillProfile placementResult={placementResult} onRetake={onRetakePlacement} />
+      {luotThi && <p className="mt-5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
+        Đã đạt <b>bài thi cuối bậc {luotThi.cefr}</b> ngày {new Intl.DateTimeFormat('vi-VN').format(new Date(luotThi.lucLam))}. {luotThi.moTaCanCu}
+      </p>}
       {awaitingVerification
         ? <p className="mt-5 text-xs font-bold text-amber-700 dark:text-amber-400">Bạn đã đi hết lộ trình. Chứng nhận cần {totalMilestonesCount - verifiedCount} chặng nữa được xác minh (đã xác minh {verifiedCount}/{totalMilestonesCount}) — dùng nút “Xác minh nhanh (5 câu)” ngay trên từng chặng.</p>
-        : !certificateReady && <p className="mt-5 text-xs font-bold text-slate-500">Hoàn thành và xác minh toàn bộ lộ trình để mở chứng nhận kết quả học tập. Đã xác minh {verifiedCount}/{totalMilestonesCount} chặng.</p>}
+        : !certificateReady && <p className="mt-5 text-xs font-bold text-slate-500">Chứng nhận mở ra khi bạn <b>đạt một bài thi cuối bậc</b>, hoặc hoàn thành và xác minh toàn bộ lộ trình (đã xác minh {verifiedCount}/{totalMilestonesCount} chặng).</p>}
     </section>
-    {showCertificate && <CertificateModal placementResult={placementResult} completedCount={verifiedCount} totalMilestonesCount={totalMilestonesCount} onClose={() => setShowCertificate(false)} />}
+    {showCertificate && <CertificateModal placementResult={placementResult} completedCount={verifiedCount} totalMilestonesCount={totalMilestonesCount} luotThi={luotThi} onClose={() => setShowCertificate(false)} />}
   </>;
 }
 
@@ -76,4 +93,41 @@ function ReportStat({ label, value, hint = null }) { return <div className="roun
 // được sau khoá học. Trình độ đầu vào nay chỉ còn dòng nhỏ ghi rõ "tham khảo".
 // (#1b) Điều kiện cấp nay LÀ số chặng ĐÃ XÁC MINH — con số in ra là số chặng
 // có bản ghi đạt ngưỡng chính xác, không phải số chặng đã đi qua.
-function CertificateModal({ placementResult, completedCount, totalMilestonesCount, onClose }) { return <div className="fixed inset-0 z-[120] bg-slate-950/70 p-4 flex items-center justify-center" role="dialog" aria-modal="true"><section className="max-w-2xl w-full bg-[#fffdf4] text-slate-900 border-[10px] border-double border-yellow-600 rounded-xl p-8 md:p-12 text-center shadow-2xl"><button onClick={onClose} aria-label="Đóng" className="float-right"><X /></button><Award size={58} className="mx-auto text-yellow-500" /><p className="text-xs tracking-[0.3em] font-black text-yellow-700 mt-4">BUNNY ENGLISH · CERTIFICATE</p><h2 className="text-3xl md:text-4xl font-black mt-3">Chứng nhận hoàn thành lộ trình</h2><p className="mt-5 font-bold text-slate-600">Đã hoàn thành và xác minh</p><p className="text-5xl font-black text-blue-700 mt-3">{completedCount}/{totalMilestonesCount} chặng học</p><p className="mt-4 text-sm font-bold">Ngày cấp: {new Intl.DateTimeFormat('vi-VN', { dateStyle: 'long' }).format(new Date())}</p><p className="mt-1 text-xs font-bold text-slate-500">Trình độ đầu vào (tham khảo): {placementResult.levelLabel} · {placementResult.score}%</p><button onClick={() => window.print()} className="mt-8 px-5 py-3 rounded-xl bg-slate-900 text-white font-black inline-flex items-center gap-2"><Printer size={17} /> In / Lưu PDF</button></section></div>; }
+function CertificateModal({ placementResult, completedCount, totalMilestonesCount, luotThi = null, onClose }) {
+  const ngay = (iso) => new Intl.DateTimeFormat('vi-VN', { dateStyle: 'long' }).format(new Date(iso));
+  return <div className="fixed inset-0 z-[120] bg-slate-950/70 p-4 flex items-center justify-center" role="dialog" aria-modal="true">
+    <section className="max-w-2xl w-full max-h-[92vh] overflow-y-auto bg-[#fffdf4] text-slate-900 border-[10px] border-double border-yellow-600 rounded-xl p-8 md:p-12 text-center shadow-2xl">
+      <button onClick={onClose} aria-label="Đóng" className="float-right"><X /></button>
+      <Award size={58} className="mx-auto text-yellow-500" />
+      <p className="text-xs tracking-[0.3em] font-black text-yellow-700 mt-4">BUNNY ENGLISH · CERTIFICATE</p>
+
+      {/* (4.4) BẬC CHỈ ĐẾN TỪ BÀI THI. Đi hết lộ trình KHÔNG đẻ ra một bậc nào —
+          đi hết lộ trình là chuyên cần, không phải một phép đo năng lực. */}
+      {luotThi ? <>
+        <h2 className="text-3xl md:text-4xl font-black mt-3">Ghi nhận kết quả thi cuối bậc</h2>
+        <p className="mt-5 font-bold text-slate-600">Đã đạt bài thi cuối bậc</p>
+        <p className="text-5xl font-black text-emerald-700 mt-3">{luotThi.cefr}</p>
+        <p className="mt-3 text-sm font-bold">Ngày thi: {ngay(luotThi.lucLam)}</p>
+        <div className="mt-5 text-left text-xs font-bold text-slate-600 bg-white/70 border-2 border-yellow-600/40 rounded-lg p-4 leading-relaxed">
+          <p><b>Kết quả này dựa trên phần nào:</b> {luotThi.phan.map((p) => `${p.nhan} ${p.dung}/${p.tong}`).join(' · ')}.</p>
+          <p className="mt-1.5"><b>Phần đã làm nhưng KHÔNG tính vào kết quả:</b> {luotThi.phanKhongTinh.map((p) => p.nhan).join(', ')} — app không chấm ngữ pháp bài viết và không chấm phát âm.</p>
+          <p className="mt-1.5">Phần Nghe dùng bản thu giọng người thật có giấy phép (Tatoeba CC BY, VOA Learning English).</p>
+          <p className="mt-1.5 text-rose-800"><b>Đây KHÔNG phải chứng chỉ CEFR</b> và không có giá trị đối chiếu với chứng chỉ của các tổ chức khảo thí. Đây là ghi nhận kết quả của một bài thi trong ứng dụng này.</p>
+        </div>
+        {totalMilestonesCount > 0 && <p className="mt-4 text-xs font-bold text-slate-500">Đã hoàn thành và xác minh {completedCount}/{totalMilestonesCount} chặng học.</p>}
+      </> : <>
+        <h2 className="text-3xl md:text-4xl font-black mt-3">Chứng nhận hoàn thành lộ trình</h2>
+        <p className="mt-5 font-bold text-slate-600">Đã hoàn thành và xác minh</p>
+        <p className="text-5xl font-black text-blue-700 mt-3">{completedCount}/{totalMilestonesCount} chặng học</p>
+        <p className="mt-4 text-sm font-bold">Ngày cấp: {ngay(new Date().toISOString())}</p>
+        <div className="mt-5 text-left text-xs font-bold text-slate-600 bg-white/70 border-2 border-yellow-600/40 rounded-lg p-4 leading-relaxed">
+          <p>Đây là <b>chứng nhận chuyên cần</b>: nó ghi nhận số chặng đã học và đã xác minh, <b>không phải một bậc năng lực</b>.</p>
+          <p className="mt-1.5">Muốn có ghi nhận bậc, hãy làm và đạt <b>bài thi cuối bậc</b> (A2 · B1 · B2) trong mục Thi cuối bậc.</p>
+        </div>
+      </>}
+
+      <p className="mt-4 text-xs font-bold text-slate-500">Trình độ đầu vào (tham khảo): {placementResult.levelLabel} · {placementResult.score}%</p>
+      <button onClick={() => window.print()} className="mt-8 px-5 py-3 rounded-xl bg-slate-900 text-white font-black inline-flex items-center gap-2"><Printer size={17} /> In / Lưu PDF</button>
+    </section>
+  </div>;
+}
