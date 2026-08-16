@@ -1,0 +1,2247 @@
+[
+  {
+    "id": "voa-doc-7922471",
+    "title": "2024 Another Big Year for Space Exploration",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2025/01/03/861b960c-3f0e-416f-8cbb-8c4c0b7ece82.mp3",
+    "words": 738,
+    "transcript": [
+      "As we enter the new year, we take a look back at some of the biggest space stories of 2024.",
+      "Historic private moon landing",
+      "Nearly one year ago, a private spacecraft completed the first U.S. moon landing in more than 50 years. The American space agency NASA announced the space lander, called Odysseus, had touched down on the lunar surface February 22.",
+      "Odysseus was developed by the Texas-based company Intuitive Machines. The spacecraft carried out several science experiments before powering down permanently on the moon in late March.",
+      "NASA said Odysseus had successfully captured data to help the agency “better understand the moon’s environment and improve landing precision and safety.”",
+      "Japanese moon landing",
+      "Japan’s space agency JAXA announced in January 2024 that its SLIM spacecraft had successfully landed on the moon. But the lander touched down the wrong way up, causing some communication and power problems.",
+      "Japanese space officials reported that they stayed in communication with SLIM through late April. They said the spacecraft was able to collect valuable data about the touchdown and surrounding area.",
+      "One purpose of the mission was to demonstrate new precision landing technology. JAXA said the experiment was successful because SLIM was able to land within 10 meters of its planned target.",
+      "Chinese moon landing and return",
+      "In May, China launched its Chang’e 6 spacecraft to the moon’s far side. In late June, Chinese space officials announced the spacecraft had returned to Earth with rock and soil samples collected on the lunar surface.",
+      "The successful return made China the first country to ever collect and bring back lunar samples from the far side of the moon. The area is known as the far side because it always faces away from Earth.",
+      "Europe’s asteroid exploration mission",
+      "In October, the European Space Agency (ESA) said it had successfully launched a spacecraft, called Hera, to explore an asteroid struck in an earlier NASA test mission. Hera’s trip to the asteroid is expected to take about two years.",
+      "Hera is headed to the asteroid Dimorphos. NASA crashed its DART spacecraft into the space rock in 2022, about 11 million kilometers from Earth. NASA said its mission successfully showed it was possible to change the orbit of asteroids that might threaten Earth in the future.",
+      "Hera aims to closely examine Dimorphos to get more details on how the strike by DART affected the asteroid. The data that NASA collected is to be used together with information gathered by ESA to develop future planetary defense plans.",
+      "Europa Clipper to explore Jupiter’s moon",
+      "NASA announced the successful launch of its Europa Clipper spacecraft in October. The explorer is designed to search for possible signs of life on Jupiter’s moon Europa.",
+      "Jupiter is the largest planet in our solar system and has numerous moons. But icy Europa has been identified by scientists as a good candidate for having the right conditions to support life. Several studies have suggested the moon likely contains a large ocean beneath its icy surface.",
+      "NASA said the Europa Clipper would fly past Mars, then back toward Earth, “using the gravity of each planet to increase its momentum.” These kinds of “gravity assists” are expected to provide the needed push to get the spacecraft to Jupiter by 2030.",
+      "Boeing’s crew flight to the ISS",
+      "In early June, Boeing successfully carried out a test mission for NASA by transporting two American astronauts – Butch Wilmore and Suni Williams – to the International Space Station (ISS).",
+      "The two were expected to stay in space for only a week. But ongoing technical issues with the Starliner spacecraft prevented a return trip.",
+      "NASA announced plans in August to have Starliner return to Earth without the astronauts. The current plan is for Wilmore and Williams to return on a SpaceX Dragon spacecraft sometime in late March or April.",
+      "SpaceX landing demonstration",
+      "SpaceX has now completed six launch tests of its huge Starship rocket system. Four of those tests were carried out in 2024. The last test took place in November.",
+      "The Starship rocket and spacecraft system is designed to be a completely reusable vehicle to transport astronauts and supplies. It has successfully demonstrated that ability in its most recent experimental flights.",
+      "During one of the tests in October, Starship’s Super Heavy booster rocket was \"caught“ and secured by a huge structure that includes metal arms. A short time later, Starship’s second stage safely splashed down in the Indian Ocean.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "precision",
+        "pos": "n",
+        "meaning": "the quality of being very correct or exact"
+      },
+      {
+        "word": "sample",
+        "pos": "n",
+        "meaning": "an amount of a substance that is taken for tests or scientific study"
+      },
+      {
+        "word": "asteroid",
+        "pos": "n",
+        "meaning": "a rocky object that goes around the sun"
+      },
+      {
+        "word": "mission",
+        "pos": "n",
+        "meaning": "(space exploration) the flight of a spacecraft to its target along with tasks expected to be carried out"
+      },
+      {
+        "word": "momentum",
+        "pos": "n",
+        "meaning": "the force that makes something continue to move"
+      },
+      {
+        "word": "booster",
+        "pos": "n",
+        "meaning": "an engine on a spacecraft that gives extra power for the first part of a flight"
+      },
+      {
+        "word": "stage",
+        "pos": "n",
+        "meaning": "part of a rocket that contains engines and fuel, but which is left behind when the rocket reaches a certain distance above the Earth"
+      },
+      {
+        "word": "splash down",
+        "pos": "v",
+        "meaning": "when a spacecraft reenters the Earth’s atmosphere and lands in a body of water"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/another-big-year-for-space-exploration/7922471.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English."
+  },
+  {
+    "id": "voa-doc-7907257",
+    "title": "Top Technology Stories of 2024",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/12/20/55f5231b-067d-4cbc-9c37-9fd6716a1b9c.mp3",
+    "words": 674,
+    "transcript": [
+      "Throughout 2024, we saw further development of artificial intelligence (AI) systems and new legal action brought against technology companies. Here is a look back at some of the biggest tech stories we covered in 2024.",
+      "AI continues to expand",
+      "During the year, companies continued developing and deploying new AI tools.",
+      "Among these were a new set of AI offerings announced by American software company Microsoft. Officials explained the new tools included “personal agents” designed to help users complete business activities with little or no human involvement.",
+      "Microsoft says it designed the agents to expand on so-called chatbots – AI tools that work by themselves to produce human-level writing or discussions. The company said it expects a full release of the agents sometime in 2025.",
+      "In September, technology company Apple announced it was launching several new iPhones equipped with special chips to support AI operations. Apple chief Tim Cook said the new models had been “designed for Apple Intelligence from the ground up.”",
+      "We reported in October about an effort by researchers to use AI to improve existing weather prediction models. One system works by combining past weather predictions with modern methods to provide the most complete picture of weather and climate data.",
+      "More warnings AI’s possible dangers",
+      "In California, three legislative measures were enacted to ban the use of AI tools to create false images and videos during election campaigns. One main goal was to fight deepfakes. These are pieces of video or audio created to make it appear that people in it are saying or doing things they never said or did. Deepfakes were used in several world election campaigns in 2024.",
+      "In May, an international gathering of major AI developers and top government officials in Seoul agreed on measures that aim to ensure that AI systems are safely built and deployed. Attendees from 16 different technology companies signed a promise to develop AI technology in ways that limit possible public harms.",
+      "US legal moves against tech companies",
+      "About one year ago, an American jury found that Google’s app store operates as an illegal monopoly. Then in August 2024, a federal judge ruled that Google had violated trade laws by operating its search engine as a monopoly. The ruling accused Google of paying smartphone makers to ensure that its search engine was set as the default system on new devices.",
+      "As part of the case, the U.S. government proposed in November a series of measures to limit Google from anti-competition business activities. Google criticized the court’s ruling as an example of government overreach. U.S. officials have long warned that TikTok presents national security concerns.",
+      "Earlier this month, video sharing service TikTok asked a U.S. appeals court to block a law requiring its Chinese parent, ByteDance, to divest itself of TikTok or face a U.S. ban. The request came after the same court had upheld a law forcing ByteDance to sell TikTok by January 19 or face the ban. Lawyers for ByteDance and TikTok are seeking to have the U.S. Supreme Court rule on the case.",
+      "Self-driving tech",
+      "In May, U.S.-based Aurora Innovation said it was preparing to launch a series of driverless trucks to transport goods on a major public highway. Company officials said it planned to begin the service in Texas, with 20 tractor-trailers transporting goods between Dallas and Houston. The company hopes to expand the service to thousands of tractor-trailers within three to four years.",
+      "Flying taxis",
+      "In October, the U.S. Federal Aviation Administration (FAA) announced it had issued final rules for operating air taxis. It also set training and approval requirements for pilots. The FAA said air taxis belong to a kind of aircraft known as Advanced Air Mobility (AAM) flyers. They generally operate on their own on electrical power, with vertical take-off and landing abilities.",
+      "FAA Administrator Mike Whitaker said such aircraft represent “the first new category of aircraft in nearly 80 years.” He added that the new rules are meant to mark the beginning of possible widespread AAM operations across the U.S. in the future.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "chip",
+        "pos": "n",
+        "meaning": "a very small slice of silicon containing electronic circuits (as for a computer)"
+      },
+      {
+        "word": "monopoly",
+        "pos": "n",
+        "meaning": "complete control of the entire supply of goods or of a service in a certain area or market"
+      },
+      {
+        "word": "default",
+        "pos": "adj",
+        "meaning": "what exists or usually happens if no changes are made"
+      },
+      {
+        "word": "divest",
+        "pos": "v",
+        "meaning": "to sell something, especially a business or part of a business"
+      },
+      {
+        "word": "vertical",
+        "pos": "adj",
+        "meaning": "pointing straight up from a surface"
+      },
+      {
+        "word": "category",
+        "pos": "n",
+        "meaning": "a group of people of things of a similar kind"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/top-technology-stories-of-2024/7907257.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English."
+  },
+  {
+    "id": "voa-doc-7905637",
+    "title": "NASA Identifies Cause of Mars Helicopter’s Final Crash",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/12/18/d92b4d1d-9d16-4d5a-ba79-f0babc59f7db.mp3",
+    "words": 721,
+    "transcript": [
+      "The American space agency NASA says it has found the likely cause of a crash that grounded its Mars helicopter Ingenuity.",
+      "The finding comes after NASA said it had carried out the “first aircraft accident investigation on another world.”",
+      "Ingenuity arrived on Mars along with NASA’s Perseverance explorer, or rover, in February 2021. The experimental helicopter took its last flight, number 72, in January. That flight ended in a hard landing on the Martian surface.",
+      "In April 2021, Ingenuity became the first aircraft to complete a powered, controlled flight on another planet. The aircraft was built to test take-off, short flight and landing operations. The flights on Mars aimed to support NASA’s efforts to build new aircraft that can fly in the atmospheres of other planets.",
+      "Engineers from NASA’s Jet Propulsion Laboratory in California fully investigated Ingenuity’s last flight on Mars. They found the cause of the crash was linked to the helicopter’s navigation system. That camera-based system was not able to collect dependable data on elements of the Martian surface to support a safe landing.",
+      "A detailed, final report on the accident is to be issued in the coming weeks. But the engineers have already described their main findings in a statement published online.",
+      "They said the helicopter’s last flight saw the aircraft climb to about 12 meters, where it stayed, or hovered, while capturing images of the Martian surface. Data records show Ingenuity began its planned descent after about 19 seconds. By 32 seconds, the helicopter was back on the surface and was no longer sending communication signals.",
+      "The next day, Ingenuity team members reestablished communications and received images from its last flight. The images showed the aircraft suffered severe damage to its rotor blades.",
+      "NASA explained that Ingenuity’s navigation system plays an important part in collecting data about the surface to ensure the aircraft can complete a smooth landing. The helicopter uses a camera that points downward, capturing information about what is below the craft.",
+      "In past flights, the engineers said the camera was able to find smooth, suitable landing possibilities. But NASA said during the final flight, the helicopter was traveling in an area with very few surface features for the camera to capture. This meant the aircraft’s navigation system could not find enough of these features to choose a good landing spot.",
+      "At the time, Ingenuity was operating together with NASA’s Perseverance rover in an area of Mars known as Jezero Crater.",
+      "The images recovered from Ingenuity suggested the navigation system’s inability to pick up surface features made the helicopter descend too fast. The hard landing on a sand hill is believed to have caused the helicopter to turn over and roll.",
+      "The engineers said images showed that all four of Ingenuity’s rotor blades broke at their weakest point. The damaged blades also caused the aircraft to shake. Events related to the crash led to increased power demand, which resulted in the loss of communications.",
+      "Although the crash ended Ingenuity’s flight operations, NASA said it is still able to provide and send back weather information and other kinds of data. The space agency says this information could be helpful in designing future aircraft or other explorers to be sent to Mars.",
+      "Teddy Tzanetos is Ingenuity’s project manager. He said in a statement one major thing the team learned was that future aircraft designed for space travel do not necessarily need to be large flying machines. Tzanetos added that Ingenuity’s longevity suggests that “not everything needs to be bigger, heavier, and radiation-hardened” to work in the Martian environment.",
+      "With this in mind, NASA engineers have been testing smaller, lighter flying vehicles, with limited electronics, in order to produce future helicopters that can make a large number of smaller exploration trips.",
+      "Tzanetos shared details about one aircraft NASA is currently developing. It is called the Mars Chopper rotorcraft. Tzanetos said Chopper is about 20 times heavier than Ingenuity. Developers say it would be built to carry several kilograms of science equipment, while self-exploring distant areas of Mars. Chopper would also have a much longer travel ability, flying up to 3 kilometers in a day. Ingenuity’s longest flight was 704 meters.",
+      "Tzanetos said that overall, “Ingenuity has given us the confidence and data to envision the future of flight at Mars.”",
+      "I’m Bryan Lynn.",
+      "envision v. to picture oneself"
+    ],
+    "tuKho": [
+      {
+        "word": "navigation",
+        "pos": "n",
+        "meaning": "finding directions by using maps or other equipment"
+      },
+      {
+        "word": "rotor blade",
+        "pos": "n",
+        "meaning": "thin, flat pieces of material that spin to make aircraft lift off the ground and travel"
+      },
+      {
+        "word": "descent",
+        "pos": "n",
+        "meaning": "the act or process of moving downward"
+      },
+      {
+        "word": "feature",
+        "pos": "n",
+        "meaning": "a common quality or important part of something"
+      },
+      {
+        "word": "longevity",
+        "pos": "n",
+        "meaning": "surviving for a long time"
+      },
+      {
+        "word": "confidence",
+        "pos": "n",
+        "meaning": "the feeling or belief that someone or some group is good or able to succeed at something"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/nasa-identifies-cause-of-mars-helicopter-s-final-crash/7905637.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English based on reports from NASA."
+  },
+  {
+    "id": "voa-doc-7872624",
+    "title": "NASA Reconnects with Voyager, Longest Serving Mission in History",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/11/21/c7694c92-9367-4a63-85dc-4e9ab7c77121.mp3",
+    "words": 734,
+    "transcript": [
+      "NASA has once again reconnected with its Voyager spacecraft, marking a continuation of the American space agency’s longest mission in history.",
+      "The two spacecraft – Voyager 1 and Voyager 2 – launched within weeks of each other in 1977. So they have been operating for more than 47 years.",
+      "NASA officials have reported several difficulties with the spacecraft in recent years, mainly communication issues. The most recent problems involved the Voyager 1 spacecraft. NASA said in a statement in April it had remained out of touch with the spacecraft for the previous five months.",
+      "Agency officials said they later learned the problem was linked to a chip inside one of Voyager 1’s onboard computers. The issue made data being sent by the spacecraft unreadable. NASA said its engineers were able to fix that problem by making changes to how the spacecraft stores and reads data.",
+      "Then, in October, NASA reported another communication issue that resulted in a brief delay in receiving data from Voyager 1. That problem turned out to be linked to the spacecraft’s radio transmitter system.",
+      "The agency said that, for some reason, Voyager 1’s fault protection system was activated when NASA sent a command for the spacecraft to turn on one of its heaters. This activation – meant to save power – led Voyager 1 to start sending signals to a different radio transmitter system than it normally uses.",
+      "This meant NASA had to listen for the signals on the S-band instead of the usual X-band. Once they did this, they were able to start receiving data again. NASA has said the S-band is much weaker than the X-band, so engineers were seeking to get the X-band radio communication system back online for long-term use.",
+      "NASA said the agency had not used the S-band since 1981.",
+      "Voyager 1 and Voyager 2 are NASA’s most distant operating spacecraft. The agency has reported Voyager 1 is exploring space from about 24 billion kilometers from Earth, while Voyager 2 is operating from about 20.5 billion kilometers away.",
+      "Because of this great distance, NASA says its communication with the two Voyagers takes about one day to receive data, and another day to send information back from Earth.",
+      "The two Voyagers were first designed to explore Jupiter and Saturn. Both spacecraft successfully carried out studies of those planets. Later, Voyager 2 made the first-ever close observations of Uranus and Neptune in 1989.",
+      "The two spacecraft then began a new mission to explore distant areas of space. In 2013, NASA announced Voyager 1 had crossed over the border dividing our solar system from interstellar space. The term “interstellar” means “between stars.” Scientists say interstellar space begins where the sun's continuous flow of particles and its magnetic field stop.",
+      "Voyager 2 first entered interstellar space in 2018. NASA said the spacecraft was more than 17.7 billion kilometers from the sun at the time. Both Voyagers are the only spacecraft so far to explore interstellar space.",
+      "The space agency says the Voyagers are studying how the interstellar medium interacts with the solar wind. Solar wind is the continuous flow of charged particles released by the sun. The spacecraft have also provided data on the heliosphere, a kind of protective bubble around our solar system.",
+      "Suzanne Dodd is the current project manager for the Voyager mission at NASA’s Jet Propulsion Laboratory in California. She recently said in a statement the agency has no plans to retire the two Voyagers as long as they are communicating with mission members back on Earth. Dodd said the spacecraft are currently centered on observing how interstellar space and the heliosphere interact with each other.",
+      "\"We wouldn't be doing Voyager if it wasn't taking science data,\" she added. Dodd noted one reason the Voyagers have been operating for so long is that the engineers who built them provided multiple backup systems to avoid future problems.",
+      "She said some who worked on Voyager in its earliest days have even come back from retirement to pass on knowledge to the next generation of scientists and engineers.",
+      "\"From where I sit as a project manager, it's really very exciting to see young engineers be excited to work on Voyager,” Dodd said. “To take on the challenges of an old mission and to work side by side with some of the masters, the people that built the spacecraft – they want to learn from each other.\"",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "chip",
+        "pos": "n",
+        "meaning": "a small part of a computer that stores and helps process information"
+      },
+      {
+        "word": "fault",
+        "pos": "n",
+        "meaning": "something that goes wrong with a particular system"
+      },
+      {
+        "word": "transmitter",
+        "pos": "n",
+        "meaning": "a piece of equipment used to send and receive radio signals through the air"
+      },
+      {
+        "word": "bubble",
+        "pos": "n",
+        "meaning": "a ball of gas enclosed by another material"
+      },
+      {
+        "word": "challenge",
+        "pos": "n",
+        "meaning": "something difficult that tests one’s ability or determination"
+      },
+      {
+        "word": "master",
+        "pos": "n",
+        "meaning": "someone who has demonstrated they can do something very well"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/nasa-reconnects-with-voyager-longest-serving-mission-in-history/7872624.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from NASA."
+  },
+  {
+    "id": "voa-doc-7854402",
+    "title": "Study: Saturn’s Moon Titan Has Huge Layer of Methane-filled Ice",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/11/07/f74b96bc-6ed8-45a0-8797-2804932a108a.mp3",
+    "words": 619,
+    "transcript": [
+      "New research suggests Saturn’s moon Titan has a thick ice cover that could be warming lower areas and supporting molecular growth.",
+      "Scientists at the University of Hawaii carried out the new study. It appears in The Planetary Science Journal. The findings add to existing evidence that Titan may hold the right mix of materials to support possible life.",
+      "No life forms have been confirmed on Titan, a cold, icy world. But past studies suggest the moon now has a large layer of ice that once supported widely flowing water on the surface. Titan is also thought to contain a dense atmosphere rich in nitrogen and methane, both of which are found in Earth’s own atmosphere.",
+      "NASA reports Saturn has a total of 146 moons orbiting it, more than any other planet. Titan, an ice giant, is the largest of them.",
+      "For more than 10 years, NASA’s Cassini spacecraft studied Saturn “and its complex system of rings and moons,” the space agency said. The new study used NASA data to closely examine surface details of Titan.",
+      "The researchers used computer modeling to examine different elements of Titan’s surface. One of the main discoveries was that many craters examined on Titan’s surface were not as deep as some other moons. The team reported that in some cases, craters were hundreds of meters shallower, or less deep, than scientists expected. In addition, only 90 craters were identified on the whole moon.",
+      "“This was very surprising because, based on other moons, we expect to see many more impact craters on the surface,” said University of Hawaii’s Lauren Schurmeier, who led the study.",
+      "She said the research team had also expected to see much deeper craters. “We realized something unique to Titan must be making them become shallower and disappear relatively quickly,” she said.",
+      "Computer modeling carried out by the researchers showed how the surface might have changed to remove signs of major impact craters. The researchers said one of the most likely causes of such change was that the moon’s icy surface is covered with a thick layer of solid water ice, with methane gas trapped inside.",
+      "The team said the data examinations suggest Titan has a methane-filled icy crust that is from five to 10 kilometers thick. The modeling operations run by the scientists produced images that looked similar to crater formations on Titan’s surface.",
+      "Schurmeier said the methane crust, “warms Titan’s interior” and can cause surprisingly fast changes to the surface structure. Schurmeier noted, for example, that crater shallowing on Titan is believed to be happening at a rate “that is close to that of fast-moving warm glaciers on Earth.”",
+      "The surface of Titan is estimated to be about minus 179 degrees Celsius. Because of this extreme cold, liquids on the moon’s surface take the form of ice, with methane gas locked inside, the researchers said. This gas could help warm surface levels beneath, possibly permitting molecules to rise toward the surface.",
+      "Schurmeier said studying the thickness of Titan’s icy crust is important because it might help explain how the moon’s atmosphere began to develop. The measurements could also provide additional information on Titan’s changing climate.",
+      "“Titan is a natural laboratory to study how the greenhouse gas methane warms and cycles through the atmosphere,” she said. The resulting information, she added, can provide important insights about such processes happening on Earth.",
+      "NASA’s Cassini spacecraft ended it mission in 2017, when it crashed into Saturn’s atmosphere. But the U.S. space agency has plans to send another explorer to Titan in 2028. That mission calls for a spacecraft called Dragonfly to travel to Titan to observe many different areas. The planned explorer, called a rotorcraft, operates similar to a helicopter.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "layer",
+        "pos": "n",
+        "meaning": "an amount of something covering a surface"
+      },
+      {
+        "word": "crater",
+        "pos": "n",
+        "meaning": "a hole left in the ground by an object that hits it with a huge force"
+      },
+      {
+        "word": "impact",
+        "pos": "n",
+        "meaning": "the force or action of one object hitting another"
+      },
+      {
+        "word": "unique",
+        "pos": "adj",
+        "meaning": "different from everyone and everything else"
+      },
+      {
+        "word": "crust",
+        "pos": "n",
+        "meaning": "a hard, dry layer of the surface of something"
+      },
+      {
+        "word": "glacier",
+        "pos": "n",
+        "meaning": "a large mass of ice that moves very slowly, usually down a hill or valley"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/study-saturn-s-moon-titan-has-huge-layer-of-methane-filled-ice/7854402.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from the University of Hawaii at Manoa, the University of Lisbon and NASA."
+  },
+  {
+    "id": "voa-doc-7846588",
+    "title": "NASA to Launch Instruments to Study Water on Moon",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/11/01/247f2ae5-6cc1-4fc8-9828-c8c03318aaf4.mp3",
+    "words": 678,
+    "transcript": [
+      "The American space agency NASA is preparing to launch a spacecraft to seek more detailed information on water sources on the moon.",
+      "The spacecraft is an orbiter called Lunar Trailblazer. It is set to launch later this year, or in early 2025. A SpaceX Falcon 9 rocket will carry the orbiter to space. That rocket will also transport another moon exploring spacecraft.",
+      "In a recent statement, NASA said Lunar Trailblazer passed a series of important operational tests. It is currently completing additional software testing designed to simulate different elements of the trip, or mission.",
+      "NASA’s Jet Propulsion Laboratory (JPL) is leading the mission, in cooperation with the California Institute of Technology (Caltech) in Pasadena, California. Lockheed Martin Space provided the spacecraft, linked it with the flight system, and supports operations as part of a contract with Caltech.",
+      "The spacecraft will use two science instruments to carry out its mission. Both instruments are designed to map the moon in search of areas containing water, as well as what forms the water is in. The two instruments use infrared technology to produce highly detailed mapped images.",
+      "Lunar Trailblazer weighs about 200 kilograms and measures 3.5 meters with its solar equipment fully deployed. The spacecraft is set to orbit the moon about 100 kilometers from the lunar surface.",
+      "Several past studies have provided strong evidence that water exists on the moon. But the evidence has not included exact details on where it is and what forms it might take. Scientists believe most of the water is solid, in the form of ice. But there could be areas where water exists in liquid form, or as a gas in the atmosphere.",
+      "One study released last month suggested that existing water on the moon is more widespread than previously thought. That study was based on new examinations of data collected by India’s Chandrayaan-1 orbiting spacecraft.",
+      "NASA has said its search for water on the moon is important because it is seen as a necessary resource for future exploration activities. Astronauts could process it for drinking water, to cool equipment, to create breathable oxygen or even to make rocket fuel.",
+      "NASA said Lunar Trailblazer will make it easier for future human or robotic science investigators to use the water to see where it first came from.",
+      "For example, the presence of ammonia in ice could suggest it came from comets, NASA said. The presence of sulfur, on the other hand, could show it rose to the surface from deep inside the lunar interior when the moon was young and volcanically active.",
+      "One of the instruments, the High-resolution Volatiles and Minerals Moon Mapper, was developed by the JPL. The other, called the Lunar Thermal Mapper, was built by a team at the University of Oxford in Britain.",
+      "Neil Bowles is an instrument scientist for the Lunar Thermal Mapper. He said in a statement the instrument would center on producing detailed maps of lunar surface temperatures. He added that the other instrument will look for a series of signs, called signatures, of water molecules.",
+      "“Both instruments will allow us to understand how surface temperature affects water, improving our knowledge of the presence and distribution of these molecules on the moon,” Bowles said.",
+      "The orbiter is designed to provide scientists with new information about how much movement there is of water molecules on the moon. Such movements can be linked to how much sun specific areas receive. “Understanding whether water molecules move freely across the surface of the moon or are locked inside rock is also scientifically important,” NASA said in a statement.",
+      "Rachel Klima is an investigator for the Lunar Trailblazer spacecraft and its systems at the Johns Hopkins Applied Physics Laboratory in Laurel, Maryland.",
+      "She said data collected by the instruments can help provide information about where the moon’s water first came from. Klima compared such examinations to those involving glaciers that help scientists learn about Earth’s ancient history. Ice on the moon, she said, “could provide clues as to where that water came from and how and when it got there.”",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "simulate",
+        "pos": "v",
+        "meaning": "to do or make something that behaves or looks like something real but is not"
+      },
+      {
+        "word": "comet",
+        "pos": "n",
+        "meaning": "an object in space that leaves a bright line behind it in the sky"
+      },
+      {
+        "word": "allow",
+        "pos": "v",
+        "meaning": "to permit"
+      },
+      {
+        "word": "distribute",
+        "pos": "v",
+        "meaning": "to give something out to people or places"
+      },
+      {
+        "word": "glacier",
+        "pos": "n",
+        "meaning": "a large mass of ice that moves very slowly, usually down a hill or valley"
+      },
+      {
+        "word": "clue",
+        "pos": "n",
+        "meaning": "a sign or a piece of information that helps to solve a problem or answer a question"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/nasa-to-launch-instrument-to-study-water-on-moon/7846588.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from NASA."
+  },
+  {
+    "id": "voa-doc-4117570",
+    "title": "Thanksgiving: An American Tradition",
+    "series": "Arts & Culture",
+    "seriesId": "arts-culture",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2017/11/20/9c587d94-36b6-4bc6-9d47-f3779047bf6d.mp3",
+    "words": 719,
+    "transcript": [
+      "Anna and Jill cook up the perfect Thanksgiving meal and explain the meaning of Thanksgiving in the United States. It its celebrated on the fourth Thursday in November.",
+      "The American holiday of Thanksgiving is celebrated every year on the fourth Thursday in November. The holiday is during autumn -- the main season for harvesting crops. Thanksgiving is an autumn harvest festival like those found in many cultures around the world.",
+      "On this day, most Americans gather with friends and family. Many take time to think about what they are thankful for, cook up a storm, and eat.",
+      "A lot.",
+      "The star of most Thanksgiving dinners is a roasted turkey. Turkeys are large birds native to North America.",
+      "The turkey is cooked in an oven for many hours, often with a mix of celery, bread, onions and spices inside the bird. This mix becomes stuffing -- another star of the Thanksgiving dinner table.",
+      "Anna Matteo here at Learning English says the smell of turkey and stuffing roasting together is the quintessential smell of Thanksgiving. “Quintessential” means the perfect example of something.",
+      "After the bird is cooked, the stuffing is taken out and served as a side dish.",
+      "One of many side dishes. Families often make other foods like mashed potatoes, sweet potatoes, cranberry sauce and vegetable casseroles. A casserole is a dish that cooks slowly in an oven.",
+      "And do not forget about the gravy. This rich sauce is made from the fatty liquid that comes off the turkey as it cooks. People cover their turkey meat, stuffing and mashed potatoes with gravy.",
+      "The meal does not end with the turkey, stuffing, and side dishes, though. For some people, the best part of the meal is dessert.",
+      "The quintessential Thanksgiving dessert is pie. Pumpkin, cherry, apple or pecan pie are all great ways to finish off a Thanksgiving meal...if you are not too full of food by that point!",
+      "Thanksgiving travel",
+      "Some Americans must travel long distances to be with their families. In fact, the Sunday after Thanksgiving is the busiest travel day of the entire year. This is usually when people return home from family gatherings.",
+      "Not everyone can make the return home each Thanksgiving. So, young people living in cities away from their hometowns sometimes celebrate “Friendsgiving” -- a Thanksgiving meal with their friends instead of their family. They gather at someone’s apartment or house and have a “potluck.” This is a meal where everyone who is invited brings food to share with others.",
+      "Beyond the table",
+      "Thanksgiving is a big day for television, games and other entertainment.",
+      "One tradition is the television broadcast of Macy’s Thanksgiving Day Parade. It takes place each year in New York City. Workers of the Macy’s store on Herald Square organized the first parade in 1924. Many of the workers were immigrants and wanted to hold a big parade like the ones in Europe. So, they dressed in costumes and borrowed some animals from the zoo. They also carried small balloons that floated just overhead.",
+      "Many professional American football games are also played on Thanksgiving. Fans of the sport enjoy relaxing and watching a game or two after eating a big Thanksgiving meal.",
+      "Some start Thanksgiving Day early - and in a healthy way. So-called “Turkey Trot” races take place in many towns and cities. These events involve runners dressing up in a Thanksgiving-related costume and running a short distance -- usually five kilometers.",
+      "Many Turkey Trots urge runners to bring canned food to donate to local food banks -- non-profit organizations that give food to poor people in a community.",
+      "Serving those less fortunate",
+      "Certainly, not everyone in America has an easy Thanksgiving. The United States is home to many poor and homeless people. Some cannot afford a Thanksgiving dinner. Others are without friends or families. Many religious and service organizations around the country try to fill these needs. Some provide community dinners at churches and other centers. Some groups also deliver Thanksgiving meals to people too sick or old to leave their homes.",
+      "The writer O. Henry called Thanksgiving the one holiday that is purely American. It is not linked to a religion or a certain group. Anyone in the United States on the fourth Thursday of November is welcome to celebrate Thanksgiving.",
+      "I'm Caty Weaver.",
+      "And I'm Ashley Thompson."
+    ],
+    "tuKho": [
+      {
+        "word": "festival",
+        "pos": "n",
+        "meaning": "a special time or event when people gather to celebrate something"
+      },
+      {
+        "word": "up a storm",
+        "pos": "idiom",
+        "meaning": "used to say that something is being done with a lot of energy or enthusiasm"
+      },
+      {
+        "word": "roasted",
+        "pos": "adj",
+        "meaning": "cooked with dry heat in an oven or over a fire"
+      },
+      {
+        "word": "stuffing",
+        "pos": "n",
+        "meaning": "a seasoned mixture of food that is put inside another food and cooked​"
+      },
+      {
+        "word": "potluck",
+        "pos": "n",
+        "meaning": "a meal to which everyone who is invited brings food to share"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/thanksgiving-american-tradition-2017/4117570.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Ashley Thompson wrote this story for Learning English. It was first published in 2017."
+  },
+  {
+    "id": "voa-doc-7782117",
+    "title": "NASA Rocket Confirms Existence of Earth’s Hidden Electric Field",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/09/12/183e7da2-b25c-45dc-b74f-1c43c6711a96.mp3",
+    "words": 638,
+    "transcript": [
+      "The American space agency NASA says it has confirmed the long-suspected existence of an electric field that surrounds Earth.",
+      "A rocket named Endurance gathered the information that led to the confirmation. Endurance launched from Norway on May 11, 2022. The launch site was the closest possible to the North Pole.",
+      "Endurance reached a top altitude of 768 kilometers. The rocket captured data on the electric field during its 19-minute flight before splashing down in the sea, off the coast of Greenland.",
+      "NASA says that since the 1960s, spacecraft flying over Earth’s poles have recorded collections of particles flowing from the planet’s atmosphere into space. But the cause of these outflows long remained a mystery. Scientists lacked the technology and tools to confirm an electric field and further explore it.",
+      "But the development in recent years of new observation methods and instruments led NASA to plan the Endurance mission. So the agency built the rocket and a new data instrument and planned the launch.",
+      "NASA scientist Glyn Collinson, an expert in space instrument design, led the Endurance mission.",
+      "Collinson explains in a video that scientists believe the electric field they searched for was one of three energy fields affecting Earth. The others are gravitational and magnetic. Scientists are calling the third energy field the “ambipolar electric field.”",
+      "A NASA statement says scientists believe the ambipolar field is an influential driver of the “polar wind.” They described the wind as “a steady outflow of charged particles into space that occurs above Earth’s poles.” Scientists believe the ambipolar electric field counteracts some of the effects of gravity.",
+      "This electric field lifts the charged particles in Earth’s upper atmosphere “to greater heights than they would otherwise reach,” NASA said. Scientists had theorized this electric field began at around 250 kilometers high. This is where atoms in our atmosphere break apart into negatively charged electrons and positively charged ions. This activity helps form a part of Earth’s atmosphere known as the ionosphere.",
+      "NASA noted the Endurance mission permitted researchers to successfully identify and measure “a planet-wide electric field thought to be as fundamental to Earth as its gravity and magnetic fields.” A study describing the team’s results recently appeared in the publication Nature.",
+      "NASA said studying the ambipolar electric field is important because it “may have shaped our planet’s evolution in ways yet to be explored.” In addition, the agency said further study of this field can help scientists better understand other planets and possibly find ones with conditions that may support life.",
+      "Leader Collinson said that, during the mission, the instrument on the rocket was able to measure an electrical voltage of 0.55 volts. He said this level is very low, about the same voltage used to power a watch battery. But, he noted that 0.55 volts was “just the right amount” to explain the outflows of particles driving the polar wind.",
+      "Collinson said he finds the results “incredibly important” because the newly confirmed electric field can counter the effects of gravity and “basically lifts the skies up.” He described the field as a kind of “conveyor belt that’s lifting this atmosphere up into space.”",
+      "Alex Glocer is a project scientist for the Endurance mission and was a co-writer of the study. He said he agrees with those findings. “That’s more than enough to counter gravity – in fact, it’s enough to launch them upwards into space at supersonic speeds,” Glocer said. Supersonic describes speeds that are greater than the speed of sound.",
+      "The team said the study results suggest the ambipolar electric field also greatly increases the density of the ionosphere at higher atmospheric positions.",
+      "Collinson said, “Any planet with an atmosphere should have an ambipolar field. Now that we’ve finally measured it, we can begin learning how it’s shaped our planet as well as others over time.”",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "pole",
+        "pos": "n",
+        "meaning": "either part of an axis of a sphere and especially of Earth's axis"
+      },
+      {
+        "word": "counteract",
+        "pos": "v",
+        "meaning": "the reduce a bad effect of something else"
+      },
+      {
+        "word": "fundamental",
+        "pos": "adj",
+        "meaning": "relating to the most important or main part of something"
+      },
+      {
+        "word": "evolution",
+        "pos": "n",
+        "meaning": "a gradual process of change and development"
+      },
+      {
+        "word": "battery",
+        "pos": "n",
+        "meaning": "an object that provides electricity for things such as radios, toys, cars, etc."
+      },
+      {
+        "word": "conveyor belt",
+        "pos": "n",
+        "meaning": "a continuous moving piece of rubber or metal that is used to transport objects from one place to another"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/nasa-rocket-confirms-existence-of-earth-s-hidden-electric-field/7782117.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from NASA."
+  },
+  {
+    "id": "voa-doc-7742571",
+    "title": "Tech Tip: Google Wallet Now Creates Digital IDs from Photos",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/08/14/01000000-c0a8-0242-b264-08dcbc84313a.mp3",
+    "words": 622,
+    "transcript": [
+      "Google has added a new tool that permits Android users to create digital versions of many kinds of identification (ID) cards and event passes for device wallets.",
+      "The tool is part of the Google Wallet app. It was first announced in May along with other changes to the latest operating system, Android 15. The change is explained on a Google Wallet help website. The tool is now available for Android users in the United States who have the latest update of Google Wallet.",
+      "Digital wallets are designed to permit users to save non-physical versions of credit cards, personal IDs, membership passes and event tickets to their smartphones or other devices. Credit cards in wallets are linked directly to the banks that offer them and can be used to pay for things just like with a physical credit card.",
+      "The use of digital wallets has expanded over the years as people depend more on digital IDs and other documents. Supporters say this reduces the need to carry a lot of cards in a physical wallet.",
+      "Until now, Google Wallet divided its digital document offerings into categories. Examples of these categories would be payment or gift cards, transportation passes for bus, train or air travel as well as official IDs.",
+      "Google’s new tool is designed to permit device users to easily add many more kinds of documents to its Wallet service. These could include the kinds of passes many people carry in their physical wallets, such as gym memberships and medical or insurance cards.",
+      "These digital versions can be created by the user taking a picture of the physical document or by doing a screen capture of a digital version from a device. Some documents have an electronic barcode or QR code that can be entered into the Wallet app.",
+      "Google Wallet then uses artificial intelligence (AI) technology to use information from the photo to create a new digital pass.",
+      "The process of creating these digital documents is similar to adding new documents to Google Wallet. Users open the app and then click on “Add to Google Wallet (+).” The app then gives users a choice of what kind of card or pass to create. These include groups like “Payment Card,” “Transit Pass” or “ID Card.”",
+      "The new Google Wallet has a new category, called “Everything Else.” This offering was created to permit users to make digital copies of just about any card, pass or document they want to keep in their devices.",
+      "Google offers additional security steps to users storing official documents on Android devices. These “private passes” can also be added to Google Wallet. Google says data contained in official digital documents is only saved on the device as an extra security measure.",
+      "People in some American states can create a digital ID to be used to officially prove their identity. Google explains that this service is currently only available in Arizona, Colorado, Georgia and Maryland",
+      "There is a process users must follow to have their digital IDs verified by each state. The Transportation Security Administration (TSA) even accepts this form of state ID at many major U.S. airports.",
+      "Online technology website Android Authority recently reported Google Wallet will soon be equipped to also create digital versions of American passports. To create this official digital document, users would need to be holders of a U.S. government issued e-Passport.",
+      "The online publication said one of its writers discovered the Google Wallet passport is still in development at Google. Android Authority noted that having a passport saved in Google Wallet might remove the need to present an actual passport in some cases. However, the digital version is not designed to replace the physical passport, which the user should continue to carry.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "wallet",
+        "pos": "n",
+        "meaning": "a small container used to carry money and credit cards, or a digital version used for the same purpose"
+      },
+      {
+        "word": "app",
+        "pos": "n",
+        "meaning": "a computer program that is designed to do one task or set of tasks and is usually aimed at use on mobile devices"
+      },
+      {
+        "word": "category",
+        "pos": "n",
+        "meaning": "a group of people or things that are similar in some way"
+      },
+      {
+        "word": "gym (gymnasium)",
+        "pos": "n",
+        "meaning": "a business where people go to exercise or play sports"
+      },
+      {
+        "word": "insurance",
+        "pos": "n",
+        "meaning": "an agreement in which you pay a company to cover necessary costs in case there is an accident that causes damage or injuries"
+      },
+      {
+        "word": "barcode",
+        "pos": "n",
+        "meaning": "a small, printed pattern of thick and think black lines that is printed on products and documents"
+      },
+      {
+        "word": "verify",
+        "pos": "v",
+        "meaning": "to prove that something exists or is true"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/tech-tip-google-wallet-now-creates-digital-ids-from-photos/7742571.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from Google and Android Authority."
+  },
+  {
+    "id": "voa-doc-7713189",
+    "title": "Study: New Evidence Suggests Earth-like Exoplanet May Hold Liquid Ocean",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/07/25/01000000-0aff-0242-0f48-08dcacf8f3f4.mp3",
+    "words": 630,
+    "transcript": [
+      "Researchers say new telescope observations suggest an Earth-like planet outside our solar system may hold a large liquid ocean.",
+      "The exoplanet is known as LHS 1140 b. Astronomers believe it sits about 48 light years away from Earth. A light year is the distance light travels in a year – about 9.5 trillion kilometers.",
+      "The research – led by astronomers at the University of Montreal in Canada – shows the possibility the exoplanet might hold the right conditions to support some form of life. A study explaining the findings recently appeared in The Astrophysical Journal Letters.",
+      "The study is based on observations collected in December 2023 by the James Webb Space Telescope. The American space agency NASA operates the orbiting observatory.",
+      "Researchers combined the information from the James Webb with existing data to make new estimates for the exoplanet’s mass and size. These suggest that LHS 1140 b is “a promising super-Earth ice or water world,” the University of Montreal said in a statement.",
+      "Some past studies had suggested the exoplanet might be a gas giant, also known as a mini-Neptune. But the researchers said the new study provides evidence that LHS 1140 b is more likely a super-Earth, a rocky planet bigger than Earth.",
+      "The new research supports a NASA-led study from October 2023 that suggested at least 17 observed exoplanets could hold oceans of liquid water. That study noted that sometimes water from these oceans likely breaks through large pieces of ice to form geysers.",
+      "Scientists had already identified LHS 1140 b as being within its star’s “habitable zone.” Exoplanets found within this zone are believed to have temperatures that would permit water to exist in liquid form.",
+      "Measurements made by the James Webb data suggest the exoplanet “is less dense” than expected for a rocky, Earth-like body. The researchers estimated that 10 to 20 percent of LHS 1140 b’s mass might be made up of water. The possibility of a large liquid ocean would be found on the side of the planet always facing the star that it orbits.",
+      "The new data collected by the James Webb showed the exoplanet might also have a nitrogen-rich atmosphere. This differs from earlier research that suggested a possible atmosphere that was mostly hydrogen.",
+      "Charles Cadieux is a doctoral student at the University of Montreal’s Trottier Institute for Research on Exoplanets. He was the lead writer of the study.",
+      "Cadieux said in a statement, “Of all currently known temperate exoplanets, LHS 1140 b could well be our best bet to one day indirectly confirm liquid water on the surface of an alien world beyond our solar system.” He noted that if the study’s findings can be confirmed, the data would represent “a major milestone” in the search for exoplanets that could possibly support life.",
+      "René Doyon is a project scientist at the University of Montreal. He helped lead the research. He said more observations will be needed to confirm the current study’s findings. “The current hint of a nitrogen-rich atmosphere begs for confirmation with more data,” Doyon said.",
+      "He estimated that at least one more year of observations will be needed “to confirm that LHS 1140 b has an atmosphere.”",
+      "The process of confirming whether carbon dioxide is present in the atmosphere and liquid water exists on the surface would likely require several years of observations, Doyon noted.",
+      "Ryan MacDonald is a NASA Sagan Fellow in the University of Michigan’s Department of Astronomy who helped examine the James Webb data. He said, “This is the first time we have ever seen a hint of an atmosphere on a habitable zone rocky or ice-rich exoplanet.”",
+      "With further data collection and investigation, MacDonald noted there is a good possibility “we might just have found evidence of air on this world.”",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "geyser",
+        "pos": "n",
+        "meaning": "a hole in the ground from which hot water and steam come out"
+      },
+      {
+        "word": "habitable",
+        "pos": "adj",
+        "meaning": "able to support life"
+      },
+      {
+        "word": "best bet",
+        "pos": "idiom",
+        "meaning": "the action that is most likely to be successful"
+      },
+      {
+        "word": "alien",
+        "pos": "n",
+        "meaning": "relating to creatures from another planet"
+      },
+      {
+        "word": "milestone",
+        "pos": "n",
+        "meaning": "an important event in the development or history of something"
+      },
+      {
+        "word": "hint",
+        "pos": "n",
+        "meaning": "to suggest or indicate something in an indirect way"
+      },
+      {
+        "word": "beg",
+        "pos": "v",
+        "meaning": "to make a very strong and urgent request"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/study-new-evidence-suggests-earth-like-exoplanet-may-hold-liquid-ocean/7713189.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from the University of Montreal, the University of Michigan and NASA."
+  },
+  {
+    "id": "voa-doc-7624454",
+    "title": "New Rocket Engine Could Cut Travel Time to Mars",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/05/23/01000000-0aff-0242-5b0b-08dc7b5e09d4.mp3",
+    "words": 649,
+    "transcript": [
+      "A private company is working with the American space agency NASA to develop a new rocket that could greatly reduce space travel times.",
+      "The engine for such a rocket will be designed to sharply increase the amount of thrust to speed up space travel and improve rocket efficiency.",
+      "Thrust is the force that pushes a spacecraft through the air. It is produced by a propulsion system. Generally, a gas or liquid fuel is burned to produce thrust from the back of a spacecraft to propel it forward at high-speed.",
+      "The new design, called Pulsed Plasma Rocket (PPR), is being developed by Arizona-based company Howe Industries. The company is currently in the early stages of studying the technology before building working engine models.",
+      "In a recent statement, Howe Industries said such rocket technology will be needed to support NASA’s plans to return humans to the moon and after that, possibly Mars. The space agency has also set a goal to build a long-term base in space. But one barrier to all these plans is the long travel times necessary with current spacecraft systems.",
+      "NASA estimates the moon sits an average of about 382,500 kilometers from Earth. The exact distance changes because of the moon’s orbit around Earth. The average distance from Earth to Mars is 225 million kilometers.",
+      "NASA says a trip to Mars with existing spacecraft would take at least 200 days each way. Developers of the proposed Pulsed Plasma Rocket have said it could reduce travel time to the Red Planet to about two months each way.",
+      "Howe Industries said its new design gives the rocket the ability to reach extremely high speeds to complete “reasonable” space travel times. The development team estimates its PPR system could produce up to 100,000 N of thrust. The ‘N’ at the end of the number stands for Newtons, a unit of measurement for thrust.",
+      "NASA has described its Space Launch System (SLS) as the most powerful ever built. The agency has said the SLS rocket system is expected to provide nearly 53 million N of thrust during space travel.",
+      "Developers of PPR say that in addition to a huge increase in thrust, the new design also provides a “specific impulse” rate of 5,000. Specific impulse is a method for measuring – in seconds –thrust and efficiency levels of rocket engines. The higher this rate is, the more efficient the rocket system is. By comparison, the SLS rocket has specific impulse rates below 500.",
+      "Officials at Howe have said the PPR is based on another plasma-based technology known as pulsed fission fusion. NASA says this process involves quickly pressing plasmas into high pressures to produce thrust. But the developers say the PPR system is smaller, simpler and costs less to operate.",
+      "Howe’s statement introducing the technology said the combination of extremely high thrust and higher specific impulse rate “holds the potential to revolutionize space exploration.”",
+      "The team said such a system should be able to propel much heavier spacecraft and support much longer trips to more distant areas of space. The planned system could also make it easier for spacecraft to be equipped with heavy shields to protect traveling astronauts from Galactic Cosmic Rays. These are highly energetic particles that move through space at nearly the speed of light. The rays can be harmful to humans in large amounts.",
+      "The PPR project is one in a series of NASA development projects that recently received additional financial assistance to keep running. The projects are part of a NASA program called Innovative Advanced Concepts (NIAC).",
+      "PPR is currently in Phase I of development. The team said if chosen by NASA to continue with Phase II, it will be centered on improving the performance of the proposed engine, as well as carrying out experiments on major engine systems. The last phase will involve completing a spaceship design for carrying humans to Mars.",
+      "I’m Bryan Lynn"
+    ],
+    "tuKho": [
+      {
+        "word": "efficient",
+        "pos": "adj",
+        "meaning": "working well and not wasting time or energy"
+      },
+      {
+        "word": "propulsion",
+        "pos": "n",
+        "meaning": "a force that pushes something forward"
+      },
+      {
+        "word": "plasma",
+        "pos": "n",
+        "meaning": "a collection of charged particles"
+      },
+      {
+        "word": "potential",
+        "pos": "n",
+        "meaning": "possible"
+      },
+      {
+        "word": "phase",
+        "pos": "n",
+        "meaning": "a specific period during which something happens"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/new-rocket-engine-could-cut-travel-time-to-mars-from-years-to-months/7624454.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from NASA and Howe Industries."
+  },
+  {
+    "id": "voa-doc-7605113",
+    "title": "NASA Details Plans for Railway System on the Moon",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/05/09/01000000-0aff-0242-c670-08dc707d7f69.mp3",
+    "words": 613,
+    "transcript": [
+      "The American space agency NASA is providing details about a railway system it plans to build on the surface of the moon.",
+      "The system aims to provide a “robotic transport system” to support future lunar activities of astronauts visiting the moon, NASA said in an online statement.",
+      "The railway would be part of NASA’s Artemis program. It seeks to return astronauts to the moon for the first time since 1972. The agency has set a target landing date of September 2026 to place astronauts on the surface of the moon.",
+      "NASA has said it also plans to establish a long-term moon base where astronauts could do their own exploring and carry out science experiments. Agency officials have said the base could be built as soon as the 2030s. It could also serve as a possible launch site for future exploration of Mars.",
+      "Last month, NASA also announced new efforts to develop and test new vehicle models designed to explore the moon.",
+      "The lunar rail proposal is called the Flexible Levitation on a Track, or FLOAT. NASA said such a railway system will be “critical to the daily operations” on the moon.",
+      "The main purpose of FLOAT would be to provide transportation services in areas of the moon where astronauts are active, the space agency said. This will include carrying loads of lunar soil and other materials to different areas of the lunar surface.",
+      "NASA has said it plans to mine such soil, called regolith, for substances that could support astronaut activities on the moon. Regolith can contain materials like water or liquid forms of oxygen and hydrogen. Those elements could be used to support astronauts and their equipment during long stays on the moon.",
+      "The other main use of the proposed railway would be to transport larger loads of materials and equipment to and from the areas where spacecraft land.",
+      "The FLOAT system is already being developed by engineers at NASA’s Jet Propulsion Laboratory (JPL) in California. It is based on magnetic levitation – a commonly used technology in high-speed rail development.",
+      "Drawings by NASA suggest the plans call for flat, magnetic panels, called robots, to float, or levitate, over a flat rail line, or track. The robots have no moving parts and are unpowered. They are pushed along the track by electromagnetic energy.",
+      "NASA said the simple design of the carrier robots should help them last a long time and require little ongoing care. The system’s tracks can be placed directly on the lunar surface, avoiding the need to build a complex, permanent structure. They could also be moved around to change the transportation path.",
+      "A smaller version of the FLOAT system will permit robots to transport loads up to 30 kilograms at speeds of about 0.5 meters per second, the agency said. A larger system could also be built, to enable load transports involving up to 100,000 kilograms of regolith. Such a system could permit trips of “multiple kilometers per day,” NASA explained.",
+      "The agency is currently developing and testing different parts of the FLOAT system.",
+      "FLOAT is one in a series of NASA development projects that recently received additional financial assistance to keep running. The projects are part of a NASA program called Innovative Advanced Concepts (NIAC).",
+      "Each of the projects received “up to $600,000 to continue working over the next two years” to progress further. FLOAT and the other projects already passed NIAC’s first development phase and are entering the second.",
+      "If the efforts continue to show promise, they will be able to enter phase III, which provides additional funding and support from NASA. After that, the projects will be considered for a future space mission.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "electromagnetic",
+        "pos": "n",
+        "meaning": "relating to the electrical and magnetic sources produced by an electric current"
+      },
+      {
+        "word": "phase",
+        "pos": "n",
+        "meaning": "a specific period in which something happens"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/nasa-details-plans-for-railway-system-on-the-moon/7605113.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from NASA."
+  },
+  {
+    "id": "voa-doc-7511350",
+    "title": "Virtual Fences for Cows Show Benefits",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/03/22/01000000-0aff-0242-0c36-08dc4a92addd.mp3",
+    "words": 981,
+    "transcript": [
+      "In the American state of Florida, rancher Jim Strickland can see his cows at any time, day or night. To do this, all he needs is his phone.",
+      "Strickland uses virtual fencing to watch and control the movements of his animals. The fencing, based on Global Positioning System (GPS) technology can help Strickland and researchers improve grazing lands, preserve wildlife and save time and labor for workers. It can also help improve animal health.",
+      "Strickland has been using the system for about six months. He told VOA Learning English he has already seen many good results with the new technology.",
+      "“It has exceeded by far my expectations.”",
+      "How it works",
+      "Virtual fencing uses radio signals to make an invisible fence. This means you cannot see the fence.",
+      "This keeps animals within, or outside of, certain areas. The signals come from nearby mobile phone towers. The signals can also come from base stations that can be moved using a small truck.",
+      "Each animal wears a collar around its neck. The collar has a radio signal receiver and a GPS device that shows the animal’s location.",
+      "Ranchers train livestock to connect a sound with a small electric shock. When an animal gets close to a virtual fence, its collar makes a warning sound. If the animal moves even closer to the fence, it receives a shock. In this way, livestock quickly learn to stay away from the fence.",
+      "Ranchers can change the virtual fence boundaries quickly by using a phone App or computer. And livestock quickly learn the new boundaries.",
+      "Strickland and his coworkers can use their phones even while on horseback to move cattle from one area to another. All they need to do is change the virtual fence lines.",
+      "“And every 30 minutes, that line will move down; it will literally drive those cows down.”",
+      "Benefits of virtual fencing",
+      "Physical fences take time, labor and money to build. It can be difficult to put them in areas such as rocky and hilly land, wet areas, or places with thick vegetation. Over time, fences need to be fixed or new ones need to be built.",
+      "When hurricane Ian hit Florida last year, it destroyed four houses and 45 kilometers of physical fence on the land where Strickland works. But the cell towers for the virtual fence system kept working.",
+      "Physical fences can also harm wild animals by making it difficult for them to move within and to areas they need for survival.",
+      "The Nature Conservancy (TNC) is a U.S-based environmental non-profit organization. It has partnered with cattle ranches in the states of Kansas, New Mexico and Colorado to research the effects of virtual fencing.",
+      "William Burnidge is Deputy Director of TNC’s North America Regenerative Grazing Lands Strategy. He said that by changing fence boundaries, the systems prevent animals from eating too much vegetation within one area. This helps plants regenerate, or grow again.",
+      "He added that virtual fences could help protect rare plants and areas near rivers and streams. They could also support conservation of wild animals, improve the health of animals and help ranch workers have a better quality of life.",
+      "Strickland works with partners at Florida Conservation Group and the University of Florida. With virtual fences, they can carefully control grazing. This helps them research the effects of grazing patterns on the growth of young cows, birth rates, and even the effects on nesting birds.",
+      "They also plan to research how grazing can affect the release of carbon dioxide gas into the atmosphere. In Florida and other places, fields are sometimes burned to prepare them for future grazing. The burning releases carbon. Virtual fences may help reduce burning by better controlling where and how long cattle graze.",
+      "Both Strickland and Burnidge note that, unlike physical fences, livestock cannot not get injured by a virtual fence.",
+      "The GPS collars also let ranchers watch for animals that may be having problems. For example, if the system shows that a cow has not moved for many hours, it may be sick or injured.",
+      "Other research and developing countries",
+      "In the northwestern state of Oregon, researchers from the U.S. Department of Agriculture and Oregon State University studied how virtual fencing can prevent cows from grazing on recently burned land. Cattle can easily damage burned areas and the young plants that grow there.",
+      "The Oregon study showed that cows without virtual fence collars ate nearly 70 percent of the plants available to them in a burned area. However, cows with collars spent very little time in the burned area and ate less than three percent of the plants available to them.",
+      "Reducing costs",
+      "Although virtual fencing systems have benefits, they can be costly. A collar for just one animal can cost around $50 each year or more. And portable base stations cost $10,000 or more.",
+      "Researchers are looking for ways to lower costs and bring the technology to developing countries.",
+      "Last year, the Bezos Earth Fund awarded $9.9 million to Cornell University’s College of Agriculture and Life Sciences to develop low-cost virtual fencing. The university plans to test new systems in Kenya, Mongolia, Argentina, Brazil and Colombia.",
+      "But in some areas, virtual fencing may not be the best solution, Burnidge said. When Burnidge visited Kenya, he saw many workers who closely follow and take care of livestock. Virtual fences could cause some of these workers to lose their jobs.",
+      "Great interest in the new technology",
+      "Still, Burnidge said, many people want to learn more about the technology. “The amount of interest in the ranching community, I’ve never seen anything comparable,” he said.",
+      "And Strickland said they are already working on more ways virtual fencing can be used.",
+      "“Now we’re seeing so many things. Once you start down the road of new technology, then it starts expanding . . . It’s like, what can we do next?” he said.",
+      "I’m Andrew Smith. And I’m Anna Matteo."
+    ],
+    "tuKho": [
+      {
+        "word": "rancher",
+        "pos": "n",
+        "meaning": "a person who owns or manages a large farm, especially one with animals such as cows, sheep, and goats"
+      },
+      {
+        "word": "graze",
+        "pos": "v",
+        "meaning": "the eating of grass or other plants in fields by animals"
+      },
+      {
+        "word": "preserve",
+        "pos": "v",
+        "meaning": "to keep something safe for future use"
+      },
+      {
+        "word": "invisible",
+        "pos": "adj",
+        "meaning": "unable to be seen, not visible"
+      },
+      {
+        "word": "collar",
+        "pos": "n",
+        "meaning": "a ring worn around the neck of an animal"
+      },
+      {
+        "word": "GPS",
+        "pos": "n",
+        "meaning": "(acronym Global Positioning Satellite) a system for finding and tracking locations on earth using satellite technology"
+      },
+      {
+        "word": "portable",
+        "pos": "adj",
+        "meaning": "able to be moved or carried from one place to another"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/virtual-fences-for-cows-show-benefits/7511350.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Andrew Smith wrote this story for VOA Learning English."
+  },
+  {
+    "id": "voa-doc-7458018",
+    "title": "New Evidence Suggests Large Water Ice Supply near Mars’ Equator",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/01/26/01000000-c0a8-0242-3ec1-08dc1e869e72.mp3",
+    "words": 709,
+    "transcript": [
+      "A Mars explorer has discovered new evidence of a large amount of water ice buried near the planet’s equator.",
+      "The discovery was made with data collected by the Mars Express orbiter. The spacecraft is operated by the European Space Agency (ESA). The American space agency NASA is a partner on the orbiter’s mission.",
+      "ESA launched Mars Express in 2003 and it has been studying the Red Planet ever since. The mission’s main goal is to use its seven scientific instruments to search for signs of water underneath the surface of Mars.",
+      "Scientists involved in the new research say data suggesting the presence of newly discovered ice deposits could mean Mars may have once supported life.",
+      "The Mars Express orbiter collected data around an area of the planet known as the Medusae Fossae Formation (or MFF). NASA describes this formation as “a soft, easily eroded deposit that extends for nearly 1,000 kilometers along the equator of Mars.”",
+      "Scientists believe the MFF was most likely formed by wind-blown dust or volcanic ash. The formations could have formed after volcanic activity estimated to have taken place up to 3.8 billion years ago.",
+      "Images of the area show raised areas that scientists thought in the past might contain dust blown around the planet by wind over many years. But the new research used newer data collected by the orbiter’s MARSIS instrument. It is “a subsurface radar sounder” with a 40-meter-long antenna. The tool looks for water on the surface, as well as up to five kilometers below the surface.",
+      "The MARSIS instrument is designed to send radio waves to an area scientists choose. It then attempts to listen to and examine “echoes” produced by the radio waves. The echoes help researchers recognize where water or ice might be, NASA explains.",
+      "Scientists say any water identified near the surface results in stronger signals while the presence of ice or other materials would produce weaker signals. The team said MARSIS readings suggest the MFF area of Mars contains a large amount of water ice rather than wind-blown dust.",
+      "Thomas Watters of the U.S. Smithsonian Institution led the new research. His team’s findings were recently published in a study in Geophysical Research Letters. He said in a statement the radar data showed the deposits in the MFF area were even thicker than earlier measurement estimates had shown.",
+      "The researchers said the data showed the examined deposits extended beneath the Mars surface to depths up to 3.7 kilometers. They seemed to contain “layers of dust and ice, all topped by a protective layer of dry dust or ash.”",
+      "Earlier data examinations of the MFF area found similarities in the electrical properties of deposits there to ice-rich deposits found in the planet’s north and south poles. The latest MARSIS data strengthens this evidence by suggesting similarities between deposit layering in the MFF and the planet’s poles.",
+      "“The radar signals match what we’d expect to see from layered ice,” Watters said. He added that the radar waves were found to be “similar to signals we see from Mars’s polar caps, which we know to be very ice rich.”",
+      "It is not the first time scientists have discovered strong evidence for the presence of water ice on Mars. But the researchers say the latest study suggests the largest amount of water ever identified in the MFF area. They estimated the total amount of water contained there would be enough “to cover the surface of Mars to a depth of about 1.5 to 3 meters.”",
+      "Colin Wilson is a project scientist with the Mars Express mission. He said while the new finding is exciting, it also “raises as many questions as answers.” He continued, “How long ago did these ice deposits form, and what was Mars like at that time?” Wilson said if confirmed to be water ice, the large deposits “would change our understanding of Mars climate history.”",
+      "Watters added that since the discovery was made in an area near the Martian equator, it could be considered a good place for future exploration missions. He explained that with a lower elevation, the MFF area would be considered “an ideal landing spot for spacecraft.” Such an elevation provides more atmosphere to support an effective, controlled landing, Watters said.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "equator",
+        "pos": "n",
+        "meaning": "an imaginary line around the middle of a planet that is an equal distance from its north and south poles"
+      },
+      {
+        "word": "mission",
+        "pos": "n",
+        "meaning": "the flight of a spacecraft to perform a certain task or job"
+      },
+      {
+        "word": "deposit",
+        "pos": "n",
+        "meaning": "a layer of a substance that has developed from a natural or chemical process"
+      },
+      {
+        "word": "erode",
+        "pos": "v",
+        "meaning": "to gradually be damaged over time"
+      },
+      {
+        "word": "antenna",
+        "pos": "n",
+        "meaning": "a piece of metal used for receiving television or radio signals"
+      },
+      {
+        "word": "echo",
+        "pos": "n",
+        "meaning": "the repeating of a sound caused by the reflection of sound waves"
+      },
+      {
+        "word": "layer",
+        "pos": "n",
+        "meaning": "an amount of substance covering a surface"
+      },
+      {
+        "word": "match",
+        "pos": "v",
+        "meaning": "to fit together or make suitable for fitting together"
+      },
+      {
+        "word": "elevation",
+        "pos": "n",
+        "meaning": "the height of a place above the level of the sea"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/new-evidence-suggests-large-water-ice-supply-near-mars-equator/7458018.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from the European Space Agency, NASA, Geophysical Research Letters and the Smithsonian."
+  },
+  {
+    "id": "voa-doc-7446472",
+    "title": "NASA Prepares for First Flight of Its New Supersonic Jet",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/01/19/01000000-c0a8-0242-4c00-08dc19059c21.mp3",
+    "words": 684,
+    "transcript": [
+      "The American space agency NASA is preparing to test a new supersonic airplane that could help establish a new generation of superfast aircraft.",
+      "The new aircraft is called X-59, and it was built in partnership with American defense contractor Lockheed Martin. The experimental plane is part of a NASA project, or mission, called Quesst.",
+      "The mission aims to collect data in the United States on the level of noise produced by supersonic travel. Supersonic describes a vehicle that travels faster than the speed of sound: about 1,235 kilometers an hour.",
+      "The data Quesst gathers could lead U.S. officials to change rules that currently ban supersonic flights over land. NASA says the X-59 was developed to reduce the loudness of the sonic boom it produces when breaking the sound barrier to very low levels heard on the ground.",
+      "A few U.S. companies are exploring ways to restart supersonic passenger travel for the first time since 2003. That is the year the Concorde aircraft stopped flying. The Concorde was the world’s first supersonic passenger jet. It was operated jointly by Britain and France.",
+      "The Concorde flew at speeds more than twice the speed of sound, British Airways explained. This meant it could travel from London to New York in about three-and-a-half hours. The same flight took about eight hours with normal passenger jets.",
+      "The new supersonic planes being developed make less noise and use less fuel than the Concorde. But manufacturers are under pressure from environmental groups and airports to meet the same noise and carbon emission limits as traditional planes.",
+      "NASA and Lockheed Martin recently showed off the X-59 plane during an event in Palmdale, California.",
+      "At the ceremony, NASA Deputy Administrator Pam Melroy called the development of the supersonic aircraft a “major accomplishment.” She noted that members of the NASA and Lockheed Martin teams had worked hard to take the X-59 from an idea to reality “in just a few years.”",
+      "Melroy added her hope that the X-59 “will help change the way we travel, bringing us closer together in much less time.”",
+      "The aircraft measures 30 meters long and nine meters wide. NASA said in a press release that the X-59 is expected to fly at 1.4 times the speed of sound, or about 1,500 kilometers per hour. The aircraft’s design, shape and technologies will permit it to reach high speeds while producing “a quieter sonic thump,” the agency explained.",
+      "The X-59 has not yet completed a test flight. But NASA officials have said they expect that to happen sometime this year. The team will be carrying out other tests in the coming months, including instrument experiments, fast engine runs and ground testing.",
+      "Once the aircraft has been cleared to fly, it will be deployed to several cities across the U.S. to collect data on the sounds the plane produces and how people on the ground react to the noise.",
+      "The data will be provided to the U.S. Federal Aviation Administration and international flight regulators. The information will help regulators decide whether to change existing laws restricting supersonic flight.",
+      "NASA said one of the biggest differences between the X-59 and other supersonic planes is that it has a thinner, smaller nose. The nose, which was reduced by about one-third, aims to break up shock waves that results in more intense sonic booms.",
+      "The Quesst team “also designed the aircraft with its engine mounted on top and gave it a smooth underside” in an effort to reduce shock waves near the back of the plane, NASA said.",
+      "Another American company developing supersonic aircraft is Boom Supersonic in Colorado. The company first showed off its experimental supersonic plane, the XB-1, in October 2020. Boom has been carrying out tests of the aircraft since then.",
+      "The company says on its website that its development and testing activities during the past few years have centered on ground tests, including a series of taxi runs. In 2024, Boom said it plans to begin its “high-speed taxi testing” early in the year, while preparing for an actual flight test that could happen later in the year.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "sonic boom",
+        "pos": "n",
+        "meaning": "an explosive sound made by an aircraft, bullet, etc. made when something travels faster than the speed of sound"
+      },
+      {
+        "word": "accomplishment",
+        "pos": "n",
+        "meaning": "success in doing something good"
+      },
+      {
+        "word": "thump",
+        "pos": "n",
+        "meaning": "a noise produced by a strike, fall, etc."
+      },
+      {
+        "word": "regulate",
+        "pos": "v",
+        "meaning": "to control an activity or process using rules, often established by governments"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/nasa-prepares-for-first-flight-of-its-new-supersonic-jet/7446472.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from NASA, Lockheed Martin and Boom Supersonic."
+  },
+  {
+    "id": "voa-doc-7414703",
+    "title": "2023 Was Another Big Year for Space Missions",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2023/12/27/01000000-0aff-0242-78b4-08dc07150f94.mp3",
+    "words": 688,
+    "transcript": [
+      "As 2023 comes to a close, we are taking a look back at some of the biggest space stories of the year.",
+      "Asteroid sample returns to Earth",
+      "A container carrying asteroid material captured in space three years ago arrived safely on Earth in September. The container, or capsule, was released by the American space agency NASA’s Osiris-Rex spacecraft. It floated to Earth and landed in a desert area in the western state of Utah.",
+      "The spacecraft captured the asteroid material, or sample, from the asteroid Bennu in 2020. NASA announced in October the first examinations of the sample showed evidence of high-carbon material and water. These two substances suggest the possibility that “the building blocks of life on Earth may be found in the rock.”",
+      "Psyche mission",
+      "NASA’s Psyche spacecraft launched on a mission to observe an asteroid made mostly of metal. It is expected to travel 3.6 billion kilometers over six years to reach the asteroid, also called Psyche.",
+      "NASA believes the asteroid could have separated during violent crashes that happened during our solar system’s early creation. Scientists think data collected on the asteroid could provide new details about how rocky planets, including Earth, formed.",
+      "Laser communication demonstration",
+      "The Psyche spacecraft is also being used to test a laser-based communication method. The system aims to greatly improve data links between Earth and spacecraft exploring deep space.",
+      "A few weeks ago, NASA demonstrated the technology with a short video sent by the laser technology over 30 million kilometers to Earth. The space agency said it took less than two minutes for the video to reach an observatory in California. The video showed a cat repeatedly chasing a red laser light.",
+      "Oldest black hole discovery",
+      "Scientists announced last month they had discovered the oldest black hole ever found. The huge object is believed to have formed about 470 million years after the Big Bang. The researchers said the findings confirm their theory that supermassive black holes existed in the very early universe.",
+      "European telescope shows ‘dark universe’",
+      "Last month, the European Space Agency (ESA) released the first images from its new Euclid space telescope. ESA designed Euclid to study dark matter and dark energy. Scientists think those hidden forms of matter and energy make up 95 percent of the universe. ESA said the newly-released images covered 1,000 galaxies about 240 million light years away from Earth.",
+      "Webb telescope observes distant black hole",
+      "Data collected by NASA’s James Webb Space Telescope helped astronomers identify the most distant, active supermassive black hole ever discovered. Researchers said the black hole sits at the center of a galaxy called CEERS 1019. The galaxy is estimated to have existed about 570 million years after the Big Bang.",
+      "Ingenuity helicopter keeps exploring Mars",
+      "Earlier this month, NASA said its Ingenuity helicopter continues to perform well in tests carried out on Mars. So far, Ingenuity has completed at least 66 flights over the past two-and-a-half years. NASA said it is also testing equipment on Earth that it plans to include in future helicopters built for space exploration. The latest tests on Earth involved new rotor blades the space agency said reached speeds near the speed of sound in experiments.",
+      "India lands spacecraft on moon",
+      "In August, India became the fourth country to successfully land a spacecraft on the moon. The moon lander, called Chandrayaan-3, also became the first spacecraft to land near the moon’s south pole. The south pole is thought to be an important area, with scientists saying it may contain large amounts of frozen water and minerals.",
+      "Chinese water discovery on moon",
+      "Chinese scientists announced in March they had discovered water in materials collected during the country’s Chang’e 5 mission. Researchers from Nanjing University reported the water was in the form of extremely small beads found in dirt collected in 2020. The scientists noted that billions, if not trillions, of these beads could exist on the moon, possibly providing a huge water source. But the team said mining the water would be difficult.",
+      "I’m Bryan Lynn.",
+      "asteroid– n. an object made of rock and metal that orbits the sun, but is smaller than planets"
+    ],
+    "tuKho": [
+      {
+        "word": "mission",
+        "pos": "n",
+        "meaning": "a flight by a spacecraft to perform a specific task"
+      },
+      {
+        "word": "rotor blade",
+        "pos": "n",
+        "meaning": "a thin, flat pieces of material that spin to make aircraft lift off the ground and travel"
+      },
+      {
+        "word": "bead",
+        "pos": "n",
+        "meaning": "a small, round drop of liquid (such as water or blood)"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/was-another-big-year-for-space-missions/7414703.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English."
+  },
+  {
+    "id": "voa-doc-7407145",
+    "title": "NASA Finds Material that Could Support Possible Life on Saturn’s Moon",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2023/12/21/01000000-0a00-0242-5f45-08dc025bddb0.mp3",
+    "words": 641,
+    "transcript": [
+      "NASA has discovered new evidence that Saturn’s moon Enceladus holds material that is important to the early development of life.",
+      "The American space agency said the new evidence came from observations made by its Cassini spacecraft. Cassini spent seven years observing seasonal changes around Saturn. During that time, the spacecraft also collected data on Saturn’s moons.",
+      "Two of Cassini’s discoveries involved Saturn’s moons Titan and Enceladus. In its observations of Titan, the spacecraft studied the moon’s climate activity and recorded data on rivers, lakes and oceans. Cassini also found evidence of several Earth-like qualities of Titan that could support life.",
+      "Another Cassini discovery involved the observation of hydrogen molecules in ice particles and vapor shooting upward from the moon’s surface. Researchers announced that finding in 2017, the same year Cassini officially ended its mission.",
+      "In announcing that discovery, NASA scientists said the presence of hydrogen molecules could signal deep-sea chemical reactions between water and rock that could create microbial life.",
+      "Now, the space agency is sharing a new finding that supports the earlier discoveries. Scientists examining Cassini data said they identified “strong confirmation” of the presence of another molecule seen as important for enabling life.",
+      "Evidence of the molecule – hydrogen cyanide – was found in data relating to the same shooting flows of ice and water vapor observed by Cassini on Enceladus.",
+      "The team used data collected by an instrument aboard Cassini designed to measure the activity of gas, ions and ice particles around Saturn. The discovery process involved a lot of mathematics aiming to understand the newly examined data.",
+      "The new evidence is described in a study in Nature Astronomy by scientists from NASA’s Jet Propulsion Laboratory (JPL) in California.",
+      "The lead writer of the study, Jonah Peter, is currently a doctoral student at Harvard University. He called the discovery of hydrogen cyanide “particularly exciting,” saying the molecule is “the starting point for most theories on the origin of life.”",
+      "NASA said in a statement that for life to exist in space, there must be collections of the right building blocks. One of the most important of these is amino acids. “Hydrogen cyanide is one of the most important and versatile molecules needed to form amino acids,” NASA noted.",
+      "The researchers said hydrogen cyanide molecules can join together in many different combinations. They can also serve as a “precursor” for different kinds of amino acids.",
+      "In addition, the latest examination of Cassini data suggested the underground ocean on Enceladus “holds a powerful source of chemical energy.” The ocean sits beneath the moon’s icy surface.",
+      "“Unidentified until now, the energy source is in the form of several organic compounds, some of which, on Earth, serve as fuel for organisms,” NASA said.",
+      "Astronomers involved in the research said that the discovery provides fresh evidence that there may be more chemical energy inside Enceladus than previously thought. The more energy that is available, the team said, the more likely it is that life can form and survive.",
+      "“Not only does Enceladus seem to meet the basic requirements for habitability,” said JPL’s Jonah Peter, “we now have an idea about how complex biomolecules could form there, and what sort of chemical pathways might be involved.”",
+      "The search for possible life on Titan will continue when NASA launches its Dragonfly exploratory mission in 2026. Dragonfly is a drone, or pilotless aircraft. The vehicle is designed to capture images and also land on Titan to collect data.",
+      "Tom Nordheim is a planetary scientist at JPL who helped lead the research. He noted that although NASA purposely sent the spacecraft crashing into Saturn’s atmosphere to end its service, Cassini is still proving to be a valuable research tool.",
+      "“Our study demonstrates that while Cassini’s mission has ended, its observations continue to provide us with new insights about Saturn and its moons...” Nordheim said.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "vapor",
+        "pos": "n",
+        "meaning": "many small drops of liquid that form in the air"
+      },
+      {
+        "word": "mission",
+        "pos": "n",
+        "meaning": "an important job or task, often involving travel to somewhere"
+      },
+      {
+        "word": "ion",
+        "pos": "n",
+        "meaning": "an atom or small group of atoms that has an electrical charge because it has added or lost electrons"
+      },
+      {
+        "word": "origin",
+        "pos": "n",
+        "meaning": "where something begins or comes from"
+      },
+      {
+        "word": "versatile",
+        "pos": "adj",
+        "meaning": "using for doing a lot of different things"
+      },
+      {
+        "word": "precursor",
+        "pos": "n",
+        "meaning": "something that happens or exists before something else and influences its development"
+      },
+      {
+        "word": "insight",
+        "pos": "n",
+        "meaning": "a thing that helps someone gain a deeper understanding of something"
+      },
+      {
+        "word": "habitability",
+        "pos": "n",
+        "meaning": "able to support living in or on"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/nasa-finds-material-that-could-support-possible-life-on-saturn-s-moon-/7407145.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from NASA and Nature."
+  },
+  {
+    "id": "voa-doc-7379281",
+    "title": "NASA Continues Mars Helicopter Experiments, Tests New Design on Earth",
+    "series": "Science & Technology",
+    "seriesId": "science-technology",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2023/11/30/01000000-c0a8-0242-f2ba-08dbf1f9da03.mp3",
+    "words": 637,
+    "transcript": [
+      "As the American space agency NASA continues to carry out tests of its Ingenuity helicopter on Mars, it is also testing a future aircraft design on Earth.",
+      "NASA’s Ingenuity has been making test flights on the Red Planet for the past two-and-a-half years. The experimental helicopter arrived on Mars along with NASA’s Perseverance explorer, or rover, in February 2021.",
+      "Both the rover and helicopter have been collecting images and data as they explore an area known as Jezero Crater. The goal of the exploration effort is to search for signs of ancient life on Mars.",
+      "Ingenuity made history on Mars",
+      "Ingenuity made history in April 2021 by becoming the first aircraft to complete a powered, controlled flight on another planet. NASA officials have said the helicopter has performed far above expectations. Agency engineers planned on Ingenuity completing just five experimental flights on Mars. But the helicopter has so far performed 66 flights. It has provided NASA with valuable data on building future aircraft to fly in space.",
+      "Travis Brown is Ingenuity’s chief engineer at NASA’s Jet Propulsion Laboratory (JPL) in California. He said in a statement that with nearly every flight, the helicopter has progressed in new ways. Brown noted that over the past nine months, Ingenuity had doubled its top speed and height records. In addition, the aircraft’s operating speed and landings improved.",
+      "Most Ingenuity flights only last two to three minutes. This is because the helicopter has energy and temperature limitations.",
+      "NASA engineers say they have also been careful not to try to fly Ingenuity too fast because this can cause problems with its navigation system. The helicopter uses a camera to identify rocks and other things on the surface as it travels. If the aircraft goes too fast, it might not be able to navigate the best way forward.",
+      "Controllers on the ground have said that to help with this issue, they have sent commands to Ingenuity to fly at higher levels. This way the aircraft has less chance of losing its way because surface objects stay in view longer.",
+      "NASA says Ingenuity established a new height record, on flight 61, of 24 meters as it examined Martian wind conditions. On flight 62, the helicopter set a new speed record of 10 meters per second. During this flight Ingenuity also identified a new place for the Perseverance rover to carry out science experiments.",
+      "Testing new helicopter design on Earth",
+      "As that testing continues on Mars, teams on the ground have been experimenting with new rotor blades. These could be used in the future with a new generation of Mars helicopters. During the tests, engineers reported the rotor blades had reached speeds nearly equal to Mach 1, the speed of sound.",
+      "The blades tested on Earth are made of carbon material and are more than 10 centimeters longer than Ingenuity’s. The blades were designed to be both faster and stronger. NASA has said such rotor blades should be able to support bigger, more complex helicopters. The team said in a statement the helicopter design must reach the right balance. If the blades spin too fast, this causes control issues that can increase the risk of crashes.",
+      "The Earth-based tests were carried out in September inside a space simulator at NASA’s JPL. For these experiments, the simulator aimed to establish a Mars-like environment. The team was measuring tests of the rotor blades with sensors, cameras and other equipment. Many different speeds were tested and the blades were repeatedly repositioned to observe the best results.",
+      "“We spun our blades up to 3,500 rpm, which is 750 revolutions per minute faster than the Ingenuity blades have gone,” said Tyler Del Sesto, a leader of the JPL testing. “These more efficient blades are now more than a hypothetical exercise. They are ready to fly,” he added.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "navigate",
+        "pos": "v",
+        "meaning": "to find the right direction to travel in by using maps of other equipment"
+      },
+      {
+        "word": "rotor blade",
+        "pos": "n",
+        "meaning": "thin, flat pieces of material that spin to make aircraft lift off the ground and travel"
+      },
+      {
+        "word": "simulator",
+        "pos": "n",
+        "meaning": "a machine used to practice operating a vehicle or piece of equipment without having to actually use those things"
+      },
+      {
+        "word": "efficient",
+        "pos": "adj",
+        "meaning": "working well and not wasting time or energy"
+      },
+      {
+        "word": "hypothetical",
+        "pos": "adj",
+        "meaning": "a situation or idea has been suggested but does not yet really exist or has not been proven to be true"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/nasa-continues-mars-helicopter-experiments-tests-new-design-on-earth/7379281.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Bryan Lynn wrote this story for VOA Learning English, based on reports from NASA."
+  },
+  {
+    "id": "voa-doc-6894375",
+    "title": "How to Keep a Betta Fish",
+    "series": "Health & Lifestyle",
+    "seriesId": "health-lifestyle",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2022/12/28/09410000-0a00-0242-2f34-08dae87139ea.mp3",
+    "words": 769,
+    "transcript": [
+      "Betta fish are known for their bright colors. They are popular with Americans as pets.",
+      "They are often kept alone in a small tank. Male fish are prized for their stronger colors and beautiful fins.",
+      "With good care, bettas live three to five years, but some are known to live 10 years.",
+      "In the northern parts of the world, winter has arrived, and some people might be wondering what to do with their time now that they are indoors. Keeping a betta fish can be a fun hobby that does not involve going outside. It also does not require too much skill, but you do have to be willing to learn.",
+      "But how do you take care of a betta fish?",
+      "Required parts",
+      "First, betta fish need a home. A tank that holds at least 11 liters of water is suggested although 19 liters is better. Larger tanks are better because the water needs to be changed less often and provides a healthier environment for the fish.",
+      "Second, the tank needs small rocks or sand at the bottom. In the pet fish industry, this is called substrate. A few centimeters at the bottom are all that is needed. Clean the rocks or sand with running water without soap until it runs clear before adding them to the tank.",
+      "Third, a filter is needed to purify the water. Many people keep bettas without filters. But the fish should be raised with a filter to stay healthy. Follow the filter’s guidelines and choose a filter that is the right size for the tank.",
+      "Fourth, a heater is suggested to keep your fish in good condition. These fish prefer warmer water, usually between 24 and 28 degrees Celsius. Pet stores sell heaters for fish. Choose the right size for your aquarium and follow its guidelines, or instructions, to set it up.",
+      "A light and decorations are the final details to set up your tank. A light may not be necessary if the room receives enough natural light. But an electric light might be helpful if you wish to grow plants in the tank. If real plants seem like too much work, plastic plants work as well. You can also find other decorations like rocks, or wood pieces. Just make sure they are safe for fish.",
+      "Water quality and temperature",
+      "The quality of the water is important to keeping a fish alive and healthy. The filter and heater will do a lot to keep the water safe for the fish, but there are additional steps you should take.",
+      "Make sure the water you add to the tank is safe for fish. Tap water can be used. But it usually contains a chlorine-based chemical harmful to fish, so additional steps need to be taken.",
+      "Krista Keller is a professor at the University of Illinois at Urbana-Champaign College of Veterinary Medicine. Writing online in 2019, she said, “If tap water is used in the tank, it is recommended to use a dechlorinating product and test for heavy metals.”",
+      "Pet stores sell dechlorinating chemicals and they are easy to use. Just follow the instructions on the container. Stores also sell home water testing products. But many fish stores are happy to test your water if you bring in a small amount. They can also provide advice on keeping fish in your area’s water.",
+      "Betta fish care",
+      "After setting up your tank, there are a few more things to consider. You will need to feed your fish and change its water.",
+      "There are many choices for food. There are pellets, frozen whole foods, freeze-dried foods, and live food. Pet stores will carry many of these. Feed your fish once to twice a day. Whatever food you choose, make sure it contains meat or insects because that is what bettas eat in the wild.",
+      "It is suggested to change one fourth of your tank's water once every week or two. Remove the old water and add fresh water. Your filter also may require some additional cleaning every month or so.",
+      "Tank friends",
+      "Male betta fish are kept alone because they are aggressive fish. Another name for bettas is Siamese fighting fish. Males should never be kept with other betta males. If you have a larger tank with other fish, they might live together peacefully. But know that male betta fish often attack other fish and may have to live separately.",
+      "Female betta fish can live with other fish peacefully. A group of females can be kept too. Make sure they have a tank that is large enough and a filter designed for the tank’s size.",
+      "I’m Jill Robbins."
+    ],
+    "tuKho": [
+      {
+        "word": "fin",
+        "pos": "n",
+        "meaning": "the part of a fish or marine mammal that the animal uses to move or affect its movement"
+      },
+      {
+        "word": "pet",
+        "pos": "n",
+        "meaning": "an animal (such as a dog, cat, bird, or fish) that people keep mainly for pleasure"
+      },
+      {
+        "word": "hobby",
+        "pos": "n",
+        "meaning": "an activity that a person does for pleasure when not working"
+      },
+      {
+        "word": "filter",
+        "pos": "n",
+        "meaning": "a device that is used to remove something unwanted from a liquid or gas that passes through it"
+      },
+      {
+        "word": "decoration",
+        "pos": "n",
+        "meaning": "something that is added to something else to make it more attractive"
+      },
+      {
+        "word": "tap",
+        "pos": "n",
+        "meaning": "a device that controls the flow (usually of water) from a pipe or tank"
+      },
+      {
+        "word": "recommend",
+        "pos": "v",
+        "meaning": "to suggest that someone do (something)"
+      },
+      {
+        "word": "dechlorinate",
+        "pos": "v",
+        "meaning": "to remove chlorine from a substance"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/how-to-keep-a-betta-fish/6894375.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Gregory Stachel wrote this story for VOA Learning English."
+  },
+  {
+    "id": "voa-doc-6352213",
+    "title": "Another Year of COVID-19, Variants and Restrictions",
+    "series": "Health & Lifestyle",
+    "seriesId": "health-lifestyle",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2021/12/15/f72d0b93-833b-4b7e-856c-3d9532befacb.mp3",
+    "words": 781,
+    "transcript": [
+      "There was so much to look forward to at the start of 2021.",
+      "The question was when, and not if, the health crisis that spread from a market in Wuhan, China would finally end.",
+      "Scientists developed two highly effective vaccines against the coronavirus in record time. Several more were waiting for approval.",
+      "Vaccines",
+      "Governments in the United States, Europe, and Israel spent billions of dollars to start the biggest vaccination program in history. The effort included vaccines from drug companies Pfizer-BioNTech, Moderna and others.",
+      "China and Russia developed their own vaccines. And the UN-backed COVAX program purchased shots for developing and poor countries around the world.",
+      "In May, the U.S. and Western nations expanded the program to vaccinate young children. Health officials issued new guidelines advising that fully vaccinated people no longer needed to wear face coverings in most situations. The move was seen as the first step toward returning to normal conditions that existed before the pandemic.",
+      "Variants",
+      "But, scientists began to worry about the new versions of the coronavirus, called variants, soon after people started to receive the new vaccines.",
+      "It is normal for viruses to mutate, or change, over time. A mutation that strengthens the virus helps it to spread by pushing out the weaker versions. In February, the head of Britain’s vaccination effort said the world faced around 4,000 variants of the virus that causes COVID-19. But only some would raise concern.",
+      "There were so many “variants of concern” with hard-to-remember scientific names that the World Health Organization (WHO) started to name them after the letters of the Greek alphabet. The two most worrisome variants now are Delta and Omicron.",
+      "In the early days of the pandemic, many Asian countries appeared to have successfully fought the virus with strong measures. By July, countries, including Japan, South Korea, Vietnam, and Thailand, were setting records for new cases and deaths. The Delta variant appeared at a difficult time. When it started being reported, vaccination rates remained low in many countries. And officials were moving quickly to reopen economies. Then, infections of the Delta variant became widespread. Governments, businesses, and schools reacted with more vaccination requirements and restrictions.",
+      "Some countries started to restrict international travelers and closed borders over concerns about the fast-spreading Omicron variant. The U.S., Israel, Britain, and other nations now advised their citizens to get an additional shot, called a booster, to fight the new variant.",
+      "Will it ever disappear?",
+      "After another year of face coverings, restrictions, vaccines and variants, people are beginning to wonder whether this pandemic will ever go away.",
+      "The answer is yes and no.",
+      "Many scientists believe that the new coronavirus is here to stay. In February, the science publication Nature reported the results of a study involving more than 100 scientists. Eighty-nine percent said they believed the SARS-CoV-2 virus, the one that causes COVID-19 disease, will become endemic. Endemic means the virus will continue to exist in some areas for years to come.",
+      "For example, Malaria is considered endemic to many warm, wet areas across countries in Asia, Africa, and South America. But it is not a problem in the United States or other Western nations.",
+      "The way to end a pandemic is to reach herd immunity. Herd immunity is when many people in a community either have recovered from an infection or have been vaccinated. It does not mean everyone is protected from the virus. However, when herd immunity is reached, the virus can no longer spread easily, which helps protect those who are at risk.",
+      "As nations joined together to fight the pandemic, health officials started to sound the alarm about another public health crisis: mental health.",
+      "The U.S. Surgeon General said the pandemic’s high number of deaths, forced social distancing, and lockdowns of the economies have created new pressure, especially on young people.",
+      "He wrote, “It would be a tragedy if we beat back one public health crisis only to allow another to grow in its place.”",
+      "Hopeful signs",
+      "There is hope, however.",
+      "In early November, American drug-maker Pfizer reported that its experimental antiviral pill for COVID-19 cuts hospitalizations and death rates by nearly 90 percent in high-risk adults. This came after Merck had reported success in testing its version of the COVID-19 pill a month earlier.",
+      "Although health officials have already approved several treatments for COVID-19, all of them must be injected by healthcare workers. But pills can be taken at home and are easier to send around the world.",
+      "Both companies have since agreed to provide other drug-makers with special permission to produce the COVID pills. The move is aimed at helping people in poorer countries get the drug.",
+      "I’m Caty Weaver. And I'm Mario Ritter, Jr."
+    ],
+    "tuKho": [
+      {
+        "word": "allow",
+        "pos": "v",
+        "meaning": "to permit something to happen, for example, to be used or sold"
+      },
+      {
+        "word": "pill",
+        "pos": "n",
+        "meaning": "a small, rounded object that you swallow and that contains medicine, vitamins, or some treatment"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/another-year-of-covid-19-variants-and-restrictions/6352213.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Hai Do wrote this story for Learning English. Mario Ritter, Jr. was the editor."
+  },
+  {
+    "id": "voa-doc-7532255",
+    "title": "Vernal Equinox Marks Arrival of Spring",
+    "series": "Arts & Culture",
+    "seriesId": "arts-culture",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/03/18/01000000-0aff-0242-bc8f-08dc47721fcc.mp3",
+    "words": 823,
+    "transcript": [
+      "This year, the vernal equinox officially arrives on Tuesday, March 19 at 11:06 pm in Washington, D.C. That is 3:06 UTC on Wednesday, March 20. At that time, the sun will be exactly above the Earth’s equator.",
+      "The word vernal comes from the Latin word vernalis, meaning “of the spring.” And equinox comes from the Latin words aequus, meaning equal, and nox, meaning night. The day has 12 hours of daylight and 12 hours of nighttime.",
+      "And in the Northern Hemisphere, the day marks the beginning of spring.",
+      "On this day, people living in colder areas of the Northern Hemisphere hope they can put away their winter clothes. They also may soon start planting flowers and vegetables in a garden.",
+      "Here in Washington, D.C., March 20 also marks the first day of the National Cherry Blossom Festival. Each year, people from around the world come to see the beautiful pink and white blossoms on the thousands of flowering cherry trees. For Washingtonians, the cherry blossoms are a welcome sign that spring has arrived.",
+      "In ancient times, some cultures built structures to signal the start of spring. Around the year 1000 A.D., for example, the Maya built a pyramid in what is now Mexico’s Yucatan. It sits within an ancient city called Chichen Itza.",
+      "On the spring equinox, the sunlight hits in a way that makes the structure look like a snake. The Maya called this day “the return of the Sun serpent.”",
+      "Today, cultures worldwide have their own ways of identifying and celebrating the arrival of spring.",
+      "Cherry blossoms",
+      "In Japan, spring is marked with a huge cherry blossom festival, known as hanami. The tradition dates back more than a thousand years. People gather under the blooming trees to eat, drink tea, celebrate and enjoy the cherry blossoms, known as sakura in Japanese. Artists and poets celebrate the short-lived blooms as a symbol of beauty.",
+      "In 1912, Japan gave 3,000 cherry trees to the U.S. capital city of Washington, D.C. The gift was to honor the lasting friendship between the United States and Japan. ​",
+      "Nowruz",
+      "For many countries in Central Asia and the Middle East, the vernal equinox also marks the beginning of a new year. The celebration is called Nowruz. The words \"now\" and \"ruz\" mean “new day” in Farsi.",
+      "Countries along the ancient Silk Road trading path, including Afghanistan, Iran, Turkey, Uzbekistan, and other Central Asian nations, celebrate Nowruz.",
+      "In the past, Iran was the only country where Nowruz was an official holiday. But after countries gained their independence following the fall of the Soviet Union, many made Nowruz a national holiday, as well.",
+      "During Nowruz, people visit family members and friends and exchange gifts. Iranian families set up a “haft seen” display of seven special items that represent spring and new beginnings.",
+      "In Uzbekistan and other places in Central Asia, people watch wrestling events, horse races and a special horseback game called, in Uzbek, Kopkari. In this game, two teams of players on horseback try to get the body of a headless goat into a goal. A similar game is called buzkashi in Afghanistan and oghlak tartish in Kyrgyzstan and Uyghur-speaking areas.",
+      "Holi festival",
+      "Many in India and Nepal mark the arrival of spring with the Holi festival, known also as the festival of colors or the festival of love.",
+      "This year, Holi will take place on March 25.",
+      "People celebrate the festival by covering each other in -- you guessed it -- colors! Children especially enjoy the festival, as they get to throw colored powder and water-filled balloons at others.",
+      "Some say the festival comes from a story of the burning of the devil Holika. It represents the victory of good over evil, or the arrival of spring after a long, dark winter.",
+      "Others say the celebration was inspired by the story of two young lovers with different skin colors. Krishna, who has blue skin, was in love with Radha. So, he colored Radha with paint leading to the modern-day colorful festival of love.",
+      "Las Fallas",
+      "People in Valencia, Spain, have their spring celebration called Las Fallas. It is a wild street festival involving fire.",
+      "The festival centers on the creation – and burning – of huge colorful statues made of wood, paper and plastic. The statues are meant to look like real people. Valencian communities and organizations work all year to create these structures and place them throughout the city, with fireworks inside.",
+      "Las Fallas celebrations began on March 15, with events like bullfights, parades, and cooking and beauty competitions. Then, at midnight on March 19, the city turns off all its streetlights and the statues are set on fire.",
+      "This marks the end of the festival and the beginning of spring.",
+      "I'm Ashley Thompson. And I'm John Russell.",
+      "What do people do to mark the beginning of spring where you live? Let us know! Write to us in the Comments Section or on our Facebook page."
+    ],
+    "tuKho": [
+      {
+        "word": "serpent",
+        "pos": "n",
+        "meaning": "a large snake"
+      },
+      {
+        "word": "pyramid",
+        "pos": "n",
+        "meaning": "a very large structure built especially in ancient Egypt that has a square base and four triangular sides which form a point at the top"
+      },
+      {
+        "word": "blooming",
+        "pos": "adj",
+        "meaning": "producing flowers"
+      },
+      {
+        "word": "display",
+        "pos": "n",
+        "meaning": "an arrangement of objects intended to decorate or inform people about something"
+      },
+      {
+        "word": "powder",
+        "pos": "n",
+        "meaning": "a dry substance made up of very tiny pieces of something"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/vernal-equinox-marks-arrival-of-spring/7532255.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Hai Do wrote this story for Learning English. Ashley Thompson was the editor."
+  },
+  {
+    "id": "voa-doc-7148741",
+    "title": "American Orchestra Shares Arabic Music, Culture",
+    "series": "Arts & Culture",
+    "seriesId": "arts-culture",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2023/06/29/01000000-0a00-0242-d292-08db78a29550.mp3",
+    "words": 976,
+    "transcript": [
+      "Michael Ibrahim is busy building bridges. But his bridges are not made of steel. And they do not cross rivers. Instead, they are made of music and cross cultures.",
+      "Ibrahim is the founder and director of the National Arab Orchestra (NAO). The group is based in the state of Michigan. It aims to preserve and share Arabic music and culture in the United States through its performances and education programs.",
+      "“We want to be an organization that is sort of the cultural representative of the Arab-American community,” Ibrahim said.",
+      "At an NAO concert, the orchestra quickly makes connections with its listeners. As the musicians begin to play, Ibrahim moves his body up and down like a dancer. Soon, audience members start moving to the music’s rhythm.",
+      "Suddenly, Ibrahim turns around and faces the audience. He urges them to clap their hands to the beat of the music. And he urges them to sing along with parts of a well-known song from Egypt or Lebanon.",
+      "With each song, the bridge between the audience and the orchestra grows.",
+      "Decreasing fear and increasing awareness",
+      "Ibrahim spoke about the need to help people know more about the culture of Arab-Americans:",
+      "“The Arab-American community had to face a lot of discrimination, just because they’re different, like any other minority community in this country. And that was magnified, you know, after the events of September 11.”",
+      "He added that after the terror attacks of September 11, 2001, there was a lot of false information. He said, “There is a huge debate on the meaning of the word, ‘Arab’, and what is Arab culture”",
+      "“So we’re doing this to bring awareness about the culture, build these bridges so that people can have a chance to engage with each other, and then that in turn makes the world just a much better and easier place to live in because people are less afraid. . .”",
+      "He added, “I really love to share who I am, and I feel like the best way for me to do that is for me to share my culture. . .but I also am born here. And what is American culture if not just this giant melting pot of constant immigration into this country that makes it what it is?”",
+      "Beginnings",
+      "Ibrahim was born into a Syrian immigrant family in Michigan. He said he was able to connect to his family’s culture through music and the arts. When he was 10, he spent a year living in Syria with his family.",
+      "Back in the U.S., he learned to play the oud, a stringed instrument his father played. He then studied both Western and Arabic music.",
+      "The NAO started in 2009 as a student musical group at the University of Michigan under Ibrahim’s direction. Soon it doubled in size and became the Michigan Arab Orchestra in 2010. It changed its name and began playing as the NAO in 2014. In the 2022-2023 season, the orchestra played together at 12 events, including a performance at the Kennedy Center in Washington, D.C.",
+      "Ibrahim noted that the group tries to represent all the countries of the Arab world today. But he said much of the music they play comes from Egypt, Lebanon, Israel, and Syria.",
+      "Musical elements",
+      "The musicians in the orchestra are diverse. Some were born in the Middle East and moved to the United States. Others are Arab-Americans born in the U.S. And some are from the U.S. but have no family connection to Arab countries.",
+      "The tonal and rhythmic patterns central to Arabic music are different from Western music. So are some of the instruments the musicians play.",
+      "Throughout almost every song, Arabic orchestras have musicians playing different kinds of hand drums and tambourines. This gives the music a strong rhythmic feel. Two kinds of lutes, the oud and the buzuq, are among the instruments that help give the music its special sound. Another important instrument is the qanun.",
+      "Ibrahim arranges the music that the orchestra plays. That means he writes down what each instrument will play. Depending on the piece, this can take him anywhere from two weeks to two months to finish.",
+      "One of the big goals of Ibrahim and its executive director, Sherri Richards, is to create a year-round school of Arabic music in the U.S.",
+      "“We’re keeping this culture alive and we’re building on it and letting it grow in its own unique way in this part of the world,” Ibrahim said. “You have to share it with everybody; you can’t just keep if for yourself. So that’s the cross-cultural work,” he added.",
+      "Along with concerts, another way the NAO shares its culture is with its Building Bridges Through Music program. This includes an after-school program teaching Arabic music in the public schools of Detroit, Michigan.",
+      "Supporting the arts",
+      "In January, the NAO concert in Washington, D.C. sold out in less than three hours. About 1,100 people attended the concert.",
+      "Richards, the executive director of the NAO, said, “We have over 400,000 followers on YouTube, which is more than any other orchestra in the world…”",
+      "“That,” she added “really speaks to the reach and the popularity of the music and the orchestra.”",
+      "Ibrahim explained that the arts bring people together in special ways.",
+      "“I guess there’s a case to be made for the place of the arts in spreading democracy. With the arts you have the ability to bring people from a variety and diverse geographical makeup. . . It works. We’ve shown that for the last 15 years we’ve been doing it.”",
+      "Ibrahim shared a central reason for supporting the arts. “I think it’s really important that people support the arts,” he said, “because that’s where the soul of humanity resides.”",
+      "I’m Jill Robbins. And I’m Andrew Smith.",
+      "We have a new comment system. Here is how it works:",
+      "Write your comment in the box."
+    ],
+    "tuKho": [
+      {
+        "word": "preserve",
+        "pos": "v",
+        "meaning": "to maintain or keep something safe and protected over a long period of time"
+      },
+      {
+        "word": "concert",
+        "pos": "n",
+        "meaning": "a performance of music in front of an audience"
+      },
+      {
+        "word": "orchestra",
+        "pos": "n",
+        "meaning": "a large group of musicians playing a variety of musical instruments, especially those used for classical music"
+      },
+      {
+        "word": "audience",
+        "pos": "n",
+        "meaning": "people attending a public performance such as a concert, play, or speech"
+      },
+      {
+        "word": "rhythm",
+        "pos": "n",
+        "meaning": "how a piece of music is organized in time"
+      },
+      {
+        "word": "clap",
+        "pos": "v",
+        "meaning": "to hit the palms of the hands together, usually to express approval"
+      },
+      {
+        "word": "magnify",
+        "pos": "v",
+        "meaning": "to make something seem larger or more important than normal"
+      },
+      {
+        "word": "engage with",
+        "pos": "v",
+        "meaning": "to interact with"
+      },
+      {
+        "word": "diverse",
+        "pos": "adj",
+        "meaning": "having variety or many types"
+      },
+      {
+        "word": "soul",
+        "pos": "n",
+        "meaning": "the innermost part of a person’s mind and spirit"
+      },
+      {
+        "word": "reside",
+        "pos": "v",
+        "meaning": "to live or exist in a certain place"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/american-orchestra-shares-arabic-music-culture/7148741.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Andrew Smith wrote this story for VOA Learning English."
+  },
+  {
+    "id": "voa-doc-6998098",
+    "title": "Play Explores Humor, Complexity of Learning English",
+    "series": "Arts & Culture",
+    "seriesId": "arts-culture",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2023/03/10/01000000-0aff-0242-5176-08db21803cd2.mp3",
+    "words": 864,
+    "transcript": [
+      "Anyone who has learned a foreign language knows how uncomfortable the experience can be. But learning a new language is also enjoyable, meaningful and humorous.",
+      "The play “English” explores those ideas and more. The comedy is about four Iranian students in an upper-level English class preparing to take the TOEFL, the Test of English as a Foreign Language. The play is set in Iran over the course of one term.",
+      "The students are all adults with different English abilities and different reasons for taking the class.",
+      "Elham is hoping to go to medical school in Australia but must first pass the TOEFL. She has already failed the test five times and sometimes seems to hate English.",
+      "Goli is the youngest of the group. Of all the students, she is the most excited about learning the language. Roya wants to learn English so she can communicate with her grandchildren who live in Canada. And Omid is already very good at English. It is unclear why he wants to be in the class.",
+      "The teacher, Marjan, lived in Britain for several years. But she is worried about losing her fluency.",
+      "“English” was first released in New York City in 2022. It began showing in Washington, D.C., in January. It finishes its run in the nation’s capital on March 12.",
+      "“English” recently won the Obie Award for Best New Play. The Obie awards honor theater that is off-Broadway.",
+      "Sanaz Toossi, an Iranian-American, wrote the play. In a press release, she said that giving up a native language to move someplace else “can be an immensely painful experience for so many people…”",
+      "“I wanted to capture that, but I also wanted to honor how funny, textured, and sometimes contradictory Iranians (and all of us) can be.”",
+      "The students in the class play word games, listen to English-language songs, and watch American romantic comedies. Marjan has banned the use of Farsi in the class. But the rule is often broken.",
+      "The play is entirely in English. But through changing their voices, the characters show that they are \"speaking\" Farsi. When the students speak English, they do so in a strong Persian accent. Their sentences are often simple, because they are learning and speaking a foreign language. Words are spoken incorrectly.",
+      "But when the characters speak English in a perfect American accent, that means to the audience that they are speaking Farsi. When the characters speak Farsi, also called Persian, they can communicate much more clearly and can better express themselves.",
+      "The play explores how one’s personality can change or even be lost when speaking a foreign language. It also deals with how speaking a different language can make a person question their sense of identity.",
+      "Elham, who is a proud person, feels shame when she speaks English. When speaking English, Elham says she feels “like idiot” (“Like an idiot,” Marjan, the teacher, corrects her).",
+      "Marjan says she feels more like herself when she speaks English. But Roya does not feel like she can have an honest discussion with her son in English.",
+      "Tara Grammy is the actor who plays Elham. She was born in Iran and raised in Canada. Unlike the character Elham, Grammy enjoys learning languages. She speaks both English and Farsi fluently and also knows some German and French.",
+      "Grammy told VOA, “Different parts of us come out in different languages when you’re multilingual.” She said that English, which she is most skilled in, is the language of her intellect. Farsi is her language of love, she said.",
+      "“When I see a baby or I see a dog or something I speak to them in Persian,” Grammy said.",
+      "In the play, Goli says she likes English because it is like rice—you can make it however you would like. It is much different than Farsi, which she says always tries to sound like poetry.",
+      "Grammy agrees. “English is simple, it’s to the point. It's accessible, it's universal. Whereas Persian is absolutely poetry. It’s ancient. It's complex,” she said.",
+      "“You could learn English from reading a book,” she added. “But I feel like Persian you have to learn from people, because it's so layered and … just one phrase could mean 10 different things.”",
+      "Grammy thinks personality is not lost when speaking different languages. Instead, she said, “the more languages you know the more access you have to expressing different sides of yourself.”",
+      "I’m Dan Novak.",
+      "uncomfortable — adj. causing a feeling of being embarrassed or uneasy",
+      "fluent — adj. able to speak a language easily and very well",
+      "comedy— n. a play, movie, television program, novel, etc., that is meant to make people laugh",
+      "immense — adj. very great in size or amount",
+      "texture — n. the various parts of a song, poem, movie, etc., and the way they fit together",
+      "contradictory — adj. involving or having information that disagrees with other information",
+      "shame — n. a feeling of guilt, regret, or sadness that you have because you know you have done something wrong",
+      "idiot — n. a very stupid or foolish person",
+      "accessible — adj. easy to appreciate or understand",
+      "layered — n. a covering piece of material or a part that lies over or under another"
+    ],
+    "tuKho": [],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/play-explores-humor-complexity-of-learning-english/6998098.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Dan Novak wrote this story for VOA Learning English."
+  },
+  {
+    "id": "voa-doc-7496623",
+    "title": "Report: Language, Traditions Central to National Identity",
+    "series": "As It Is",
+    "seriesId": "as-it-is",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2024/02/21/01000000-0a00-0242-112e-08dc332a667e.mp3",
+    "words": 921,
+    "transcript": [
+      "Luciana de Oliveira considers herself transnational. That means she is more than one nationality. de Oliveira grew up in Brazil, but she moved to the United States for her studies. She became a U.S. citizen in 2017.",
+      "de Oliveira has some strong feelings about national identity. She believes speaking a country’s majority language is a very important part of one’s national identity. de Oliveira speaks both Portuguese and English.",
+      "A new study found that most people around the world share those feelings about language and national identity.",
+      "The Pew Research Center carried out the study and released the results last month. Pew’s study centered on people’s ideas about national identity. It included answers from people in more than 20 countries.",
+      "Pew researchers asked study participants about four aspects, or parts, of national identity: language, traditions, birthplace and religion. They found that language is by far the most valued aspect of national identity.",
+      "In fact, a median of 91 percent of people across 21 countries said that speaking a country’s most common language is “important for being considered a true national.”",
+      "Traditions and customs are also key to national identity, the study found. Beliefs about the other two aspects – birthplace and religion – were more divided.",
+      "VOA Learning English spoke with several people who live in countries that were included in the study. Among them is Jorge Catalan. He has lived in Mexico most of his life. The Pew study found that 93 percent of respondents from Mexico said that speaking the country’s main language – Spanish – is important to national identity.",
+      "Catalan said he agrees that speaking Spanish is very important. But he added that it is regrettable.",
+      "He said, “Mexico is a place where we have around 68 spoken languages besides Spanish.” He noted that the government has pushed Spanish as the main language throughout history and has turned it into a “must-have tool.”",
+      "Agatha Janzen was born and raised in Canada. Pew researchers found that more than 80 percent of Canadians say that speaking the country’s language is important to national identity. In Canada, both French and English are official languages.",
+      "Janzen said that “speaking one of the official languages is important to being Canadian for practical reasons.”",
+      "Traditions and customs are also a central aspect of national identity, the study found. Results showed 81 percent of people believe sharing their country’s customs and traditions is somewhat or very important to national identity.",
+      "The Pew study found that 67 percent of Brazilians consider practicing customs and traditions an important part of national identity. That is the fourth lowest percentage of all the countries included in the study.",
+      "But customs and traditions are important to de Oliveira. To feel closer to her Brazilian identity, she said she wears jewelry and shoes from Brazil and follows and supports Brazilian soccer.",
+      "Mexico is tied with the highest percentage of respondents who answered that customs and traditions are an important aspect of national identity. But for Catalan, they are not so important. He noted that Mexican traditions have changed over time. He added that he does not take part in many Mexican traditions, “but I still feel proudly Mexican.”",
+      "Beliefs about the two other aspects of national identity – birthplace and religion – were more mixed. A median of 58 percent of respondents from 23 countries said that being born in a country is important to national identity. An even lower number of respondents – 42 percent – said that being a member of the country’s main religion is important to national identity.",
+      "Respondents from Mexico and Indonesia had the strongest feelings about the importance of birthplace as central to national identity, at 91 percent.",
+      "Calatan, who was born and lived most of his life in Mexico, agrees somewhat. “If you are born outside of Mexico and never lived in it, it would be difficult to get a real sense of what being Mexican means.”",
+      "But Janzen, the Canadian, said, \"Being born in Canada has nothing to do with being Canadian.” For her, Canada is a melting pot and offers refuge to those who need it.",
+      "These ideas match the results of the study. Countries where immigrants make up a smaller share of the population tend to see birthplace as a more important aspect of national identity. Countries with a greater share of immigrants are more willing to accept those born outside of the country as true nationals.",
+      "Less than half of people in most of the countries in the study do not feel religion is important to national identity. All of those who spoke with Learning English said they agreed that religion is not an important part of national identity.",
+      "Christine Huang is a research associate at the Pew Research Center. She is one of the writers of the study. She told Learning English, “This question of belonging in a country is related to other work we have done to measure how connected people feel to each other.”",
+      "Huang added, “When looking at how people relate to others in their community, in their country, and all over the world, people most frequently report feeling close to others in their country.”",
+      "I’m Gena Bennett.",
+      "respondent—n. a person who answers questions",
+      "customs—n. the traditionally accepted behaviors of a culture",
+      "key—adj. most important",
+      "participants—adj. people who take part in an activity",
+      "practical—adj. real situations and events, not just theory or ideas",
+      "proud—adj. feeling pleasure or satisfaction about something",
+      "melting pot—figure of speech. a place where different people, beliefs, and cultures melt into one"
+    ],
+    "tuKho": [],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/report-language-traditions-central-to-national-identity/7496623.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Gena Bennett wrote this story for Learning English with reporting from Pew Research Center."
+  },
+  {
+    "id": "voa-doc-7405930",
+    "title": "How Connected Are You to the World?",
+    "series": "As It Is",
+    "seriesId": "as-it-is",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2023/12/21/01000000-0a00-0242-1755-08dc01cedef2.mp3",
+    "words": 702,
+    "transcript": [
+      "Saodat Sadikova is an English teacher in Jizzakh, Uzbekistan. As a young girl, she dreamed of becoming a flight attendant and traveling the world. Her parents told her she would have to learn at least three languages in order to reach that goal.",
+      "Although she was not able to become a flight attendant, Sadikova did study languages. She speaks Uzbek, Russian, English and Turkish.",
+      "Sadikova has never traveled outside Uzbekistan. Even so, she reports feeling connected to people around the world. “The whole world is for human beings,” Sadikova said. She still dreams of visiting many countries.",
+      "American Trina Bright worked in education for nearly 25 years. Today, she lives in the southern U.S. state of Arkansas. During her career, she traveled to many countries, including China and South Africa.",
+      "Bright used stories from her travels to help her students in the U.S. understand their place in the world. She spent most of her career in a minority-serving school district. Sharing stories from her travels helped her students see value in their own cultures. “There’s value in all experiences, not just typical American ones,” Bright said.",
+      "Bright has visited more than 20 countries. But Bright, unlike Sadikova, does not report feeling connected to people around the world.",
+      "Bright is not alone. She is among the more than half of Americans who report they do not feel especially close to people around the world.",
+      "That information comes from a new report by Pew Research Center, an organization that aims to inform the public about the issues, beliefs and trends shaping the world. The report, called Attitudes on an Interconnected World, was released on December 6.",
+      "Pew recently asked people in 24 countries a series of questions about how connected they feel to their own communities and countries as well as to people around the world. Pew researchers looked at, among other things, how international travel experience relates to feelings of connectedness.",
+      "About half of all respondents reported they feel at least somewhat close to people all over the world.",
+      "Feeling close to others around the world is more common in Europe than in most other places, the study found. In the United States, only 35 percent of the respondents said they feel at least somewhat connected to those in other countries. The percentage was even lower in Argentina (28 percent) and Indonesia (22 percent).",
+      "The study found that, in general, respondents who had traveled to at least one other country feel more connected to people around the world.",
+      "Ninety-nine percent of respondents in the Netherlands reported having visited at least one other country and about half said they had visited 10 or more countries. The Pew researchers found that 77 percent of respondents from the Netherlands said they feel at least somewhat close to people all over the world.",
+      "But international travel does not always mean a person feels a closeness to people around the world. Bright, the retired American schoolteacher, is one such exception. She said, “I don’t know a bunch of people around the world, just some.” And, she said, her connections to them are not especially deep.",
+      "Pew researchers found a similar case in Sweden. Ninety-nine percent of Swedish respondents said they had visited at least one other country. Yet a much smaller share of Swedish respondents – 47 percent – report feeling close to people all over the world.",
+      "In fact, a higher number of Indian respondents – 68 percent – report feeling at least somewhat close to people all over the world. Yet just 3 percent of respondents from India said they had traveled to another country. Such findings show that international connectedness can be formed in ways other than traveling overseas.",
+      "Sadikova, the Uzbek English teacher, told VOA Learning English she feels connected to people all over the world even though she has never traveled outside Uzbekistan. She said, “Some years ago it was difficult for us to get information about people in the world, but currently, because of media, it is quite easy to get acquainted with events and news.”",
+      "I’m Gena Bennett.",
+      "typical–adj. normal",
+      "respondent–n. a person who answers a question",
+      "somewhat–adj. a moderate amount",
+      "acquainted with—phrasal verb. to be informed about someone or something"
+    ],
+    "tuKho": [],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/how-connected-are-you-to-the-world-/7405930.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Gena Bennett wrote this story for Learning English with additional information from Pew Research Center."
+  },
+  {
+    "id": "voa-doc-5855771",
+    "title": "Make a Memory Palace to Improve Your English",
+    "series": "Education Tips",
+    "seriesId": "education-tips",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2021/04/20/6dffc231-cb3e-4662-afd5-f1208cbffed8.mp3",
+    "words": 924,
+    "transcript": [
+      "Sherlock Holmes is an imaginary private detective created by British writer Arthur Conan Doyle in the late 1880s. Doyle’s stories about the detective have been turned into movies and television shows.",
+      "One of Sherlock Holmes’ great skills is a powerful memory. In a recent BBC television series, the character uses a memory technique called a “mind palace” or “memory palace.”",
+      "On one show, for example, Holmes has been severely wounded in a shooting and retreats into his mind to search for ways to survive. He visits rooms in his mind palace, looking for helpful memories. In one room, he finds his childhood dog, and the memory helps calm the detective.",
+      "The memory palace idea was not a BBC creation. The method for remembering has existed for thousands of years. Many language educators today teach their students how to use the method to improve their language skills.",
+      "But what exactly is a memory palace? It is a real structure, such as a home or building, that you can picture in your head. You then imagine placing things you want to remember inside the structure.",
+      "You can use a memory palace to remember words, phrases, facts, or even the order of events. If you can see the inside of a house or building in your mind, you can make your own memory palace. On today’s Education Tips, we will show you how.",
+      "Making your palace",
+      "Start with a list of words or phrases that you want to remember. Then, close your eyes and choose a physical space that you know well, such as your home, a school you attended, or a current or former workplace. If your chosen space has only one or two rooms, do not worry. You can also use things like doors, passageways, steps or other permanent places along the physical path.",
+      "The next step is to imagine walking through the space using the path that you would normally take through it. As you walk through, put objects that you want to remember at specific places along the path. Leave the objects there to pick up later when you visit your memory palace.",
+      "Now, let’s try this technique by using six ingredients for a pizza: flour, water, dry yeast, tomato sauce, cheese and basil.",
+      "Close your eyes and picture a home.",
+      "First, you open the front door and see a bag of flour on the floor. The bag is broken and some of the flour has spilled. You are worried that you might slip, so you carefully step over the area.",
+      "Second, you walk into your bedroom. On top of your bed sits a cup of water. The cup is shaped like an upside-down piece of pizza. You think about how funny that is and laugh about it.",
+      "Third, as you enter the living room, you see a very large spoon of dry yeast sitting on the sofa. The spoon is watching a cooking show on television.",
+      "Fourth, while standing in the living room, you notice the room has a strange smell to it. You look above the television and see a block of cheese hanging on the wall.",
+      "Fifth, you walk into the kitchen and see two tomatoes chasing each other around the room. Suddenly, they crash and explode, covering the floor in red.",
+      "And sixth, you open the back door and go outside. There, you see a group of very tall green basil plants. In a funny voice, the tallest plant says, “Choose me! Choose me!”",
+      "Did you notice anything strange about the palace? It was full of extraordinary and humorous imagery. We will say more about that in a few minutes.",
+      "But first, let’s check how well our technique worked. See if you can answer these questions:",
+      "1-What was on the wall above the television?",
+      "2-Where were the tomatoes and what were they doing?",
+      "3-Which object was sitting on the bed?",
+      "4-Where was the yeast and what was it doing?",
+      "5-Which ingredient spoke and what did it say?",
+      "6-What did you see when you opened the front door?",
+      "My guess is that you remembered everything in our memory palace. That’s good news.",
+      "Make memory strong",
+      "Experts offer some advice for making strong memory palaces.",
+      "For instance, if you want to remember a lot of words, memory trainer Anthony Metivier suggests first drawing a simple map of your memory palace. Then, number the places along your path where you will put the things that you want to remember. You can put more than one thing in each room or area. Later, you will add the mental imagery.",
+      "English teacher James, of the YouTube channel JamesESL English Lessons, has additional advice. In his video on memory palaces, he says that there are three keys to a strong memory palace. They are: emotion, movement, and connections between the object and something permanent.",
+      "Both he and Metivier say imagining things in a humorous or crazy way improves your ability to remember them. These experts also agree that connecting images to actions or movement will create lasting memories. For instance, the tomatoes were chasing each other and the basil spoke.",
+      "And finally, teacher James suggests placing the objects next to or on something permanent in your palace. Beds, sofas, floors, walls, doors – all of these are permanent. The block of cheese was on the wall, for example.",
+      "Now, it’s your turn. Pick a list of English words or phrases that you have trouble remembering and try this method on your own.",
+      "Let us know how it goes.",
+      "I’m John Russell. And I’m Alice Bryant."
+    ],
+    "tuKho": [
+      {
+        "word": "palace",
+        "pos": "n",
+        "meaning": "a very large and impressive house"
+      },
+      {
+        "word": "ingredient",
+        "pos": "n",
+        "meaning": "one of the things that are used to make a food or product"
+      },
+      {
+        "word": "slip",
+        "pos": "v",
+        "meaning": "to lose your balance, especially on a slippery surface"
+      },
+      {
+        "word": "phrase",
+        "pos": "n",
+        "meaning": "a group of two or more words that express a single idea but do not usually form a complete sentence"
+      },
+      {
+        "word": "spoon",
+        "pos": "n",
+        "meaning": "an eating or cooking tool that has a small shallow bowl attached to a handle"
+      },
+      {
+        "word": "sofa",
+        "pos": "n",
+        "meaning": "a long and comfortable piece of furniture on which a person can sit or lie down"
+      },
+      {
+        "word": "kitchen",
+        "pos": "n",
+        "meaning": "a room in which food is cooked"
+      },
+      {
+        "word": "guess",
+        "pos": "n",
+        "meaning": "an attempt to give an answer about something when you do not know much about it or are not sure about it"
+      },
+      {
+        "word": "key",
+        "pos": "n",
+        "meaning": "something that is necessary in order to do or achieve something"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/improve-your-english-with-a-memory-palace/5855771.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Alice Bryant wrote this story for Learning English. Caty Weaver was the editor."
+  },
+  {
+    "id": "voa-doc-5332817",
+    "title": "Improve Your Reading Through Context Clues",
+    "series": "Education Tips",
+    "seriesId": "education-tips",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2020/03/20/89af7b99-a495-4894-a27e-d0487de66381.mp3",
+    "words": 870,
+    "transcript": [
+      "When you are reading something in English and you see a word or words you do not know, what do you do? Do you pause and look up the definitions? Or do you put down the reading and find something different to read?",
+      "Neither solution is ideal.",
+      "Unless you are reading at a level that is clearly too high for you, avoiding reading may leave you feeling defeated. And pausing to look up every word can slow down your reading.",
+      "There is a better solution: using context clues.",
+      "A context clue is a piece of information that appears near an unknown word or phrase and makes its meaning clearer. Context clues are right there in the text. But sometimes we don’t see them.",
+      "Reading is one of the best ways to improve your English. So in this week’s Education Tips, we will talk about four kinds of context clues that can help you become a better reader.",
+      "Tip #1: Synonyms",
+      "The first kind is synonyms.",
+      "As you come across unknown words while reading, look for synonyms. A synonym is a word or phrase that has a similar meaning to the unknown word.",
+      "Read and listen to this short passage from a Learning English story in 2015 and consider what “fundraiser” means:",
+      "Japanese food and music were also served to the 100 or so people who attended the event. This was the third year the fundraiser was held. Money raised from ticket sales – each ticket cost $100 to $150 – supports the National Cherry Blossom Festival.",
+      "Looking at the first sentence, you see an event is being discussed. In the second, the writer replaces the word “event” with the word “fundraiser.” When one word replaces another in a text, often it is a synonym. So, you might suppose that a fundraiser is some kind of event.",
+      "The third and fourth sentences say more about the kind of event: it has music and food and is raising money for a festival through ticket sales. And that’s often what happens at a fundraiser, which is a ticketed social event that raises money for a cause.",
+      "Tip #2: Antonyms",
+      "The second kind of clue is antonyms.",
+      "Antonyms are words that mean the opposite of a word.",
+      "One way to identify an antonym is to look for contrast words, such as “but,” “however,” “though,” “although,” “unlike,” “whereas” and “despite.” These words signal that some opposite idea or meaning is coming.",
+      "Let’s look at this sentence from a recent Learning English story. See if the contrast word “although” helps you understand what a “critic” is.",
+      "The United States will begin restricting visas to citizens from six other countries on February 21, although critics question the move.",
+      "The first part of the sentence states a policy change on visas. In the second part, the word “although” signals that contrasting information is coming, which is that critics are questioning the new policy. From this, we might guess that a critic is a person who disapproves of something.",
+      "Tip #3: Appositives",
+      "The third kind of clue is appositives.",
+      "An appositive is a noun or noun phrase that comes after another noun, where the second defines the first. That definition will make more sense after looking at the example below. It uses an appositive to explain the meaning of the word “constellation.” Here it is:",
+      "Constellations, or groups of stars that form shapes in the sky, usually represent a mythological person or creature or a nonliving object.",
+      "The sentence uses a comma followed by the word “or” to introduce the appositive “groups of stars that form shapes in the sky.” Punctuation is important here: Appositives usually have a comma before and after them.",
+      "But note that sometimes appositives do not use the signal word “or.” And be careful -- commas have many purposes in written texts and they do not always signal appositives.",
+      "Tip #4: Examples",
+      "The fourth kind of clue is examples.",
+      "Examples can help explain the meaning of a word or idea. In English, the most common ways we introduce examples are with the phrases “for example,” “for instance,” “such as” and “like.”",
+      "Here is a passage from a 2019 Learning English report about superbugs in the United States. See if the example helps you understand the meaning of “superbug.”",
+      "Superbugs are appearing much more often outside of hospitals, the CDC report said. For example, urinary tract infections have been easily treated in doctor’s offices with common antibiotic medicines. But now it is more common to see healthy young women with such infections admitted to hospitals after their treatments do not work, said Doctor Bradley Frazee.",
+      "So what might a “superbug” be? The example provided is of an infection that is not easily treated with antibiotics anymore. And that is exactly what a superbug is.",
+      "Some closing thoughts",
+      "And now for some closing thoughts.",
+      "Learning to use context clues can take time. Don’t pressure yourself to be great at the skill too quickly.",
+      "Also, it is often not necessary to know the meaning of every word to understand what you are reading. So the next time you come across a word you don’t know, ask yourself whether you can understand the sentence without it.",
+      "I’m Bryan Lynn."
+    ],
+    "tuKho": [
+      {
+        "word": "pause",
+        "pos": "v",
+        "meaning": "to stop doing something for a short time before doing it again"
+      },
+      {
+        "word": "ideal",
+        "pos": "adj",
+        "meaning": "exactly right for a particular purpose, situation or person"
+      },
+      {
+        "word": "phrase",
+        "pos": "n",
+        "meaning": "a group of two or more words that express a single idea but do not usually form a complete sentence"
+      },
+      {
+        "word": "text",
+        "pos": "n",
+        "meaning": "the words that make up the main part of a book, magazine, newspaper, Web site or something else"
+      },
+      {
+        "word": "contrast",
+        "pos": "n",
+        "meaning": "a difference between things or people that are being compared"
+      },
+      {
+        "word": "ticket",
+        "pos": "n",
+        "meaning": "a piece of paper that allows you to see a show, go to an event, travel on a vehicle, or do something else"
+      },
+      {
+        "word": "mythological",
+        "pos": "adj",
+        "meaning": "relating to, based on or appearing in myths or mythology"
+      },
+      {
+        "word": "comma",
+        "pos": "n",
+        "meaning": "a punctuation mark , that is used to separate words or groups of words in a sentence"
+      },
+      {
+        "word": "punctuation",
+        "pos": "n",
+        "meaning": "the marks, such as periods and commas, in a piece of writing that make its meaning clear"
+      },
+      {
+        "word": "urinary tract",
+        "pos": "n",
+        "meaning": "the body's drainage system for removing urine, which is composed of wastes and extra fluid"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/improve-your-reading-through-context-clues-/5332817.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Alice Bryant wrote this story for Learning English. Ashley Thompson was the editor."
+  },
+  {
+    "id": "voa-doc-5023664",
+    "title": "Train Your Brain to Think in English",
+    "series": "Education Tips",
+    "seriesId": "education-tips",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2019/07/31/2ba7b067-3262-4a5e-ac96-edbc33fe9d01.mp3",
+    "words": 992,
+    "transcript": [
+      "If you live in a place where most people speak the language you are learning, you may use the language for several hours each day.",
+      "So, it may become part of your “inner speech.” In other words, you start thinking in that language. Your mind stops trying to translate things from your native language into the second language.",
+      "But, the majority of the VOA Learning English audience lives in places where English is not the main language.",
+      "This may be true for you. You may not have many chances to practice English. You may even be self-taught.",
+      "When you speak, your speech might be slower than you would like. This is because your mind is still translating from your first language, which can also sound unnatural. English, like every other language, has its own sentence structure.",
+      "The good news is that thinking in English can bring you a huge step closer to fluency! It is not very difficult, but it does take conscious effort and practice.",
+      "On today’s Education Tips, we will share some mental exercises that can help.",
+      "Think in single words",
+      "Most experts note that it’s best to start small. So, a good first step is to think in individual words.",
+      "Look around you. What do you see? In your head, try to name each object in your surroundings.",
+      "Charles Thomas has taught English to Union members, children and teenagers for over 10 years. He has also helped open schools in several countries. He currently works for EF International Schools in Washington, D.C.",
+      "Thomas tells his students to name the things that they see around them, wherever they are.",
+      "“As you continue with this, it becomes more of a habit, so things are going to pop up into your head – computer, telephone, chair, desk. Whatever it is…wherever you are.”",
+      "Start with nouns and then add in verbs, he suggests.",
+      "He says you can also do this at home when you wake up and before you go to sleep.",
+      "Teacher Andrew Hinshaw also finds this exercise helpful.",
+      "He has been teaching English for 12 years, including in Vietnam for the U.S. Department of State. He currently teaches at the Carlos Rosario International Public Charter School in Washington, D.C.",
+      "Hinshaw remembers one method some of his Vietnamese students liked.",
+      "“I’ve had students tell me that they label everything in their room or their apartments so that these English words, kind of, stick in their heads.”",
+      "Describe unknown words",
+      "Another exercise that both Thomas and Hinshaw suggest is describing in your mind objects you don’t know the words for.",
+      "An example would be if you couldn't think of the word \"garage,” Thomas says.",
+      "“If you’re looking at your house and you see your garage, but you can’t think of the name in English, you can say, ‘The place inside where I put my car.’ Or you can say, ‘It’s next to my house. I keep things there.’”",
+      "He says you can also use shorter phrases, such as “It’s similar to…” or “It’s the opposite of…”",
+      "Hinshaw says doing this can help learners of any language. As a Spanish learner, he does it himself.",
+      "Think in sentences",
+      "The next exercise is thinking in simple sentences.",
+      "For example, if you are sitting in a park, you can tell yourself things like, “It’s such a beautiful day” and “People are playing sports with their friends.”",
+      "Once this becomes easy, you can move on to more difficult sentences.",
+      "Hinshaw sometimes uses this exercise to think about what he wants to say to people in Spanish.",
+      "“I definitely try to say these sentences in my head or try to put the words together without thinking too much about if it’s absolutely correct.”",
+      "Describe your day",
+      "Another exercise experts suggest is to describe your daily activities. There are a few ways to do this.",
+      "Thomas asks his beginning-level students to describe their day using the simple present verb form. So, they would think to themselves things like, “I put on my shirt” and “He drives the bus.”",
+      "Other experts say you can mentally make plans in the morning when you wake up. This would require other verb tenses. So the skill level is a little higher.",
+      "For example, you might tell yourself, “When I leave the house, I’m going to get an iced coffee. Then, I’ll take the train to class. I’m studying with Paola today. She said she booked a study room at the library for 2 p.m.”",
+      "Think in conversation",
+      "Now, let’s move to thinking in conversation.",
+      "When you do this, you are imagining yourself speaking to someone else. You are asking the questions and thinking of replies.",
+      "This is a great way to practice what you might say in a real conversation.",
+      "For example, let’s say the imaginary person asks you a question like, “What did you think of the award show last night?” How would you answer? Imagine the conversation and practice it in your head.",
+      "You can do this out loud or in silence.",
+      "Take notes",
+      "For all of these exercises, there will of course be words and phrases that you do not know. So, at some point you will need to use a dictionary.",
+      "If your skill level is high enough, you might consider using an English-to-English dictionary.",
+      "Hinshaw suggests writing down just five to 10 new words and phrases each day.",
+      "Keeping a notebook, he says, helps you remember the situation that you needed that word or phrase for. This makes it easy to recall when you are in such a situation again.",
+      "Practice it daily",
+      "So, how much time should you spend on these exercises?",
+      "Thomas says do a little every day.",
+      "“So when you’re doing it every day, over and over again, little by little, that’s the key. Because, when you make things a habit, then it just pops up into your mind without thinking and then, before you know it, really, you’re thinking in English.”",
+      "I'm Alice Bryant."
+    ],
+    "tuKho": [
+      {
+        "word": "translate",
+        "pos": "v",
+        "meaning": "to change words from one language into another language"
+      },
+      {
+        "word": "practice",
+        "pos": "v",
+        "meaning": "to do something again and again in order to become better at it"
+      },
+      {
+        "word": "fluency",
+        "pos": "n",
+        "meaning": "the ability to speak easily and smoothly"
+      },
+      {
+        "word": "teenager",
+        "pos": "n",
+        "meaning": "someone who is between 13 and 19 years old"
+      },
+      {
+        "word": "habit",
+        "pos": "n",
+        "meaning": "a usual way of behaving"
+      },
+      {
+        "word": "pop up",
+        "pos": "v",
+        "meaning": "to appear in usually a sudden or unexpected way"
+      },
+      {
+        "word": "label",
+        "pos": "v",
+        "meaning": "to put a word or name on something to describe or identify it"
+      },
+      {
+        "word": "garage",
+        "pos": "n",
+        "meaning": "a building or part of a building in which a car or other vehicle is kept"
+      },
+      {
+        "word": "absolutely",
+        "pos": "adv",
+        "meaning": "completely or totally"
+      },
+      {
+        "word": "book",
+        "pos": "v",
+        "meaning": "to make arrangements so that you will be able to use or have something, such as a room, at a later time"
+      },
+      {
+        "word": "silence",
+        "pos": "n",
+        "meaning": "a period of time in which people do not talk"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/train-your-mind-to-think-in-english/5023664.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Alice Bryant wrote this story for Learning English. Ashley Thompson was the editor."
+  },
+  {
+    "id": "voa-doc-3270255",
+    "title": "Successful Debate Is Like Building a House",
+    "series": "Education Tips",
+    "seriesId": "education-tips",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2016/04/05/b0edb331-ea39-462a-af68-00bc7f15e8c3.mp3",
+    "words": 897,
+    "transcript": [
+      "From VOA Learning English, this is the Education Report.",
+      "As an English learner, you want to be able to understand and to discuss a subject. You want to have the ability to express your opinions, and to support that opinion with a clear argument.",
+      "You can learn these skills by learning how to debate.",
+      "What is debate?",
+      "In everyday conversation, Americans use the word debate to talk about discussions among people. When people debate, they give their own opinions about a topic.",
+      "Another use of the word debate describes a more formal discussion.",
+      "Debaters work on a team to convince a judge that their opinion about a topic has more value than the opposite side’s opinion.",
+      "The National Speech and Debate Association says that students of debate research both sides of a topic. They “learn to think critically about every argument that could be made on each side.”",
+      "Debate as a democratic skill",
+      "Debate is part of the tradition of forensics started in Ancient Greece. The Greeks thought that, in a democracy, people needed to have certain skills. These skills included speaking in public in favor of an opinion, and providing evidence to support one’s opinion.",
+      "The Greeks supported the development of these skills by holding contests. Western education today continues the tradition with competitions between debate teams.",
+      "A debate contest traditionally has this structure:",
+      "Teams agree to debate a resolution, a statement, such as “Nuclear power should be banned.”",
+      "One team is the affirmative team, in support of the resolution. One is the negative, against the resolution.",
+      "Each team gives an argument for or against the resolution. Then each team asks questions about the other team’s argument. After answering the questions, each team makes more statements to support their argument.",
+      "Finally, they summarize the arguments. In a classic debate, teams may take 12 turns, in which one member of the team speaks.",
+      "If you have never seen this kind of debate, you can imagine that it is a difficult activity, even for native English speakers.",
+      "Another approach to teaching debate",
+      "Professor Charles LeBeau teaches English and debate in Japan. He says that many English teachers in Japan did not think their students could take part in a debate. The teachers had no experience with debate, and they thought it was too difficult for their students. Instead, they focused on teaching presentation.",
+      "“There is a huge gap between presentation, which is mostly a one-way experience, and then we have something on the other end of the spectrum, which is discussion. The problem with discussion is that there is no real clear, exacting format.”",
+      "Mr. LeBeau says that most “people mistake debate as being mostly a speaking skill.” But debate is a more natural kind of discussion than what happens in those classrooms. That is because debate requires understanding the other person’s opinion.",
+      "“The nice thing about debate is debate leads towards a more natural discussion. ... First, I give my position and then you give your position, and then I would address each of the points in your position and comment on them. And then you would have the opportunity to address each point in my position and comment on it.”",
+      "Building a strong argument",
+      "Charles LeBeau wrote a book with Michael Lubetsky called, “Discover Debate,” to help teachers understand a simpler way to teach debate. The method depends on creating a kind of visual aid known as a graphic organizer. The visual aid reflects the way we talk about critical thinking and developing an argument.",
+      "Mr. LeBeau says:",
+      "“I think that an easy way to visualize the metaphor is as if it’s a house; a house has a roof, and it usually has some sort of pillars or supports, and then there is a concrete foundation.”",
+      "Students work with the idea of building their argument just like they would build a house. They would draw their house on paper or a whiteboard and list:",
+      "The focus of the discussion or the debate is the roof.",
+      "The reasons and arguments are the “pillars” to support the roof.",
+      "The data, numbers, examples, and expert opinions provide the concrete foundation.",
+      "The house metaphor helps students who have not experienced a debate in their own culture. It gives students a way to plan what they will say to support their message.",
+      "As many nervous speakers know, having a visual aid is very helpful when speaking in public in a second language.",
+      "“In a sense, they are presenting the house, they are giving the audience a tour of the house. It’s not just a bunch of words. There is something concrete and visual that is the center the debate.\"",
+      "In Part Two of our series next week, we will introduce the kind of debate topics that work well for English learners. Mr. LeBeau will also introduce tips for organizing a debate in a large class and judging arguments.",
+      "In Part Three, we will explain the reasons for learning to debate in business as well as the academic world. We will discuss how debating gives students a better understanding of Western culture and lets students practice critical thinking.",
+      "For the VOA Education Report, I'm Jill Robbins.",
+      "And I'm Jonathan Evans.",
+      "metaphor n. an object, activity, or idea that is used as a symbol of something else",
+      "Successful Debate Is Like Building a House Share Copy link Facebook Twitter Telegram WhatsApp Email Share"
+    ],
+    "tuKho": [
+      {
+        "word": "convince",
+        "pos": "v",
+        "meaning": "to cause (someone) to believe that something is true​"
+      },
+      {
+        "word": "critical thinking",
+        "pos": "n",
+        "meaning": "the objective analysis and evaluation of an issue in order to form a judgment.​"
+      },
+      {
+        "word": "forensic",
+        "pos": "adj",
+        "meaning": "belonging to, used in, or suitable to courts of law or to public discussion and debate"
+      },
+      {
+        "word": "affirmative",
+        "pos": "adj",
+        "meaning": "saying or showing that the answer is “yes”"
+      },
+      {
+        "word": "negative",
+        "pos": "adj",
+        "meaning": "expressing denial or refusal; saying the answer is “no”"
+      },
+      {
+        "word": "summarize",
+        "pos": "v",
+        "meaning": "to tell (information) again using fewer words"
+      },
+      {
+        "word": "classic",
+        "pos": "adj",
+        "meaning": "used to describe something that has been popular for a long time"
+      },
+      {
+        "word": "graphic",
+        "pos": "n",
+        "meaning": "a picture, drawing, or graph used as a decoration or to make something (such as magazine article) easier to understand"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/3270255.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Dr. Jill Robbins wrote this story for Learning English. Hai Do was the editor."
+  },
+  {
+    "id": "voa-doc-3196872",
+    "title": "Body Language Can Help With Public Speaking",
+    "series": "Education Tips",
+    "seriesId": "education-tips",
+    "audioUrl": "https://voa-audio.voanews.eu/vle/2016/02/22/d9fadc5f-01fb-4aef-8eba-d0e937923b8c.mp3",
+    "words": 996,
+    "transcript": [
+      "Today, we return to the subject of successful public speaking centering on the physical message of presentation.",
+      "Some call this body language. Charles LeBeau is a professor of public speaking and has written several books about how to do it well.",
+      "Mr. LeBeau tells VOA that body language includes posture, eye contact and gestures - how you move your hands or arms.",
+      "“For the physical message, a lot of non-native presenters are going to have problems with posture, and eye contact, and gestures. I think a lot of this comes from nervousness.",
+      "\"Not only are they nervous because they’re doing a presentation, but in addition to that they’re really nervous because of their English, and their lack of confidence, lack of experience in their English, they’re trying to figure out the grammar, what I want to say, and they’re having all kinds of difficulty doing that, and also controlling their body.”",
+      "We have all seen nervous presenters in classrooms and meetings. One effect of being nervous is moving from side to side. A presenter does not need to stand perfectly still. In fact an audience can lose interest in a speaker who does not move.",
+      "How a speaker moves is important. Whole-body movement should be slow and planned to command attention. Such movement helps to communicate confidence.",
+      "New public speakers know that they should look at the audience while they speak. But they look at their notes on a paper or at the screen if they have an electronic presentation.",
+      "“With posture, the typical problem that I see is that they are often moving back and forth, and they’re not facing the audience. They’ll often be facing the white board or the screen with slides and be talking to that rather than talking to the audience.",
+      "\"Same thing with eye contact – they find it really, really difficult - some of them find it really difficult - making eye contact with the audience, because they’ll be looking at their notes, they’ll be looking at their computer, they’ll be looking at the screen, they will be looking at the floor. The problem of having notes, and trying to talk from notes , often is a big problem. So they have trouble with eye contact.”",
+      "Charles LeBeau says the best way to avoid this problem is to use images and few words for notes instead of sentences. The image should help communicate the point you want to make. Writing a few words with the image on your slide helps you remember that point. Then you can look at the audience while speaking.",
+      "“Another problem I’ve noticed is oftentimes there’ll be a lot of sentences or words on the slides and no images. So I think the key is if they can figure out what images to use that will communicate their message, because the images will communicate faster and more clearly than words.”",
+      "Holding on to notes also makes it more difficult for a speaker to gesture naturally. Mr. LeBeau’s book, “Speaking of Speech,” discusses this. He says gestures should support the point the speaker is making. For example, when talking about three ideas, hold up three fingers to introduce them. Then hold up one finger while explaining the first idea, two fingers for the second, and so on.",
+      "Other experts advise moving your body to a different place for each idea. Stay in place until you finish making that point. Then move to the next place on the stage or in the room.",
+      "Mr. LeBeau says a good way to change your body language is to make a video of your presentation and watch yourself. This helps you to become aware of what you need to change.",
+      "“I find often times, the gestures don’t look natural. They are poorly delivered, or they are just nonexistent. Students can video themselves, and then look at it, they can clearly see: “Oh, My! I had no idea that I looked like that! My posture! I’m moving all over the place. Look at my hips. It’s going back and forth and back and forth.",
+      "\"And my eye contact! All of these other goofy things that I’m doing without noticing it, or thinking that ‘well, it’s not such a big deal.’ But if I can see it I can realize oh, ‘ok, I see, I see, I see what I’m doing.’ I think that helps them change more quickly. So they can do their presentation again, and work on changing, then they can compare, and they can see that they can make quick improvement.”",
+      "An important part of public speaking is practice. When you practice remember these important tips: Be aware of your posture, eye contact, and gestures. Record yourself using a phone, tablet, or camera. Watch yourself and plan what you will do to improve.",
+      "Look for opportunities to speak and gain more confidence. Mr. LeBeau says his students find the physical message the easiest thing to change in order to become a better presenter.",
+      "“The first thing that we deal with is the physical message. And the reason we do that is so students can have a real positive experience really quickly. You know, I looked like this in the beginning and now, after one day, or a couple of classes, now I look like this - I do look much better!",
+      "\"I think it helps them feel more positive about the experience. It helps them see that ‘yes, I can do this, I can look confident.’ So, I think that it’s the easiest to change, and maybe the most important thing to deal with first.”",
+      "In our next Speaking Tips, we will look at the visual message, the visual aids you show the audience, and the story message, how to organize the ideas you present.",
+      "I’m Jim Tedder.",
+      "How do you feel about public speaking? What helps you to be more confident when you speak? Write us a comment and leave a post on our Facebook page, thanks!",
+      "​"
+    ],
+    "tuKho": [
+      {
+        "word": "posture",
+        "pos": "n",
+        "meaning": "the way in which your body is positioned when you are sitting or standing"
+      },
+      {
+        "word": "eye contact",
+        "pos": "n",
+        "meaning": "a situation in which two people are looking directly into each other's eyes"
+      },
+      {
+        "word": "gesture",
+        "pos": "n",
+        "meaning": "a movement of your body (especially of your hands and arms) that shows or emphasizes an idea or a feeling"
+      },
+      {
+        "word": "nervousness",
+        "pos": "n",
+        "meaning": "having or showing feelings of being worried and afraid about what might happen"
+      },
+      {
+        "word": "confidence",
+        "pos": "n",
+        "meaning": "a feeling or belief that you can do something well or succeed at something"
+      },
+      {
+        "word": "stage",
+        "pos": "n",
+        "meaning": "a raised platform in a theater, auditorium, etc., where the performers stand"
+      },
+      {
+        "word": "aware",
+        "pos": "adj",
+        "meaning": "knowing that something (such as a situation, condition, or problem) exists"
+      },
+      {
+        "word": "opportunity",
+        "pos": "n",
+        "meaning": "an amount of time or a situation in which something can be done"
+      }
+    ],
+    "source": "VOA Learning English",
+    "sourceUrl": "https://learningenglish.voanews.com/a/body-language-help-public-speaking/3196872.html",
+    "license": "Public Domain",
+    "author": "Voice of America",
+    "attributionUrl": "https://learningenglish.voanews.com",
+    "licenseStatementUrl": "https://learningenglish.voanews.com/p/6021.html",
+    "licenseCheckedAt": "2026-08-16",
+    "dongGhiCong": "Dr. Jill Robbins wrote this story for Learning English. Catherine Weaver was the editor."
+  }
+]

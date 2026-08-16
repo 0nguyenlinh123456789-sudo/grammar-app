@@ -3,7 +3,7 @@ import { roadmapData, BAND_TAB_LABEL, bandMinutes, minutesThroughBand, roadmapTo
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
-  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal, GraduationCap, Headphones, PenLine
+  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal, GraduationCap, Headphones, PenLine, BookOpenText
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
@@ -33,11 +33,15 @@ const BandExamPanel = lazy(() => import('../components/exam/BandExamPanel'));
 // tách ra cho panel luyện viết ở việc 3.3.
 const DictationPanel = lazy(() => import('../components/listening/DictationPanel'));
 const ListeningPassagePanel = lazy(() => import('../components/listening/ListeningPassagePanel'));
+// (5.3) Bài đọc dài — cùng lý do tách chunk với hai panel nghe.
+const ReadingLongPanel = lazy(() => import('../components/reading/ReadingLongPanel'));
 // CHỈ con số — nạp cả kho bài nghe vào trang chủ là kéo ~398 KB vào thứ ai mở
 // app cũng phải tải, đúng cái đã tách ra cho kho đề viết ở việc 3.3.
 import { SO_BAI_NGHE } from '../data/listeningCounts';
 // CHỈ con số — xem chú thích trong audioCounts.js.
 import { SO_BAN_THU } from '../data/audioCounts';
+// CHỈ con số — kho bài đọc ~200 KB nằm trong chunk riêng của panel.
+import { SO_BAI_DOC } from '../data/readingCounts';
 import { loadMockHistory } from '../utils/mockTest';
 import { getDueCount, getTotalCount } from '../utils/srs';
 import { getDueErrorCount, getErrorCount } from '../utils/errorBank';
@@ -96,6 +100,7 @@ const WelcomePage = ({
   const [showMockTest, setShowMockTest] = useState(false);
   const [showDictation, setShowDictation] = useState(false);
   const [showPassage, setShowPassage] = useState(false);
+  const [showReading, setShowReading] = useState(false);
   const [showWriting, setShowWriting] = useState(false);
   const [showSpeaking, setShowSpeaking] = useState(false);
   // Mở đề VIẾT/NÓI của ĐÚNG một chặng. Giữ cả object chặng chứ không chỉ id, vì
@@ -340,6 +345,7 @@ const WelcomePage = ({
       {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
       {showDictation && <Suspense fallback={null}><DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} /></Suspense>}
       {showPassage && <Suspense fallback={null}><ListeningPassagePanel onClose={() => setShowPassage(false)} /></Suspense>}
+      {showReading && <Suspense fallback={null}><ReadingLongPanel onClose={() => setShowReading(false)} /></Suspense>}
       {showWriting && <Suspense fallback={null}><WritingPromptPanel onClose={() => setShowWriting(false)} /></Suspense>}
       {showSpeaking && <Suspense fallback={null}><SpeakingPromptPanel onClose={() => setShowSpeaking(false)} /></Suspense>}
       {changViet && <Suspense fallback={null}><WritingPromptPanel chang={changViet} onClose={() => setChangViet(null)} /></Suspense>}
@@ -677,6 +683,30 @@ const WelcomePage = ({
           className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-indigo-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-indigo-500 transition-all cursor-pointer"
         >
           NGHE ĐOẠN
+        </button>
+      </div>
+
+      {/* --- (5.3) ĐỌC BÀI DÀI — văn bản thật 600–1.000 từ, đường lên C1 --- */}
+      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="bg-teal-100 dark:bg-teal-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+            <BookOpenText size={26} className="text-teal-600" />
+          </div>
+          <div>
+            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
+              Đọc bài dài
+              <span className="px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase">VOA</span>
+            </h3>
+            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+              {SO_BAI_DOC} bài báo thật 600–1.000 từ · độ dài của bài đọc trong đề B2–C1 · đọc rồi trả lời câu hỏi hiểu ý.
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowReading(true)}
+          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-teal-400 text-slate-900 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-teal-500 transition-all cursor-pointer"
+        >
+          ĐỌC BÀI DÀI
         </button>
       </div>
 
