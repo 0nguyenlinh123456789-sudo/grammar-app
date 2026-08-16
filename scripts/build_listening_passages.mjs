@@ -10,6 +10,7 @@
 // Chạy:  node scripts/build_listening_passages.mjs --in voa_chon.json
 import fs from 'fs';
 import { CAU_HOI } from './data/voa_questions.mjs';
+import { LOAI_TRU, LA_BAI_BI_LOAI } from './data/voa_loai_tru.mjs';
 import { locBanChepLoi, tachTuKho } from '../src/utils/transcriptClean.js';
 
 const arg = (t, m) => { const i = process.argv.indexOf(`--${t}`); return i > -1 && process.argv[i + 1] ? process.argv[i + 1] : m; };
@@ -21,6 +22,12 @@ const ra = [];
 const bo = [];
 
 for (const b of bai) {
+  // DỪNG HẲN, không phải cảnh báo. Một bài đã bị loại vì giấy phép hay nội dung
+  // mà vẫn lọt vào đây nghĩa là ai đó đã soạn câu hỏi cho nó — im lặng bỏ qua
+  // thì công soạn mất mà không ai biết vì sao.
+  if (LA_BAI_BI_LOAI(b.id)) {
+    throw new Error(`${b.id} nằm trong danh sách loại trừ (${LOAI_TRU[b.id]}). Xoá câu hỏi của bài này, hoặc gỡ nó khỏi scripts/data/voa_loai_tru.mjs nếu lý do loại không còn đúng.`);
+  }
   const hoi = CAU_HOI[b.id];
   if (!hoi || !hoi.length) { bo.push(`${b.id}: chưa có câu hỏi soạn tay`); continue; }
 

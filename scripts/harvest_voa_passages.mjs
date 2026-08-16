@@ -21,6 +21,7 @@
 // thu — đó là trường hợp rõ ràng nhất thuộc phạm vi công cộng.
 import fs from 'fs';
 import { pathToFileURL } from 'url';
+import { LA_BAI_BI_LOAI } from './data/voa_loai_tru.mjs';
 
 const LOAT_BAI = [
   { id: 'ask-a-teacher', z: 5535, ten: 'Ask a Teacher' },
@@ -69,7 +70,13 @@ const dinhChuDe = (s) => CHU_DE_NHAY_CAM.filter((t) => new RegExp(`\\b${t}`, 'i'
 // rõ nhất: bài "Breaking the Rules with Miley Cyrus' 'Flowers'" và bài
 // "Grammar and Talking about Hot Weather" (trích bốn dòng của Kool and the
 // Gang) — cả hai đều lọt qua bộ lọc chủ đề, tôi phải tự đọc mới thấy.
-// Đo trên cả 116 bài: luật này dính đúng 3 bài, không kêu oan bài nào.
+//
+// Đo trên cả 116 bài: dính đúng 3 bài, và tôi ĐÃ ĐỌC CẢ BA để xác nhận, không
+// suy từ luật ra. Bài thứ ba là "Are You the Windshield or the Bug?", trích lời
+// bài "The Bug" của Dire Straits.
+//
+// LƯU Ý: luật này nằm trong docBai, mà docBai KHÔNG chạy cho bài đã có sẵn
+// trong kho ứng viên. Danh sách chặn thật là scripts/data/voa_loai_tru.mjs.
 const CO_LOI_NHAC = /\bin the song\b|\bsang about\b|\blyrics\b|\bthe song\b/i;
 
 // BITRATE ĐỌC TỪ CHÍNH FILE, không phỏng đoán. Bản trước ghi cứng 64 kbps vì
@@ -233,6 +240,19 @@ async function main() {
   const daXem = new Set();
   const bo = [];
   let them = 0;
+
+  // SOI LẠI BÀI CŨ BẰNG LUẬT MỚI. Vòng thu thập dưới đây bỏ qua mọi bài đã có
+  // trong kho, nên luật thêm sau (như CO_LOI_NHAC) sẽ không bao giờ chạy tới
+  // chúng. Đúng cái bẫy đã làm 12 bài thủng lỗ lọt lên bản chạy thật.
+  for (const b of daCo) {
+    if (LA_BAI_BI_LOAI(b.id)) continue;
+    const than = (b.transcript || []).join(' ');
+    if (CO_LOI_NHAC.test(than)) {
+      process.stderr.write(`  ⚠ ${b.id} "${b.title.slice(0, 45)}" — dính luật lời bài hát nhưng CHƯA nằm trong voa_loai_tru.mjs\n`);
+    }
+    const dinh = [...new Set(dinhChuDe(b.title))];
+    if (dinh.length) process.stderr.write(`  ⚠ ${b.id} — tiêu đề dính chủ đề nhạy cảm (${dinh.join(', ')}) nhưng CHƯA bị loại\n`);
+  }
 
   if (DO_LAI) {
     for (const b of ra) {

@@ -15,23 +15,17 @@ import assert from 'node:assert/strict';
 import { listeningPassages } from '../src/data/listeningPassages.js';
 import { coTheDung, kiemTraBanGhi } from '../src/utils/audioLicense.js';
 import { laDongNgoaiBanThu } from '../src/utils/transcriptClean.js';
+import { LOAI_TRU } from '../scripts/data/voa_loai_tru.mjs';
+import { CAU_HOI } from '../scripts/data/voa_questions.mjs';
 
 // BÁNH CÓC — số bài nghe chỉ được tăng.
-// 6 → 16 → 32 → 48 → 60. ĐẠT MỐC của việc 2.2. Kho ứng viên còn 56 bài chưa
-// soạn câu hỏi, để dành khi cần mở rộng.
-// Những bài CỐ TÌNH không đưa vào, mỗi bài một lý do:
-//   voa-7953635 "'Kitchen-Table' Is a Type of Politics" — nội dung chính trị,
-//     cùng lý do đã loại câu chính trị khỏi kho chép chính tả.
-//   voa-7637459 "Break the Mold" — ví dụ trung tâm của bài là một kỳ bầu cử
-//     tổng thống Mỹ. Bộ lọc chủ đề chỉ đếm được 2 từ nhạy cảm nên KHÔNG chặn;
-//     phải đọc mới thấy. Máy dò là cái phụ, không thay được việc đọc.
-//   voa-7846622 "Mea Culpa", voa-7306802 "The Language of International
-//     Conflicts" — bộ thu thập tự gắn cờ chủ đề nhạy cảm (tôn giáo / chiến
-//     tranh). Xem CHU_DE_NHAY_CAM trong scripts/harvest_voa_passages.mjs.
-//   voa-7504500 (Miley Cyrus 'Flowers'), voa-7641038 (trích Kool and the Gang),
-//     voa-7575872 — bài dựa trên lời bài hát đang có bản quyền; đúng trường hợp
-//     VOA cảnh báo "may also contain" tư liệu bên thứ ba. Hai bài đầu tôi phải
-//     tự đọc mới phát hiện, nay CO_LOI_NHAC trong bộ thu thập tự chặn cả ba.
+// 6 → 16 → 32 → 48 → 60. ĐẠT MỐC của việc 2.2. Kho ứng viên còn 49 bài dùng
+// được chưa soạn câu hỏi (56 bài chưa dùng, trừ 7 bài trong danh sách loại trừ).
+//
+// LÝ DO LOẠI TỪNG BÀI nay nằm ở scripts/data/voa_loai_tru.mjs — MÁY ĐỌC ĐƯỢC,
+// không phải chú thích như trước. Chú thích không chặn được gì: bước chọn bài
+// chỉ lọc theo "đã có câu hỏi hay chưa", nên ai soạn câu hỏi cho một bài đã bị
+// loại là nó lên thẳng bản chạy thật.
 // (voa-7920108 "How to Summon Others" TỪNG bị loại vì "bản chép lời thủng lỗ".
 //  Chẩn đoán đó SAI: ví dụ vẫn nằm trong thẻ <p>, chỉ là bộ lọc độ dài của
 //  chính tôi vứt đi. Bỏ bộ lọc độ dài thì bài nguyên vẹn — nay chỉ còn thiếu
@@ -42,6 +36,20 @@ const CAU_HOI_MOI_BAI = 4;
 test('bánh cóc: số bài nghe theo đoạn chỉ được tăng', () => {
   assert.ok(listeningPassages.length >= BAI_TOI_THIEU,
     `còn ${listeningPassages.length} bài, dưới mốc ${BAI_TOI_THIEU} đã đạt được`);
+});
+
+// DANH SÁCH LOẠI TRỪ PHẢI CÓ HIỆU LỰC THẬT.
+// Trước đây lý do loại chỉ là chú thích trong file này — không chặn được gì.
+// Test này chặn ở hai chỗ: bài bị loại không được có mặt trong kho ĐÃ PHÁT
+// HÀNH, và cũng không được có câu hỏi soạn tay (soạn rồi thì công mất mà bộ
+// dựng vẫn báo lỗi — thà báo ngay ở đây).
+test('không bài nào trong danh sách loại trừ lọt vào kho', () => {
+  const loi = [];
+  for (const id of Object.keys(LOAI_TRU)) {
+    if (listeningPassages.some((b) => b.id === id)) loi.push(`${id} ĐÃ PHÁT HÀNH dù bị loại: ${LOAI_TRU[id]}`);
+    if (CAU_HOI[id]) loi.push(`${id} có câu hỏi soạn tay dù bị loại: ${LOAI_TRU[id]}`);
+  }
+  assert.deepEqual(loi, [], 'bài bị loại vẫn lọt vào:\n  ' + loi.join('\n  '));
 });
 
 test('mỗi bài có đủ hồ sơ giấy phép, và giấy phép phải dùng được', () => {
