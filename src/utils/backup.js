@@ -11,6 +11,9 @@ export const LEARNING_STORAGE_KEYS = [
   // Cờ "đã báo một lần về việc đổi cách đánh dấu hoàn thành" (#1b) — đi kèm để
   // đổi máy không bị đọc lại thông báo di trú đã đọc rồi.
   'masteryMigrationNoticeV1',
+  // Sổ bài viết + phần tự đánh giá (việc 3.4). Đây là thứ người học TỰ VIẾT RA,
+  // mất là mất hẳn — nên phải nằm trong sao lưu và đồng bộ.
+  'writingLogV1',
 ];
 
 export function createLearningBackup(storage = localStorage) {

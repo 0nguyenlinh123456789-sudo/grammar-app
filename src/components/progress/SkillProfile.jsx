@@ -1,6 +1,7 @@
 import { AlertTriangle, Gauge } from 'lucide-react';
 import { buildSkillProfile } from '../../utils/skillProfile';
 import { CEFR_LABEL } from '../../utils/placement';
+import { thongKeTuBaoCao } from '../../utils/writingLog';
 
 // HỒ SƠ NĂNG LỰC THEO KỸ NĂNG (việc 4.3) — "B2 nghe ≠ B2 viết".
 //
@@ -9,8 +10,11 @@ import { CEFR_LABEL } from '../../utils/placement';
 // tuyên bố sai (nói người học làm sai hết) trong khi sự thật là app chưa có gì
 // để đo. Bỏ hẳn ba ô đó đi cũng sai — người học sẽ tưởng bốn kỹ năng đã được
 // nhìn tới trong khi mới có một.
+// (3.4) Hoạt động TỰ ĐÁNH GIÁ bài viết hiện ở đây như một dòng RIÊNG, không
+// làm ô Viết đổi sang "đo được". Người tự chấm bài mình đang báo mức tự tin,
+// không phải mức năng lực — xem chú thích trong skillProfile.js và writingLog.js.
 export default function SkillProfile({ placementResult, onRetake }) {
-  const profile = buildSkillProfile(placementResult);
+  const profile = buildSkillProfile(placementResult, { writing: thongKeTuBaoCao() });
   if (!profile) return null;
 
   return <section className="mt-6 pt-5 border-t-3 border-dashed border-slate-200 dark:border-slate-700">
@@ -53,6 +57,7 @@ function SkillCard({ skill }) {
       <p className="text-xs font-black text-slate-500">{skill.icon} {skill.label}</p>
       <p className="text-sm font-black text-slate-400 mt-1 flex items-center gap-1"><AlertTriangle size={13} /> Chưa đo được</p>
       <p className="text-[11px] font-bold text-slate-400 mt-1 leading-snug">{skill.reason}</p>
+      {skill.tuBaoCao && <p className="text-[11px] font-bold text-violet-600 dark:text-violet-400 mt-1.5 pt-1.5 border-t border-dashed border-slate-300 dark:border-slate-600 leading-snug">{skill.tuBaoCaoLabel}</p>}
     </div>;
   }
   return <div className="rounded-2xl border-2 border-slate-200 dark:border-slate-700 p-3">

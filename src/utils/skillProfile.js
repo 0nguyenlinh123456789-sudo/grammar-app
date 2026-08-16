@@ -73,17 +73,43 @@ function row(key, result) {
 // `legacy`: kết quả lưu từ bài test cũ (12 câu, không nhãn bậc). Vẫn đọc được
 // phần đúng/sai của nó, nhưng KHÔNG suy ra bậc CEFR từ đó, và giao diện phải mời
 // làm lại bài mới.
-export function buildSkillProfile(result) {
+// TRẠNG THÁI THỨ BA: "TỰ BÁO CÁO" — không phải đo được, cũng không phải trống.
+//
+// Việc 3.4 mở đường viết không cần key: người học viết, tự soi bài theo checklist
+// rồi tự tick. Từ đó có một đường rất cám dỗ: lấy số tiêu chí họ tự tick, chia
+// cho tổng, ra phần trăm, đổ vào ô Viết. ĐỪNG. Người tự chấm bài mình đang báo
+// cáo mức TỰ TIN, không phải mức NĂNG LỰC — hai thứ đó lệch nhau nhiều nhất
+// đúng ở người mới học.
+//
+// Nên `measured` vẫn là false, `percent` vẫn là null, lý do "chưa đo được" vẫn
+// hiện. Hoạt động tự đánh giá chỉ thêm một dòng RIÊNG, nói rõ đó là tự báo cáo.
+// Truyền `hoatDong.writing = thongKeTuBaoCao()` từ writingLog.js vào đây.
+export function buildSkillProfile(result, hoatDong = null) {
   if (!result) return null;
   const legacy = !result.version || result.version < 2;
+  const gan = (r) => {
+    const tk = hoatDong?.[r.key];
+    if (!tk || !tk.soBai) return r;
+    if (!tk.tuBaoCao) {
+      // Chỉ nhận dữ liệu có cờ tự báo cáo. Nếu chỗ gọi quên gắn cờ, thà bỏ qua
+      // còn hơn im lặng nhận một con số không rõ nguồn gốc.
+      return r;
+    }
+    return {
+      ...r,
+      // KHÔNG đổi `measured`, KHÔNG đổi `percent`. Chỉ thêm thông tin.
+      tuBaoCao: { soBai: tk.soBai, soDe: tk.soDe, lanCuoi: tk.lanCuoi || null },
+      tuBaoCaoLabel: `Đã tự đánh giá ${tk.soBai} bài viết trên ${tk.soDe} đề — đây là bạn tự chấm, chưa phải điểm đo được.`,
+    };
+  };
   return {
     legacy,
     cefr: legacy ? null : result.cefr || null,
     preA1: !legacy && !!result.preA1,
     correct: result.correct ?? 0,
     total: result.total ?? 0,
-    cefrSkills: CEFR_SKILL_ORDER.map((key) => row(key, result)),
-    foundation: FOUNDATION_ORDER.map((key) => row(key, result)),
+    cefrSkills: CEFR_SKILL_ORDER.map((key) => gan(row(key, result))),
+    foundation: FOUNDATION_ORDER.map((key) => gan(row(key, result))),
     measuredCount: [...CEFR_SKILL_ORDER, ...FOUNDATION_ORDER].filter((k) => percentOf(result?.skillStats?.[k]) !== null).length,
   };
 }

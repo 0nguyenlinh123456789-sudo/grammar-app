@@ -114,6 +114,65 @@ export function scoreWriting(text, opts = {}) {
   return { score, level, tips, praises, usedTargets };
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// ĐỐI CHIẾU BÀI VIẾT VỚI YÊU CẦU CỦA ĐỀ (việc 3.4) — đường không cần key.
+//
+// Hàm này CHỈ TRẢ VỀ SỰ THẬT KIỂM ĐƯỢC: bài dài bao nhiêu từ so với khoảng đề
+// yêu cầu, và những từ/cụm bắt buộc có mặt hay không. Hết. Không điểm, không
+// xếp loại, không nhận xét ngữ pháp.
+//
+// VÌ SAO KHÔNG CÓ ĐIỂM GIỐNG BÀI MẪU — đây là chỗ dễ sai nhất:
+// Bài viết tự do có RẤT NHIỀU đáp án đúng. So bài người học với MỘT bài mẫu rồi
+// ra phần trăm giống nhau là bịa ra một con số nghe như đo được. Cách chấm nghe
+// chép chính tả (LCS trong dictation.js) KHÔNG áp sang đây được, vì chép chính
+// tả chỉ có đúng một đáp án — khác nhau ở đó là sai thật. Ở đây khác nhau là
+// bình thường. Bài mẫu để người học ĐỌC và tự đối chiếu, máy không được chấm hộ.
+//
+// Chỗ này cũng KHÔNG ghi vào ngân hàng lỗi. `scoreWriting` ở trên đã ghi lỗi
+// chính tả rồi; ghi thêm lần nữa là một lỗi bị đếm hai lần trên thang 3/7/14
+// ngày, làm thẻ ôn quay lại dày gấp đôi thực tế.
+export function kiemTraDeViet(text, prompt) {
+  const raw = String(text || '').trim();
+  const yc = prompt?.yeuCau || {};
+  const soTu = raw ? raw.split(/\s+/).filter(Boolean).length : 0;
+  const lower = raw.toLowerCase();
+
+  const min = Number(yc.soTuToiThieu) || 0;
+  const max = Number(yc.soTuToiDa) || Infinity;
+  const doDai = {
+    soTu,
+    min,
+    max: Number.isFinite(max) ? max : null,
+    dat: soTu >= min && soTu <= max,
+    // Nói rõ thiếu/thừa bao nhiêu — "chưa đạt" suông thì người học phải tự đếm.
+    thieu: soTu < min ? min - soTu : 0,
+    thua: Number.isFinite(max) && soTu > max ? soTu - max : 0,
+  };
+
+  const canCo = (yc.tuBatBuoc || []).map((t) => String(t).toLowerCase());
+  const daDung = canCo.filter((t) => lower.includes(t));
+  const conThieu = canCo.filter((t) => !lower.includes(t));
+
+  return {
+    doDai,
+    tuBatBuoc: {
+      canCo,
+      daDung,
+      conThieu,
+      dat: conThieu.length === 0,
+      moTa: yc.moTaTuBatBuoc || '',
+    },
+    // Cờ này để giao diện KHÔNG BAO GIỜ hiển thị kết quả trên như một điểm số.
+    laSuThatKiemDuoc: true,
+    khongKiemDuoc: [
+      'ngữ pháp',
+      'bài có trả lời đúng trọng tâm đề không',
+      'ý có mạch lạc không',
+      'từ dùng có tự nhiên không',
+    ],
+  };
+}
+
 // Ask the AI proxy for richer feedback using the learner's own Gemini key.
 // The offline scorer above stays available when no key has been added.
 export async function scoreWritingWithAI(text, { topicTitle = '' } = {}) {

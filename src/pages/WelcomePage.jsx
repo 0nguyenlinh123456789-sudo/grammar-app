@@ -3,7 +3,7 @@ import { roadmapData, BAND_TAB_LABEL, bandMinutes, minutesThroughBand, roadmapTo
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
-  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal, GraduationCap, Headphones
+  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal, GraduationCap, Headphones, PenLine
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
@@ -14,6 +14,8 @@ import ErrorReview from '../components/progress/ErrorReview';
 import MockTest from '../components/progress/MockTest';
 import DictationPanel from '../components/listening/DictationPanel';
 import ListeningPassagePanel from '../components/listening/ListeningPassagePanel';
+import WritingPromptPanel from '../components/writing/WritingPromptPanel';
+import { writingPrompts } from '../data/writingPrompts';
 import { listeningPassages } from '../data/listeningPassages';
 import { audioManifest } from '../data/audioManifest';
 import { loadMockHistory } from '../utils/mockTest';
@@ -74,6 +76,7 @@ const WelcomePage = ({
   const [showMockTest, setShowMockTest] = useState(false);
   const [showDictation, setShowDictation] = useState(false);
   const [showPassage, setShowPassage] = useState(false);
+  const [showWriting, setShowWriting] = useState(false);
   const lastMock = loadMockHistory()[0] || null;
   const dueErrors = getDueErrorCount();
   const totalErrors = getErrorCount();
@@ -310,6 +313,7 @@ const WelcomePage = ({
       {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
       {showDictation && <DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} />}
       {showPassage && <ListeningPassagePanel onClose={() => setShowPassage(false)} />}
+      {showWriting && <WritingPromptPanel onClose={() => setShowWriting(false)} />}
       {showMigration && (
         <MasteryMigrationNotice
           unverifiedCount={unverifiedMilestones.length}
@@ -642,6 +646,30 @@ const WelcomePage = ({
           className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-indigo-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-indigo-500 transition-all cursor-pointer"
         >
           NGHE ĐOẠN
+        </button>
+      </div>
+
+      {/* --- (3.4) LUYỆN VIẾT — đường KHÔNG CẦN key Gemini --- */}
+      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="bg-violet-100 dark:bg-violet-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+            <PenLine size={26} className="text-violet-600" />
+          </div>
+          <div>
+            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
+              Luyện viết
+              <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-400 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase">Không cần API key</span>
+            </h3>
+            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+              {writingPrompts.length} đề từ viết câu tới bài 150–200 từ · có bài mẫu để đối chiếu. Không chấm ngữ pháp, không cho điểm.
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowWriting(true)}
+          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-violet-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-violet-500 transition-all cursor-pointer"
+        >
+          VIẾT
         </button>
       </div>
 
