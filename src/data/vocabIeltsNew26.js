@@ -2,7 +2,7 @@
 export const vocabIeltsNew26 = [
   {
     id: "philosophy-ethics-ielts", category: "ielts",
-    title: "🤔 Triết Học & Đạo Đức (C1-C2)",
+    title: "🤔 Triết Học & Đạo Đức (C1+)",
     description: "50 từ vựng chuyên sâu về các tư tưởng triết học, hệ thống đạo đức, giá trị nhân sinh và lý luận logic.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
@@ -62,7 +62,7 @@ export const vocabIeltsNew26 = [
   },
   {
     id: "psychology-mind-ielts-p2", category: "ielts",
-    title: "🧠 Tâm Lý & Tâm Trí (C1-C2) – Phần 2",
+    title: "🧠 Tâm Lý & Tâm Trí (C1+) – Phần 2",
     description: "50 từ vựng nâng cao về tâm lý học, trạng thái cảm xúc, nhận thức và các hội chứng tâm lý.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

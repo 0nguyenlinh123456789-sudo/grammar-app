@@ -2,7 +2,7 @@
 export const vocabIeltsNew33 = [
   {
     id: "media-journalism-ielts", category: "ielts",
-    title: "📰 Truyền Thông & Báo Chí (C1-C2)",
+    title: "📰 Truyền Thông & Báo Chí (C1+)",
     description: "50 từ vựng nâng cao về các phương tiện truyền thông đại chúng, tin tức, và đạo đức báo chí.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
@@ -62,7 +62,7 @@ export const vocabIeltsNew33 = [
   },
   {
     id: "sports-competition-ielts", category: "ielts",
-    title: "🏆 Thể Thao & Thi Đấu (C1-C2)",
+    title: "🏆 Thể Thao & Thi Đấu (C1+)",
     description: "50 từ vựng chuyên sâu về các sự kiện thể thao, tinh thần thi đấu, và các vấn đề liên quan đến thể thao chuyên nghiệp.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

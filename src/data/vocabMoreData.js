@@ -5100,7 +5100,7 @@ const vocabMoreData = [
     "id": "globalization-culture",
     "category": "vstep",
     "title": "🌍 Toàn Cầu Hóa & Văn Hóa",
-    "description": "Từ vựng về toàn cầu hóa, giao thoa văn hóa và quan hệ quốc tế — chủ đề hot nhất trong IELTS Writing Task 2. Đủ để viết Band 7-8 về culture và globalization.",
+    "description": "Từ vựng về toàn cầu hóa, giao thoa văn hóa và quan hệ quốc tế — chủ đề hot nhất trong IELTS Writing Task 2. Đủ để viết Band 7 về culture và globalization.",
     "level": "B2-C1",
     "examTags": [
       "IELTS Band 7+",

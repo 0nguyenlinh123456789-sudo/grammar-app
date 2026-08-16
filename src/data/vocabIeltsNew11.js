@@ -2,7 +2,7 @@
 export const vocabIeltsNew11 = [
   {
     id: "travel-tourism-ielts", category: "ielts",
-    title: "✈️ Du Lịch & Khám Phá (C1-C2)",
+    title: "✈️ Du Lịch & Khám Phá (C1+)",
     description: "99 từ vựng IELTS chuyên sâu về ngành du lịch, lữ hành, tác động văn hóa và du lịch sinh thái.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
@@ -111,7 +111,7 @@ export const vocabIeltsNew11 = [
   },
   {
     id: "food-agriculture-ielts", category: "ielts",
-    title: "🌾 Thực Phẩm & Nông Nghiệp (C1-C2)",
+    title: "🌾 Thực Phẩm & Nông Nghiệp (C1+)",
     description: "100 từ vựng IELTS về canh tác, sản xuất lương thực, an ninh lương thực và thói quen ăn uống.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [

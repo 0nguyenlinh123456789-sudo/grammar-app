@@ -2,7 +2,7 @@
 export const vocabIeltsNew27 = [
   {
     id: "literature-writing-ielts", category: "ielts",
-    title: "📖 Văn Học & Viết Lách (C1-C2)",
+    title: "📖 Văn Học & Viết Lách (C1+)",
     description: "50 từ vựng chuyên sâu về văn chương, kỹ năng viết lách, phân tích tác phẩm và các thể loại văn học.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
@@ -62,7 +62,7 @@ export const vocabIeltsNew27 = [
   },
   {
     id: "art-design-ielts-p2", category: "ielts",
-    title: "🎨 Nghệ Thuật & Thiết Kế (C1-C2) – Phần 2",
+    title: "🎨 Nghệ Thuật & Thiết Kế (C1+) – Phần 2",
     description: "50 từ vựng nâng cao về các trào lưu nghệ thuật, kỹ thuật thiết kế, mỹ thuật và sự sáng tạo thẩm mỹ.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

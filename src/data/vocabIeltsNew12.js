@@ -2,7 +2,7 @@
 export const vocabIeltsNew12 = [
   {
     id: "business-finance-ielts", category: "ielts",
-    title: "💼 Kinh Doanh & Tài Chính (C1-C2)",
+    title: "💼 Kinh Doanh & Tài Chính (C1+)",
     description: "100 từ vựng IELTS chuyên sâu về kinh tế học, tài chính doanh nghiệp, đầu tư và thị trường toàn cầu.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
@@ -112,7 +112,7 @@ export const vocabIeltsNew12 = [
   },
   {
     id: "law-crime-ielts", category: "ielts",
-    title: "⚖️ Luật Pháp & Tội Phạm (C1-C2)",
+    title: "⚖️ Luật Pháp & Tội Phạm (C1+)",
     description: "100 từ vựng IELTS chuyên sâu về hệ thống tư pháp, các loại tội phạm, phiên tòa và hình phạt.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [

@@ -2,7 +2,7 @@
 export const vocabIeltsNew32 = [
   {
     id: "food-agriculture-ielts-p2", category: "ielts",
-    title: "🌾 Thực Phẩm & Nông Nghiệp (C1-C2) – Phần 2",
+    title: "🌾 Thực Phẩm & Nông Nghiệp (C1+) – Phần 2",
     description: "50 từ vựng nâng cao về an ninh lương thực, canh tác nông nghiệp, và ngành công nghiệp thực phẩm.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
@@ -62,7 +62,7 @@ export const vocabIeltsNew32 = [
   },
   {
     id: "energy-resources-ielts", category: "ielts",
-    title: "⚡ Năng Lượng & Tài Nguyên (C1-C2)",
+    title: "⚡ Năng Lượng & Tài Nguyên (C1+)",
     description: "50 từ vựng chuyên sâu về các nguồn năng lượng, khai thác tài nguyên và khủng hoảng năng lượng.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

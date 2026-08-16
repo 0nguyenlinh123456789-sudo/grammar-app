@@ -2,7 +2,7 @@
 export const vocabIeltsNew9 = [
   {
     id: "history-civilizations-ielts", category: "ielts",
-    title: "🏺 Lịch Sử & Nền Văn Minh (C1-C2)",
+    title: "🏺 Lịch Sử & Nền Văn Minh (C1+)",
     description: "85 từ vựng IELTS chuyên sâu về lịch sử nhân loại, các nền văn minh cổ đại, khảo cổ học và các sự kiện lịch sử.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
@@ -97,7 +97,7 @@ export const vocabIeltsNew9 = [
   },
   {
     id: "geography-earth-ielts", category: "ielts",
-    title: "🌍 Địa Lý & Trái Đất (C1-C2)",
+    title: "🌍 Địa Lý & Trái Đất (C1+)",
     description: "84 từ vựng IELTS về cấu trúc Trái Đất, địa hình, các hiện tượng địa lý và khí hậu.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [

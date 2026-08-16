@@ -2,7 +2,7 @@
 export const vocabIeltsNew4 = [
   {
     id: "science-tech-advanced-ielts", category: "ielts",
-    title: "🔬 Khoa Học & Công Nghệ Nâng Cao (C1-C2)",
+    title: "🔬 Khoa Học & Công Nghệ Nâng Cao (C1+)",
     description: "100 từ vựng IELTS chuyên sâu về công nghệ đột phá, đạo đức khoa học và đổi mới.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [

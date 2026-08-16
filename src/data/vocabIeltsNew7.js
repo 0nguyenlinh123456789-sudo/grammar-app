@@ -2,7 +2,7 @@
 export const vocabIeltsNew7 = [
   {
     id: "art-literature-ielts", category: "ielts",
-    title: "🎨 Nghệ Thuật & Văn Học (C1-C2)",
+    title: "🎨 Nghệ Thuật & Văn Học (C1+)",
     description: "99 từ vựng IELTS chuyên sâu về hội họa, kiến trúc, văn chương và các trào lưu nghệ thuật.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
@@ -111,7 +111,7 @@ export const vocabIeltsNew7 = [
   },
   {
     id: "psychology-mind-ielts", category: "ielts",
-    title: "🧠 Tâm Lý Học & Tâm Trí (C1-C2)",
+    title: "🧠 Tâm Lý Học & Tâm Trí (C1+)",
     description: "91 từ vựng IELTS về tâm lý con người, hành vi, nhận thức và các rối loạn tinh thần.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [

@@ -354,15 +354,19 @@ export const roadmapCurated = [
   },
 
   {
+    // (5.2) NHÁNH DỰ BỊ, KHÔNG PHẢI ĐÍCH CAM KẾT. Cam kết của sản phẩm là "mất
+    // gốc → B2 vững, có nền C1" và KHÔNG hứa C2 (KE_HOACH_B2.md). Cụm này từng
+    // ghi 'Advanced - C1/C2' + 'TOEIC 900+' + 'IELTS 7+' — hứa quá đích. Nhãn
+    // bậc giờ lấy từ CEFR_OF_BAND ở roadmapData.js, không chép tay nữa.
     level: 'advanced',
-    levelTitle: '🏆 Cao Cấp (Advanced - C1/C2)',
-    levelDesc: 'Làm chủ ngữ pháp học thuật, đảo ngữ nâng cao, idioms và collocations. Chuẩn bị cho IELTS Band 7+ / VSTEP C1 / TOEIC 900+.',
+    levelTitle: '🏆 C1 — Nhánh Dự Bị',
+    levelDesc: 'Đi thêm sau khi đã vững B2. Ngữ pháp học thuật, đảo ngữ, idioms và collocations. Đây là phần NỀN cho C1 — không phải một khoá C1 đầy đủ, và ứng dụng không hứa đưa bạn tới C2.',
     icon: '🏆',
     color: 'border-rose-500 bg-rose-50 dark:bg-rose-900/20 text-rose-900 dark:text-rose-100',
     badgeColor: 'bg-rose-500 text-white',
     shadowColor: 'shadow-rose-300',
-    targetAudience: ['🧑‍💼 Chuyên gia', '📚 Người thi học thuật', '✈️ Người sống/làm việc ở nước ngoài'],
-    skills: ['Viết academic essay', 'Thuyết trình chuyên nghiệp', 'IELTS 7+', 'TOEIC 900+'],
+    targetAudience: ['🧑‍💼 Người đã vững B2', '📚 Người thi học thuật', '✈️ Người sống/làm việc ở nước ngoài'],
+    skills: ['Viết academic essay', 'Thuyết trình chuyên nghiệp', 'Nền từ vựng & ngữ pháp bậc C1'],
     milestones: [
       {
         id: 'm_a1',
@@ -381,7 +385,7 @@ export const roadmapCurated = [
         targetId: 'c1c2_3',
         desc: '🕐 ~5 giờ | Never have I seen such beauty. Not only did she pass... Hardly had I arrived when... Ấn tượng người chấm IELTS ngay lập tức. Sau bài: viết 10 câu đảo ngữ về chủ đề xã hội.',
         xp: 50,
-        exam: ['IELTS Band 7-8', 'VSTEP C1-C2'],
+        exam: ['IELTS Band 7', 'VSTEP C1'],
         kids: false,
       },
       {
@@ -411,7 +415,7 @@ export const roadmapCurated = [
         targetId: 'c1c2_5',
         desc: '🕐 ~4 giờ | "I suggest that he study harder." (NOT studies!) It is essential that the report be submitted... Hình thức ngữ pháp cao cấp nhất trong tiếng Anh học thuật. Sau bài: viết đề xuất chính sách.',
         xp: 50,
-        exam: ['IELTS Academic Band 7+', 'VSTEP C1-C2'],
+        exam: ['IELTS Academic Band 7+', 'VSTEP C1'],
         kids: false,
       },
       {
@@ -431,7 +435,7 @@ export const roadmapCurated = [
         targetId: 'education-learning-advanced',
         desc: '🕐 ~5 giờ | 100 từ AWL: hypothesis, methodology, curriculum, pedagogy, epistemology, discourse... Sau bài: viết abstract nghiên cứu khoa học 200 từ đạt chuẩn học thuật quốc tế.',
         xp: 45,
-        exam: ['IELTS Academic Band 7-8', 'VSTEP C1-C2'],
+        exam: ['IELTS Academic Band 7', 'VSTEP C1'],
         kids: false,
       },
       {
@@ -471,7 +475,7 @@ export const roadmapCurated = [
         targetId: 'ielts-academic-vocab',
         desc: '🕐 ~7 giờ | AWL 100 từ quan trọng nhất: analyse, framework, paradigm, contextualise, synthesise... Từ đồng nghĩa + trái nghĩa + collocations. Sau bài: đạt Band 7 IELTS Writing Task 2.',
         xp: 60,
-        exam: ['IELTS Academic Band 7-8', 'VSTEP C1-C2'],
+        exam: ['IELTS Academic Band 7', 'VSTEP C1'],
         kids: false,
       },
       {
@@ -486,12 +490,12 @@ export const roadmapCurated = [
       },
       {
         id: 'm_a8',
-        title: '🏆 Tổng Ôn C1/C2 — Đỉnh Cao!',
+        title: '🏆 Tổng Ôn Ngữ Pháp Bậc C1',
         type: 'grammar',
         targetId: 'c1c2_25',
-        desc: '🕐 ~8 giờ | Ôn tập toàn bộ C1/C2: advanced tenses, inversion, collocations, idioms, academic vocab. Làm đề thi thử IELTS Band 8 và VSTEP C2 hoàn chỉnh. Sau bài: tự tin thi thật — bạn đã sẵn sàng!',
+        desc: '🕐 ~8 giờ | Ôn tập ngữ pháp bậc C1: advanced tenses, inversion, collocations, idioms. 15 câu bài tập tổng hợp. Đây là bài ÔN NGỮ PHÁP — không phải một đề thi thử hoàn chỉnh.',
         xp: 100,
-        exam: ['IELTS Band 8+', 'VSTEP C2', 'TOEIC 900+'],
+        exam: ['IELTS Band 7', 'VSTEP C1'],
         kids: false,
       },
       {
@@ -499,9 +503,9 @@ export const roadmapCurated = [
         title: '🌍 Từ Vựng: Vấn Đề Toàn Cầu & Chính Trị',
         type: 'vstep',
         targetId: 'global-issues-politics-ielts',
-        desc: '🕐 ~6 giờ | Chủ đề khó bậc nhất trong IELTS. 100 từ vựng C1-C2 giúp bạn viết essay về các vấn đề vĩ mô xuất sắc.',
+        desc: '🕐 ~6 giờ | Chủ đề khó bậc nhất trong IELTS. 100 từ vựng bậc C1 giúp bạn viết essay về các vấn đề vĩ mô.',
         xp: 60,
-        exam: ['IELTS Band 7-8', 'VSTEP C1-C2'],
+        exam: ['IELTS Band 7', 'VSTEP C1'],
         kids: false,
       },
       {
@@ -511,7 +515,7 @@ export const roadmapCurated = [
         targetId: 'music-performing-arts-ielts',
         desc: '🕐 ~5 giờ | Từ vựng nâng cao chuyên sâu về sân khấu, kịch nghệ, hòa nhạc và đánh giá thẩm mỹ.',
         xp: 50,
-        exam: ['IELTS Band 7-8'],
+        exam: ['IELTS Band 7'],
         kids: false,
       },
     ]

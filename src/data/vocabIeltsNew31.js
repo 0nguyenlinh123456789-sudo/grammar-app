@@ -2,7 +2,7 @@
 export const vocabIeltsNew31 = [
   {
     id: "science-innovation-ielts", category: "ielts",
-    title: "🔬 Khoa Học & Đổi Mới (C1-C2)",
+    title: "🔬 Khoa Học & Đổi Mới (C1+)",
     description: "50 từ vựng nâng cao về nghiên cứu khoa học, công nghệ đột phá, và sự tiến bộ của nhân loại.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
@@ -62,7 +62,7 @@ export const vocabIeltsNew31 = [
   },
   {
     id: "space-exploration-ielts-p3", category: "ielts",
-    title: "🚀 Không Gian & Khám Phá (C1-C2) – Phần 3",
+    title: "🚀 Không Gian & Khám Phá (C1+) – Phần 3",
     description: "50 từ vựng nâng cao về vũ trụ học, thiên văn học, và các sứ mệnh khám phá không gian.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

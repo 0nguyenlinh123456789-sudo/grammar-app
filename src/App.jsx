@@ -14,7 +14,8 @@ import { sanitizeBook, sanitizeVocabTopics } from './utils/contentFilter';
 const OXFORD_BOOKS = [
   { id: 'elementary', title: 'English Vocabulary in Use - Elementary', description: 'Giáo trình từ vựng Oxford cấp độ Cơ bản (60 Units)', units: [] },
   { id: 'pre_intermediate', title: 'English Vocabulary in Use - Pre-Intermediate & Intermediate', description: 'Giáo trình từ vựng Oxford cấp độ Trung cấp (100 Units)', units: [] },
-  { id: 'advanced', title: 'English Vocabulary in Use - Advanced', description: 'Giáo trình từ vựng Oxford cấp độ Cao cấp, dành cho IELTS 7.0+ và C1-C2 (100 Units)', units: [] },
+  // (5.2) Bỏ "C1-C2": cam kết của sản phẩm là B2 vững + nhánh C1 dự bị.
+  { id: 'advanced', title: 'English Vocabulary in Use - Advanced', description: 'Giáo trình từ vựng Oxford cấp độ Cao cấp, dành cho bậc C1 (100 Units)', units: [] },
 ];
 
 async function loadOxfordBook(bookId) {

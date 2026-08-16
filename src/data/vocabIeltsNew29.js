@@ -2,7 +2,7 @@
 export const vocabIeltsNew29 = [
   {
     id: "business-economy-ielts-p2", category: "ielts",
-    title: "💼 Kinh Doanh & Kinh Tế (C1-C2) – Phần 2",
+    title: "💼 Kinh Doanh & Kinh Tế (C1+) – Phần 2",
     description: "50 từ vựng nâng cao về các nguyên lý kinh tế học, tài chính doanh nghiệp, đầu tư và thị trường.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
@@ -62,7 +62,7 @@ export const vocabIeltsNew29 = [
   },
   {
     id: "globalization-trade-ielts", category: "ielts",
-    title: "🌍 Toàn Cầu Hóa & Thương Mại (C1-C2)",
+    title: "🌍 Toàn Cầu Hóa & Thương Mại (C1+)",
     description: "50 từ vựng nâng cao về sự hội nhập quốc tế, thương mại tự do, thuế quan và đa dạng văn hóa toàn cầu.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

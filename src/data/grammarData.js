@@ -18,5 +18,8 @@ export const grammarLevels = [
   { id: 'A0', label: '⬜ A0 - Mất Gốc', description: 'Bảng chữ cái, phát âm, cách đọc phiên âm IPA — học trước mọi thứ khác', color: 'bg-lime-400', topics: foundationData },
   { id: 'B1', label: '🟢 B1 - Nền Tảng', description: 'Ngữ pháp cơ bản cho người mới bắt đầu', color: 'bg-emerald-400', topics: grammarDataB1 },
   { id: 'B2', label: '🟡 B2 - Trung Cấp', description: 'Ngữ pháp nâng cao cho người đã có nền tảng', color: 'bg-amber-400', topics: grammarDataB2 },
-  { id: 'C1C2', label: '🔴 C1/C2 - Nâng Cao', description: 'Ngữ pháp chuyên sâu cho trình độ cao', color: 'bg-rose-400', topics: grammarDataC1C2 },
+  // (5.2) Nhãn cũ '🔴 C1/C2' hứa vượt cam kết (B2 vững + nền C1, không hứa C2).
+  // Gọi là C1+ và nói thẳng là bộ bài này chưa tách C1 với C2 — xem
+  // src/utils/nhanCapDo.js.
+  { id: 'C1C2', label: '🔴 C1+ - Nâng Cao', description: 'Ngữ pháp chuyên sâu bậc trên B2 — bộ bài gộp chung C1 và C2, chưa tách', color: 'bg-rose-400', topics: grammarDataC1C2 },
 ];

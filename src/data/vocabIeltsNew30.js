@@ -2,7 +2,7 @@
 export const vocabIeltsNew30 = [
   {
     id: "history-heritage-ielts", category: "ielts",
-    title: "🏛️ Lịch Sử & Di Sản (C1-C2)",
+    title: "🏛️ Lịch Sử & Di Sản (C1+)",
     description: "50 từ vựng nâng cao về các thời kỳ lịch sử, di sản văn hóa, và công tác bảo tồn di tích.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
@@ -62,7 +62,7 @@ export const vocabIeltsNew30 = [
   },
   {
     id: "architecture-urban-ielts-p2", category: "ielts",
-    title: "🏙️ Kiến Trúc & Quy Hoạch Đô Thị (C1-C2) – Phần 2",
+    title: "🏙️ Kiến Trúc & Quy Hoạch Đô Thị (C1+) – Phần 2",
     description: "50 từ vựng chuyên sâu về thiết kế công trình, cấu trúc xây dựng và sự phát triển của thành phố.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

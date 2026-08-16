@@ -2,7 +2,7 @@
 export const vocabIeltsNew14 = [
   {
     id: "family-society-ielts", category: "ielts",
-    title: "👨‍👩‍👧‍👦 Gia Đình & Xã Hội (C1-C2)",
+    title: "👨‍👩‍👧‍👦 Gia Đình & Xã Hội (C1+)",
     description: "84 từ vựng IELTS chuyên sâu về các cấu trúc gia đình, vấn đề dân số, an sinh xã hội và sự phát triển cộng đồng.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
@@ -96,7 +96,7 @@ export const vocabIeltsNew14 = [
   },
   {
     id: "languages-communication-ielts", category: "ielts",
-    title: "🗣️ Ngôn Ngữ & Giao Tiếp (C1-C2)",
+    title: "🗣️ Ngôn Ngữ & Giao Tiếp (C1+)",
     description: "80 từ vựng IELTS chuyên sâu về sự hình thành ngôn ngữ, đa ngôn ngữ, truyền thông phi ngôn ngữ và tâm lý học giao tiếp.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [

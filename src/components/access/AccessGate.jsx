@@ -3,6 +3,9 @@ import { ArrowRight, CheckCircle2, Clock3, KeyRound, Laptop, LogOut, ShieldCheck
 import AdminAccessPanel from './AdminAccessPanel';
 import PolicyDialog from '../common/PolicyDialog';
 import { readAccessResponse } from '../../utils/apiResponse';
+// Chỉ một con số — KHÔNG import roadmapData ở màn hình kích hoạt (xem
+// scripts/build_roadmap.mjs, phần sinh roadmapCounts.js).
+import { TONG_CHANG } from '../../data/roadmapCounts';
 
 const DEVICE_KEY = 'grammarDeviceIdV1';
 
@@ -102,7 +105,7 @@ function ProtectedApp({ children }) {
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border-2 border-white/60 bg-white/15 text-xs font-black uppercase tracking-widest"><Sparkles size={15} /> Bunny English Premium</div>
         <h1 className="text-4xl md:text-5xl font-black leading-tight mt-6">Học tiếng Anh<br />có lộ trình rõ ràng.</h1>
         <p className="mt-4 text-blue-100 font-bold leading-relaxed">Một tài khoản mở toàn bộ kho ngữ pháp, từ vựng luyện thi (VSTEP/IELTS), phiên âm IPA toàn bộ từ vựng, trò chơi và trợ lý AI.</p>
-        <ul className="mt-7 space-y-3">{['Lộ trình từ cơ bản đến C1–C2', 'Theo dõi XP, chuỗi học và tiến độ 7 ngày', 'Ôn từ thông minh theo lịch SRS', 'Dữ liệu học đồng bộ theo mã truy cập'].map((item) => <li key={item} className="flex items-center gap-3 font-black text-sm"><CheckCircle2 className="text-yellow-300 shrink-0" size={20} />{item}</li>)}</ul>
+        <ul className="mt-7 space-y-3">{['Lộ trình từ mất gốc (A0) đến B2, thêm nhánh C1 dự bị', 'Theo dõi XP, chuỗi học và tiến độ 7 ngày', 'Ôn từ thông minh theo lịch SRS', 'Dữ liệu học đồng bộ theo mã truy cập'].map((item) => <li key={item} className="flex items-center gap-3 font-black text-sm"><CheckCircle2 className="text-yellow-300 shrink-0" size={20} />{item}</li>)}</ul>
         <button type="button" onClick={() => setShowPricing(true)} className="mt-8 px-5 py-3 rounded-2xl bg-white/15 hover:bg-white/25 border-2 border-white/70 font-black text-sm">XEM BẢNG GIÁ & QUYỀN LỢI →</button>
       </div>
       <form onSubmit={activate} className="p-7 md:p-10 flex flex-col justify-center">
@@ -138,7 +141,10 @@ function LandingSections({ onPricing }) {
     // đầu vào, pickNextMilestone chọn chặng chưa xong đầu tiên TỪ cấp độ đo
     // được trở lên và app mở thẳng chặng đó. Không hứa gì hơn thế — các cấp
     // dưới chỉ được gắn nhãn "Ôn lại", vẫn mở học bình thường.
-    { icon: '🗺️', title: 'Lộ trình A1 → C2', desc: '44 chặng từ mất gốc đến nâng cao. Làm test đầu vào, app mở thẳng chặng đúng trình độ của bạn.' },
+    // (5.2) Chữ cũ: "Lộ trình A1 → C2 · 44 chặng". Sai hai chỗ: cam kết của sản
+    // phẩm là B2 vững + nhánh C1 dự bị, KHÔNG hứa C2; và lộ trình đã là 617
+    // chặng từ đợt 1 chứ không còn 44. Số chặng lấy từ dữ liệu, không viết tay.
+    { icon: '🗺️', title: 'Lộ trình A0 → B2, thêm nhánh C1', desc: `${TONG_CHANG} chặng từ mất gốc đến B2 vững, cộng một nhánh C1 dự bị đi thêm. Làm test đầu vào, app mở thẳng chặng đúng trình độ của bạn.` },
     { icon: '🤖', title: 'Gia sư AI', desc: 'Chấm bài viết, quét từ vựng từ ảnh và hỏi đáp ngữ pháp bằng AI Gemini.' },
     { icon: '🧠', title: 'Ôn đúng lúc sắp quên', desc: 'Từ vựng và câu làm sai tự quay lại theo lịch khoa học 3–7–14 ngày.' },
     { icon: '🎮', title: 'Học mà chơi', desc: '6 trò chơi từ vựng, vườn thú thỏ Bunny, huy hiệu và chuỗi ngày học.' },

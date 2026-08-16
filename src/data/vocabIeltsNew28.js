@@ -2,7 +2,7 @@
 export const vocabIeltsNew28 = [
   {
     id: "society-demographics-ielts", category: "ielts",
-    title: "👥 Xã Hội & Nhân Khẩu Học (C1-C2)",
+    title: "👥 Xã Hội & Nhân Khẩu Học (C1+)",
     description: "50 từ vựng nâng cao về cơ cấu xã hội, sự thay đổi dân số, và các vấn đề đô thị hóa.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
@@ -62,7 +62,7 @@ export const vocabIeltsNew28 = [
   },
   {
     id: "law-crime-ielts-p3", category: "ielts",
-    title: "⚖️ Luật Pháp & Tội Phạm (C1-C2) – Phần 3",
+    title: "⚖️ Luật Pháp & Tội Phạm (C1+) – Phần 3",
     description: "50 từ vựng chuyên sâu về hệ thống tư pháp, các loại tội phạm, hình phạt và an ninh xã hội.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

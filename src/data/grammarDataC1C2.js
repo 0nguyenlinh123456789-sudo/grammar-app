@@ -4118,7 +4118,7 @@ export const grammarDataC1C2 = [
         "c": "📌 In accordance with (Phù hợp với, tuân theo)\n📌 In exchange for (Đổi lấy)\n📌 On behalf of (Thay mặt cho)\n📌 With reference to (Về việc, liên quan đến)\n📌 By means of (Bằng cách)"
       },
       {
-        "h": "II. Giới từ đi với Tính từ/Phân từ (C1/C2)",
+        "h": "II. Giới từ đi với Tính từ/Phân từ (C1+)",
         "c": "📌 Devoid OF (Trống rỗng, không có)\n📌 Exempt FROM (Được miễn)\n📌 Prone TO (Dễ mắc phải)\n📌 Resigned TO (Cam chịu)\n📌 Compatible WITH (Tương thích với)"
       },
       {
@@ -5472,7 +5472,7 @@ export const grammarDataC1C2 = [
   },
   {
     "id": "c1c2_17",
-    "title": "17. Linking Words & Discourse Markers (C1/C2)",
+    "title": "17. Linking Words & Discourse Markers (C1+)",
     "level": "C1/C2",
     "category": "Connectors",
     "color": "bg-emerald-300",
@@ -5814,7 +5814,7 @@ export const grammarDataC1C2 = [
   },
   {
     "id": "c1c2_18",
-    "title": "18. Phrasal Verbs (C1/C2 - Part 1)",
+    "title": "18. Phrasal Verbs (C1+ - Part 1)",
     "level": "C1/C2",
     "category": "Vocabulary",
     "color": "bg-rose-400",
@@ -6156,7 +6156,7 @@ export const grammarDataC1C2 = [
   },
   {
     "id": "c1c2_19",
-    "title": "19. Phrasal Verbs (C1/C2 - Part 2)",
+    "title": "19. Phrasal Verbs (C1+ - Part 2)",
     "level": "C1/C2",
     "category": "Vocabulary",
     "color": "bg-rose-500",
@@ -6498,7 +6498,7 @@ export const grammarDataC1C2 = [
   },
   {
     "id": "c1c2_20",
-    "title": "20. Collocations (C1/C2 - Part 1)",
+    "title": "20. Collocations (C1+ - Part 1)",
     "level": "C1/C2",
     "category": "Vocabulary",
     "color": "bg-violet-400",
@@ -6840,7 +6840,7 @@ export const grammarDataC1C2 = [
   },
   {
     "id": "c1c2_21",
-    "title": "21. Collocations (C1/C2 - Part 2)",
+    "title": "21. Collocations (C1+ - Part 2)",
     "level": "C1/C2",
     "category": "Vocabulary",
     "color": "bg-fuchsia-500",
@@ -7182,7 +7182,7 @@ export const grammarDataC1C2 = [
   },
   {
     "id": "c1c2_22",
-    "title": "22. Idioms (C1/C2 - Part 1)",
+    "title": "22. Idioms (C1+ - Part 1)",
     "level": "C1/C2",
     "category": "Idioms",
     "color": "bg-amber-500",
@@ -7524,7 +7524,7 @@ export const grammarDataC1C2 = [
   },
   {
     "id": "c1c2_23",
-    "title": "23. Idioms (C1/C2 - Part 2)",
+    "title": "23. Idioms (C1+ - Part 2)",
     "level": "C1/C2",
     "category": "Idioms",
     "color": "bg-yellow-500",
@@ -7884,7 +7884,7 @@ export const grammarDataC1C2 = [
         "c": "📌 Quy tắc \"i before e except after c\": receive, ceiling, believe, piece.\n(Ngoại lệ: weird, seize, science).\n📌 Thêm đuôi -ing/-ed: Nhân đôi phụ âm nếu từ 1 âm tiết kết thúc bằng 1 nguyên âm + 1 phụ âm (stop → stopped, run → running).\n📌 Anh-Anh vs Anh-Mỹ: colour/color, centre/center, organise/organize."
       },
       {
-        "h": "IV. Lỗi chính tả thường gặp (C1/C2)",
+        "h": "IV. Lỗi chính tả thường gặp (C1+)",
         "c": "📌 Accommodate (2 c, 2 m)\n📌 Embarrass (2 r, 2 s)\n📌 Recommend (1 c, 2 m)\n📌 Definitely (tận cùng -ite + ly)\n📌 Separate (có chữ \"a\" ở giữa: par)"
       }
     ],
@@ -8208,7 +8208,7 @@ export const grammarDataC1C2 = [
   },
   {
     "id": "c1c2_25",
-    "title": "25. Tổng ôn (C1/C2 Mixed Grammar)",
+    "title": "25. Tổng ôn (C1+ Mixed Grammar)",
     "level": "C1/C2",
     "category": "Mixed Practice",
     "color": "bg-slate-500",
@@ -8227,7 +8227,7 @@ export const grammarDataC1C2 = [
       },
       {
         "h": "IV. Bài tập tổng hợp",
-        "c": "📌 Phần này tập trung vào các dạng bài tập trộn lẫn tất cả kiến thức C1/C2 đã học, nhằm kiểm tra phản xạ và sự hiểu biết toàn diện của bạn."
+        "c": "📌 Phần này tập trung vào các dạng bài tập trộn lẫn tất cả kiến thức bậc C1+ đã học, nhằm kiểm tra phản xạ và sự hiểu biết toàn diện của bạn."
       }
     ],
     "sentenceGame": [

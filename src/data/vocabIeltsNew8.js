@@ -2,7 +2,7 @@
 export const vocabIeltsNew8 = [
   {
     id: "politics-government-ielts", category: "ielts",
-    title: "🏛 Chính Trị & Chính Phủ (C1-C2)",
+    title: "🏛 Chính Trị & Chính Phủ (C1+)",
     description: "90 từ vựng IELTS chuyên sâu về hệ thống chính trị, bầu cử, chính sách và đối ngoại.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
@@ -102,7 +102,7 @@ export const vocabIeltsNew8 = [
   },
   {
     id: "law-justice-ielts", category: "ielts",
-    title: "⚖️ Luật Pháp & Công Lý (C1-C2)",
+    title: "⚖️ Luật Pháp & Công Lý (C1+)",
     description: "81 từ vựng IELTS về hệ thống tư pháp, tội phạm dân sự/hình sự, quyền sở hữu và kiện tụng.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [

@@ -1,5 +1,5 @@
 // File: src/pages/GrammarPage.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import SketchnoteTheory from '../components/grammar/SketchnoteTheory';
 import SentenceBuilder from '../components/grammar/SentenceBuilder';
 import AiAssistant from '../components/grammar/AiAssistant';
@@ -10,8 +10,14 @@ import TransformationExercise from '../components/grammar/TransformationExercise
 import MatchingExercise from '../components/grammar/MatchingExercise';
 import TrueFalseExercise from '../components/grammar/TrueFalseExercise';
 import { BookOpen, Puzzle, Bot, PenTool, PenLine, AlertTriangle, Repeat, Link2, HelpCircle } from 'lucide-react';
+import { nhanCapDo, LA_NHAN_GOP, GHI_CHU_C1_CONG } from '../utils/nhanCapDo';
+import { locBaiHong } from '../utils/grammarClean';
 
-const GrammarPage = ({ topic, setXp, completeMilestone }) => {
+const GrammarPage = ({ topic: topicGoc, setXp, completeMilestone }) => {
+  // (5.2) Ẩn câu bài tập KHÔNG LÀM ĐƯỢC — xem src/utils/grammarClean.js. Lọc ở
+  // ĐÂY, một chỗ duy nhất: cả danh sách tab lẫn từng khối render đều đọc thẳng
+  // `topic.errorCorrection` / `topic.transformation`, nên lọc chỗ khác là sót.
+  const topic = useMemo(() => locBaiHong(topicGoc), [topicGoc]);
   const [tab, setTab] = useState('theory');
 
   // Reset tab to theory when topic changes
@@ -45,9 +51,14 @@ const GrammarPage = ({ topic, setXp, completeMilestone }) => {
       <div className={`${topic.color} dark:bg-slate-900 dark:text-slate-100 dark:border-slate-700 border-[4px] border-slate-800 rounded-[3rem] p-8 md:p-10 mb-8 shadow-[12px_12px_0_0_#1e293b] dark:shadow-[12px_12px_0_0_#020617]`}>
          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-slate-800 dark:text-slate-100">{topic.title}</h2>
          {topic.category && (
-           <p className="text-sm font-bold text-slate-600 dark:text-slate-400 mt-2 opacity-75">
-             📂 {topic.category} · Cấp độ {topic.level}
-           </p>
+           <>
+             <p className="text-sm font-bold text-slate-600 dark:text-slate-400 mt-2 opacity-75">
+               📂 {topic.category} · Cấp độ {nhanCapDo(topic.level)}
+             </p>
+             {LA_NHAN_GOP(topic.level) && (
+               <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-1">{GHI_CHU_C1_CONG}</p>
+             )}
+           </>
          )}
       </div>
       

@@ -2,7 +2,7 @@
 export const vocabIeltsNew10 = [
   {
     id: "art-design-ielts", category: "ielts",
-    title: "🎨 Nghệ Thuật & Thiết Kế (C1-C2)",
+    title: "🎨 Nghệ Thuật & Thiết Kế (C1+)",
     description: "100 từ vựng IELTS chuyên sâu về hội họa, điêu khắc, mỹ thuật, thẩm mỹ và thiết kế sáng tạo.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
@@ -112,7 +112,7 @@ export const vocabIeltsNew10 = [
   },
   {
     id: "literature-poetry-ielts", category: "ielts",
-    title: "📚 Văn Học & Thi Ca (C1-C2)",
+    title: "📚 Văn Học & Thi Ca (C1+)",
     description: "90 từ vựng IELTS về các thể loại văn học, thơ ca, các biện pháp tu từ và phân tích văn bản.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [

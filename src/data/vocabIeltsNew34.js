@@ -2,7 +2,7 @@
 export const vocabIeltsNew34 = [
   {
     id: "global-issues-politics-ielts-p2", category: "ielts",
-    title: "🌍 Vấn Đề Toàn Cầu & Chính Trị (C1-C2) – Phần 2",
+    title: "🌍 Vấn Đề Toàn Cầu & Chính Trị (C1+) – Phần 2",
     description: "50 từ vựng nâng cao về các vấn đề quốc tế, chính sách toàn cầu và hệ thống chính trị.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [
@@ -62,7 +62,7 @@ export const vocabIeltsNew34 = [
   },
   {
     id: "language-communication-ielts", category: "ielts",
-    title: "🗣️ Ngôn Ngữ & Giao Tiếp (C1-C2)",
+    title: "🗣️ Ngôn Ngữ & Giao Tiếp (C1+)",
     description: "50 từ vựng chuyên sâu về ngôn ngữ học, sự giao tiếp đa văn hóa và rào cản ngôn ngữ.",
     level: "C1-C2", examTags: ["IELTS", "C1", "C2"],
     words: [

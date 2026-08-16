@@ -25,16 +25,32 @@ export const CEFR_OF_BAND = {
   intermediate: 'B1', upper_intermediate: 'B2', advanced: 'C1',
 };
 
+// (5.2) ĐÍCH CAM KẾT. Ghi ở đây vì đây là nơi định nghĩa các bậc — cam kết của
+// sản phẩm là **B2 vững, có nhánh C1 dự bị**, KHÔNG hứa C2 (KE_HOACH_B2.md).
+// `tests/c1_branch.test.js` đọc hằng số này và bắt lỗi mọi chuỗi hiện ra cho
+// người học mà hứa vượt quá nó.
+export const BAC_CAM_KET = 'upper_intermediate';
+export const BAC_DU_BI = 'advanced';
+export const LA_DU_BI = (band) => band === BAC_DU_BI;
+
 // Nhãn ngắn cho dàn tab lộ trình. Trước đây viết cứng trong WelcomePage nên
 // thêm bậc là phải sửa hai chỗ và số đếm thì lệch.
-export const BAND_TAB_LABEL = {
-  foundation: '⬜ A0 Mất Gốc',
-  starter: '🌱 A1 Khởi Đầu',
-  elementary: '🌿 A2 Sơ Cấp',
-  intermediate: '⭐ B1 Trung Cấp',
-  upper_intermediate: '🌟 B2 Trung Cao',
-  advanced: '🏆 C1 Cao Cấp',
+//
+// (5.2) Nhãn CEFR trong tab và trong `levelTitle` của roadmapCurated từng là
+// HAI bản chép tay: tab ghi 'C1 Cao Cấp', levelTitle ghi 'Advanced - C1/C2'.
+// Hai bản thì lệch — nên phần chữ CEFR giờ tính từ `CEFR_OF_BAND`, chỉ còn
+// phần tên gọi là viết tay.
+const BAND_TEN = {
+  foundation: '⬜ %s Mất Gốc',
+  starter: '🌱 %s Khởi Đầu',
+  elementary: '🌿 %s Sơ Cấp',
+  intermediate: '⭐ %s Trung Cấp',
+  upper_intermediate: '🌟 %s Trung Cao — đích cam kết',
+  advanced: '🏆 %s Dự Bị',
 };
+export const BAND_TAB_LABEL = Object.fromEntries(
+  ROADMAP_BANDS.map((b) => [b, BAND_TEN[b].replace('%s', CEFR_OF_BAND[b])])
+);
 
 // Bậc A0 chưa từng tồn tại nên phải tự khai. Năm bậc còn lại lấy nguyên phần
 // mô tả người soạn đã viết trong roadmapCurated.

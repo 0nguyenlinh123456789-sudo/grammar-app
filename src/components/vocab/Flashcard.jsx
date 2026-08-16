@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { RotateCcw, Volume2, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { recordReview } from '../../utils/srs';
 import { playCorrect, playWrong } from '../../utils/sound';
+import { nhanCapDo } from '../../utils/nhanCapDo';
 
 const Flashcard = ({ currentWordIndex, totalWords, currentWord, playAudio, onNext, onPrev, onWordChange }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -118,9 +119,11 @@ const Flashcard = ({ currentWordIndex, totalWords, currentWord, playAudio, onNex
               <span className="text-lg font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-4 py-1.5 rounded-xl border-2 border-slate-300 dark:border-slate-600">
                 {currentWord.ipa}
               </span>
-              {currentWord.level && (
+              {/* (5.2) Qua nhanCapDo(): ba mục từ trong kho khai "C2" và thẻ này
+                  in thẳng ra — hứa vượt cam kết B2 + nền C1. Hiện "C1+". */}
+              {nhanCapDo(currentWord.level) && (
                 <span className="text-xs font-black text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-2.5 py-1 rounded-full border-2 border-emerald-400">
-                  {currentWord.level}
+                  {nhanCapDo(currentWord.level)}
                 </span>
               )}
             </div>

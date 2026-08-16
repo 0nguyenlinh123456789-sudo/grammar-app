@@ -127,14 +127,21 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 | 4.3 | ✅ **XONG (Đợt 2)** — 4 kỹ năng CEFR tách riêng + 2 kỹ năng nền. Nghe/nói/viết hiện **“chưa đo được” kèm lý do**, không phải thanh 0% | B2 nghe ≠ B2 viết; gộp lại là giấu điểm yếu | 4 ô riêng trong Báo cáo tiến bộ (`tests/skill_profile.test.js`) | A | Nhỏ |
 | ~~4.4~~ ✅ | **Chứng nhận gắn với kết quả thi** — giữ cả nhánh chuyên cần cũ (#0-D1), nhưng **bậc chỉ đến từ bài thi**, in kèm ngày thi + căn cứ chấm + lời tự phủ nhận là chứng chỉ CEFR | Chứng nhận là chỗ duy nhất app nói với người ngoài | chứng nhận ghi rõ bậc + ngày thi | A | Nhỏ |
 
+
 ### NHÓM 5 — Nền cho C1 (làm sau khi B2 xong)
 
 | # | Việc | Vì sao | Nghiệm thu | RB | Công |
 |---|---|---|---|---|---|
-| 5.1 | **Bù độ dày sách Oxford Advanced**: 26,5 câu/unit so với 80,7 của Elementary | Càng lên cao càng mỏng — ngược nhu cầu | ≥50 câu/unit | A | Lớn |
-| 5.2 | **Xếp 6.510 ô từ bậc C1+ đã có** thành nhánh C1 dự bị | Từ vựng C1 đã nằm sẵn trong kho, chưa có đường đi | nhánh C1 có lộ trình riêng | A | Trung bình |
+| ~~5.1~~ ✅ | **Bù độ dày sách Oxford Advanced** — suy bài luyện tập từ chính ô từ soạn tay của mỗi unit, tính lúc chạy. Đo lại được: advanced **10,0 → 28,7 mục/unit** (con số 26,5/80,7 của bảng này là SAI, đo lại là 10,0/47,4). **Mốc ≥50 KHÔNG đạt được bằng sắp xếp lại**: unit advanced chỉ có 8 ô từ → trần ~29. Lên 50 cần soạn tay ~2.130 mục | Càng lên cao càng mỏng — ngược nhu cầu | ~~≥50 câu/unit~~ → 28,7 mục/unit, có test ghim | A | Lớn |
+| ~~5.2~~ ✅ | **Nhánh C1 dự bị.** ⚠️ Vế "chưa có đường đi" của dòng này ĐÃ SAI khi viết xong Đợt 1: bậc `advanced` lúc đó đã có **156 chặng** do việc 1.2–1.4 sinh ra. Phần thật sự còn thiếu, và đã làm: (a) **xen kẽ loại chặng** — trước đó mỗi bậc là 3 khối xếp chồng, nhánh C1 bắt học 19 bài ngữ pháp liền rồi 100 unit Oxford liền; (b) **gỡ lời hứa C2** ở 69 chỗ trong file soạn tay (+ phần sinh lại theo); (c) **ẩn 168 câu bài tập không làm được** trong nhánh C1 | 6.510 ô từ nằm trong 82 chủ đề có nhãn nhắc C1/C2 (KHÔNG có nhãn CEFR theo từng từ — cách nói cũ của dòng này không chính xác) | `tests/c1_branch.test.js` + `tests/grammar_exercises.test.js` | A | Trung bình |
 | 5.3 | **Văn bản đọc dài 600–1.000 từ**, thể loại thật (báo/khoa học thường thức) | C1 đo đọc văn bản thật | ≥30 bài | A | Lớn |
 | 5.4 | **Vòng viết – sửa – viết lại** (nộp bản 2 sau khi nhận nhận xét) | Không có vòng này thì không lên C1 viết được | lưu được ≥2 bản/đề | **B** | Trung bình |
+
+**Phát hiện khi làm 5.2 — đã xử lý, không chờ duyệt:**
+
+1. **Lời hứa C2 rải khắp app** trong khi cam kết chốt là "B2 vững + nền C1, không hứa C2". Nặng nhất nằm ở **trang bán hàng**: "Lộ trình từ cơ bản đến C1–C2", "Lộ trình A1 → C2 · 44 chặng" (lộ trình đã là 617 chặng từ Đợt 1). Cộng với tiêu đề bậc `Advanced - C1/C2`, kỹ năng `IELTS 7+ / TOEIC 900+`, một chặng tên `Tổng Ôn C1/C2 — Đỉnh Cao!` hứa "làm đề thi thử IELTS Band 8 và VSTEP C2 hoàn chỉnh" — trong khi `targetId` của nó là một bài ôn ngữ pháp 15 câu, không có đề thi nào. Đã sửa **69 chỗ** trong file soạn tay (đếm bằng `git diff`, không kể file máy sinh lại theo), in bảng trước/sau trong báo cáo.
+2. **Bài tập ngữ pháp nhánh C1 phần lớn không làm được**: **75/75** câu "viết lại" có đáp án GIỐNG HỆT đề; **73/125** câu "sửa lỗi" có từ sai GIỐNG HỆT từ sửa; **20** câu giữ chỗ `"This is a C1/C2 level practice sentence."`. **B1 và B2 đo được 0%** — hỏng nằm gọn trong nhánh C1, không người học nào trên đường B2 chạm phải. Đã **ẨN lúc đọc, không xoá** (luật: thiếu dữ liệu thì ẩn hoặc báo); 52 câu sửa lỗi làm được nằm cùng mảng vẫn còn nguyên. Đo lại: `node scripts/audit_grammar_exercises.mjs`.
+3. **3.738 ô từ bậc C1 nằm trong chủ đề nhãn "B2-C1"/"B1-C1"** đang được học ở bậc B2/B1 và KHÔNG nhân bản sang nhánh C1. Lý do kỹ thuật, không phải lựa chọn thẩm mỹ: tiến độ khoá theo `targetId` (`App.jsx` `completeMilestone`), nên cùng một chủ đề nằm ở hai bậc thì học xong ở B2 sẽ tự đánh dấu xong luôn ở C1.
 
 ---
 

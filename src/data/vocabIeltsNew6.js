@@ -2,7 +2,7 @@
 export const vocabIeltsNew6 = [
   {
     id: "health-medicine-advanced-ielts", category: "ielts",
-    title: "🏥 Y Tế & Sức Khỏe Nâng Cao (C1-C2)",
+    title: "🏥 Y Tế & Sức Khỏe Nâng Cao (C1+)",
     description: "90 từ vựng IELTS chuyên sâu về y tế công cộng, giải phẫu học, dược lý và dịch tễ học.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [

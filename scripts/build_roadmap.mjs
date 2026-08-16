@@ -158,6 +158,35 @@ for (const { book, band, label, parts } of OXFORD) {
   }
 }
 
+// ---- (5.2) XEN KẼ LOẠI CHẶNG TRONG MỖI BẬC -----------------------------------
+// Vòng lặp ở trên đẩy chặng theo KHỐI: hết ngữ pháp mới tới từ vựng, hết từ
+// vựng mới tới Oxford. Giao diện vẽ mỗi bậc thành MỘT danh sách thẳng và nút
+// "Học Tiếp" lấy chặng chưa xong ĐẦU TIÊN — nên thứ tự này CHÍNH LÀ đường đi.
+// Kết quả: nhánh C1 bắt người học làm 19 bài ngữ pháp liền, rồi 37 chủ đề từ
+// vựng liền, rồi 100 unit Oxford liền. Đó là ba cái xô xếp chồng, không phải
+// một lộ trình.
+//
+// Xen kẽ ĐỀU theo tỉ lệ: loại nào nhiều thì xuất hiện dày hơn, nhưng không loại
+// nào bị dồn thành một khối. Đây thuần tuý SẮP XẾP LẠI — không thêm, không bớt,
+// không sửa chặng nào. Tiến độ khoá theo `targetId` (xem App.jsx
+// `completeMilestone`) nên đổi thứ tự KHÔNG làm ai mất tiến độ.
+function xenKe(ds) {
+  const nhom = new Map();
+  for (const m of ds) {
+    if (!nhom.has(m.type)) nhom.set(m.type, []);
+    nhom.get(m.type).push(m);
+  }
+  if (nhom.size < 2) return ds;
+  const tong = ds.length;
+  const xep = [];
+  for (const [, muc] of nhom) {
+    const buoc = tong / muc.length;
+    muc.forEach((m, i) => xep.push({ m, viTri: (i + 0.5) * buoc }));
+  }
+  return xep.sort((a, b) => a.viTri - b.viTri).map((x) => x.m);
+}
+for (const band of BANDS) out[band] = xenKe(out[band]);
+
 // ---- Số phút cho 44 chặng SOẠN TAY ------------------------------------------
 // Bản soạn tay ghi giờ bằng chữ trong mô tả ("🕐 ~4 giờ") — con số viết tay,
 // không ai kiểm. Đo lại từ chính nội dung để tổng giờ lộ trình là số thật
@@ -219,6 +248,23 @@ for (const [k, v] of Object.entries(curatedMinutes)) curatedBody += `  '${esc(k)
 curatedBody += '};\n';
 
 fs.writeFileSync(path.join(DATA, 'roadmapGenerated.js'), header + body + '};\n' + curatedBody, 'utf8');
+
+// ---- (5.2) File CHỈ CHỨA SỐ ĐẾM ----------------------------------------------
+// Trang kích hoạt (AccessGate) cần nói "lộ trình N chặng" nhưng nó là màn hình
+// ĐẦU TIÊN, trước khi vào app. Import roadmapData ở đó là kéo cả 617 chặng vào
+// gói tải đầu — đúng cái lỗi đã đo được hai lần trước (trang chủ kéo
+// listeningPassages 398 KB để hiện một con số). Một file, một con số.
+const curatedTotal = roadmapCurated.reduce((s, l) => s + l.milestones.length, 0);
+const soChang = BANDS.map((b) => [b, out[b].length + (roadmapCurated.find((l) => l.level === b)?.milestones.length || 0)]);
+fs.writeFileSync(path.join(DATA, 'roadmapCounts.js'), `// File: src/data/roadmapCounts.js
+// ⚠️ MÁY SINH — chạy lại: node scripts/build_roadmap.mjs
+// Chỉ chứa SỐ ĐẾM, để màn hình kích hoạt nói được con số thật mà không phải
+// kéo cả lộ trình vào gói tải đầu.
+export const TONG_CHANG = ${total + curatedTotal};
+export const CHANG_THEO_BAC = {
+${soChang.map(([b, n]) => `  ${b}: ${n},`).join('\n')}
+};
+`, 'utf8');
 
 console.log(`✅ roadmapGenerated.js: ${total} chặng, ~${Math.round(totalMin / 60)} giờ`);
 if (thiếuNộiDung.length) console.log(`⚠ ${thiếuNộiDung.length} chặng soạn tay không tìm thấy nội dung: ${thiếuNộiDung.join(', ')}`);

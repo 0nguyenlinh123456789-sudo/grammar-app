@@ -14,7 +14,9 @@ const LEVELS = [
   { min: 35, id: 'elementary', label: 'Elementary', next: 'A2–B1' },
   { min: 55, id: 'intermediate', label: 'Intermediate', next: 'B1–B2' },
   { min: 75, id: 'upper-intermediate', label: 'Upper-intermediate', next: 'B2–C1' },
-  { min: 90, id: 'advanced', label: 'Advanced', next: 'C1–C2' },
+  // (5.2) `next` hiện ra thật: dòng "Tiếp tục chinh phục {next}" ở cuối file.
+  // Chữ cũ là 'C1–C2' — hứa vượt cam kết B2 vững + nền C1.
+  { min: 90, id: 'advanced', label: 'Advanced', next: 'C1+' },
 ];
 
 // Bậc CEFR ĐẠT ĐƯỢC → id cấp độ để lộ trình biết đưa người học vào đâu.
