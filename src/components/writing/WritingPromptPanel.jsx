@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { AlertTriangle, ArrowRight, CheckCircle2, PenLine, ScrollText, Sparkles, X, XCircle } from 'lucide-react';
+import { AlertTriangle, ArrowRight, CheckCircle2, PenLine, Repeat, ScrollText, Sparkles, X, XCircle } from 'lucide-react';
 import { writingPrompts, KIEU_DE } from '../../data/writingPrompts';
 import { kiemTraDeViet, scoreWriting, scoreWritingWithAI } from '../../utils/writingScorer';
-import { luuBaiLam } from '../../utils/selfReportLog';
+import { luuBaiLam, banMoiNhat } from '../../utils/selfReportLog';
 import { deSinh, deTuChang, deChoChang, GHI_CHU_CHECKLIST_CHUNG } from '../../utils/writingBank';
 import { hasGeminiKey } from '../../utils/aiKey';
 
@@ -105,6 +105,12 @@ function DanhSach({ onChon, onClose }) {
 function LamBai({ de, onBack, onClose }) {
   const [text, setText] = useState('');
   const [daNop, setDaNop] = useState(false);
+  // (5.4) VÒNG VIẾT – SỬA – VIẾT LẠI. `banTruoc` là bản mới nhất đã lưu của đề
+  // này; `nhanXetCu` là nhận xét đóng băng của bản trước, giữ trên màn hình
+  // trong lúc viết bản mới — sửa bài mà không nhìn thấy nhận xét thì gọi là
+  // viết lại từ trí nhớ, không phải sửa theo nhận xét.
+  const [banTruoc, setBanTruoc] = useState(() => banMoiNhat('writing', de.id));
+  const [nhanXetCu, setNhanXetCu] = useState(null);
   const [moBaiMau, setMoBaiMau] = useState(false);
   const [tick, setTick] = useState(() => de.checklist.map(() => false));
   const [daLuu, setDaLuu] = useState(false);
@@ -130,20 +136,60 @@ function LamBai({ de, onBack, onClose }) {
   // Đổi đề thì xoá sạch, kể cả khi component được dùng lại. (Đã dính một lần ở
   // mục chép chính tả: hiệu ứng chỉ phụ thuộc chỉ số nên kết quả cũ còn lại
   // trên màn hình với một câu khác.)
-  useEffect(() => { setText(''); setDaNop(false); setMoBaiMau(false); setTick(de.checklist.map(() => false)); setDaLuu(false); }, [de.id, de.checklist]);
+  useEffect(() => { setText(''); setDaNop(false); setMoBaiMau(false); setTick(de.checklist.map(() => false)); setDaLuu(false); setBanTruoc(banMoiNhat('writing', de.id)); setNhanXetCu(null); setAiText(''); setAiLoi(''); }, [de.id, de.checklist]);
 
   const kq = daNop ? kiemTraDeViet(text, de) : null;
   const beMat = daNop ? scoreWriting(text) : null;
 
   const luu = () => {
-    luuBaiLam({ kyNang: 'writing', promptId: de.id, text, tuDanhGia: tick, dungBaiMau: moBaiMau });
+    const ban = luuBaiLam({ kyNang: 'writing', promptId: de.id, text, tuDanhGia: tick, dungBaiMau: moBaiMau });
+    if (ban) setBanTruoc(ban);
     setDaLuu(true);
+  };
+
+  // (5.4) Mở vòng viết lại: đóng băng nhận xét hiện có, đổ bài cũ vào ô soạn,
+  // mở khoá textarea. KHÔNG xoá gì khỏi sổ — bản mới sẽ là banSo + 1.
+  const vietLai = () => {
+    setNhanXetCu({ kq, beMat, aiText, banSo: banTruoc?.banSo || 1 });
+    setText(banTruoc ? banTruoc.text : text);
+    setDaNop(false);
+    setDaLuu(false);
+    setMoBaiMau(false);
+    setTick(de.checklist.map(() => false));
+    setAiText('');
+    setAiLoi('');
   };
 
   return <Khung onClose={onClose} onBack={onBack} tieuDe={de.title} phu={`${KIEU_DE[de.kieu].label} · ${de.bacToiThieu}`}>
     <p className="mt-3 text-sm font-bold leading-relaxed">{de.deBai}</p>
     <p className="mt-1.5 text-xs font-bold text-slate-500">💡 {de.goiY}</p>
     <p className="mt-1.5 text-xs font-bold text-slate-500">{de.yeuCau.moTaTuBatBuoc}</p>
+
+    {/* (5.4) Người quay lại đề đã làm: mời viết bản tiếp theo, không âm thầm coi như mới. */}
+    {!daNop && !nhanXetCu && banTruoc && <div className="mt-3 rounded-2xl border-2 border-violet-300 dark:border-violet-800 bg-violet-50 dark:bg-violet-950/30 p-3">
+      <p className="text-xs font-bold text-violet-800 dark:text-violet-300">
+        Bạn đã lưu <b>bản {banTruoc.banSo}</b> cho đề này ({banTruoc.soTu} từ). Viết lại sau khi nhận nhận xét là cách lên trình viết nhanh nhất.
+      </p>
+      <button onClick={() => setText(banTruoc.text)} className="mt-2 px-3 py-1.5 rounded-xl border-2 border-violet-500 text-violet-800 dark:text-violet-300 font-black text-xs inline-flex items-center gap-1.5 cursor-pointer">
+        <Repeat size={13} /> Đổ bản {banTruoc.banSo} vào ô soạn để sửa tiếp
+      </button>
+    </div>}
+
+    {/* (5.4) Nhận xét ĐÓNG BĂNG của bản trước — nằm trên ô soạn trong lúc viết
+        bản mới, để sửa theo nhận xét chứ không phải theo trí nhớ. */}
+    {!daNop && nhanXetCu && <div className="mt-3 rounded-2xl border-2 border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 p-3">
+      <p className="text-xs font-black uppercase tracking-wide text-slate-400 mb-1.5">Nhận xét của bản {nhanXetCu.banSo} — sửa theo những dòng này</p>
+      {nhanXetCu.kq && <ul className="space-y-0.5">
+        {!nhanXetCu.kq.doDai.dat && <li className="text-xs font-bold text-slate-600 dark:text-slate-300">• Độ dài: {nhanXetCu.kq.doDai.thieu ? `thiếu ${nhanXetCu.kq.doDai.thieu} từ` : `thừa ${nhanXetCu.kq.doDai.thua} từ`}</li>}
+        {nhanXetCu.kq.tuBatBuoc.canCo.length > 0 && !nhanXetCu.kq.tuBatBuoc.dat && <li className="text-xs font-bold text-slate-600 dark:text-slate-300">• Còn thiếu cụm bắt buộc: {nhanXetCu.kq.tuBatBuoc.conThieu.join(', ')}</li>}
+        {nhanXetCu.kq.tuTuChon && !nhanXetCu.kq.tuTuChon.dat && <li className="text-xs font-bold text-slate-600 dark:text-slate-300">• Từ mục tiêu: mới dùng {nhanXetCu.kq.tuTuChon.daDung.length}/{nhanXetCu.kq.tuTuChon.can}</li>}
+        {(nhanXetCu.beMat?.tips || []).map((t, i) => <li key={i} className="text-xs font-bold text-slate-600 dark:text-slate-300">• {t}</li>)}
+      </ul>}
+      {nhanXetCu.aiText && <details className="mt-1.5">
+        <summary className="text-xs font-black text-slate-500 cursor-pointer">Nhận xét AI của bản trước</summary>
+        <div className="mt-1 whitespace-pre-line text-xs font-medium leading-relaxed text-slate-600 dark:text-slate-300">{nhanXetCu.aiText}</div>
+      </details>}
+    </div>}
 
     <textarea
       value={text}
@@ -245,9 +291,21 @@ function LamBai({ de, onBack, onClose }) {
         </p>
         {!daLuu
           ? <button onClick={luu} className="mt-4 w-full px-5 py-3 rounded-xl bg-yellow-300 border-3 border-slate-900 font-black shadow-[3px_3px_0_0_#1e293b] inline-flex items-center justify-center gap-2 cursor-pointer">
-              <CheckCircle2 size={17} /> Lưu bài này vào sổ
+              <CheckCircle2 size={17} /> Lưu bài này vào sổ {banTruoc && !nhanXetCu ? `(sẽ là bản ${banTruoc.banSo + 1})` : nhanXetCu ? `(bản ${nhanXetCu.banSo + 1})` : ''}
             </button>
-          : <p className="mt-4 text-center text-sm font-black text-emerald-700 dark:text-emerald-400">Đã lưu vào sổ bài viết ✓</p>}
+          : <>
+              <p className="mt-4 text-center text-sm font-black text-emerald-700 dark:text-emerald-400">
+                Đã lưu bản {banTruoc?.banSo || 1} vào sổ bài viết ✓
+              </p>
+              {/* (5.4) So bản mới với bản liền trước — chỉ những con số ĐO ĐƯỢC. */}
+              {nhanXetCu && banTruoc && banTruoc.banSo >= 2 && <p className="mt-1 text-center text-xs font-bold text-slate-500">
+                So với bản {nhanXetCu.banSo}: {nhanXetCu.kq ? `${nhanXetCu.kq.doDai.soTu} → ${banTruoc.soTu} từ` : `${banTruoc.soTu} từ`} · tiêu chí tự thấy: {banTruoc.soTieuChiTuThay}/{de.checklist.length}
+              </p>}
+              {/* (5.4) VÒNG VIẾT LẠI — bước làm nên việc 5.4. */}
+              <button onClick={vietLai} className="mt-3 w-full px-5 py-3 rounded-xl bg-violet-300 border-3 border-slate-900 font-black shadow-[3px_3px_0_0_#1e293b] inline-flex items-center justify-center gap-2 cursor-pointer">
+                <Repeat size={17} /> Viết bản {(banTruoc?.banSo || 1) + 1} — sửa theo nhận xét ở trên
+              </button>
+            </>}
         <button onClick={onBack} className="mt-3 w-full px-5 py-3 rounded-xl border-3 border-slate-800 dark:border-slate-600 font-black cursor-pointer">Chọn đề khác</button>
       </div>}
     </>}

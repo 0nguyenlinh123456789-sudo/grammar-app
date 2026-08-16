@@ -104,7 +104,8 @@ export function buildSkillProfile(result, hoatDong = null) {
       // Danh từ phải theo KỸ NĂNG. Viết cứng "bài viết" thì ô Nói hiện ra
       // "Đã tự đánh giá 5 bài viết" — nói sai với người học ngay ở dòng có
       // nhiệm vụ nói thật.
-      tuBaoCaoLabel: `Đã tự đánh giá ${tk.soBai} ${tk.danhTu || 'lượt làm'} trên ${tk.soDe} đề — đây là bạn tự chấm, chưa phải điểm đo được.`,
+      // (5.4) Nhắc vòng viết lại khi có — vẫn chỉ là ĐẾM HOẠT ĐỘNG.
+      tuBaoCaoLabel: `Đã tự đánh giá ${tk.soBai} ${tk.danhTu || 'lượt làm'} trên ${tk.soDe} đề${tk.deCoVietLai ? `, trong đó ${tk.deCoVietLai} đề đã viết lại bản 2` : ''} — đây là bạn tự chấm, chưa phải điểm đo được.`,
     };
   };
   return {

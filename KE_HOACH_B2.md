@@ -135,7 +135,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 | ~~5.1~~ ✅ | **Bù độ dày sách Oxford Advanced** — suy bài luyện tập từ chính ô từ soạn tay của mỗi unit, tính lúc chạy. Đo lại được: advanced **10,0 → 28,7 mục/unit** (con số 26,5/80,7 của bảng này là SAI, đo lại là 10,0/47,4). **Mốc ≥50 KHÔNG đạt được bằng sắp xếp lại**: unit advanced chỉ có 8 ô từ → trần ~29. Lên 50 cần soạn tay ~2.130 mục | Càng lên cao càng mỏng — ngược nhu cầu | ~~≥50 câu/unit~~ → 28,7 mục/unit, có test ghim | A | Lớn |
 | ~~5.2~~ ✅ | **Nhánh C1 dự bị.** ⚠️ Vế "chưa có đường đi" của dòng này ĐÃ SAI khi viết xong Đợt 1: bậc `advanced` lúc đó đã có **156 chặng** do việc 1.2–1.4 sinh ra. Phần thật sự còn thiếu, và đã làm: (a) **xen kẽ loại chặng** — trước đó mỗi bậc là 3 khối xếp chồng, nhánh C1 bắt học 19 bài ngữ pháp liền rồi 100 unit Oxford liền; (b) **gỡ lời hứa C2** ở 69 chỗ trong file soạn tay (+ phần sinh lại theo); (c) **ẩn 168 câu bài tập không làm được** trong nhánh C1 | 6.510 ô từ nằm trong 82 chủ đề có nhãn nhắc C1/C2 (KHÔNG có nhãn CEFR theo từng từ — cách nói cũ của dòng này không chính xác) | `tests/c1_branch.test.js` + `tests/grammar_exercises.test.js` | A | Trung bình |
 | ~~5.3~~ ✅ | **Văn bản đọc dài 600–1.000 từ** — 30 bài VOA Learning English (khoa học vũ trụ, công nghệ, y tế, văn hoá, giáo dục), mỗi bài 4 câu hỏi hiểu ý SOẠN TAY (120 câu, `scripts/data/reading_questions.mjs`). **Giấy phép nghiêm hơn kho bài nghe**: quét 1.968 bài, 1.775 bị loại vì ghi công hãng thông tấn (AP/AFP/Reuters — VOA loại trừ tường minh khỏi phạm vi công cộng); chỉ nhận bài có dòng "wrote this story for VOA Learning English", lưu nguyên văn dòng ghi công làm bằng chứng kiểm được | C1 đo đọc văn bản thật | ≥30 bài — đạt: 30 bài 613–992 từ, `tests/reading_texts.test.js` (8 test) | A | Lớn |
-| 5.4 | **Vòng viết – sửa – viết lại** (nộp bản 2 sau khi nhận nhận xét) | Không có vòng này thì không lên C1 viết được | lưu được ≥2 bản/đề | **B** | Trung bình |
+| ~~5.4~~ ✅ | **Vòng viết – sửa – viết lại**: sổ bài viết lưu `banSo` cho từng đề (bản cũ gán số lúc ĐỌC); màn hình viết có nút "Viết bản N+1" — đổ bài cũ vào ô soạn và GIỮ nhận xét của bản trước trên màn hình (sửa theo nhận xét, không phải theo trí nhớ); sau khi lưu bản ≥2 hiện so sánh số đo được với bản trước; hồ sơ ghi "N đề đã viết lại bản 2" nhưng kỹ năng Viết VẪN là chưa-đo-được | Không có vòng này thì không lên C1 viết được | lưu được ≥2 bản/đề — `tests/writing_revision.test.js` (5 test) | **B** | Trung bình |
 
 **Phát hiện khi làm 5.2 — đã xử lý, không chờ duyệt:**
 
@@ -165,7 +165,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 | **3** | 2.1 → 2.3 → 2.2 → 2.4 | Mở được cửa ải B1→B2 về nghe. |
 | **4** | 3.4 → 3.3 → 3.1 → 3.2 → 3.5 | Mở kỹ năng sản sinh và đọc hiểu ở mức văn bản. |
 | ~~**5**~~ ✅ | 4.2 → 4.4 | Chốt được cam kết: có bài thi cuối bậc B2 và chứng nhận gắn với nó. |
-| **6** | 5.1 → 5.2 → 5.3 → 5.4 | Nền C1. |
+| ~~**6**~~ ✅ | 5.1 → 5.2 → 5.3 → 5.4 | Nền C1. **XONG cả bốn việc** (2026-08-17). |
 
 **Sau đợt 5 là lúc câu "đưa người mất gốc lên B2 vững" trở thành phát biểu kiểm được**, không phải lời quảng cáo.
 

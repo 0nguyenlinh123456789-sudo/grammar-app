@@ -49,7 +49,17 @@ function load(kyNang) {
     // Bản ghi CŨ (trước khi tách hai kỹ năng) không có trường `kyNang`. Chúng
     // nằm trong `writingLogV1` nên chắc chắn là bài viết — gán nhãn khi đọc chứ
     // KHÔNG bỏ qua. Bỏ qua là xoá trắng sổ của người đã học từ trước.
-    return parsed.map((b) => (b && !b.kyNang ? { ...b, kyNang: 'writing' } : b)).filter(Boolean);
+    const ds = parsed.map((b) => (b && !b.kyNang ? { ...b, kyNang: 'writing' } : b)).filter(Boolean);
+    // (5.4) Bản ghi trước vòng viết-lại không có `banSo`. Gán khi ĐỌC, theo thứ
+    // tự thời gian trong từng đề — cùng luật "luật thêm sau phải chạy được trên
+    // dữ liệu cũ" đã áp cho trường kyNang ngay trên.
+    const dem = new Map();
+    return ds.map((b) => {
+      const soCu = dem.get(b.promptId) || 0;
+      const banSo = b.banSo || soCu + 1;
+      dem.set(b.promptId, Math.max(soCu, banSo));
+      return b.banSo ? b : { ...b, banSo };
+    });
   } catch { return []; }
 }
 
@@ -64,6 +74,7 @@ function save(kyNang, list) {
 export function luuBaiLam({ kyNang = 'writing', promptId, text, tuDanhGia = [], dungBaiMau = false, now = new Date() }) {
   khoaCua(kyNang);
   if (!promptId || !String(text || '').trim()) return null;
+  const list = load(kyNang);
   const ban = {
     kyNang,
     promptId,
@@ -72,11 +83,14 @@ export function luuBaiLam({ kyNang = 'writing', promptId, text, tuDanhGia = [], 
     tuDanhGia: tuDanhGia.map(Boolean),
     soTieuChiTuThay: tuDanhGia.filter(Boolean).length,
     dungBaiMau: !!dungBaiMau,
+    // (5.4) Bản thứ mấy của ĐỀ NÀY — nộp lại sau khi nhận nhận xét là bản 2, 3…
+    // Tính từ sổ chứ không nhận từ ngoài vào: con số tự khai thì sớm muộn cũng
+    // lệch với sổ thật.
+    banSo: list.filter((b) => b.promptId === promptId).length + 1,
     // KHÔNG PHẢI ĐIỂM CHẤM. Cờ này đi theo bản ghi tới mọi nơi đọc nó.
     tuBaoCao: true,
     at: now.toISOString(),
   };
-  const list = load(kyNang);
   list.push(ban);
   save(kyNang, list);
   return ban;
@@ -90,13 +104,33 @@ export function baiCuaDe(kyNang, promptId) {
   return load(kyNang).filter((b) => b.promptId === promptId);
 }
 
+// (5.4) Bản MỚI NHẤT của một đề — để màn hình viết mời "viết bản N+1" và đổ
+// sẵn bài cũ vào ô soạn khi người học muốn sửa tiếp.
+export function banMoiNhat(kyNang, promptId) {
+  const ds = baiCuaDe(kyNang, promptId);
+  return ds.length ? ds[ds.length - 1] : null;
+}
+
+// (5.4) Thống kê vòng viết – sửa – viết lại: bao nhiêu đề đã có từ 2 bản trở
+// lên. Chỉ là ĐẾM HOẠT ĐỘNG — không phải thước đo bài có hay lên.
+export function thongKeVietLai(kyNang = 'writing') {
+  const theoDe = new Map();
+  for (const b of load(kyNang)) theoDe.set(b.promptId, (theoDe.get(b.promptId) || 0) + 1);
+  const deCoVietLai = [...theoDe.values()].filter((n) => n >= 2).length;
+  return { soDe: theoDe.size, deCoVietLai, tuBaoCao: true };
+}
+
 // Số liệu để hiển thị trong hồ sơ — CHỈ là đếm hoạt động, không suy ra năng lực.
 export function thongKeTuBaoCao(kyNang = 'writing') {
   const list = load(kyNang);
   if (!list.length) return { soBai: 0, soDe: 0, lanCuoi: null, tuBaoCao: true, danhTu: DANH_TU[kyNang] };
+  const theoDe = new Map();
+  for (const b of list) theoDe.set(b.promptId, (theoDe.get(b.promptId) || 0) + 1);
   return {
     soBai: list.length,
-    soDe: new Set(list.map((b) => b.promptId)).size,
+    soDe: theoDe.size,
+    // (5.4) Số đề đã đi trọn vòng viết – sửa – viết lại (≥2 bản).
+    deCoVietLai: [...theoDe.values()].filter((n) => n >= 2).length,
     lanCuoi: list[list.length - 1].at,
     tuBaoCao: true,
     danhTu: DANH_TU[kyNang],
