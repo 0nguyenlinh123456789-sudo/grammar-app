@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { roadmapData, BAND_TAB_LABEL, bandMinutes, minutesThroughBand, roadmapTotalMinutes } from '../data/roadmapData';
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
@@ -14,8 +14,14 @@ import ErrorReview from '../components/progress/ErrorReview';
 import MockTest from '../components/progress/MockTest';
 import DictationPanel from '../components/listening/DictationPanel';
 import ListeningPassagePanel from '../components/listening/ListeningPassagePanel';
-import WritingPromptPanel from '../components/writing/WritingPromptPanel';
 import { writingPrompts } from '../data/writingPrompts';
+import { SO_DE_THEO_CHANG } from '../data/writingCounts';
+
+// Kho đề theo chặng nặng ~170 KB (531 đề × 8 từ mục tiêu). Nạp thẳng vào trang
+// chủ thì ai mở app cũng phải tải, kể cả người không bao giờ vào mục viết —
+// đo được: chunk trang chủ phình từ 743 KB lên 911 KB. Nên panel viết tách
+// chunk riêng, và trang chủ chỉ cần MỘT CON SỐ để hiển thị.
+const WritingPromptPanel = lazy(() => import('../components/writing/WritingPromptPanel'));
 import { listeningPassages } from '../data/listeningPassages';
 import { audioManifest } from '../data/audioManifest';
 import { loadMockHistory } from '../utils/mockTest';
@@ -313,7 +319,7 @@ const WelcomePage = ({
       {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
       {showDictation && <DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} />}
       {showPassage && <ListeningPassagePanel onClose={() => setShowPassage(false)} />}
-      {showWriting && <WritingPromptPanel onClose={() => setShowWriting(false)} />}
+      {showWriting && <Suspense fallback={null}><WritingPromptPanel onClose={() => setShowWriting(false)} /></Suspense>}
       {showMigration && (
         <MasteryMigrationNotice
           unverifiedCount={unverifiedMilestones.length}
@@ -661,7 +667,7 @@ const WelcomePage = ({
               <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-400 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase">Không cần API key</span>
             </h3>
             <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-              {writingPrompts.length} đề từ viết câu tới bài 150–200 từ · có bài mẫu để đối chiếu. Không chấm ngữ pháp, không cho điểm.
+              {writingPrompts.length} đề có bài mẫu + {SO_DE_THEO_CHANG} đề gắn với từng chặng A2 trở lên. Không chấm ngữ pháp, không cho điểm.
             </p>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { AlertTriangle, ArrowRight, CheckCircle2, PenLine, ScrollText, X, XCircle } from 'lucide-react';
+import { AlertTriangle, ArrowRight, CheckCircle2, PenLine, ScrollText, Sparkles, X, XCircle } from 'lucide-react';
 import { writingPrompts, KIEU_DE } from '../../data/writingPrompts';
-import { kiemTraDeViet, scoreWriting } from '../../utils/writingScorer';
+import { kiemTraDeViet, scoreWriting, scoreWritingWithAI } from '../../utils/writingScorer';
 import { luuBaiViet } from '../../utils/writingLog';
+import { deSinh, deTuChang, GHI_CHU_CHECKLIST_CHUNG } from '../../utils/writingBank';
+import { hasGeminiKey } from '../../utils/aiKey';
 
 // LUYỆN VIẾT — ĐƯỜNG KHÔNG CẦN KEY (việc 3.4).
 //
@@ -20,22 +22,40 @@ import { luuBaiViet } from '../../utils/writingLog';
 // Thứ tự đó quan trọng: đọc bài mẫu trước khi viết thì chỉ còn là chép lại.
 export default function WritingPromptPanel({ onClose }) {
   const [deId, setDeId] = useState(null);
-  const de = writingPrompts.find((p) => p.id === deId) || null;
+  const de = deId
+    ? (writingPrompts.find((p) => p.id === deId) || deTuChang(deSinh.find((t) => t.id === deId)))
+    : null;
   if (!de) return <DanhSach onChon={setDeId} onClose={onClose} />;
   return <LamBai key={de.id} de={de} onBack={() => setDeId(null)} onClose={onClose} />;
 }
 
+// HAI KHO ĐỀ, HAI LỜI HỨA KHÁC NHAU — nên tách bằng hai tab chứ không trộn một
+// danh sách. Trộn vào thì người học bấm trúng một đề không có bài mẫu mà không
+// biết trước, và sẽ tưởng app hỏng.
 function DanhSach({ onChon, onClose }) {
+  const [kho, setKho] = useState('tay');
   const [kieu, setKieu] = useState(null);
-  const ds = kieu ? writingPrompts.filter((p) => p.kieu === kieu) : writingPrompts;
+  const laTay = kho === 'tay';
+  const nguon = laTay ? writingPrompts : deSinh;
+  const ds = (kieu ? nguon.filter((p) => p.kieu === kieu) : nguon).slice(0, laTay ? 999 : 60);
   return <Khung onClose={onClose} tieuDe="Luyện viết">
-    <p className="text-sm font-bold text-slate-500 mt-1 mb-3">
-      Viết xong sẽ có bài mẫu để đối chiếu và một bảng tiêu chí để bạn tự soi bài mình.
+    <div className="flex gap-2 mt-3 mb-3">
+      {[['tay', `Có bài mẫu (${writingPrompts.length})`], ['chang', `Theo chặng (${deSinh.length})`]].map(([k, nhan]) => <button
+        key={k} onClick={() => { setKho(k); setKieu(null); }}
+        className={`flex-1 px-3 py-2 rounded-xl text-xs font-black border-3 transition-all cursor-pointer ${
+          kho === k ? 'border-violet-500 bg-violet-500 text-white' : 'border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300'
+        }`}
+      >{nhan}</button>)}
+    </div>
+    <p className="text-sm font-bold text-slate-500 mb-3">
+      {laTay
+        ? 'Viết xong sẽ có bài mẫu để đối chiếu và một bảng tiêu chí để bạn tự soi bài mình.'
+        : 'Mỗi chặng từ A2 trở lên có một đề gắn với từ vựng của chính chặng đó. Những đề này KHÔNG có bài mẫu — bài mẫu phải người viết, không sinh bằng máy được.'}
     </p>
     {/* Nói trước, không để người học tưởng bài sẽ được chấm. */}
     <p className="text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-800 rounded-2xl p-3 mb-4 flex gap-2">
       <AlertTriangle size={16} className="shrink-0 mt-0.5" />
-      <span>Phần này <b>không chấm ngữ pháp</b> và không cho điểm. Máy chỉ kiểm được số từ và các cụm bắt buộc; phần còn lại bạn tự đối chiếu với bài mẫu.</span>
+      <span>Phần này <b>không chấm ngữ pháp</b> và không cho điểm. Máy chỉ kiểm được số từ và các từ mục tiêu; phần còn lại bạn tự đối chiếu.</span>
     </p>
     <div className="flex flex-wrap gap-2 mb-4">
       {[null, ...Object.keys(KIEU_DE)].map((k) => <button
@@ -44,18 +64,23 @@ function DanhSach({ onChon, onClose }) {
         className={`px-3 py-1.5 rounded-xl text-xs font-black border-3 transition-all cursor-pointer ${
           kieu === k ? 'border-violet-500 bg-violet-500 text-white' : 'border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300'
         }`}
-      >{k ? KIEU_DE[k].label : `Tất cả (${writingPrompts.length})`}</button>)}
+      >{k ? KIEU_DE[k].label : `Tất cả (${nguon.length})`}</button>)}
     </div>
     <div className="grid gap-3">
       {ds.map((p) => <button key={p.id} onClick={() => onChon(p.id)}
         className="text-left p-4 rounded-2xl border-3 border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 hover:border-violet-500 transition-all cursor-pointer">
         <p className="text-[10px] font-black uppercase tracking-wide text-violet-700 dark:text-violet-400">
-          {KIEU_DE[p.kieu].label} · {p.bacToiThieu}
+          {KIEU_DE[p.kieu].label} · {p.bacToiThieu || p.cefr}
         </p>
         <p className="font-black mt-0.5">{p.title}</p>
-        <p className="text-xs font-bold text-slate-500 mt-1">{p.yeuCau.soTuToiThieu}–{p.yeuCau.soTuToiDa} từ</p>
+        <p className="text-xs font-bold text-slate-500 mt-1">
+          {laTay ? `${p.yeuCau.soTuToiThieu}–${p.yeuCau.soTuToiDa} từ` : `${p.soTuToiThieu}–${p.soTuToiDa} từ · ${p.tuMucTieu.length ? `${p.soTuPhaiDung}/${p.tuMucTieu.length} từ mục tiêu` : 'chặng ngữ pháp'}`}
+        </p>
       </button>)}
     </div>
+    {!laTay && ds.length < nguon.length && <p className="mt-4 text-xs font-bold text-slate-400 text-center">
+      Đang hiện {ds.length} đề đầu trong {nguon.length}. Mỗi đề gắn với một chặng — mở từ chặng đó trong lộ trình sẽ ra đúng đề của nó.
+    </p>}
   </Khung>;
 }
 
@@ -65,6 +90,24 @@ function LamBai({ de, onBack, onClose }) {
   const [moBaiMau, setMoBaiMau] = useState(false);
   const [tick, setTick] = useState(() => de.checklist.map(() => false));
   const [daLuu, setDaLuu] = useState(false);
+  const [aiText, setAiText] = useState('');
+  const [aiLoi, setAiLoi] = useState('');
+  const [aiDangChay, setAiDangChay] = useState(false);
+  const coKey = hasGeminiKey();
+
+  // AI là phần THÊM. Nó KHÔNG ghi vào ngân hàng lỗi: scoreWriting ở trên đã ghi
+  // lỗi chính tả rồi, ghi thêm lần nữa là một lỗi bị đếm hai lần trên thang ôn
+  // 3/7/14 ngày, làm thẻ ôn quay lại dày gấp đôi thực tế.
+  const xinAi = async () => {
+    setAiDangChay(true); setAiLoi(''); setAiText('');
+    try {
+      setAiText(await scoreWritingWithAI(text, { topicTitle: de.title }));
+    } catch (e) {
+      setAiLoi(e?.message || 'không rõ lý do');
+    } finally {
+      setAiDangChay(false);
+    }
+  };
 
   // Đổi đề thì xoá sạch, kể cả khi component được dùng lại. (Đã dính một lần ở
   // mục chép chính tả: hiệu ứng chỉ phụ thuộc chỉ số nên kết quả cũ còn lại
@@ -112,32 +155,67 @@ function LamBai({ de, onBack, onClose }) {
             : kq.doDai.thieu
               ? `Còn thiếu ${kq.doDai.thieu} từ (đang ${kq.doDai.soTu}, cần ít nhất ${kq.doDai.min}).`
               : `Dài hơn ${kq.doDai.thua} từ so với mức tối đa ${kq.doDai.max}.`} />
-        <Dong dat={kq.tuBatBuoc.dat}
+        {kq.tuBatBuoc.canCo.length > 0 && <Dong dat={kq.tuBatBuoc.dat}
           text={kq.tuBatBuoc.dat
             ? `Đã dùng đủ cụm bắt buộc: ${kq.tuBatBuoc.daDung.join(', ')}.`
-            : `Còn thiếu: ${kq.tuBatBuoc.conThieu.join(', ')}.`} />
+            : `Còn thiếu: ${kq.tuBatBuoc.conThieu.join(', ')}.`} />}
+        {kq.tuTuChon && <Dong dat={kq.tuTuChon.dat}
+          text={kq.tuTuChon.dat
+            ? `Đã dùng ${kq.tuTuChon.daDung.length}/${kq.tuTuChon.can} từ mục tiêu: ${kq.tuTuChon.daDung.join(', ')}.`
+            : `Mới dùng ${kq.tuTuChon.daDung.length}/${kq.tuTuChon.can} từ mục tiêu — còn thiếu ${kq.tuTuChon.con} từ nữa.`} />}
         {beMat.tips.map((t, i) => <Dong key={i} dat={false} text={t} nhe />)}
 
         {/* Nói thẳng cái mình KHÔNG kiểm được, ngay cạnh cái mình kiểm được. */}
         <p className="mt-3 text-xs font-bold text-slate-500 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-2xl p-3">
-          Máy <b>không</b> kiểm được: {kq.khongKiemDuoc.join(' · ')}. Những thứ đó nằm ở bước đối chiếu bài mẫu bên dưới.
+          Máy <b>không</b> kiểm được: {kq.khongKiemDuoc.join(' · ')}.
+          {de.chiKiemDuocDoDai && ' Đề của chặng ngữ pháp không có danh sách từ, nên máy chỉ đếm được số từ — nó KHÔNG kiểm được bạn có dùng đúng điểm ngữ pháp hay không.'}
         </p>
       </div>
 
-      {/* BƯỚC 3 — bài mẫu, chỉ mở sau khi đã viết. */}
-      {!moBaiMau
-        ? <button onClick={() => setMoBaiMau(true)} className="mt-5 w-full px-5 py-3 rounded-xl border-3 border-slate-800 dark:border-slate-600 font-black inline-flex items-center justify-center gap-2 cursor-pointer">
-            <ScrollText size={17} /> Xem bài mẫu để đối chiếu
-          </button>
-        : <div className="mt-5">
-            <p className="text-xs font-black uppercase tracking-wide text-slate-400 mb-2">Bài mẫu — một cách viết, không phải cách duy nhất</p>
-            <div className="rounded-2xl border-2 border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-800 whitespace-pre-line text-sm font-medium leading-relaxed">{de.modelAnswer}</div>
-            <p className="mt-2 text-xs font-bold text-slate-600 dark:text-slate-300">👉 {de.ghiChuBaiMau}</p>
-          </div>}
+      {/* BƯỚC 3 — bài mẫu, chỉ mở sau khi đã viết.
+          Đề theo chặng KHÔNG có bài mẫu. Phải nói ra chỗ này, vì im lặng bỏ
+          bước đi thì người học tưởng app hỏng — hoặc tệ hơn, tưởng bài mình
+          không đáng được đối chiếu. */}
+      {de.coBaiMau === false
+        ? <div className="mt-5 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 bg-slate-50 dark:bg-slate-800">
+            <p className="text-sm font-black text-slate-500 flex items-center gap-1.5"><AlertTriangle size={15} /> Đề này chưa có bài mẫu</p>
+            <p className="text-xs font-bold text-slate-500 mt-1.5 leading-relaxed">
+              Đề gắn với chặng được máy đóng khung quanh danh sách từ của chặng đó. Bài mẫu thì <b>phải người viết</b> — máy sinh bài mẫu là bịa nội dung, đúng thứ đã bị xoá khỏi kho. Muốn có bài mẫu để đối chiếu, hãy chọn tab <b>“Có bài mẫu”</b>.
+            </p>
+          </div>
+        : !moBaiMau
+          ? <button onClick={() => setMoBaiMau(true)} className="mt-5 w-full px-5 py-3 rounded-xl border-3 border-slate-800 dark:border-slate-600 font-black inline-flex items-center justify-center gap-2 cursor-pointer">
+              <ScrollText size={17} /> Xem bài mẫu để đối chiếu
+            </button>
+          : <div className="mt-5">
+              <p className="text-xs font-black uppercase tracking-wide text-slate-400 mb-2">Bài mẫu — một cách viết, không phải cách duy nhất</p>
+              <div className="rounded-2xl border-2 border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-800 whitespace-pre-line text-sm font-medium leading-relaxed">{de.modelAnswer}</div>
+              <p className="mt-2 text-xs font-bold text-slate-600 dark:text-slate-300">👉 {de.ghiChuBaiMau}</p>
+            </div>}
+
+      {/* NHẬN XÉT BẰNG AI — phần THÊM, không phải phần nền.
+          Bằng key Gemini của chính khách. Không có key thì mọi bước trên vẫn
+          chạy đủ; nút này chỉ nói rõ nó cần gì chứ không chặn đường ai cả. */}
+      <div className="mt-5">
+        {coKey
+          ? <button onClick={xinAi} disabled={aiDangChay}
+              className="w-full px-5 py-3 rounded-xl border-3 border-slate-800 dark:border-slate-600 font-black inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50">
+              <Sparkles size={17} /> {aiDangChay ? 'Đang xin nhận xét…' : 'Xin nhận xét chi tiết bằng AI (key của bạn)'}
+            </button>
+          : <p className="text-xs font-bold text-slate-500 bg-slate-50 dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-2xl p-3">
+              Muốn nhận xét chi tiết về <b>ngữ pháp và ý</b> thì cần key Gemini của bạn (mục Cài đặt). Không có key thì mọi bước ở trên vẫn dùng được đầy đủ.
+            </p>}
+        {aiLoi && <p className="mt-2 text-xs font-bold text-rose-600">Không lấy được nhận xét: {aiLoi}</p>}
+        {aiText && <div className="mt-3">
+          <p className="text-xs font-black uppercase tracking-wide text-slate-400 mb-1">Nhận xét của AI — hãy đọc bằng con mắt nghi ngờ</p>
+          <div className="rounded-2xl border-2 border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-800 whitespace-pre-line text-sm font-medium leading-relaxed">{aiText}</div>
+        </div>}
+      </div>
 
       {/* BƯỚC 4 — TỰ đánh giá, và gọi đúng tên nó. */}
-      {moBaiMau && <div className="mt-6">
+      {(moBaiMau || de.coBaiMau === false) && <div className="mt-6">
         <p className="text-xs font-black uppercase tracking-wide text-slate-400 mb-2">Bạn tự soi bài mình</p>
+        {de.checklistLaChung && <p className="text-[11px] font-bold text-slate-400 mb-2">{GHI_CHU_CHECKLIST_CHUNG}</p>}
         <div className="space-y-2">
           {de.checklist.map((c, i) => <label key={i} className="flex gap-3 items-start p-3 rounded-2xl border-2 border-slate-200 dark:border-slate-700 cursor-pointer">
             <input type="checkbox" checked={tick[i]} onChange={() => setTick((t) => t.map((v, j) => (j === i ? !v : v)))} className="mt-1 w-4 h-4 shrink-0" />

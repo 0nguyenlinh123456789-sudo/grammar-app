@@ -34,7 +34,7 @@ Cam kết phải kiểm được, không thì lại thành lời hứa suông. �
 | N3 | Mỗi chặng đều **đo độ chính xác** trước khi đánh dấu xong | ✅ **đã có** (hạng mục #1/#1b, `tests/milestone_gate.test.js`) |
 | N4 | Người học nghe được **giọng người thật**, nhiều accent, ở mọi chặng ≥B1 | test CI: mỗi chặng B1+ có ≥1 nguồn audio thật — ⚠️ **CHƯA ĐẠT, và cần sửa lại cách đo**: xem ghi chú dưới bảng |
 | N5 | Có **đọc hiểu theo VĂN BẢN** (không phải theo câu lẻ) ở mọi chặng ≥B1 | test CI: câu hỏi soạn tay gắn với `storyEn`, ≥4 câu/bài |
-| N6 | Có **viết được chấm** và lỗi vào sổ lỗi, ở mọi chặng ≥A2 | test CI: mỗi chặng A2+ có ≥1 đề viết |
+| N6 | Có **viết được chấm** và lỗi vào sổ lỗi, ở mọi chặng ≥A2 | ~~test CI: mỗi chặng A2+ có ≥1 đề viết~~ → **đã đo lại, xem ghi chú N6 dưới bảng.** (a) 531/532 chặng A2+ có đề gắn với nội dung chặng ✅ (b) ≥9 đề soạn tay có bài mẫu ✅ |
 | N7 | Test đầu vào **tách được A1/A2/B1/B2/C1** | test CI: mỗi bậc ≥8 câu có nhãn cấp độ |
 | N8 | Có **bài thi cuối bậc** cho A2, B1, B2 — đủ 4 kỹ năng | test CI: 3 đề, mỗi đề có cả 4 phần |
 
@@ -43,6 +43,17 @@ Cam kết phải kiểm được, không thì lại thành lời hứa suông. �
 > Cái đang có: **kho dùng chung 239 bản thu**, chia theo **độ dài câu** (97 ngắn · 98 vừa · 44 dài), bậc lộ trình gợi ý nhóm bắt đầu. Điều này thật và kiểm được.
 > Đề nghị đổi N4 thành hai vế đo được: **(a)** kho có ≥200 bản thu giọng người thật, mỗi nhóm độ dài ≥40 — *đã đạt, đã ghim bằng bánh cóc*; **(b)** mỗi chặng B1+ có ít nhất một **bài nghe theo đoạn gắn với nội dung chặng** — *đây mới là việc 2.2, và nó chưa bắt đầu.*
 > Vế (b) mới là thứ thật sự mở cửa ải B1→B2 về nghe. Chép chính tả câu rời rèn tai nghe âm, nhưng không rèn khả năng theo dõi mạch nói.
+
+---
+
+> **Ghi chú N6 — đã đo lại và ĐANG LÀM THEO cách đo mới (16/08). Không phải câu hỏi mới, chỉ là báo để bạn bác nếu thấy sai.**
+> Cách đo cũ ("mỗi chặng A2+ có ≥1 đề viết") đo ra **532 chặng**. Soạn tay 532 đề kèm bài mẫu là không làm nổi; nhân từ khuôn thì đúng là thứ cả chuỗi dọn nội dung đang xoá.
+> **Nhưng đề viết KHÁC câu hỏi trắc nghiệm ở một điểm quyết định: nó KHÔNG CÓ ĐÁP ÁN ĐỂ BỊA.** "Viết một đoạn dùng ít nhất 4 trong các từ sau" là một *nhiệm vụ*; "Từ X nghĩa là gì? → B" là một *khẳng định* máy tự đặt ra rồi tự nhận là đúng. Đúng luật đã chốt: GIỮ nội dung máy làm ra bằng cách sắp xếp lại tài liệu soạn tay, XOÁ nội dung nhân từ khuôn mẫu.
+> Nên N6 tách làm hai vế đo được:
+> **(a)** mọi chặng A2+ có một đề viết **gắn với từ vựng của chính chặng đó**, máy đóng khung nhiệm vụ quanh danh sách từ soạn tay, **KHÔNG có bài mẫu** và nói thẳng là không có — *đã đạt: 531/532, chặng còn lại là Oxford Unit 26 dạy hậu tố (-ful, -less, -ness) nên không thể bảo người học "dùng từ -ness trong câu"; ghim bằng `tests/writing_bank.test.js`.*
+> **(b)** một số đề **soạn tay có bài mẫu** để người học đối chiếu — *đang có 9 đề, có bánh cóc riêng ở `tests/writing_fallback.test.js`. Con số này lớn lên bằng công soạn thảo, không bằng máy.*
+> Thứ máy TUYỆT ĐỐI không được sinh là **bài mẫu**: đó là nội dung thật, phải người viết.
+> Phần "lỗi vào sổ lỗi" của N6 đã có sẵn từ bộ chấm bề mặt (lỗi chính tả → thang ôn 3/7/14 ngày). Nhận xét bằng AI dùng key của khách là phần **thêm**, không phải phần nền.
 
 ---
 

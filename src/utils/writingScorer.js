@@ -153,6 +153,24 @@ export function kiemTraDeViet(text, prompt) {
   const daDung = canCo.filter((t) => lower.includes(t));
   const conThieu = canCo.filter((t) => !lower.includes(t));
 
+  // HAI KIỂU YÊU CẦU TỪ, MỘT BỘ KIỂM.
+  // Đề soạn tay đòi ĐỦ các cụm đã nêu ("however" VÀ "than"). Đề sinh theo chặng
+  // (việc 3.3) đòi ÍT NHẤT N TRONG M từ của chủ đề — người học được chọn từ nào
+  // hợp với điều mình muốn viết. Hai luật khác nhau nhưng cùng đi qua đây; tách
+  // ra hai bộ kiểm là mở đường cho chúng lệch nhau, đúng cái bẫy `.{1,20}` với
+  // `.{1,25}` ở bản chép lời.
+  const tc = yc.tuTuChon;
+  let tuTuChon = null;
+  if (tc && Array.isArray(tc.danhSach) && tc.danhSach.length) {
+    const ds = tc.danhSach.map((t) => String(t).toLowerCase());
+    // Khớp theo BIÊN TỪ, không phải chuỗi con: "sun" không được ăn điểm nhờ
+    // "Sunday", và "warm" không khớp trong "warmth" ngược lại thì vẫn tính vì
+    // đó là cùng một họ từ ở dạng người học vừa học.
+    const dung = ds.filter((t) => new RegExp(`\\b${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i').test(lower));
+    const can = Number(tc.soLuong) || 1;
+    tuTuChon = { danhSach: ds, daDung: dung, can, con: Math.max(0, can - dung.length), dat: dung.length >= can };
+  }
+
   return {
     doDai,
     tuBatBuoc: {
@@ -162,6 +180,7 @@ export function kiemTraDeViet(text, prompt) {
       dat: conThieu.length === 0,
       moTa: yc.moTaTuBatBuoc || '',
     },
+    tuTuChon,
     // Cờ này để giao diện KHÔNG BAO GIỜ hiển thị kết quả trên như một điểm số.
     laSuThatKiemDuoc: true,
     khongKiemDuoc: [
