@@ -11,7 +11,7 @@
 //   - đầu vào: bộ lọc không được ăn nhầm câu LÀM ĐƯỢC.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync, statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { locBaiHong, demBiAn, suaLoiLamDuoc, vietLaiLamDuoc, dienVaoLamDuoc } from '../src/utils/grammarClean.js';
@@ -74,4 +74,31 @@ test('GrammarPage đọc bài tập qua locBaiHong, không đọc thẳng dữ l
   assert.match(s, /locBaiHong\(topicGoc\)/, 'GrammarPage không còn lọc bài hỏng');
   assert.doesNotMatch(s, /topicGoc\.(errorCorrection|transformation|fillBlanks)/,
     'GrammarPage đọc thẳng dữ liệu chưa lọc — bộ lọc bị đi vòng');
+});
+
+// Ghim thứ đã suýt lọt: bộ lọc chỉ cắm ở MỘT chỗ, nên chỗ đọc thứ hai sẽ lặng
+// lẽ thấy đủ 168 câu hỏng. `grammarMinutes()` trong build_roadmap là đúng một
+// chỗ như thế — nó đếm cả bài hỏng để ước lượng số giờ của nhánh C1. Test này
+// liệt kê MỌI nơi đọc ba trường đó và bắt buộc phải đi qua locBaiHong.
+test('mọi nơi đọc errorCorrection/transformation/fillBlanks đều qua locBaiHong', () => {
+  const DUOC_DOC_THANG = [
+    'src/utils/grammarClean.js',       // chính bộ lọc
+    'scripts/audit_grammar_exercises.mjs', // bộ đo, phải thấy cả câu hỏng
+    'tests/grammar_exercises.test.js',
+  ];
+  const thieu = [];
+  const quet = (dir) => {
+    for (const ten of readdirSync(dir)) {
+      const full = path.join(dir, ten);
+      if (statSync(full).isDirectory()) { quet(full); continue; }
+      if (!/\.(js|jsx|mjs)$/.test(ten)) continue;
+      const rel = path.relative(ROOT, full).replace(/\\/g, '/');
+      if (rel.startsWith('src/data/') || DUOC_DOC_THANG.includes(rel)) continue;
+      const s = readFileSync(full, 'utf8');
+      if (!/\b(errorCorrection|transformation|fillBlanks)\b/.test(s)) continue;
+      if (!/locBaiHong/.test(s)) thieu.push(rel);
+    }
+  };
+  for (const d of ['src', 'scripts']) quet(path.join(ROOT, d));
+  assert.deepEqual(thieu, [], `${thieu.length} nơi đọc bài tập mà KHÔNG qua locBaiHong:\n  ${thieu.join('\n  ')}`);
 });

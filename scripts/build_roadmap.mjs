@@ -62,6 +62,7 @@ async function loadAgg(file, pick) {
 }
 
 const cf = await import(pathToFileURL(path.join(ROOT, 'src/utils/contentFilter.js')).href);
+const { locBaiHong } = await import(pathToFileURL(path.join(ROOT, 'src/utils/grammarClean.js')).href);
 const topics = cf.sanitizeVocabTopics(await loadAgg('vocabVstepData.js', (m) => m.default));
 const { foundationData } = await import(pathToFileURL(path.join(DATA, 'foundationData.js')).href);
 const { grammarDataB1 } = await import(pathToFileURL(path.join(DATA, 'grammarDataB1.js')).href);
@@ -81,7 +82,11 @@ const curatedTargets = new Set(roadmapCurated.flatMap((l) => l.milestones.map((m
 // ---- Ước lượng phút cho từng loại -------------------------------------------
 const minutesFromItems = (n) => Math.round((n * SEC_PER_ITEM) / 60);
 
-function grammarMinutes(t) {
+function grammarMinutes(topicGoc) {
+  // (5.2) Qua locBaiHong TRƯỚC khi đếm: 168 câu bài tập của nhánh C1 không làm
+  // được và đã bị ẩn khỏi màn hình. Đếm cả chúng là khai khống số giờ học của
+  // đúng cái nhánh vừa dọn.
+  const t = locBaiHong(topicGoc);
   const items = (t.exercises || []).length + (t.fillBlanks || []).length + (t.errorCorrection || []).length
     + (t.transformation || []).length + (t.matching || []).length + (t.trueFalse || []).length
     + (t.sentenceGame || []).length;
