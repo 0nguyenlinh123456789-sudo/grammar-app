@@ -64,6 +64,8 @@ Lộ trình tự công bố tổng **~201 giờ** (cộng các dòng "🕐 ~N gi
 
 Về chất lượng bài đọc: tôi đo được **một** dấu hiệu nhồi từ khoá (từ của chính chủ đề bị viết hoa giữa câu, kiểu *"He made a Booking for a direct flight"*). **27/267 văn bản dính dấu hiệu này**, trong đó 11 văn bản dính trên 10 lần. 240 văn bản còn lại không dính dấu hiệu đó — nhưng **không dính một dấu hiệu không có nghĩa là văn bản tự nhiên**; máy không đo được điều đó, cần người đọc.
 
+> **Cập nhật khi làm việc 3.2 (2026-08-16): con số 27 ở trên SAI, và sai theo cả hai chiều.** Bộ đo viết lại (`scripts/audit_story_caps.mjs`) ra **38 bài / 986 lượt**. Đọc từng chỗ thì **30 bài trong đó viết hoa ĐÚNG** — `Monday`, `January`, `T-shirt`, `Renaissance`, `MRI scan`, `Earth`, `Confucianism`… — nên bản kiểm đầu đã **đếm thừa** những chỗ không phải lỗi, đồng thời **đếm thiếu** vì bỏ sót vài bài. Số thật: **8 bài sai, 888 lượt**, tất cả đã hạ chữ thường. Danh sách 30 bài viết hoa đúng nay kê đích danh theo cặp (chủ đề, dạng chữ) kèm lý do ở `scripts/data/hoa_hop_le.mjs`. Câu cảnh báo cuối đoạn trên **vẫn nguyên giá trị**: 0 lượt dính dấu hiệu không có nghĩa là 267 bài đọc đã tự nhiên.
+
 ### 1.5 Đánh giá năng lực
 
 | | Số đo | Vấn đề |
@@ -140,7 +142,7 @@ Cột **Làm được không** theo đúng ràng buộc bạn đã đặt (khôn
 | 3.2 | **Văn bản đọc dài, thật** (báo, học thuật, văn học) 800–1.500 từ kèm câu hỏi suy luận | C1/C2 đo khả năng đọc văn bản thật, không đo đọc đoạn ôn từ | A | Rất lớn |
 | 3.3 | **Vòng sản sinh có sửa**: viết bài dài, được chấm, sửa, viết lại | Không có vòng này thì không ai lên C1 viết được | B | Lớn |
 | 3.4 | **Luyện tương tác**: hội thoại có người/AI phản hồi tự do | C1/C2 là kỹ năng tương tác, không phải kỹ năng chọn đáp án | B | Lớn |
-| 3.5 | Rà soát **chất lượng văn bản** — 27/267 bài đọc dính dấu hiệu nhồi từ khoá; phần còn lại máy không đo được, cần người đọc | Bài đọc là đầu vào chính, sai ở đây là sai gốc | A | Trung bình |
+| 3.5 | Rà soát **chất lượng văn bản** — ~~27/267~~ **8/267** bài đọc dính dấu hiệu nhồi từ khoá (xem ô cập nhật ở §1.4; đã sửa xong 2026-08-16); phần còn lại máy không đo được, cần người đọc | Bài đọc là đầu vào chính, sai ở đây là sai gốc | A | Trung bình |
 
 ### Việc KHÔNG đề xuất làm (loại C — vi phạm ràng buộc)
 

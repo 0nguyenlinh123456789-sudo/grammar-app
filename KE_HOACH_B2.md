@@ -93,10 +93,22 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 | # | Việc | Vì sao | Nghiệm thu | RB | Công |
 |---|---|---|---|---|---|
 | 3.1 | **Câu hỏi đọc hiểu soạn tay gắn với `storyEn`** — hiện **1/267 chủ đề** có | 266 chủ đề đang kiểm tra hiểu *một câu*, không phải hiểu *một bài* | N5 xanh | A | **Lớn** |
-| 3.2 | **Rà chất lượng 267 bài đọc**; sửa/thay 27 bài dính dấu hiệu nhồi từ khoá (11 bài dính >10 lần) | Bài đọc là đầu vào chính; sai ở đây là sai gốc | 0 bài dính dấu hiệu, test CI ghim | A | Trung bình |
+| ~~3.2~~ ✅ | **Rà chất lượng 267 bài đọc** — đo lại ra **38 bài** dính dấu hiệu, đọc từng chỗ thì **30 bài viết hoa ĐÚNG** (thứ, tháng, `T-shirt`, `Renaissance`, `MRI scan`, `Earth`…), **8 bài sai thật** = **888 lượt**. Đã hạ chữ thường 888 lượt, `tests/story_caps.test.js` ghim | Bài đọc là đầu vào chính; sai ở đây là sai gốc | 0 lượt chưa giải thích + bất biến "chỉ đổi hoa/thường" | A | Trung bình |
 | 3.3 | **Ngân hàng đề viết theo chặng** (câu → đoạn → bài 150–200 từ), chấm bằng key Gemini của khách, lỗi đổ vào sổ lỗi đã có | Hiện chỉ có **1 ô văn bản tự do** ở mục ngữ pháp | N6 xanh | **B** | Trung bình |
 | 3.4 | **Chấm viết dự phòng không cần AI**: đối chiếu câu mẫu, checklist tiêu chí, tự đánh giá có hướng dẫn | Khách chưa nhập key vẫn phải viết được, không thì tính năng chết một nửa | mọi đề viết dùng được khi không có key | A | Trung bình |
 | 3.5 | **Nói: mở rộng đọc to → nói theo chủ đề**, chấm bằng key Gemini; giữ so khớp văn bản làm dự phòng | Hiện chỉ so chuỗi, và bản thân việc so chuỗi không phải chấm phát âm | ≥1 đề nói/chặng B1+ | **B** | Trung bình |
+
+> **Ghi chú việc 3.2 — MÁY ĐÃ LÀM XONG PHẦN CỦA MÁY, PHẦN CÒN LẠI CẦN NGƯỜI ĐỌC (16/08).**
+>
+> Đã sửa: **888 lượt viết hoa giữa câu** ở **8 bài đọc** (`health-basics`, `education-learning-advanced`, `energy-resources`, `nature-countryside`, `city-urban-life`, `daily-routine-time-management`, `travel-transport`, `economy-money`). Chỉ đổi hoa/thường, không đổi một ký tự nội dung nào — `tests/story_caps.test.js` chứng minh bằng ảnh chụp băm chữ thường chụp TRƯỚC khi sửa.
+>
+> **Ba việc tôi CỐ Ý KHÔNG làm, và lý do:**
+>
+> 1. **Không viết lại 8 bài đó cho tự nhiên.** Hạ chữ thường chữa được lỗi *chính tả*, không chữa được lối *nhồi từ*: `"He feared obesity, being overweight, and becoming clinically obese"` đọc vẫn gượng. Viết lại là soạn nội dung mới, cần bạn duyệt trước — và cần người ĐỌC để nghiệm thu, máy không đo được "tự nhiên".
+> 2. **Không đụng `storyVi`.** Bản dịch có 656 lượt tương tự, nhưng nó là **bản chú giải xen kẽ** (`Sự đặt trước (Booking)`), không phải văn xuôi — viết hoa ở đó là đánh dấu đầu mục chú giải, và tiếng Việt không phải thứ người học đang học ở bài này.
+> 3. **Không mở rộng sang `words[].en`.** Chính kho từ cũng viết hoa danh từ chung (`"en": "Flight"`, `"en": "Lost property"`). Đây là lỗi cùng loại nhưng **rủi ro khác hẳn**: chuỗi `en` là khoá lưu tiến độ/SRS trong localStorage của người học, đổi nó là có thể xoá sạch tiến độ đã học. Cần một đợt riêng có bước chuyển khoá.
+>
+> **Một phát hiện ngoài phạm vi, đã sửa vì nó là lời nói sai với người học:** tiêu đề mục Câu Chuyện khẳng định *"Tất cả N từ xuất hiện trong câu chuyện này!"* — đo ra chỉ **đúng với 6/267 chủ đề**; toàn kho có **11.068/22.008 ô từ không hề xuất hiện** trong truyện của chính chủ đề đó. Nay hiện số đếm thật (`63/101 từ…`), đếm bằng chính luật khớp của lớp bôi vàng.
 
 ### NHÓM 4 — Đo lường (không có thì không biết ai đang ở đâu)
 

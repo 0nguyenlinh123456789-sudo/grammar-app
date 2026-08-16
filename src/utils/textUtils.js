@@ -67,3 +67,24 @@ export function buildVocabRegex(words) {
   if (cleaned.length === 0) return null;
   return new RegExp(`\\b(${cleaned.join('|')})\\b`, 'gi');
 }
+
+// Đếm xem BAO NHIÊU từ của chủ đề thật sự xuất hiện trong bài đọc.
+//
+// Có hàm này vì tiêu đề mục Câu Chuyện từng khẳng định "Tất cả N từ xuất hiện
+// trong câu chuyện này!" — đo ra thì chỉ ĐÚNG với 6/267 chủ đề, và tính trên
+// toàn kho có 11.068/22.008 ô từ KHÔNG hề xuất hiện trong truyện của chính chủ
+// đề đó. Nói một con số sai với người học còn tệ hơn không nói.
+//
+// Dùng ĐÚNG `buildVocabRegex` mà lớp bôi vàng dùng, nên con số này luôn khớp
+// với số từ được bôi vàng trên màn hình — không phải hai phép đếm khác nhau.
+export function demTuTrongTruyen(storyText, vocabList) {
+  const words = (vocabList || []).map((w) => w?.en).filter(Boolean);
+  const tong = words.length;
+  const text = String(storyText || '');
+  if (!text || tong === 0) return { co: 0, tong };
+  const co = words.filter((w) => {
+    const re = buildVocabRegex([w]);
+    return re ? re.test(text) : false;
+  }).length;
+  return { co, tong };
+}

@@ -14,6 +14,7 @@ import { ChibiBadge } from '../components/common/ChibiAnimals';
 import { loadVocabProgress, saveVocabProgress } from '../utils/learningProgress';
 import MasteryVerdict from '../components/common/MasteryVerdict';
 import { createSession, recordAnswer, sessionEvidence, isPassing } from '../utils/mastery';
+import { demTuTrongTruyen } from '../utils/textUtils';
 
 // Bài gõ từ cần tối thiểu bấy nhiêu từ mới đủ căn cứ để kết luận đạt/chưa đạt.
 const MIN_TYPING_ANSWERS = 5;
@@ -80,6 +81,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
   const currentWord = activeTopic.words[currentWordIndex];
   const isCompleted = completedMilestones.includes(activeTopic.id);
   const totalWords = activeTopic.words.length;
+  const phuSongTruyen = demTuTrongTruyen(activeTopic.storyEn, activeTopic.words);
 
   // CHÍNH SÁCH NỘI DUNG (đợt (f) 2026-08-12): thiếu dữ liệu thì ẨN hoặc BÁO,
   // không thay thế âm thầm. Mode "Cụm Câu" trước đây tự sinh collocation/"mẫu
@@ -332,7 +334,14 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
               <div className="text-4xl">{activeTopic.title.match(/^[^\s]+/)?.[0] || '📖'}</div>
               <div>
                 <h2 className="font-black text-xl">Câu Chuyện Nhớ Từ</h2>
-                <p className="text-white/80 text-sm font-bold">Tất cả {totalWords} từ xuất hiện trong câu chuyện này!</p>
+                {/* Câu cũ khẳng định "Tất cả N từ xuất hiện trong câu chuyện
+                    này!" — đo ra chỉ đúng với 6/267 chủ đề. Nay nói đúng con số
+                    đếm được, bằng chính phép đếm của lớp bôi vàng. */}
+                <p className="text-white/80 text-sm font-bold">
+                  {phuSongTruyen.co >= phuSongTruyen.tong
+                    ? `Cả ${phuSongTruyen.tong} từ của chủ đề đều xuất hiện trong câu chuyện này!`
+                    : `${phuSongTruyen.co}/${phuSongTruyen.tong} từ của chủ đề xuất hiện trong câu chuyện này`}
+                </p>
               </div>
               <button
                 onClick={() => playAudio(activeTopic.storyEn)}
