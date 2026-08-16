@@ -96,7 +96,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 | ~~3.2~~ ✅ | **Rà chất lượng 267 bài đọc** — đo lại ra **38 bài** dính dấu hiệu, đọc từng chỗ thì **30 bài viết hoa ĐÚNG** (thứ, tháng, `T-shirt`, `Renaissance`, `MRI scan`, `Earth`…), **8 bài sai thật** = **888 lượt**. Đã hạ chữ thường 888 lượt, `tests/story_caps.test.js` ghim | Bài đọc là đầu vào chính; sai ở đây là sai gốc | 0 lượt chưa giải thích + bất biến "chỉ đổi hoa/thường" | A | Trung bình |
 | 3.3 | **Ngân hàng đề viết theo chặng** (câu → đoạn → bài 150–200 từ), chấm bằng key Gemini của khách, lỗi đổ vào sổ lỗi đã có | Hiện chỉ có **1 ô văn bản tự do** ở mục ngữ pháp | N6 xanh | **B** | Trung bình |
 | 3.4 | **Chấm viết dự phòng không cần AI**: đối chiếu câu mẫu, checklist tiêu chí, tự đánh giá có hướng dẫn | Khách chưa nhập key vẫn phải viết được, không thì tính năng chết một nửa | mọi đề viết dùng được khi không có key | A | Trung bình |
-| 3.5 | **Nói: mở rộng đọc to → nói theo chủ đề**, chấm bằng key Gemini; giữ so khớp văn bản làm dự phòng | Hiện chỉ so chuỗi, và bản thân việc so chuỗi không phải chấm phát âm | ≥1 đề nói/chặng B1+ | **B** | Trung bình |
+| ~~3.5~~ ✅ | **Nói: mở rộng đọc to → nói theo chủ đề** — **386/386 chặng B1+** có đề, nhận xét nội dung bằng key Gemini của khách; giữ mục đọc to từng từ cho A0–A2 | Hiện chỉ so chuỗi, và bản thân việc so chuỗi không phải chấm phát âm | 386/386 chặng B1+ ✅ · 0 chặng dưới B1 ✅ · test cấm mọi lời hứa chấm phát âm | **B** | Trung bình |
 
 > **Ghi chú việc 3.2 — MÁY ĐÃ LÀM XONG PHẦN CỦA MÁY, PHẦN CÒN LẠI CẦN NGƯỜI ĐỌC (16/08).**
 >
@@ -109,6 +109,14 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 > 3. **Không mở rộng sang `words[].en`.** Chính kho từ cũng viết hoa danh từ chung (`"en": "Flight"`, `"en": "Lost property"`). Đây là lỗi cùng loại nhưng **rủi ro khác hẳn**: chuỗi `en` là khoá lưu tiến độ/SRS trong localStorage của người học, đổi nó là có thể xoá sạch tiến độ đã học. Cần một đợt riêng có bước chuyển khoá.
 >
 > **Một phát hiện ngoài phạm vi, đã sửa vì nó là lời nói sai với người học:** tiêu đề mục Câu Chuyện khẳng định *"Tất cả N từ xuất hiện trong câu chuyện này!"* — đo ra chỉ **đúng với 4/267 chủ đề**; toàn kho chỉ **10.856/22.008 ô từ** thật sự được bôi vàng trong truyện của chính chủ đề đó. Nay hiện số đếm thật (`63/101 từ…`), đếm bằng **một lượt quét của chính bộ khớp bôi vàng** — không phải dò từng từ. Khác biệt có thật: dò từng từ ra 6/267 và 11.068 ô thiếu, vì nó tính cả `transport` nằm trong `public transport`, trong khi màn hình chỉ bôi vàng cụm dài. Con số hiện ra phải là **con số người học đếm lại được bằng cách đếm vệt vàng**.
+
+> **Ghi chú việc 3.5 — CÁI MICRO LÀM NGƯỜI TA TƯỞNG MÌNH ĐANG ĐƯỢC ĐO (16/08).**
+>
+> Đây là tính năng dễ nói quá nhất trong cả Đợt 4, nên nó bị soi chặt nhất. Sự thật: Web Speech chỉ trả về **văn bản** nó nghe được; từ văn bản **không** suy ra được người ta phát âm thế nào. Nên mọi con số đều gọi đúng tên — *"trình duyệt nghe ra 3/4 từ mục tiêu"*, không phải *"bạn phát âm đúng 3/4"* — và danh sách **không kiểm được** (phát âm từng âm, trọng âm, ngữ điệu, tốc độ, người nghe thật có hiểu không) hiện **ngay cạnh** phần kiểm được. Có test quét cả dữ liệu, bộ kiểm và giao diện để không lọt một lời hứa chấm phát âm nào.
+>
+> **Hồ sơ năng lực vẫn ghi Nói là "chưa đo được"** dù người học tự đánh giá bao nhiêu lượt — cùng cửa hẹp mà kỹ năng Viết đã đi ở việc 3.4.
+>
+> **Việc chờ bạn không đổi:** đây vẫn **chưa phải chấm phát âm**. Muốn có chấm phát âm đạt chuẩn thi cử thì cần dịch vụ nhận diện giọng nói trả phí có mô hình chấm âm vị — trái ràng buộc "không dùng dịch vụ tốn phí" nên tôi không làm, và giao diện nói thẳng lý do đó với người học.
 
 ### NHÓM 4 — Đo lường (không có thì không biết ai đang ở đâu)
 
