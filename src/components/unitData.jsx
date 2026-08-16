@@ -1,5 +1,5 @@
 // File: src/components/unitData.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { BookOpen, Gamepad2, PenTool, Edit3, Keyboard, Layers, Sparkles } from 'lucide-react';
 
 // Sub-components
@@ -11,12 +11,19 @@ import TypingTab from './oxford/TypingTab';
 import QuizTab from './oxford/QuizTab';
 import PracticeTab from './oxford/PracticeTab';
 
-export default function OxfordVocab({ unitData, completedMilestones = [], completeMilestone }) {
+// (5.1) BÙ ĐỘ DÀY LUYỆN TẬP — suy từ chính ô từ soạn tay của unit, không thêm
+// một chữ nội dung mới nào. Đo được: sách Advanced 10,0 → 28,7 mục/unit.
+// Tính ở đây (một hàm thuần) thay vì sinh ra file dữ liệu: sinh file là tạo bản
+// thứ hai của cùng nội dung, và hai bản thì sớm muộn cũng lệch.
+import { buDoDay } from '../utils/oxfordThicken';
+
+export default function OxfordVocab({ unitData: unitGoc, completedMilestones = [], completeMilestone }) {
     const [activeTab, setActiveTab] = useState("theory");
+    const unitData = useMemo(() => buDoDay(unitGoc), [unitGoc]);
 
     useEffect(() => {
         setActiveTab("theory");
-    }, [unitData]);
+    }, [unitGoc]);
 
     if (!unitData) {
         return <div className="flex items-center justify-center h-full text-slate-400 font-bold text-xl">Vui lòng chọn Unit từ Menu bên trái.</div>;
