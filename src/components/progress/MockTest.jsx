@@ -126,7 +126,13 @@ export default function MockTest({ onClose }) {
       <div className="mt-6 p-6 rounded-3xl border-4 border-slate-900 dark:border-slate-600 bg-gradient-to-br from-yellow-100 to-emerald-100 dark:from-slate-800 dark:to-slate-800 text-center">
         <p className="text-xs font-black uppercase tracking-widest text-slate-500">{result.scale.type === 'ielts' ? 'IELTS BAND ƯỚC TÍNH' : 'ĐIỂM VSTEP ƯỚC TÍNH'}</p>
         <p className="text-6xl font-black text-slate-900 dark:text-white mt-1">{result.scale.type === 'ielts' ? result.scale.band.toFixed(1) : result.scale.score.toFixed(1)}</p>
-        <p className="font-black text-emerald-700 dark:text-emerald-400 mt-1">Tương đương {result.scale.level}</p>
+        {/* (4.2) Bỏ dòng "Tương đương B2". Một con số quy đổi thô từ 20 câu
+            KHÔNG phải một nhãn bậc, và app chỉ được có MỘT nguồn trả lời câu
+            hỏi "người này bậc mấy" — là bài thi cuối bậc. */}
+        <p className="font-bold text-slate-500 text-xs mt-1 max-w-md mx-auto">
+          Đây là <b>điểm luyện tập quy đổi thô</b> từ {result.total} câu, không phải nhãn bậc.
+          Muốn biết mình đã đạt bậc nào, hãy làm <b>bài thi cuối bậc</b>.
+        </p>
         <p className="text-sm font-bold text-slate-600 dark:text-slate-300 mt-3">
           Đúng {result.correct}/{result.total} câu ({result.percent}%)
           {delta !== null && <span className={`ml-2 font-black ${delta >= 0 ? 'text-emerald-600' : 'text-rose-500'}`}>{delta >= 0 ? `▲ +${delta}%` : `▼ ${delta}%`} so với lần trước</span>}

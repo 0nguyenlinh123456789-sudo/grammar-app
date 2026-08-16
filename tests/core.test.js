@@ -451,7 +451,10 @@ test('mock test scoring converts to VSTEP and IELTS scales and flags weak sectio
   assert.equal(result.percent, 75);
   assert.equal(result.scale.type, 'vstep');
   assert.equal(result.scale.score, 7.5);
-  assert.equal(result.scale.level, 'B2');
+  // (4.2) Đề thi thử KHÔNG còn gắn nhãn bậc. Nhãn bậc chỉ đến từ bài thi cuối
+  // bậc (bandExam.js) — app chỉ được có MỘT nguồn trả lời "người này bậc mấy".
+  assert.equal(result.scale.level, undefined, 'đề thi thử không được gắn nhãn bậc nữa');
+  assert.equal(result.scale.laUocLuongLuyenTap, true);
   assert.equal(result.wrong.length, 1);
   assert.equal(result.wrong[0].id, 'b');
   assert.equal(weakestSection(result.sections), 'grammar');
@@ -465,7 +468,16 @@ test('mock test scoring converts to VSTEP and IELTS scales and flags weak sectio
 test('band conversion stays inside the published ranges', () => {
   assert.equal(toIeltsBand(0).band, 4);
   assert.equal(toIeltsBand(100).band, 8);
-  assert.equal(toVstepScore(0).level, 'A2');
-  assert.equal(toVstepScore(40).level, 'B1');
-  assert.equal(toVstepScore(90).level, 'C1');
+  assert.equal(toVstepScore(0).score, 0);
+  assert.equal(toVstepScore(90).score, 9);
+});
+
+// (4.2) Ghim việc ĐÃ GỠ: quy đổi luyện tập không được đẻ ra nhãn bậc. Nếu ai đó
+// thêm lại `level` vào đây thì app lại có hai nguồn cùng trả lời "bậc mấy".
+test('quy đổi điểm luyện tập KHÔNG được trả về nhãn bậc', () => {
+  for (const p of [0, 40, 75, 90, 100]) {
+    assert.equal(toVstepScore(p).level, undefined, `toVstepScore(${p}) vẫn trả về nhãn bậc`);
+    assert.equal(toIeltsBand(p).level, undefined, `toIeltsBand(${p}) vẫn trả về nhãn bậc`);
+    assert.equal(toVstepScore(p).laUocLuongLuyenTap, true);
+  }
 });

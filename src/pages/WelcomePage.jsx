@@ -12,8 +12,7 @@ import SrsReview from '../components/vocab/SrsReview';
 import WordNotebook from '../components/vocab/WordNotebook';
 import ErrorReview from '../components/progress/ErrorReview';
 import MockTest from '../components/progress/MockTest';
-import DictationPanel from '../components/listening/DictationPanel';
-import ListeningPassagePanel from '../components/listening/ListeningPassagePanel';
+
 import { writingPrompts } from '../data/writingPrompts';
 import { SO_DE_THEO_CHANG } from '../data/writingCounts';
 // Chỉ CON SỐ, không phải kho đề — xem chú thích trong speakingCounts.js.
@@ -27,8 +26,18 @@ import { COD_DE_VIET, COD_DE_NOI } from '../utils/bandCoDe';
 // chunk riêng, và trang chủ chỉ cần MỘT CON SỐ để hiển thị.
 const WritingPromptPanel = lazy(() => import('../components/writing/WritingPromptPanel'));
 const SpeakingPromptPanel = lazy(() => import('../components/speaking/SpeakingPromptPanel'));
-import { listeningPassages } from '../data/listeningPassages';
-import { audioManifest } from '../data/audioManifest';
+const BandExamPanel = lazy(() => import('../components/exam/BandExamPanel'));
+// (4.2, đo được lúc tách chunk) Hai panel nghe này trước nhập TĨNH, nên kho bài
+// nghe (~398 KB) và bảng bản thu nằm thẳng trong chunk trang chủ — ai mở app
+// cũng tải, kể cả người không bao giờ mở mục nghe. Cùng loại lỗi đã đo và đã
+// tách ra cho panel luyện viết ở việc 3.3.
+const DictationPanel = lazy(() => import('../components/listening/DictationPanel'));
+const ListeningPassagePanel = lazy(() => import('../components/listening/ListeningPassagePanel'));
+// CHỈ con số — nạp cả kho bài nghe vào trang chủ là kéo ~398 KB vào thứ ai mở
+// app cũng phải tải, đúng cái đã tách ra cho kho đề viết ở việc 3.3.
+import { SO_BAI_NGHE } from '../data/listeningCounts';
+// CHỈ con số — xem chú thích trong audioCounts.js.
+import { SO_BAN_THU } from '../data/audioCounts';
 import { loadMockHistory } from '../utils/mockTest';
 import { getDueCount, getTotalCount } from '../utils/srs';
 import { getDueErrorCount, getErrorCount } from '../utils/errorBank';
@@ -94,6 +103,7 @@ const WelcomePage = ({
   // không có đề.
   const [changViet, setChangViet] = useState(null);
   const [changNoi, setChangNoi] = useState(null);
+  const [showBandExam, setShowBandExam] = useState(false);
   const lastMock = loadMockHistory()[0] || null;
   const dueErrors = getDueErrorCount();
   const totalErrors = getErrorCount();
@@ -328,12 +338,13 @@ const WelcomePage = ({
       {showNotebook && <WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} />}
       {showErrorReview && <ErrorReview onClose={() => setShowErrorReview(false)} />}
       {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
-      {showDictation && <DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} />}
-      {showPassage && <ListeningPassagePanel onClose={() => setShowPassage(false)} />}
+      {showDictation && <Suspense fallback={null}><DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} /></Suspense>}
+      {showPassage && <Suspense fallback={null}><ListeningPassagePanel onClose={() => setShowPassage(false)} /></Suspense>}
       {showWriting && <Suspense fallback={null}><WritingPromptPanel onClose={() => setShowWriting(false)} /></Suspense>}
       {showSpeaking && <Suspense fallback={null}><SpeakingPromptPanel onClose={() => setShowSpeaking(false)} /></Suspense>}
       {changViet && <Suspense fallback={null}><WritingPromptPanel chang={changViet} onClose={() => setChangViet(null)} /></Suspense>}
       {changNoi && <Suspense fallback={null}><SpeakingPromptPanel chang={changNoi} onClose={() => setChangNoi(null)} /></Suspense>}
+      {showBandExam && <Suspense fallback={null}><BandExamPanel onClose={() => setShowBandExam(false)} /></Suspense>}
       {showMigration && (
         <MasteryMigrationNotice
           unverifiedCount={unverifiedMilestones.length}
@@ -633,7 +644,7 @@ const WelcomePage = ({
               <span className="px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase">Giọng người thật</span>
             </h3>
             <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-              {audioManifest.length} bản thu giọng người thật · nghe rồi gõ lại từng từ. Chấm theo từ, dấu câu không tính.
+              {SO_BAN_THU} bản thu giọng người thật · nghe rồi gõ lại từng từ. Chấm theo từ, dấu câu không tính.
             </p>
           </div>
         </div>
@@ -657,7 +668,7 @@ const WelcomePage = ({
               <span className="px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase">VOA</span>
             </h3>
             <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-              {listeningPassages.length} bài 3–5 phút · nghe rồi trả lời câu hỏi hiểu ý, bản chép lời hiện ra sau khi trả lời xong.
+              {SO_BAI_NGHE} bài 3–5 phút · nghe rồi trả lời câu hỏi hiểu ý, bản chép lời hiện ra sau khi trả lời xong.
             </p>
           </div>
         </div>
@@ -714,6 +725,30 @@ const WelcomePage = ({
           className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-purple-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-purple-500 transition-all cursor-pointer"
         >
           NÓI
+        </button>
+      </div>
+
+      {/* --- (4.2) THI CUỐI BẬC --- */}
+      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="bg-emerald-100 dark:bg-emerald-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+            <span className="text-2xl" aria-hidden="true">🎓</span>
+          </div>
+          <div>
+            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
+              Thi cuối bậc
+              <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-400 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase">A2 · B1 · B2</span>
+            </h3>
+            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+              Đủ bốn phần Nghe · Đọc · Viết · Nói, nghe bằng <b>giọng người thật</b>. Đạt/chưa đạt chỉ do <b>Nghe và Đọc</b> quyết định — hai phần app chấm được.
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowBandExam(true)}
+          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-emerald-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-emerald-500 transition-all cursor-pointer"
+        >
+          THI
         </button>
       </div>
 

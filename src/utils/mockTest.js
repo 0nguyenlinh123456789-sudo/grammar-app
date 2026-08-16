@@ -5,20 +5,27 @@
 const HISTORY_KEY = 'mockTestHistoryV1';
 const MAX_HISTORY = 20;
 
-// Quy đổi % đúng → điểm VSTEP (thang 10) và bậc năng lực.
-// Mốc bậc theo quy chế VSTEP: 4.0–5.5 = B1, 6.0–8.0 = B2, 8.5+ = C1.
+// (4.2) NHÃN BẬC ĐÃ ĐƯỢC GỠ KHỎI ĐÂY.
+//
+// Hàm này từng trả về cả `level` (C1/B2/B1/A2) suy ra từ % đúng trên 20 câu —
+// đúng cách làm mà việc 4.1 đã bỏ cho test đầu vào ("trình độ lấy từ NẤC THANG,
+// không từ % đúng"), và để nguyên thì app có HAI nguồn khác nhau cùng trả lời
+// câu hỏi "người này bậc mấy": đề thi thử ở đây và bài thi cuối bậc ở
+// `bandExam.js`. Hai nguồn cho một câu trả lời thì sớm muộn cũng lệch, mà chỗ
+// lệch lại đúng là chỗ app nói với người ngoài.
+//
+// Nên từ nay: đề thi thử chỉ cho ĐIỂM LUYỆN TẬP quy đổi thô. Nhãn bậc chỉ đến
+// từ bài thi cuối bậc.
 export function toVstepScore(percent) {
   const score = Math.round((percent / 10) * 2) / 2; // làm tròn tới 0.5
-  const level = score >= 8.5 ? 'C1' : score >= 6 ? 'B2' : score >= 4 ? 'B1' : 'A2';
-  return { score, level };
+  return { score, laUocLuongLuyenTap: true };
 }
 
 // Quy đổi % đúng → IELTS band (0.5 steps, giới hạn 4.0–8.0 cho đề mini).
 export function toIeltsBand(percent) {
   const raw = 4 + (percent / 100) * 4.5;
   const band = Math.min(8, Math.max(4, Math.round(raw * 2) / 2));
-  const level = band >= 7.5 ? 'C1' : band >= 6.5 ? 'B2+' : band >= 5.5 ? 'B2' : 'B1';
-  return { band, level };
+  return { band, laUocLuongLuyenTap: true };
 }
 
 // Chấm một lượt làm bài. `answers` = { [questionId]: optionIndex }.

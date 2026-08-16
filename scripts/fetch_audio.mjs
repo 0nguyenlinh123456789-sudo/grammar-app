@@ -155,6 +155,16 @@ ${than}
 export default audioManifest;
 `);
 
+  // Con số cho trang chủ, TÁCH KHỎI bảng kê. Trang chủ chỉ cần biết CÓ BAO
+  // NHIÊU bản thu; import cả bảng kê chỉ để lấy `.length` là kéo ~85 KB vào thứ
+  // ai mở app cũng phải tải. Cùng lỗi đã tách ra cho kho đề viết (3.3) và kho
+  // bài nghe (4.2).
+  fs.writeFileSync(path.join('src', 'data', 'audioCounts.js'), `// File: src/data/audioCounts.js
+// SINH TỰ ĐỘNG bởi scripts/fetch_audio.mjs — đừng sửa tay.
+// Chỉ chứa CON SỐ. Có test đối chiếu con số này với bảng kê thật.
+export const SO_BAN_THU = ${xong.length};
+`);
+
   process.stderr.write(`\nĐã tải ${xong.length}/${banGhi.length} file vào ${OUT_DIR} (${(xong.reduce((a, e) => a + e.bytes, 0) / 1024).toFixed(0)} KB).\n`);
   if (bo.length) process.stderr.write(`\nBỎ ${bo.length} bản ghi:\n  ${bo.join('\n  ')}\n`);
 }

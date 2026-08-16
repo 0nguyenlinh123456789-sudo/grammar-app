@@ -95,5 +95,15 @@ ${than}
 export default listeningPassages;
 `);
 
+// Con số cho trang chủ, TÁCH KHỎI kho bài. Trang chủ chỉ cần biết CÓ BAO NHIÊU
+// bài nghe; import cả kho vào đó chỉ để lấy `.length` là kéo ~398 KB vào thứ ai
+// mở app cũng phải tải — đúng cái đã đo được và đã tách ra ở việc 3.3 (đề viết).
+fs.writeFileSync('src/data/listeningCounts.js', `// File: src/data/listeningCounts.js
+// SINH TỰ ĐỘNG bởi scripts/build_listening_passages.mjs — đừng sửa tay.
+// Chỉ chứa CON SỐ, để trang chủ khỏi phải nạp cả kho bài nghe (~398 KB) chỉ vì
+// một dòng hiển thị. Có test đối chiếu con số này với kho bài thật.
+export const SO_BAI_NGHE = ${ra.length};
+`);
+process.stderr.write(`Đã ghi src/data/listeningCounts.js (SO_BAI_NGHE = ${ra.length})\n`);
 process.stderr.write(`Đã ghi ${ra.length} bài nghe vào ${OUT}.\n`);
 if (bo.length) process.stderr.write(`Bỏ ${bo.length}:\n  ${bo.join('\n  ')}\n`);
