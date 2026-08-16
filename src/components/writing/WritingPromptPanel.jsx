@@ -3,7 +3,7 @@ import { AlertTriangle, ArrowRight, CheckCircle2, PenLine, ScrollText, Sparkles,
 import { writingPrompts, KIEU_DE } from '../../data/writingPrompts';
 import { kiemTraDeViet, scoreWriting, scoreWritingWithAI } from '../../utils/writingScorer';
 import { luuBaiLam } from '../../utils/selfReportLog';
-import { deSinh, deTuChang, GHI_CHU_CHECKLIST_CHUNG } from '../../utils/writingBank';
+import { deSinh, deTuChang, deChoChang, GHI_CHU_CHECKLIST_CHUNG } from '../../utils/writingBank';
 import { hasGeminiKey } from '../../utils/aiKey';
 
 // LUYỆN VIẾT — ĐƯỜNG KHÔNG CẦN KEY (việc 3.4).
@@ -20,13 +20,31 @@ import { hasGeminiKey } from '../../utils/aiKey';
 //      TỰ CHẤM, không phải điểm đo được.
 //
 // Thứ tự đó quan trọng: đọc bài mẫu trước khi viết thì chỉ còn là chép lại.
-export default function WritingPromptPanel({ onClose }) {
+// `chang`: mở thẳng đề của MỘT chặng lộ trình. Chặng đó không có đề thì phải
+// BÁO RA, không được lặng lẽ rơi về danh sách — rơi về danh sách thì người học
+// bấm "VIẾT" ở chặng của mình mà lại thấy đề của chặng khác.
+export default function WritingPromptPanel({ onClose, chang = null }) {
   const [deId, setDeId] = useState(null);
+  const [boQuaChang, setBoQuaChang] = useState(false);
+  const deChang = chang && !boQuaChang ? deChoChang(chang) : null;
   const de = deId
     ? (writingPrompts.find((p) => p.id === deId) || deTuChang(deSinh.find((t) => t.id === deId)))
-    : null;
+    : deChang;
+
+  if (!de && chang && !boQuaChang) {
+    return <Khung onClose={onClose} tieuDe={chang.title || 'Chặng này'} phu="Luyện viết">
+      <div className="mt-4 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 bg-slate-50 dark:bg-slate-800">
+        <p className="text-sm font-black text-slate-500 flex items-center gap-1.5"><AlertTriangle size={15} /> Chặng này chưa có đề viết</p>
+        <p className="text-xs font-bold text-slate-500 mt-1.5 leading-relaxed">
+          Đề viết theo chặng có từ <b>A2 trở lên</b>. Một vài chặng dạy hậu tố hoặc quy tắc cấu tạo từ cũng không đặt được đề dùng-từ, nên cố ý để trống thay vì gán bừa đề của chặng khác.
+        </p>
+      </div>
+      <button onClick={() => setBoQuaChang(true)} className="mt-4 w-full px-5 py-3 rounded-xl border-3 border-slate-800 dark:border-slate-600 font-black cursor-pointer">Xem toàn bộ đề viết</button>
+    </Khung>;
+  }
+
   if (!de) return <DanhSach onChon={setDeId} onClose={onClose} />;
-  return <LamBai key={de.id} de={de} onBack={() => setDeId(null)} onClose={onClose} />;
+  return <LamBai key={de.id} de={de} onBack={() => { setDeId(null); setBoQuaChang(true); }} onClose={onClose} />;
 }
 
 // HAI KHO ĐỀ, HAI LỜI HỨA KHÁC NHAU — nên tách bằng hai tab chứ không trộn một
@@ -79,7 +97,7 @@ function DanhSach({ onChon, onClose }) {
       </button>)}
     </div>
     {!laTay && ds.length < nguon.length && <p className="mt-4 text-xs font-bold text-slate-400 text-center">
-      Đang hiện {ds.length} đề đầu trong {nguon.length}. Mỗi đề gắn với một chặng — mở từ chặng đó trong lộ trình sẽ ra đúng đề của nó.
+      Đang hiện {ds.length} đề đầu trong {nguon.length}. Mỗi đề gắn với một chặng — bấm nút <b>VIẾT</b> ngay trên thẻ chặng đó trong lộ trình sẽ mở thẳng đúng đề của nó.
     </p>}
   </Khung>;
 }

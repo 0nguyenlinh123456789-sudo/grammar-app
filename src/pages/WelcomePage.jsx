@@ -18,6 +18,8 @@ import { writingPrompts } from '../data/writingPrompts';
 import { SO_DE_THEO_CHANG } from '../data/writingCounts';
 // Chỉ CON SỐ, không phải kho đề — xem chú thích trong speakingCounts.js.
 import { SO_DE_NOI_THEO_CHANG } from '../data/speakingCounts';
+// Chỉ hai tập chuỗi tên bậc — cố ý KHÔNG import kho đề vào trang chủ.
+import { COD_DE_VIET, COD_DE_NOI } from '../utils/bandCoDe';
 
 // Kho đề theo chặng nặng ~170 KB (531 đề × 8 từ mục tiêu). Nạp thẳng vào trang
 // chủ thì ai mở app cũng phải tải, kể cả người không bao giờ vào mục viết —
@@ -87,6 +89,11 @@ const WelcomePage = ({
   const [showPassage, setShowPassage] = useState(false);
   const [showWriting, setShowWriting] = useState(false);
   const [showSpeaking, setShowSpeaking] = useState(false);
+  // Mở đề VIẾT/NÓI của ĐÚNG một chặng. Giữ cả object chặng chứ không chỉ id, vì
+  // panel cần type/targetId/bookId để tra, và cần title để báo khi chặng đó
+  // không có đề.
+  const [changViet, setChangViet] = useState(null);
+  const [changNoi, setChangNoi] = useState(null);
   const lastMock = loadMockHistory()[0] || null;
   const dueErrors = getDueErrorCount();
   const totalErrors = getErrorCount();
@@ -325,6 +332,8 @@ const WelcomePage = ({
       {showPassage && <ListeningPassagePanel onClose={() => setShowPassage(false)} />}
       {showWriting && <Suspense fallback={null}><WritingPromptPanel onClose={() => setShowWriting(false)} /></Suspense>}
       {showSpeaking && <Suspense fallback={null}><SpeakingPromptPanel onClose={() => setShowSpeaking(false)} /></Suspense>}
+      {changViet && <Suspense fallback={null}><WritingPromptPanel chang={changViet} onClose={() => setChangViet(null)} /></Suspense>}
+      {changNoi && <Suspense fallback={null}><SpeakingPromptPanel chang={changNoi} onClose={() => setChangNoi(null)} /></Suspense>}
       {showMigration && (
         <MasteryMigrationNotice
           unverifiedCount={unverifiedMilestones.length}
@@ -972,6 +981,25 @@ const WelcomePage = ({
                             </div>
                             {getSkillBadges(m.type)}
                             {getExamBadge(m.exam)}
+                            {/* (3.3/3.5) Đề viết/nói của CHÍNH chặng này. Cửa
+                                mở theo BẬC, không theo kho đề: nạp kho đề ở đây
+                                là kéo 170 KB + 135 KB vào chunk trang chủ (đúng
+                                cái đã đo 743→911 KB ở việc 3.3). Chặng hiếm hoi
+                                không có đề thì panel BÁO RA, không im lặng. */}
+                            <div className="flex flex-wrap gap-2 mt-2">
+                              {COD_DE_VIET.has(level.level) && (
+                                <button
+                                  onClick={(e) => { e.stopPropagation(); setChangViet(m); }}
+                                  className="text-[11px] font-black px-3 py-1.5 rounded-xl border-2 border-slate-800 dark:border-slate-600 bg-violet-200 dark:bg-violet-900/50 text-slate-900 dark:text-violet-100 hover:bg-violet-300 cursor-pointer"
+                                >✍️ VIẾT VỀ CHẶNG NÀY</button>
+                              )}
+                              {COD_DE_NOI.has(level.level) && (
+                                <button
+                                  onClick={(e) => { e.stopPropagation(); setChangNoi(m); }}
+                                  className="text-[11px] font-black px-3 py-1.5 rounded-xl border-2 border-slate-800 dark:border-slate-600 bg-purple-200 dark:bg-purple-900/50 text-slate-900 dark:text-purple-100 hover:bg-purple-300 cursor-pointer"
+                                >🗣️ NÓI VỀ CHẶNG NÀY</button>
+                              )}
+                            </div>
                           </div>
                           
                           <div className="shrink-0 flex sm:flex-col items-end gap-2 justify-between">

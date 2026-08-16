@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { AlertTriangle, CheckCircle2, Mic, Sparkles, Square, X, XCircle } from 'lucide-react';
-import { deNoiSinh, deNoiTuChang } from '../../utils/speakingBank';
+import { deNoiSinh, deNoiTuChang, deNoiChoChang } from '../../utils/speakingBank';
 import { kiemTraLuotNoi, nhanXetLuotNoiBangAI, GHI_CHU_CHECKLIST_NOI, NHAN_KIEU_NOI } from '../../utils/speakingCheck';
 import { luuBaiLam } from '../../utils/selfReportLog';
 import { hasGeminiKey } from '../../utils/aiKey';
@@ -16,11 +16,29 @@ import { hasGeminiKey } from '../../utils/aiKey';
 // Thứ tự bước cố ý giống mục luyện viết: nói trước → máy đối chiếu thứ nó kiểm
 // được → tự soi theo checklist. Không có bước "xem bài mẫu" vì CHƯA CÓ bài nói
 // mẫu, và chỗ đó nói thẳng ra chứ không lặng lẽ bỏ.
-export default function SpeakingPromptPanel({ onClose }) {
+// `chang`: mở thẳng đề của MỘT chặng lộ trình. Chặng đó không có đề thì phải
+// BÁO RA, không được lặng lẽ rơi về danh sách — rơi về danh sách thì người học
+// bấm "NÓI" ở chặng của mình mà lại thấy đề của chặng khác.
+export default function SpeakingPromptPanel({ onClose, chang = null }) {
   const [deId, setDeId] = useState(null);
-  const de = deId ? deNoiTuChang(deNoiSinh.find((t) => t.id === deId)) : null;
+  const [boQuaChang, setBoQuaChang] = useState(false);
+  const deChang = chang && !boQuaChang ? deNoiChoChang(chang) : null;
+  const de = deId ? deNoiTuChang(deNoiSinh.find((t) => t.id === deId)) : deChang;
+
+  if (!de && chang && !boQuaChang) {
+    return <Khung onClose={onClose} tieuDe={chang.title || 'Chặng này'} phu="Luyện nói">
+      <div className="mt-4 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 bg-slate-50 dark:bg-slate-800">
+        <p className="text-sm font-black text-slate-500 flex items-center gap-1.5"><AlertTriangle size={15} /> Chặng này chưa có đề nói</p>
+        <p className="text-xs font-bold text-slate-500 mt-1.5 leading-relaxed">
+          Đề nói theo chủ đề chỉ có từ <b>B1 trở lên</b>. Ở mức thấp hơn, hãy dùng mục <b>Luyện Phát Âm</b> đọc to từng từ trước đã.
+        </p>
+      </div>
+      <button onClick={() => setBoQuaChang(true)} className="mt-4 w-full px-5 py-3 rounded-xl border-3 border-slate-800 dark:border-slate-600 font-black cursor-pointer">Xem toàn bộ đề nói</button>
+    </Khung>;
+  }
+
   if (!de) return <DanhSach onChon={setDeId} onClose={onClose} />;
-  return <LamBai key={de.id} de={de} onBack={() => setDeId(null)} onClose={onClose} />;
+  return <LamBai key={de.id} de={de} onBack={() => { setDeId(null); setBoQuaChang(true); }} onClose={onClose} />;
 }
 
 function DanhSach({ onChon, onClose }) {
@@ -57,7 +75,7 @@ function DanhSach({ onChon, onClose }) {
       </button>)}
     </div>
     {ds.length < nguon.length && <p className="mt-4 text-xs font-bold text-slate-400 text-center">
-      Đang hiện {ds.length} đề đầu trong {nguon.length}. Mỗi đề gắn với một chặng — mở từ chặng đó trong lộ trình sẽ ra đúng đề của nó.
+      Đang hiện {ds.length} đề đầu trong {nguon.length}. Mỗi đề gắn với một chặng — bấm nút <b>NÓI</b> ngay trên thẻ chặng đó trong lộ trình sẽ mở thẳng đúng đề của nó.
     </p>}
   </Khung>;
 }
