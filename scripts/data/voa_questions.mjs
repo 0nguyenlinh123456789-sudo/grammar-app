@@ -2153,6 +2153,564 @@ export const CAU_HOI = {
     },
   ],
 
+  // ===== ĐỢT 5 (12 bài) — chạm mốc 60 bài của việc 2.2 =====
+
+  // Learning Prepositions
+  'voa-7865589': [
+    {
+      q: 'Giới từ cho biết thêm thông tin gì về danh từ?',
+      opts: [
+        'Hướng, thời gian, vị trí và quan hệ sở hữu',
+        'Số ít hay số nhiều',
+        'Giống đực hay giống cái',
+        'Đếm được hay không đếm được',
+      ],
+      a: 'Hướng, thời gian, vị trí và quan hệ sở hữu',
+      why: 'Bài định nghĩa giới từ là những từ nhỏ “that give additional information about nouns, such as direction, time, location, and possession.”',
+    },
+    {
+      q: 'Bài chia giới từ thành mấy nhóm lớn, và nhóm thứ hai là gì?',
+      opts: [
+        'Hai nhóm; nhóm thứ hai là các cụm quen dùng, ở đó nghĩa của giới từ kém rõ ràng',
+        'Hai nhóm; nhóm thứ hai chỉ dùng trong văn viết',
+        'Ba nhóm; nhóm thứ ba là giới từ ghép',
+        'Bài không chia nhóm nào cả',
+      ],
+      a: 'Hai nhóm; nhóm thứ hai là các cụm quen dùng, ở đó nghĩa của giới từ kém rõ ràng',
+      why: 'Bài nói nhóm thứ hai gồm “common expressions where the preposition sometimes has a less exact meaning.”',
+    },
+    {
+      q: 'Câu “This house is different to the one I used to live in” thuộc dạng tiếng Anh nào?',
+      opts: ['Tiếng Anh Anh', 'Tiếng Anh Mỹ', 'Tiếng Anh Úc', 'Cả hai đều không dùng câu này'],
+      a: 'Tiếng Anh Anh',
+      why: 'Bài giới thiệu hai ví dụ: “The first is used in British English, the second in American English”, và bản Mỹ dùng “different from”.',
+    },
+    {
+      q: 'Vì sao người học rất dễ chọn nhầm giới từ trong các cụm quen dùng?',
+      opts: [
+        'Vì đổi giới từ nhiều khi không làm nghĩa đổi, nên giới từ nào nghe cũng hợp lý như nhau',
+        'Vì giới từ luôn đứng ở cuối câu',
+        'Vì mỗi vùng dùng một giới từ khác nhau',
+        'Vì giới từ có quá nhiều âm tiết',
+      ],
+      a: 'Vì đổi giới từ nhiều khi không làm nghĩa đổi, nên giới từ nào nghe cũng hợp lý như nhau',
+      why: 'Bài nói với người học tiếng Anh thì “one preposition might seem as good a choice as any other for this expression.”',
+    },
+  ],
+
+  // Most and Almost
+  'voa-7862372': [
+    {
+      q: 'Về từ loại, “almost” và “most” khác nhau thế nào?',
+      opts: [
+        '“Almost” chỉ là trạng từ; “most” có thể là tính từ, trạng từ hoặc lượng từ',
+        'Cả hai đều chỉ là trạng từ',
+        '“Almost” là lượng từ, “most” là trạng từ',
+        'Cả hai đều chỉ là tính từ',
+      ],
+      a: '“Almost” chỉ là trạng từ; “most” có thể là tính từ, trạng từ hoặc lượng từ',
+      why: 'Bài nói: “The word “almost” is an adverb. The word “most” can be an adjective, adverb, or quantifier.”',
+    },
+    {
+      q: 'Sau “almost” có được đặt thẳng giới từ “of” không?',
+      opts: [
+        'Không — phải dùng “almost all of”',
+        'Có, “almost of” là đúng',
+        'Chỉ được khi nói, không được khi viết',
+        'Chỉ được khi sau đó là danh từ số nhiều',
+      ],
+      a: 'Không — phải dùng “almost all of”',
+      why: 'Bài nói ta không đặt “of” ngay sau “almost”: “we must use the two words “all of” after “almost” to describe a noun.”',
+    },
+    {
+      q: 'Khi nào dùng “most” + danh từ thẳng, khi nào dùng “most of”?',
+      opts: [
+        'Nói chung thì dùng thẳng; nói về một nhóm cụ thể thì dùng “most of”',
+        'Ngược lại: nói chung thì dùng “most of”',
+        'Luôn phải dùng “most of”',
+        'Tuỳ theo danh từ đếm được hay không',
+      ],
+      a: 'Nói chung thì dùng thẳng; nói về một nhóm cụ thể thì dùng “most of”',
+      why: 'Bài đối chiếu “Most children enjoy playing games” với “Most of the children in his class enjoy playing this game.”',
+    },
+    {
+      q: 'Bài lấy ví dụ nào cho nghĩa “gần xong” của “almost”?',
+      opts: [
+        'Việc mất một tiếng mà đã làm được 55 phút',
+        'Chín mươi phần trăm số trẻ khỏi bệnh',
+        'Hoàng hôn đẹp nhất từng thấy',
+        'Phần lớn bạn bè sống ở thành phố',
+      ],
+      a: 'Việc mất một tiếng mà đã làm được 55 phút',
+      why: 'Bài nêu tình huống: “if you have a job to do that takes an hour to finish and you have already worked 55 minutes”, thì nói “I am almost finished.”',
+    },
+  ],
+
+  // Near and Nearby
+  'voa-7842145': [
+    {
+      q: 'Khác biệt cơ bản khi dùng “near” và “nearby” để nói vị trí là gì?',
+      opts: [
+        '“Nearby” không cần nói nơi kia là đâu; “near” thì phải nói cả hai nơi',
+        '“Near” chỉ dùng cho khoảng cách xa hơn',
+        '“Nearby” chỉ dùng khi viết',
+        'Hai từ dùng thay nhau hoàn toàn',
+      ],
+      a: '“Nearby” không cần nói nơi kia là đâu; “near” thì phải nói cả hai nơi',
+      why: 'Bài nói khi dùng “near” để chỉ nơi chốn thì “we say both places”, ví dụ “Their house is near the market.”',
+    },
+    {
+      q: 'Nếu bạn đang ở trong nhà ai đó và họ nói “The market is nearby.”, câu đó nghĩa là gì?',
+      opts: [
+        'Chợ ở gần ngôi nhà đó',
+        'Chợ ở gần chỗ bạn làm việc',
+        'Chợ ở gần trung tâm thành phố',
+        'Câu đó thiếu thông tin nên không hiểu được',
+      ],
+      a: 'Chợ ở gần ngôi nhà đó',
+      why: 'Bài giải thích người nói không cần nhắc lại từ “house” vì “nearby” “means close to the place already stated or known.”',
+    },
+    {
+      q: '“Near” dùng làm tính từ ghép thì phải viết thế nào?',
+      opts: [
+        'Có dấu gạch nối, như “near-perfect condition”',
+        'Viết liền một từ',
+        'Viết rời và không có dấu gì',
+        'Luôn viết hoa chữ đầu',
+      ],
+      a: 'Có dấu gạch nối, như “near-perfect condition”',
+      why: 'Bài dặn khi viết tính từ ghép thì “we must put a hyphen, or short line, connecting the two adjectives.”',
+    },
+    {
+      q: 'Câu “The building project is nearing completion.” dùng “near” làm gì?',
+      opts: ['Làm động từ', 'Làm trạng từ', 'Làm giới từ', 'Làm danh từ'],
+      a: 'Làm động từ',
+      why: 'Bài nói: “Lastly, we can use the word ” “near” như một động từ, nghĩa là đang tiến gần tới về mặt thời gian.',
+    },
+  ],
+
+  // Types of Sentences
+  'voa-7543267': [
+    {
+      q: 'Một “clause” (mệnh đề) gồm hai phần nào?',
+      opts: [
+        'Chủ ngữ và động từ',
+        'Chủ ngữ và tân ngữ',
+        'Động từ và trạng ngữ',
+        'Danh từ và tính từ',
+      ],
+      a: 'Chủ ngữ và động từ',
+      why: 'Bài định nghĩa mệnh đề gồm “a subject (the topic of a clause) and a verb (what is said about the topic).”',
+    },
+    {
+      q: 'Vì sao “In the morning” KHÔNG phải là một mệnh đề?',
+      opts: [
+        'Vì nó không có động từ',
+        'Vì nó quá ngắn',
+        'Vì nó không đứng đầu câu',
+        'Vì nó bắt đầu bằng một giới từ',
+      ],
+      a: 'Vì nó không có động từ',
+      why: 'Bài nói thẳng: “In the morning” is not a clause because it does not have a verb.”',
+    },
+    {
+      q: 'Câu có ÍT NHẤT một mệnh đề độc lập và một hoặc nhiều mệnh đề phụ thuộc gọi là gì?',
+      opts: ['Câu phức (complex sentence)', 'Câu ghép (compound sentence)', 'Câu đơn (simple sentence)', 'Câu hỏi'],
+      a: 'Câu phức (complex sentence)',
+      why: 'Bài nói: “When a sentence has at least one independent clause as well as one or more dependent clauses, it is a complex sentence.”',
+    },
+    {
+      q: 'Câu người đọc hỏi — “In Norway, there’s an art museum for children’s art.” — thực ra là loại câu gì?',
+      opts: [
+        'Câu đơn, không phải câu phức như sách viết',
+        'Câu phức, sách viết đúng',
+        'Câu ghép',
+        'Không phải một câu hoàn chỉnh',
+      ],
+      a: 'Câu đơn, không phải câu phức như sách viết',
+      why: 'Bài trả lời: “Your example has only one clause. This means it is a simple sentence, not a complex sentence.”',
+    },
+  ],
+
+  // Using 'Just' and 'Only'
+  'voa-7527550': [
+    {
+      q: 'Bài nói “only” hay được dùng trong tình huống nào?',
+      opts: [
+        'Tình huống không như ý, hoặc khi mình không hài lòng',
+        'Tình huống vui vẻ, đáng mừng',
+        'Chỉ trong câu hỏi',
+        'Chỉ trong văn bản trang trọng',
+      ],
+      a: 'Tình huống không như ý, hoặc khi mình không hài lòng',
+      why: 'Bài nói: “The word “only” can be used in an undesirable situation”, ví dụ “He only finished half his homework.”',
+    },
+    {
+      q: 'Còn “just” dùng khi muốn làm gì?',
+      opts: [
+        'Nhấn mạnh, nói mạnh hơn',
+        'Nói giảm cho lịch sự',
+        'Đặt câu hỏi gián tiếp',
+        'Chỉ thời gian trong quá khứ',
+      ],
+      a: 'Nhấn mạnh, nói mạnh hơn',
+      why: 'Bài nói ta dùng “just” “when we want to make an emphasis, or a stronger statement.”',
+    },
+    {
+      q: 'Trong tiếng Anh nói, “just” còn có tác dụng ngược lại nào?',
+      opts: [
+        'Làm một việc nghe nhỏ đi, nhẹ đi',
+        'Làm câu nghe trang trọng hơn',
+        'Biến câu kể thành câu hỏi',
+        'Chỉ ra rằng việc đã kết thúc',
+      ],
+      a: 'Làm một việc nghe nhỏ đi, nhẹ đi',
+      why: 'Bài nói: “we also use “just” when we want to make something smaller or less important”, ví dụ “Your friend lives just down the road.”',
+    },
+    {
+      q: 'Vì sao ta hay nói “Could I just ask you something?”',
+      opts: [
+        'Vì người kia có vẻ đang bận, nên ta làm cho lời đề nghị nghe nhẹ đi',
+        'Vì ta muốn nhấn mạnh câu hỏi',
+        'Vì đó là cách hỏi trang trọng nhất',
+        'Vì câu hỏi rất quan trọng',
+      ],
+      a: 'Vì người kia có vẻ đang bận, nên ta làm cho lời đề nghị nghe nhẹ đi',
+      why: 'Bài đặt câu này vào tình huống “when someone appears to be busy, we might say” như vậy.',
+    },
+  ],
+
+  // 'Do' for Emphasis
+  'voa-7496596': [
+    {
+      q: 'Câu học sinh viết — “Yes, consumers do adopt new habits.” — có sai ngữ pháp không?',
+      opts: [
+        'Không sai — “do” ở đây dùng để nhấn mạnh',
+        'Sai, vì “do” chỉ dùng trong câu hỏi',
+        'Sai, vì thiếu trợ động từ khác',
+        'Sai, vì “do” phải đứng cuối câu',
+      ],
+      a: 'Không sai — “do” ở đây dùng để nhấn mạnh',
+      why: 'Bài trả lời: “The sentence you ask about is grammatically correct. The use of “do” shows emphasis.”',
+    },
+    {
+      q: 'Câu “Do come in.” dùng “do” để làm gì?',
+      opts: [
+        'Làm một câu mệnh lệnh nghe lịch sự hơn',
+        'Đặt một câu hỏi',
+        'Phủ định một câu',
+        'Rút gọn câu cho ngắn',
+      ],
+      a: 'Làm một câu mệnh lệnh nghe lịch sự hơn',
+      why: 'Bài nói “do” có thể “make imperatives, or commands, more polite.”',
+    },
+    {
+      q: 'Câu “Bill likes to swim, and so does Betty.” cho thấy “do” còn dùng để làm gì?',
+      opts: [
+        'Làm câu rõ hơn và ngắn hơn',
+        'Nhấn mạnh Betty',
+        'Đặt câu hỏi về Betty',
+        'Phủ định vế sau',
+      ],
+      a: 'Làm câu rõ hơn và ngắn hơn',
+      why: 'Bài nói: “Do” can also be used to make sentences clearer and shorter.”',
+    },
+    {
+      q: 'Câu nào trong bài là ví dụ cho việc dùng “do” để nhấn mạnh CẢ CÂU?',
+      opts: [
+        '“It does taste good!”',
+        '“Does Brent have to work on weekends?”',
+        '“I don’t have any money.”',
+        '“Yes, I do.”',
+      ],
+      a: '“It does taste good!”',
+      why: 'Bài nói: “A whole sentence can be emphasized by adding ” “do”, rồi nêu “It does taste good!” và “We did enjoy the play.”',
+    },
+  ],
+
+  // Improve Your Vocabulary: Part 1
+  'voa-7613240': [
+    {
+      q: 'Theo bài, cách tốt nhất để mở rộng vốn từ là gì?',
+      opts: [
+        'Biết một từ cho THẤU: hình thức, nghĩa và cách dùng',
+        'Học định nghĩa của thật nhiều từ',
+        'Đọc thật nhiều sách',
+        'Học thuộc danh sách từ mỗi ngày',
+      ],
+      a: 'Biết một từ cho THẤU: hình thức, nghĩa và cách dùng',
+      why: 'Bài nói học nhiều định nghĩa chưa hẳn là tốt nhất: “The best way is to fully know a word.”',
+    },
+    {
+      q: 'Vì sao câu “It’s nice to meet you.” lại khó nghe ra?',
+      opts: [
+        'Vì khi nói nhanh, chỗ nối “meet” và “you” bật ra âm /ch/ mà chính tả không hề gợi ý',
+        'Vì câu đó nói quá nhanh',
+        'Vì có từ đồng âm',
+        'Vì trọng âm rơi vào từ “nice”',
+      ],
+      a: 'Vì khi nói nhanh, chỗ nối “meet” và “you” bật ra âm /ch/ mà chính tả không hề gợi ý',
+      why: 'Bài nói người ta có thể tạo ra âm đó “at the beginning of the word “you” although the words’ spellings do not suggest this.”',
+    },
+    {
+      q: 'Từ viết r-e-c-o-r-d cho thấy trọng âm quan trọng thế nào?',
+      opts: [
+        'Nhấn phần đầu thì là danh từ, nhấn phần sau thì là động từ',
+        'Nhấn phần đầu thì là số ít, phần sau là số nhiều',
+        'Trọng âm không đổi nghĩa, chỉ đổi giọng điệu',
+        'Nhấn phần sau thì thành tính từ',
+      ],
+      a: 'Nhấn phần đầu thì là danh từ, nhấn phần sau thì là động từ',
+      why: 'Bài nói: “When we stress the first part of the word, RE-cord, it is a noun.”',
+    },
+    {
+      q: 'Bài lấy hai ví dụ nào cho việc nhận ra gốc từ và tiền tố / hậu tố?',
+      opts: [
+        '“Addition” (add + -tion) và “untrue” (un- + true)',
+        '“Record” và “vocabulary”',
+        '“Meet” và “you”',
+        '“Prefix” và “suffix”',
+      ],
+      a: '“Addition” (add + -tion) và “untrue” (un- + true)',
+      why: 'Bài nhắc: “It is important to recognize the root word in addition to prefixes or suffixes” — như “add” + -tion, hay “true” + un-.',
+    },
+  ],
+
+  // 'Call'
+  'voa-7601370': [
+    {
+      q: 'Từ điển Merriam-Webster liệt kê khoảng bao nhiêu nghĩa cho từ “call”?',
+      opts: ['Gần 50', 'Khoảng 10', 'Đúng 20', 'Hơn 200'],
+      a: 'Gần 50',
+      why: 'Từ điển Merriam-Webster liệt kê gần 50 nghĩa cho từ này, nên bài công nhận: “It is, as you say, a challenging word.”',
+    },
+    {
+      q: 'Khi “call” dùng để mô tả một người hay một vật, sắc thái thường thế nào?',
+      opts: [
+        'Thường gắn với lời mô tả không hay',
+        'Thường là lời khen',
+        'Luôn trung tính',
+        'Chỉ dùng trong văn viết trang trọng',
+      ],
+      a: 'Thường gắn với lời mô tả không hay',
+      why: 'Bài nói: “Usually, it is linked to an unpleasant description”, ví dụ “It’s not nice to call people stupid.”',
+    },
+    {
+      q: '“Call out” nghĩa là gì?',
+      opts: [
+        'Phê bình ai đó, hoặc yêu cầu họ giải thích việc mình làm',
+        'Gọi to tên ai đó',
+        'Gọi điện ra nước ngoài',
+        'Huỷ một cuộc hẹn',
+      ],
+      a: 'Phê bình ai đó, hoặc yêu cầu họ giải thích việc mình làm',
+      why: 'Bài định nghĩa: “Call out” means to criticize someone or ask them to explain their actions.”',
+    },
+    {
+      q: 'Bài kết thúc bằng cách chơi chữ với cụm nào?',
+      opts: [
+        '“Call it quits” — nghĩa là dừng lại ở đây',
+        '“Call the shots” — nghĩa là ra quyết định',
+        '“Call in sick” — nghĩa là xin nghỉ ốm',
+        '“Call for” — nghĩa là yêu cầu',
+      ],
+      a: '“Call it quits” — nghĩa là dừng lại ở đây',
+      why: 'Bài viết: “But we are out of time now. In other words, we have to call it quits.”',
+    },
+  ],
+
+  // Are You Strong 'Out of the Gate'?
+  'voa-7645574': [
+    {
+      q: '“Out of the gate” nghĩa là gì?',
+      opts: [
+        'Ngay lúc bắt đầu một việc gì đó',
+        'Lúc kết thúc một việc',
+        'Lúc bỏ dở giữa chừng',
+        'Lúc ra khỏi nhà',
+      ],
+      a: 'Ngay lúc bắt đầu một việc gì đó',
+      why: 'Bài nói: “Out of the gate means the very start of something” — như lúc mở đầu một chương trình phát thanh.',
+    },
+    {
+      q: 'Thành ngữ này bắt nguồn từ đâu?',
+      opts: [
+        'Từ các môn thể thao có nhốt con vật sau một cánh cổng trước khi xuất phát',
+        'Từ việc mở cổng thành phố buổi sáng',
+        'Từ nghề chăn nuôi',
+        'Từ một trò chơi trẻ em',
+      ],
+      a: 'Từ các môn thể thao có nhốt con vật sau một cánh cổng trước khi xuất phát',
+      why: 'Bài nói cụm này đến từ các môn “that involve holding animals behind a gate until it is time to start.”',
+    },
+    {
+      q: '“Right off the bat” bắt nguồn từ môn nào?',
+      opts: [
+        'Bóng chày hoặc cricket — môn có dùng gậy',
+        'Đua ngựa',
+        'Bơi lội',
+        'Điền kinh',
+      ],
+      a: 'Bóng chày hoặc cricket — môn có dùng gậy',
+      why: 'Bài nói các nhà nghiên cứu từ ngữ cho rằng cụm này “is from baseball, cricket, or another sport where a bat is involved.”',
+    },
+    {
+      q: 'Bài lấy tình huống nào để minh hoạ “from the get-go”?',
+      opts: [
+        'Ngày đầu đi làm ở chỗ mới — phải đúng giờ và sẵn sàng làm việc',
+        'Buổi họp mặt gia đình',
+        'Một cuộc đua ngựa',
+        'Một lớp học trực tuyến bị trục trặc',
+      ],
+      a: 'Ngày đầu đi làm ở chỗ mới — phải đúng giờ và sẵn sàng làm việc',
+      why: 'Bài nói khi bắt đầu công việc mới thì “It’s important to make a good first impression from the get-go.”',
+    },
+  ],
+
+  // Marathon or Sprint?
+  'voa-7444324': [
+    {
+      q: 'Khác biệt giữa marathon và sprint là gì?',
+      opts: [
+        'Marathon thử sức bền, sprint thử tốc độ',
+        'Marathon chạy trong sân, sprint chạy ngoài đường',
+        'Marathon dành cho người trẻ, sprint cho người lớn tuổi',
+        'Hai môn chỉ khác nhau ở tên gọi',
+      ],
+      a: 'Marathon thử sức bền, sprint thử tốc độ',
+      why: 'Bài nói: “It is a test of endurance. A sprint is a short race and tests speed.”',
+    },
+    {
+      q: 'Nếu chạy marathon mà lao hết sức ngay từ đầu thì sao?',
+      opts: [
+        'Sẽ nhanh chóng cạn sức',
+        'Sẽ về đích sớm hơn',
+        'Sẽ giữ được nhịp tốt hơn',
+        'Sẽ không ảnh hưởng gì',
+      ],
+      a: 'Sẽ nhanh chóng cạn sức',
+      why: 'Bài nói người đó “would likely quickly run out of steam”, và cách chạy ấy khó dẫn tới thành công.',
+    },
+    {
+      q: '“Pacing” nghĩa là gì?',
+      opts: [
+        'Cân nhắc việc cần làm với nguồn lực mình có — thời gian, sức lực, tiền bạc',
+        'Chạy thật đều một tốc độ',
+        'Đếm số bước chân',
+        'Nghỉ giữa chừng cho lại sức',
+      ],
+      a: 'Cân nhắc việc cần làm với nguồn lực mình có — thời gian, sức lực, tiền bạc',
+      why: 'Bài định nghĩa: “Pacing means considering the task you need to complete and the resources you have available.”',
+    },
+    {
+      q: 'Bài áp câu “life is a marathon, not a sprint” vào việc học tiếng Anh thế nào?',
+      opts: [
+        'Cứ học đều mỗi ngày, từng chút một, rồi tiếng Anh sẽ khá lên theo thời gian',
+        'Nên học dồn thật nhiều trong một tháng',
+        'Nên thi lấy chứng chỉ càng sớm càng tốt',
+        'Nên tìm một lớp học cấp tốc',
+      ],
+      a: 'Cứ học đều mỗi ngày, từng chút một, rồi tiếng Anh sẽ khá lên theo thời gian',
+      why: 'Bài kết: “If you keep studying day by day, little by little, your English is sure to get better over time.”',
+    },
+  ],
+
+  // 'Dip Your Toes' or 'Take the Plunge'?
+  'voa-7518407': [
+    {
+      q: '“Dip your toes in” nghĩa là gì?',
+      opts: [
+        'Bắt đầu một việc từ từ, cẩn thận, vì chưa chắc mình có thích không',
+        'Bỏ dở một việc giữa chừng',
+        'Làm một việc thật nhanh',
+        'Nhờ người khác làm thử trước',
+      ],
+      a: 'Bắt đầu một việc từ từ, cẩn thận, vì chưa chắc mình có thích không',
+      why: 'Bài nói: “you start doing it slowly and carefully. You are not sure if you will like it.”',
+    },
+    {
+      q: '“Take the plunge” thì ngược lại thế nào?',
+      opts: [
+        'Lao thẳng vào việc, không chờ đợi, không do dự',
+        'Bỏ cuộc ngay từ đầu',
+        'Nhờ người khác quyết định giúp',
+        'Chờ đến khi có đủ thông tin',
+      ],
+      a: 'Lao thẳng vào việc, không chờ đợi, không do dự',
+      why: 'Bài nói: “When you take the plunge, you jump right into something. You do not wait or hesitate.”',
+    },
+    {
+      q: '“Test the waters” nghĩa là gì, và bài lấy ví dụ nào?',
+      opts: [
+        'Thử cảm nhận trước khi dấn thân — như đến ở ngắn ngày trước khi chuyển tới thành phố mới',
+        'Đo nhiệt độ nước hồ bơi',
+        'Hỏi ý kiến người thân',
+        'Đọc trước tài liệu về việc mình sắp làm',
+      ],
+      a: 'Thử cảm nhận trước khi dấn thân — như đến ở ngắn ngày trước khi chuyển tới thành phố mới',
+      why: 'Bài nói cụm này nghĩa là “you get a feel for something before committing to it”, rồi nêu ví dụ chuyển tới thành phố mới.',
+    },
+    {
+      q: 'Trong đoạn hội thoại về khiêu vũ, người B chọn cách nào?',
+      opts: [
+        'Đến xem trước đã — “dip my toes in”',
+        'Vào học ngay lớp cho người mới',
+        'Từ chối hẳn, không đi',
+        'Rủ thêm người khác cùng đi',
+      ],
+      a: 'Đến xem trước đã — “dip my toes in”',
+      why: 'Người B chọn đến xem trước — “dip my toes in”. Bài mô tả cách đó: “You may want to try an activity briefly to find out if you like it first.”',
+    },
+  ],
+
+  // Questions, Answers about Holiday Activities
+  'voa-6904240': [
+    {
+      q: 'Cấu trúc câu hỏi có/không về ngày lễ trong bài là gì?',
+      opts: [
+        'Do + chủ ngữ + celebrate + tên ngày lễ',
+        'Did + chủ ngữ + celebrating + tên ngày lễ',
+        'Are + chủ ngữ + celebrate + tên ngày lễ',
+        'What + chủ ngữ + celebrate',
+      ],
+      a: 'Do + chủ ngữ + celebrate + tên ngày lễ',
+      why: 'Bài nói: “You can start with yes or no questions, which involve the helping verb ” “do”, theo khung “Do + subject + celebrate + the holiday”.',
+    },
+    {
+      q: '“Open-ended question” là loại câu hỏi nào?',
+      opts: [
+        'Câu hỏi không nhằm lấy câu trả lời có hoặc không',
+        'Câu hỏi để ngỏ cuối buổi trò chuyện',
+        'Câu hỏi có nhiều lựa chọn sẵn',
+        'Câu hỏi về tương lai',
+      ],
+      a: 'Câu hỏi không nhằm lấy câu trả lời có hoặc không',
+      why: 'Bài định nghĩa đó là “questions that are not asking for a yes or no answer.”',
+    },
+    {
+      q: 'Trong khung “What + do + chủ ngữ + do + …”, vì sao ví dụ lại thành “What did you do…”?',
+      opts: [
+        'Vì đang hỏi về một việc trong quá khứ nên “do” chuyển sang dạng quá khứ',
+        'Vì câu hỏi cần trang trọng hơn',
+        'Vì có hai chữ “do” nên phải đổi một chữ',
+        'Vì chủ ngữ là ngôi thứ hai',
+      ],
+      a: 'Vì đang hỏi về một việc trong quá khứ nên “do” chuyển sang dạng quá khứ',
+      why: 'Bài giải thích: “This is because we are asking about an event in the past.”',
+    },
+    {
+      q: 'Câu trả lời thường gặp nhất hay dùng dạng quá khứ đơn của những động từ nào?',
+      opts: [
+        'go, see, visit',
+        'do, make, take',
+        'be, have, get',
+        'come, stay, leave',
+      ],
+      a: 'go, see, visit',
+      why: 'Bài nói câu trả lời phổ biến nhất “will involve the simple past forms of the verbs go, see, or visit.”',
+    },
+  ],
+
 };
 
 export default CAU_HOI;

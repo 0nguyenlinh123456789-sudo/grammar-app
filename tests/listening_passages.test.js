@@ -17,22 +17,26 @@ import { coTheDung, kiemTraBanGhi } from '../src/utils/audioLicense.js';
 import { laDongNgoaiBanThu } from '../src/utils/transcriptClean.js';
 
 // BÁNH CÓC — số bài nghe chỉ được tăng.
-// 6 → 16 → 32 → 48. Kho ứng viên hiện có 116 bài (đào 6 trang lưu trữ của bốn
-// loạt bài dạy học); 68 bài còn lại chưa soạn câu hỏi nên chưa nằm ở đây.
-// Năm bài đã thu thập nhưng CỐ TÌNH không đưa vào, mỗi bài một lý do:
+// 6 → 16 → 32 → 48 → 60. ĐẠT MỐC của việc 2.2. Kho ứng viên còn 56 bài chưa
+// soạn câu hỏi, để dành khi cần mở rộng.
+// Những bài CỐ TÌNH không đưa vào, mỗi bài một lý do:
 //   voa-7953635 "'Kitchen-Table' Is a Type of Politics" — nội dung chính trị,
 //     cùng lý do đã loại câu chính trị khỏi kho chép chính tả.
+//   voa-7637459 "Break the Mold" — ví dụ trung tâm của bài là một kỳ bầu cử
+//     tổng thống Mỹ. Bộ lọc chủ đề chỉ đếm được 2 từ nhạy cảm nên KHÔNG chặn;
+//     phải đọc mới thấy. Máy dò là cái phụ, không thay được việc đọc.
 //   voa-7846622 "Mea Culpa", voa-7306802 "The Language of International
 //     Conflicts" — bộ thu thập tự gắn cờ chủ đề nhạy cảm (tôn giáo / chiến
 //     tranh). Xem CHU_DE_NHAY_CAM trong scripts/harvest_voa_passages.mjs.
-//   voa-7504500 "Breaking the Rules with Miley Cyrus' 'Flowers'" — bài phân
-//     tích lời một bài hát đang có bản quyền; đúng trường hợp VOA cảnh báo
-//     "may also contain" tư liệu bên thứ ba. Không đụng vào.
+//   voa-7504500 (Miley Cyrus 'Flowers'), voa-7641038 (trích Kool and the Gang),
+//     voa-7575872 — bài dựa trên lời bài hát đang có bản quyền; đúng trường hợp
+//     VOA cảnh báo "may also contain" tư liệu bên thứ ba. Hai bài đầu tôi phải
+//     tự đọc mới phát hiện, nay CO_LOI_NHAC trong bộ thu thập tự chặn cả ba.
 // (voa-7920108 "How to Summon Others" TỪNG bị loại vì "bản chép lời thủng lỗ".
 //  Chẩn đoán đó SAI: ví dụ vẫn nằm trong thẻ <p>, chỉ là bộ lọc độ dài của
 //  chính tôi vứt đi. Bỏ bộ lọc độ dài thì bài nguyên vẹn — nay chỉ còn thiếu
 //  câu hỏi soạn tay.)
-const BAI_TOI_THIEU = 48;
+const BAI_TOI_THIEU = 60;
 const CAU_HOI_MOI_BAI = 4;
 
 test('bánh cóc: số bài nghe theo đoạn chỉ được tăng', () => {

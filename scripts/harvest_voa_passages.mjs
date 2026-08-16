@@ -63,6 +63,15 @@ const CHU_DE_NHAY_CAM = [
 ];
 const dinhChuDe = (s) => CHU_DE_NHAY_CAM.filter((t) => new RegExp(`\\b${t}`, 'i').test(String(s || '')));
 
+// LỜI BÀI HÁT — luật này sinh ra từ hai bài phải loại bằng tay.
+// VOA nói nội dung của họ "may also contain" tư liệu bên thứ ba không thuộc
+// phạm vi công cộng. Bài phân tích một bài hát đang có bản quyền là trường hợp
+// rõ nhất: bài "Breaking the Rules with Miley Cyrus' 'Flowers'" và bài
+// "Grammar and Talking about Hot Weather" (trích bốn dòng của Kool and the
+// Gang) — cả hai đều lọt qua bộ lọc chủ đề, tôi phải tự đọc mới thấy.
+// Đo trên cả 116 bài: luật này dính đúng 3 bài, không kêu oan bài nào.
+const CO_LOI_NHAC = /\bin the song\b|\bsang about\b|\blyrics\b|\bthe song\b/i;
+
 // BITRATE ĐỌC TỪ CHÍNH FILE, không phỏng đoán. Bản trước ghi cứng 64 kbps vì
 // đo được từ MỘT file; nếu một bài mã hoá khác thì mọi con số thời lượng lệch
 // theo tỉ lệ và cái cửa lọc 60–300 giây sẽ nhận/loại nhầm bài mà không ai biết.
@@ -165,6 +174,7 @@ async function docBai(duongDan, loat) {
   const dinhTieuDe = dinhChuDe(tieuDe);
   if (dinhTieuDe.length) return { bo: `tiêu đề dính chủ đề nhạy cảm (${dinhTieuDe.join(', ')})` };
   const dinhThan = [...new Set(dinhChuDe(than.join(' ')))];
+  if (CO_LOI_NHAC.test(than.join(' '))) return { bo: 'bài dựa trên lời một bài hát — tư liệu bên thứ ba, không xét' };
 
   // Thời lượng suy từ dung lượng file và bitrate ĐỌC TỪ CHÍNH FILE. Không tải
   // cả file về chỉ để biết nó dài bao nhiêu — xin 64 KB đầu là đủ thấy khung
