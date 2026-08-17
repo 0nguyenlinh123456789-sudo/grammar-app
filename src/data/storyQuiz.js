@@ -36,6 +36,27 @@
 // `src/utils/comprehension.js`).
 //
 // Thứ tự lựa chọn hiện ra được XÁO trong mã, không phụ thuộc `answer` ở đây.
+//
+// ══ ⚠️ KHUYẾT ĐIỂM ĐÃ ĐO, CHƯA SỬA XONG: THIÊN LỆCH ĐỘ DÀI ══
+// **84,3% câu có đáp án đúng là lựa chọn DÀI NHẤT** (không thiên lệch thì phải
+// quanh 25%). Người học không đọc bài, cứ chọn phương án dài nhất, vẫn đúng
+// ~84%. Nguyên nhân là thói quen soạn: viết đáp án đúng thành mệnh đề đầy đủ
+// bám sát câu `dan`, rồi thêm ba câu nhiễu ngắn gọn.
+//
+// Đây CÙNG LOẠI với lỗi "đáp án nằm lì ở ô đầu" đã sửa ở việc này — một dấu
+// hiệu bề ngoài cho phép đoán đúng mà không cần hiểu bài. Khác ở chỗ lỗi kia
+// sửa được bằng mã (xáo lựa chọn), còn lỗi này phải sửa bằng công soạn: câu
+// nhiễu phải dài tương đương đáp án và dựng từ nội dung có thật trong bài.
+//
+// Đo lại: `node scripts/audit_story_quiz.mjs`. Bánh cóc trong
+// `tests/story_quiz.test.js` ghim 84,3% để con số chỉ được giảm.
+//
+// ══ MỘT CHẶNG SÁT RANH GIỚI, CÂN NHẮC RỒI GIỮ ══
+// `success-mindset-100` (C1) cũng là bài kiểu danh sách như chặng đã loại bên
+// dưới, nhưng dài 108 từ với khoảng mười câu, nên tìm được BỐN câu neo khác
+// nhau — mỗi câu hỏi bám một mệnh đề riêng, không phải bốn lần hỏi lại cùng một
+// danh sách. Vì thế giữ. Ghi ra đây để người đọc sau thấy cả hai phán đoán, chứ
+// không chỉ thấy cái đi theo hướng loại bỏ.
 
 export const STORY_QUIZ = {
   'nature-countryside': [

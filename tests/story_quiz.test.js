@@ -140,6 +140,25 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
   assert.ok(viTri.size >= 3, `đáp án đúng chỉ rơi vào ${viTri.size} vị trí — lựa chọn không được xáo`);
 });
 
+// THIÊN LỆCH ĐỘ DÀI — dấu hiệu bề ngoài thứ hai, cùng loại với chuyện đáp án
+// nằm lì ở ô đầu. Đo được: 84,3% câu có đáp án đúng là lựa chọn dài nhất, trong
+// khi không thiên lệch thì phải quanh 25%. Nghĩa là người học không đọc bài, cứ
+// chọn phương án dài nhất, vẫn đúng ~84%.
+//
+// Đây là LỖI TÔI TỰ GÂY RA khi soạn: viết đáp án đúng thành mệnh đề đầy đủ (sát
+// câu căn cứ) rồi thêm ba câu nhiễu ngắn gọn. Chưa sửa xong — bánh cóc dưới đây
+// GHIM con số hiện tại để nó chỉ được phép giảm, không được tệ thêm.
+const THIEN_LECH_TOI_DA = 0.843;
+
+test(`thiên lệch độ dài không được tệ thêm (đang ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}%, không thiên lệch ≈ 25%)`, async () => {
+  const { doThienLech } = await import('../scripts/audit_story_quiz.mjs');
+  const r = await doThienLech();
+  const ty = r.daiNhatDuyNhat / r.tong;
+  assert.ok(ty <= THIEN_LECH_TOI_DA + 0.001,
+    `đáp án đúng là lựa chọn dài nhất ở ${(ty * 100).toFixed(1)}% câu — tệ hơn mốc đã ghim. `
+    + 'Câu nhiễu phải dài tương đương đáp án, dựng từ nội dung có thật trong bài.');
+});
+
 test('phần NGHE không nhận câu mức văn bản, kể cả khi chủ đề có sẵn', () => {
   const s = fs.readFileSync(path.join(ROOT, 'src/components/vocab/ListeningComprehension.jsx'), 'utf8');
   assert.doesNotMatch(s, /storyQuiz/, 'màn hình nghe có nhắc storyQuiz — câu mức văn bản không đọc lên được');
@@ -147,6 +166,36 @@ test('phần NGHE không nhận câu mức văn bản, kể cả khi chủ đề
   const t = theoId.get(Object.keys(STORY_QUIZ)[0]);
   const nghe = buildComprehension({ words: t.words, authored: t.comprehension, limit: 10 });
   for (const c of nghe) assert.ok(c.playText, 'phần nghe nhận được câu không có gì để đọc lên');
+});
+
+// Đường dữ liệu THẬT của ứng dụng, không phải bản xuất thô. App.jsx nạp
+// `vocabVstepData` rồi cho qua `sanitizeVocabTopics` và `withUniqueTopicIds`.
+// Hai hàm đó dựng lại object; nếu chúng liệt kê trường thay vì spread thì
+// `storyQuiz` biến mất trong trình duyệt, 121 chủ đề rơi hết xuống dòng cảnh báo
+// "chưa có câu hỏi về bài đọc" — mà mọi test khác vẫn xanh, vì chúng đọc bản
+// xuất thô. Kiểm ở đúng hình dạng màn hình nhận được.
+test('storyQuiz sống sót qua đường nạp thật của app (sanitize + đánh id duy nhất)', async () => {
+  const { sanitizeVocabTopics } = await import(pathToFileURL(path.join(ROOT, 'src/utils/contentFilter.js')).href);
+  const app = fs.readFileSync(path.join(ROOT, 'src/App.jsx'), 'utf8');
+  assert.match(app, /withUniqueTopicIds\(sanitizeVocabTopics\(module\.default\)\)/,
+    'App.jsx đổi đường nạp chủ đề — cập nhật lại phép kiểm này cho khớp');
+
+  // Dựng lại đúng chuỗi biến đổi App.jsx dùng.
+  const seen = new Map();
+  const nhuApp = sanitizeVocabTopics(chuDe).map((t) => {
+    const n = (seen.get(t.id) || 0) + 1;
+    seen.set(t.id, n);
+    return n === 1 ? t : { ...t, id: `${t.id}--${n}` };
+  });
+  const theoIdApp = new Map(nhuApp.map((t) => [t.id, t]));
+
+  const mat = [];
+  for (const id of Object.keys(STORY_QUIZ)) {
+    const t = theoIdApp.get(id);
+    if (!t) { mat.push(`${id}: không còn chủ đề nào mang id này sau khi đánh id duy nhất`); continue; }
+    if (!Array.isArray(t.storyQuiz) || t.storyQuiz.length < 4) mat.push(`${id}: storyQuiz mất hoặc còn dưới 4 câu`);
+  }
+  assert.deepEqual(mat.slice(0, 8), [], `${mat.length} chủ đề mất câu hỏi trên đường tới màn hình:\n  ${mat.slice(0, 8).join('\n  ')}`);
 });
 
 test('màn hình ĐỌC nhận câu mức văn bản và BÁO khi chủ đề chưa có', () => {
