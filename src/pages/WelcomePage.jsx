@@ -1162,7 +1162,7 @@ const WelcomePage = ({
 
       {/* --- CONFIRM RESET ROADMAP MODAL --- */}
       {isResetModalOpen && (
-        <div role="dialog" aria-modal="true" aria-labelledby="welcome-reset-title" className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div role="dialog" aria-modal="true" aria-labelledby="welcome-reset-title" className="fixed inset-0 z-[140] bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 md:p-8 max-w-md w-full shadow-[8px_8px_0_0_#1e293b] dark:shadow-[8px_8px_0_0_#000] animate-in zoom-in-95">
             <div className="flex items-center gap-3 text-rose-500 mb-4">
               <AlertTriangle size={32} className="animate-bounce text-rose-500" />

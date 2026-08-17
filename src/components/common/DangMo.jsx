@@ -13,7 +13,7 @@
 export default function DangMo() {
   return (
     <div
-      className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 z-[145] bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4"
       role="status"
       aria-live="polite"
     >
