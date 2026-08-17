@@ -172,22 +172,48 @@ test('đo được: bốn kho nội dung không có chặng nào dẫn tới (đ
     + coDuong.map((b) => `${b.ten}: ${b.denDuoc}/${b.tong}`).join('\n  '));
 });
 
-test('N4 vế (b) đo được: 0/386 chặng ≥B1 có bài nghe theo đoạn gắn kèm', async () => {
+// N4 VẾ (b′) — ĐO THEO BẬC, KHÔNG THEO TỪNG CHẶNG.
+//
+// Đây là chỗ dễ tự bẫy nhất của cả đợt: phép đo cũ ("mỗi chặng ≥B1 có một bài
+// nghe gắn với nội dung chặng") CHÍNH LÀ thứ ghi chú N4 vừa chứng minh là không
+// trung thực được — 60 bài dạy tiếng Anh phổ thông của VOA không nói về nội dung
+// của "Oxford Unit 42" và không thể nói. Ghim 0/386 ở đây là ghim đúng cái phép
+// đo vừa bị bỏ, tức là dựng một bánh cóc bảo vệ một câu hỏi sai.
+//
+// Nên đơn vị đo là BẬC: mỗi bậc ≥B1 có ≥15 bài nghe theo đoạn NẰM TRONG lộ
+// trình. "Đến chặng này thì làm một bài nghe" là lời nói về chương trình học —
+// đúng và kiểm được; "bài nghe này dạy từ vựng Unit 42" là lời nói về nội dung —
+// sai. Hiện đo được 0/3 bậc.
+const BAC_TU_B1 = ['intermediate', 'upper_intermediate', 'advanced'];
+const BAI_NGHE_MOI_BAC_TOI_THIEU = 15;
+
+test('N4 vế (b′) đo được: 0/3 bậc ≥B1 có bài nghe theo đoạn nằm trong lộ trình', async () => {
+  const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
+  const { listeningPassages } = await import(pathToFileURL(path.join(DATA, 'listeningPassages.js')).href);
+  const idBaiNghe = new Set(listeningPassages.map((p) => String(p.id)));
+
+  const dat = [];
+  for (const bac of BAC_TU_B1) {
+    const level = roadmapData.find((l) => l.level === bac);
+    assert.ok(level, `lộ trình không còn bậc "${bac}"`);
+    const soBai = level.milestones.filter((m) => idBaiNghe.has(String(m.targetId))).length;
+    if (soBai >= BAI_NGHE_MOI_BAC_TOI_THIEU) dat.push(`${bac}: ${soBai}`);
+  }
+  assert.deepEqual(dat, [],
+    `bậc sau đã đạt mốc ${BAI_NGHE_MOI_BAC_TOI_THIEU} bài nghe trong lộ trình — tin tốt, nhưng phải `
+    + 'đổi test này thành đòi hỏi thật (assert ≥ mốc) và sửa ghi chú N4:\n  ' + dat.join('\n  '));
+});
+
+test('hai mẫu số 386 và 122 không được lệch nhau ở đâu nữa', async () => {
   const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
   const milestones = roadmapData.flatMap((l) => l.milestones);
 
   // MẪU SỐ PHẢI GỌI RÕ LÀ MẪU SỐ NÀO. Việc 3.1/N5 dùng 122 (chỉ chặng `vstep`
-  // bậc ≥B1); việc 3.5 và chỗ này dùng 386 (MỌI loại chặng bậc ≥B1). Hai con số
-  // đều đúng, nhưng để trần cạnh nhau trong cùng một tài liệu thì thành ba cách
-  // đọc — đã phải sửa chuyện đó hai lần rồi.
+  // bậc ≥B1); việc 3.5 và ghi chú N4 dùng 386 (MỌI loại chặng bậc ≥B1). Hai con
+  // số đều đúng, nhưng để trần cạnh nhau trong cùng một tài liệu thì thành ba
+  // cách đọc — đã phải sửa chuyện đó hai lần rồi.
   const tuB1 = milestones.filter((m) => ['B1', 'B2', 'C1'].includes(m.cefr));
   assert.equal(tuB1.length, 386, 'số chặng ≥B1 đổi — mọi mẫu số N4/3.5 phải sửa theo');
   assert.equal(tuB1.filter((m) => m.type === 'vstep').length, 122,
     'mẫu số của N5 (chặng từ vựng ≥B1) đổi — sửa cả dòng 3.1 trong KE_HOACH_B2.md');
-
-  // Không chặng nào khai một bài nghe theo đoạn. Không có trường nào để khai:
-  // hình dạng chặng chỉ có type/targetId, và type bị khoá ở ba giá trị.
-  const coNghe = tuB1.filter((m) => m.listeningId || m.passageId || m.type === 'listening');
-  assert.equal(coNghe.length, 0,
-    `${coNghe.length} chặng đã khai bài nghe — cập nhật ghi chú N4 và con số ở đây`);
 });
