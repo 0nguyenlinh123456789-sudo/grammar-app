@@ -14,3 +14,16 @@ export const CHANG_THEO_BAC = {
   upper_intermediate: 94,
   advanced: 202,
 };
+// (1.5) CÔNG THỨC sinh ra chính con số giờ ở trên — sinh RA ĐÂY thay vì để màn
+// hình chép lại. Việc 1.5 hứa "ghi giờ ước lượng thật KÈM CÔNG THỨC", mà trước
+// đây màn hình chỉ nói "ước lượng từ số bài thật": người học thấy 587 giờ và
+// không có đường nào tự kiểm. Chép mấy hằng số này sang JSX là mở đường cho
+// chúng lệch nhau — đúng lỗi hai bản sao "máy chỉ đếm được số từ" đã dính.
+export const CONG_THUC_GIO = {
+  giayMoiMuc: 20,
+  cheDoMoiTu: 4,
+  docTu: 200, docPhut: 6,
+  phutMoiMucLyThuyet: 2,
+  lanNgheMoiBai: 2,
+  cauMoiBuoiChinhTa: 5, luotMoiCauChinhTa: 3,
+};

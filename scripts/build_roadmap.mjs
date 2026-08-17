@@ -20,13 +20,22 @@
 import fs from 'fs';
 import path from 'path';
 import { pathToFileURL, fileURLToPath } from 'url';
+import { mocCuTiepTheo } from './lib/mocLoTrinh.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'src', 'data');
 
 const SEC_PER_ITEM = 20;
 const MODES_PER_WORD = 4;
-const READ_WPM = 200 / 6; // 200 từ trong 6 phút
+// Tốc độ đọc của người học, KHÔNG phải của người bản ngữ. Giữ dạng phân số hai
+// vế thay vì một số thập phân vì công thức xuất ra cho người học phải đọc được
+// ("200 từ trong 6 phút" hiểu ngay, "33,3 từ/phút" thì không).
+const READ_WORDS = 200;
+const READ_MINUTES = 6;
+const READ_WPM = READ_WORDS / READ_MINUTES;
+// Đọc một mục lý thuyết. Trước đây số 2 nằm rải ở hai chỗ (bài ngữ pháp và unit
+// Oxford) dưới dạng `* 2` — sửa một chỗ quên chỗ kia là tổng giờ sai lặng lẽ.
+const PHUT_MOI_MUC_LY_THUYET = 2;
 // GIẢ ĐỊNH, không phải số đo: một bài nghe theo đoạn được nghe ít nhất hai lượt
 // (một lượt nắm ý, một lượt bắt chi tiết để trả lời câu hỏi). Đổi con số này là
 // đổi tổng giờ của toàn bộ chặng nghe — ghi ra đây để sửa được ở một chỗ.
@@ -95,7 +104,7 @@ function grammarMinutes(topicGoc) {
     + (t.transformation || []).length + (t.matching || []).length + (t.trueFalse || []).length
     + (t.sentenceGame || []).length;
   // Đọc lý thuyết: mỗi mục ~2 phút
-  return minutesFromItems(items) + (t.theory || []).length * 2;
+  return minutesFromItems(items) + (t.theory || []).length * PHUT_MOI_MUC_LY_THUYET;
 }
 function vocabMinutes(t) {
   const words = (t.words || []).length;
@@ -117,7 +126,7 @@ function unitMinutes(u) {
     : (d && typeof d === 'object' ? (d.words || d.items || []).length : 0);
   const items = (u.quiz || []).length + (u.typingGame || []).length + dd
     + (u.textbookExercises || []).reduce((s, e) => s + ((e && (e.questions || e.items || e.pairs)) || []).length, 0);
-  const mins = minutesFromItems(items) + countAny(u.theory) * 2;
+  const mins = minutesFromItems(items) + countAny(u.theory) * PHUT_MOI_MUC_LY_THUYET;
   if (!Number.isFinite(mins)) throw new Error(`unit ${u.id}: số phút không phải số — kiểm lại hình dạng dữ liệu`);
   return mins;
 }
@@ -222,6 +231,10 @@ for (const [band, dsBai] of chiaBaBac(readingTexts)) {
 // bốc 5 câu (SO_CAU trong DictationPanel). `targetId` là id của BUỔI HỌC, không
 // phải id của bản thu nào; DictationPanel tự chọn nhóm độ dài theo bậc.
 const SO_CAU_MOI_BUOI = 5;
+// Chép chính tả tốn hơn một lượt/câu: nghe, chép, nghe lại soát. Số 3 này trước
+// đây là một số trần trong `SO_CAU_MOI_BUOI * 3` không có tên — đặt tên vì công
+// thức giờ đã hiện ra cho người học, và một số không tên thì không giải thích được.
+const LUOT_MOI_CAU_CHINH_TA = 3;
 for (const band of BAC_TU_B1) {
   // Khai `bandId` TƯỜNG MINH thay vì để màn hình suy từ `cefr`. `nhomChoBac()`
   // nhận id bậc lộ trình ('intermediate'), không nhận nhãn CEFR ('B1') — truyền
@@ -230,7 +243,7 @@ for (const band of BAC_TU_B1) {
   out[band].push({
     type: 'dictation', targetId: `dictation-${band}`, bandId: band, title: 'Buổi nghe chép chính tả',
     desc: `Nghe giọng người thật, chép lại ${SO_CAU_MOI_BUOI} câu. Kho dùng chung, chia theo độ dài câu.`,
-    minutes: minutesFromItems(SO_CAU_MOI_BUOI * 3), cefr: CEFR_OF[band],
+    minutes: minutesFromItems(SO_CAU_MOI_BUOI * LUOT_MOI_CAU_CHINH_TA), cefr: CEFR_OF[band],
   });
 }
 
@@ -343,11 +356,13 @@ const soChang = BANDS.map((b) => [b, out[b].length + (roadmapCurated.find((l) =>
 // "không có gì đổi".
 const duongCounts = path.join(DATA, 'roadmapCounts.js');
 const tongMoi = total + curatedTotal;
-let tongTruoc = tongMoi;
-try {
-  const cu = fs.readFileSync(duongCounts, 'utf8').match(/export const TONG_CHANG = (\d+)/);
-  if (cu) tongTruoc = Number(cu[1]);
-} catch { /* chưa có file — lần sinh đầu tiên */ }
+// ⚠️ LỖI ĐÃ DÍNH KHI SỬA VIỆC 1.5, ĐÃ SỬA NGAY: bản đầu chỉ đọc TONG_CHANG cũ,
+// nên mỗi lần chạy lại bộ sinh mà tổng KHÔNG đổi (dọn hằng số, sửa chú thích)
+// đều đặt tongTruoc = tongMoi và **xoá sạch lời báo lộ trình vừa tăng**. Luật
+// đã tách sang scripts/lib/mocLoTrinh.mjs để test gọi được vào đúng nó.
+let noiDungCu = null;
+try { noiDungCu = fs.readFileSync(duongCounts, 'utf8'); } catch { /* lần sinh đầu */ }
+const tongTruoc = mocCuTiepTheo(noiDungCu, tongMoi);
 
 fs.writeFileSync(duongCounts, `// File: src/data/roadmapCounts.js
 // ⚠️ MÁY SINH — chạy lại: node scripts/build_roadmap.mjs
@@ -359,6 +374,19 @@ export const TONG_CHANG = ${tongMoi};
 export const TONG_CHANG_TRUOC = ${tongTruoc};
 export const CHANG_THEO_BAC = {
 ${soChang.map(([b, n]) => `  ${b}: ${n},`).join('\n')}
+};
+// (1.5) CÔNG THỨC sinh ra chính con số giờ ở trên — sinh RA ĐÂY thay vì để màn
+// hình chép lại. Việc 1.5 hứa "ghi giờ ước lượng thật KÈM CÔNG THỨC", mà trước
+// đây màn hình chỉ nói "ước lượng từ số bài thật": người học thấy 587 giờ và
+// không có đường nào tự kiểm. Chép mấy hằng số này sang JSX là mở đường cho
+// chúng lệch nhau — đúng lỗi hai bản sao "máy chỉ đếm được số từ" đã dính.
+export const CONG_THUC_GIO = {
+  giayMoiMuc: ${SEC_PER_ITEM},
+  cheDoMoiTu: ${MODES_PER_WORD},
+  docTu: ${READ_WORDS}, docPhut: ${READ_MINUTES},
+  phutMoiMucLyThuyet: ${PHUT_MOI_MUC_LY_THUYET},
+  lanNgheMoiBai: ${LAN_NGHE},
+  cauMoiBuoiChinhTa: ${SO_CAU_MOI_BUOI}, luotMoiCauChinhTa: ${LUOT_MOI_CAU_CHINH_TA},
 };
 `, 'utf8');
 

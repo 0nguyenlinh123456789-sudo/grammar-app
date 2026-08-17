@@ -60,7 +60,7 @@ import MasteryMigrationNotice from '../components/progress/MasteryMigrationNotic
 import { shouldShowMigrationNotice, dismissMigrationNotice } from '../utils/masteryMigration';
 import { thongBaoLoTrinhTang, daXemLoTrinhTang } from '../utils/roadmapGrowth';
 // Chỉ lấy MỘT CON SỐ từ file đếm — không import cả lộ trình lần thứ hai.
-import { TONG_CHANG_TRUOC } from '../data/roadmapCounts';
+import { TONG_CHANG_TRUOC, CONG_THUC_GIO } from '../data/roadmapCounts';
 import RoadmapGrowthNotice from '../components/progress/RoadmapGrowthNotice';
 import { splitCompleted, isVerified, buildEvidence } from '../utils/mastery';
 
@@ -574,6 +574,28 @@ const WelcomePage = ({
           Đi hết đến bậc B2 là khoảng <span className="font-black text-slate-700 dark:text-slate-200">{Math.round(minutesThroughBand('upper_intermediate') / 60)} giờ</span>.
           Con số ước lượng từ số bài thật của từng chặng.
         </p>
+        {/* (1.5) CÔNG THỨC — việc 1.5 hứa "ghi giờ ước lượng thật KÈM CÔNG
+            THỨC". Trước đây chỉ có câu "ước lượng từ số bài thật": đúng, nhưng
+            người học không có đường nào tự kiểm một con số 587 giờ. Hằng số đọc
+            từ roadmapCounts.js (máy sinh cùng lúc với chính con số đó) chứ
+            KHÔNG chép tay vào đây — chép là mở đường cho hai bản lệch nhau.
+            Phần "không tính vào" nằm ngay cạnh, vì một ước lượng thiếu vế đó
+            đọc thành lời hứa "học xong trong 587 giờ". */}
+        <details className="mt-2 text-xs font-bold text-slate-500 dark:text-slate-400">
+          <summary className="cursor-pointer underline decoration-dotted">Con số giờ này tính thế nào?</summary>
+          <ul className="mt-2 ml-4 space-y-1 list-disc font-semibold">
+            <li>Mỗi câu bài tập / mỗi lượt luyện một mục: <b>{CONG_THUC_GIO.giayMoiMuc} giây</b>.</li>
+            <li>Mỗi từ vựng được luyện qua <b>{CONG_THUC_GIO.cheDoMoiTu} chế độ</b>.</li>
+            <li>Đọc bài: <b>{CONG_THUC_GIO.docTu} từ trong {CONG_THUC_GIO.docPhut} phút</b> (tốc độ người học, không phải người bản ngữ).</li>
+            <li>Mỗi mục lý thuyết: <b>{CONG_THUC_GIO.phutMoiMucLyThuyet} phút</b>.</li>
+            <li>Mỗi bài nghe theo đoạn: nghe <b>{CONG_THUC_GIO.lanNgheMoiBai} lượt</b> (một lượt nắm ý, một lượt bắt chi tiết).</li>
+            <li>Mỗi buổi chép chính tả: <b>{CONG_THUC_GIO.cauMoiBuoiChinhTa} câu</b>, mỗi câu tính <b>{CONG_THUC_GIO.luotMoiCauChinhTa} lượt</b> (nghe · chép · nghe lại soát).</li>
+          </ul>
+          <p className="mt-2 font-semibold">
+            <b>Không tính vào:</b> thời gian ôn lại, thẻ nhớ lặp lại, lúc bí một chỗ phải đọc lại, và mọi thứ bạn học ngoài app.
+            Đây là <b>ước lượng khối lượng bài</b>, không phải lời hứa “học xong trong bấy nhiêu giờ”.
+          </p>
+        </details>
       </div>
 
        {/* --- PERSONALIZED PLACEMENT CARD --- */}
