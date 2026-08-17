@@ -72,16 +72,23 @@
 // và khó thấy nhất — CÂU HỎI TRẢ LỜI ĐƯỢC BẰNG KIẾN THỨC CHUNG. Mọi câu ở bậc đó
 // phải neo vào một chi tiết riêng của chính bài.
 //
-// Thiên lệch độ dài sau đợt A1: dài-nhất 51,0% → 43,5%; thấy-được 6,0% → 4,3%.
-// Đợt này bánh cóc thấy-được ĐÃ BẮN một lần (6,0% → 6,3% khi soạn xong 30 chặng
-// đầu) — sửa 9 câu nhiễu cho dài tương đương rồi đo lại, KHÔNG nới mốc.
+// ĐỢT A2 (17/08) — thêm 46 chặng · 184 câu. Hết: 93/93 chặng A1/A2 đủ điều kiện
+// đều có câu hỏi, nên bánh cóc A1/A2 nay là 0 và thành ĐÒI HỎI THẬT.
+//
+// Thiên lệch độ dài qua hai đợt: dài-nhất 51,0% → 43,5% → 39,8%; thấy-được
+// 6,0% → 4,3% → 3,5%; ngắn-nhất 16,5% → 26,8% (kỳ vọng không thiên lệch ~25%).
+// Đợt A1 bánh cóc thấy-được ĐÃ BẮN một lần (6,0% → 6,3% khi soạn xong 30 chặng
+// đầu) — sửa 9 câu nhiễu cho dài tương đương rồi đo lại, KHÔNG nới mốc. Đợt A2
+// khớp độ dài ngay từ lúc soạn nên chỉ phải sửa 3 câu.
 import { STORY_QUIZ_A1 } from './storyQuizA1.js';
+import { STORY_QUIZ_A2 } from './storyQuizA2.js';
 import { STORY_QUIZ_B1 } from './storyQuizB1.js';
 import { STORY_QUIZ_B2 } from './storyQuizB2.js';
 import { STORY_QUIZ_C1 } from './storyQuizC1.js';
 
 export const STORY_QUIZ = {
   ...STORY_QUIZ_A1,
+  ...STORY_QUIZ_A2,
   ...STORY_QUIZ_B1,
   ...STORY_QUIZ_B2,
   ...STORY_QUIZ_C1,
