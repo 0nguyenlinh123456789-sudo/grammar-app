@@ -23,9 +23,10 @@ import { buildComprehension } from '../src/utils/comprehension.js';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'src', 'data');
 
-// Bánh cóc: chỉ được tăng. Đây là số ĐO ĐƯỢC lúc soạn xong bậc B1 và B2.
-const CHU_DE_TOI_THIEU = 75;
-const CAU_HOI_TOI_THIEU = 300;
+// Bánh cóc: chỉ được tăng. Số ĐO ĐƯỢC khi soạn xong cả ba bậc B1, B2 và C1 —
+// 121/122 chặng ≥B1 (một chặng loại có lý do, xem đầu src/data/storyQuiz.js).
+const CHU_DE_TOI_THIEU = 121;
+const CAU_HOI_TOI_THIEU = 484;
 
 async function napGop(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
@@ -52,6 +53,36 @@ test(`bánh cóc: ≥ ${CHU_DE_TOI_THIEU} chủ đề có câu hỏi mức văn 
   const tong = ids.reduce((n, id) => n + STORY_QUIZ[id].length, 0);
   assert.ok(ids.length >= CHU_DE_TOI_THIEU, `mới ${ids.length} chủ đề`);
   assert.ok(tong >= CAU_HOI_TOI_THIEU, `mới ${tong} câu`);
+});
+
+// N5 nói "đọc hiểu theo VĂN BẢN ở mọi chặng ≥B1". Đếm số câu là chưa đủ: soạn
+// 484 câu cho 20 chặng cũng qua được bánh cóc trên. Phép kiểm thật là ĐỘ PHỦ —
+// và nó phải kể tên chặng nào chưa có, không im lặng.
+test('N5 — độ phủ: mọi chặng ≥B1 đều có câu hỏi mức văn bản, trừ đúng một chặng đã BÁO', async () => {
+  const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
+  const B1CONG = new Set(['B1', 'B2', 'C1']);
+  // Chặng loại có lý do — bài đọc 60 từ / 3 câu, không đủ cho 4 câu mức văn bản.
+  // Ghi tên ra đây chứ không lọc theo mẫu: một chặng rơi ra vì lý do khác sẽ đỏ.
+  const LOAI_CO_LY_DO = new Set(['digital-society-100']);
+
+  const thieu = [];
+  let tong = 0;
+  for (const bac of roadmapData) {
+    for (const m of bac.milestones || []) {
+      if (m.type !== 'vstep' || !B1CONG.has(m.cefr)) continue;
+      tong += 1;
+      if (STORY_QUIZ[m.targetId] || LOAI_CO_LY_DO.has(m.targetId)) continue;
+      thieu.push(`${m.cefr} · ${m.targetId}`);
+    }
+  }
+  assert.equal(tong, 122, `số chặng ≥B1 đổi thành ${tong} — đo lại phạm vi N5`);
+  assert.deepEqual(thieu, [], `${thieu.length} chặng ≥B1 chưa có câu hỏi mức văn bản:\n  ${thieu.join('\n  ')}`);
+
+  // Và mục loại trừ phải còn sống: chặng biến mất thì gỡ khỏi danh sách.
+  for (const id of LOAI_CO_LY_DO) {
+    assert.ok(theoId.has(id), `${id} nằm trong danh sách loại có lý do nhưng không còn tồn tại — gỡ đi`);
+    assert.ok(!STORY_QUIZ[id], `${id} đã có câu hỏi rồi — gỡ khỏi danh sách loại`);
+  }
 });
 
 test('mỗi chủ đề có ≥4 câu — dưới 4 thì panel TỰ BIẾN MẤT chứ không báo lỗi', () => {

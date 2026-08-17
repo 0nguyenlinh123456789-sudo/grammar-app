@@ -3578,6 +3578,2172 @@ export const STORY_QUIZ = {
       dan: 'Ultimately, successful urban planning creates a harmonious environment where both a landlord and a tenant can thrive in a well-designed, modern society.',
     },
   ],
+
+  // ════════════════════════════════════════════════════════════════════════
+  // BẬC C1 — 46/46 chặng. Đủ tiêu chí N5: 121/122 chặng ≥B1.
+  // ════════════════════════════════════════════════════════════════════════
+
+  'economy-money': [
+    {
+      q: 'Vì sao Bob không mặc cả được với thu ngân?',
+      options: [
+        'Vì cửa hàng có chính sách bán lẻ nghiêm ngặt',
+        'Vì chiếc TV đã hết hàng',
+        'Vì anh không mang đủ tiền mặt',
+        'Vì thu ngân không có quyền quyết định',
+      ],
+      answer: 0,
+      dan: 'He tried to bargain with the cashier for a discount, but the store had a strict retail policy.',
+    },
+    {
+      q: 'Chuyện gì xảy ra khi Bob tới ngân hàng?',
+      options: [
+        'Tài khoản rỗng, và ngân hàng từ chối tấm séc giả anh định gửi',
+        'Anh rút được tiền nhưng phải trả phí cao',
+        'Ngân hàng đồng ý cho vay ngay lập tức',
+        'Anh mở được một tài khoản tiết kiệm mới',
+      ],
+      answer: 0,
+      dan: 'He tried to deposit a fake check, but the bank refused the transaction.',
+    },
+    {
+      q: 'Vì sao việc kinh doanh của Bob thua lỗ nặng?',
+      options: [
+        'Vì anh không lập ngân sách, và sau khi đóng thuế nặng thì lỗ lớn',
+        'Vì hàng hoá anh nhập không bán được',
+        'Vì đối thủ trong chợ cạnh tranh gay gắt',
+        'Vì kế toán anh thuê làm sai sổ sách',
+      ],
+      answer: 0,
+      dan: 'However, he didn’t plan a budget. After paying heavy tax, his business suffered a huge loss.',
+    },
+    {
+      q: 'Điều gì làm đời Bob đổi hẳn ở phần cuối?',
+      options: [
+        'Anh biết mình sắp thừa kế một gia tài lớn từ người chú giàu có',
+        'Việc kinh doanh của anh cuối cùng cũng có lãi',
+        'Anh trúng lớn trên thị trường chứng khoán',
+        'Anh được nhận một khoản lương hưu sớm',
+      ],
+      answer: 0,
+      dan: 'Suddenly, Bob discovered he was going to inherit a huge fortune from a wealthy uncle!',
+    },
+  ],
+
+  'education-learning-advanced': [
+    {
+      q: 'Vì sao cha mẹ chuyển Bob sang trường tư và trường nội trú?',
+      options: [
+        'Để rèn tính kỷ luật cho anh',
+        'Vì trường công gần nhà đã đóng cửa',
+        'Vì anh bị đuổi khỏi trường cũ',
+        'Để anh được học chương trình nâng cao',
+      ],
+      answer: 0,
+      dan: 'His parents transferred him to a strict private school and a boarding school to improve his discipline.',
+    },
+    {
+      q: 'Điều gì ngăn Bob bỏ học?',
+      options: [
+        'Một giáo viên tiến bộ dùng phép so sánh để hướng dẫn và chỉ dạy rõ ràng cho anh',
+        'Cha mẹ anh dọa cắt trợ cấp',
+        'Anh giành được học bổng vào phút chót',
+        'Hiệu trưởng cho anh một cơ hội cuối',
+      ],
+      answer: 0,
+      dan: 'Bob lost his motivation and thought about deciding to drop out, but a progressive teacher used an analogy to give him guidance and clear instruction.',
+    },
+    {
+      q: 'Vì sao phần trình bày miệng của Bob bị điểm thấp?',
+      options: [
+        'Vì câu trả lời của anh sai',
+        'Vì anh nói quá giờ quy định',
+        'Vì anh không chuẩn bị tài liệu',
+        'Vì anh trích dẫn sai nguồn',
+      ],
+      answer: 0,
+      dan: 'His oral presentation got a bad grade, negative feedback, and a low score because his answer was incorrect.',
+    },
+    {
+      q: 'Nghịch lý ở kết cục của Bob là gì?',
+      options: [
+        'Bất chấp quá khứ lười biếng, anh trở thành người hành nghề tận tuỵ và dành cả đời cho việc dạy học',
+        'Anh tốt nghiệp nhưng không tìm được việc',
+        'Anh trở lại chính ngôi trường từng đuổi mình',
+        'Anh bỏ ngành nghệ thuật để theo khoa học',
+      ],
+      answer: 0,
+      dan: 'Ironically, despite the irony of his lazy past, it was an ironic twist that he became a dedicated practitioner who decided to dedicate his life to teaching.',
+    },
+  ],
+
+  'science-tech-advanced': [
+    {
+      q: 'Nhóm của Benny dùng học máy để làm gì?',
+      options: [
+        'Phân tích dữ liệu lớn từ nghiên cứu hệ gen, hướng tới y học cá thể hoá',
+        'Dự báo nhu cầu thị trường cho công ty khởi nghiệp',
+        'Tự động hoá các công việc lặp đi lặp lại',
+        'Phát hiện lỗ hổng trong hệ thống an ninh mạng',
+      ],
+      answer: 0,
+      dan: 'His team used machine learning to analyze big data from genomics research, hoping to create personalized medicine.',
+    },
+    {
+      q: 'Benny xử lý sự cố an ninh mạng bằng cách nào?',
+      options: [
+        'Dùng mô phỏng bằng máy tính lượng tử để thiết kế nguyên mẫu vắc-xin mRNA trong thời gian kỷ lục',
+        'Cô lập toàn bộ hệ thống điện toán đám mây',
+        'Nhờ mạng nơ-ron truy vết nguồn tấn công',
+        'Chuyển dữ liệu sang nền tảng blockchain',
+      ],
+      answer: 0,
+      dan: 'Using quantum computing simulation, Benny designed an mRNA vaccine prototype in record time.',
+    },
+    {
+      q: 'Đổi mới lớn nhất mà bài nhắc tới là gì?',
+      options: [
+        'Kết hợp blockchain với IoT để tạo nền tảng y tế số an toàn',
+        'In 3D các bộ phận cấy ghép y tế',
+        'Công nghệ đeo được để theo dõi bệnh nhân',
+        'Robot đảm nhận việc tự động hoá',
+      ],
+      answer: 0,
+      dan: 'But the biggest innovation? They combined blockchain with IoT to create a secure digital health platform — a breakthrough in digital transformation.',
+    },
+    {
+      q: 'Theo Benny, mọi đổi mới bắt đầu từ đâu?',
+      options: [
+        'Từ sự tò mò',
+        'Từ nhu cầu của thị trường',
+        'Từ nguồn vốn đầu tư dồi dào',
+        'Từ hợp tác giữa các nhóm nghiên cứu',
+      ],
+      answer: 0,
+      dan: 'From space exploration to semiconductor design — every innovation starts with curiosity.',
+    },
+  ],
+
+  'psychology-emotions': [
+    {
+      q: 'Nhà trị liệu chẩn đoán Benny đã mắc phải điều gì?',
+      options: [
+        'Sự bất lực tập nhiễm — anh thôi tin rằng mình có thể thành công',
+        'Rối loạn lo âu xã hội',
+        'Hội chứng kẻ mạo danh',
+        'Thiên kiến xác nhận trong tư duy',
+      ],
+      answer: 0,
+      dan: 'His therapist said he had developed learned helplessness — he’d stopped believing he could succeed.',
+    },
+    {
+      q: 'Thiên kiến xác nhận tác động lên Benny thế nào?',
+      options: [
+        'Khiến anh chỉ để ý tới những lần thất bại của mình',
+        'Khiến anh đánh giá quá cao khả năng bản thân',
+        'Khiến anh né tránh mọi thử thách mới',
+        'Khiến anh so sánh mình với người khác',
+      ],
+      answer: 0,
+      dan: 'Confirmation bias made him only notice his failures.',
+    },
+    {
+      q: 'Benny học được gì về hội chứng kẻ mạo danh?',
+      options: [
+        'Rằng nó rất phổ biến — cả những người tự tin nhất đôi khi cũng thấy mình như kẻ giả mạo',
+        'Rằng nó chỉ xuất hiện ở người mới bắt đầu',
+        'Rằng nó là dấu hiệu của lòng tự trọng thấp',
+        'Rằng nó biến mất khi ta đạt được thành tựu',
+      ],
+      answer: 0,
+      dan: 'He learned that imposter syndrome was common — even the most confident people felt like frauds sometimes.',
+    },
+    {
+      q: 'Nhà trị liệu giải thích tính mềm dẻo thần kinh ra sao?',
+      options: [
+        'Não thay đổi qua tính mềm dẻo thần kinh — mỗi lần thử lại là một lần nối lại dây thần kinh hướng tới thành công',
+        'Não học nhanh nhất trong giai đoạn còn trẻ',
+        'Não cần thời gian nghỉ để củng cố trí nhớ',
+        'Não phản ứng với cảm xúc trước khi kịp suy nghĩ',
+      ],
+      answer: 0,
+      dan: 'The brain changes through neuroplasticity — every time you try again, you rewire for success.',
+    },
+  ],
+
+  'media-journalism': [
+    {
+      q: 'Bài báo lớn đầu tiên của Benny nói về chuyện gì?',
+      options: [
+        'Tin giả và thông tin sai lệch lan truyền trên mạng xã hội',
+        'Việc người có ảnh hưởng nhận tiền quảng cáo trá hình',
+        'Sự sụp đổ của các toà soạn báo in',
+        'Quyền tự do báo chí bị hạn chế',
+      ],
+      answer: 0,
+      dan: 'His first major story was about fake news and misinformation spreading on social media.',
+    },
+    {
+      q: 'Benny phát hiện thuật toán tạo ra thứ gì?',
+      options: [
+        'Buồng vọng âm — nơi người ta chỉ thấy nội dung củng cố niềm tin sẵn có',
+        'Những nội dung lan truyền không kiểm soát',
+        'Sự phân cực giữa các nhóm người dùng',
+        'Nguồn thu quảng cáo cho các nền tảng',
+      ],
+      answer: 0,
+      dan: 'He discovered how algorithms create echo chambers — where people only see content that confirms their beliefs.',
+    },
+    {
+      q: 'Người có ảnh hưởng với 5 triệu người theo dõi đã làm gì?',
+      options: [
+        'Vô tình lan truyền tuyên truyền được nguỵ trang thành nội dung lan toả',
+        'Cố tình đăng tin sai để tăng lượt xem',
+        'Nhận tiền của một tổ chức chính trị',
+        'Từ chối trả lời phỏng vấn của Benny',
+      ],
+      answer: 0,
+      dan: 'He interviewed an influencer with 5 million followers who had unknowingly spread propaganda disguised as viral content.',
+    },
+    {
+      q: 'Benny gọi năng lực đọc hiểu truyền thông là gì?',
+      options: [
+        'Siêu năng lực của thế kỷ 21',
+        'Điều kiện của một nền dân chủ lành mạnh',
+        'Kỹ năng bắt buộc với mọi nhà báo',
+        'Cách duy nhất để chống lại kiểm duyệt',
+      ],
+      answer: 0,
+      dan: 'Media literacy is the superpower of the 21st century!',
+    },
+  ],
+
+  'ielts-academic-vocab': [
+    {
+      q: 'Benny lập kế hoạch học dựa trên nguồn nào?',
+      options: [
+        'Danh sách Từ vựng Học thuật (AWL)',
+        'Bộ đề thi IELTS các năm trước',
+        'Một cuốn từ điển đồng nghĩa chuyên sâu',
+        'Các bài mẫu điểm cao của thí sinh khác',
+      ],
+      answer: 0,
+      dan: 'So he created a study plan using the Academic Word List (AWL).',
+    },
+    {
+      q: 'Trong bài luận, Benny nêu bằng chứng thực nghiệm chỉ ra mối tương quan giữa gì với gì?',
+      options: [
+        'Giữa công việc ít vận động và việc tăng cân',
+        'Giữa quảng cáo thực phẩm và thói quen ăn uống',
+        'Giữa mạng xã hội và mức độ vận động',
+        'Giữa chính sách công và tỉ lệ béo phì',
+      ],
+      answer: 0,
+      dan: 'The empirical evidence indicates a strong correlation between sedentary work and increased body weight.',
+    },
+    {
+      q: 'Giám khảo ấn tượng với những điểm nào trong bài của Benny?',
+      options: [
+        'Cấu trúc mạch lạc, vốn từ sâu sắc và khả năng luận chứng',
+        'Độ dài bài viết và tốc độ hoàn thành',
+        'Cách dùng ví dụ thực tế và số liệu',
+        'Ngữ pháp chính xác và chính tả không lỗi',
+      ],
+      answer: 0,
+      dan: 'The examiner was impressed by the coherent structure, profound vocabulary, and ability to substantiate arguments.',
+    },
+    {
+      q: 'Benny nói vốn từ học thuật giúp ích thế nào ngoài phòng thi?',
+      options: [
+        'Giúp nghĩ rõ ràng hơn, viết thuyết phục hơn và giao tiếp chuyên nghiệp hơn',
+        'Giúp đọc nhanh các tài liệu chuyên ngành',
+        'Giúp gây ấn tượng với nhà tuyển dụng',
+        'Giúp hiểu sâu các bài nghiên cứu khoa học',
+      ],
+      answer: 0,
+      dan: 'Every word in the AWL helps you think more clearly, write more convincingly, and communicate more professionally.',
+    },
+  ],
+
+  'success-mindset-100': [
+    {
+      q: 'Theo bài, để đạt mục tiêu và tới thành công thì cần gì?',
+      options: [
+        'Bỏ công sức và tìm ra động lực',
+        'Có tài năng bẩm sinh và may mắn',
+        'Có người dẫn dắt và mạng lưới quan hệ',
+        'Có kế hoạch chi tiết và nguồn lực',
+      ],
+      answer: 0,
+      dan: 'To achieve your goal and reach success, you must put in effort and find motivation.',
+    },
+    {
+      q: 'Bài nói bạn truyền cảm hứng cho người khác khi nào?',
+      options: [
+        'Khi vượt qua mọi trở ngại bằng sự quyết tâm',
+        'Khi đạt được thành tựu lớn trong nghề',
+        'Khi chia sẻ tri thức mình có',
+        'Khi giữ được thái độ lạc quan',
+      ],
+      answer: 0,
+      dan: 'You can inspire others when you overcome every obstacle with determination.',
+    },
+    {
+      q: 'Hai phẩm chất nào được nói là dẫn tới sự bền bỉ?',
+      options: [
+        'Tính nhất quán và kỷ luật',
+        'Sự tập trung và tư duy phát triển',
+        'Tham vọng và lòng dũng cảm',
+        'Sự tận tâm và lòng biết ơn',
+      ],
+      answer: 0,
+      dan: 'Consistency and discipline will lead to resilience.',
+    },
+    {
+      q: 'Bài khuyên nên đón nhận điều gì?',
+      options: [
+        'Gian khó, đổi mới và tận hưởng hành trình của tri thức, năng lực dẫn dắt và sự tinh thông',
+        'Mọi cơ hội đến với mình dù nhỏ',
+        'Lời phê bình từ những người xung quanh',
+        'Thất bại như một phần của quá trình',
+      ],
+      answer: 0,
+      dan: 'Embrace hardship, innovate, and enjoy the journey of knowledge, leadership, and mastery.',
+    },
+  ],
+
+  'global-issues-politics-ielts': [
+    {
+      q: 'Mối lo lớn nào ở các nước đang phát triển được nêu?',
+      options: [
+        'Nghèo cùng cực và nạn đói dai dẳng, thường trầm trọng thêm vì bất bình đẳng và thiếu nhân quyền',
+        'Tình trạng tham nhũng trong bộ máy chính quyền',
+        'Sự phụ thuộc vào viện trợ nước ngoài',
+        'Làn sóng di cư ra nước ngoài của người trẻ',
+      ],
+      answer: 0,
+      dan: 'One major concern is the persistence of extreme poverty and famine in developing nations, often worsened by severe inequality and a lack of human rights.',
+    },
+    {
+      q: 'Đại sứ hướng tới điều gì khi đàm phán với lãnh đạo nước ngoài?',
+      options: [
+        'Ký một hiệp ước hoà bình, thay vì áp lệnh trừng phạt kinh tế',
+        'Mở rộng quan hệ thương mại song phương',
+        'Vận động viện trợ cho người tị nạn',
+        'Thành lập một liên minh phòng thủ chung',
+      ],
+      answer: 0,
+      dan: 'An ambassador will negotiate with foreign leaders, aiming to sign a peace treaty rather than imposing economic sanctions.',
+    },
+    {
+      q: 'Nhà hoạt động có thể làm gì trên đường phố, và rủi ro là gì?',
+      options: [
+        'Dẫn đầu biểu tình ôn hoà đòi hành động chống phân biệt chủng tộc, nhưng đôi khi có thể biến thành bạo loạn',
+        'Vận động ký tên vào kiến nghị gửi quốc hội',
+        'Tổ chức đình công gây sức ép lên doanh nghiệp',
+        'Kêu gọi tẩy chay hàng hoá của nước vi phạm',
+      ],
+      answer: 0,
+      dan: 'Meanwhile, on the streets, an activist might lead a peaceful protest or mass demonstration to demand action against racism and discrimination, though sometimes these can unfortunately turn into a riot.',
+    },
+    {
+      q: 'Bài kết lại rằng nền dân chủ chỉ thật sự phát triển được nhờ điều gì?',
+      options: [
+        'Nỗ lực chung của cộng đồng quốc tế',
+        'Việc mỗi quốc gia tự giải quyết vấn đề nội bộ',
+        'Sự lớn mạnh của các tổ chức phi chính phủ',
+        'Việc chấm dứt mọi xung đột vũ trang',
+      ],
+      answer: 0,
+      dan: 'Only through shared effort can a democracy truly thrive and secure global peace.',
+    },
+  ],
+
+  'music-performing-arts-ielts': [
+    {
+      q: 'Dàn diễn viên phải làm gì để hoàn thiện vai diễn?',
+      options: [
+        'Tập kịch bản thật kỹ trong các buổi tập',
+        'Nghiên cứu bối cảnh lịch sử của vở kịch',
+        'Thử vai nhiều lần trước ban giám khảo',
+        'Làm việc riêng với nhà viết kịch',
+      ],
+      answer: 0,
+      dan: 'The cast must meticulously rehearse the script during a rehearsal to perfect their roles.',
+    },
+    {
+      q: 'Nhạc trưởng đảm nhận việc gì?',
+      options: [
+        'Dẫn dắt dàn nhạc giao hưởng và dàn hợp xướng, bảo đảm mọi nhạc cụ và bè hát hoà quyện hoàn hảo',
+        'Sáng tác bản nhạc cho dàn nhạc trình diễn',
+        'Chọn nhạc mục và sắp xếp chương trình',
+        'Tuyển chọn nhạc công qua các buổi thử',
+      ],
+      answer: 0,
+      dan: 'A conductor leads the symphony orchestra and the choir, ensuring that every instrument and vocal part is in perfect harmony.',
+    },
+    {
+      q: 'Ba yếu tố nào phải khớp nhau để tạo nên giai điệu du dương?',
+      options: [
+        'Nhịp điệu, tiết tấu và cao độ',
+        'Giai điệu, hoà âm và lời ca',
+        'Âm sắc, cường độ và nhịp phách',
+        'Tốc độ, sắc thái và kỹ thuật',
+      ],
+      answer: 0,
+      dan: 'The rhythm, tempo, and pitch must align seamlessly to produce a melodious melody.',
+    },
+    {
+      q: 'Bài kết lại rằng các kiệt tác nghệ thuật này làm được gì?',
+      options: [
+        'Không chỉ giải trí mà còn nâng tầm hiểu biết văn hoá của chúng ta',
+        'Giữ gìn các loại hình biểu diễn truyền thống',
+        'Tạo nguồn thu cho ngành công nghiệp biểu diễn',
+        'Đưa nghệ sĩ tới với công chúng rộng rãi hơn',
+      ],
+      answer: 0,
+      dan: 'These artistic masterpieces not only entertain but also elevate our cultural understanding, making every audition, rehearsal, and live performance a valuable contribution to society.',
+    },
+  ],
+
+  'science-tech-advanced-ielts': [
+    {
+      q: 'Tin tặc thường khai thác gì, và hậu quả là gì?',
+      options: [
+        'Dùng mã độc khai thác lỗi hệ thống, dẫn tới rò rỉ dữ liệu thảm khốc',
+        'Đánh cắp mật khẩu người dùng qua thư giả mạo',
+        'Chiếm quyền điều khiển các thiết bị thông minh',
+        'Làm tê liệt hạ tầng bằng tấn công từ chối dịch vụ',
+      ],
+      answer: 0,
+      dan: 'Cybersecurity is crucial, as hackers frequently use malware to exploit system flaws, leading to a catastrophic data breach.',
+    },
+    {
+      q: 'Trong lĩnh vực sinh học, các nhà khoa học nay có thể làm gì?',
+      options: [
+        'Can thiệp vào bộ gen người hoặc dùng tế bào gốc để chữa bệnh, dù việc đó thường làm dấy lên tình thế lưỡng nan về đạo đức',
+        'Tạo ra vắc-xin mới trong vài tuần',
+        'Chẩn đoán bệnh bằng trí tuệ nhân tạo',
+        'Nuôi cấy mô nhân tạo thay cho cấy ghép',
+      ],
+      answer: 0,
+      dan: 'Scientists can now manipulate the human genome or use stem cells to cure diseases, though such practices often spark a controversial ethical dilemma.',
+    },
+    {
+      q: 'Sự lệ thuộc vào nhiên liệu hoá thạch phải chuyển dịch sang đâu?',
+      options: [
+        'Sang các nguồn tái tạo như mặt trời và gió, để dựng nên hạ tầng bền vững',
+        'Sang năng lượng hạt nhân quy mô nhỏ',
+        'Sang vật liệu tổng hợp mới ít phát thải',
+        'Sang các thiết bị thông minh tiết kiệm điện',
+      ],
+      answer: 0,
+      dan: 'As we synthesize new materials and deploy smart gadgets, our reliance on fossil fuels must shift towards renewable energy sources like solar and wind, allowing us to build a sustainable infrastructure.',
+    },
+    {
+      q: 'Bài kết lại rằng điều gì sẽ là chất xúc tác cho sự tiến hoá tiếp theo của chúng ta?',
+      options: [
+        'Việc khai thác sự cộng hưởng chưa từng có giữa khoa học và đạo đức',
+        'Tốc độ đổi mới công nghệ ngày càng nhanh',
+        'Việc thay thế các phương pháp lỗi thời',
+        'Sự hợp tác giữa các trung tâm nghiên cứu',
+      ],
+      answer: 0,
+      dan: 'Ultimately, while disruptive technologies often render old methods obsolete, harnessing this unprecedented synergy between science and ethics will be the catalyst for our continued evolution.',
+    },
+  ],
+
+  'health-medicine-advanced-ielts': [
+    {
+      q: 'Nhờ đâu hệ miễn dịch của chúng ta nay được trang bị tốt hơn để chống nhiễm trùng?',
+      options: [
+        'Nhờ tiêm chủng đại trà và dịch tễ học',
+        'Nhờ dinh dưỡng và vệ sinh được cải thiện',
+        'Nhờ kháng sinh thế hệ mới',
+        'Nhờ chẩn đoán sớm và can thiệp kịp thời',
+      ],
+      answer: 0,
+      dan: 'Today, through mass immunization and epidemiology, our immune system is better equipped with the necessary antibodies to fight infections.',
+    },
+    {
+      q: 'Lối sống ít vận động cộng với dinh dưỡng kém dẫn tới điều gì?',
+      options: [
+        'Béo phì và các bệnh tim mạch tăng vọt, chẳng hạn tắc nghẽn động mạch',
+        'Suy giảm nhận thức ở người cao tuổi',
+        'Nguy cơ mắc bệnh truyền nhiễm cao hơn',
+        'Tuổi thọ trung bình giảm rõ rệt',
+      ],
+      answer: 0,
+      dan: 'A sedentary lifestyle, coupled with poor nutrition, has led to a surge in obesity and cardiovascular conditions, such as blocked arteries.',
+    },
+    {
+      q: 'Dân số già kéo theo tỉ lệ mắc cao hơn của những gì?',
+      options: [
+        'Suy giảm nhận thức, kể cả sa sút trí tuệ, và các rối loạn thần kinh',
+        'Bệnh tim mạch và tiểu đường',
+        'Các bệnh mạn tính không lây khác',
+        'Ung thư giai đoạn cuối',
+      ],
+      answer: 0,
+      dan: 'Furthermore, an aging population means a higher incidence of cognitive decline, including dementia, and neurological disorders.',
+    },
+    {
+      q: 'Bài coi chiến lược hiệu quả nhất cho sức khoẻ cộng đồng là gì?',
+      options: [
+        'Chuyển trọng tâm sang y học toàn diện và phòng ngừa — khuyến khích vệ sinh, điều kiện vệ sinh và rèn luyện thể chất',
+        'Đầu tư mạnh vào phẫu thuật và cấy ghép',
+        'Mở rộng bảo hiểm y tế cho toàn dân',
+        'Đào tạo thêm bác sĩ và điều dưỡng',
+      ],
+      answer: 0,
+      dan: 'Ultimately, shifting the focus towards holistic and preventive medicine—encouraging better hygiene, sanitation, and fitness—remains the most effective strategy to ensure public health and well-being.',
+    },
+  ],
+
+  'art-literature-ielts': [
+    {
+      q: 'Người phụ trách triển lãm có thể tổ chức trưng bày những gì?',
+      options: [
+        'Cả trường phái siêu thực đương đại lẫn ấn tượng cổ điển',
+        'Các tác phẩm điêu khắc bằng đá cẩm thạch',
+        'Những bức tranh của các hoạ sĩ tiên phong',
+        'Hiện vật cổ và tác phẩm hiện đại xen kẽ',
+      ],
+      answer: 0,
+      dan: 'In a local gallery, a curator might organize an exhibition showcasing both contemporary surrealism and classic impressionism.',
+    },
+    {
+      q: 'Nhà điêu khắc và hoạ sĩ tiên phong theo đuổi những điều khác nhau thế nào?',
+      options: [
+        'Nhà điêu khắc nhắm tới đối xứng hoàn hảo và hài hoà thẩm mỹ, còn hoạ sĩ tiên phong dùng kỹ thuật táo bạo để thách thức góc nhìn',
+        'Nhà điêu khắc làm việc với chất liệu cứng, hoạ sĩ với màu sắc',
+        'Nhà điêu khắc theo truyền thống, hoạ sĩ theo hiện đại',
+        'Nhà điêu khắc chú trọng hình khối, hoạ sĩ chú trọng bố cục',
+      ],
+      answer: 0,
+      dan: 'A sculptor might carve a masterpiece from marble, aiming for perfect symmetry and aesthetic harmony, while an avant-garde painter might use a bold technique and innovative composition to challenge our perspective.',
+    },
+    {
+      q: 'Nhà văn dùng những thủ pháp nào để gợi ký ức mạnh mẽ và truyền cảm hứng?',
+      options: [
+        'Ẩn dụ, mỉa mai và biểu tượng dày đặc',
+        'Đối thoại sắc sảo và độc thoại nội tâm',
+        'Cốt truyện gay cấn và nhân vật phản diện',
+        'Bối cảnh chi tiết và mô tả tỉ mỉ',
+      ],
+      answer: 0,
+      dan: 'Using literary devices like metaphor, irony, and heavy symbolism, writers evoke powerful memories and inspire readers.',
+    },
+    {
+      q: 'Bài kết lại rằng điều gì vượt qua được thử thách của thời gian?',
+      options: [
+        'Một tác phẩm nghệ thuật đích thực, bất chấp lời phê phán gay gắt hay nguy cơ bị đạo văn',
+        'Những tác phẩm được công chúng yêu thích nhất',
+        'Các trường phái nghệ thuật có ảnh hưởng lớn',
+        'Những hiện vật được bảo tồn trong bảo tàng',
+      ],
+      answer: 0,
+      dan: 'Despite harsh critiques from a critic or the threat of plagiarism, an authentic work of art endures the test of time.',
+    },
+  ],
+
+  'psychology-mind-ielts': [
+    {
+      q: 'Cuộc tranh luận về việc hành vi con người do đâu mà có thường được gọi là gì?',
+      options: [
+        'Bẩm sinh hay nuôi dưỡng',
+        'Ý thức hay vô thức',
+        'Bản năng hay lý trí',
+        'Cá nhân hay xã hội',
+      ],
+      answer: 0,
+      dan: 'In the field of psychology, experts study how our behavior is shaped by both instinct and the environment, a debate often referred to as ‘nature vs nurture’.',
+    },
+    {
+      q: 'Trong những trường hợp cực đoan, người bệnh có thể trải qua điều gì?',
+      options: [
+        'Tâm thần phân liệt, với hoang tưởng hoặc ảo giác làm sai lệch nhận thức thực tại',
+        'Trầm cảm nặng kéo dài nhiều năm',
+        'Ám ảnh sợ hãi với những vật thể thông thường',
+        'Mất trí nhớ về các sự kiện gây sang chấn',
+      ],
+      answer: 0,
+      dan: 'In more extreme cases, individuals may suffer from schizophrenia, experiencing a delusion or hallucination that alters their perception of reality.',
+    },
+    {
+      q: 'Áp lực đồng trang lứa và mong muốn hoà nhập có thể gây ra điều gì?',
+      options: [
+        'Lấn át lý lẽ hợp lý của một người, dẫn tới hành vi bốc đồng hoặc lệch chuẩn',
+        'Làm giảm lòng tự trọng và sự tự tin',
+        'Khiến người ta che giấu cảm xúc thật',
+        'Tạo ra mâu thuẫn giữa các nhóm xã hội',
+      ],
+      answer: 0,
+      dan: 'The desire for conformity and the impact of peer pressure can override a person’s rational logic, leading to impulsive or deviant actions.',
+    },
+    {
+      q: 'Bài kết lại bằng nhận định nào về tâm trí con người?',
+      options: [
+        'Tuy mong manh, tâm trí cũng có khả năng thích nghi phi thường',
+        'Tâm trí luôn tìm cách tự bảo vệ trước tổn thương',
+        'Tâm trí chịu ảnh hưởng của xã hội nhiều hơn di truyền',
+        'Tâm trí cần được chăm sóc như sức khoẻ thể chất',
+      ],
+      answer: 0,
+      dan: 'Through cognitive behavioral therapy, counseling, and mindfulness, patients can build resilience, overcome their insecurities, and achieve a healthier mental state, proving that while the mind can be fragile, it is also incredibly adaptable.',
+    },
+  ],
+
+  'politics-government-ielts': [
+    {
+      q: 'Sau khi được bầu, các nghị sĩ làm gì, và ai có quyền ký hoặc phủ quyết?',
+      options: [
+        'Soạn luật và thông qua dự luật; tổng thống hoặc thủ tướng ký hoặc phủ quyết',
+        'Giám sát chính phủ; toà án tối cao quyết định tính hợp hiến',
+        'Phân bổ ngân sách; bộ trưởng tài chính phê duyệt',
+        'Bổ nhiệm quan chức; chủ tịch quốc hội phê chuẩn',
+      ],
+      answer: 0,
+      dan: 'Once elected, members of parliament or congress work to draft legislation and pass a bill into law, which the president or prime minister must either sign or veto.',
+    },
+    {
+      q: 'Những vấn đề nào làm xói mòn niềm tin của công chúng?',
+      options: [
+        'Bộ máy quan liêu, tham nhũng và hối lộ',
+        'Sự chia rẽ giữa các đảng phái',
+        'Việc thi hành luật chậm trễ',
+        'Ảnh hưởng của truyền thông lên dư luận',
+      ],
+      answer: 0,
+      dan: 'Issues like bureaucracy, corruption, and bribery often undermine public trust, leading to demands for greater transparency and accountability.',
+    },
+    {
+      q: 'Khi ngoại giao thất bại, một quốc gia có thể đối mặt với điều gì?',
+      options: [
+        'Các lệnh trừng phạt thương mại hoặc thậm chí chiến tranh, đe doạ chủ quyền của mình',
+        'Sự cô lập trên trường quốc tế',
+        'Việc bị loại khỏi các liên minh hiện có',
+        'Áp lực từ các tổ chức quốc tế',
+      ],
+      answer: 0,
+      dan: 'When diplomacy fails, a country might face trade sanctions or even war, threatening its sovereignty.',
+    },
+    {
+      q: 'Chế độ độc tài hoặc toàn trị thường dẫn tới hệ quả gì?',
+      options: [
+        'Đàn áp chính trị, nổi dậy, hoặc một cuộc cách mạng toàn diện',
+        'Sự trì trệ của nền kinh tế trong nước',
+        'Việc bị cộng đồng quốc tế trừng phạt',
+        'Làn sóng di cư ồ ạt ra nước ngoài',
+      ],
+      answer: 0,
+      dan: 'In contrast to democratic societies, an authoritarian regime or dictatorship suppresses freedom, often resulting in political oppression, a rebellion, or a full-scale revolution.',
+    },
+  ],
+
+  'law-justice-ielts': [
+    {
+      q: 'Luật dân sự thường xử lý những tranh chấp nào?',
+      options: [
+        'Vi phạm hợp đồng hoặc xâm phạm quyền sở hữu trí tuệ',
+        'Trộm cắp và phá hoại tài sản',
+        'Buôn lậu và biển thủ công quỹ',
+        'Các hành vi gây rối trật tự công cộng',
+      ],
+      answer: 0,
+      dan: 'In civil law, disputes often involve a breach of contract or intellectual property infringement.',
+    },
+    {
+      q: 'Thay cho kiện tụng tốn kém, các bên có thể chọn cách nào?',
+      options: [
+        'Trọng tài hoặc hoà giải để đạt một thoả thuận',
+        'Đàm phán trực tiếp không qua luật sư',
+        'Yêu cầu toà xử theo thủ tục rút gọn',
+        'Chuyển vụ việc sang cơ quan hành chính',
+      ],
+      answer: 0,
+      dan: 'Instead of costly litigation, both parties may choose arbitration or mediation to reach a settlement.',
+    },
+    {
+      q: 'Nhân chứng được cảnh báo điều gì khi khai trước toà?',
+      options: [
+        'Rằng nói dối là khai man',
+        'Rằng lời khai sẽ được ghi âm',
+        'Rằng họ có quyền im lặng',
+        'Rằng họ có thể bị chất vấn chéo',
+      ],
+      answer: 0,
+      dan: 'During the trial, the prosecution presents an indictment, calling witnesses to testify under oath, warning them that lying is perjury.',
+    },
+    {
+      q: 'Hệ thống tư pháp hiện đại còn hướng tới điều gì ngoài trừng phạt?',
+      options: [
+        'Cải tạo phạm nhân, mong họ được tha có điều kiện và tái hoà nhập thành công dân tuân thủ pháp luật',
+        'Giảm số vụ án tồn đọng tại toà',
+        'Bồi thường thoả đáng cho nguyên đơn',
+        'Ngăn tái phạm bằng giám sát điện tử',
+      ],
+      answer: 0,
+      dan: 'However, a modern justice system also focuses on the rehabilitation of prisoners, hoping they can eventually be released on parole and reintegrate into society as law-abiding citizens.',
+    },
+  ],
+
+  'history-civilizations-ielts': [
+    {
+      q: 'Tổ tiên loài người thời tiền sử sống ra sao?',
+      options: [
+        'Sống du mục, di chuyển theo bộ lạc như những người săn bắt hái lượm',
+        'Sống định cư quanh các con sông lớn',
+        'Sống trong hang động theo từng gia đình nhỏ',
+        'Sống bằng nghề chăn nuôi gia súc',
+      ],
+      answer: 0,
+      dan: 'In prehistoric times, our ancestors lived a nomadic lifestyle, moving in tribes as hunters and gatherers.',
+    },
+    {
+      q: 'Châu Âu thời trung cổ được cai trị theo chế độ nào?',
+      options: [
+        'Chế độ phong kiến, nơi tầng lớp quý tộc nắm quyền trên dân thường',
+        'Chế độ quân chủ tập quyền tuyệt đối',
+        'Chế độ thần quyền do giáo hội đứng đầu',
+        'Chế độ cộng hoà quý tộc kiểu La Mã',
+      ],
+      answer: 0,
+      dan: 'Throughout the medieval era, Europe was governed by feudalism, where the aristocracy held power over the common people.',
+    },
+    {
+      q: 'Thời kỳ nào tiếp sau thời của lâu đài và hiệp sĩ, và mang lại điều gì?',
+      options: [
+        'Phục Hưng và Khai Sáng, mang lại sự tái sinh của khoa học và lý trí',
+        'Cách mạng công nghiệp, mang lại máy móc và đô thị',
+        'Thời đại khám phá, mang lại các tuyến hàng hải mới',
+        'Thời kỳ cải cách tôn giáo, mang lại tự do tín ngưỡng',
+      ],
+      answer: 0,
+      dan: 'This period of castles and knights was followed by the Renaissance and the Enlightenment, which brought a rebirth of science and reason.',
+    },
+    {
+      q: 'Cách mạng hoặc khởi nghĩa thường bùng nổ khi nào?',
+      options: [
+        'Khi những người bị áp bức đấu tranh để xoá bỏ chế độ nô lệ và đòi quyền của mình',
+        'Khi các quân vương tham vọng xâm chiếm lẫn nhau',
+        'Khi nạn đói và dịch bệnh lan rộng',
+        'Khi tầng lớp quý tộc mất dần quyền lực',
+      ],
+      answer: 0,
+      dan: 'A revolution or an uprising often erupted when the oppressed fought to abolish slavery and demand their rights.',
+    },
+  ],
+
+  'geography-earth-ielts': [
+    {
+      q: 'Trái Đất được chia thành hai bán cầu bởi cái gì, và được lập bản đồ bằng gì?',
+      options: [
+        'Bởi đường xích đạo, và bằng các đường vĩ tuyến và kinh tuyến',
+        'Bởi trục quay, và bằng các múi giờ',
+        'Bởi các mảng kiến tạo, và bằng đường đứt gãy',
+        'Bởi các đại dương, và bằng đường bờ biển',
+      ],
+      answer: 0,
+      dan: 'From a geographical perspective, the globe is divided by the equator into the northern and southern hemispheres, mapped by lines of latitude and longitude.',
+    },
+    {
+      q: 'Một dòng sông đi qua những chặng nào?',
+      options: [
+        'Bắt đầu từ nguồn, chảy qua thung lũng, rồi đổ ra biển ở một châu thổ hoặc cửa sông màu mỡ',
+        'Bắt đầu từ hồ băng, chảy qua đồng bằng, rồi thấm vào lòng đất',
+        'Bắt đầu từ mưa, tụ thành suối, rồi đổ vào hồ nội địa',
+        'Bắt đầu từ đỉnh núi, tạo thác, rồi chảy vào hang ngầm',
+      ],
+      answer: 0,
+      dan: 'Water shapes the land; a river begins at its source, flows through a valley, and empties into the sea at a fertile delta or estuary.',
+    },
+    {
+      q: 'Khi các mảng kiến tạo dịch chuyển, điều gì có thể xảy ra?',
+      options: [
+        'Một trận động đất tàn khốc, hoặc kích hoạt sóng thần',
+        'Một đợt phun trào magma và dung nham',
+        'Sự xói mòn đá cứng thành trầm tích',
+        'Sự hình thành các dãy núi mới trong nhiều triệu năm',
+      ],
+      answer: 0,
+      dan: 'When these plates move, they can cause a seismic event like a devastating earthquake or trigger a tsunami.',
+    },
+    {
+      q: 'Bài kết lại rằng điều gì là thiết yếu để bảo vệ hành tinh?',
+      options: [
+        'Bảo tồn môi trường sống tự nhiên và sử dụng bền vững tài nguyên khoáng sản',
+        'Giảm phát thải từ nhiên liệu hoá thạch',
+        'Dự báo sớm các hiện tượng thời tiết cực đoan',
+        'Hạn chế xây dựng ở những vùng có đứt gãy',
+      ],
+      answer: 0,
+      dan: 'Therefore, the conservation of our natural habitat and the sustainable use of mineral resources are essential to protect our planet.',
+    },
+  ],
+
+  'art-design-ielts': [
+    {
+      q: 'Hoạ sĩ dùng bảng màu để làm gì?',
+      options: [
+        'Pha các sắc độ khác nhau, tạo tương phản mạnh gợi cảm xúc sâu',
+        'Thử màu trước khi vẽ lên toan',
+        'Giữ màu không bị khô trong lúc vẽ',
+        'Đạt được tỉ lệ và đối xứng chuẩn xác',
+      ],
+      answer: 0,
+      dan: 'An artist uses a palette to mix various hues and shades, creating a striking contrast that evokes deep emotions.',
+    },
+    {
+      q: 'Nghệ thuật cổ điển và các trào lưu hiện đại khác nhau ở điểm nào?',
+      options: [
+        'Cổ điển chú trọng hiện thực, còn lập thể hay siêu thực đưa ra góc nhìn tiên phong và rất chủ quan',
+        'Cổ điển dùng chất liệu tự nhiên, hiện đại dùng chất liệu tổng hợp',
+        'Cổ điển vẽ chân dung, hiện đại vẽ phong cảnh',
+        'Cổ điển phục vụ tôn giáo, hiện đại phục vụ công chúng',
+      ],
+      answer: 0,
+      dan: 'While classical art focuses on realism, modern movements like cubism or surrealism present an avant-garde and highly subjective perspective.',
+    },
+    {
+      q: 'Thiết kế thẩm mỹ vươn tới đời sống thường ngày qua những gì?',
+      options: [
+        'Từ kiến trúc hùng vĩ của một toà nhà cao tầng tới nghề thủ công tinh xảo với gốm sứ và vải vóc',
+        'Từ đồ nội thất tới trang phục hằng ngày',
+        'Từ bao bì sản phẩm tới biển hiệu đường phố',
+        'Từ tranh treo tường tới đồ trang trí gia đình',
+      ],
+      answer: 0,
+      dan: 'Beyond fine art, aesthetic design extends to everyday life, from the majestic architecture of a high-rise to the intricate craft of a local artisan working with ceramics or textiles.',
+    },
+    {
+      q: 'Nghệ thuật cần gì để phát triển và truyền cảm hứng cho đời sau?',
+      options: [
+        'Sự trân trọng của công chúng và sự hỗ trợ của một nhà bảo trợ hoặc nhà tài trợ giàu có',
+        'Các bảo tàng và phòng trưng bày quy mô lớn',
+        'Nền giáo dục nghệ thuật từ bậc phổ thông',
+        'Chính sách bảo hộ của nhà nước',
+      ],
+      answer: 0,
+      dan: 'Whether it is a contemporary graphic illustration, a vibrant mural, or an immersive installation, art relies on the appreciation of the public and the support of a wealthy patron or sponsor to thrive and inspire future generations.',
+    },
+  ],
+
+  'literature-poetry-ielts': [
+    {
+      q: 'Cốt truyện xây dựng căng thẳng cho tới đâu?',
+      options: [
+        'Tới một cao trào kịch tính và một kết thúc thoả đáng',
+        'Tới lúc nhân vật chính đánh bại kẻ phản diện',
+        'Tới khi chủ đề của tác phẩm được hé lộ',
+        'Tới đoạn kết mở để người đọc tự suy ngẫm',
+      ],
+      answer: 0,
+      dan: 'The setting of the story provides the context, while the plot builds tension through the character’s journey until it reaches a dramatic climax and a satisfying resolution.',
+    },
+    {
+      q: 'Thơ thường được cấu trúc thế nào, và dùng gì để tạo hiệu ứng âm nhạc?',
+      options: [
+        'Chia thành khổ hoặc dòng thơ, dùng nhịp điệu và vần',
+        'Chia thành chương, dùng hình ảnh và ẩn dụ',
+        'Chia theo chủ đề, dùng điệp ngữ và đối',
+        'Chia theo lời kể, dùng giọng điệu và ngắt nhịp',
+      ],
+      answer: 0,
+      dan: 'In poetry, a poem is often structured into a stanza or a verse, utilizing rhythm and rhyme to create a musical effect.',
+    },
+    {
+      q: 'Vì sao đôi khi một văn bản đòi hỏi phải diễn giải cẩn thận?',
+      options: [
+        'Vì tác giả dùng ngôn ngữ bóng bẩy, nghịch lý, hoặc ám chỉ tới một sự kiện lịch sử',
+        'Vì bản thảo gốc đã bị biên tập nhiều lần',
+        'Vì ngôn ngữ của tác phẩm đã cũ so với ngày nay',
+        'Vì mỗi người đọc hiểu chủ đề một cách khác nhau',
+      ],
+      answer: 0,
+      dan: 'Sometimes, a text requires careful interpretation, as authors use figurative language, a paradox, or an allusion to a historical event.',
+    },
+    {
+      q: 'Trước khi tới tay công chúng, bản thảo phải qua khâu nào?',
+      options: [
+        'Biên tập kỹ lưỡng bởi nhà xuất bản',
+        'Thẩm định của một nhà phê bình văn học',
+        'Đăng thử trên tạp chí chuyên ngành',
+        'Đọc duyệt bởi một hội đồng chuyên môn',
+      ],
+      answer: 0,
+      dan: 'Before a masterpiece reaches the public, the initial manuscript goes through rigorous editing by a publisher.',
+    },
+  ],
+
+  'travel-tourism-ielts': [
+    {
+      q: 'Lượng khách đổ về vào mùa cao điểm có thể biến điều gì thành điều gì?',
+      options: [
+        'Biến một thị trấn nên thơ thành cái bẫy du lịch đông nghịt',
+        'Biến một điểm đến hoang sơ thành khu nghỉ dưỡng',
+        'Biến một làng nghề thành trung tâm thương mại',
+        'Biến một vùng nghèo thành nơi thịnh vượng',
+      ],
+      answer: 0,
+      dan: 'However, the influx of visitors during peak season can turn a picturesque town into a crowded tourist trap.',
+    },
+    {
+      q: 'Du lịch sinh thái bền vững tập trung vào điều gì?',
+      options: [
+        'Bảo tồn động vật hoang dã, bảo đảm du lịch tạo nguồn thu mà không tổn hại văn hoá bản địa',
+        'Giới hạn số lượng khách tới mỗi điểm đến',
+        'Xây dựng cơ sở lưu trú thân thiện môi trường',
+        'Đào tạo người dân địa phương làm hướng dẫn viên',
+      ],
+      answer: 0,
+      dan: 'This approach focuses on wildlife conservation, ensuring that tourism generates vital revenue without harming the indigenous culture.',
+    },
+    {
+      q: 'Dù gặp rào cản ngôn ngữ hay sốc văn hoá, việc đi lại mang lại cơ hội gì?',
+      options: [
+        'Cơ hội độc đáo để hoà mình vào phong tục xứ người',
+        'Cơ hội học một ngôn ngữ mới nhanh hơn',
+        'Cơ hội kết bạn với người dân bản địa',
+        'Cơ hội thoát khỏi nhịp sống thường ngày',
+      ],
+      answer: 0,
+      dan: 'Although they might face a language barrier or experience culture shock, travel provides a unique opportunity to immerse oneself in foreign customs.',
+    },
+    {
+      q: 'Bài kết lại rằng điều gì khiến du lịch vẫn là một trải nghiệm đáng giá?',
+      options: [
+        'Sự hiếu khách của phần lớn người dân bản địa, bất chấp rủi ro bị lừa chặt chém',
+        'Sự đa dạng của các điểm đến trên thế giới',
+        'Chi phí đi lại ngày càng phải chăng hơn',
+        'Cơ hội mở mang tầm nhìn của mỗi người',
+      ],
+      answer: 0,
+      dan: 'Despite the risks of being overcharged by a scam, the hospitable nature of most locals ensures that travel remains a magnificent and enriching pursuit.',
+    },
+  ],
+
+  'food-agriculture-ielts': [
+    {
+      q: 'Ngày xưa nhiều người dựa vào hình thức canh tác nào?',
+      options: [
+        'Canh tác tự cung tự cấp, trồng ít cây và nuôi ít gia súc gia cầm chỉ để nuôi gia đình',
+        'Canh tác luân canh trên đất thuê của địa chủ',
+        'Canh tác tập thể theo mùa vụ trong làng',
+        'Canh tác chuyên canh một loại cây để bán',
+      ],
+      answer: 0,
+      dan: 'In the past, many people relied on subsistence farming, cultivating a small crop and keeping some livestock or poultry just to feed their families.',
+    },
+    {
+      q: 'Canh tác độc canh thâm canh gây hậu quả gì?',
+      options: [
+        'Làm đất kiệt sức',
+        'Làm giảm chất lượng nông sản',
+        'Làm tăng chi phí phân bón',
+        'Làm mất đa dạng giống cây trồng',
+      ],
+      answer: 0,
+      dan: 'However, such intensive monoculture can exhaust the soil.',
+    },
+    {
+      q: 'Nghịch lý nào về dinh dưỡng toàn cầu được nêu?',
+      options: [
+        'Béo phì tăng trên toàn cầu, song song với suy dinh dưỡng nặng và nạn đói ở các vùng nghèo hơn',
+        'Sản lượng lương thực tăng nhưng giá vẫn leo thang',
+        'Thực phẩm hữu cơ đắt hơn thực phẩm chế biến',
+        'Người ăn chay tăng nhưng tiêu thụ thịt cũng tăng',
+      ],
+      answer: 0,
+      dan: 'This shift in consumption has led to a global rise in obesity, paradoxically existing alongside severe malnutrition and famine in poorer regions.',
+    },
+    {
+      q: 'Để giữ sức khoẻ, bài khuyên cân bằng chế độ ăn thế nào?',
+      options: [
+        'Ăn đủ dinh dưỡng giàu vitamin, khoáng chất và chất xơ, giảm chất béo bão hoà và tinh bột tinh chế',
+        'Ăn nhiều rau sống và hạn chế thịt đỏ',
+        'Chia nhỏ bữa ăn và kiểm soát khẩu phần',
+        'Ưu tiên thực phẩm hữu cơ không hoá chất',
+      ],
+      answer: 0,
+      dan: 'To maintain good health, we must balance our daily calories, consuming a nutritious diet rich in vitamins, minerals, and dietary fiber, and reducing our intake of saturated fat and refined carbohydrates.',
+    },
+  ],
+
+  'business-finance-ielts': [
+    {
+      q: 'Doanh nghiệp có thể phải làm gì nếu thâm hụt nặng hoặc nợ vượt khả năng trả?',
+      options: [
+        'Phá sản và buộc phải thanh lý tài sản',
+        'Sáp nhập với một đối thủ lớn hơn',
+        'Phát hành thêm cổ phiếu để bù đắp',
+        'Cắt giảm nhân sự và thu hẹp hoạt động',
+      ],
+      answer: 0,
+      dan: 'If an enterprise faces a severe deficit or unmanageable debt due to high interest rates, it might go bankrupt and be forced to liquidate its assets.',
+    },
+    {
+      q: 'Suy thoái hoặc giảm phát đột ngột gây ra điều gì?',
+      options: [
+        'Giá cổ phiếu lao dốc, dẫn tới thị trường trì trệ',
+        'Lãi suất tăng và tín dụng bị siết chặt',
+        'Đồng nội tệ mất giá so với ngoại tệ',
+        'Doanh nghiệp phải cắt giảm cổ tức',
+      ],
+      answer: 0,
+      dan: 'A sudden recession or period of deflation can cause share prices to plummet, leading to a stagnant market.',
+    },
+    {
+      q: 'Tập đoàn đa quốc gia làm gì để sống sót?',
+      options: [
+        'Đàm phán sáp nhập hoặc thâu tóm chiến lược, mở rộng chuỗi cung ứng bằng cách thuê ngoài để giảm chi phí',
+        'Chuyển hướng sang các thị trường ít cạnh tranh hơn',
+        'Tăng giá bán để bù đắp chi phí gia tăng',
+        'Xin trợ cấp và ưu đãi thuế từ chính phủ',
+      ],
+      answer: 0,
+      dan: 'To survive, a multinational corporation might negotiate a strategic merger or an acquisition, expanding its global supply chain by outsourcing operations to reduce expenditure.',
+    },
+    {
+      q: 'Chính phủ đóng vai trò gì trong nền kinh tế?',
+      options: [
+        'Dùng chính sách tài khoá và tiền tệ để ổn định tỉ giá, hoặc ưu đãi thuế và trợ cấp cho các ngành cụ thể',
+        'Kiểm soát giá cả các mặt hàng thiết yếu',
+        'Điều tiết hoạt động của thị trường chứng khoán',
+        'Bảo hộ doanh nghiệp trong nước trước cạnh tranh',
+      ],
+      answer: 0,
+      dan: 'Governments also play a crucial role by using fiscal and monetary policy to stabilize the currency exchange rate, or by offering a tax incentive or subsidy to support specific industries.',
+    },
+  ],
+
+  'law-crime-ielts': [
+    {
+      q: 'Thám tử làm những gì trong quá trình điều tra?',
+      options: [
+        'Tìm manh mối, thẩm vấn nghi phạm, và cố tìm đồng phạm hoặc xác lập động cơ',
+        'Khám nghiệm hiện trường và thu mẫu pháp y',
+        'Lấy lời khai nhân chứng và dựng lại hiện trường',
+        'Theo dõi nghi phạm và thu thập chứng cứ điện tử',
+      ],
+      answer: 0,
+      dan: 'A detective will search for clues, interrogate any suspect, and try to find an accomplice or establish a motive.',
+    },
+    {
+      q: 'Tại phiên xử, công tố viên và luật sư bào chữa làm gì?',
+      options: [
+        'Công tố viên chứng minh bị cáo có tội, luật sư bào chữa đưa bằng chứng ngoại phạm để lập luận thân chủ vô tội',
+        'Công tố viên đề xuất mức án, luật sư xin giảm nhẹ',
+        'Công tố viên trình chứng cứ, luật sư phản bác nhân chứng',
+        'Cả hai cùng thẩm vấn nghi phạm trước bồi thẩm đoàn',
+      ],
+      answer: 0,
+      dan: 'During the litigation, the prosecutor tries to prove the defendant is guilty, while the defense attorney presents an alibi to argue for their innocence.',
+    },
+    {
+      q: 'Mức án mà thẩm phán tuyên có thể trải từ đâu tới đâu?',
+      options: [
+        'Từ khoản phạt nặng hoặc án treo, tới nhiều năm tù',
+        'Từ lao động công ích tới án chung thân',
+        'Từ cảnh cáo tới tước quyền công dân',
+        'Từ bồi thường dân sự tới truy tố hình sự',
+      ],
+      answer: 0,
+      dan: 'If the defendant is convicted, the judge hands down a sentence, which could range from a hefty fine or probation to years in prison.',
+    },
+    {
+      q: 'Nhiều chuyên gia lập luận hệ thống tư pháp nên đầu tư vào gì?',
+      options: [
+        'Các chương trình cải tạo người phạm tội, giúp họ tái hoà nhập và ngăn tội phạm vị thành niên thành cả đời phạm pháp',
+        'Công nghệ giám sát để phát hiện tội phạm sớm',
+        'Tăng mức án để răn đe hiệu quả hơn',
+        'Đào tạo lực lượng điều tra chuyên nghiệp hơn',
+      ],
+      answer: 0,
+      dan: 'However, many experts argue that instead of purely focusing on harsh punishment as a deterrent, the justice system should also invest in programs to rehabilitate offenders, helping them reintegrate into society and preventing juvenile delinquency from turning into a lifetime of crime.',
+    },
+  ],
+
+  'history-culture-ielts': [
+    {
+      q: 'Nhà khảo cổ có thể dành cả thập kỷ để làm gì?',
+      options: [
+        'Khai quật một khu định cư tiền sử hoặc tìm ra hiện vật cổ, mong lần được nguồn gốc một nền văn minh đã mất',
+        'Phục dựng lại một công trình cổ đại',
+        'Giải mã các văn bản viết bằng ngôn ngữ đã chết',
+        'Lập bản đồ các di chỉ chưa được khám phá',
+      ],
+      answer: 0,
+      dan: 'An archaeologist might spend a decade trying to excavate a prehistoric settlement or uncover an ancient artifact, hoping to trace the origin of a lost civilization.',
+    },
+    {
+      q: 'Toàn cầu hoá vừa có mặt tốt vừa đe doạ điều gì?',
+      options: [
+        'Thúc đẩy hoà nhập và phá bỏ khuôn mẫu, nhưng đe doạ việc gìn giữ phong tục truyền thống và ngôn ngữ bản địa',
+        'Mở rộng thương mại, nhưng làm tăng bất bình đẳng',
+        'Kết nối con người, nhưng làm mờ ranh giới quốc gia',
+        'Lan toả tri thức, nhưng làm mai một giáo dục truyền thống',
+      ],
+      answer: 0,
+      dan: 'While it promotes integration and breaks down old stereotypes, prejudice, and segregation, it also threatens the preservation of traditional customs and indigenous languages.',
+    },
+    {
+      q: 'Nỗi lo gì xuất hiện khi người nhập cư hoà nhập vào xã hội mới?',
+      options: [
+        'Rằng các chuẩn mực văn hoá sẽ bị đồng hoá, mất đi bản sắc và tính nguyên bản',
+        'Rằng họ sẽ không được cộng đồng chấp nhận',
+        'Rằng thế hệ sau sẽ quên tiếng mẹ đẻ',
+        'Rằng xung đột văn hoá sẽ gia tăng',
+      ],
+      answer: 0,
+      dan: 'As immigrants assimilate into new societies, there is a fear that cultural norms will homogenize, losing their unique identity and authenticity.',
+    },
+    {
+      q: 'Vì thế điều gì trở nên thiết yếu?',
+      options: [
+        'Nuôi dưỡng sự khoan dung và tôn trọng các nghi lễ tôn giáo và phép tắc xã hội khác nhau',
+        'Ghi chép lại toàn bộ phong tục của các dân tộc',
+        'Hạn chế tốc độ của quá trình toàn cầu hoá',
+        'Đưa giáo dục đa văn hoá vào nhà trường',
+      ],
+      answer: 0,
+      dan: 'Therefore, it is crucial to cultivate tolerance and respect for different religious rituals and social etiquette.',
+    },
+  ],
+
+  'transportation-traffic-ielts': [
+    {
+      q: 'Một vụ va chạm nhỏ ở nút giao đông đúc gây ra điều gì?',
+      options: [
+        'Ùn tắc lớn, xe kẹt hàng giờ trong khi xe cứu thương lao tới cứu người bị nạn',
+        'Việc phải đóng tạm thời tuyến đường',
+        'Thiệt hại lớn cho các phương tiện liên quan',
+        'Việc cảnh sát phải điều tiết giao thông thủ công',
+      ],
+      answer: 0,
+      dan: 'A minor collision or an accident at a busy intersection can cause massive delays, leaving vehicles stuck for hours while an ambulance rushes to treat any casualty.',
+    },
+    {
+      q: 'Chính phủ đầu tư vào những gì để cải thiện hạ tầng?',
+      options: [
+        'Hệ thống giao thông công cộng như tàu điện ngầm, mạng xe điện và cầu vượt mới để tránh khu vực ùn tắc',
+        'Mở rộng lòng đường và xây thêm bãi đỗ xe',
+        'Hệ thống đèn tín hiệu điều khiển thông minh',
+        'Các tuyến đường vành đai quanh thành phố',
+      ],
+      answer: 0,
+      dan: 'To improve the infrastructure, governments are investing in public transit systems like the subway, tram networks, and new flyovers to bypass congested areas.',
+    },
+    {
+      q: 'Những chiến lược nào được coi là hiệu quả để giảm ô nhiễm không khí?',
+      options: [
+        'Khuyến khích xe lai và xe điện, đi chung xe, hoặc đơn giản là đạp xe trên làn dành riêng',
+        'Hạn chế xe cá nhân vào khu trung tâm',
+        'Chuyển đổi toàn bộ xe buýt sang chạy điện',
+        'Trồng cây xanh dọc các tuyến đường lớn',
+      ],
+      answer: 0,
+      dan: 'Therefore, promoting the use of hybrid and electric vehicles (EVs), encouraging people to carpool, or simply pedaling a bicycle on designated lanes are effective strategies.',
+    },
+    {
+      q: 'Người lái xe phải tuân thủ những gì để bảo đảm an toàn?',
+      options: [
+        'Tuân thủ tốc độ, không vượt ẩu, và bảo dưỡng xe định kỳ bởi thợ có tay nghề',
+        'Thắt dây an toàn và không dùng điện thoại',
+        'Giữ khoảng cách an toàn và bật đèn tín hiệu',
+        'Kiểm tra phanh và lốp trước mỗi chuyến đi',
+      ],
+      answer: 0,
+      dan: 'Drivers must obey the speed limit, not overtake dangerously, and ensure their vehicle undergoes regular maintenance by a qualified mechanic.',
+    },
+  ],
+
+  'family-society-ielts': [
+    {
+      q: 'Thay đổi nhân khẩu học dẫn tới sự gia tăng của loại hình gia đình nào?',
+      options: [
+        'Gia đình hạt nhân và gia đình đơn thân',
+        'Gia đình nhiều thế hệ sống chung',
+        'Gia đình không có con cái',
+        'Gia đình có người giúp việc thường trú',
+      ],
+      answer: 0,
+      dan: 'Today, however, demographic changes have led to an increase in the nuclear family and the single-parent family.',
+    },
+    {
+      q: 'Khoảng cách thế hệ đôi khi gây ra điều gì?',
+      options: [
+        'Xung đột giữa cha mẹ và con cái, đe doạ sự hoà thuận trong gia đình',
+        'Việc con cái rời nhà sớm hơn',
+        'Sự khác biệt trong cách nuôi dạy trẻ',
+        'Việc người già bị bỏ lại một mình',
+      ],
+      answer: 0,
+      dan: 'Unfortunately, a generation gap can sometimes lead to conflict between parents and children, threatening family harmony.',
+    },
+    {
+      q: 'Dân số già gây sức ép lên điều gì?',
+      options: [
+        'Hệ thống phúc lợi, vì nhà nước phải lo lương hưu và chăm sóc người cao tuổi',
+        'Hệ thống y tế và bệnh viện công',
+        'Nguồn lao động của nền kinh tế',
+        'Ngân sách dành cho giáo dục',
+      ],
+      answer: 0,
+      dan: 'Furthermore, the aging population puts pressure on the welfare system, as the state must provide a pension and care for the elderly.',
+    },
+    {
+      q: 'Để đạt được sự gắn kết xã hội thực sự, bài nêu cần làm gì?',
+      options: [
+        'Phá bỏ khuôn mẫu và định kiến, chống nghèo đói và bất bình đẳng, hoà nhập các nhóm bị gạt ra lề',
+        'Tăng chi cho an sinh xã hội và trợ cấp',
+        'Khuyến khích các hoạt động thiện nguyện cộng đồng',
+        'Cải thiện điều kiện sống ở các khu đô thị nghèo',
+      ],
+      answer: 0,
+      dan: 'To achieve true social cohesion, we must break down stereotypes and prejudice, combat poverty and inequality, and integrate marginalized groups, ensuring that every individual, regardless of their social class or status, has the opportunity for social mobility and a better life.',
+    },
+  ],
+
+  'languages-communication-ielts': [
+    {
+      q: 'Nhà ngôn ngữ học nghiên cứu những gì?',
+      options: [
+        'Cách một ngôn ngữ tiến hoá, phân tích ngữ pháp, cú pháp và ngữ nghĩa để hiểu các sắc thái tinh tế của nghĩa',
+        'Cách trẻ em tiếp thu tiếng mẹ đẻ',
+        'Cách các ngôn ngữ vay mượn lẫn nhau',
+        'Cách phương ngữ hình thành ở từng vùng',
+      ],
+      answer: 0,
+      dan: 'A linguist studies how a language evolves, analyzing its grammar, syntax, and semantics to understand the subtle nuances of meaning.',
+    },
+    {
+      q: 'Ngoài lời nói, những tín hiệu nào cũng quan trọng không kém?',
+      options: [
+        'Giao tiếp bằng mắt, cử chỉ tay và nét mặt',
+        'Ngữ điệu và tốc độ nói',
+        'Khoảng cách đứng và tư thế cơ thể',
+        'Cách chọn từ và mức độ trang trọng',
+      ],
+      answer: 0,
+      dan: 'Non-verbal signals, such as eye contact, a hand gesture, or a facial expression, are just as important to convey the right message.',
+    },
+    {
+      q: 'Người nói thuyết phục và người nói mơ hồ khác nhau ở kết quả nào?',
+      options: [
+        'Người thuyết phục và hùng biện có thể thuyết phục khán giả, còn phát biểu mơ hồ hay nước đôi có thể dẫn tới hiểu lầm',
+        'Người thuyết phục được lắng nghe lâu hơn',
+        'Người thuyết phục truyền được cảm xúc, người mơ hồ chỉ truyền thông tin',
+        'Người thuyết phục dùng ít từ hơn để nói cùng một ý',
+      ],
+      answer: 0,
+      dan: 'A persuasive and eloquent speaker can convince an audience, while a vague or ambiguous statement might lead to a misunderstanding.',
+    },
+    {
+      q: 'Khi xảy ra mâu thuẫn, bài khuyên làm gì?',
+      options: [
+        'Đừng để nó thành cuộc cãi vã giận dữ, mà hãy bàn bạc bình tĩnh',
+        'Tạm dừng cuộc trao đổi để cả hai nguôi giận',
+        'Nhờ một bên thứ ba đứng ra hoà giải',
+        'Ghi lại các điểm bất đồng để bàn sau',
+      ],
+      answer: 0,
+      dan: 'If a conflict arises, do not let it turn into an angry argument; instead, discuss the issue calmly.',
+    },
+  ],
+
+  'philosophy-ethics-ielts': [
+    {
+      q: 'Nhà triết học xem xét những câu hỏi nền tảng nào?',
+      options: [
+        'Về sự tồn tại, thực tại và bản chất của tri thức qua nhận thức luận',
+        'Về đạo đức, công lý và trách nhiệm cá nhân',
+        'Về ý nghĩa cuộc đời và cái chết',
+        'Về mối quan hệ giữa cá nhân và xã hội',
+      ],
+      answer: 0,
+      dan: 'A philosopher examines fundamental questions about existence, reality, and the nature of knowledge through epistemology.',
+    },
+    {
+      q: 'Câu hỏi trung tâm khi phán xét một hành động là gì?',
+      options: [
+        'Nên xét theo hệ quả như thuyết vị lợi gợi ý, hay theo nguyên tắc và đức hạnh nền tảng của nó',
+        'Nên xét theo động cơ hay theo kết quả thực tế',
+        'Nên xét theo chuẩn mực xã hội hay theo lương tâm',
+        'Nên xét theo luật pháp hay theo đạo đức',
+      ],
+      answer: 0,
+      dan: 'Should an action be judged by its consequence, as suggested by utilitarianism, or by its underlying principle and virtue?',
+    },
+    {
+      q: 'Thuyết tất định và ý chí tự do khác nhau thế nào?',
+      options: [
+        'Thuyết tất định cho rằng số phận đã an bài, còn ý chí tự do khẳng định mỗi người chịu trách nhiệm về lựa chọn của mình',
+        'Thuyết tất định dựa vào khoa học, ý chí tự do dựa vào tôn giáo',
+        'Thuyết tất định phủ nhận đạo đức, ý chí tự do đề cao đạo đức',
+        'Thuyết tất định nói về quá khứ, ý chí tự do nói về tương lai',
+      ],
+      answer: 0,
+      dan: 'While some thinkers embrace determinism, believing our fates are sealed, many defend the concept of free will, asserting that individuals are responsible for their own choices.',
+    },
+    {
+      q: 'Suy tư triết học và đạo đức có vai trò gì?',
+      options: [
+        'Thách thức những giáo điều và niềm tin phi lý có thể dẫn tới một xã hội vô đạo đức',
+        'Giúp con người tìm được hạnh phúc cá nhân',
+        'Đặt nền cho hệ thống pháp luật của xã hội',
+        'Hoà giải mâu thuẫn giữa các hệ giá trị khác nhau',
+      ],
+      answer: 0,
+      dan: 'It challenges the dogma and irrational beliefs that can lead to an immoral society, encouraging us to justify our actions and continually search for deeper meaning.',
+    },
+  ],
+
+  'psychology-mind-ielts-p2': [
+    {
+      q: 'Nhà tâm lý học chuyên nghiệp phân tích những gì?',
+      options: [
+        'Không chỉ suy nghĩ có ý thức và năng lực nhận thức, mà cả những ham muốn trong tiềm thức',
+        'Chủ yếu là các rối loạn tâm thần và cách điều trị',
+        'Hành vi con người trong các tình huống xã hội',
+        'Ảnh hưởng của di truyền lên tính cách',
+      ],
+      answer: 0,
+      dan: 'A professional psychologist analyzes not only our conscious thoughts and cognitive abilities but also our subconscious desires.',
+    },
+    {
+      q: 'Con người phản ứng khác nhau thế nào trước sang chấn nặng?',
+      options: [
+        'Một số có sức bền để hồi phục, số khác vẫn dễ tổn thương trước căng thẳng, lo âu hoặc trầm cảm sâu',
+        'Một số quên đi nhanh chóng, số khác nhớ mãi',
+        'Một số tìm tới trị liệu, số khác tự chịu đựng',
+        'Một số trở nên mạnh mẽ hơn, số khác thu mình lại',
+      ],
+      answer: 0,
+      dan: 'While some individuals possess the resilience to recover from severe trauma, others remain vulnerable to stress, anxiety, or deep depression.',
+    },
+    {
+      q: 'Trong tham vấn hoặc trị liệu, nhà trị liệu giúp bệnh nhân hiểu điều gì?',
+      options: [
+        'Nhân cách và khí chất riêng của họ — hướng ngoại cởi mở hay hướng nội trầm lặng',
+        'Nguồn gốc của những sang chấn trong quá khứ',
+        'Cách kiểm soát cảm xúc trong tình huống căng thẳng',
+        'Mối liên hệ giữa suy nghĩ và hành vi',
+      ],
+      answer: 0,
+      dan: 'In counseling or therapy, a therapist helps patients understand their unique personality and temperament—whether they are an outgoing extrovert or a quiet introvert.',
+    },
+    {
+      q: 'Bài kết lại rằng những bước thiết yếu để giữ sức khoẻ tinh thần là gì?',
+      options: [
+        'Nuôi dưỡng sự đồng cảm, giữ thái độ tích cực và tìm được động lực bên trong',
+        'Trị liệu đều đặn và dùng thuốc theo chỉ định',
+        'Duy trì các mối quan hệ xã hội lành mạnh',
+        'Tập thể dục và ngủ đủ giấc mỗi ngày',
+      ],
+      answer: 0,
+      dan: 'Ultimately, fostering empathy, maintaining a positive attitude, and finding inner motivation are essential steps in protecting our mental well-being and achieving emotional balance.',
+    },
+  ],
+
+  'literature-writing-ielts': [
+    {
+      q: 'Vẻ đẹp của một kiệt tác văn chương nằm ở đâu?',
+      options: [
+        'Ở khả năng kết nối với người đọc',
+        'Ở sự tinh tế của ngôn từ và hình ảnh',
+        'Ở chiều sâu của các chủ đề được khai thác',
+        'Ở tính độc đáo của cốt truyện',
+      ],
+      answer: 0,
+      dan: 'Whether it is poetry full of deep metaphor and simile, or elegant prose, the beauty of a literary masterpiece lies in its ability to connect with readers.',
+    },
+    {
+      q: 'Trong thể loại phi hư cấu, tiểu sử hoặc hồi ký mang lại điều gì?',
+      options: [
+        'Một tường thuật có thật về lịch sử',
+        'Góc nhìn chủ quan của người trong cuộc',
+        'Tư liệu cho các nhà nghiên cứu',
+        'Nguồn cảm hứng cho người đọc trẻ',
+      ],
+      answer: 0,
+      dan: 'In the realm of non-fiction, a biography or a personal memoir provides a factual account of history.',
+    },
+    {
+      q: 'Biên tập viên làm gì với bản thảo?',
+      options: [
+        'Biên tập và soát lỗi để văn bản mạch lạc, rõ ràng, súc tích, loại bỏ mọi chỗ dài dòng',
+        'Đề xuất thay đổi cốt truyện cho hấp dẫn hơn',
+        'Kiểm tra tính chính xác của các dữ kiện',
+        'Quyết định tác phẩm có được xuất bản hay không',
+      ],
+      answer: 0,
+      dan: 'This manuscript is then sent to an editor who will edit and proofread the text to ensure it is coherent, articulate, and concise, removing any verbose language.',
+    },
+    {
+      q: 'Người viết học thuật phải cẩn thận điều gì?',
+      options: [
+        'Tránh đạo văn bằng cách trích dẫn đúng và có thư mục tham khảo chi tiết',
+        'Trình bày lập luận theo bố cục chuẩn',
+        'Dùng ngôn ngữ khách quan, tránh cảm tính',
+        'Kiểm chứng mọi số liệu trước khi công bố',
+      ],
+      answer: 0,
+      dan: 'Academic writers must also be careful to avoid plagiarism by providing a proper citation and a detailed bibliography.',
+    },
+  ],
+
+  'art-design-ielts-p2': [
+    {
+      q: 'Người sáng tác đương đại thường thích phong cách nào, và dùng gì?',
+      options: [
+        'Phong cách trừu tượng hoặc tiên phong, dùng sự bất đối xứng và hoạ tiết độc đáo để thách thức thẩm mỹ truyền thống',
+        'Phong cách tối giản, dùng đường nét và mảng màu lớn',
+        'Phong cách hiện thực, dùng chi tiết tỉ mỉ',
+        'Phong cách kỹ thuật số, dùng phần mềm và công nghệ mới',
+      ],
+      answer: 0,
+      dan: 'On the other hand, contemporary creators often prefer an abstract or avant-garde style, using asymmetry and unique patterns to challenge traditional aesthetics.',
+    },
+    {
+      q: 'Ai là người tổ chức triển lãm cho công chúng thưởng lãm?',
+      options: [
+        'Người phụ trách triển lãm',
+        'Giám đốc bảo tàng',
+        'Chính các nghệ sĩ tham gia',
+        'Nhà phê bình nghệ thuật',
+      ],
+      answer: 0,
+      dan: 'In a museum or gallery, an exhibition carefully organized by a curator allows the public to admire these works.',
+    },
+    {
+      q: 'Một thiết kế hiện đại có thể chơi với những yếu tố nào để đạt sự hài hoà trong bố cục?',
+      options: [
+        'Sự tương phản và tính đối xứng',
+        'Màu sắc và ánh sáng',
+        'Chất liệu và kết cấu bề mặt',
+        'Tỉ lệ và khoảng trống',
+      ],
+      answer: 0,
+      dan: 'A beautiful sculpture made of marble shows incredible craftsmanship, while a modern design might play with contrast and symmetry to achieve perfect harmony in its composition.',
+    },
+    {
+      q: 'Bài kết lại rằng điều gì không thể bị phủ nhận, kể cả khi bị phê bình gay gắt?',
+      options: [
+        'Tính nguyên bản của một kiệt tác đích thực',
+        'Giá trị vật chất của tác phẩm nghệ thuật',
+        'Sức ảnh hưởng của một trào lưu nghệ thuật',
+        'Kỹ thuật điêu luyện của người nghệ sĩ',
+      ],
+      answer: 0,
+      dan: 'Even when an art critic offers a harsh critique, the originality of an authentic masterpiece can never be denied.',
+    },
+  ],
+
+  'society-demographics-ielts': [
+    {
+      q: 'Tỉ suất sinh giảm cộng với tuổi thọ tăng dẫn tới điều gì?',
+      options: [
+        'Dân số già, gây sức ép lên hệ thống lương hưu và phúc lợi công',
+        'Thiếu hụt lao động trong các ngành sản xuất',
+        'Quy mô gia đình ngày càng nhỏ lại',
+        'Chi phí y tế tăng nhanh hơn thu nhập',
+      ],
+      answer: 0,
+      dan: 'In many nations, a declining fertility rate combined with rising life expectancy has led to an aging population, putting pressure on pension systems and public welfare.',
+    },
+    {
+      q: 'Đô thị hoá nhanh và di cư từ nông thôn ra thành phố thường dẫn tới gì?',
+      options: [
+        'Quá tải và sự mọc lên của các khu ổ chuột nghèo ở vùng ven',
+        'Sự thiếu hụt lao động ở nông thôn',
+        'Giá bất động sản đô thị tăng vọt',
+        'Áp lực lên hệ thống giao thông công cộng',
+      ],
+      answer: 0,
+      dan: 'Furthermore, rapid urbanization and migration from rural areas to the city often result in overcrowding and the growth of a poor slum in the suburb.',
+    },
+    {
+      q: 'Xã hội đa văn hoá phải đối phó với thách thức nào?',
+      options: [
+        'Thách thức hoà nhập, phải xoá bỏ định kiến, phân biệt đối xử và sự kỳ thị đẩy nhóm thiểu số ra lề',
+        'Thách thức giữ gìn bản sắc của từng nhóm dân cư',
+        'Thách thức về rào cản ngôn ngữ trong giao tiếp',
+        'Thách thức phân bổ nguồn lực công bằng',
+      ],
+      answer: 0,
+      dan: 'A multicultural society must also deal with the challenges of integration, striving to eliminate prejudice, discrimination, and the stigma that marginalize a minority.',
+    },
+    {
+      q: 'Bài kết lại rằng chỉ bằng cách nào một quốc gia mới tạo được sự dịch chuyển cho mọi người?',
+      options: [
+        'Phá bỏ các khuôn mẫu tiêu cực và khuyến khích bình đẳng thực chất',
+        'Đầu tư mạnh vào giáo dục và đào tạo nghề',
+        'Xây dựng hệ thống an sinh xã hội toàn diện',
+        'Thu hẹp khoảng cách giàu nghèo bằng chính sách thuế',
+      ],
+      answer: 0,
+      dan: 'Only by breaking negative stereotypes and encouraging true equality can a nation provide the mobility needed for everyone to improve their status.',
+    },
+  ],
+
+  'law-crime-ielts-p3': [
+    {
+      q: 'Cảnh sát phải làm những gì khi có vụ việc xảy ra?',
+      options: [
+        'Điều tra vụ việc, thu thập chứng cứ và cuối cùng bắt giữ nghi phạm',
+        'Phong toả hiện trường và lấy lời khai nhân chứng',
+        'Chuyển hồ sơ cho viện kiểm sát xem xét',
+        'Xác định động cơ và truy tìm đồng phạm',
+      ],
+      answer: 0,
+      dan: 'The police must investigate the incident, gather proof, and eventually arrest the suspect.',
+    },
+    {
+      q: 'Ai là người quyết định bị cáo có tội hay vô tội?',
+      options: [
+        'Thẩm phán và bồi thẩm đoàn',
+        'Công tố viên sau khi trình chứng cứ',
+        'Bồi thẩm đoàn, dựa trên lời khai nhân chứng',
+        'Thẩm phán, dựa trên đề nghị của luật sư',
+      ],
+      answer: 0,
+      dan: 'Ultimately, the judge and jury determine if the person is guilty or innocent.',
+    },
+    {
+      q: 'Hình phạt có thể trải từ đâu tới đâu?',
+      options: [
+        'Từ khoản phạt nặng tới án tù dài hạn',
+        'Từ cảnh cáo tới án chung thân',
+        'Từ lao động công ích tới tử hình',
+        'Từ bồi thường tới quản chế tại nhà',
+      ],
+      answer: 0,
+      dan: 'If convicted, the offender faces a penalty, which could range from a heavy fine to long-term imprisonment.',
+    },
+    {
+      q: 'Bằng cách cân bằng thực thi pháp luật nghiêm với mong muốn giúp người phạm tội, chúng ta hướng tới điều gì?',
+      options: [
+        'Giữ trật tự, chống tham nhũng và đạt được công lý thật sự',
+        'Giảm số vụ phạm tội trong xã hội',
+        'Tiết kiệm chi phí vận hành hệ thống nhà tù',
+        'Tăng niềm tin của người dân vào toà án',
+      ],
+      answer: 0,
+      dan: 'By balancing strict law enforcement with a desire to help offenders rejoin society, we strive to maintain order, fight corruption, and achieve true justice.',
+    },
+  ],
+
+  'business-economy-ielts-p2': [
+    {
+      q: 'Nhà đầu tư mua cổ phần trên thị trường chứng khoán với hy vọng gì?',
+      options: [
+        'Nhận được cổ tức',
+        'Bán lại với giá cao hơn',
+        'Có quyền biểu quyết trong công ty',
+        'Tham gia vào ban quản trị',
+      ],
+      answer: 0,
+      dan: 'A successful entrepreneur uses their capital to start a business, while an investor buys a share in the stock market, hoping to receive a dividend.',
+    },
+    {
+      q: 'Khi chi tiêu vượt doanh thu, công ty có thể rơi vào tình cảnh nào?',
+      options: [
+        'Thua lỗ hoặc thậm chí phá sản, chìm trong nợ và chật vật trả khoản vay ngân hàng',
+        'Phải bán bớt tài sản để duy trì hoạt động',
+        'Buộc phải sáp nhập với đối thủ',
+        'Mất niềm tin của các cổ đông',
+      ],
+      answer: 0,
+      dan: 'When expenditure exceeds revenue, a company may suffer a financial loss or even face bankruptcy, leaving it buried in debt and struggling to pay a bank loan.',
+    },
+    {
+      q: 'Chiến lược sống sót trước cạnh tranh khốc liệt có thể gồm những gì?',
+      options: [
+        'Sáp nhập để gộp tài sản, hoặc thâu tóm để loại bỏ đối thủ và lập thế độc quyền',
+        'Cắt giảm chi phí và tinh gọn bộ máy',
+        'Đa dạng hoá sản phẩm và mở rộng thị trường',
+        'Tăng đầu tư vào nghiên cứu và phát triển',
+      ],
+      answer: 0,
+      dan: 'This might involve a merger to combine assets, or an acquisition to eliminate a rival and establish a monopoly.',
+    },
+    {
+      q: 'Trợ cấp của chính phủ có thể mang lại tác dụng gì?',
+      options: [
+        'Ngăn suy thoái kinh tế và kích thích một đợt bùng nổ',
+        'Giữ ổn định giá cả hàng hoá thiết yếu',
+        'Hỗ trợ doanh nghiệp nhỏ vượt qua khó khăn',
+        'Giảm tỉ lệ thất nghiệp trong ngắn hạn',
+      ],
+      answer: 0,
+      dan: 'For instance, offering a subsidy can prevent an economic recession and stimulate a sudden boom.',
+    },
+  ],
+
+  'globalization-trade-ielts': [
+    {
+      q: 'Tập đoàn đa quốc gia xây dựng chuỗi cung ứng toàn cầu dựa vào điều gì?',
+      options: [
+        'Thuê ngoài nhân công tại các nhà máy ở nước ngoài',
+        'Đầu tư trực tiếp vào thị trường mới nổi',
+        'Mua lại các nhà sản xuất địa phương',
+        'Ký hợp đồng dài hạn với nhà cung cấp',
+      ],
+      answer: 0,
+      dan: 'A multinational corporation can establish a massive global supply chain, relying on the outsourcing of labor to an offshore factory.',
+    },
+    {
+      q: 'Người ủng hộ tự do thương mại lập luận thế nào?',
+      options: [
+        'Rằng nó gỡ bỏ mọi rào cản hay thuế quan, mang lại của cải, thịnh vượng và dòng ngoại tệ đổ vào',
+        'Rằng nó tạo việc làm cho các nước đang phát triển',
+        'Rằng nó hạ giá hàng hoá cho người tiêu dùng',
+        'Rằng nó thúc đẩy chuyển giao công nghệ',
+      ],
+      answer: 0,
+      dan: 'Proponents argue that free trade removes any barrier or tariff, bringing wealth, prosperity, and an influx of foreign currency.',
+    },
+    {
+      q: 'Phía phản đối cảnh báo về những nguy cơ nào?',
+      options: [
+        'Bóc lột công nhân trong các xưởng gia công, và nguy cơ đế quốc văn hoá xoá đi các truyền thống bản địa',
+        'Sự lệ thuộc kinh tế vào các cường quốc',
+        'Việc mất chủ quyền trong hoạch định chính sách',
+        'Ô nhiễm môi trường do vận tải toàn cầu',
+      ],
+      answer: 0,
+      dan: 'On the other hand, critics warn of the exploitation of workers in a sweatshop and the danger of cultural imperialism, where a homogeneous global culture replaces diverse local traditions.',
+    },
+    {
+      q: 'Khi ngành sản xuất trong nước bị cạnh tranh, chính phủ có thể làm gì?',
+      options: [
+        'Áp hạn ngạch nghiêm ngặt, trợ giá cho nông dân trong nước, hoặc ra lệnh cấm vận hay trừng phạt nước đối thủ',
+        'Đàm phán lại các hiệp định thương mại đã ký',
+        'Hỗ trợ doanh nghiệp nâng cao năng lực cạnh tranh',
+        'Kêu gọi người dân ưu tiên dùng hàng nội địa',
+      ],
+      answer: 0,
+      dan: 'They may impose a strict quota, offer a subsidy to local farmers, or even issue an embargo or a sanction against a rival nation.',
+    },
+  ],
+
+  'history-heritage-ielts': [
+    {
+      q: 'Trong khảo cổ học, chuyên gia khai quật phế tích để tìm gì?',
+      options: [
+        'Một hiện vật cổ hoặc một thánh tích',
+        'Dấu vết của các nền văn minh đã mất',
+        'Bằng chứng về đời sống thường ngày thời cổ',
+        'Niên đại chính xác của công trình',
+      ],
+      answer: 0,
+      dan: 'In the field of archaeology, experts excavate a ruin to find an ancient artifact or a holy relic.',
+    },
+    {
+      q: 'Bảo tàng sắp xếp bộ sưu tập cổ vật theo cách nào?',
+      options: [
+        'Theo trình tự thời gian, giúp ta hiểu một thời đại cách đây hàng thế kỷ hoặc cả thiên niên kỷ',
+        'Theo từng nền văn minh riêng biệt',
+        'Theo chất liệu và kỹ thuật chế tác',
+        'Theo mức độ quý hiếm của hiện vật',
+      ],
+      answer: 0,
+      dan: 'A museum often hosts an exhibition to display a collection of antiquities, arranged in chronological order, allowing us to understand an epoch from centuries or even a millennium ago.',
+    },
+    {
+      q: 'Qua việc phục dựng cẩn thận, chúng ta làm được gì?',
+      options: [
+        'Tưởng niệm cuộc đấu tranh của cộng đồng bản địa và giữ cho truyền khẩu hay thần thoại không mất đi',
+        'Khôi phục nguyên trạng các công trình cổ',
+        'Thu hút du khách tới các di tích lịch sử',
+        'Xác định lại niên đại của các di sản',
+      ],
+      answer: 0,
+      dan: 'Through careful restoration, we can commemorate the struggles of an indigenous population and ensure that an oral tradition or mythology is not lost.',
+    },
+    {
+      q: 'Bài kết lại rằng việc gìn giữ dấu tích lịch sử mang lại điều gì?',
+      options: [
+        'Kết nối chúng ta sâu sắc với quá khứ',
+        'Giữ cho bản sắc dân tộc không bị mai một',
+        'Cung cấp tư liệu cho các nhà nghiên cứu',
+        'Tạo nguồn cảm hứng cho nghệ thuật đương đại',
+      ],
+      answer: 0,
+      dan: 'Whether preserving a document in an archive or saving a castle from decay, safeguarding historical remnants connects us deeply to the past.',
+    },
+  ],
+
+  'architecture-urban-ielts-p2': [
+    {
+      q: 'Khi vẽ bản thiết kế, kiến trúc sư phải cân nhắc những gì?',
+      options: [
+        'Kích thước, bố cục nội thất và lựa chọn vật liệu xây dựng',
+        'Chi phí xây dựng và thời gian thi công',
+        'Quy định về phân vùng và chiều cao tối đa',
+        'Tác động của công trình tới cảnh quan xung quanh',
+      ],
+      answer: 0,
+      dan: 'When an architect draws a blueprint for a new structure, they must consider the dimensions, the layout of the interior, and the choice of building material.',
+    },
+    {
+      q: 'Một toà nhà chọc trời bằng kính cần gì để dựng lên được?',
+      options: [
+        'Móng bê tông vững chắc và khung thép khoẻ',
+        'Hệ thống chống động đất và thoát hiểm',
+        'Vật liệu cách nhiệt và kính chịu lực',
+        'Giấy phép xây dựng và thẩm định an toàn',
+      ],
+      answer: 0,
+      dan: 'While a modern high-rise or a glass skyscraper adds to a city’s iconic skyline, it requires a solid concrete foundation and a strong steel frame to construct.',
+    },
+    {
+      q: 'Ngược với việc phá dỡ, nhà quy hoạch có thể chọn cách nào?',
+      options: [
+        'Cải tạo một công trình lịch sử để giữ lại mặt tiền cổ điển của nó',
+        'Giữ nguyên hiện trạng và cấm xây mới quanh đó',
+        'Di dời công trình sang một khu bảo tồn',
+        'Chuyển đổi công năng thành không gian công cộng',
+      ],
+      answer: 0,
+      dan: 'Conversely, they may choose to renovate a historic building to preserve its classic facade.',
+    },
+    {
+      q: 'Mục tiêu của kiến trúc bền vững là gì?',
+      options: [
+        'Không chỉ dựng nên kiệt tác mà còn hoà cảnh quan bên ngoài với môi trường, để hạ tầng phục vụ cả khu thương mại sầm uất lẫn khu dân cư yên tĩnh',
+        'Giảm tối đa mức tiêu thụ năng lượng của công trình',
+        'Dùng vật liệu tái chế và thân thiện môi trường',
+        'Tăng mật độ không gian xanh trong đô thị',
+      ],
+      answer: 0,
+      dan: 'The goal of sustainable architecture is not only to build a masterpiece but also to integrate the exterior landscape with the environment, ensuring the infrastructure supports both a busy downtown commercial district and a peaceful industrial or residential area.',
+    },
+  ],
+
+  'science-innovation-ielts': [
+    {
+      q: 'Nhà khoa học hay nhà phát minh xuất sắc làm gì với hệ hình đã được chấp nhận?',
+      options: [
+        'Thách thức nó để kiểm chứng một giả thuyết mới',
+        'Dùng nó làm nền cho nghiên cứu tiếp theo',
+        'Đối chiếu nó với dữ liệu thực nghiệm mới',
+        'Phổ biến nó rộng rãi trong giới chuyên môn',
+      ],
+      answer: 0,
+      dan: 'Throughout history, a brilliant scientist or inventor has challenged the accepted paradigm to test a new hypothesis.',
+    },
+    {
+      q: 'Trí tuệ nhân tạo và học máy đang mang tự động hoá tới đâu?',
+      options: [
+        'Tới mọi ngành, thay hệ thống lỗi thời bằng hạ tầng hiện đại tối tân',
+        'Tới các ngành sản xuất và chế tạo là chính',
+        'Tới các công việc mang tính lặp lại',
+        'Tới lĩnh vực dịch vụ và chăm sóc khách hàng',
+      ],
+      answer: 0,
+      dan: 'The rise of artificial intelligence and machine learning is bringing automation to every industry, replacing an obsolete or outdated system with a cutting-edge, state-of-the-art infrastructure.',
+    },
+    {
+      q: 'Bài nêu ví dụ nào về vấn đề đạo đức gây tranh cãi?',
+      options: [
+        'Khả năng nhân bản hoặc biến đổi gen một sinh vật',
+        'Việc dùng trí tuệ nhân tạo thay thế lao động người',
+        'Việc theo dõi sinh trắc học và giám sát dữ liệu',
+        'Quyền sở hữu bằng sáng chế đối với thuật toán',
+      ],
+      answer: 0,
+      dan: 'For example, the ability to clone or genetically modify an organism raises deep concerns.',
+    },
+    {
+      q: 'Mục tiêu cuối cùng mà bài nêu là gì?',
+      options: [
+        'Khai thác sức mạnh của tiến bộ khoa học và đưa nó vào xã hội sao cho mọi phát minh có lợi cho nhân loại chứ không gây hại',
+        'Đẩy nhanh tốc độ đổi mới trong mọi lĩnh vực',
+        'Bảo vệ quyền sở hữu trí tuệ của nhà phát minh',
+        'Xây dựng khung pháp lý cho công nghệ mới',
+      ],
+      answer: 0,
+      dan: 'Ultimately, our goal is to harness the power of these scientific advances and integrate them into society, ensuring that every new invention benefits humanity rather than causing harm.',
+    },
+  ],
+
+  'space-exploration-ielts-p3': [
+    {
+      q: 'Nhà thiên văn quan sát được những gì qua kính thiên văn ở đài quan sát?',
+      options: [
+        'Một thiên hà xa xôi, một sao chổi rực sáng, hoặc một tiểu hành tinh quay quanh một ngôi sao',
+        'Bề mặt các hành tinh trong hệ Mặt Trời',
+        'Chuyển động của các vệ tinh nhân tạo',
+        'Sự hình thành của các ngôi sao mới',
+      ],
+      answer: 0,
+      dan: 'Through the lens of a powerful telescope at an observatory, an astronomer can observe a distant galaxy, a glowing comet, or an asteroid orbiting a star.',
+    },
+    {
+      q: 'Chúng ta gửi xe tự hành và tàu thăm dò đi làm gì?',
+      options: [
+        'Khảo sát bề mặt các hành tinh, mong tìm ra sự sống ngoài Trái Đất hoặc dấu vết của một thế giới khác',
+        'Thu thập mẫu vật mang về Trái Đất',
+        'Thử nghiệm công nghệ cho các chuyến bay có người lái',
+        'Lập bản đồ chi tiết của hệ Mặt Trời',
+      ],
+      answer: 0,
+      dan: 'We have sent a robotic rover and a space probe to investigate planetary surfaces, hoping to discover extraterrestrial life or evidence of an alien world.',
+    },
+    {
+      q: 'Những thách thức nào đòi hỏi đổi mới công nghệ tối tân?',
+      options: [
+        'Khoảng cách mênh mông tính bằng năm ánh sáng, lực hút dữ dội của hố đen, và hiểm hoạ rác vũ trụ ngày càng lớn',
+        'Chi phí phóng cao và rủi ro kỹ thuật',
+        'Bức xạ vũ trụ và tình trạng không trọng lực',
+        'Thời gian bay dài và nguồn cung dưỡng khí',
+      ],
+      answer: 0,
+      dan: 'The vast distances measured in light years, the intense gravitational pull of a black hole, and the growing hazard of space debris require cutting-edge technological innovation.',
+    },
+    {
+      q: 'Tham vọng của ngành khám phá vũ trụ nay đã lớn tới mức nào?',
+      options: [
+        'Tới mức bàn cả tới việc lập thuộc địa trên sao Hoả trong tương lai',
+        'Tới mức đưa du khách thường lên quỹ đạo',
+        'Tới mức khai thác tài nguyên ngoài Trái Đất',
+        'Tới mức xây trạm nghiên cứu trên Mặt Trăng',
+      ],
+      answer: 0,
+      dan: 'As our knowledge expands, the ambition of space exploration grows, with discussions even turning to the future colonization of Mars.',
+    },
+  ],
+
+  'food-agriculture-ielts-p2': [
+    {
+      q: 'Việc dựa vào phân bón hoá học, thuốc trừ sâu và thuốc diệt cỏ có thể gây ra gì?',
+      options: [
+        'Xói mòn đất và tổn hại hệ sinh thái',
+        'Giảm chất lượng nông sản thu hoạch',
+        'Kháng thuốc ở các loài sâu bệnh',
+        'Ô nhiễm nguồn nước ngầm quanh vùng',
+      ],
+      answer: 0,
+      dan: 'However, modern farming often relies on a chemical fertilizer, pesticide, or herbicide, which can cause soil erosion and damage the ecosystem.',
+    },
+    {
+      q: 'Canh tác hữu cơ hướng tới điều gì?',
+      options: [
+        'Tránh hoá chất và tập trung vào thực hành bền vững để giữ đất màu mỡ thay vì cằn cỗi',
+        'Tăng giá trị nông sản trên thị trường',
+        'Giảm chi phí đầu vào cho người nông dân',
+        'Bảo tồn các giống cây trồng truyền thống',
+      ],
+      answer: 0,
+      dan: 'A growing trend is organic farming, which avoids these chemicals and focuses on sustainable practices to keep the land fertile rather than barren.',
+    },
+    {
+      q: 'Vì sao một số người ủng hộ cây trồng biến đổi gen?',
+      options: [
+        'Để ngăn thiếu lương thực trong hạn hán, hướng tới an ninh lương thực toàn cầu',
+        'Để giảm nhu cầu dùng thuốc trừ sâu',
+        'Để tăng giá trị dinh dưỡng của nông sản',
+        'Để rút ngắn thời gian sinh trưởng của cây',
+      ],
+      answer: 0,
+      dan: 'Some advocate for genetically modified crops to prevent a food shortage during a drought, aiming for global food security.',
+    },
+    {
+      q: 'Ăn thực phẩm chế biến kỹ có phụ gia và chất bảo quản nhân tạo dẫn tới gì?',
+      options: [
+        'Béo phì và suy dinh dưỡng',
+        'Bệnh tim mạch và tiểu đường',
+        'Rối loạn tiêu hoá kéo dài',
+        'Suy giảm hệ miễn dịch',
+      ],
+      answer: 0,
+      dan: 'Eating highly processed food with an artificial additive or preservative can lead to obesity and malnutrition, whereas a nutritious meal full of raw vegetables provides essential nutrients.',
+    },
+  ],
+
+  'energy-resources-ielts': [
+    {
+      q: 'Chúng ta khai thác nhiên liệu hoá thạch từ đâu?',
+      options: [
+        'Từ hầm mỏ sâu hoặc giàn khoan ngoài khơi',
+        'Từ các mỏ lộ thiên và giếng dầu trên đất liền',
+        'Từ các bể trầm tích dưới đáy biển',
+        'Từ các mỏ than và khí đá phiến',
+      ],
+      answer: 0,
+      dan: 'We extract these from a deep mine or an offshore drilling rig.',
+    },
+    {
+      q: 'Mức tiêu thụ cao dẫn tới hai hệ quả nào?',
+      options: [
+        'Trữ lượng tài nguyên hữu hạn cạn nhanh, và khí thải carbon tăng nguy hiểm làm trầm trọng hiệu ứng nhà kính',
+        'Giá năng lượng tăng và nguồn cung bất ổn',
+        'Ô nhiễm không khí và suy giảm sức khoẻ cộng đồng',
+        'Phụ thuộc vào nhập khẩu và rủi ro địa chính trị',
+      ],
+      answer: 0,
+      dan: 'However, this high consumption leads to the rapid depletion of our finite resource reserve and a dangerous increase in carbon emissions, exacerbating the greenhouse effect and growing our carbon footprint.',
+    },
+    {
+      q: 'Nếu không thay đổi, chúng ta sẽ đối mặt với điều gì?',
+      options: [
+        'Khủng hoảng năng lượng nghiêm trọng hoặc mất điện lưới thường xuyên',
+        'Chi phí sinh hoạt tăng vọt trên toàn cầu',
+        'Xung đột giữa các quốc gia vì tài nguyên',
+        'Sự sụp đổ của các ngành công nghiệp nặng',
+      ],
+      answer: 0,
+      dan: 'If we do not change, we will face a severe energy crisis or frequent power grid blackouts.',
+    },
+    {
+      q: 'Chính phủ phải làm gì theo bài?',
+      options: [
+        'Cấp trợ giá cho các sáng kiến xanh và khuyến khích mọi công dân tiết kiệm thay vì làm cạn kiệt tài nguyên',
+        'Đầu tư công vào nghiên cứu năng lượng sạch',
+        'Đánh thuế cao lên các ngành phát thải lớn',
+        'Đặt mục tiêu bắt buộc về tỉ lệ năng lượng tái tạo',
+      ],
+      answer: 0,
+      dan: 'The government must provide a subsidy to subsidize green initiatives and encourage every citizen to conserve rather than deplete our natural wealth.',
+    },
+  ],
+
+  'media-journalism-ielts': [
+    {
+      q: 'Báo chí xuất sắc đòi hỏi nhà báo làm gì?',
+      options: [
+        'Kiểm chứng dữ kiện để giữ uy tín cho tờ báo',
+        'Đưa tin nhanh nhất có thể trước đối thủ',
+        'Phỏng vấn nhiều nguồn khác nhau',
+        'Giữ khoảng cách với các nhân vật quyền lực',
+      ],
+      answer: 0,
+      dan: 'Excellent journalism demands that a journalist or foreign correspondent verify their facts to maintain the credibility of a broadsheet publication.',
+    },
+    {
+      q: 'Báo lá cải làm gì để tăng lượng phát hành, còn paparazzi làm gì?',
+      options: [
+        'Báo lá cải dùng lối giật gân và tít gây sốc; paparazzi liên tục xâm phạm đời tư người nổi tiếng để săn bê bối',
+        'Báo lá cải hạ giá bán; paparazzi bán ảnh cho nhiều toà soạn',
+        'Báo lá cải tăng số trang; paparazzi theo dõi các sự kiện lớn',
+        'Báo lá cải mời người nổi tiếng viết bài; paparazzi phỏng vấn họ',
+      ],
+      answer: 0,
+      dan: 'Even worse, a tabloid might rely on sensationalism and shocking headlines to increase its circulation, while paparazzi relentlessly invade a celebrity’s privacy in search of a scandalous controversy.',
+    },
+    {
+      q: 'Khi chính phủ dùng kiểm duyệt hoặc tuyên truyền, cần tới ai?',
+      options: [
+        'Một người tố giác dũng cảm rò rỉ thông tin mật cho một đài phát đáng tin',
+        'Các tổ chức bảo vệ quyền tự do báo chí',
+        'Toà án độc lập bảo vệ nhà báo',
+        'Sự phản ứng của dư luận quốc tế',
+      ],
+      answer: 0,
+      dan: 'In such cases, it takes a brave whistleblower to leak classified information to a reliable broadcaster.',
+    },
+    {
+      q: 'Vì thế điều gì trở nên thiết yếu?',
+      options: [
+        'Nâng cao năng lực đọc hiểu truyền thông, để công dân đòi được đưa tin khách quan và phân biệt bài viết đáng tin với thao túng giật gân',
+        'Siết chặt quy định pháp luật với các toà soạn',
+        'Xây dựng các cơ quan báo chí độc lập với nhà nước',
+        'Đào tạo lại đội ngũ phóng viên theo chuẩn quốc tế',
+      ],
+      answer: 0,
+      dan: 'Consequently, improving media literacy is essential, ensuring that citizens can demand objective coverage and distinguish between a credible article and mere sensational media manipulation.',
+    },
+  ],
+
+  'sports-competition-ielts': [
+    {
+      q: 'Dưới sự dẫn dắt của huấn luyện viên, vận động viên tập trung rèn gì?',
+      options: [
+        'Sức bền, độ dẻo dai và sự nhanh nhẹn, đồng thời làm chủ chiến thuật khôn ngoan',
+        'Kỹ thuật cơ bản và thể lực nền',
+        'Tâm lý thi đấu và khả năng chịu áp lực',
+        'Chế độ dinh dưỡng và phục hồi sau tập',
+      ],
+      answer: 0,
+      dan: 'Guided by an experienced coach, they focus on building incredible stamina, endurance, and physical agility, while mastering a clever strategy or tactic.',
+    },
+    {
+      q: 'Áp lực thương mại hoá khiến một số vận động viên liều lĩnh làm gì?',
+      options: [
+        'Dùng doping hoặc chất kích thích để giành lợi thế bất chính, đánh đổi bằng nguy cơ bị cấm thi đấu vĩnh viễn',
+        'Chuyển sang thi đấu cho các câu lạc bộ giàu hơn',
+        'Kéo dài sự nghiệp quá giới hạn thể chất',
+        'Nhận các hợp đồng quảng cáo gây tranh cãi',
+      ],
+      answer: 0,
+      dan: 'With lucrative sponsorship and endorsement deals at stake, some athletes risk a lifetime ban by resorting to doping or using a performance-enhancing drug to gain an unfair advantage.',
+    },
+    {
+      q: 'Trọng tài có nhiệm vụ gì để bảo vệ tính chính trực của trận đấu?',
+      options: [
+        'Thực thi luật nghiêm ngặt, phạt nặng mọi lỗi vi phạm',
+        'Bảo đảm hai đội có điều kiện thi đấu ngang nhau',
+        'Giữ trật tự trên sân và trên khán đài',
+        'Ghi nhận chính xác kết quả từng pha bóng',
+      ],
+      answer: 0,
+      dan: 'To protect the integrity of the game, a referee or umpire must enforce the rules strictly, penalizing any foul with a severe penalty.',
+    },
+    {
+      q: 'Bài kết lại rằng điều gì phải là cốt lõi của mọi cuộc thi đấu?',
+      options: [
+        'Tinh thần thể thao và chơi đẹp, để tinh thần của trận đấu được tôn vinh trên cả phần thưởng tài chính',
+        'Sự công bằng trong cách tổ chức giải đấu',
+        'Nỗ lực hết mình của từng vận động viên',
+        'Sự cổ vũ văn minh của khán giả',
+      ],
+      answer: 0,
+      dan: 'True sportsmanship and fair play should remain the core of every competition, ensuring that whether a team secures a win, suffers a defeat, or ends in a draw, the spirit of the game is honored above the financial rewards of the industry.',
+    },
+  ],
+
+  'global-issues-politics-ielts-p2': [
+    {
+      q: 'Nhà ngoại giao làm gì tại một hội nghị thượng đỉnh toàn cầu?',
+      options: [
+        'Thiết lập một hiệp ước hoặc xây dựng một liên minh',
+        'Vận động ủng hộ cho chính sách nước mình',
+        'Đàm phán các thoả thuận thương mại song phương',
+        'Trình bày quan điểm của quốc gia về vấn đề chung',
+      ],
+      answer: 0,
+      dan: 'Through diplomacy, a diplomat works to establish a treaty or build an alliance at a global summit.',
+    },
+    {
+      q: 'Khủng hoảng chính trị nghiêm trọng có thể dẫn tới điều gì?',
+      options: [
+        'Chiến tranh, buộc nhiều người thành người tị nạn xin tị nạn ở nước khác',
+        'Sự sụp đổ của chính quyền đương nhiệm',
+        'Các lệnh trừng phạt từ cộng đồng quốc tế',
+        'Làn sóng biểu tình lan rộng trong nước',
+      ],
+      answer: 0,
+      dan: 'A severe political crisis can lead to war, forcing many to become a refugee seeking asylum across a border.',
+    },
+    {
+      q: 'Bài đối lập nền dân chủ thịnh vượng với điều gì?',
+      options: [
+        'Chế độ độc tài tàn bạo hoặc chính thể toàn trị đầy rẫy tham nhũng',
+        'Các quốc gia đang trong giai đoạn chuyển đổi',
+        'Những nước có nền kinh tế kém phát triển',
+        'Các thể chế nơi quyền lực tập trung vào quốc hội',
+      ],
+      answer: 0,
+      dan: 'While some nations enjoy a thriving democracy with transparency and a fair election where a citizen can vote for a candidate, others suffer under a brutal dictatorship or an authoritarian regime plagued by corruption.',
+    },
+    {
+      q: 'Bài kết lại rằng cộng đồng quốc tế xây được tương lai ổn định, bình đẳng bằng cách nào?',
+      options: [
+        'Nuôi dưỡng tinh thần hợp tác trung lập và đạt đồng thuận, không cần liên tục can thiệp hay phủ quyết',
+        'Tăng cường viện trợ cho các nước nghèo',
+        'Thiết lập các cơ chế giám sát nhân quyền chặt chẽ',
+        'Thúc đẩy dân chủ hoá ở các nước độc tài',
+      ],
+      answer: 0,
+      dan: 'Only by fostering a spirit of neutral cooperation and reaching a consensus without the need to constantly intervene or veto can the international community build a stable, equal future.',
+    },
+  ],
+
+  'language-communication-ielts': [
+    {
+      q: 'Việc tiếp thu ngôn ngữ đòi hỏi gì ngoài học từ vựng và ngữ pháp?',
+      options: [
+        'Hiểu sâu về ngữ nghĩa và bối cảnh văn hoá',
+        'Luyện phát âm và ngữ điệu chuẩn xác',
+        'Đọc nhiều tài liệu bằng ngôn ngữ đích',
+        'Giao tiếp thường xuyên với người bản ngữ',
+      ],
+      answer: 0,
+      dan: 'Language acquisition involves more than just memorizing vocabulary and grammar or mastering syntax; it requires a deep understanding of semantics and cultural context.',
+    },
+    {
+      q: 'Để đạt độ trôi chảy và thành thạo thật sự, người học phải nắm được gì?',
+      options: [
+        'Sắc thái tinh tế và ẩn dụ bóng bẩy, không chỉ nghĩa đen của bản dịch',
+        'Toàn bộ hệ thống thì và cấu trúc câu',
+        'Vốn từ đủ rộng cho mọi chủ đề',
+        'Cách dùng ngôn ngữ trong văn viết trang trọng',
+      ],
+      answer: 0,
+      dan: 'To achieve true fluency and proficiency, one must grasp the subtle nuance and figurative metaphor, not just the literal translation.',
+    },
+    {
+      q: 'Khi người bản ngữ dùng phương ngữ, tiếng lóng hay thành ngữ phức tạp, điều gì có thể xảy ra?',
+      options: [
+        'Người phiên dịch có thể chật vật, dẫn tới rào cản ngôn ngữ hoặc hiểu lầm',
+        'Người nghe phải đoán nghĩa theo ngữ cảnh',
+        'Cuộc trò chuyện phải chuyển sang ngôn ngữ chung',
+        'Thông điệp bị mất đi sắc thái ban đầu',
+      ],
+      answer: 0,
+      dan: 'When a native speaker uses a regional dialect, slang, or complex idiom, an interpreter may struggle, leading to a frustrating language barrier or misunderstanding.',
+    },
+    {
+      q: 'Ngay cả khi cùng nói một tiếng mẹ đẻ, điều gì vẫn có thể làm công chúng thấy xa cách?',
+      options: [
+        'Việc lạm dụng biệt ngữ chuyên ngành dày đặc',
+        'Việc dùng cấu trúc câu quá phức tạp',
+        'Sự khác biệt về giọng vùng miền',
+        'Tốc độ nói quá nhanh của người trình bày',
+      ],
+      answer: 0,
+      dan: 'Even when we speak the same mother tongue, a reliance on dense professional jargon can alienate the public.',
+    },
+  ],
+
+  'literature-poetry-ielts-p2': [
+    {
+      q: 'Tác giả thường bắt đầu từ đâu trước khi nhà xuất bản đồng ý in?',
+      options: [
+        'Từ một bản thảo nháp',
+        'Từ một đề cương chi tiết',
+        'Từ một chương mẫu gửi thử',
+        'Từ hợp đồng với nhà xuất bản',
+      ],
+      answer: 0,
+      dan: 'An aspiring author or a seasoned novelist often begins with a rough draft of a manuscript before a publisher agrees to print it.',
+    },
+    {
+      q: 'Một tường thuật cuốn hút dựa vào điều gì?',
+      options: [
+        'Một nhân vật chính mạnh mẽ đối đầu một kẻ phản diện đáng gờm',
+        'Một bối cảnh được dựng chi tiết và sống động',
+        'Một chủ đề mang tính phổ quát',
+        'Một giọng kể riêng biệt của tác giả',
+      ],
+      answer: 0,
+      dan: 'A compelling narrative relies on a strong protagonist facing off against a formidable antagonist.',
+    },
+    {
+      q: 'Nhà thơ chú ý tới những yếu tố nào để tạo nên kiệt tác?',
+      options: [
+        'Nhịp điệu, vần và dòng thơ',
+        'Hình ảnh, ẩn dụ và biểu tượng',
+        'Chủ đề, giọng điệu và cảm xúc',
+        'Bố cục, độ dài và cách ngắt dòng',
+      ],
+      answer: 0,
+      dan: 'In poetry, a poet pays close attention to rhythm, rhyme, and verse to create a masterpiece.',
+    },
+    {
+      q: 'Để thật sự thưởng thức một tác phẩm kinh điển, người đọc phải làm gì?',
+      options: [
+        'Đọc vượt qua nghĩa đen của một trích đoạn hay câu trích, tránh mọi đạo văn, và cố hiểu thông điệp sâu xa',
+        'Tìm hiểu bối cảnh lịch sử khi tác phẩm ra đời',
+        'Đọc kèm các bài phê bình của giới chuyên môn',
+        'So sánh với các tác phẩm khác cùng thể loại',
+      ],
+      answer: 0,
+      dan: 'To truly appreciate a classic volume, one must read beyond the literal meaning of an excerpt or quotation, avoiding any plagiarism, and striving to understand the profound message that words in prose and poetry convey.',
+    },
+  ],
 };
 
 export default STORY_QUIZ;

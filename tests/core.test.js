@@ -68,7 +68,11 @@ test('authored comprehension questions are normalized correctly', () => {
   assert.equal(questions.length, 1);
   assert.equal(questions[0].playText, 'The train leaves at nine.');
   assert.equal(questions[0].options.filter((option) => option.correct).length, 1);
-  assert.equal(questions[0].options[1].correct, true);
+  // (3.1) Thứ tự lựa chọn nay được XÁO, nên KHÔNG kiểm đáp án đúng ở ô nào —
+  // kiểm nó gắn với đúng NỘI DUNG. Câu khẳng định cũ (`options[1].correct`) ghim
+  // đúng cái lỗi vừa sửa: bộ câu soạn tay duy nhất của kho có 5/5 câu `answer: 0`
+  // nên bấm ô đầu là đúng 100%. Xem tests/story_quiz.test.js.
+  assert.equal(questions[0].options.find((option) => option.correct).text, '9 giờ');
 });
 
 test('comprehension falls back to vocabulary examples', () => {

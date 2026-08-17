@@ -33,7 +33,7 @@ Cam kết phải kiểm được, không thì lại thành lời hứa suông. �
 | N2 | Tổng giờ lộ trình dẫn qua **≥ 450 giờ** (ước lượng thật, ghi công thức) | test CI cộng giờ khai báo, đối chiếu số câu thật |
 | N3 | Mỗi chặng đều **đo độ chính xác** trước khi đánh dấu xong | ✅ **đã có** (hạng mục #1/#1b, `tests/milestone_gate.test.js`) |
 | N4 | Người học nghe được **giọng người thật**, nhiều accent, ở mọi chặng ≥B1 | test CI: mỗi chặng B1+ có ≥1 nguồn audio thật — ⚠️ **CHƯA ĐẠT, và cần sửa lại cách đo**: xem ghi chú dưới bảng |
-| N5 | Có **đọc hiểu theo VĂN BẢN** (không phải theo câu lẻ) ở mọi chặng ≥B1 | test CI: câu hỏi soạn tay gắn với `storyEn`, ≥4 câu/bài |
+| N5 | Có **đọc hiểu theo VĂN BẢN** (không phải theo câu lẻ) ở mọi chặng ≥B1 | ✅ **ĐẠT (Đợt 7)** — 121/122 chặng ≥B1, 484 câu soạn tay, mỗi câu có căn cứ nguyên văn kiểm được; `tests/story_quiz.test.js` |
 | N6 | Có **viết được chấm** và lỗi vào sổ lỗi, ở mọi chặng ≥A2 | ~~test CI: mỗi chặng A2+ có ≥1 đề viết~~ → **đã đo lại, xem ghi chú N6 dưới bảng.** (a) 531/532 chặng A2+ có đề gắn với nội dung chặng ✅ (b) ≥9 đề soạn tay có bài mẫu ✅ |
 | N7 | Test đầu vào **tách được A1/A2/B1/B2/C1** | test CI: mỗi bậc ≥8 câu có nhãn cấp độ |
 | N8 | Có **bài thi cuối bậc** cho A2, B1, B2 — đủ 4 kỹ năng | test CI: 3 đề, mỗi đề có cả 4 phần |
@@ -92,7 +92,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 
 | # | Việc | Vì sao | Nghiệm thu | RB | Công |
 |---|---|---|---|---|---|
-| 3.1 | 🟡 **ĐANG DỞ (Đợt 7)** — **38/122 chặng ≥B1** đã có câu hỏi mức VĂN BẢN soạn tay (bậc B1 xong; còn B2 38 + C1 46). **152 câu**, mỗi câu kèm trường `dan` chép NGUYÊN VĂN câu trong bài làm căn cứ, hiện ra cho người học sau khi chọn. ⚠️ Con số "1/267" của dòng này SAI: chủ đề duy nhất có câu soạn tay (`travel-transport`) là câu **mức CÂU** — 5 câu tiếng Anh độc lập, không câu nào nằm trong `storyEn` của chính nó. Tính theo N5 ("đọc hiểu theo VĂN BẢN") thì điểm xuất phát thật là **0/267**; có test ghim lại bằng chứng | 266 chủ đề đang kiểm tra hiểu *một câu*, không phải hiểu *một bài* | N5 xanh — `tests/story_quiz.test.js` (9 test) | A | **Lớn** |
+| ~~3.1~~ ✅ | **XONG (Đợt 7)** — **121/122 chặng ≥B1** có câu hỏi mức VĂN BẢN soạn tay (B1 38 · B2 37 · C1 46). **484 câu**, mỗi câu kèm trường `dan` chép NGUYÊN VĂN câu trong bài làm căn cứ — test kiểm từng chuỗi, và căn cứ hiện ra cho người học sau khi chọn để họ tự kiểm lại. Chặng duy nhất loại là `digital-society-100`: bài đọc 60 từ / 3 câu, cả ba đều là danh sách thuật ngữ, bốn câu hỏi rút ra sẽ chỉ là bốn lần hỏi lại cùng danh sách — BÁO chứ không độn. ⚠️ Con số "1/267" của dòng này SAI: bộ câu duy nhất có trước (`travel-transport`) là câu **mức CÂU**, không câu nào nằm trong `storyEn` của chính nó. Điểm xuất phát thật theo N5 là **0/267**. **Lỗi phát hiện khi làm:** bộ dựng câu hỏi gán đáp án đúng theo chỉ số rồi giữ nguyên thứ tự, mà 5/5 câu soạn tay cũ đều `answer: 0` — bấm ô đầu là đúng 100%. Đã xáo lựa chọn trong mã | 266 chủ đề đang kiểm tra hiểu *một câu*, không phải hiểu *một bài* | N5 xanh — `tests/story_quiz.test.js` (10 test, có test ĐỘ PHỦ kể tên chặng còn thiếu) | A | **Lớn** |
 | ~~3.2~~ ✅ | **Rà chất lượng 267 bài đọc** — đo lại ra **38 bài** dính dấu hiệu, đọc từng chỗ thì **30 bài viết hoa ĐÚNG** (thứ, tháng, `T-shirt`, `Renaissance`, `MRI scan`, `Earth`…), **8 bài sai thật** = **888 lượt**. Đã hạ chữ thường 888 lượt, `tests/story_caps.test.js` ghim | Bài đọc là đầu vào chính; sai ở đây là sai gốc | 0 lượt chưa giải thích + bất biến "chỉ đổi hoa/thường" | A | Trung bình |
 | ~~3.3~~ ✅ | **XONG (Đợt 4)** — **531/532 chặng A2+** có đề viết gắn với từ vựng của chính chặng, **9 đề soạn tay có bài mẫu**; lỗi bề mặt đổ vào sổ lỗi sẵn có. Xem ghi chú N6: cách đo cũ ("532 đề soạn tay") đã được thay bằng hai vế đo được. **Ngân hàng đề viết theo chặng** (câu → đoạn → bài 150–200 từ), chấm bằng key Gemini của khách, lỗi đổ vào sổ lỗi đã có | Hiện chỉ có **1 ô văn bản tự do** ở mục ngữ pháp | N6 xanh | **B** | Trung bình |
 | 3.4 | **Chấm viết dự phòng không cần AI**: đối chiếu câu mẫu, checklist tiêu chí, tự đánh giá có hướng dẫn | Khách chưa nhập key vẫn phải viết được, không thì tính năng chết một nửa | mọi đề viết dùng được khi không có key | A | Trung bình |
@@ -163,7 +163,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 | ~~**1**~~ ✅ | 1.1 → 1.4 → 1.2 → 1.3 → 1.5 → 1.6 | Lộ trình liền mạch chữ cái→B2 dẫn qua ~450–590 giờ nội dung **đã có**. Đây là đợt đổi nhiều nhất trên mỗi giờ công. |
 | ~~**2**~~ ✅ | 4.1 → 4.3 | Biết người học đang ở đâu theo từng kỹ năng — mọi thứ sau đó dựa vào đây. |
 | **3** | 2.1 → 2.3 → 2.2 → 2.4 | Mở được cửa ải B1→B2 về nghe. |
-| **4** | 3.4 → 3.3 → 3.1 → 3.2 → 3.5 | Mở kỹ năng sản sinh và đọc hiểu ở mức văn bản. |
+| ~~**4**~~ ✅ | 3.4 → 3.3 → 3.1 → 3.2 → 3.5 | Mở kỹ năng sản sinh và đọc hiểu ở mức văn bản. **XONG cả năm việc** (3.1 hoàn tất ở Đợt 7, 2026-08-17). |
 | ~~**5**~~ ✅ | 4.2 → 4.4 | Chốt được cam kết: có bài thi cuối bậc B2 và chứng nhận gắn với nó. |
 | ~~**6**~~ ✅ | 5.1 → 5.2 → 5.3 → 5.4 | Nền C1. **XONG cả bốn việc** (2026-08-17). |
 
