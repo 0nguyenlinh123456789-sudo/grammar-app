@@ -14,10 +14,7 @@ export const courseData = [
           "vi": "Chỉ một người hoặc một vật.",
           "example": "book, girl, pen",
           "bucket": 1,
-          "collocations": [
-            "have a noun",
-            "use noun"
-          ]
+          "collocations": []
         },
         {
           "word": "verb",
@@ -26,10 +23,7 @@ export const courseData = [
           "vi": "Chỉ một hành động (thứ chúng ta làm).",
           "example": "do, read, write",
           "bucket": 2,
-          "collocations": [
-            "verb something",
-            "always verb"
-          ]
+          "collocations": []
         },
         {
           "word": "adjective",
@@ -38,10 +32,7 @@ export const courseData = [
           "vi": "Dùng để miêu tả một người hoặc một vật.",
           "example": "good, bad, happy, long",
           "bucket": 1,
-          "collocations": [
-            "very adjective",
-            "extremely adjective"
-          ]
+          "collocations": []
         },
         {
           "word": "adverb",
@@ -2741,10 +2732,7 @@ export const courseData = [
           "vi": "Di chuyển từ nơi này sang nơi khác.",
           "example": "Where does this road go? (Con đường này dẫn đi đâu?)",
           "bucket": 1,
-          "collocations": [
-            "go something",
-            "always go"
-          ]
+          "collocations": []
         },
         {
           "word": "go by",
@@ -2771,10 +2759,7 @@ export const courseData = [
           "vi": "Đi bộ (Thay vì nói 'go on foot', ta có thể dùng 'walk').",
           "example": "We're walking to work this morning.",
           "bucket": 2,
-          "collocations": [
-            "walk something",
-            "always walk"
-          ]
+          "collocations": []
         },
         {
           "word": "went",
@@ -5630,10 +5615,7 @@ export const courseData = [
           "vi": "Di chuyển từ ĐÂY (here) đến ĐÓ (there).",
           "example": "I want to go to the park.",
           "bucket": 1,
-          "collocations": [
-            "go something",
-            "always go"
-          ]
+          "collocations": []
         },
         {
           "word": "come",
@@ -5642,10 +5624,7 @@ export const courseData = [
           "vi": "Di chuyển từ ĐÓ (there) đến ĐÂY (here).",
           "example": "Come here, please.",
           "bucket": 2,
-          "collocations": [
-            "come something",
-            "always come"
-          ]
+          "collocations": []
         },
         {
           "word": "come in",
@@ -7421,10 +7400,7 @@ export const courseData = [
           "vi": "Mang từ ĐÂY (here) đi đến ĐÓ (there). Mang ra xa người nói.",
           "example": "Are you going to school? Take your books.",
           "bucket": 1,
-          "collocations": [
-            "take something",
-            "always take"
-          ]
+          "collocations": []
         },
         {
           "word": "bring",
@@ -7433,10 +7409,7 @@ export const courseData = [
           "vi": "Mang từ ĐÓ (there) về ĐÂY (here). Mang lại gần người nói.",
           "example": "Are you going to the kitchen? Can you bring me a glass?",
           "bucket": 2,
-          "collocations": [
-            "bring something",
-            "always bring"
-          ]
+          "collocations": []
         },
         {
           "word": "take to...",
@@ -8245,10 +8218,7 @@ export const courseData = [
           "vi": "Trời tối dần. (It's light -> It's getting dark -> It's dark).",
           "example": "It's getting dark.",
           "bucket": 1,
-          "collocations": [
-            "very get dark",
-            "extremely get dark"
-          ]
+          "collocations": []
         },
         {
           "word": "get better",
@@ -8257,10 +8227,7 @@ export const courseData = [
           "vi": "Trở nên tốt hơn, khỏe hơn. (She's ill -> She's getting better).",
           "example": "She's getting better.",
           "bucket": 2,
-          "collocations": [
-            "very get better",
-            "extremely get better"
-          ]
+          "collocations": []
         },
         {
           "word": "get tired",
@@ -8269,10 +8236,7 @@ export const courseData = [
           "vi": "Trở nên mệt mỏi.",
           "example": "I'm getting tired. I want to go to bed.",
           "bucket": 1,
-          "collocations": [
-            "very get tired",
-            "extremely get tired"
-          ]
+          "collocations": []
         },
         {
           "word": "get wet",
@@ -8281,10 +8245,7 @@ export const courseData = [
           "vi": "Bị ướt.",
           "example": "It's raining! I'm getting wet!",
           "bucket": 2,
-          "collocations": [
-            "very get wet",
-            "extremely get wet"
-          ]
+          "collocations": []
         },
         {
           "word": "get cold",
@@ -8293,10 +8254,7 @@ export const courseData = [
           "vi": "Trở nên lạnh.",
           "example": "Please close the window. I'm getting cold.",
           "bucket": 1,
-          "collocations": [
-            "very get cold",
-            "extremely get cold"
-          ]
+          "collocations": []
         },
         {
           "word": "get a stamp",
@@ -8305,10 +8263,7 @@ export const courseData = [
           "vi": "Mua/lấy một con tem.",
           "example": "I want to send a postcard. I have to get a stamp.",
           "bucket": 2,
-          "collocations": [
-            "have a get a stamp",
-            "use get a stamp"
-          ]
+          "collocations": []
         },
         {
           "word": "get a job",
@@ -8317,10 +8272,7 @@ export const courseData = [
           "vi": "Kiếm việc làm.",
           "example": "I've finished my studies. Now I want to get a job.",
           "bucket": 1,
-          "collocations": [
-            "have a get a job",
-            "use get a job"
-          ]
+          "collocations": []
         },
         {
           "word": "get a doctor",
@@ -8329,10 +8281,7 @@ export const courseData = [
           "vi": "Gọi bác sĩ.",
           "example": "My friend is ill! Please get a doctor.",
           "bucket": 2,
-          "collocations": [
-            "have a get a doctor",
-            "use get a doctor"
-          ]
+          "collocations": []
         },
         {
           "word": "get some coffee",
@@ -8341,10 +8290,7 @@ export const courseData = [
           "vi": "Lấy một ít cà phê.",
           "example": "Do you want a drink? I can get some coffee.",
           "bucket": 1,
-          "collocations": [
-            "have a get some coffee",
-            "use get some coffee"
-          ]
+          "collocations": []
         },
         {
           "word": "get a newspaper",
@@ -8353,10 +8299,7 @@ export const courseData = [
           "vi": "Mua tờ báo.",
           "example": "I'm going to the shop to get a newspaper.",
           "bucket": 2,
-          "collocations": [
-            "have a get a newspaper",
-            "use get a newspaper"
-          ]
+          "collocations": []
         },
         {
           "word": "get a taxi",
@@ -8365,10 +8308,7 @@ export const courseData = [
           "vi": "Bắt taxi.",
           "example": "Where can I get a taxi?",
           "bucket": 1,
-          "collocations": [
-            "have a get a taxi",
-            "use get a taxi"
-          ]
+          "collocations": []
         },
         {
           "word": "get to the airport",
@@ -11105,10 +11045,7 @@ export const courseData = [
           "vi": "Dùng để thuật lại lời ai đó nói hoặc hỏi về ngôn ngữ.",
           "example": "She said 'This is horrible!' / He said that he wanted a drink.",
           "bucket": 1,
-          "collocations": [
-            "say / said something",
-            "always say / said"
-          ]
+          "collocations": []
         },
         {
           "word": "say in a language",
@@ -12122,10 +12059,7 @@ export const courseData = [
           "vi": "Bắt kịp (xe buýt, tàu, máy bay) - đến đủ sớm để lên xe.",
           "example": "Bill catches the 9.45 train to London every day.",
           "bucket": 1,
-          "collocations": [
-            "catch something",
-            "always catch"
-          ]
+          "collocations": []
         },
         {
           "word": "miss",
@@ -12134,10 +12068,7 @@ export const courseData = [
           "vi": "Lỡ chuyến - đến quá muộn.",
           "example": "If you miss the bus, you arrive too late to get it.",
           "bucket": 2,
-          "collocations": [
-            "miss something",
-            "always miss"
-          ]
+          "collocations": []
         },
         {
           "word": "pass",
@@ -12146,10 +12077,7 @@ export const courseData = [
           "vi": "Đưa cho, chuyền tay (thường dùng trên bàn ăn).",
           "example": "Please pass the salt.",
           "bucket": 1,
-          "collocations": [
-            "pass something",
-            "always pass"
-          ]
+          "collocations": []
         },
         {
           "word": "carry",
@@ -12158,10 +12086,7 @@ export const courseData = [
           "vi": "Mang, vác, xách.",
           "example": "Can I help you carry your luggage?",
           "bucket": 2,
-          "collocations": [
-            "carry something",
-            "always carry"
-          ]
+          "collocations": []
         },
         {
           "word": "pull / push",
@@ -12170,10 +12095,7 @@ export const courseData = [
           "vi": "Kéo vào / Đẩy ra (thường thấy trên cửa).",
           "example": "Pull the door to open it.",
           "bucket": 1,
-          "collocations": [
-            "pull / push something",
-            "always pull / push"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -13875,10 +13797,7 @@ export const courseData = [
           "vi": "Năm (Có 365 days / 12 months / 52 weeks).",
           "example": "There are 365 days in a year.",
           "bucket": 1,
-          "collocations": [
-            "have a year",
-            "use year"
-          ]
+          "collocations": []
         },
         {
           "word": "week",
@@ -13887,10 +13806,7 @@ export const courseData = [
           "vi": "Tuần (Có 7 days).",
           "example": "There are 7 days in a week.",
           "bucket": 2,
-          "collocations": [
-            "have a week",
-            "use week"
-          ]
+          "collocations": []
         },
         {
           "word": "fortnight",
@@ -13899,10 +13815,7 @@ export const courseData = [
           "vi": "Hai tuần, nửa tháng.",
           "example": "There are 2 weeks in a fortnight.",
           "bucket": 1,
-          "collocations": [
-            "have a fortnight",
-            "use fortnight"
-          ]
+          "collocations": []
         },
         {
           "word": "day",
@@ -13911,10 +13824,7 @@ export const courseData = [
           "vi": "Ngày (Có 24 hours).",
           "example": "There are 24 hours in a day.",
           "bucket": 2,
-          "collocations": [
-            "have a day",
-            "use day"
-          ]
+          "collocations": []
         },
         {
           "word": "hour",
@@ -13923,10 +13833,7 @@ export const courseData = [
           "vi": "Giờ (Có 60 minutes). Lưu ý: đọc là 'an hour'.",
           "example": "There are 60 minutes in an hour.",
           "bucket": 1,
-          "collocations": [
-            "have a hour",
-            "use hour"
-          ]
+          "collocations": []
         },
         {
           "word": "minute",
@@ -13935,10 +13842,7 @@ export const courseData = [
           "vi": "Phút (Có 60 seconds).",
           "example": "There are 60 seconds in a minute.",
           "bucket": 2,
-          "collocations": [
-            "have a minute",
-            "use minute"
-          ]
+          "collocations": []
         },
         {
           "word": "century",
@@ -13947,10 +13851,7 @@ export const courseData = [
           "vi": "Thế kỷ (100 năm).",
           "example": "There are 100 years in a century.",
           "bucket": 1,
-          "collocations": [
-            "have a century",
-            "use century"
-          ]
+          "collocations": []
         },
         {
           "word": "Monday -> Sunday",
@@ -13959,10 +13860,7 @@ export const courseData = [
           "vi": "Thứ Hai đến Chủ nhật. (Luôn viết HOA chữ cái đầu tiên).",
           "example": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.",
           "bucket": 2,
-          "collocations": [
-            "have a Monday -> Sunday",
-            "use Monday -> Sunday"
-          ]
+          "collocations": []
         },
         {
           "word": "the weekend",
@@ -14016,10 +13914,7 @@ export const courseData = [
           "vi": "Tháng 1 đến Tháng 12. (Luôn viết HOA chữ cái đầu tiên).",
           "example": "January, February, March, April, May, June, July, August, September, October, November, December.",
           "bucket": 2,
-          "collocations": [
-            "have a January -> December",
-            "use January -> December"
-          ]
+          "collocations": []
         },
         {
           "word": "spring / summer",
@@ -14028,10 +13923,7 @@ export const courseData = [
           "vi": "Mùa xuân / Mùa hè.",
           "example": "Birds sing in the spring.",
           "bucket": 1,
-          "collocations": [
-            "have a spring / summer",
-            "use spring / summer"
-          ]
+          "collocations": []
         },
         {
           "word": "autumn / winter",
@@ -14040,10 +13932,7 @@ export const courseData = [
           "vi": "Mùa thu / Mùa đông.",
           "example": "It is cold in winter.",
           "bucket": 2,
-          "collocations": [
-            "have a autumn / winter",
-            "use autumn / winter"
-          ]
+          "collocations": []
         },
         {
           "word": "Prepositions for Months/Seasons",
@@ -14939,10 +14828,7 @@ export const courseData = [
           "vi": "Trước / Tới.",
           "example": "Last year / last week. Next year / next summer.",
           "bucket": 2,
-          "collocations": [
-            "very last / next",
-            "extremely last / next"
-          ]
+          "collocations": []
         },
         {
           "word": "in the past",
@@ -15966,10 +15852,7 @@ export const courseData = [
           "vi": "Đỉnh, phần trên cùng.",
           "example": "The top of the mountain.",
           "bucket": 1,
-          "collocations": [
-            "have a the top",
-            "use the top"
-          ]
+          "collocations": []
         },
         {
           "word": "the middle",
@@ -15978,10 +15861,7 @@ export const courseData = [
           "vi": "Ở giữa.",
           "example": "The middle of the road.",
           "bucket": 2,
-          "collocations": [
-            "have a the middle",
-            "use the middle"
-          ]
+          "collocations": []
         },
         {
           "word": "the bottom",
@@ -15990,10 +15870,7 @@ export const courseData = [
           "vi": "Đáy, phần dưới cùng.",
           "example": "The bottom of the glass.",
           "bucket": 1,
-          "collocations": [
-            "have a the bottom",
-            "use the bottom"
-          ]
+          "collocations": []
         },
         {
           "word": "the front",
@@ -16002,10 +15879,7 @@ export const courseData = [
           "vi": "Phía trước.",
           "example": "The front of the car.",
           "bucket": 2,
-          "collocations": [
-            "have a the front",
-            "use the front"
-          ]
+          "collocations": []
         },
         {
           "word": "the side",
@@ -16014,10 +15888,7 @@ export const courseData = [
           "vi": "Bên hông, bên cạnh.",
           "example": "The side of the car.",
           "bucket": 1,
-          "collocations": [
-            "have a the side",
-            "use the side"
-          ]
+          "collocations": []
         },
         {
           "word": "the back",
@@ -16026,10 +15897,7 @@ export const courseData = [
           "vi": "Phía sau.",
           "example": "The back of the car.",
           "bucket": 2,
-          "collocations": [
-            "have a the back",
-            "use the back"
-          ]
+          "collocations": []
         },
         {
           "word": "the beginning",
@@ -16038,10 +15906,7 @@ export const courseData = [
           "vi": "Điểm bắt đầu, phần đầu.",
           "example": "The beginning of the motorway.",
           "bucket": 1,
-          "collocations": [
-            "have a the beginning",
-            "use the beginning"
-          ]
+          "collocations": []
         },
         {
           "word": "the end",
@@ -16050,10 +15915,7 @@ export const courseData = [
           "vi": "Điểm kết thúc, phần cuối.",
           "example": "The end of the motorway.",
           "bucket": 2,
-          "collocations": [
-            "have a the end",
-            "use the end"
-          ]
+          "collocations": []
         },
         {
           "word": "left",
@@ -16062,10 +15924,7 @@ export const courseData = [
           "vi": "Bên trái.",
           "example": "This is his left hand.",
           "bucket": 1,
-          "collocations": [
-            "very left",
-            "extremely left"
-          ]
+          "collocations": []
         },
         {
           "word": "right",
@@ -16074,10 +15933,7 @@ export const courseData = [
           "vi": "Bên phải.",
           "example": "This is his right hand.",
           "bucket": 2,
-          "collocations": [
-            "very right",
-            "extremely right"
-          ]
+          "collocations": []
         },
         {
           "word": "on the left / on the right",
@@ -17001,10 +16857,7 @@ export const courseData = [
           "vi": "Nhanh (Dùng để miêu tả Danh từ).",
           "example": "It's a fast car.",
           "bucket": 1,
-          "collocations": [
-            "very fast (adjective)",
-            "extremely fast (adjective)"
-          ]
+          "collocations": []
         },
         {
           "word": "fast (adverb)",
@@ -17022,10 +16875,7 @@ export const courseData = [
           "vi": "Chậm chạp.",
           "example": "It's a slow car.",
           "bucket": 1,
-          "collocations": [
-            "very slow",
-            "extremely slow"
-          ]
+          "collocations": []
         },
         {
           "word": "slowly",
@@ -17061,10 +16911,7 @@ export const courseData = [
           "vi": "To, ồn ào.",
           "example": "The music is too loud.",
           "bucket": 1,
-          "collocations": [
-            "very loud",
-            "extremely loud"
-          ]
+          "collocations": []
         },
         {
           "word": "loudly",
@@ -17082,10 +16929,7 @@ export const courseData = [
           "vi": "Yên lặng, không ồn ào.",
           "example": "It's very quiet here.",
           "bucket": 1,
-          "collocations": [
-            "very quiet",
-            "extremely quiet"
-          ]
+          "collocations": []
         },
         {
           "word": "quietly",
@@ -17103,10 +16947,7 @@ export const courseData = [
           "vi": "Tốt, giỏi (Đi với danh từ hoặc động từ to be).",
           "example": "She's a good driver.",
           "bucket": 1,
-          "collocations": [
-            "very good",
-            "extremely good"
-          ]
+          "collocations": []
         },
         {
           "word": "well",
@@ -17124,10 +16965,7 @@ export const courseData = [
           "vi": "Tệ, kém.",
           "example": "He's a bad driver.",
           "bucket": 1,
-          "collocations": [
-            "very bad",
-            "extremely bad"
-          ]
+          "collocations": []
         },
         {
           "word": "badly",
@@ -17145,10 +16983,7 @@ export const courseData = [
           "vi": "Cách thức mà ai đó làm việc gì.",
           "example": "He's speaking in a friendly way.",
           "bucket": 1,
-          "collocations": [
-            "have a way",
-            "use way"
-          ]
+          "collocations": []
         },
         {
           "word": "in a friendly way",
@@ -19069,10 +18904,7 @@ export const courseData = [
           "vi": "Đồ nội thất (Bàn, ghế, tủ nói chung).",
           "example": "This furniture is modern. [KHÔNG DÙNG: furnitures]",
           "bucket": 2,
-          "collocations": [
-            "have a furniture",
-            "use furniture"
-          ]
+          "collocations": []
         },
         {
           "word": "traffic",
@@ -19081,10 +18913,7 @@ export const courseData = [
           "vi": "Giao thông, xe cộ qua lại.",
           "example": "The traffic is bad today.",
           "bucket": 1,
-          "collocations": [
-            "have a traffic",
-            "use traffic"
-          ]
+          "collocations": []
         },
         {
           "word": "information",
@@ -19093,10 +18922,7 @@ export const courseData = [
           "vi": "Thông tin.",
           "example": "He can give you some useful information. [NOT an information / informations]",
           "bucket": 2,
-          "collocations": [
-            "have a information",
-            "use information"
-          ]
+          "collocations": []
         },
         {
           "word": "advice",
@@ -19105,10 +18931,7 @@ export const courseData = [
           "vi": "Lời khuyên.",
           "example": "I'll give you some advice about your future. [NOT an advice]",
           "bucket": 1,
-          "collocations": [
-            "have a advice",
-            "use advice"
-          ]
+          "collocations": []
         },
         {
           "word": "weather",
@@ -19117,10 +18940,7 @@ export const courseData = [
           "vi": "Thời tiết.",
           "example": "It's terrible weather today. [NOT a terrible weather]",
           "bucket": 2,
-          "collocations": [
-            "have a weather",
-            "use weather"
-          ]
+          "collocations": []
         },
         {
           "word": "work",
@@ -19129,10 +18949,7 @@ export const courseData = [
           "vi": "Công việc.",
           "example": "Studying is hard work. [NOT a hard work]",
           "bucket": 1,
-          "collocations": [
-            "have a work",
-            "use work"
-          ]
+          "collocations": []
         },
         {
           "word": "news",
@@ -19141,10 +18958,7 @@ export const courseData = [
           "vi": "Tin tức (Mặc dù có chữ 's' nhưng luôn là số ít).",
           "example": "There is some bad news today. [NOT The news are]",
           "bucket": 2,
-          "collocations": [
-            "have a news",
-            "use news"
-          ]
+          "collocations": []
         },
         {
           "word": "accommodation",
@@ -19153,10 +18967,7 @@ export const courseData = [
           "vi": "Chỗ ở.",
           "example": "Accommodation here is expensive.",
           "bucket": 1,
-          "collocations": [
-            "have a accommodation",
-            "use accommodation"
-          ]
+          "collocations": []
         },
         {
           "word": "air",
@@ -19165,10 +18976,7 @@ export const courseData = [
           "vi": "Không khí.",
           "example": "I need some fresh air.",
           "bucket": 2,
-          "collocations": [
-            "have a air",
-            "use air"
-          ]
+          "collocations": []
         },
         {
           "word": "travel",
@@ -19177,10 +18985,7 @@ export const courseData = [
           "vi": "Việc đi lại, du lịch nói chung.",
           "example": "Air travel is faster than rail travel.",
           "bucket": 1,
-          "collocations": [
-            "have a travel",
-            "use travel"
-          ]
+          "collocations": []
         },
         {
           "word": "food categories",
@@ -20050,10 +19855,7 @@ export const courseData = [
           "vi": "Đẹp, dễ thương, dễ chịu.",
           "example": "That's a nice jacket.",
           "bucket": 2,
-          "collocations": [
-            "very nice (+)",
-            "extremely nice (+)"
-          ]
+          "collocations": []
         },
         {
           "word": "lovely (++)",
@@ -20062,10 +19864,7 @@ export const courseData = [
           "vi": "Rất đẹp, đáng yêu.",
           "example": "It's a lovely day today!",
           "bucket": 1,
-          "collocations": [
-            "very lovely (++)",
-            "extremely lovely (++)"
-          ]
+          "collocations": []
         },
         {
           "word": "wonderful (+++)",
@@ -20074,10 +19873,7 @@ export const courseData = [
           "vi": "Tuyệt vời, kỳ diệu.",
           "example": "Mary's a wonderful person. Everybody loves her.",
           "bucket": 2,
-          "collocations": [
-            "very wonderful (+++)",
-            "extremely wonderful (+++)"
-          ]
+          "collocations": []
         },
         {
           "word": "excellent (++++)",
@@ -20086,10 +19882,7 @@ export const courseData = [
           "vi": "Xuất sắc, cực kỳ tốt.",
           "example": "That's an excellent idea!",
           "bucket": 1,
-          "collocations": [
-            "very excellent (++++)",
-            "extremely excellent (++++)"
-          ]
+          "collocations": []
         },
         {
           "word": "Excellent!",
@@ -20134,10 +19927,7 @@ export const courseData = [
           "vi": "Tồi tệ, gớm ghiếc.",
           "example": "My hair is awful! I must go to the hairdresser's.",
           "bucket": 2,
-          "collocations": [
-            "very awful (--)",
-            "extremely awful (--)"
-          ]
+          "collocations": []
         },
         {
           "word": "terrible (---)",
@@ -20146,10 +19936,7 @@ export const courseData = [
           "vi": "Khủng khiếp (thường dùng cho tình huống/sự việc).",
           "example": "I had a terrible day at work today.",
           "bucket": 1,
-          "collocations": [
-            "very terrible (---)",
-            "extremely terrible (---)"
-          ]
+          "collocations": []
         },
         {
           "word": "horrible (---)",
@@ -20158,10 +19945,7 @@ export const courseData = [
           "vi": "Đáng ghét, kinh khủng (thường dùng cho người).",
           "example": "Tim is a horrible person. Nobody likes him.",
           "bucket": 2,
-          "collocations": [
-            "very horrible (---)",
-            "extremely horrible (---)"
-          ]
+          "collocations": []
         },
         {
           "word": "not bad",
@@ -20926,10 +20710,7 @@ export const courseData = [
           "vi": "Tốt, tử tế (Từ phổ biến nhất để chỉ người ta thích).",
           "example": "Mary's very nice. Richard's a nice man.",
           "bucket": 1,
-          "collocations": [
-            "very nice (**)",
-            "extremely nice (**)"
-          ]
+          "collocations": []
         },
         {
           "word": "wonderful (****)",
@@ -20938,10 +20719,7 @@ export const courseData = [
           "vi": "Tuyệt vời (Mức độ mạnh hơn 'nice'). KHÔNG DÙNG 'very wonderful'.",
           "example": "Ron is a wonderful teacher.",
           "bucket": 2,
-          "collocations": [
-            "very wonderful (****)",
-            "extremely wonderful (****)"
-          ]
+          "collocations": []
         },
         {
           "word": "kind",
@@ -20950,10 +20728,7 @@ export const courseData = [
           "vi": "Tốt bụng, hay giúp đỡ người khác.",
           "example": "She's very kind; she helps me with the children.",
           "bucket": 1,
-          "collocations": [
-            "very kind",
-            "extremely kind"
-          ]
+          "collocations": []
         },
         {
           "word": "lovely",
@@ -20962,10 +20737,7 @@ export const courseData = [
           "vi": "Dễ thương, đáng yêu (= very kind / I like him very much).",
           "example": "My teacher is a lovely man.",
           "bucket": 2,
-          "collocations": [
-            "very lovely",
-            "extremely lovely"
-          ]
+          "collocations": []
         },
         {
           "word": "easy-going",
@@ -20974,10 +20746,7 @@ export const courseData = [
           "vi": "Thoải mái, dễ tính (= relaxed, easy to be with).",
           "example": "My friend Neil is very easy-going.",
           "bucket": 1,
-          "collocations": [
-            "very easy-going",
-            "extremely easy-going"
-          ]
+          "collocations": []
         },
         {
           "word": "happy",
@@ -20986,10 +20755,7 @@ export const courseData = [
           "vi": "Vui vẻ (Ngược với unhappy).",
           "example": "Maureen's a happy person.",
           "bucket": 2,
-          "collocations": [
-            "very happy",
-            "extremely happy"
-          ]
+          "collocations": []
         },
         {
           "word": "intelligent",
@@ -20998,10 +20764,7 @@ export const courseData = [
           "vi": "Thông minh (= clever).",
           "example": "All my friends are more intelligent than me.",
           "bucket": 1,
-          "collocations": [
-            "very intelligent",
-            "extremely intelligent"
-          ]
+          "collocations": []
         },
         {
           "word": "not very nice (**)",
@@ -21019,10 +20782,7 @@ export const courseData = [
           "vi": "Đáng ghét, kinh khủng.",
           "example": "Margaret is a horrible woman; nobody likes her.",
           "bucket": 1,
-          "collocations": [
-            "very horrible (****)",
-            "extremely horrible (****)"
-          ]
+          "collocations": []
         },
         {
           "word": "difficult",
@@ -21031,10 +20791,7 @@ export const courseData = [
           "vi": "Khó tính, khó chịu.",
           "example": "My uncle is a difficult person. He is never happy.",
           "bucket": 2,
-          "collocations": [
-            "very difficult",
-            "extremely difficult"
-          ]
+          "collocations": []
         },
         {
           "word": "stupid (****)",
@@ -21043,10 +20800,7 @@ export const courseData = [
           "vi": "Ngốc nghếch (Từ rất nặng, cần cẩn thận khi dùng).",
           "example": "That waiter is stupid.",
           "bucket": 1,
-          "collocations": [
-            "very stupid (****)",
-            "extremely stupid (****)"
-          ]
+          "collocations": []
         },
         {
           "word": "selfish",
@@ -21055,10 +20809,7 @@ export const courseData = [
           "vi": "Ích kỷ (Chỉ nghĩ cho bản thân).",
           "example": "I don't like selfish people.",
           "bucket": 2,
-          "collocations": [
-            "very selfish",
-            "extremely selfish"
-          ]
+          "collocations": []
         },
         {
           "word": "good",
@@ -21067,10 +20818,7 @@ export const courseData = [
           "vi": "Ngoan ngoãn.",
           "example": "Tim is very good.",
           "bucket": 1,
-          "collocations": [
-            "very good",
-            "extremely good"
-          ]
+          "collocations": []
         },
         {
           "word": "well-behaved",
@@ -21079,10 +20827,7 @@ export const courseData = [
           "vi": "Cư xử đúng mực, ngoan.",
           "example": "He is a well-behaved boy.",
           "bucket": 2,
-          "collocations": [
-            "very well-behaved",
-            "extremely well-behaved"
-          ]
+          "collocations": []
         },
         {
           "word": "naughty",
@@ -21091,10 +20836,7 @@ export const courseData = [
           "vi": "Hư, nghịch ngợm.",
           "example": "His little sister is very naughty.",
           "bucket": 1,
-          "collocations": [
-            "very naughty",
-            "extremely naughty"
-          ]
+          "collocations": []
         },
         {
           "word": "to me",
@@ -21942,10 +21684,7 @@ export const courseData = [
           "vi": "Lắng nghe (ai/cái gì).",
           "example": "I listen to the radio in bed.",
           "bucket": 1,
-          "collocations": [
-            "listen to something",
-            "always listen to"
-          ]
+          "collocations": []
         },
         {
           "word": "wait for",
@@ -21954,10 +21693,7 @@ export const courseData = [
           "vi": "Chờ đợi (ai/cái gì).",
           "example": "I waited for the bus for half an hour.",
           "bucket": 2,
-          "collocations": [
-            "wait for something",
-            "always wait for"
-          ]
+          "collocations": []
         },
         {
           "word": "ask for",
@@ -21966,10 +21702,7 @@ export const courseData = [
           "vi": "Yêu cầu, xin (cái gì).",
           "example": "I asked for a black coffee.",
           "bucket": 1,
-          "collocations": [
-            "ask for something",
-            "always ask for"
-          ]
+          "collocations": []
         },
         {
           "word": "pay for",
@@ -21978,10 +21711,7 @@ export const courseData = [
           "vi": "Trả tiền cho (cái gì).",
           "example": "Where do I pay for our meal?",
           "bucket": 2,
-          "collocations": [
-            "pay for something",
-            "always pay for"
-          ]
+          "collocations": []
         },
         {
           "word": "belong to",
@@ -21990,10 +21720,7 @@ export const courseData = [
           "vi": "Thuộc về (ai).",
           "example": "This book belongs to Sarah.",
           "bucket": 1,
-          "collocations": [
-            "belong to something",
-            "always belong to"
-          ]
+          "collocations": []
         },
         {
           "word": "think about",
@@ -22002,10 +21729,7 @@ export const courseData = [
           "vi": "Suy nghĩ về (ai/cái gì).",
           "example": "What are you thinking about?",
           "bucket": 2,
-          "collocations": [
-            "think about something",
-            "always think about"
-          ]
+          "collocations": []
         },
         {
           "word": "thank (someone) for",
@@ -22014,10 +21738,7 @@ export const courseData = [
           "vi": "Cảm ơn (ai) vì (cái gì).",
           "example": "Helena thanked her mother for the present.",
           "bucket": 1,
-          "collocations": [
-            "thank (someone) for something",
-            "always thank (someone) for"
-          ]
+          "collocations": []
         },
         {
           "word": "apologise for",
@@ -22026,10 +21747,7 @@ export const courseData = [
           "vi": "Xin lỗi vì (điều gì).",
           "example": "Jamie apologised for being late.",
           "bucket": 2,
-          "collocations": [
-            "apologise for something",
-            "always apologise for"
-          ]
+          "collocations": []
         },
         {
           "word": "look at",
@@ -22074,10 +21792,7 @@ export const courseData = [
           "vi": "Giỏi về / Tệ về (môn học, kỹ năng). [KHÔNG DÙNG: good in].",
           "example": "I'm good at geography but bad at maths.",
           "bucket": 1,
-          "collocations": [
-            "very good at / bad at",
-            "extremely good at / bad at"
-          ]
+          "collocations": []
         },
         {
           "word": "interested in",
@@ -22086,10 +21801,7 @@ export const courseData = [
           "vi": "Quan tâm, thích thú với.",
           "example": "I'm interested in hearing all your news.",
           "bucket": 2,
-          "collocations": [
-            "very interested in",
-            "extremely interested in"
-          ]
+          "collocations": []
         },
         {
           "word": "afraid of",
@@ -22098,10 +21810,7 @@ export const courseData = [
           "vi": "Sợ hãi.",
           "example": "He is afraid of mice.",
           "bucket": 1,
-          "collocations": [
-            "very afraid of",
-            "extremely afraid of"
-          ]
+          "collocations": []
         },
         {
           "word": "proud of",
@@ -22110,10 +21819,7 @@ export const courseData = [
           "vi": "Tự hào về.",
           "example": "John is proud of winning a medal.",
           "bucket": 2,
-          "collocations": [
-            "very proud of",
-            "extremely proud of"
-          ]
+          "collocations": []
         },
         {
           "word": "used to",
@@ -22122,10 +21828,7 @@ export const courseData = [
           "vi": "Quen với (việc gì đó). Đồng nghĩa: accustomed to.",
           "example": "I'm used to getting up early.",
           "bucket": 1,
-          "collocations": [
-            "very used to",
-            "extremely used to"
-          ]
+          "collocations": []
         },
         {
           "word": "Preposition + Noun / V-ing",
@@ -24578,10 +24281,7 @@ export const courseData = [
           "vi": "Yên lặng, không ồn ào. (Âm /aɪ.ə/ giống 'higher').",
           "example": "My bedroom is very quiet.",
           "bucket": 2,
-          "collocations": [
-            "very quiet",
-            "extremely quiet"
-          ]
+          "collocations": []
         },
         {
           "word": "lose",
@@ -24590,10 +24290,7 @@ export const courseData = [
           "vi": "Đánh mất, không tìm thấy (Âm cuối là /z/, vần với 'shoes').",
           "example": "Why do I always lose my keys!",
           "bucket": 1,
-          "collocations": [
-            "lose something",
-            "always lose"
-          ]
+          "collocations": []
         },
         {
           "word": "loose",
@@ -24602,10 +24299,7 @@ export const courseData = [
           "vi": "Lỏng lẻo, rộng, không chật (Âm cuối là /s/, vần với 'juice').",
           "example": "These trousers are very loose.",
           "bucket": 2,
-          "collocations": [
-            "very loose",
-            "extremely loose"
-          ]
+          "collocations": []
         },
         {
           "word": "fell",
@@ -24614,10 +24308,7 @@ export const courseData = [
           "vi": "Đã ngã (Quá khứ của fall).",
           "example": "Yesterday I fell and broke my arm.",
           "bucket": 1,
-          "collocations": [
-            "fell something",
-            "always fell"
-          ]
+          "collocations": []
         },
         {
           "word": "felt",
@@ -24626,10 +24317,7 @@ export const courseData = [
           "vi": "Đã cảm thấy (Quá khứ của feel).",
           "example": "I felt ill yesterday, but I feel OK today.",
           "bucket": 2,
-          "collocations": [
-            "felt something",
-            "always felt"
-          ]
+          "collocations": []
         },
         {
           "word": "cooker",
@@ -24638,10 +24326,7 @@ export const courseData = [
           "vi": "Bếp lò (cái máy để nấu ăn).",
           "example": "This cooker costs £500.",
           "bucket": 1,
-          "collocations": [
-            "have a cooker",
-            "use cooker"
-          ]
+          "collocations": []
         },
         {
           "word": "cook",
@@ -24650,10 +24335,7 @@ export const courseData = [
           "vi": "Đầu bếp (người nấu ăn).",
           "example": "He is a very good cook. [NOT He is a very good cooker]",
           "bucket": 2,
-          "collocations": [
-            "have a cook",
-            "use cook"
-          ]
+          "collocations": []
         },
         {
           "word": "lend",
@@ -24662,10 +24344,7 @@ export const courseData = [
           "vi": "Cho mượn (bạn đưa cho ai đó).",
           "example": "Will you lend me your bicycle?",
           "bucket": 1,
-          "collocations": [
-            "lend something",
-            "always lend"
-          ]
+          "collocations": []
         },
         {
           "word": "borrow",
@@ -24674,10 +24353,7 @@ export const courseData = [
           "vi": "Đi mượn (bạn lấy từ ai đó).",
           "example": "Can I borrow your bicycle?",
           "bucket": 2,
-          "collocations": [
-            "borrow something",
-            "always borrow"
-          ]
+          "collocations": []
         },
         {
           "word": "check",
@@ -24686,10 +24362,7 @@ export const courseData = [
           "vi": "Kiểm tra, xem xét (xem có đúng/an toàn không).",
           "example": "The passport officer checked my passport.",
           "bucket": 1,
-          "collocations": [
-            "check something",
-            "always check"
-          ]
+          "collocations": []
         },
         {
           "word": "control",
@@ -24698,10 +24371,7 @@ export const courseData = [
           "vi": "Điều khiển, kiểm soát (bảo nó phải làm gì).",
           "example": "The mouse controls the computer. [NOT checked the computer]",
           "bucket": 2,
-          "collocations": [
-            "control something",
-            "always control"
-          ]
+          "collocations": []
         },
         {
           "word": "afternoon",
@@ -24710,10 +24380,7 @@ export const courseData = [
           "vi": "Buổi chiều (Khoảng từ 12h trưa đến 5-6h chiều).",
           "example": "I will see you in the afternoon.",
           "bucket": 1,
-          "collocations": [
-            "have a afternoon",
-            "use afternoon"
-          ]
+          "collocations": []
         },
         {
           "word": "evening",
@@ -24722,10 +24389,7 @@ export const courseData = [
           "vi": "Buổi tối (Khoảng 5-6h chiều đến 9-10h tối).",
           "example": "We watch TV in the evening.",
           "bucket": 2,
-          "collocations": [
-            "have a evening",
-            "use evening"
-          ]
+          "collocations": []
         },
         {
           "word": "night",
@@ -24734,10 +24398,7 @@ export const courseData = [
           "vi": "Đêm (Sau 9-10h tối).",
           "example": "I sleep at night.",
           "bucket": 1,
-          "collocations": [
-            "have a night",
-            "use night"
-          ]
+          "collocations": []
         },
         {
           "word": "wait for",
@@ -24755,10 +24416,7 @@ export const courseData = [
           "vi": "Hy vọng (bạn thực sự muốn điều đó xảy ra).",
           "example": "I hope I pass my exams.",
           "bucket": 1,
-          "collocations": [
-            "hope something",
-            "always hope"
-          ]
+          "collocations": []
         },
         {
           "word": "expect",
@@ -24767,10 +24425,7 @@ export const courseData = [
           "vi": "Nghĩ rằng điều gì sẽ xảy ra, dự kiến (dù có muốn hay không).",
           "example": "I have not studied; I expect I'll fail my exams.",
           "bucket": 2,
-          "collocations": [
-            "expect something",
-            "always expect"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -25645,10 +25300,7 @@ export const courseData = [
           "vi": "Được sinh ra.",
           "example": "He was born at 1.15 yesterday morning. / The parents were born in 1974.",
           "bucket": 2,
-          "collocations": [
-            "be born something",
-            "always be born"
-          ]
+          "collocations": []
         },
         {
           "word": "weigh",
@@ -25657,10 +25309,7 @@ export const courseData = [
           "vi": "Nặng (bao nhiêu cân).",
           "example": "The baby weighed 3 kilograms.",
           "bucket": 1,
-          "collocations": [
-            "weigh something",
-            "always weigh"
-          ]
+          "collocations": []
         },
         {
           "word": "call someone after...",
@@ -25678,10 +25327,7 @@ export const courseData = [
           "vi": "Độc thân (không có đối tác/vợ/chồng).",
           "example": "If you do not have a partner, you are single.",
           "bucket": 1,
-          "collocations": [
-            "very single",
-            "extremely single"
-          ]
+          "collocations": []
         },
         {
           "word": "married",
@@ -25690,10 +25336,7 @@ export const courseData = [
           "vi": "Đã kết hôn.",
           "example": "If you have a husband or wife, you are married.",
           "bucket": 2,
-          "collocations": [
-            "very married",
-            "extremely married"
-          ]
+          "collocations": []
         },
         {
           "word": "widowed",
@@ -25702,10 +25345,7 @@ export const courseData = [
           "vi": "Góa (chồng hoặc vợ đã mất).",
           "example": "If your husband or wife dies, you are widowed.",
           "bucket": 1,
-          "collocations": [
-            "very widowed",
-            "extremely widowed"
-          ]
+          "collocations": []
         },
         {
           "word": "separated / divorced",
@@ -25714,10 +25354,7 @@ export const courseData = [
           "vi": "Ly thân / Ly hôn.",
           "example": "If your marriage breaks up, you are separated/divorced.",
           "bucket": 2,
-          "collocations": [
-            "very separated / divorced",
-            "extremely separated / divorced"
-          ]
+          "collocations": []
         },
         {
           "word": "bride / (bride)groom",
@@ -25726,10 +25363,7 @@ export const courseData = [
           "vi": "Cô dâu / Chú rể.",
           "example": "The bride and groom looked very happy.",
           "bucket": 1,
-          "collocations": [
-            "have a bride / (bride)groom",
-            "use bride / (bride)groom"
-          ]
+          "collocations": []
         },
         {
           "word": "get married to",
@@ -25747,10 +25381,7 @@ export const courseData = [
           "vi": "Tuần trăng mật.",
           "example": "They went on honeymoon to Italy.",
           "bucket": 1,
-          "collocations": [
-            "have a honeymoon",
-            "use honeymoon"
-          ]
+          "collocations": []
         },
         {
           "word": "die",
@@ -25759,10 +25390,7 @@ export const courseData = [
           "vi": "Chết, qua đời (Hành động).",
           "example": "He died last year.",
           "bucket": 2,
-          "collocations": [
-            "die something",
-            "always die"
-          ]
+          "collocations": []
         },
         {
           "word": "die of",
@@ -25780,10 +25408,7 @@ export const courseData = [
           "vi": "Đã chết (Trạng thái).",
           "example": "Bill is dead.",
           "bucket": 2,
-          "collocations": [
-            "very dead",
-            "extremely dead"
-          ]
+          "collocations": []
         },
         {
           "word": "death",
@@ -25792,10 +25417,7 @@ export const courseData = [
           "vi": "Cái chết.",
           "example": "His death was a great shock.",
           "bucket": 1,
-          "collocations": [
-            "have a death",
-            "use death"
-          ]
+          "collocations": []
         },
         {
           "word": "funeral",
@@ -25804,10 +25426,7 @@ export const courseData = [
           "vi": "Đám tang.",
           "example": "Many people went to the funeral.",
           "bucket": 2,
-          "collocations": [
-            "have a funeral",
-            "use funeral"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -26590,10 +26209,7 @@ export const courseData = [
           "vi": "Chồng / Vợ.",
           "example": "Paul is Anne's husband and Anne is Paul's wife.",
           "bucket": 1,
-          "collocations": [
-            "have a husband / wife",
-            "use husband / wife"
-          ]
+          "collocations": []
         },
         {
           "word": "parents",
@@ -26602,10 +26218,7 @@ export const courseData = [
           "vi": "Cha mẹ (số nhiều).",
           "example": "Anne and Paul are Sarah and Jack's parents.",
           "bucket": 2,
-          "collocations": [
-            "have a parents",
-            "use parents"
-          ]
+          "collocations": []
         },
         {
           "word": "son / daughter",
@@ -26614,10 +26227,7 @@ export const courseData = [
           "vi": "Con trai / Con gái.",
           "example": "Sarah is Anne's daughter. Jack is her son.",
           "bucket": 1,
-          "collocations": [
-            "have a son / daughter",
-            "use son / daughter"
-          ]
+          "collocations": []
         },
         {
           "word": "brother / sister",
@@ -26626,10 +26236,7 @@ export const courseData = [
           "vi": "Anh/em trai / Chị/em gái.",
           "example": "Sarah is Jack's sister.",
           "bucket": 2,
-          "collocations": [
-            "have a brother / sister",
-            "use brother / sister"
-          ]
+          "collocations": []
         },
         {
           "word": "grandfather / grandmother",
@@ -26638,10 +26245,7 @@ export const courseData = [
           "vi": "Ông / Bà.",
           "example": "Henry is Sarah's grandfather.",
           "bucket": 1,
-          "collocations": [
-            "have a grandfather / grandmother",
-            "use grandfather / grandmother"
-          ]
+          "collocations": []
         },
         {
           "word": "grandparents",
@@ -26650,10 +26254,7 @@ export const courseData = [
           "vi": "Ông bà (nói chung).",
           "example": "Henry and Diana are Sarah's grandparents.",
           "bucket": 2,
-          "collocations": [
-            "have a grandparents",
-            "use grandparents"
-          ]
+          "collocations": []
         },
         {
           "word": "grandson / granddaughter",
@@ -26662,10 +26263,7 @@ export const courseData = [
           "vi": "Cháu trai / Cháu gái (của ông bà).",
           "example": "Sarah is Diana's granddaughter.",
           "bucket": 1,
-          "collocations": [
-            "have a grandson / granddaughter",
-            "use grandson / granddaughter"
-          ]
+          "collocations": []
         },
         {
           "word": "uncle",
@@ -26674,10 +26272,7 @@ export const courseData = [
           "vi": "Chú, bác trai, cậu, dượng.",
           "example": "John is Sarah's uncle.",
           "bucket": 2,
-          "collocations": [
-            "have a uncle",
-            "use uncle"
-          ]
+          "collocations": []
         },
         {
           "word": "aunt",
@@ -26686,10 +26281,7 @@ export const courseData = [
           "vi": "Cô, dì, thím, mợ, bác gái.",
           "example": "Amelia is Sarah's aunt.",
           "bucket": 1,
-          "collocations": [
-            "have a aunt",
-            "use aunt"
-          ]
+          "collocations": []
         },
         {
           "word": "nephew",
@@ -26698,10 +26290,7 @@ export const courseData = [
           "vi": "Cháu trai (con của anh/chị/em mình).",
           "example": "Jack is Amelia's nephew.",
           "bucket": 2,
-          "collocations": [
-            "have a nephew",
-            "use nephew"
-          ]
+          "collocations": []
         },
         {
           "word": "niece",
@@ -26710,10 +26299,7 @@ export const courseData = [
           "vi": "Cháu gái (con của anh/chị/em mình).",
           "example": "Sarah is John's niece.",
           "bucket": 1,
-          "collocations": [
-            "have a niece",
-            "use niece"
-          ]
+          "collocations": []
         },
         {
           "word": "cousin",
@@ -26722,10 +26308,7 @@ export const courseData = [
           "vi": "Anh chị em họ (con của chú/dì...).",
           "example": "Emily and Peter are Sarah's cousins.",
           "bucket": 2,
-          "collocations": [
-            "have a cousin",
-            "use cousin"
-          ]
+          "collocations": []
         },
         {
           "word": "relatives / relations",
@@ -26734,10 +26317,7 @@ export const courseData = [
           "vi": "Họ hàng nói chung.",
           "example": "They are my relatives.",
           "bucket": 1,
-          "collocations": [
-            "have a relatives / relations",
-            "use relatives / relations"
-          ]
+          "collocations": []
         },
         {
           "word": "mother-in-law",
@@ -26746,10 +26326,7 @@ export const courseData = [
           "vi": "Mẹ vợ / Mẹ chồng.",
           "example": "Mrs Scott is Paul's mother-in-law.",
           "bucket": 2,
-          "collocations": [
-            "have a mother-in-law",
-            "use mother-in-law"
-          ]
+          "collocations": []
         },
         {
           "word": "brother-in-law",
@@ -26758,10 +26335,7 @@ export const courseData = [
           "vi": "Anh/em rể, anh/em vợ.",
           "example": "Howard is George's brother-in-law.",
           "bucket": 1,
-          "collocations": [
-            "have a brother-in-law",
-            "use brother-in-law"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -27546,10 +27120,7 @@ export const courseData = [
           "vi": "Tóc / Tai / Mắt.",
           "example": "She has long hair and blue eyes.",
           "bucket": 1,
-          "collocations": [
-            "have a hair / ear / eye",
-            "use hair / ear / eye"
-          ]
+          "collocations": []
         },
         {
           "word": "nose / mouth / lip",
@@ -27558,10 +27129,7 @@ export const courseData = [
           "vi": "Mũi / Miệng / Môi.",
           "example": "You smell with your nose.",
           "bucket": 2,
-          "collocations": [
-            "have a nose / mouth / lip",
-            "use nose / mouth / lip"
-          ]
+          "collocations": []
         },
         {
           "word": "tooth (plural: teeth)",
@@ -27570,10 +27138,7 @@ export const courseData = [
           "vi": "Cái răng (Số nhiều: những cái răng).",
           "example": "An adult has 32 teeth.",
           "bucket": 1,
-          "collocations": [
-            "have a tooth (plural: teeth)",
-            "use tooth (plural: teeth)"
-          ]
+          "collocations": []
         },
         {
           "word": "neck",
@@ -27582,10 +27147,7 @@ export const courseData = [
           "vi": "Cái cổ.",
           "example": "A giraffe has a very long neck.",
           "bucket": 2,
-          "collocations": [
-            "have a neck",
-            "use neck"
-          ]
+          "collocations": []
         },
         {
           "word": "shoulder / arm",
@@ -27594,10 +27156,7 @@ export const courseData = [
           "vi": "Bờ vai / Cánh tay.",
           "example": "He has broad shoulders.",
           "bucket": 1,
-          "collocations": [
-            "have a shoulder / arm",
-            "use shoulder / arm"
-          ]
+          "collocations": []
         },
         {
           "word": "hand / finger / thumb",
@@ -27606,10 +27165,7 @@ export const courseData = [
           "vi": "Bàn tay / Ngón tay / Ngón cái (Lưu ý: chữ 'b' trong thumb bị câm).",
           "example": "A hand has four fingers and one thumb.",
           "bucket": 2,
-          "collocations": [
-            "have a hand / finger / thumb",
-            "use hand / finger / thumb"
-          ]
+          "collocations": []
         },
         {
           "word": "nail",
@@ -27618,10 +27174,7 @@ export const courseData = [
           "vi": "Móng tay/chân.",
           "example": "She is painting her nails.",
           "bucket": 1,
-          "collocations": [
-            "have a nail",
-            "use nail"
-          ]
+          "collocations": []
         },
         {
           "word": "leg / knee",
@@ -27630,10 +27183,7 @@ export const courseData = [
           "vi": "Cái chân / Đầu gối (Lưu ý: chữ 'k' trong knee bị câm).",
           "example": "I have a pain in my knee.",
           "bucket": 2,
-          "collocations": [
-            "have a leg / knee",
-            "use leg / knee"
-          ]
+          "collocations": []
         },
         {
           "word": "foot (plural: feet)",
@@ -27642,10 +27192,7 @@ export const courseData = [
           "vi": "Bàn chân (Số nhiều: những bàn chân).",
           "example": "A foot has five toes.",
           "bucket": 1,
-          "collocations": [
-            "have a foot (plural: feet)",
-            "use foot (plural: feet)"
-          ]
+          "collocations": []
         },
         {
           "word": "toe",
@@ -27654,10 +27201,7 @@ export const courseData = [
           "vi": "Ngón chân.",
           "example": "I hurt my big toe.",
           "bucket": 2,
-          "collocations": [
-            "have a toe",
-            "use toe"
-          ]
+          "collocations": []
         },
         {
           "word": "chest / bust",
@@ -27666,10 +27210,7 @@ export const courseData = [
           "vi": "Ngực / Vòng một (chỉ dùng cho nữ).",
           "example": "He crossed his arms over his chest.",
           "bucket": 1,
-          "collocations": [
-            "have a chest / bust",
-            "use chest / bust"
-          ]
+          "collocations": []
         },
         {
           "word": "stomach / back",
@@ -27678,10 +27219,7 @@ export const courseData = [
           "vi": "Bụng / Cái lưng.",
           "example": "My stomach hurts.",
           "bucket": 2,
-          "collocations": [
-            "have a stomach / back",
-            "use stomach / back"
-          ]
+          "collocations": []
         },
         {
           "word": "waist / hips",
@@ -27690,10 +27228,7 @@ export const courseData = [
           "vi": "Eo / Hông.",
           "example": "She put her hands on her hips.",
           "bucket": 1,
-          "collocations": [
-            "have a waist / hips",
-            "use waist / hips"
-          ]
+          "collocations": []
         },
         {
           "word": "skin",
@@ -27702,10 +27237,7 @@ export const courseData = [
           "vi": "Làn da.",
           "example": "He has dark skin.",
           "bucket": 2,
-          "collocations": [
-            "have a skin",
-            "use skin"
-          ]
+          "collocations": []
         },
         {
           "word": "heart / brain / blood",
@@ -27714,10 +27246,7 @@ export const courseData = [
           "vi": "Trái tim / Não / Máu.",
           "example": "The heart is a symbol of love.",
           "bucket": 1,
-          "collocations": [
-            "have a heart / brain / blood",
-            "use heart / brain / blood"
-          ]
+          "collocations": []
         },
         {
           "word": "Pronunciation notes",
@@ -28517,10 +28046,7 @@ export const courseData = [
           "vi": "Áo sơ mi / Áo thun.",
           "example": "He is wearing a white shirt.",
           "bucket": 1,
-          "collocations": [
-            "have a shirt / T-shirt",
-            "use shirt / T-shirt"
-          ]
+          "collocations": []
         },
         {
           "word": "sweater / jumper",
@@ -28529,10 +28055,7 @@ export const courseData = [
           "vi": "Áo len (dài tay).",
           "example": "It's cold, put your sweater on.",
           "bucket": 2,
-          "collocations": [
-            "have a sweater / jumper",
-            "use sweater / jumper"
-          ]
+          "collocations": []
         },
         {
           "word": "coat / jacket",
@@ -28541,10 +28064,7 @@ export const courseData = [
           "vi": "Áo khoác dài / Áo khoác ngắn.",
           "example": "She is wearing a red coat.",
           "bucket": 1,
-          "collocations": [
-            "have a coat / jacket",
-            "use coat / jacket"
-          ]
+          "collocations": []
         },
         {
           "word": "skirt / dress",
@@ -28553,10 +28073,7 @@ export const courseData = [
           "vi": "Chân váy / Váy liền thân.",
           "example": "That is a beautiful dress.",
           "bucket": 2,
-          "collocations": [
-            "have a skirt / dress",
-            "use skirt / dress"
-          ]
+          "collocations": []
         },
         {
           "word": "shoes / trainers / boots",
@@ -28565,10 +28082,7 @@ export const courseData = [
           "vi": "Giày / Giày thể thao / Giày bốt.",
           "example": "I need a new pair of trainers.",
           "bucket": 1,
-          "collocations": [
-            "have a shoes / trainers / boots",
-            "use shoes / trainers / boots"
-          ]
+          "collocations": []
         },
         {
           "word": "tie / belt / hat / scarf",
@@ -28577,10 +28091,7 @@ export const courseData = [
           "vi": "Cà vạt / Thắt lưng / Mũ / Khăn quàng cổ.",
           "example": "He is wearing a suit and a tie.",
           "bucket": 2,
-          "collocations": [
-            "have a tie / belt / hat / scarf",
-            "use tie / belt / hat / scarf"
-          ]
+          "collocations": []
         },
         {
           "word": "watch / ring / gloves",
@@ -28589,10 +28100,7 @@ export const courseData = [
           "vi": "Đồng hồ đeo tay / Nhẫn / Găng tay.",
           "example": "She wears a gold ring.",
           "bucket": 1,
-          "collocations": [
-            "have a watch / ring / gloves",
-            "use watch / ring / gloves"
-          ]
+          "collocations": []
         },
         {
           "word": "trousers / jeans / shorts",
@@ -28601,10 +28109,7 @@ export const courseData = [
           "vi": "Quần dài / Quần jeans / Quần đùi (Luôn có 's' và đi với động từ số nhiều).",
           "example": "My trousers are old.",
           "bucket": 2,
-          "collocations": [
-            "have a trousers / jeans / shorts",
-            "use trousers / jeans / shorts"
-          ]
+          "collocations": []
         },
         {
           "word": "tights",
@@ -28613,10 +28118,7 @@ export const courseData = [
           "vi": "Quần tất (ôm sát).",
           "example": "Her tights are blue.",
           "bucket": 1,
-          "collocations": [
-            "have a tights",
-            "use tights"
-          ]
+          "collocations": []
         },
         {
           "word": "glasses / sunglasses",
@@ -28625,10 +28127,7 @@ export const courseData = [
           "vi": "Kính mắt / Kính râm.",
           "example": "Where are my glasses?",
           "bucket": 2,
-          "collocations": [
-            "have a glasses / sunglasses",
-            "use glasses / sunglasses"
-          ]
+          "collocations": []
         },
         {
           "word": "a pair of...",
@@ -28646,10 +28145,7 @@ export const courseData = [
           "vi": "Mặc, đội, đeo (trên cơ thể). [KHÔNG DÙNG 'use clothes'].",
           "example": "Naomi is wearing a long red coat.",
           "bucket": 2,
-          "collocations": [
-            "wear something",
-            "always wear"
-          ]
+          "collocations": []
         },
         {
           "word": "carry",
@@ -28658,10 +28154,7 @@ export const courseData = [
           "vi": "Mang, xách, cầm (bằng tay).",
           "example": "She's carrying a suitcase and a handbag.",
           "bucket": 1,
-          "collocations": [
-            "carry something",
-            "always carry"
-          ]
+          "collocations": []
         },
         {
           "word": "have (got) on",
@@ -29431,10 +28924,7 @@ export const courseData = [
           "vi": "Cao / Thấp. [KHÔNG DÙNG: high / low].",
           "example": "Mary is a very tall woman. Tom is quite short.",
           "bucket": 1,
-          "collocations": [
-            "very tall / short",
-            "extremely tall / short"
-          ]
+          "collocations": []
         },
         {
           "word": "medium height",
@@ -29443,10 +28933,7 @@ export const courseData = [
           "vi": "Chiều cao trung bình.",
           "example": "If you aren't tall or short, you are medium height.",
           "bucket": 2,
-          "collocations": [
-            "very medium height",
-            "extremely medium height"
-          ]
+          "collocations": []
         },
         {
           "word": "How tall...?",
@@ -29464,10 +28951,7 @@ export const courseData = [
           "vi": "Mảnh mai / Gầy ốm (Thin mang nghĩa tiêu cực hơn).",
           "example": "Dolly is really slim. I was very thin when I was in hospital.",
           "bucket": 2,
-          "collocations": [
-            "very slim / thin",
-            "extremely slim / thin"
-          ]
+          "collocations": []
         },
         {
           "word": "fat / overweight",
@@ -29476,10 +28960,7 @@ export const courseData = [
           "vi": "Béo / Thừa cân (Overweight lịch sự hơn fat).",
           "example": "The doctor said I am overweight.",
           "bucket": 1,
-          "collocations": [
-            "very fat / overweight",
-            "extremely fat / overweight"
-          ]
+          "collocations": []
         },
         {
           "word": "How much do you weigh?",
@@ -29497,10 +28978,7 @@ export const courseData = [
           "vi": "Da ngăm đen / Da trắng sáng.",
           "example": "Sally has dark skin. Polly has fair skin.",
           "bucket": 1,
-          "collocations": [
-            "very dark / fair skin",
-            "extremely dark / fair skin"
-          ]
+          "collocations": []
         },
         {
           "word": "blonde (fair) hair",
@@ -29509,10 +28987,7 @@ export const courseData = [
           "vi": "Tóc vàng.",
           "example": "Polly has blonde hair.",
           "bucket": 2,
-          "collocations": [
-            "very blonde (fair) hair",
-            "extremely blonde (fair) hair"
-          ]
+          "collocations": []
         },
         {
           "word": "beard / moustache",
@@ -29521,10 +28996,7 @@ export const courseData = [
           "vi": "Râu quai nón / Râu mép.",
           "example": "Harry has a moustache and Billy has a beard.",
           "bucket": 1,
-          "collocations": [
-            "have a beard / moustache",
-            "use beard / moustache"
-          ]
+          "collocations": []
         },
         {
           "word": "has got",
@@ -29542,10 +29014,7 @@ export const courseData = [
           "vi": "Trẻ / Già.",
           "example": "My sister is 14. She's young.",
           "bucket": 1,
-          "collocations": [
-            "very young / old",
-            "extremely young / old"
-          ]
+          "collocations": []
         },
         {
           "word": "middle-aged",
@@ -29554,10 +29023,7 @@ export const courseData = [
           "vi": "Tuổi trung niên.",
           "example": "My father is 56. He's middle-aged.",
           "bucket": 2,
-          "collocations": [
-            "very middle-aged",
-            "extremely middle-aged"
-          ]
+          "collocations": []
         },
         {
           "word": "elderly",
@@ -29566,10 +29032,7 @@ export const courseData = [
           "vi": "Người cao tuổi (Lịch sự hơn 'old').",
           "example": "This hospital is for elderly people.",
           "bucket": 1,
-          "collocations": [
-            "very elderly",
-            "extremely elderly"
-          ]
+          "collocations": []
         },
         {
           "word": "pretty / beautiful",
@@ -29578,10 +29041,7 @@ export const courseData = [
           "vi": "Khá xinh / Rất đẹp (thường chỉ dùng cho phái nữ).",
           "example": "My sister is quite pretty.",
           "bucket": 2,
-          "collocations": [
-            "very pretty / beautiful",
-            "extremely pretty / beautiful"
-          ]
+          "collocations": []
         },
         {
           "word": "handsome",
@@ -29590,10 +29050,7 @@ export const courseData = [
           "vi": "Đẹp trai (thường chỉ dùng cho phái nam).",
           "example": "Jim's a very handsome man.",
           "bucket": 1,
-          "collocations": [
-            "very handsome",
-            "extremely handsome"
-          ]
+          "collocations": []
         },
         {
           "word": "ugly",
@@ -29602,10 +29059,7 @@ export const courseData = [
           "vi": "Xấu xí.",
           "example": "Bob's a rather ugly man.",
           "bucket": 2,
-          "collocations": [
-            "very ugly",
-            "extremely ugly"
-          ]
+          "collocations": []
         },
         {
           "word": "ordinary-looking",
@@ -29614,10 +29068,7 @@ export const courseData = [
           "vi": "Trông bình thường (không đẹp cũng không xấu).",
           "example": "I'm just ordinary-looking.",
           "bucket": 1,
-          "collocations": [
-            "very ordinary-looking",
-            "extremely ordinary-looking"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [

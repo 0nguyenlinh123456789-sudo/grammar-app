@@ -1,7 +1,14 @@
 # BẢNG ĐỐI CHIẾU — NỘI DUNG NHÂN TỪ KHUÔN TRONG GIÁO TRÌNH OXFORD
 
 > Lập 2026-08-16 khi mở việc 5.1 (bù độ dày sách Oxford Advanced).
-> **Chưa xoá gì.** Đây là bảng để bạn duyệt.
+> ~~**Chưa xoá gì.** Đây là bảng để bạn duyệt.~~
+> ✅ **ĐÃ CHỐT 2026-08-17 — chủ dự án giao tự quyết. Làm CẢ A VÀ B, không chọn một.**
+> **A đã xong**: xoá 1.868 cụm nhân từ khuôn (elementary 592 · advanced 1.276), giữ 19 cụm thật.
+> `scripts/strip_oxford_templates.mjs` · bất biến băm ở `tests/oxford_colloc.test.js` chứng minh
+> đợt xoá **chỉ đụng vào mảng `collocations`**, không đụng một ký tự nào ở quiz/theory/bài tập.
+> **B làm ở commit riêng** — vì bất biến của A băm mọi thứ ngoài `collocations`, nên sửa chuỗi `q`
+> của B lập tức làm A đỏ. Đó là bất biến làm đúng việc của nó: hai đợt sửa, hai commit, hai bảng băm.
+> **C bị loại**: giữ nguyên nghĩa là tiếp tục dạy `use noun`, `very adjective` cho người học B2–C1.
 > Đo lại bất cứ lúc nào: `node scripts/audit_oxford_templates.mjs`
 
 ## Vì sao có bảng này

@@ -15,10 +15,7 @@ export const courseData26_50 = [
           "vi": "thái độ hờ hững/dốt nát về nghệ thuật",
           "example": "He accused the town council of cultural philistinism.",
           "bucket": 1,
-          "collocations": [
-            "important philistinism",
-            "philistinism system"
-          ]
+          "collocations": []
         },
         {
           "word": "impenetrable",
@@ -27,10 +24,7 @@ export const courseData26_50 = [
           "vi": "khó hiểu, không thể xuyên thấu",
           "example": "Some abstract paintings are completely impenetrable to me.",
           "bucket": 1,
-          "collocations": [
-            "highly impenetrable",
-            "extremely impenetrable"
-          ]
+          "collocations": []
         },
         {
           "word": "tongue-in-cheek",
@@ -39,10 +33,7 @@ export const courseData26_50 = [
           "vi": "có tính châm biếm, mỉa mai",
           "example": "The artist made a tongue-in-cheek comment about modern society.",
           "bucket": 2,
-          "collocations": [
-            "highly tongue-in-cheek",
-            "extremely tongue-in-cheek"
-          ]
+          "collocations": []
         },
         {
           "word": "transparent",
@@ -51,10 +42,7 @@ export const courseData26_50 = [
           "vi": "trong suốt, dễ hiểu",
           "example": "Her meaning is perfectly transparent in this sculpture.",
           "bucket": 1,
-          "collocations": [
-            "highly transparent",
-            "extremely transparent"
-          ]
+          "collocations": []
         },
         {
           "word": "evocative",
@@ -63,10 +51,7 @@ export const courseData26_50 = [
           "vi": "gợi lên ký ức, cảm xúc mạnh mẽ",
           "example": "The landscape painting is highly evocative of the countryside.",
           "bucket": 2,
-          "collocations": [
-            "highly evocative",
-            "extremely evocative"
-          ]
+          "collocations": []
         },
         {
           "word": "highbrow",
@@ -75,10 +60,7 @@ export const courseData26_50 = [
           "vi": "có tính học thuật cao, kén người xem",
           "example": "It was a very highbrow exhibition intended for critics.",
           "bucket": 2,
-          "collocations": [
-            "highly highbrow",
-            "extremely highbrow"
-          ]
+          "collocations": []
         },
         {
           "word": "dazzling",
@@ -87,10 +69,7 @@ export const courseData26_50 = [
           "vi": "sáng chói, lộng lẫy",
           "example": "The use of colors in this mural is simply dazzling.",
           "bucket": 2,
-          "collocations": [
-            "highly dazzling",
-            "extremely dazzling"
-          ]
+          "collocations": []
         },
         {
           "word": "canvas",
@@ -99,10 +78,7 @@ export const courseData26_50 = [
           "vi": "tấm vải bạt (để vẽ tranh)",
           "example": "The painter stared at the blank canvas.",
           "bucket": 1,
-          "collocations": [
-            "important canvas",
-            "canvas system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -478,10 +454,7 @@ export const courseData26_50 = [
           "vi": "sử biên niên, ký sự",
           "example": "The book is a fascinating chronicle of the war.",
           "bucket": 1,
-          "collocations": [
-            "important chronicle",
-            "chronicle system"
-          ]
+          "collocations": []
         },
         {
           "word": "memoirs",
@@ -490,10 +463,7 @@ export const courseData26_50 = [
           "vi": "hồi ký",
           "example": "The former president published his memoirs last year.",
           "bucket": 1,
-          "collocations": [
-            "important memoirs",
-            "memoirs system"
-          ]
+          "collocations": []
         },
         {
           "word": "compulsive reading",
@@ -511,10 +481,7 @@ export const courseData26_50 = [
           "vi": "tuyển tập (thơ, truyện ngắn)",
           "example": "She edited an anthology of modern poetry.",
           "bucket": 1,
-          "collocations": [
-            "important anthology",
-            "anthology system"
-          ]
+          "collocations": []
         },
         {
           "word": "encyclopedia",
@@ -523,10 +490,7 @@ export const courseData26_50 = [
           "vi": "bách khoa toàn thư",
           "example": "He learned everything by reading a giant encyclopedia.",
           "bucket": 1,
-          "collocations": [
-            "important encyclopedia",
-            "encyclopedia system"
-          ]
+          "collocations": []
         },
         {
           "word": "unputdownable",
@@ -535,10 +499,7 @@ export const courseData26_50 = [
           "vi": "hấp dẫn đến mức không thể bỏ xuống",
           "example": "It's an unputdownable story full of suspense.",
           "bucket": 2,
-          "collocations": [
-            "highly unputdownable",
-            "extremely unputdownable"
-          ]
+          "collocations": []
         },
         {
           "word": "page-turner",
@@ -547,10 +508,7 @@ export const courseData26_50 = [
           "vi": "cuốn sách rất hấp dẫn",
           "example": "Stephen King's new book is a real page-turner.",
           "bucket": 2,
-          "collocations": [
-            "important page-turner",
-            "page-turner system"
-          ]
+          "collocations": []
         },
         {
           "word": "prologue",
@@ -559,10 +517,7 @@ export const courseData26_50 = [
           "vi": "phần mở đầu (của một cuốn sách)",
           "example": "The prologue sets the dark tone for the entire story.",
           "bucket": 1,
-          "collocations": [
-            "important prologue",
-            "prologue system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -938,10 +893,7 @@ export const courseData26_50 = [
           "vi": "lành mạnh, tốt cho sức khỏe",
           "example": "We try to eat fresh and wholesome food.",
           "bucket": 1,
-          "collocations": [
-            "highly wholesome",
-            "extremely wholesome"
-          ]
+          "collocations": []
         },
         {
           "word": "GM",
@@ -950,10 +902,7 @@ export const courseData26_50 = [
           "vi": "thực phẩm biến đổi gen (Genetically Modified)",
           "example": "Many people are concerned about the effects of GM crops.",
           "bucket": 2,
-          "collocations": [
-            "important GM",
-            "GM system"
-          ]
+          "collocations": []
         },
         {
           "word": "unsavoury",
@@ -962,10 +911,7 @@ export const courseData26_50 = [
           "vi": "khó chịu, có mùi vị không ngon / đáng ngờ",
           "example": "The meat had an unsavoury smell.",
           "bucket": 2,
-          "collocations": [
-            "highly unsavoury",
-            "extremely unsavoury"
-          ]
+          "collocations": []
         },
         {
           "word": "additives",
@@ -974,10 +920,7 @@ export const courseData26_50 = [
           "vi": "chất phụ gia",
           "example": "This juice is free from artificial additives.",
           "bucket": 2,
-          "collocations": [
-            "important additives",
-            "additives system"
-          ]
+          "collocations": []
         },
         {
           "word": "organic",
@@ -986,10 +929,7 @@ export const courseData26_50 = [
           "vi": "hữu cơ",
           "example": "Organic farming is better for the environment.",
           "bucket": 1,
-          "collocations": [
-            "highly organic",
-            "extremely organic"
-          ]
+          "collocations": []
         },
         {
           "word": "vegan",
@@ -998,10 +938,7 @@ export const courseData26_50 = [
           "vi": "người ăn thuần chay",
           "example": "As a vegan, he does not eat dairy or eggs.",
           "bucket": 1,
-          "collocations": [
-            "important vegan",
-            "vegan system"
-          ]
+          "collocations": []
         },
         {
           "word": "cholesterol",
@@ -1010,10 +947,7 @@ export const courseData26_50 = [
           "vi": "chất béo trong máu",
           "example": "Eating too much saturated fat raises your cholesterol.",
           "bucket": 2,
-          "collocations": [
-            "important cholesterol",
-            "cholesterol system"
-          ]
+          "collocations": []
         },
         {
           "word": "stale",
@@ -1022,10 +956,7 @@ export const courseData26_50 = [
           "vi": "ôi thiu, cũ (bánh mì, thức ăn)",
           "example": "The bread has gone completely stale.",
           "bucket": 2,
-          "collocations": [
-            "highly stale",
-            "extremely stale"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -1410,10 +1341,7 @@ export const courseData26_50 = [
           "vi": "có ý thức kiểm soát lượng calo",
           "example": "She is very calorie-conscious and always orders a salad.",
           "bucket": 1,
-          "collocations": [
-            "highly calorie-conscious",
-            "extremely calorie-conscious"
-          ]
+          "collocations": []
         },
         {
           "word": "teetotal",
@@ -1422,10 +1350,7 @@ export const courseData26_50 = [
           "vi": "hoàn toàn không uống rượu",
           "example": "My grandfather has been teetotal his whole life.",
           "bucket": 1,
-          "collocations": [
-            "highly teetotal",
-            "extremely teetotal"
-          ]
+          "collocations": []
         },
         {
           "word": "on me",
@@ -1443,10 +1368,7 @@ export const courseData26_50 = [
           "vi": "cao cấp, sành ăn",
           "example": "We went to a fancy gourmet restaurant for our anniversary.",
           "bucket": 2,
-          "collocations": [
-            "highly gourmet",
-            "extremely gourmet"
-          ]
+          "collocations": []
         },
         {
           "word": "portion",
@@ -1455,10 +1377,7 @@ export const courseData26_50 = [
           "vi": "khẩu phần ăn",
           "example": "The restaurant serves huge portions of pasta.",
           "bucket": 2,
-          "collocations": [
-            "important portion",
-            "portion system"
-          ]
+          "collocations": []
         },
         {
           "word": "appetite",
@@ -1467,10 +1386,7 @@ export const courseData26_50 = [
           "vi": "sự thèm ăn, cảm giác ngon miệng",
           "example": "The long walk gave me a huge appetite.",
           "bucket": 1,
-          "collocations": [
-            "important appetite",
-            "appetite system"
-          ]
+          "collocations": []
         },
         {
           "word": "digest",
@@ -1479,10 +1395,7 @@ export const courseData26_50 = [
           "vi": "tiêu hóa",
           "example": "It takes hours to digest a heavy meal.",
           "bucket": 2,
-          "collocations": [
-            "digest effectively",
-            "must digest"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -1849,10 +1762,7 @@ export const courseData26_50 = [
           "vi": "tai nạn đâm xe rồi bỏ chạy",
           "example": "The police are looking for the driver in a hit-and-run accident.",
           "bucket": 1,
-          "collocations": [
-            "important hit-and-run",
-            "hit-and-run system"
-          ]
+          "collocations": []
         },
         {
           "word": "road rage",
@@ -1870,10 +1780,7 @@ export const courseData26_50 = [
           "vi": "hàng dài xe cộ ùn tắc",
           "example": "There is a massive tailback on the highway due to a crash.",
           "bucket": 1,
-          "collocations": [
-            "important tailback",
-            "tailback system"
-          ]
+          "collocations": []
         },
         {
           "word": "toll",
@@ -1882,10 +1789,7 @@ export const courseData26_50 = [
           "vi": "phí cầu đường",
           "example": "You have to pay a toll to cross the bridge.",
           "bucket": 2,
-          "collocations": [
-            "important toll",
-            "toll system"
-          ]
+          "collocations": []
         },
         {
           "word": "pedestrian",
@@ -1894,10 +1798,7 @@ export const courseData26_50 = [
           "vi": "người đi bộ",
           "example": "Drivers must stop for pedestrians at the crossing.",
           "bucket": 2,
-          "collocations": [
-            "important pedestrian",
-            "pedestrian system"
-          ]
+          "collocations": []
         },
         {
           "word": "junction",
@@ -1906,10 +1807,7 @@ export const courseData26_50 = [
           "vi": "giao lộ, ngã tư",
           "example": "Turn left at the next major junction.",
           "bucket": 2,
-          "collocations": [
-            "important junction",
-            "junction system"
-          ]
+          "collocations": []
         },
         {
           "word": "overtake",
@@ -1918,10 +1816,7 @@ export const courseData26_50 = [
           "vi": "vượt qua (xe khác)",
           "example": "It is dangerous to overtake on a sharp curve.",
           "bucket": 2,
-          "collocations": [
-            "overtake effectively",
-            "must overtake"
-          ]
+          "collocations": []
         },
         {
           "word": "commuter",
@@ -1930,10 +1825,7 @@ export const courseData26_50 = [
           "vi": "người đi làm xa (bằng xe cộ mỗi ngày)",
           "example": "The train was packed with angry commuters.",
           "bucket": 2,
-          "collocations": [
-            "important commuter",
-            "commuter system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -2291,10 +2183,7 @@ export const courseData26_50 = [
           "vi": "cực kỳ sang trọng (hạng sang)",
           "example": "We booked a deluxe suite at the hotel.",
           "bucket": 2,
-          "collocations": [
-            "highly deluxe",
-            "extremely deluxe"
-          ]
+          "collocations": []
         },
         {
           "word": "charter",
@@ -2303,10 +2192,7 @@ export const courseData26_50 = [
           "vi": "thuê trọn gói (máy bay, tàu)",
           "example": "The wealthy businessman decided to charter a private jet.",
           "bucket": 1,
-          "collocations": [
-            "charter effectively",
-            "must charter"
-          ]
+          "collocations": []
         },
         {
           "word": "half-board",
@@ -2315,10 +2201,7 @@ export const courseData26_50 = [
           "vi": "dịch vụ thuê phòng kèm 2 bữa ăn",
           "example": "Our hotel package includes half-board.",
           "bucket": 2,
-          "collocations": [
-            "important half-board",
-            "half-board system"
-          ]
+          "collocations": []
         },
         {
           "word": "itinerary",
@@ -2327,10 +2210,7 @@ export const courseData26_50 = [
           "vi": "lịch trình chuyến đi",
           "example": "Our travel agent gave us a very strict itinerary.",
           "bucket": 1,
-          "collocations": [
-            "important itinerary",
-            "itinerary system"
-          ]
+          "collocations": []
         },
         {
           "word": "layover",
@@ -2339,10 +2219,7 @@ export const courseData26_50 = [
           "vi": "thời gian quá cảnh",
           "example": "We had a three-hour layover in Dubai.",
           "bucket": 1,
-          "collocations": [
-            "important layover",
-            "layover system"
-          ]
+          "collocations": []
         },
         {
           "word": "suite",
@@ -2351,10 +2228,7 @@ export const courseData26_50 = [
           "vi": "phòng thượng hạng",
           "example": "The president stayed in the luxury suite.",
           "bucket": 2,
-          "collocations": [
-            "important suite",
-            "suite system"
-          ]
+          "collocations": []
         },
         {
           "word": "jet lag",
@@ -2372,10 +2246,7 @@ export const courseData26_50 = [
           "vi": "đi nhờ xe",
           "example": "They decided to hitchhike across Europe to save money.",
           "bucket": 1,
-          "collocations": [
-            "hitchhike effectively",
-            "must hitchhike"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -2760,10 +2631,7 @@ export const courseData26_50 = [
           "vi": "du lịch sinh thái",
           "example": "Costa Rica is famous for its sustainable eco-tourism.",
           "bucket": 1,
-          "collocations": [
-            "important eco-tourism",
-            "eco-tourism system"
-          ]
+          "collocations": []
         },
         {
           "word": "discerning",
@@ -2772,10 +2640,7 @@ export const courseData26_50 = [
           "vi": "sành sỏi, có con mắt tinh đời",
           "example": "This luxury resort attracts the most discerning travelers.",
           "bucket": 2,
-          "collocations": [
-            "highly discerning",
-            "extremely discerning"
-          ]
+          "collocations": []
         },
         {
           "word": "unspoilt",
@@ -2784,10 +2649,7 @@ export const courseData26_50 = [
           "vi": "hoang sơ, chưa bị phá hủy",
           "example": "We visited an island with beautiful, unspoilt beaches.",
           "bucket": 1,
-          "collocations": [
-            "highly unspoilt",
-            "extremely unspoilt"
-          ]
+          "collocations": []
         },
         {
           "word": "breathtaking",
@@ -2796,10 +2658,7 @@ export const courseData26_50 = [
           "vi": "đẹp ngoạn mục",
           "example": "The view from the top of the mountain was breathtaking.",
           "bucket": 1,
-          "collocations": [
-            "highly breathtaking",
-            "extremely breathtaking"
-          ]
+          "collocations": []
         },
         {
           "word": "overcrowded",
@@ -2808,10 +2667,7 @@ export const courseData26_50 = [
           "vi": "chật ních người",
           "example": "The famous museums were incredibly overcrowded in summer.",
           "bucket": 2,
-          "collocations": [
-            "highly overcrowded",
-            "extremely overcrowded"
-          ]
+          "collocations": []
         },
         {
           "word": "souvenir",
@@ -2820,10 +2676,7 @@ export const courseData26_50 = [
           "vi": "đồ lưu niệm",
           "example": "I bought a small wooden elephant as a souvenir.",
           "bucket": 2,
-          "collocations": [
-            "important souvenir",
-            "souvenir system"
-          ]
+          "collocations": []
         },
         {
           "word": "heritage",
@@ -2832,10 +2685,7 @@ export const courseData26_50 = [
           "vi": "di sản",
           "example": "The old castle is recognized as a world heritage site.",
           "bucket": 1,
-          "collocations": [
-            "important heritage",
-            "heritage system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -3220,10 +3070,7 @@ export const courseData26_50 = [
           "vi": "thảo nguyên, đồng cỏ rộng lớn",
           "example": "Wild buffalo used to roam across the American prairies.",
           "bucket": 1,
-          "collocations": [
-            "important prairies",
-            "prairies system"
-          ]
+          "collocations": []
         },
         {
           "word": "migrant",
@@ -3232,10 +3079,7 @@ export const courseData26_50 = [
           "vi": "người di cư (tìm việc/sống)",
           "example": "Millions of economic migrants leave their countries each year.",
           "bucket": 2,
-          "collocations": [
-            "important migrant",
-            "migrant system"
-          ]
+          "collocations": []
         },
         {
           "word": "glacier",
@@ -3244,10 +3088,7 @@ export const courseData26_50 = [
           "vi": "sông băng",
           "example": "The massive glacier is melting due to global warming.",
           "bucket": 1,
-          "collocations": [
-            "important glacier",
-            "glacier system"
-          ]
+          "collocations": []
         },
         {
           "word": "peninsula",
@@ -3256,10 +3097,7 @@ export const courseData26_50 = [
           "vi": "bán đảo",
           "example": "Korea is located on a peninsula in East Asia.",
           "bucket": 1,
-          "collocations": [
-            "important peninsula",
-            "peninsula system"
-          ]
+          "collocations": []
         },
         {
           "word": "desertification",
@@ -3268,10 +3106,7 @@ export const courseData26_50 = [
           "vi": "sự sa mạc hóa",
           "example": "Deforestation leads to rapid desertification.",
           "bucket": 1,
-          "collocations": [
-            "important desertification",
-            "desertification system"
-          ]
+          "collocations": []
         },
         {
           "word": "settlement",
@@ -3280,10 +3115,7 @@ export const courseData26_50 = [
           "vi": "khu định cư",
           "example": "Archeologists found an ancient Viking settlement.",
           "bucket": 2,
-          "collocations": [
-            "important settlement",
-            "settlement system"
-          ]
+          "collocations": []
         },
         {
           "word": "indigenous",
@@ -3292,10 +3124,7 @@ export const courseData26_50 = [
           "vi": "bản địa",
           "example": "The indigenous people of Australia are the Aboriginals.",
           "bucket": 2,
-          "collocations": [
-            "highly indigenous",
-            "extremely indigenous"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -3647,10 +3476,7 @@ export const courseData26_50 = [
           "vi": "lạnh nhơm nhớp, ẩm ướt",
           "example": "His hands were cold and clammy with fear.",
           "bucket": 1,
-          "collocations": [
-            "highly clammy",
-            "extremely clammy"
-          ]
+          "collocations": []
         },
         {
           "word": "sweltering",
@@ -3659,10 +3485,7 @@ export const courseData26_50 = [
           "vi": "nóng bức ngột ngạt",
           "example": "I cannot sleep in this sweltering summer heat.",
           "bucket": 1,
-          "collocations": [
-            "highly sweltering",
-            "extremely sweltering"
-          ]
+          "collocations": []
         },
         {
           "word": "snowed under",
@@ -3680,10 +3503,7 @@ export const courseData26_50 = [
           "vi": "trận bão tuyết",
           "example": "We were trapped in the cabin by a fierce blizzard.",
           "bucket": 1,
-          "collocations": [
-            "important blizzard",
-            "blizzard system"
-          ]
+          "collocations": []
         },
         {
           "word": "drought",
@@ -3692,10 +3512,7 @@ export const courseData26_50 = [
           "vi": "hạn hán",
           "example": "The severe drought destroyed all the crops.",
           "bucket": 1,
-          "collocations": [
-            "important drought",
-            "drought system"
-          ]
+          "collocations": []
         },
         {
           "word": "torrential",
@@ -3704,10 +3521,7 @@ export const courseData26_50 = [
           "vi": "xối xả (mưa)",
           "example": "The match was canceled due to torrential rain.",
           "bucket": 1,
-          "collocations": [
-            "highly torrential",
-            "extremely torrential"
-          ]
+          "collocations": []
         },
         {
           "word": "breeze",
@@ -3716,10 +3530,7 @@ export const courseData26_50 = [
           "vi": "làn gió nhẹ",
           "example": "A cool breeze blew across the beach.",
           "bucket": 2,
-          "collocations": [
-            "important breeze",
-            "breeze system"
-          ]
+          "collocations": []
         },
         {
           "word": "hail",
@@ -3728,10 +3539,7 @@ export const courseData26_50 = [
           "vi": "mưa đá",
           "example": "Large hailstones damaged the roof of the car.",
           "bucket": 1,
-          "collocations": [
-            "important hail",
-            "hail system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -4125,10 +3933,7 @@ export const courseData26_50 = [
           "vi": "đống đổ nát (nghĩa đen/bóng)",
           "example": "His reputation was left in ruins after the scandal.",
           "bucket": 2,
-          "collocations": [
-            "important ruins",
-            "ruins system"
-          ]
+          "collocations": []
         },
         {
           "word": "foundation",
@@ -4137,10 +3942,7 @@ export const courseData26_50 = [
           "vi": "nền tảng",
           "example": "Mutual trust is the strong foundation of any relationship.",
           "bucket": 1,
-          "collocations": [
-            "important foundation",
-            "foundation system"
-          ]
+          "collocations": []
         },
         {
           "word": "pillar",
@@ -4149,10 +3951,7 @@ export const courseData26_50 = [
           "vi": "trụ cột (người quan trọng)",
           "example": "He is a respected pillar of the community.",
           "bucket": 1,
-          "collocations": [
-            "important pillar",
-            "pillar system"
-          ]
+          "collocations": []
         },
         {
           "word": "bridge the gap",
@@ -4170,10 +3969,7 @@ export const courseData26_50 = [
           "vi": "đập tan, phá hủy (lập luận, tòa nhà)",
           "example": "The lawyer completely demolished his opponent's argument.",
           "bucket": 1,
-          "collocations": [
-            "demolish effectively",
-            "must demolish"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -4549,10 +4345,7 @@ export const courseData26_50 = [
           "vi": "nảy mầm (ý tưởng, hạt giống)",
           "example": "The idea for the novel began to germinate in her mind.",
           "bucket": 2,
-          "collocations": [
-            "germinate effectively",
-            "must germinate"
-          ]
+          "collocations": []
         },
         {
           "word": "shrivel",
@@ -4561,10 +4354,7 @@ export const courseData26_50 = [
           "vi": "héo mòn, teo tóp (nhuệ khí, cái cây)",
           "example": "His confidence shriveled under the boss's intense criticism.",
           "bucket": 2,
-          "collocations": [
-            "shrivel effectively",
-            "must shrivel"
-          ]
+          "collocations": []
         },
         {
           "word": "root",
@@ -4573,10 +4363,7 @@ export const courseData26_50 = [
           "vi": "cội rễ, nguyên nhân sâu xa",
           "example": "Poverty is the root of many social problems.",
           "bucket": 1,
-          "collocations": [
-            "important root",
-            "root system"
-          ]
+          "collocations": []
         },
         {
           "word": "flourish",
@@ -4585,10 +4372,7 @@ export const courseData26_50 = [
           "vi": "phát triển mạnh mẽ, nở rộ",
           "example": "The economy began to flourish under the new policy.",
           "bucket": 1,
-          "collocations": [
-            "flourish effectively",
-            "must flourish"
-          ]
+          "collocations": []
         },
         {
           "word": "branch out",
@@ -4606,10 +4390,7 @@ export const courseData26_50 = [
           "vi": "tàn úa, héo hon",
           "example": "Without love, their marriage slowly withered away.",
           "bucket": 1,
-          "collocations": [
-            "wither effectively",
-            "must wither"
-          ]
+          "collocations": []
         },
         {
           "word": "uproot",
@@ -4618,10 +4399,7 @@ export const courseData26_50 = [
           "vi": "nhổ rễ, trục xuất khỏi quê hương",
           "example": "The war uprooted millions of innocent people.",
           "bucket": 1,
-          "collocations": [
-            "uproot effectively",
-            "must uproot"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -4955,10 +4733,7 @@ export const courseData26_50 = [
           "vi": "loài gặm nhấm",
           "example": "Rats and mice are typical examples of rodents.",
           "bucket": 1,
-          "collocations": [
-            "important rodent",
-            "rodent system"
-          ]
+          "collocations": []
         },
         {
           "word": "herbivore",
@@ -4967,10 +4742,7 @@ export const courseData26_50 = [
           "vi": "động vật ăn cỏ",
           "example": "The giraffe is a large, gentle herbivore.",
           "bucket": 1,
-          "collocations": [
-            "important herbivore",
-            "herbivore system"
-          ]
+          "collocations": []
         },
         {
           "word": "fur trade",
@@ -4988,10 +4760,7 @@ export const courseData26_50 = [
           "vi": "động vật ăn thịt",
           "example": "Lions and tigers are apex carnivores.",
           "bucket": 1,
-          "collocations": [
-            "important carnivore",
-            "carnivore system"
-          ]
+          "collocations": []
         },
         {
           "word": "omnivore",
@@ -5000,10 +4769,7 @@ export const courseData26_50 = [
           "vi": "động vật ăn tạp",
           "example": "Humans and bears are classified as omnivores.",
           "bucket": 1,
-          "collocations": [
-            "important omnivore",
-            "omnivore system"
-          ]
+          "collocations": []
         },
         {
           "word": "predator",
@@ -5012,10 +4778,7 @@ export const courseData26_50 = [
           "vi": "thú săn mồi",
           "example": "The lion is a fearsome predator.",
           "bucket": 2,
-          "collocations": [
-            "important predator",
-            "predator system"
-          ]
+          "collocations": []
         },
         {
           "word": "prey",
@@ -5024,10 +4787,7 @@ export const courseData26_50 = [
           "vi": "con mồi",
           "example": "The eagle swooped down to catch its prey.",
           "bucket": 2,
-          "collocations": [
-            "important prey",
-            "prey system"
-          ]
+          "collocations": []
         },
         {
           "word": "poach",
@@ -5036,10 +4796,7 @@ export const courseData26_50 = [
           "vi": "săn trộm",
           "example": "Elephants are illegally poached for their ivory tusks.",
           "bucket": 2,
-          "collocations": [
-            "poach effectively",
-            "must poach"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -5373,10 +5130,7 @@ export const courseData26_50 = [
           "vi": "có nguy cơ tuyệt chủng",
           "example": "The giant panda is a highly endangered species.",
           "bucket": 1,
-          "collocations": [
-            "highly endangered",
-            "extremely endangered"
-          ]
+          "collocations": []
         },
         {
           "word": "fossil fuels",
@@ -5394,10 +5148,7 @@ export const courseData26_50 = [
           "vi": "nguyên sơ, tinh khôi",
           "example": "The island is famous for its beautiful, pristine beaches.",
           "bucket": 1,
-          "collocations": [
-            "highly pristine",
-            "extremely pristine"
-          ]
+          "collocations": []
         },
         {
           "word": "habitat",
@@ -5406,10 +5157,7 @@ export const courseData26_50 = [
           "vi": "môi trường sống",
           "example": "Deforestation destroys the natural habitat of many animals.",
           "bucket": 1,
-          "collocations": [
-            "important habitat",
-            "habitat system"
-          ]
+          "collocations": []
         },
         {
           "word": "extinction",
@@ -5418,10 +5166,7 @@ export const courseData26_50 = [
           "vi": "sự tuyệt chủng",
           "example": "The dodo bird was hunted to extinction.",
           "bucket": 2,
-          "collocations": [
-            "important extinction",
-            "extinction system"
-          ]
+          "collocations": []
         },
         {
           "word": "biodiversity",
@@ -5430,10 +5175,7 @@ export const courseData26_50 = [
           "vi": "sự đa dạng sinh học",
           "example": "The Amazon rainforest has incredible biodiversity.",
           "bucket": 1,
-          "collocations": [
-            "important biodiversity",
-            "biodiversity system"
-          ]
+          "collocations": []
         },
         {
           "word": "renewable",
@@ -5442,10 +5184,7 @@ export const courseData26_50 = [
           "vi": "có thể tái tạo (năng lượng)",
           "example": "Wind and solar power are forms of renewable energy.",
           "bucket": 1,
-          "collocations": [
-            "highly renewable",
-            "extremely renewable"
-          ]
+          "collocations": []
         },
         {
           "word": "emission",
@@ -5454,10 +5193,7 @@ export const courseData26_50 = [
           "vi": "sự phát thải (khí thải)",
           "example": "The government has promised to cut carbon emissions.",
           "bucket": 2,
-          "collocations": [
-            "important emission",
-            "emission system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -5824,10 +5560,7 @@ export const courseData26_50 = [
           "vi": "sẵn lòng giúp đỡ, ân cần",
           "example": "The hotel staff were highly obliging and friendly.",
           "bucket": 1,
-          "collocations": [
-            "highly obliging",
-            "extremely obliging"
-          ]
+          "collocations": []
         },
         {
           "word": "shoddy",
@@ -5836,10 +5569,7 @@ export const courseData26_50 = [
           "vi": "kém chất lượng, cẩu thả (dịch vụ, hàng hóa)",
           "example": "The plumber did a very shoddy job on the pipes.",
           "bucket": 2,
-          "collocations": [
-            "highly shoddy",
-            "extremely shoddy"
-          ]
+          "collocations": []
         },
         {
           "word": "on hold",
@@ -5857,10 +5587,7 @@ export const courseData26_50 = [
           "vi": "nhanh chóng, ngay lập tức",
           "example": "Thank you for your prompt reply to my email.",
           "bucket": 1,
-          "collocations": [
-            "highly prompt",
-            "extremely prompt"
-          ]
+          "collocations": []
         },
         {
           "word": "incompetent",
@@ -5869,10 +5596,7 @@ export const courseData26_50 = [
           "vi": "bất tài, thiếu năng lực",
           "example": "The manager was completely incompetent and ruined the project.",
           "bucket": 2,
-          "collocations": [
-            "highly incompetent",
-            "extremely incompetent"
-          ]
+          "collocations": []
         },
         {
           "word": "courteous",
@@ -5881,10 +5605,7 @@ export const courseData26_50 = [
           "vi": "lịch sự, nhã nhặn",
           "example": "The waiter was polite and courteous throughout the meal.",
           "bucket": 1,
-          "collocations": [
-            "highly courteous",
-            "extremely courteous"
-          ]
+          "collocations": []
         },
         {
           "word": "compensation",
@@ -5893,10 +5614,7 @@ export const courseData26_50 = [
           "vi": "sự đền bù, bồi thường",
           "example": "I demanded compensation for the canceled flight.",
           "bucket": 2,
-          "collocations": [
-            "important compensation",
-            "compensation system"
-          ]
+          "collocations": []
         },
         {
           "word": "substandard",
@@ -5905,10 +5623,7 @@ export const courseData26_50 = [
           "vi": "dưới tiêu chuẩn",
           "example": "They refused to pay for such substandard work.",
           "bucket": 2,
-          "collocations": [
-            "highly substandard",
-            "extremely substandard"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -6311,10 +6026,7 @@ export const courseData26_50 = [
           "vi": "buôn lậu",
           "example": "He tried to smuggle gold across the border.",
           "bucket": 1,
-          "collocations": [
-            "smuggle effectively",
-            "must smuggle"
-          ]
+          "collocations": []
         },
         {
           "word": "confiscate",
@@ -6323,10 +6035,7 @@ export const courseData26_50 = [
           "vi": "tịch thu",
           "example": "The teacher confiscated the boy's mobile phone.",
           "bucket": 2,
-          "collocations": [
-            "confiscate effectively",
-            "must confiscate"
-          ]
+          "collocations": []
         },
         {
           "word": "interrogate",
@@ -6335,10 +6044,7 @@ export const courseData26_50 = [
           "vi": "thẩm vấn",
           "example": "The police interrogated the suspect for hours.",
           "bucket": 1,
-          "collocations": [
-            "interrogate effectively",
-            "must interrogate"
-          ]
+          "collocations": []
         },
         {
           "word": "warrant",
@@ -6347,10 +6053,7 @@ export const courseData26_50 = [
           "vi": "lệnh (khám xét/bắt giữ)",
           "example": "The police need a search warrant to enter the house.",
           "bucket": 2,
-          "collocations": [
-            "important warrant",
-            "warrant system"
-          ]
+          "collocations": []
         },
         {
           "word": "deport",
@@ -6359,10 +6062,7 @@ export const courseData26_50 = [
           "vi": "trục xuất",
           "example": "The illegal immigrants were deported back to their country.",
           "bucket": 2,
-          "collocations": [
-            "deport effectively",
-            "must deport"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -6711,10 +6411,7 @@ export const courseData26_50 = [
           "vi": "kẻ cuồng tín, kẻ bảo thủ cố chấp",
           "example": "He was exposed as a racist and a bigot.",
           "bucket": 2,
-          "collocations": [
-            "important bigot",
-            "bigot system"
-          ]
+          "collocations": []
         },
         {
           "word": "assumption",
@@ -6723,10 +6420,7 @@ export const courseData26_50 = [
           "vi": "giả định, sự cho là đúng",
           "example": "You are making a huge assumption without any evidence.",
           "bucket": 1,
-          "collocations": [
-            "important assumption",
-            "assumption system"
-          ]
+          "collocations": []
         },
         {
           "word": "tenet",
@@ -6735,10 +6429,7 @@ export const courseData26_50 = [
           "vi": "giáo lý, nguyên lý cốt lõi",
           "example": "Non-violence is a central tenet of their religion.",
           "bucket": 1,
-          "collocations": [
-            "important tenet",
-            "tenet system"
-          ]
+          "collocations": []
         },
         {
           "word": "ideology",
@@ -6747,10 +6438,7 @@ export const courseData26_50 = [
           "vi": "hệ tư tưởng",
           "example": "Capitalism and communism are two very different ideologies.",
           "bucket": 1,
-          "collocations": [
-            "important ideology",
-            "ideology system"
-          ]
+          "collocations": []
         },
         {
           "word": "cynical",
@@ -6759,10 +6447,7 @@ export const courseData26_50 = [
           "vi": "hoài nghi (về lòng tốt con người)",
           "example": "She has a deeply cynical view of politics.",
           "bucket": 2,
-          "collocations": [
-            "highly cynical",
-            "extremely cynical"
-          ]
+          "collocations": []
         },
         {
           "word": "dogmatic",
@@ -6771,10 +6456,7 @@ export const courseData26_50 = [
           "vi": "giáo điều, độc đoán",
           "example": "He is so dogmatic that he refuses to listen to others.",
           "bucket": 2,
-          "collocations": [
-            "highly dogmatic",
-            "extremely dogmatic"
-          ]
+          "collocations": []
         },
         {
           "word": "secular",
@@ -6783,10 +6465,7 @@ export const courseData26_50 = [
           "vi": "thế tục (không liên quan tôn giáo)",
           "example": "We live in a modern secular society.",
           "bucket": 1,
-          "collocations": [
-            "highly secular",
-            "extremely secular"
-          ]
+          "collocations": []
         },
         {
           "word": "pragmatic",
@@ -6795,10 +6474,7 @@ export const courseData26_50 = [
           "vi": "thực dụng, thực tế",
           "example": "We need a pragmatic approach to solve this economic crisis.",
           "bucket": 1,
-          "collocations": [
-            "highly pragmatic",
-            "extremely pragmatic"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -7159,10 +6835,7 @@ export const courseData26_50 = [
           "vi": "sự đổi mới, tái sinh",
           "example": "Spring festivals often symbolize spiritual renewal.",
           "bucket": 1,
-          "collocations": [
-            "important renewal",
-            "renewal system"
-          ]
+          "collocations": []
         },
         {
           "word": "commemorate",
@@ -7171,10 +6844,7 @@ export const courseData26_50 = [
           "vi": "kỷ niệm, tưởng nhớ",
           "example": "A monument was built to commemorate the fallen soldiers.",
           "bucket": 1,
-          "collocations": [
-            "commemorate effectively",
-            "must commemorate"
-          ]
+          "collocations": []
         },
         {
           "word": "raucous",
@@ -7183,10 +6853,7 @@ export const courseData26_50 = [
           "vi": "ồn ào, huyên náo",
           "example": "The party turned into a raucous celebration.",
           "bucket": 2,
-          "collocations": [
-            "highly raucous",
-            "extremely raucous"
-          ]
+          "collocations": []
         },
         {
           "word": "ritual",
@@ -7195,10 +6862,7 @@ export const courseData26_50 = [
           "vi": "nghi lễ",
           "example": "Lighting candles is a common religious ritual.",
           "bucket": 1,
-          "collocations": [
-            "important ritual",
-            "ritual system"
-          ]
+          "collocations": []
         },
         {
           "word": "pageant",
@@ -7207,10 +6871,7 @@ export const courseData26_50 = [
           "vi": "cuộc thi sắc đẹp, cuộc diễu hành rực rỡ",
           "example": "The town holds an annual historical pageant.",
           "bucket": 2,
-          "collocations": [
-            "important pageant",
-            "pageant system"
-          ]
+          "collocations": []
         },
         {
           "word": "festivity",
@@ -7219,10 +6880,7 @@ export const courseData26_50 = [
           "vi": "hoạt động lễ hội",
           "example": "The streets were filled with music and festivity.",
           "bucket": 1,
-          "collocations": [
-            "important festivity",
-            "festivity system"
-          ]
+          "collocations": []
         },
         {
           "word": "solemn",
@@ -7231,10 +6889,7 @@ export const courseData26_50 = [
           "vi": "trang nghiêm",
           "example": "The memorial service was a highly solemn occasion.",
           "bucket": 2,
-          "collocations": [
-            "highly solemn",
-            "extremely solemn"
-          ]
+          "collocations": []
         },
         {
           "word": "carnival",
@@ -7243,10 +6898,7 @@ export const courseData26_50 = [
           "vi": "lễ hội hóa trang",
           "example": "Rio de Janeiro hosts the biggest carnival in the world.",
           "bucket": 2,
-          "collocations": [
-            "important carnival",
-            "carnival system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -7622,10 +7274,7 @@ export const courseData26_50 = [
           "vi": "thuộc ngữ hệ Nhậtĩ-man",
           "example": "English and Dutch are both Germanic languages.",
           "bucket": 2,
-          "collocations": [
-            "highly Germanic",
-            "extremely Germanic"
-          ]
+          "collocations": []
         },
         {
           "word": "syntax",
@@ -7634,10 +7283,7 @@ export const courseData26_50 = [
           "vi": "cú pháp",
           "example": "You must learn the syntax of the programming language.",
           "bucket": 1,
-          "collocations": [
-            "important syntax",
-            "syntax system"
-          ]
+          "collocations": []
         },
         {
           "word": "pictogram",
@@ -7646,10 +7292,7 @@ export const courseData26_50 = [
           "vi": "chữ tượng hình",
           "example": "Ancient Egyptians communicated using detailed pictograms.",
           "bucket": 2,
-          "collocations": [
-            "important pictogram",
-            "pictogram system"
-          ]
+          "collocations": []
         },
         {
           "word": "bilingual",
@@ -7658,10 +7301,7 @@ export const courseData26_50 = [
           "vi": "song ngữ",
           "example": "Growing up in Canada, she is perfectly bilingual.",
           "bucket": 1,
-          "collocations": [
-            "highly bilingual",
-            "extremely bilingual"
-          ]
+          "collocations": []
         },
         {
           "word": "dialect",
@@ -7670,10 +7310,7 @@ export const courseData26_50 = [
           "vi": "phương ngôn, tiếng địa phương",
           "example": "The people in this village speak a very strange dialect.",
           "bucket": 1,
-          "collocations": [
-            "important dialect",
-            "dialect system"
-          ]
+          "collocations": []
         },
         {
           "word": "semantics",
@@ -7682,10 +7319,7 @@ export const courseData26_50 = [
           "vi": "ngữ nghĩa học",
           "example": "Philosophers often argue over the semantics of certain words.",
           "bucket": 1,
-          "collocations": [
-            "important semantics",
-            "semantics system"
-          ]
+          "collocations": []
         },
         {
           "word": "phonetics",
@@ -7694,10 +7328,7 @@ export const courseData26_50 = [
           "vi": "ngữ âm học",
           "example": "Phonetics helps us understand how to pronounce words correctly.",
           "bucket": 1,
-          "collocations": [
-            "important phonetics",
-            "phonetics system"
-          ]
+          "collocations": []
         },
         {
           "word": "slang",
@@ -7706,10 +7337,7 @@ export const courseData26_50 = [
           "vi": "từ lóng",
           "example": "Teenagers use a lot of Internet slang.",
           "bucket": 2,
-          "collocations": [
-            "important slang",
-            "slang system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -8079,10 +7707,7 @@ export const courseData26_50 = [
           "vi": "thuộc thời phong kiến",
           "example": "The castle is a remnant of the old feudal system.",
           "bucket": 2,
-          "collocations": [
-            "highly feudal",
-            "extremely feudal"
-          ]
+          "collocations": []
         },
         {
           "word": "serf",
@@ -8091,10 +7716,7 @@ export const courseData26_50 = [
           "vi": "nông nô",
           "example": "In medieval times, the serf worked the land for the lord.",
           "bucket": 2,
-          "collocations": [
-            "important serf",
-            "serf system"
-          ]
+          "collocations": []
         },
         {
           "word": "monarchy",
@@ -8103,10 +7725,7 @@ export const courseData26_50 = [
           "vi": "chế độ quân chủ",
           "example": "Britain is a constitutional monarchy.",
           "bucket": 1,
-          "collocations": [
-            "important monarchy",
-            "monarchy system"
-          ]
+          "collocations": []
         },
         {
           "word": "rebellion",
@@ -8115,10 +7734,7 @@ export const courseData26_50 = [
           "vi": "cuộc nổi loạn, khởi nghĩa",
           "example": "The king's army brutally crushed the peasant rebellion.",
           "bucket": 1,
-          "collocations": [
-            "important rebellion",
-            "rebellion system"
-          ]
+          "collocations": []
         },
         {
           "word": "dynasty",
@@ -8127,10 +7743,7 @@ export const courseData26_50 = [
           "vi": "triều đại",
           "example": "The Ming dynasty ruled China for centuries.",
           "bucket": 1,
-          "collocations": [
-            "important dynasty",
-            "dynasty system"
-          ]
+          "collocations": []
         },
         {
           "word": "tyrant",
@@ -8139,10 +7752,7 @@ export const courseData26_50 = [
           "vi": "bạo chúa",
           "example": "The country was ruled by a ruthless tyrant.",
           "bucket": 2,
-          "collocations": [
-            "important tyrant",
-            "tyrant system"
-          ]
+          "collocations": []
         },
         {
           "word": "assassinate",
@@ -8151,10 +7761,7 @@ export const courseData26_50 = [
           "vi": "ám sát (nhân vật chính trị)",
           "example": "The president was assassinated during a parade.",
           "bucket": 2,
-          "collocations": [
-            "assassinate effectively",
-            "must assassinate"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -8521,10 +8128,7 @@ export const courseData26_50 = [
           "vi": "sự suy dinh dưỡng",
           "example": "Thousands of children in the region are dying of malnutrition.",
           "bucket": 1,
-          "collocations": [
-            "important malnutrition",
-            "malnutrition system"
-          ]
+          "collocations": []
         },
         {
           "word": "GDP",
@@ -8542,10 +8146,7 @@ export const courseData26_50 = [
           "vi": "bần cùng, cơ cực",
           "example": "The floods left thousands of families completely destitute.",
           "bucket": 1,
-          "collocations": [
-            "highly destitute",
-            "extremely destitute"
-          ]
+          "collocations": []
         },
         {
           "word": "slum",
@@ -8554,10 +8155,7 @@ export const courseData26_50 = [
           "vi": "khu ổ chuột",
           "example": "Millions of people live in crowded city slums.",
           "bucket": 1,
-          "collocations": [
-            "important slum",
-            "slum system"
-          ]
+          "collocations": []
         },
         {
           "word": "affluent",
@@ -8566,10 +8164,7 @@ export const courseData26_50 = [
           "vi": "giàu có, sung túc",
           "example": "They live in an affluent neighborhood with large houses.",
           "bucket": 2,
-          "collocations": [
-            "highly affluent",
-            "extremely affluent"
-          ]
+          "collocations": []
         },
         {
           "word": "inequality",
@@ -8578,10 +8173,7 @@ export const courseData26_50 = [
           "vi": "sự bất bình đẳng",
           "example": "Social inequality is a major issue in modern capitalism.",
           "bucket": 2,
-          "collocations": [
-            "important inequality",
-            "inequality system"
-          ]
+          "collocations": []
         },
         {
           "word": "famine",
@@ -8590,10 +8182,7 @@ export const courseData26_50 = [
           "vi": "nạn đói",
           "example": "The severe drought caused a devastating famine.",
           "bucket": 1,
-          "collocations": [
-            "important famine",
-            "famine system"
-          ]
+          "collocations": []
         },
         {
           "word": "sanitation",
@@ -8602,10 +8191,7 @@ export const courseData26_50 = [
           "vi": "điều kiện vệ sinh, hệ thống xử lý rác",
           "example": "Poor sanitation leads to the spread of diseases.",
           "bucket": 1,
-          "collocations": [
-            "important sanitation",
-            "sanitation system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -8966,10 +8552,7 @@ export const courseData26_50 = [
           "vi": "người vận động hành lang",
           "example": "A powerful lobbyist influenced the new environmental law.",
           "bucket": 1,
-          "collocations": [
-            "important lobbyist",
-            "lobbyist system"
-          ]
+          "collocations": []
         },
         {
           "word": "petition",
@@ -8978,10 +8561,7 @@ export const courseData26_50 = [
           "vi": "đơn kiến nghị",
           "example": "We signed a petition to save the local hospital.",
           "bucket": 2,
-          "collocations": [
-            "important petition",
-            "petition system"
-          ]
+          "collocations": []
         },
         {
           "word": "grievance",
@@ -8990,10 +8570,7 @@ export const courseData26_50 = [
           "vi": "lời phàn nàn, sự bất bình",
           "example": "The workers filed a formal grievance against the manager.",
           "bucket": 2,
-          "collocations": [
-            "important grievance",
-            "grievance system"
-          ]
+          "collocations": []
         },
         {
           "word": "manifesto",
@@ -9002,10 +8579,7 @@ export const courseData26_50 = [
           "vi": "bản tuyên ngôn chính trị",
           "example": "The party published its election manifesto.",
           "bucket": 1,
-          "collocations": [
-            "important manifesto",
-            "manifesto system"
-          ]
+          "collocations": []
         },
         {
           "word": "ballot",
@@ -9014,10 +8588,7 @@ export const courseData26_50 = [
           "vi": "lá phiếu, sự bỏ phiếu kín",
           "example": "The union members held a secret ballot to decide on the strike.",
           "bucket": 1,
-          "collocations": [
-            "important ballot",
-            "ballot system"
-          ]
+          "collocations": []
         },
         {
           "word": "constituency",
@@ -9026,10 +8597,7 @@ export const courseData26_50 = [
           "vi": "khu vực bầu cử",
           "example": "The MP is very popular in her constituency.",
           "bucket": 2,
-          "collocations": [
-            "important constituency",
-            "constituency system"
-          ]
+          "collocations": []
         },
         {
           "word": "cabinet",
@@ -9038,10 +8606,7 @@ export const courseData26_50 = [
           "vi": "nội các chính phủ",
           "example": "The Prime Minister held a meeting with his cabinet.",
           "bucket": 1,
-          "collocations": [
-            "important cabinet",
-            "cabinet system"
-          ]
+          "collocations": []
         },
         {
           "word": "canvass",
@@ -9050,10 +8615,7 @@ export const courseData26_50 = [
           "vi": "đi vận động tranh cử (gõ cửa từng nhà)",
           "example": "Volunteers canvassed the neighborhood to get votes.",
           "bucket": 2,
-          "collocations": [
-            "canvass effectively",
-            "must canvass"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -9420,10 +8982,7 @@ export const courseData26_50 = [
           "vi": "luận tội (quan chức cấp cao)",
           "example": "The parliament voted to impeach the corrupt president.",
           "bucket": 2,
-          "collocations": [
-            "impeach effectively",
-            "must impeach"
-          ]
+          "collocations": []
         },
         {
           "word": "embezzle",
@@ -9432,10 +8991,7 @@ export const courseData26_50 = [
           "vi": "biển thủ, tham ô",
           "example": "The accountant embezzled thousands of dollars from the company.",
           "bucket": 1,
-          "collocations": [
-            "embezzle effectively",
-            "must embezzle"
-          ]
+          "collocations": []
         },
         {
           "word": "overturn a verdict",
@@ -9453,10 +9009,7 @@ export const courseData26_50 = [
           "vi": "tuyên trắng án",
           "example": "The jury decided to acquit the defendant due to lack of evidence.",
           "bucket": 2,
-          "collocations": [
-            "acquit effectively",
-            "must acquit"
-          ]
+          "collocations": []
         },
         {
           "word": "testify",
@@ -9465,10 +9018,7 @@ export const courseData26_50 = [
           "vi": "làm chứng (trước tòa)",
           "example": "The witness refused to testify in court.",
           "bucket": 2,
-          "collocations": [
-            "testify effectively",
-            "must testify"
-          ]
+          "collocations": []
         },
         {
           "word": "subpoena",
@@ -9477,10 +9027,7 @@ export const courseData26_50 = [
           "vi": "trát hầu tòa",
           "example": "She received a subpoena to appear as a witness.",
           "bucket": 2,
-          "collocations": [
-            "important subpoena",
-            "subpoena system"
-          ]
+          "collocations": []
         },
         {
           "word": "plaintiff",
@@ -9489,10 +9036,7 @@ export const courseData26_50 = [
           "vi": "nguyên đơn (người đi kiện)",
           "example": "The plaintiff claimed damages for his injuries.",
           "bucket": 1,
-          "collocations": [
-            "important plaintiff",
-            "plaintiff system"
-          ]
+          "collocations": []
         },
         {
           "word": "defendant",
@@ -9501,10 +9045,7 @@ export const courseData26_50 = [
           "vi": "bị cáo",
           "example": "The defendant sat quietly while the charges were read.",
           "bucket": 1,
-          "collocations": [
-            "important defendant",
-            "defendant system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -9856,10 +9397,7 @@ export const courseData26_50 = [
           "vi": "sự răn đe (vũ khí)",
           "example": "Nuclear weapons are meant to act as a deterrent.",
           "bucket": 2,
-          "collocations": [
-            "important deterrent",
-            "deterrent system"
-          ]
+          "collocations": []
         },
         {
           "word": "hostilities",
@@ -9868,10 +9406,7 @@ export const courseData26_50 = [
           "vi": "các hành động thù địch, chiến sự",
           "example": "Hostilities broke out between the two countries.",
           "bucket": 1,
-          "collocations": [
-            "important hostilities",
-            "hostilities system"
-          ]
+          "collocations": []
         },
         {
           "word": "biological warfare",
@@ -9889,10 +9424,7 @@ export const courseData26_50 = [
           "vi": "lệnh ngừng bắn",
           "example": "The two armies agreed to a temporary ceasefire.",
           "bucket": 2,
-          "collocations": [
-            "important ceasefire",
-            "ceasefire system"
-          ]
+          "collocations": []
         },
         {
           "word": "casualty",
@@ -9901,10 +9433,7 @@ export const courseData26_50 = [
           "vi": "thương vong",
           "example": "The explosion caused heavy civilian casualties.",
           "bucket": 1,
-          "collocations": [
-            "important casualty",
-            "casualty system"
-          ]
+          "collocations": []
         },
         {
           "word": "treaty",
@@ -9913,10 +9442,7 @@ export const courseData26_50 = [
           "vi": "hiệp ước",
           "example": "The historic peace treaty was signed in Paris.",
           "bucket": 2,
-          "collocations": [
-            "important treaty",
-            "treaty system"
-          ]
+          "collocations": []
         },
         {
           "word": "collateral damage",
@@ -9934,10 +9460,7 @@ export const courseData26_50 = [
           "vi": "sự hưu chiến",
           "example": "They called a truce to collect the wounded.",
           "bucket": 2,
-          "collocations": [
-            "important truce",
-            "truce system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -10304,10 +9827,7 @@ export const courseData26_50 = [
           "vi": "khoản nợ",
           "example": "The national debt has reached an all-time high.",
           "bucket": 2,
-          "collocations": [
-            "important debt",
-            "debt system"
-          ]
+          "collocations": []
         },
         {
           "word": "sanctions",
@@ -10316,10 +9836,7 @@ export const courseData26_50 = [
           "vi": "lệnh cấm vận",
           "example": "The UN imposed strict economic sanctions on the country.",
           "bucket": 2,
-          "collocations": [
-            "important sanctions",
-            "sanctions system"
-          ]
+          "collocations": []
         },
         {
           "word": "devaluation",
@@ -10328,10 +9845,7 @@ export const courseData26_50 = [
           "vi": "sự phá giá tiền tệ",
           "example": "The sudden devaluation of the currency caused panic.",
           "bucket": 1,
-          "collocations": [
-            "important devaluation",
-            "devaluation system"
-          ]
+          "collocations": []
         },
         {
           "word": "inflation",
@@ -10340,10 +9854,7 @@ export const courseData26_50 = [
           "vi": "lạm phát",
           "example": "High inflation makes everyday goods very expensive.",
           "bucket": 1,
-          "collocations": [
-            "important inflation",
-            "inflation system"
-          ]
+          "collocations": []
         },
         {
           "word": "recession",
@@ -10352,10 +9863,7 @@ export const courseData26_50 = [
           "vi": "sự suy thoái kinh tế",
           "example": "The country fell into a deep economic recession.",
           "bucket": 1,
-          "collocations": [
-            "important recession",
-            "recession system"
-          ]
+          "collocations": []
         },
         {
           "word": "interest rate",
@@ -10373,10 +9881,7 @@ export const courseData26_50 = [
           "vi": "sự thâm hụt (ngân sách)",
           "example": "The government must reduce its budget deficit.",
           "bucket": 2,
-          "collocations": [
-            "important deficit",
-            "deficit system"
-          ]
+          "collocations": []
         },
         {
           "word": "commodity",
@@ -10385,10 +9890,7 @@ export const courseData26_50 = [
           "vi": "hàng hóa (vàng, dầu mỏ...)",
           "example": "Oil is the world's most traded commodity.",
           "bucket": 2,
-          "collocations": [
-            "important commodity",
-            "commodity system"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -10773,10 +10275,7 @@ export const courseData26_50 = [
           "vi": "cháy túi, nhẵn túi",
           "example": "I was completely broke by the end of the month.",
           "bucket": 1,
-          "collocations": [
-            "highly broke",
-            "extremely broke"
-          ]
+          "collocations": []
         },
         {
           "word": "golden handshake",
@@ -10794,10 +10293,7 @@ export const courseData26_50 = [
           "vi": "khoản vay thế chấp (mua nhà)",
           "example": "It will take thirty years to pay off the mortgage.",
           "bucket": 1,
-          "collocations": [
-            "important mortgage",
-            "mortgage system"
-          ]
+          "collocations": []
         },
         {
           "word": "overdraft",
@@ -10806,10 +10302,7 @@ export const courseData26_50 = [
           "vi": "sự thấu chi (rút quá số tiền trong thẻ)",
           "example": "The bank charged me a high fee for my overdraft.",
           "bucket": 1,
-          "collocations": [
-            "important overdraft",
-            "overdraft system"
-          ]
+          "collocations": []
         },
         {
           "word": "inherit",
@@ -10818,10 +10311,7 @@ export const courseData26_50 = [
           "vi": "thừa kế",
           "example": "She will inherit a large fortune from her grandfather.",
           "bucket": 2,
-          "collocations": [
-            "inherit effectively",
-            "must inherit"
-          ]
+          "collocations": []
         },
         {
           "word": "frugal",
@@ -10830,10 +10320,7 @@ export const courseData26_50 = [
           "vi": "tiết kiệm, chắt bóp",
           "example": "He lives a very frugal lifestyle to save money.",
           "bucket": 2,
-          "collocations": [
-            "highly frugal",
-            "extremely frugal"
-          ]
+          "collocations": []
         },
         {
           "word": "splurge",
@@ -10842,10 +10329,7 @@ export const courseData26_50 = [
           "vi": "vung tiền mua sắm",
           "example": "I decided to splurge on a new designer handbag.",
           "bucket": 1,
-          "collocations": [
-            "splurge effectively",
-            "must splurge"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [

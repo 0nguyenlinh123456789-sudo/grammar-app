@@ -14,10 +14,7 @@ export const courseData = [
           "vi": "Thư ký (viết thư, trả lời điện thoại, sắp xếp lịch trình).",
           "example": "The secretary is typing letters in the office.",
           "bucket": 1,
-          "collocations": [
-            "have a secretary",
-            "use secretary"
-          ]
+          "collocations": []
         },
         {
           "word": "manager",
@@ -26,10 +23,7 @@ export const courseData = [
           "vi": "Người quản lý (điều hành công ty hoặc phòng ban).",
           "example": "The manager is in a meeting with the clients.",
           "bucket": 2,
-          "collocations": [
-            "have a manager",
-            "use manager"
-          ]
+          "collocations": []
         },
         {
           "word": "nurse / doctor",
@@ -38,10 +32,7 @@ export const courseData = [
           "vi": "Y tá / Bác sĩ (chăm sóc và chữa trị bệnh nhân).",
           "example": "The doctor and nurse work together at the hospital.",
           "bucket": 1,
-          "collocations": [
-            "have a nurse / doctor",
-            "use nurse / doctor"
-          ]
+          "collocations": []
         },
         {
           "word": "engineer",
@@ -50,10 +41,7 @@ export const courseData = [
           "vi": "Kỹ sư (thiết kế, xây dựng máy móc, cầu cống, phần mềm).",
           "example": "He is a software engineer for a tech company.",
           "bucket": 2,
-          "collocations": [
-            "have a engineer",
-            "use engineer"
-          ]
+          "collocations": []
         },
         {
           "word": "office / factory",
@@ -62,10 +50,7 @@ export const courseData = [
           "vi": "Văn phòng / Nhà máy.",
           "example": "My dad works in a factory, but my mom works in an office.",
           "bucket": 1,
-          "collocations": [
-            "have a office / factory",
-            "use office / factory"
-          ]
+          "collocations": []
         },
         {
           "word": "hospital / school",
@@ -74,10 +59,7 @@ export const courseData = [
           "vi": "Bệnh viện / Trường học.",
           "example": "Nurses work in a hospital, and teachers work in a school.",
           "bucket": 2,
-          "collocations": [
-            "have a hospital / school",
-            "use hospital / school"
-          ]
+          "collocations": []
         },
         {
           "word": "What do you do?",
@@ -95,10 +77,7 @@ export const courseData = [
           "vi": "Làm việc cho (công ty/ai đó) / Làm việc ở (địa điểm/lĩnh vực).",
           "example": "I work for a large German bank. She works in a department store.",
           "bucket": 2,
-          "collocations": [
-            "work for / work in something",
-            "always work for / work in"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -855,10 +834,7 @@ export const courseData = [
           "vi": "Toán học / Vật lý / Hóa học.",
           "example": "I like maths, but I am bad at physics and chemistry.",
           "bucket": 1,
-          "collocations": [
-            "have a maths / physics / chemistry",
-            "use maths / physics / chemistry"
-          ]
+          "collocations": []
         },
         {
           "word": "biology / history / geography",
@@ -867,10 +843,7 @@ export const courseData = [
           "vi": "Sinh học / Lịch sử / Địa lý.",
           "example": "We learned about rivers in our geography class.",
           "bucket": 2,
-          "collocations": [
-            "have a biology / history / geography",
-            "use biology / history / geography"
-          ]
+          "collocations": []
         },
         {
           "word": "classroom / library / laboratory",
@@ -879,10 +852,7 @@ export const courseData = [
           "vi": "Lớp học / Thư viện / Phòng thí nghiệm.",
           "example": "We study in the classroom and borrow books from the library.",
           "bucket": 1,
-          "collocations": [
-            "have a classroom / library / laboratory",
-            "use classroom / library / laboratory"
-          ]
+          "collocations": []
         },
         {
           "word": "textbook / notebook / rubber",
@@ -891,10 +861,7 @@ export const courseData = [
           "vi": "Sách giáo khoa / Vở viết / Cục tẩy (Gôm).",
           "example": "Open your textbook and write the answers in your notebook.",
           "bucket": 2,
-          "collocations": [
-            "have a textbook / notebook / rubber",
-            "use textbook / notebook / rubber"
-          ]
+          "collocations": []
         },
         {
           "word": "take / pass / fail an exam",
@@ -912,10 +879,7 @@ export const courseData = [
           "vi": "Nghiên cứu / Học hỏi / Làm bài tập về nhà.",
           "example": "She is studying biology. He has to do his homework before dinner.",
           "bucket": 2,
-          "collocations": [
-            "study / learn / do homework something",
-            "always study / learn / do homework"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -1572,10 +1536,7 @@ export const courseData = [
           "vi": "Thư tay / Bưu thiếp.",
           "example": "He sent me a postcard from Paris and a long letter.",
           "bucket": 1,
-          "collocations": [
-            "have a letter / postcard",
-            "use letter / postcard"
-          ]
+          "collocations": []
         },
         {
           "word": "email / text message",
@@ -1584,10 +1545,7 @@ export const courseData = [
           "vi": "Thư điện tử / Tin nhắn văn bản.",
           "example": "I got an email from my boss and a text message from a friend.",
           "bucket": 2,
-          "collocations": [
-            "have a email / text message",
-            "use email / text message"
-          ]
+          "collocations": []
         },
         {
           "word": "keyboard / mouse / screen",
@@ -1596,10 +1554,7 @@ export const courseData = [
           "vi": "Bàn phím / Chuột máy tính / Màn hình.",
           "example": "Use the keyboard to type and the mouse to click on the screen.",
           "bucket": 1,
-          "collocations": [
-            "have a keyboard / mouse / screen",
-            "use keyboard / mouse / screen"
-          ]
+          "collocations": []
         },
         {
           "word": "website / online",
@@ -1608,10 +1563,7 @@ export const courseData = [
           "vi": "Trang web / Trực tuyến.",
           "example": "You can find all details online on our official website.",
           "bucket": 2,
-          "collocations": [
-            "very website / online",
-            "extremely website / online"
-          ]
+          "collocations": []
         },
         {
           "word": "download / save / delete",
@@ -1620,10 +1572,7 @@ export const courseData = [
           "vi": "Tải xuống / Lưu lại / Xóa đi.",
           "example": "Download the file, save it on your computer, and delete the old version.",
           "bucket": 1,
-          "collocations": [
-            "download / save / delete something",
-            "always download / save / delete"
-          ]
+          "collocations": []
         },
         {
           "word": "make a phone call",
@@ -1641,10 +1590,7 @@ export const courseData = [
           "vi": "Tin nhắn thoại / Rung chuông.",
           "example": "If I don't answer, leave a voicemail. The phone is ringing.",
           "bucket": 1,
-          "collocations": [
-            "voicemail / ring something",
-            "always voicemail / ring"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -2314,10 +2260,7 @@ export const courseData = [
           "vi": "Du lịch trọn gói (đã bao gồm vé bay, khách sạn, đồ ăn).",
           "example": "We booked a package holiday to Italy.",
           "bucket": 1,
-          "collocations": [
-            "have a package holiday",
-            "use package holiday"
-          ]
+          "collocations": []
         },
         {
           "word": "sightseeing",
@@ -2326,10 +2269,7 @@ export const courseData = [
           "vi": "Hoạt động ngắm cảnh, tham quan các địa danh nổi tiếng.",
           "example": "We did lots of sightseeing in Rome.",
           "bucket": 2,
-          "collocations": [
-            "have a sightseeing",
-            "use sightseeing"
-          ]
+          "collocations": []
         },
         {
           "word": "camping",
@@ -2338,10 +2278,7 @@ export const courseData = [
           "vi": "Cắm trại ngoài trời (ngủ trong lều dã ngoại).",
           "example": "We love camping in the mountains during summer.",
           "bucket": 1,
-          "collocations": [
-            "have a camping",
-            "use camping"
-          ]
+          "collocations": []
         },
         {
           "word": "passport / visa",
@@ -2350,10 +2287,7 @@ export const courseData = [
           "vi": "Hộ chiếu / Thị thực xuất nhập cảnh.",
           "example": "You cannot travel abroad without a passport and a visa.",
           "bucket": 2,
-          "collocations": [
-            "have a passport / visa",
-            "use passport / visa"
-          ]
+          "collocations": []
         },
         {
           "word": "suitcase / ticket / map",
@@ -2362,10 +2296,7 @@ export const courseData = [
           "vi": "Va li / Vé đi lại / Bản đồ.",
           "example": "I packed my suitcase, printed my ticket, and bought a city map.",
           "bucket": 1,
-          "collocations": [
-            "have a suitcase / ticket / map",
-            "use suitcase / ticket / map"
-          ]
+          "collocations": []
         },
         {
           "word": "go on holiday / have a holiday",
@@ -3053,10 +2984,7 @@ export const courseData = [
           "vi": "Siêu thị / Cửa hàng bách hóa tổng hợp.",
           "example": "We buy food in the supermarket and clothes in the department store.",
           "bucket": 1,
-          "collocations": [
-            "have a supermarket / department store",
-            "use supermarket / department store"
-          ]
+          "collocations": []
         },
         {
           "word": "baker's / butcher's / chemist's",
@@ -3065,10 +2993,7 @@ export const courseData = [
           "vi": "Tiệm bánh mì / Tiệm bán thịt / Hiệu thuốc tây.",
           "example": "Get bread at the baker's, sausages at the butcher's, and aspirin at the chemist's.",
           "bucket": 2,
-          "collocations": [
-            "have a baker's / butcher's / chemist's",
-            "use baker's / butcher's / chemist's"
-          ]
+          "collocations": []
         },
         {
           "word": "bookshop / shoe shop",
@@ -3077,10 +3002,7 @@ export const courseData = [
           "vi": "Hiệu sách / Cửa hàng bán giày.",
           "example": "I bought a novel at the bookshop and trainers at the shoe shop.",
           "bucket": 1,
-          "collocations": [
-            "have a bookshop / shoe shop",
-            "use bookshop / shoe shop"
-          ]
+          "collocations": []
         },
         {
           "word": "trolley / basket",
@@ -3089,10 +3011,7 @@ export const courseData = [
           "vi": "Xe đẩy siêu thị / Giỏ xách mua hàng.",
           "example": "Put heavy items in the trolley and small items in the basket.",
           "bucket": 2,
-          "collocations": [
-            "have a trolley / basket",
-            "use trolley / basket"
-          ]
+          "collocations": []
         },
         {
           "word": "queue / checkout / receipt",
@@ -3101,10 +3020,7 @@ export const courseData = [
           "vi": "Hàng người xếp hàng / Quầy thu ngân / Hóa đơn mua hàng.",
           "example": "There is a long queue at the checkout. Keep your receipt.",
           "bucket": 1,
-          "collocations": [
-            "have a queue / checkout / receipt",
-            "use queue / checkout / receipt"
-          ]
+          "collocations": []
         },
         {
           "word": "cash / credit card",
@@ -3113,10 +3029,7 @@ export const courseData = [
           "vi": "Tiền mặt / Thẻ tín dụng.",
           "example": "You can pay in cash or by credit card.",
           "bucket": 2,
-          "collocations": [
-            "have a cash / credit card",
-            "use cash / credit card"
-          ]
+          "collocations": []
         },
         {
           "word": "price / discount / sale",
@@ -3125,10 +3038,7 @@ export const courseData = [
           "vi": "Giá cả / Phần trăm giảm giá / Đợt giảm giá xả hàng.",
           "example": "The price is cheap because the store has a big sale.",
           "bucket": 1,
-          "collocations": [
-            "have a price / discount / sale",
-            "use price / discount / sale"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -3802,10 +3712,7 @@ export const courseData = [
           "vi": "Phòng đơn (một giường đơn) / Phòng đôi (một giường đôi lớn).",
           "example": "I booked a single room for myself, and a double room for my parents.",
           "bucket": 1,
-          "collocations": [
-            "have a single room / double room",
-            "use single room / double room"
-          ]
+          "collocations": []
         },
         {
           "word": "twin room / suite",
@@ -3814,10 +3721,7 @@ export const courseData = [
           "vi": "Phòng đôi (hai giường đơn tách rời) / Phòng hạng sang (suite - có thêm phòng khách).",
           "example": "We stayed in a twin room. The wealthy guest booked the luxury suite.",
           "bucket": 2,
-          "collocations": [
-            "have a twin room / suite",
-            "use twin room / suite"
-          ]
+          "collocations": []
         },
         {
           "word": "reception / room service",
@@ -3826,10 +3730,7 @@ export const courseData = [
           "vi": "Quầy lễ tân / Dịch vụ phục vụ thức ăn tận buồng phòng.",
           "example": "Leave your key card at reception. We ordered room service for breakfast.",
           "bucket": 1,
-          "collocations": [
-            "have a reception / room service",
-            "use reception / room service"
-          ]
+          "collocations": []
         },
         {
           "word": "lift / key card",
@@ -3838,10 +3739,7 @@ export const courseData = [
           "vi": "Thang máy / Thẻ từ mở cửa phòng.",
           "example": "Take the lift to the fourth floor. I lost my key card.",
           "bucket": 2,
-          "collocations": [
-            "have a lift / key card",
-            "use lift / key card"
-          ]
+          "collocations": []
         },
         {
           "word": "book a room",
@@ -4512,10 +4410,7 @@ export const courseData = [
           "vi": "Nhà hàng ăn uống / Quán cà phê giải khát.",
           "example": "We had a formal dinner in a restaurant and coffee in a café.",
           "bucket": 1,
-          "collocations": [
-            "have a restaurant / café",
-            "use restaurant / café"
-          ]
+          "collocations": []
         },
         {
           "word": "pub / fast food restaurant",
@@ -4524,10 +4419,7 @@ export const courseData = [
           "vi": "Quán bia hơi phục vụ đồ ăn / Cửa hàng ăn nhanh.",
           "example": "Let's go to the pub for a beer and chips. Kids love fast food restaurants.",
           "bucket": 2,
-          "collocations": [
-            "have a pub / fast food restaurant",
-            "use pub / fast food restaurant"
-          ]
+          "collocations": []
         },
         {
           "word": "waiter / waitress / chef",
@@ -4536,10 +4428,7 @@ export const courseData = [
           "vi": "Nam bồi bàn / Nữ bồi bàn / Đầu bếp trưởng.",
           "example": "The waiter took our order and the chef cooked the food.",
           "bucket": 1,
-          "collocations": [
-            "have a waiter / waitress / chef",
-            "use waiter / waitress / chef"
-          ]
+          "collocations": []
         },
         {
           "word": "menu / order / bill / tip",
@@ -4548,10 +4437,7 @@ export const courseData = [
           "vi": "Thực đơn / Gọi món / Hóa đơn / Tiền boa.",
           "example": "Look at the menu. We ordered soup. Can we have the bill? We left a tip.",
           "bucket": 2,
-          "collocations": [
-            "menu / order / bill / tip something",
-            "always menu / order / bill / tip"
-          ]
+          "collocations": []
         },
         {
           "word": "starter",
@@ -4560,10 +4446,7 @@ export const courseData = [
           "vi": "Món khai vị (soup, salad).",
           "example": "For my starter, I had chicken soup.",
           "bucket": 1,
-          "collocations": [
-            "have a starter",
-            "use starter"
-          ]
+          "collocations": []
         },
         {
           "word": "main course",
@@ -4572,10 +4455,7 @@ export const courseData = [
           "vi": "Món ăn chính (steak, fish and chips).",
           "example": "My main course was steak and baked potatoes.",
           "bucket": 2,
-          "collocations": [
-            "have a main course",
-            "use main course"
-          ]
+          "collocations": []
         },
         {
           "word": "dessert / drinks",
@@ -4584,10 +4464,7 @@ export const courseData = [
           "vi": "Món tráng miệng (ice cream, cake) / Đồ uống.",
           "example": "We had chocolate ice cream for dessert and red wine for drinks.",
           "bucket": 1,
-          "collocations": [
-            "have a dessert / drinks",
-            "use dessert / drinks"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -5261,10 +5138,7 @@ export const courseData = [
           "vi": "Bóng đá / Bóng rổ / Bóng chuyền (Môn thể thao đồng đội).",
           "example": "We play football on the pitch and basketball in the gym.",
           "bucket": 1,
-          "collocations": [
-            "have a football / basketball / volleyball",
-            "use football / basketball / volleyball"
-          ]
+          "collocations": []
         },
         {
           "word": "tennis / swimming / running",
@@ -5273,10 +5147,7 @@ export const courseData = [
           "vi": "Quần vợt / Bơi lội / Chạy bộ.",
           "example": "I play tennis on weekends and go swimming in summer.",
           "bucket": 2,
-          "collocations": [
-            "have a tennis / swimming / running",
-            "use tennis / swimming / running"
-          ]
+          "collocations": []
         },
         {
           "word": "pool / pitch / court",
@@ -5285,10 +5156,7 @@ export const courseData = [
           "vi": "Bể bơi / Sân cỏ bóng đá / Sân đấu quần vợt, bóng rổ.",
           "example": "We swam in the pool, played football on the pitch, and tennis on the court.",
           "bucket": 1,
-          "collocations": [
-            "have a pool / pitch / court",
-            "use pool / pitch / court"
-          ]
+          "collocations": []
         },
         {
           "word": "racket / ball / trainers",
@@ -5297,10 +5165,7 @@ export const courseData = [
           "vi": "Vợt thể thao / Quả bóng / Giày thể thao.",
           "example": "You need a tennis racket, a ball, and a good pair of trainers.",
           "bucket": 2,
-          "collocations": [
-            "have a racket / ball / trainers",
-            "use racket / ball / trainers"
-          ]
+          "collocations": []
         },
         {
           "word": "play / go / do",
@@ -5309,10 +5174,7 @@ export const courseData = [
           "vi": "Chơi (môn dùng bóng: play football/tennis) / Đi (môn đuôi -ing: go swimming/running) / Tập (môn võ/dẻo: do judo/gymnastics).",
           "example": "I play basketball, go running, and do judo.",
           "bucket": 1,
-          "collocations": [
-            "play / go / do something",
-            "always play / go / do"
-          ]
+          "collocations": []
         },
         {
           "word": "win / lose / draw",
@@ -5321,10 +5183,7 @@ export const courseData = [
           "vi": "Thắng / Thua / Hòa.",
           "example": "Our team played well. We won 3-1 and didn't lose. Last week we drew 1-1.",
           "bucket": 2,
-          "collocations": [
-            "win / lose / draw something",
-            "always win / lose / draw"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -5985,10 +5844,7 @@ export const courseData = [
           "vi": "Phim hành động / Phim hài / Phim kinh dị.",
           "example": "I love action films, my sister likes comedies, but we both hate horror films.",
           "bucket": 1,
-          "collocations": [
-            "have a action film / comedy / horror film",
-            "use action film / comedy / horror film"
-          ]
+          "collocations": []
         },
         {
           "word": "romantic film / sci-fi / documentary",
@@ -5997,10 +5853,7 @@ export const courseData = [
           "vi": "Phim lãng mạn / Phim khoa học viễn tưởng / Phim tài liệu.",
           "example": "We watched a romantic film last night. Sci-fi shows future technology. This documentary is about nature.",
           "bucket": 2,
-          "collocations": [
-            "have a romantic film / sci-fi / documentary",
-            "use romantic film / sci-fi / documentary"
-          ]
+          "collocations": []
         },
         {
           "word": "actor / actress / star",
@@ -6009,10 +5862,7 @@ export const courseData = [
           "vi": "Nam diễn viên / Nữ diễn viên / Ngôi sao điện ảnh nổi tiếng.",
           "example": "He is a brilliant actor. She is a famous actress. She became a Hollywood star.",
           "bucket": 1,
-          "collocations": [
-            "have a actor / actress / star",
-            "use actor / actress / star"
-          ]
+          "collocations": []
         },
         {
           "word": "director / audience",
@@ -6021,10 +5871,7 @@ export const courseData = [
           "vi": "Đạo diễn (người chỉ đạo) / Khán giả xem phim.",
           "example": "The director directed the film, and the audience clapped at the end.",
           "bucket": 2,
-          "collocations": [
-            "have a director / audience",
-            "use director / audience"
-          ]
+          "collocations": []
         },
         {
           "word": "ticket / screen / popcorn",
@@ -6033,10 +5880,7 @@ export const courseData = [
           "vi": "Vé xem phim / Màn ảnh rộng / Bắp rang bơ.",
           "example": "We bought tickets, got large popcorn, and sat in front of the giant screen.",
           "bucket": 1,
-          "collocations": [
-            "have a ticket / screen / popcorn",
-            "use ticket / screen / popcorn"
-          ]
+          "collocations": []
         },
         {
           "word": "review / subtitles",
@@ -6045,10 +5889,7 @@ export const courseData = [
           "vi": "Bài đánh giá, bình luận phim / Phụ đề tiếng nước ngoài.",
           "example": "The film got great reviews. I prefer foreign movies with English subtitles.",
           "bucket": 2,
-          "collocations": [
-            "have a review / subtitles",
-            "use review / subtitles"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -6709,10 +6550,7 @@ export const courseData = [
           "vi": "Đọc sách / Lắng nghe âm nhạc.",
           "example": "I spend my free time reading novels and listening to music.",
           "bucket": 1,
-          "collocations": [
-            "have a reading / listening to music",
-            "use reading / listening to music"
-          ]
+          "collocations": []
         },
         {
           "word": "playing board games / chess",
@@ -6730,10 +6568,7 @@ export const courseData = [
           "vi": "Làm vườn / Nấu nướng.",
           "example": "Gardening keeps me healthy, and cooking allows me to create delicious meals.",
           "bucket": 1,
-          "collocations": [
-            "have a gardening / cooking",
-            "use gardening / cooking"
-          ]
+          "collocations": []
         },
         {
           "word": "DIY (Do-It-Yourself) / painting",
@@ -6742,10 +6577,7 @@ export const courseData = [
           "vi": "Tự tay làm, sửa đồ đạc (thủ công) / Vẽ tranh.",
           "example": "He loves DIY and repaired the broken chair. She does painting for relaxation.",
           "bucket": 2,
-          "collocations": [
-            "have a DIY (Do-It-Yourself) / painting",
-            "use DIY (Do-It-Yourself) / painting"
-          ]
+          "collocations": []
         },
         {
           "word": "surf the internet / play video games",
@@ -7426,10 +7258,7 @@ export const courseData = [
           "vi": "Trộm cắp (lén lút) / Cướp đoạt (dùng bạo lực, vũ khí cướp ngân hàng/người).",
           "example": "The theft of the money occurred at night. The armed robbery at the bank was terrifying.",
           "bucket": 1,
-          "collocations": [
-            "have a theft / robbery",
-            "use theft / robbery"
-          ]
+          "collocations": []
         },
         {
           "word": "burglary / shoplifting",
@@ -7438,10 +7267,7 @@ export const courseData = [
           "vi": "Trộm đột nhập vào nhà / Ăn cắp vặt ở cửa hàng.",
           "example": "Burglary is a problem when people are on holiday. Shoplifting is common in supermarkets.",
           "bucket": 2,
-          "collocations": [
-            "have a burglary / shoplifting",
-            "use burglary / shoplifting"
-          ]
+          "collocations": []
         },
         {
           "word": "thief / robber / burglar",
@@ -7450,10 +7276,7 @@ export const courseData = [
           "vi": "Kẻ trộm / Kẻ cướp / Kẻ trộm đột nhập.",
           "example": "The thief stole my wallet. The bank robbers had guns. The burglar entered through the window.",
           "bucket": 1,
-          "collocations": [
-            "have a thief / robber / burglar",
-            "use thief / robber / burglar"
-          ]
+          "collocations": []
         },
         {
           "word": "shoplifter / murderer",
@@ -7462,10 +7285,7 @@ export const courseData = [
           "vi": "Kẻ cắp vặt cửa hàng / Kẻ sát nhân.",
           "example": "The shoplifter was caught by security. The murderer was sentenced to life.",
           "bucket": 2,
-          "collocations": [
-            "have a shoplifter / murderer",
-            "use shoplifter / murderer"
-          ]
+          "collocations": []
         },
         {
           "word": "steal / rob / break into",
@@ -7474,10 +7294,7 @@ export const courseData = [
           "vi": "Ăn trộm (vật cụ thể) / Cướp đoạt (tiền từ ai/ngân hàng) / Đột nhập vào nhà.",
           "example": "He stole my bike. They robbed the bank. Burglars broke into the house.",
           "bucket": 1,
-          "collocations": [
-            "steal / rob / break into something",
-            "always steal / rob / break into"
-          ]
+          "collocations": []
         },
         {
           "word": "police officer / arrest / prison",
@@ -7486,10 +7303,7 @@ export const courseData = [
           "vi": "Cảnh sát viên / Bắt giữ / Nhà tù.",
           "example": "The police officer arrested the thief and sent him to prison.",
           "bucket": 2,
-          "collocations": [
-            "police officer / arrest / prison something",
-            "always police officer / arrest / prison"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -8150,10 +7964,7 @@ export const courseData = [
           "vi": "Báo giấy hằng ngày / Tạp chí chuyên đề.",
           "example": "I read the newspaper in the morning and a fashion magazine on weekends.",
           "bucket": 1,
-          "collocations": [
-            "have a newspaper / magazine",
-            "use newspaper / magazine"
-          ]
+          "collocations": []
         },
         {
           "word": "article / headline",
@@ -8162,10 +7973,7 @@ export const courseData = [
           "vi": "Bài báo / Tiêu đề lớn trên trang nhất.",
           "example": "The front-page headline was shocking. I read an interesting article about travel.",
           "bucket": 2,
-          "collocations": [
-            "have a article / headline",
-            "use article / headline"
-          ]
+          "collocations": []
         },
         {
           "word": "news program / documentary",
@@ -8174,10 +7982,7 @@ export const courseData = [
           "vi": "Chương trình tin tức / Phim tài liệu.",
           "example": "We watch the news program at 7:00 and a nature documentary later.",
           "bucket": 1,
-          "collocations": [
-            "have a news program / documentary",
-            "use news program / documentary"
-          ]
+          "collocations": []
         },
         {
           "word": "soap opera / commercial",
@@ -8186,10 +7991,7 @@ export const courseData = [
           "vi": "Phim truyền hình dài tập tâm lý / Quảng cáo truyền hình.",
           "example": "My mother loves this Spanish soap opera. There are too many commercials during the film.",
           "bucket": 2,
-          "collocations": [
-            "have a soap opera / commercial",
-            "use soap opera / commercial"
-          ]
+          "collocations": []
         },
         {
           "word": "social network / blog / channel",
@@ -8198,10 +8000,7 @@ export const courseData = [
           "vi": "Mạng xã hội (Facebook, Instagram) / Blog cá nhân / Kênh nội dung.",
           "example": "She has a popular travel blog and a YouTube channel with many subscribers.",
           "bucket": 1,
-          "collocations": [
-            "have a social network / blog / channel",
-            "use social network / blog / channel"
-          ]
+          "collocations": []
         },
         {
           "word": "post / share / publish",
@@ -8210,10 +8009,7 @@ export const courseData = [
           "vi": "Đăng tải bài viết / Chia sẻ / Xuất bản, phát hành.",
           "example": "He posted a comment, shared the video, and the company published the news.",
           "bucket": 2,
-          "collocations": [
-            "post / share / publish something",
-            "always post / share / publish"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -8928,10 +8724,7 @@ export const courseData = [
           "vi": "Sửa chữa, khắc phục sự cố hỏng hóc.",
           "example": "We need a plumber to fix the leaking tap and repair the toilet.",
           "bucket": 1,
-          "collocations": [
-            "repair / fix something",
-            "always repair / fix"
-          ]
+          "collocations": []
         },
         {
           "word": "plumber / electrician / mechanic",
@@ -8940,10 +8733,7 @@ export const courseData = [
           "vi": "Thợ sửa đường ống nước / Thợ điện / Thợ sửa máy móc cơ khí.",
           "example": "Call a plumber for the pipes, an electrician for the power, and a mechanic for the car.",
           "bucket": 2,
-          "collocations": [
-            "have a plumber / electrician / mechanic",
-            "use plumber / electrician / mechanic"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -9653,10 +9443,7 @@ export const courseData = [
           "vi": "Cuồng phong, bão nhiệt đới lớn / Cơn bão kèm sấm chớp.",
           "example": "The hurricane destroyed many wooden houses on the coast.",
           "bucket": 1,
-          "collocations": [
-            "have a hurricane / storm",
-            "use hurricane / storm"
-          ]
+          "collocations": []
         },
         {
           "word": "earthquake / forest fire",
@@ -9665,10 +9452,7 @@ export const courseData = [
           "vi": "Động đất / Cháy rừng diện rộng.",
           "example": "The earthquake damaged buildings. The forest fire burned the trees.",
           "bucket": 2,
-          "collocations": [
-            "have a earthquake / forest fire",
-            "use earthquake / forest fire"
-          ]
+          "collocations": []
         },
         {
           "word": "flood / drought",
@@ -9677,10 +9461,7 @@ export const courseData = [
           "vi": "Lũ lụt / Hạn hán kéo dài.",
           "example": "The heavy rain caused a flood. The crops died during the long drought.",
           "bucket": 1,
-          "collocations": [
-            "have a flood / drought",
-            "use flood / drought"
-          ]
+          "collocations": []
         },
         {
           "word": "pollution / global warming",
@@ -9689,10 +9470,7 @@ export const courseData = [
           "vi": "Sự ô nhiễm / Sự nóng lên toàn cầu.",
           "example": "Air pollution is serious in cities. Global warming is melting ice caps.",
           "bucket": 2,
-          "collocations": [
-            "have a pollution / global warming",
-            "use pollution / global warming"
-          ]
+          "collocations": []
         },
         {
           "word": "war / strike",
@@ -9701,10 +9479,7 @@ export const courseData = [
           "vi": "Chiến tranh, xung đột vũ trang / Cuộc bãi công, đình công.",
           "example": "The war caused terrible suffering. Bus drivers are on strike today.",
           "bucket": 1,
-          "collocations": [
-            "have a war / strike",
-            "use war / strike"
-          ]
+          "collocations": []
         },
         {
           "word": "poverty / hunger",
@@ -9713,10 +9488,7 @@ export const courseData = [
           "vi": "Cảnh nghèo đói / Sự đói khát.",
           "example": "Many children die of hunger. The charity works to reduce poverty.",
           "bucket": 2,
-          "collocations": [
-            "have a poverty / hunger",
-            "use poverty / hunger"
-          ]
+          "collocations": []
         },
         {
           "word": "destroy / damage",
@@ -9725,10 +9497,7 @@ export const courseData = [
           "vi": "Phá hủy hoàn toàn / Làm tổn hại, hư hỏng.",
           "example": "The flood destroyed the bridge and damaged houses.",
           "bucket": 1,
-          "collocations": [
-            "destroy / damage something",
-            "always destroy / damage"
-          ]
+          "collocations": []
         },
         {
           "word": "protect / save / recycle",
@@ -9737,10 +9506,7 @@ export const courseData = [
           "vi": "Bảo vệ / Cứu giúp, tiết kiệm / Tái chế rác thải.",
           "example": "We must protect the environment, save energy, and recycle plastic waste.",
           "bucket": 2,
-          "collocations": [
-            "protect / save / recycle something",
-            "always protect / save / recycle"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [

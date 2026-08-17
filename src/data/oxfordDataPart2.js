@@ -14,10 +14,7 @@ export const courseData = [
           "vi": "Rất khỏe / Ổn.",
           "example": "I am very well, thanks. I'm fine, thanks.",
           "bucket": 1,
-          "collocations": [
-            "very very well / fine",
-            "extremely very well / fine"
-          ]
+          "collocations": []
         },
         {
           "word": "feel ill / feel sick",
@@ -35,10 +32,7 @@ export const courseData = [
           "vi": "Đau đầu / Đau răng.",
           "example": "Have you got an aspirin? I've got a headache.",
           "bucket": 1,
-          "collocations": [
-            "have a headache / toothache",
-            "use headache / toothache"
-          ]
+          "collocations": []
         },
         {
           "word": "a cold / cough",
@@ -47,10 +41,7 @@ export const courseData = [
           "vi": "Cảm lạnh / Ho.",
           "example": "I'm going to bed with a hot drink. I've got a cold.",
           "bucket": 2,
-          "collocations": [
-            "a cold / cough something",
-            "always a cold / cough"
-          ]
+          "collocations": []
         },
         {
           "word": "asthma / hay-fever",
@@ -59,10 +50,7 @@ export const courseData = [
           "vi": "Hen suyễn / Dị ứng phấn hoa (hắt hơi liên tục).",
           "example": "My brother has asthma; sometimes he can't breathe.",
           "bucket": 1,
-          "collocations": [
-            "have a asthma / hay-fever",
-            "use asthma / hay-fever"
-          ]
+          "collocations": []
         },
         {
           "word": "malaria / cholera",
@@ -71,10 +59,7 @@ export const courseData = [
           "vi": "Sốt rét / Bệnh tả (do muỗi đốt hoặc nước bẩn).",
           "example": "Mosquitoes can give people malaria. Dirty water caused cholera.",
           "bucket": 2,
-          "collocations": [
-            "have a malaria / cholera",
-            "use malaria / cholera"
-          ]
+          "collocations": []
         },
         {
           "word": "heart attack / cancer",
@@ -83,10 +68,7 @@ export const courseData = [
           "vi": "Cơn đau tim / Bệnh ung thư.",
           "example": "My grandfather had a heart attack. Cancer kills many people.",
           "bucket": 1,
-          "collocations": [
-            "have a heart attack / cancer",
-            "use heart attack / cancer"
-          ]
+          "collocations": []
         },
         {
           "word": "healthy diet",
@@ -113,10 +95,7 @@ export const courseData = [
           "vi": "Căng thẳng, áp lực.",
           "example": "Relax after work and don't have too much stress.",
           "bucket": 2,
-          "collocations": [
-            "have a stress",
-            "use stress"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -867,10 +846,7 @@ export const courseData = [
           "vi": "Yêu / Thích / Không thích / Ghét.",
           "example": "I love my family. I hate my boss. I don't like horror films.",
           "bucket": 1,
-          "collocations": [
-            "love / like / don't like / hate something",
-            "always love / like / don't like / hate"
-          ]
+          "collocations": []
         },
         {
           "word": "prefer",
@@ -879,10 +855,7 @@ export const courseData = [
           "vi": "Thích hơn.",
           "example": "I prefer coffee to tea (Tôi thích cà phê hơn trà).",
           "bucket": 2,
-          "collocations": [
-            "prefer something",
-            "always prefer"
-          ]
+          "collocations": []
         },
         {
           "word": "want / hope",
@@ -891,10 +864,7 @@ export const courseData = [
           "vi": "Muốn / Hy vọng (want + to V | hope + to V / hope + clause).",
           "example": "I want to buy a new car. I hope to do well in my exam.",
           "bucket": 1,
-          "collocations": [
-            "want / hope something",
-            "always want / hope"
-          ]
+          "collocations": []
         },
         {
           "word": "happy / sad / angry / surprised",
@@ -903,10 +873,7 @@ export const courseData = [
           "vi": "Vui vẻ / Buồn bã / Tức giận / Ngạc nhiên.",
           "example": "She is happy because she won a prize. He is angry.",
           "bucket": 2,
-          "collocations": [
-            "very happy / sad / angry / surprised",
-            "extremely happy / sad / angry / surprised"
-          ]
+          "collocations": []
         },
         {
           "word": "tired / hungry / thirsty",
@@ -915,10 +882,7 @@ export const courseData = [
           "vi": "Mệt mỏi / Đói bụng / Khát nước.",
           "example": "I am tired and want to sleep. I am hungry, I want a sandwich.",
           "bucket": 1,
-          "collocations": [
-            "very tired / hungry / thirsty",
-            "extremely tired / hungry / thirsty"
-          ]
+          "collocations": []
         },
         {
           "word": "cold / hot / well / ill",
@@ -927,10 +891,7 @@ export const courseData = [
           "vi": "Lạnh / Nóng / Khỏe / Ốm.",
           "example": "I am cold, put a sweater on. I feel ill today.",
           "bucket": 2,
-          "collocations": [
-            "very cold / hot / well / ill",
-            "extremely cold / hot / well / ill"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -3126,10 +3087,7 @@ export const courseData = [
           "vi": "Mặt trời / Cơn mưa / Gió / Đám mây.",
           "example": "The sun is shining. Rain is falling.",
           "bucket": 1,
-          "collocations": [
-            "have a sun / rain / wind / cloud",
-            "use sun / rain / wind / cloud"
-          ]
+          "collocations": []
         },
         {
           "word": "snow / fog / thunder / lightning",
@@ -3138,10 +3096,7 @@ export const courseData = [
           "vi": "Tuyết / Sương mù / Sấm / Sét.",
           "example": "Look at the lightning in the sky!",
           "bucket": 2,
-          "collocations": [
-            "have a snow / fog / thunder / lightning",
-            "use snow / fog / thunder / lightning"
-          ]
+          "collocations": []
         },
         {
           "word": "sunny / rainy / windy",
@@ -3150,10 +3105,7 @@ export const courseData = [
           "vi": "Có nắng / Có mưa / Có gió (Thêm '-y' vào sau danh từ).",
           "example": "It is a sunny day in Tokyo. Today it is very windy.",
           "bucket": 1,
-          "collocations": [
-            "very sunny / rainy / windy",
-            "extremely sunny / rainy / windy"
-          ]
+          "collocations": []
         },
         {
           "word": "cloudy / snowy / foggy",
@@ -3162,10 +3114,7 @@ export const courseData = [
           "vi": "Nhiều mây / Có tuyết / Nhiều sương mù (Gấp đôi phụ âm cuối trước khi thêm '-y' đối với fog -> foggy, sun -> sunny).",
           "example": "It's cloudy in London. Drive slowly because it is foggy.",
           "bucket": 2,
-          "collocations": [
-            "very cloudy / snowy / foggy",
-            "extremely cloudy / snowy / foggy"
-          ]
+          "collocations": []
         },
         {
           "word": "hot / warm / cool / cold",
@@ -3174,10 +3123,7 @@ export const courseData = [
           "vi": "Nóng / Ấm áp / Mát mẻ / Lạnh.",
           "example": "It is very hot in Mexico today (35 degrees). It is cold in the Arctic.",
           "bucket": 1,
-          "collocations": [
-            "very hot / warm / cool / cold",
-            "extremely hot / warm / cool / cold"
-          ]
+          "collocations": []
         },
         {
           "word": "storm / hurricane / thunderstorm",
@@ -3186,10 +3132,7 @@ export const courseData = [
           "vi": "Bão / Cuồng phong / Bão kèm sấm chớp.",
           "example": "A hurricane is a very strong wind. We had a thunderstorm last night.",
           "bucket": 2,
-          "collocations": [
-            "have a storm / hurricane / thunderstorm",
-            "use storm / hurricane / thunderstorm"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -4623,10 +4566,7 @@ export const courseData = [
           "vi": "Dãy núi / Đồi / Rừng rậm / Rừng thưa.",
           "example": "You can go walking in the mountains. A forest has thousands of trees.",
           "bucket": 1,
-          "collocations": [
-            "have a mountains / hills / forest / wood",
-            "use mountains / hills / forest / wood"
-          ]
+          "collocations": []
         },
         {
           "word": "lake / river / country road / path",
@@ -4635,10 +4575,7 @@ export const courseData = [
           "vi": "Hồ nước / Dòng sông / Đường quê / Lối mòn.",
           "example": "We took a boat on the lake. Follow the path through the wood.",
           "bucket": 2,
-          "collocations": [
-            "have a lake / river / country road / path",
-            "use lake / river / country road / path"
-          ]
+          "collocations": []
         },
         {
           "word": "village / small town",
@@ -4647,10 +4584,7 @@ export const courseData = [
           "vi": "Ngôi làng / Thị trấn nhỏ.",
           "example": "A village is very small (e.g. 700 people).",
           "bucket": 1,
-          "collocations": [
-            "have a village / small town",
-            "use village / small town"
-          ]
+          "collocations": []
         },
         {
           "word": "farm / farmer / fields",
@@ -4659,10 +4593,7 @@ export const courseData = [
           "vi": "Trang trại / Nông dân / Cánh đồng.",
           "example": "A farmer lives on a farm and works in the fields.",
           "bucket": 2,
-          "collocations": [
-            "have a farm / farmer / fields",
-            "use farm / farmer / fields"
-          ]
+          "collocations": []
         },
         {
           "word": "cottage",
@@ -4671,10 +4602,7 @@ export const courseData = [
           "vi": "Nhà tranh, nhà nhỏ ở quê.",
           "example": "My grandparents live in a beautiful cottage.",
           "bucket": 1,
-          "collocations": [
-            "have a cottage",
-            "use cottage"
-          ]
+          "collocations": []
         },
         {
           "word": "nature / wildlife",
@@ -4683,10 +4611,7 @@ export const courseData = [
           "vi": "Tự nhiên / Động vật hoang dã (chim, thú, côn trùng).",
           "example": "I love walking in the countryside and seeing wildlife. Nature means the natural world.",
           "bucket": 2,
-          "collocations": [
-            "have a nature / wildlife",
-            "use nature / wildlife"
-          ]
+          "collocations": []
         },
         {
           "word": "national park / conservation area",
@@ -4695,10 +4620,7 @@ export const courseData = [
           "vi": "Công viên quốc gia / Khu bảo tồn.",
           "example": "In a national park, nature and wildlife are protected.",
           "bucket": 1,
-          "collocations": [
-            "have a national park / conservation area",
-            "use national park / conservation area"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -5372,10 +5294,7 @@ export const courseData = [
           "vi": "Con ngựa / Bò / Cừu / Heo / Gà mái.",
           "example": "Sheep give us wool. Cows give us milk and beef.",
           "bucket": 1,
-          "collocations": [
-            "have a horse / cow / sheep / pig / hen",
-            "use horse / cow / sheep / pig / hen"
-          ]
+          "collocations": []
         },
         {
           "word": "meat names",
@@ -5393,10 +5312,7 @@ export const courseData = [
           "vi": "Con voi / Hươu cao cổ / Sư tử / Hổ.",
           "example": "A giraffe has a very long neck. Sư tử is the king of the jungle.",
           "bucket": 1,
-          "collocations": [
-            "have a elephant / giraffe / lion / tiger",
-            "use elephant / giraffe / lion / tiger"
-          ]
+          "collocations": []
         },
         {
           "word": "monkey / snake",
@@ -5405,10 +5321,7 @@ export const courseData = [
           "vi": "Con khỉ / Con rắn.",
           "example": "Monkeys love eating bananas. Watch out for the snake!",
           "bucket": 2,
-          "collocations": [
-            "have a monkey / snake",
-            "use monkey / snake"
-          ]
+          "collocations": []
         },
         {
           "word": "dog / cat / fish / parrot / tortoise",
@@ -5417,10 +5330,7 @@ export const courseData = [
           "vi": "Con chó / Mèo / Cá / Con vẹt / Con rùa.",
           "example": "I take my dog for a walk every day. Parrots and budgies are birds.",
           "bucket": 1,
-          "collocations": [
-            "have a dog / cat / fish / parrot / tortoise",
-            "use dog / cat / fish / parrot / tortoise"
-          ]
+          "collocations": []
         }
       ],
       "practicalUsage": [
@@ -6110,10 +6020,7 @@ export const courseData = [
           "vi": "Đặt chỗ trước.",
           "example": "I want to book a seat in advance.",
           "bucket": 1,
-          "collocations": [
-            "book a seat something",
-            "always book a seat"
-          ]
+          "collocations": []
         },
         {
           "word": "arrive at platform",
@@ -7571,10 +7478,7 @@ export const courseData = [
           "vi": "Bánh mì / Cơm, gạo / Mì ống.",
           "example": "In China, most people eat rice. In Italy, pasta is very popular.",
           "bucket": 1,
-          "collocations": [
-            "have a bread / rice / pasta",
-            "use bread / rice / pasta"
-          ]
+          "collocations": []
         },
         {
           "word": "meat / fish",
@@ -7583,10 +7487,7 @@ export const courseData = [
           "vi": "Thịt / Cá.",
           "example": "Some people do not eat meat or fish.",
           "bucket": 2,
-          "collocations": [
-            "have a meat / fish",
-            "use meat / fish"
-          ]
+          "collocations": []
         },
         {
           "word": "hot-dog / hamburger / pizza",
@@ -7595,10 +7496,7 @@ export const courseData = [
           "vi": "Bánh mì kẹp xúc xích / Hamburgers / Bánh pizza.",
           "example": "Young people love fast food like pizza and hot-dogs.",
           "bucket": 1,
-          "collocations": [
-            "have a hot-dog / hamburger / pizza",
-            "use hot-dog / hamburger / pizza"
-          ]
+          "collocations": []
         },
         {
           "word": "fish and chips",
@@ -7607,10 +7505,7 @@ export const courseData = [
           "vi": "Cá chiên kèm khoai tây chiên (Món ăn truyền thống của người Anh).",
           "example": "Most British people like fish and chips.",
           "bucket": 2,
-          "collocations": [
-            "have a fish and chips",
-            "use fish and chips"
-          ]
+          "collocations": []
         },
         {
           "word": "carrot / bean / potato / tomato",
