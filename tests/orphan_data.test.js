@@ -17,7 +17,7 @@
 // tới. Muốn giữ một file chưa nối vào kho thì thêm vào EXEMPT kèm LÝ DO.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync, statSync } from 'fs';
+import { readdirSync, readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -28,9 +28,13 @@ const DATA = path.join(ROOT, 'src', 'data');
 const EXEMPT = {};
 
 function walk(dir, out = []) {
-  for (const name of readdirSync(dir)) {
+// Đọc kèm loại mục thay vì statSync từng tên: node --test chạy song song, và
+// vài test khác dựng rồi xoá file `__tmp_*.mjs` trong src/data — giữa readdir và
+// stat, một tên có thể đã biến mất → ENOENT làm test đỏ vì lý do không liên quan.
+  for (const muc of readdirSync(dir, { withFileTypes: true })) {
+    const name = muc.name;
     const p = path.join(dir, name);
-    if (statSync(p).isDirectory()) {
+    if (muc.isDirectory()) {
       if (name === 'node_modules' || name === 'dist' || name === '.git') continue;
       walk(p, out);
     } else if (/\.(js|jsx|mjs|cjs|ts|tsx|json)$/.test(name)) {

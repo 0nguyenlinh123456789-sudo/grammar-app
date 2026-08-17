@@ -77,7 +77,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 | # | Việc | Vì sao | Nghiệm thu | RB | Công |
 |---|---|---|---|---|---|
 | 2.1 | 🟡 **ĐANG DỞ (Đợt 3)** — đã dựng cổng giấy phép + bộ tải 4 lớp + kho bản thu đầu tiên. **N4 chưa đạt.** Xem `BAO_CAO_GIAY_PHEP_AUDIO.md` | Trước đó **0 file âm thanh** trong `public/` | N4 xanh | A | **Lớn** |
-| 2.2 | 🟡 **ĐANG DỞ (Đợt 3)** — **16/60 bài** nghe theo đoạn **3–5 phút** (VOA, có bản chép lời + 4 câu hỏi soạn tay mỗi bài). Mốc "60–150 giây" ban đầu là con số tôi đoán, **đã thay bằng số đo**: loạt bài dạy học của VOA dài 200–300 giây, và 4 phút hợp với mục tiêu "theo dõi mạch nói" hơn 90 giây | B2 đo khả năng theo dõi mạch nói, không đo nhận ra một từ | ≥60 bài nghe đoạn — `tests/listening_passages.test.js` | A | Lớn |
+| ~~2.2~~ ✅ | **XONG (Đợt 3)** — **60/60 bài** nghe theo đoạn **3–5 phút** (VOA, có bản chép lời + 4 câu hỏi soạn tay mỗi bài). Mốc "60–150 giây" ban đầu là con số tôi đoán, **đã thay bằng số đo**: loạt bài dạy học của VOA dài 200–300 giây, và 4 phút hợp với mục tiêu "theo dõi mạch nói" hơn 90 giây | B2 đo khả năng theo dõi mạch nói, không đo nhận ra một từ | ≥60 bài nghe đoạn — `tests/listening_passages.test.js` | A | Lớn |
 | 2.3 | ✅ **XONG (Đợt 3)** — nghe chép chính tả, chấm bằng so khớp dãy con dài nhất; thiếu từ đầu câu không kéo sập cả câu | Cơ chế rẻ, hiệu quả cao nhất cho nghe | `tests/dictation.test.js` | A | Nhỏ |
 | 2.4 | ✅ **XONG (Đợt 3)** — nhãn "Giọng máy đọc" ở phần nghe hiểu và phần Nghe của đề thi thử | Thiếu dữ liệu thì BÁO, không thay thế âm thầm | `MachineVoiceTag.jsx` | A | Nhỏ |
 
@@ -92,9 +92,9 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 
 | # | Việc | Vì sao | Nghiệm thu | RB | Công |
 |---|---|---|---|---|---|
-| 3.1 | **Câu hỏi đọc hiểu soạn tay gắn với `storyEn`** — hiện **1/267 chủ đề** có | 266 chủ đề đang kiểm tra hiểu *một câu*, không phải hiểu *một bài* | N5 xanh | A | **Lớn** |
+| 3.1 | 🟡 **ĐANG DỞ (Đợt 7)** — **38/122 chặng ≥B1** đã có câu hỏi mức VĂN BẢN soạn tay (bậc B1 xong; còn B2 38 + C1 46). **152 câu**, mỗi câu kèm trường `dan` chép NGUYÊN VĂN câu trong bài làm căn cứ, hiện ra cho người học sau khi chọn. ⚠️ Con số "1/267" của dòng này SAI: chủ đề duy nhất có câu soạn tay (`travel-transport`) là câu **mức CÂU** — 5 câu tiếng Anh độc lập, không câu nào nằm trong `storyEn` của chính nó. Tính theo N5 ("đọc hiểu theo VĂN BẢN") thì điểm xuất phát thật là **0/267**; có test ghim lại bằng chứng | 266 chủ đề đang kiểm tra hiểu *một câu*, không phải hiểu *một bài* | N5 xanh — `tests/story_quiz.test.js` (9 test) | A | **Lớn** |
 | ~~3.2~~ ✅ | **Rà chất lượng 267 bài đọc** — đo lại ra **38 bài** dính dấu hiệu, đọc từng chỗ thì **30 bài viết hoa ĐÚNG** (thứ, tháng, `T-shirt`, `Renaissance`, `MRI scan`, `Earth`…), **8 bài sai thật** = **888 lượt**. Đã hạ chữ thường 888 lượt, `tests/story_caps.test.js` ghim | Bài đọc là đầu vào chính; sai ở đây là sai gốc | 0 lượt chưa giải thích + bất biến "chỉ đổi hoa/thường" | A | Trung bình |
-| 3.3 | **Ngân hàng đề viết theo chặng** (câu → đoạn → bài 150–200 từ), chấm bằng key Gemini của khách, lỗi đổ vào sổ lỗi đã có | Hiện chỉ có **1 ô văn bản tự do** ở mục ngữ pháp | N6 xanh | **B** | Trung bình |
+| ~~3.3~~ ✅ | **XONG (Đợt 4)** — **531/532 chặng A2+** có đề viết gắn với từ vựng của chính chặng, **9 đề soạn tay có bài mẫu**; lỗi bề mặt đổ vào sổ lỗi sẵn có. Xem ghi chú N6: cách đo cũ ("532 đề soạn tay") đã được thay bằng hai vế đo được. **Ngân hàng đề viết theo chặng** (câu → đoạn → bài 150–200 từ), chấm bằng key Gemini của khách, lỗi đổ vào sổ lỗi đã có | Hiện chỉ có **1 ô văn bản tự do** ở mục ngữ pháp | N6 xanh | **B** | Trung bình |
 | 3.4 | **Chấm viết dự phòng không cần AI**: đối chiếu câu mẫu, checklist tiêu chí, tự đánh giá có hướng dẫn | Khách chưa nhập key vẫn phải viết được, không thì tính năng chết một nửa | mọi đề viết dùng được khi không có key | A | Trung bình |
 | ~~3.5~~ ✅ | **Nói: mở rộng đọc to → nói theo chủ đề** — **386/386 chặng B1+** có đề, nhận xét nội dung bằng key Gemini của khách; giữ mục đọc to từng từ cho A0–A2 | Hiện chỉ so chuỗi, và bản thân việc so chuỗi không phải chấm phát âm | 386/386 chặng B1+ ✅ · 0 chặng dưới B1 ✅ · test cấm mọi lời hứa chấm phát âm | **B** | Trung bình |
 
@@ -174,7 +174,10 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 ## PHẦN 5 — HAI ĐIỀU CẦN THỐNG NHẤT TRƯỚC
 
 1. **Nguồn audio (việc 2.1) là việc lớn nhất và là việc duy nhất cần nội dung từ bên ngoài.** Ba hướng: (a) dùng kho mở có giấy phép phù hợp — rẻ, nhưng phải tự lọc và tự cắt; (b) tự thu — kiểm soát hoàn toàn, tốn thời gian; (c) giọng máy chất lượng cao qua key của khách — nhưng vẫn là giọng máy. Cần bạn chọn trước khi tôi bắt tay.
-2. **Việc 3.1 (câu hỏi đọc hiểu cho 267 bài) là khối lượng soạn thảo lớn nhất trong bảng.** Nếu muốn giảm, có thể thu hẹp còn các chặng nằm trong lộ trình chính thay vì cả 267 chủ đề — nói rõ để tôi tính lại phạm vi.
+2. **Việc 3.1 — câu hỏi thu hẹp phạm vi mà tôi đặt ra ở đây có TIỀN ĐỀ SAI, đã đo lại 17/08.**
+   Lối thoát tôi đề nghị ("thu hẹp còn các chặng nằm trong lộ trình chính thay vì cả 267 chủ đề") **không giảm được gì**: đo ra **267/267 chủ đề từ vựng đều đã là chặng `type:'vstep'` trong lộ trình** kể từ Đợt 1 (starter 71 · elementary 74 · intermediate 38 · upper_intermediate 38 · advanced 46). Hai tập trùng khít nhau.
+   Trục thu hẹp THẬT nằm ở bậc, và nó đã được ghi sẵn trong chính tiêu chí nghiệm thu: **N5 nói "ở mọi chặng ≥B1" = 122 chặng**, không phải 267. Bảng việc lại ghi "1/267" và mục này ghi "267 bài" — ba con số trong cùng một tài liệu.
+   **Tôi đang làm theo N5 (122), vì đó là cột nghiệm thu.** Bậc B1 (38 chặng) đã xong ở Đợt 7. Nếu bạn muốn phủ cả 267 chủ đề — tức thêm 145 chặng A1/A2 — thì nói, vì đó là quyết định của bạn chứ không phải suy ra được từ tài liệu.
 
 ---
 

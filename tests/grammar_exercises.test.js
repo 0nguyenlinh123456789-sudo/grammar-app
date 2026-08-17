@@ -11,7 +11,7 @@
 //   - đầu vào: bộ lọc không được ăn nhầm câu LÀM ĐƯỢC.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync, statSync } from 'fs';
+import { readFileSync, readdirSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { locBaiHong, demBiAn, suaLoiLamDuoc, vietLaiLamDuoc, dienVaoLamDuoc } from '../src/utils/grammarClean.js';
@@ -88,9 +88,13 @@ test('mọi nơi đọc errorCorrection/transformation/fillBlanks đều qua loc
   ];
   const thieu = [];
   const quet = (dir) => {
-    for (const ten of readdirSync(dir)) {
+// Đọc kèm loại mục thay vì statSync từng tên: node --test chạy song song, và
+// vài test khác dựng rồi xoá file `__tmp_*.mjs` trong src/data — giữa readdir và
+// stat, một tên có thể đã biến mất → ENOENT làm test đỏ vì lý do không liên quan.
+    for (const muc of readdirSync(dir, { withFileTypes: true })) {
+      const ten = muc.name;
       const full = path.join(dir, ten);
-      if (statSync(full).isDirectory()) { quet(full); continue; }
+      if (muc.isDirectory()) { quet(full); continue; }
       if (!/\.(js|jsx|mjs)$/.test(ten)) continue;
       const rel = path.relative(ROOT, full).replace(/\\/g, '/');
       if (rel.startsWith('src/data/') || DUOC_DOC_THANG.includes(rel)) continue;

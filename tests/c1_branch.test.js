@@ -12,7 +12,7 @@
 // giải thích của mình (đúng cái bẫy `speaking_bank.test.js` đã dính).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync, statSync } from 'fs';
+import { readdirSync, readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { roadmapData, BAND_TAB_LABEL, CEFR_OF_BAND, ROADMAP_BANDS, BAC_CAM_KET, BAC_DU_BI, LA_DU_BI } from '../src/data/roadmapData.js';
@@ -90,11 +90,18 @@ function boQua(dong) {
   return false;
 }
 
+// Đọc kèm loại mục (`withFileTypes`) thay vì readdir rồi statSync từng tên.
+//
+// Vài test khác dựng file `__tmp_*.mjs` tạm trong src/data để nạp được các file
+// dữ liệu dùng import không đuôi, rồi xoá ngay. `node --test` chạy các file test
+// SONG SONG, nên giữa lúc liệt kê và lúc statSync, một tên có thể đã biến mất →
+// ENOENT, và test đỏ vì lý do không liên quan gì tới thứ nó đang kiểm. Không
+// stat thì không có khe hở đó.
 function liet(dir, ra = []) {
-  for (const ten of readdirSync(dir)) {
-    const full = path.join(dir, ten);
-    if (statSync(full).isDirectory()) liet(full, ra);
-    else if (/\.(js|jsx)$/.test(ten)) ra.push(full);
+  for (const muc of readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, muc.name);
+    if (muc.isDirectory()) liet(full, ra);
+    else if (/\.(js|jsx)$/.test(muc.name)) ra.push(full);
   }
   return ra;
 }

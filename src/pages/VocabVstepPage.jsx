@@ -378,7 +378,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
             </div>
 
             {/* Reading comprehension check after the story */}
-            <ReadingComprehension words={activeTopic.words} authored={activeTopic.comprehension} />
+            <ReadingComprehension words={activeTopic.words} authored={activeTopic.comprehension} story={activeTopic.storyQuiz} />
           </div>
         )
       )}

@@ -1,14 +1,21 @@
 // File: src/components/vocab/ReadingComprehension.jsx
-// Reading-comprehension check: read an English sentence/passage, then answer a
-// question. Uses hand-authored questions (topic.comprehension) when present,
-// otherwise auto-generates from vocab example sentences. Text-only (no audio).
+// Phần kiểm tra đọc hiểu nằm NGAY DƯỚI bài đọc của chủ đề.
+//
+// Vì nó nằm ngay dưới bài đọc, người học mặc nhiên hiểu là nó hỏi về BÀI ĐỌC.
+// Trước việc 3.1 thì 266/267 chủ đề không có câu nào hỏi về bài — các câu ở đây
+// sinh ra từ câu ví dụ của từng mục từ, tức là hỏi hiểu MỘT CÂU rời không liên
+// quan tới bài vừa đọc. Chỗ đặt nó đã nói một điều mà nội dung không có.
+//
+// Nay: có `topic.storyQuiz` thì hỏi về bài thật; không có thì NÓI THẲNG rằng
+// phần này đang kiểm câu lẻ chứ chưa kiểm bài — luật "thiếu dữ liệu thì ẨN hoặc
+// BÁO, không thay thế âm thầm".
 import { useState, useEffect, useCallback } from 'react';
 import { BookOpen, CheckCircle2, XCircle, RefreshCw, Trophy } from 'lucide-react';
 import { playCorrect, playWrong, playComplete } from '../../utils/sound';
 import { recordReview } from '../../utils/srs';
 import { buildComprehension } from '../../utils/comprehension';
 
-const ReadingComprehension = ({ words = [], authored }) => {
+const ReadingComprehension = ({ words = [], authored, story }) => {
   const [pool, setPool] = useState([]);
   const [idx, setIdx] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -16,9 +23,9 @@ const ReadingComprehension = ({ words = [], authored }) => {
   const [finished, setFinished] = useState(false);
 
   const init = useCallback(() => {
-    setPool(buildComprehension({ words, authored, limit: 8 }));
+    setPool(buildComprehension({ words, authored, story, limit: 8 }));
     setIdx(0); setScore(0); setSelected(null); setFinished(false);
-  }, [words, authored]);
+  }, [words, authored, story]);
 
   useEffect(() => { init(); }, [init]);
 
@@ -55,13 +62,28 @@ const ReadingComprehension = ({ words = [], authored }) => {
   return (
     <div className="bg-white dark:bg-slate-800 border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)]">
       <h3 className="text-xl font-black mb-4 bg-sky-300 dark:bg-sky-800 dark:text-white inline-flex items-center gap-2 px-4 py-2 border-2 border-black rounded-lg transform -rotate-1">
-        <BookOpen size={20} /> 📖 Đọc – Chọn Nghĩa — Câu {idx + 1}/{pool.length}
+        <BookOpen size={20} /> {cur.mucVanBan ? '📖 Đọc Hiểu Bài' : '📖 Đọc – Chọn Nghĩa'} — Câu {idx + 1}/{pool.length}
       </h3>
       <div className="flex gap-1 w-full my-4">
         {pool.map((_, i) => <div key={i} className={`flex-1 h-2 rounded-full ${i < idx ? 'bg-emerald-400' : i === idx ? 'bg-sky-400 animate-pulse' : 'bg-slate-200 dark:bg-slate-700'}`} />)}
       </div>
-      <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Đọc và trả lời: {cur.prompt}</p>
-      <p className="text-xl md:text-2xl font-black text-slate-800 dark:text-slate-100 mb-5 leading-snug">"{cur.showText}"</p>
+
+      {/* Câu lẻ thì phải nói là câu lẻ — nó nằm ngay dưới bài đọc nên không nói
+          rõ là mặc nhiên người học hiểu nhầm đây là câu hỏi về bài. */}
+      {!cur.mucVanBan && (
+        <p className="text-sm font-bold text-amber-800 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/40 border-2 border-amber-500 rounded-xl px-3 py-2 mb-4">
+          ⚠️ Chủ đề này <b>chưa có câu hỏi về bài đọc</b>. Các câu dưới đây kiểm tra hiểu <b>từng câu ví dụ rời</b>, không kiểm tra hiểu cả bài.
+        </p>
+      )}
+
+      <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">
+        {cur.mucVanBan ? 'Dựa vào bài đọc phía trên, trả lời:' : 'Đọc và trả lời:'} {cur.mucVanBan ? '' : cur.prompt}
+      </p>
+      {cur.mucVanBan ? (
+        <p className="text-xl md:text-2xl font-black text-slate-800 dark:text-slate-100 mb-5 leading-snug">{cur.prompt}</p>
+      ) : (
+        <p className="text-xl md:text-2xl font-black text-slate-800 dark:text-slate-100 mb-5 leading-snug">"{cur.showText}"</p>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {cur.options.map((opt, i) => {
@@ -82,6 +104,14 @@ const ReadingComprehension = ({ words = [], authored }) => {
           );
         })}
       </div>
+
+      {/* Căn cứ: câu NGUYÊN VĂN trong bài đọc dẫn tới đáp án. Hiện sau khi chọn,
+          để người học tự kiểm lại chứ không phải tin lời chấm. */}
+      {selected !== null && cur.dan && (
+        <p className="mt-5 text-base font-bold text-slate-700 dark:text-slate-200 bg-emerald-50 dark:bg-emerald-900/30 border-l-4 border-emerald-500 rounded-r-xl px-4 py-3">
+          <span className="text-emerald-700 dark:text-emerald-300">Căn cứ trong bài:</span> “{cur.dan}”
+        </p>
+      )}
     </div>
   );
 };

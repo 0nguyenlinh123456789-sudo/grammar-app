@@ -12,7 +12,7 @@
 // Thêm màn hình mới mà quên gate → test đỏ, không cần ai nhớ.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync, statSync } from 'fs';
+import { readdirSync, readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -26,9 +26,13 @@ const EXEMPT = {
 };
 
 function walk(dir, out = []) {
-  for (const name of readdirSync(dir)) {
+// Đọc kèm loại mục thay vì statSync từng tên: node --test chạy song song, và
+// vài test khác dựng rồi xoá file `__tmp_*.mjs` trong src/data — giữa readdir và
+// stat, một tên có thể đã biến mất → ENOENT làm test đỏ vì lý do không liên quan.
+  for (const muc of readdirSync(dir, { withFileTypes: true })) {
+    const name = muc.name;
     const full = path.join(dir, name);
-    if (statSync(full).isDirectory()) walk(full, out);
+    if (muc.isDirectory()) walk(full, out);
     else if (/\.jsx?$/.test(name)) out.push(full);
   }
   return out;
