@@ -52,8 +52,10 @@
 // nên câu nhiễu vừa dài tương đương vừa đáng tin hơn trước.
 //
 // Kết quả đo: "dài hơn thấy được (≥10%)" **57,2% → 6,0%**; không còn câu nào
-// lệch quá 40%. Con số "dài nhất duy nhất" còn 51,0% nhưng phần lớn là lệch 1-2
-// ký tự — mắt thường không phân biệt nổi nên không phải mẹo dùng được.
+// lệch quá 40%. Con số "dài nhất duy nhất" còn 51,0%, nhưng 45% tổng số câu nằm
+// trong dải 0–10% với **chênh lệch trung vị 3 ký tự, tối đa 6** trên lựa chọn dài
+// khoảng 60 ký tự — dưới một từ, không đọc ra được bằng mắt. Con số đó được ĐO
+// chứ không phải khẳng định suông.
 // Đo lại: `node scripts/audit_story_quiz.mjs`. Bánh cóc ở
 // `tests/story_quiz.test.js` ghim cả hai con số, chỉ được giảm.
 //

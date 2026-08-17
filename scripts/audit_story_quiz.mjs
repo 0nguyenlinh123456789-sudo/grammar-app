@@ -23,6 +23,9 @@ export async function doThienLech() {
   let daiThayDuoc = 0;
   let nganNhat = 0;
   const nang = [];
+  // Dải 0-10%: đáp án dài nhất nhưng hơn rất ít. Không đo dải này thì câu "mắt
+  // thường không phân biệt nổi" chỉ là lời khẳng định, không phải con số.
+  const khoangHep = [];
   for (const [id, ds] of Object.entries(STORY_QUIZ)) {
     for (const q of ds) {
       tong += 1;
@@ -37,10 +40,20 @@ export async function doThienLech() {
         daiThayDuoc += 1;
         if (cua >= nhi * 1.4) nang.push({ id, q: q.q, cua, nhi });
       }
+      if (cua > nhi && cua < nhi * 1.1) khoangHep.push(cua - nhi);
       if (cua === Math.min(...dai)) nganNhat += 1;
     }
   }
-  return { tong, daiNhatDuyNhat, daiThayDuoc, nganNhat, nang };
+  khoangHep.sort((a, b) => a - b);
+  return {
+    tong, daiNhatDuyNhat, daiThayDuoc, nganNhat, nang,
+    khoangHep: {
+      so: khoangHep.length,
+      trungBinh: khoangHep.length ? khoangHep.reduce((a, b) => a + b, 0) / khoangHep.length : 0,
+      trungVi: khoangHep.length ? khoangHep[Math.floor(khoangHep.length / 2)] : 0,
+      max: khoangHep.length ? khoangHep[khoangHep.length - 1] : 0,
+    },
+  };
 }
 
 if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
@@ -51,6 +64,11 @@ if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) 
   console.log('Đáp án đúng dài hơn THẤY ĐƯỢC (≥10%):', pc(r.daiThayDuoc));
   console.log('Đáp án đúng là lựa chọn NGẮN NHẤT:', pc(r.nganNhat));
   console.log('Kỳ vọng nếu không thiên lệch (4 lựa chọn): ~25%');
+  const k = r.khoangHep;
+  console.log(`
+Dải 0–10% (dài nhất nhưng hơn rất ít): ${pc(k.so)}`);
+  console.log(`  chênh lệch ký tự: trung bình ${k.trungBinh.toFixed(1)} · trung vị ${k.trungVi} · tối đa ${k.max}`);
+  console.log('  (lựa chọn dài ~60 ký tự, nên vài ký tự là dưới một từ — không đọc ra được bằng mắt)');
   console.log(`\nNặng nhất (dài hơn lựa chọn nhì ≥40%): ${r.nang.length} câu`);
   for (const x of r.nang.slice(0, 30)) console.log(`  ${x.id} · ${x.q.slice(0, 50)}… (${x.cua} vs ${x.nhi})`);
 }
