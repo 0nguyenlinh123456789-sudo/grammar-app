@@ -385,7 +385,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"agony aunt\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"agony aunt\"?",
         "options": [
           "tờ rơi (quảng cáo sự kiện)",
           "báo lá cải (chuyên đăng tin giật gân)",
@@ -800,7 +800,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"chat room\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"chat room\"?",
         "options": [
           "lưu trang web yêu thích",
           "phòng trò chuyện trực tuyến",
@@ -1239,7 +1239,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"rock-bottom prices\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"rock-bottom prices\"?",
         "options": [
           "biển quảng cáo lớn (ngoài trời)",
           "giá rẻ mạt, rẻ nhất có thể",
@@ -1651,7 +1651,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"column inch\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"column inch\"?",
         "options": [
           "vừa mới xuất bản, tin nóng hổi",
           "đoạn trích phát biểu ngắn (trên TV/radio)",
@@ -2081,7 +2081,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"go down with\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"go down with\"?",
         "options": [
           "mắc bệnh (thường là bệnh nhẹ)",
           "bệnh viêm gan",
@@ -2520,7 +2520,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"aches and pains\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"aches and pains\"?",
         "options": [
           "chóng mặt",
           "thuật châm cứu",
@@ -2959,7 +2959,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"side effects\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"side effects\"?",
         "options": [
           "sự chẩn đoán bệnh",
           "tiên lượng (dự đoán tiến triển bệnh)",
@@ -3383,7 +3383,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"cholesterol\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"cholesterol\"?",
         "options": [
           "thay đổi luật chơi (gây khó dễ)",
           "thuộc về tim mạch",
@@ -3822,7 +3822,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"low-tech\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"low-tech\"?",
         "options": [
           "công nghệ thấp, thủ công",
           "tiền trợ cấp (chính phủ cho doanh nghiệp)",
@@ -4252,7 +4252,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"PDA\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"PDA\"?",
         "options": [
           "công thái học (thiết kế tối ưu cho con người)",
           "công nghệ sinh học",
@@ -4691,7 +4691,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"virtual reality\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"virtual reality\"?",
         "options": [
           "xã hội không tưởng (hoàn hảo)",
           "thực tế ảo (VR)",
@@ -5130,7 +5130,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"rambling\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"rambling\"?",
         "options": [
           "rộng lớn thênh thang (xây lộn xộn/rải rác)",
           "nhỏ bé, chật hẹp khó chịu",
@@ -5569,7 +5569,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"donkey's years\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"donkey's years\"?",
         "options": [
           "tạm thời, chớp nhoáng",
           "một khoảng thời gian rất dài",
@@ -5993,7 +5993,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"hobble\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"hobble\"?",
         "options": [
           "đi dạo thong thả",
           "chảy tuôn ra, ùa ra",
@@ -6423,7 +6423,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"mind your Ps and Qs\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"mind your Ps and Qs\"?",
         "options": [
           "chú ý cư xử cho đúng mực",
           "phép xã giao, quy tắc ứng xử",
@@ -6847,7 +6847,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"noiseless\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"noiseless\"?",
         "options": [
           "không một tiếng động",
           "đinh tai nhức óc",
@@ -7286,7 +7286,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"unwieldy\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"unwieldy\"?",
         "options": [
           "dày đặc, đặc xịt",
           "đông lại, vón cục (chất lỏng, mỡ, máu)",
@@ -7725,7 +7725,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"ginger\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"ginger\"?",
         "options": [
           "màu nâu cam nhạt (tóc, mèo)",
           "màu phấn nhạt, màu nhạt",
@@ -8131,7 +8131,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"pop\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"pop\"?",
         "options": [
           "chạy trốn nhanh bằng những bước ngắn (như cua, chuột)",
           "tăng tốc",
@@ -8561,7 +8561,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"generate\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"generate\"?",
         "options": [
           "dẫn đến, mang lại (thay đổi lớn)",
           "châm ngòi, khơi mào (xung đột, biểu tình)",
@@ -9000,7 +9000,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"affinity\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"affinity\"?",
         "options": [
           "sự đồng điệu, mối quan hệ gắn kết",
           "hoàn toàn khác biệt, hỗn tạp",
@@ -9439,7 +9439,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"glitch\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"glitch\"?",
         "options": [
           "lỗi kỹ thuật nhỏ (phần mềm)",
           "vắt kiệt sức lực, mệt mỏi rã rời",
@@ -9878,7 +9878,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"the odds are\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"the odds are\"?",
         "options": [
           "thiết thực, có lợi (dù có thể không đúng đạo lý)",
           "khả năng cao là (xác suất là)",
@@ -10317,7 +10317,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"IQ\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"IQ\"?",
         "options": [
           "làm tròn xuống (số thập phân)",
           "phần nhỏ, phân số",
@@ -10738,7 +10738,7 @@ export const courseData51_75 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"acquiesce\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"acquiesce\"?",
         "options": [
           "bằng lòng, ưng thuận (dù miễn cưỡng)",
           "bất hợp pháp hóa, cấm",

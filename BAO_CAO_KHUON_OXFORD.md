@@ -6,8 +6,12 @@
 > **A đã xong**: xoá 1.868 cụm nhân từ khuôn (elementary 592 · advanced 1.276), giữ 19 cụm thật.
 > `scripts/strip_oxford_templates.mjs` · bất biến băm ở `tests/oxford_colloc.test.js` chứng minh
 > đợt xoá **chỉ đụng vào mảng `collocations`**, không đụng một ký tự nào ở quiz/theory/bài tập.
-> **B làm ở commit riêng** — vì bất biến của A băm mọi thứ ngoài `collocations`, nên sửa chuỗi `q`
-> của B lập tức làm A đỏ. Đó là bất biến làm đúng việc của nó: hai đợt sửa, hai commit, hai bảng băm.
+> **B đã xong ở commit riêng**: 100 câu đổi thành `Nghĩa nào dưới đây là nghĩa của "X"?`.
+> Phải là commit riêng vì bất biến của A băm mọi thứ ngoài `collocations`, nên sửa chuỗi `q` của B
+> lập tức làm A đỏ — bất biến làm đúng việc của nó: hai đợt sửa, hai commit, hai bảng băm.
+> `scripts/reword_best_translation.mjs` · `tests/oxford_best_translation.test.js` chứng minh **chỉ `q` đổi**,
+> `options` và `a` băm khớp y nguyên; kèm một test đòi nhiễu vẫn phải là nghĩa soạn tay TRONG CÙNG UNIT —
+> mất căn cứ đó thì quyết định phải là XOÁ, không phải sửa chữ.
 > **C bị loại**: giữ nguyên nghĩa là tiếp tục dạy `use noun`, `very adjective` cho người học B2–C1.
 > Đo lại bất cứ lúc nào: `node scripts/audit_oxford_templates.mjs`
 

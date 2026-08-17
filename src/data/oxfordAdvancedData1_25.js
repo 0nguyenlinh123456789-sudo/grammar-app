@@ -388,7 +388,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"FAQ\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"FAQ\"?",
         "options": [
           "càng sớm càng tốt",
           "câu hỏi thường gặp",
@@ -827,7 +827,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"overestimate\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"overestimate\"?",
         "options": [
           "đánh giá quá cao",
           "được đánh giá quá cao (so với thực tế)",
@@ -1266,7 +1266,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"tax-free\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"tax-free\"?",
         "options": [
           "chống đạn",
           "chống thấm nước",
@@ -1687,7 +1687,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"biodegradable\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"biodegradable\"?",
         "options": [
           "bữa ăn trưa sớm (breakfast + lunch)",
           "sự ước lượng phỏng đoán (guess + estimate)",
@@ -2117,7 +2117,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"loan word\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"loan word\"?",
         "options": [
           "karaoke (gốc Nhật)",
           "tầng lớp trí thức (gốc Nga)",
@@ -2556,7 +2556,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"series\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"series\"?",
         "options": [
           "chuỗi, loạt (sự kiện, phim độc lập)",
           "phim/truyện dài kỳ (cốt truyện tiếp nối)",
@@ -2986,7 +2986,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"flexi-time\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"flexi-time\"?",
         "options": [
           "chia sẻ công việc (hai người chia 1 vị trí)",
           "làm việc theo ca",
@@ -3425,7 +3425,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"drive\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"drive\"?",
         "options": [
           "sự thăng chức",
           "rào cản vô hình (cản trở phụ nữ/thiểu số thăng tiến)",
@@ -3864,7 +3864,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"telemarketing\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"telemarketing\"?",
         "options": [
           "tinh thần khởi nghiệp",
           "tiếp thị qua điện thoại",
@@ -4285,7 +4285,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"submit a tender\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"submit a tender\"?",
         "options": [
           "vỡ nợ, không trả được nợ",
           "tiền trợ cấp (của chính phủ)",
@@ -4724,7 +4724,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"rote-learning\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"rote-learning\"?",
         "options": [
           "học nhồi nhét (trước kỳ thi)",
           "hạn chót",
@@ -5163,7 +5163,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"elitism\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"elitism\"?",
         "options": [
           "chủ nghĩa tinh hoa (ưu tiên người giỏi/giàu)",
           "sự phân lớp theo năng lực",
@@ -5602,7 +5602,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"diligent\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"diligent\"?",
         "options": [
           "siêng năng, cần mẫn",
           "thông minh, uyên bác",
@@ -6041,7 +6041,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"infatuated\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"infatuated\"?",
         "options": [
           "say đắm mù quáng",
           "nhã nhặn, hòa đồng",
@@ -6471,7 +6471,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"disloyal\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"disloyal\"?",
         "options": [
           "mối thù truyền kiếp trong gia tộc",
           "sự phản bội",
@@ -6910,7 +6910,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"conciliate\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"conciliate\"?",
         "options": [
           "vui sướng phát điên",
           "hạnh phúc ngập tràn",
@@ -7340,7 +7340,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"abhorrence\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"abhorrence\"?",
         "options": [
           "thất thường, hay thay đổi",
           "ác cảm, sự không thích",
@@ -7746,7 +7746,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"lanky\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"lanky\"?",
         "options": [
           "lôi thôi, bù xù",
           "cao gầy lêu nghêu",
@@ -8185,7 +8185,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"impulsive\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"impulsive\"?",
         "options": [
           "cố chấp, bướng bỉnh",
           "nhẹ dạ cả tin",
@@ -8624,7 +8624,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"Caesarean section\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"Caesarean section\"?",
         "options": [
           "cáo phó",
           "sự để tang, thương tiếc",
@@ -9063,7 +9063,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"time-consuming\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"time-consuming\"?",
         "options": [
           "người làm việc tài tử, học đòi (không chuyên sâu)",
           "tốn nhiều thời gian",
@@ -9502,7 +9502,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"frumpy\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"frumpy\"?",
         "options": [
           "lỗi thời, luộm thuộm (quần áo)",
           "ăn mặc lộng lẫy, thu hút sự chú ý",
@@ -9941,7 +9941,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"granny flat\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"granny flat\"?",
         "options": [
           "thương hiệu/tên tuổi quen thuộc với mọi nhà",
           "rộng rãi",
@@ -10371,7 +10371,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"housewarming\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"housewarming\"?",
         "options": [
           "bè phái, nhóm kín",
           "trộn lẫn, hòa mình vào đám đông",
@@ -10810,7 +10810,7 @@ export const courseData1_25 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"hackneyed\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"hackneyed\"?",
         "options": [
           "nhàm chán, sáo rỗng (cốt truyện)",
           "đóng đinh vào một kiểu vai diễn",

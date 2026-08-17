@@ -14,6 +14,15 @@
 // giáo trình soạn tay là một đợt sửa lớn, và cách duy nhất để chứng minh nó
 // KHÔNG đụng vào thứ khác là băm phần còn lại — chụp TRƯỚC khi xoá. Cùng mẹo đã
 // dùng cho 888 lượt hạ chữ thường ở việc 3.2.
+//
+// ⚠️ BẢNG BĂM LÀ MỐC HIỆN TẠI, KHÔNG PHẢI BẰNG CHỨNG VĨNH VIỄN — nói rõ để không
+// ai đọc quá lời nó nói. Bảng chụp trước đợt xoá đã làm xong việc của nó ở commit
+// `dbe096e` (bất biến xanh ở đó = đợt xoá không đụng gì khác). Ngay sau đó quyết
+// định B sửa 100 chuỗi `q`, một đợt sửa CÓ CHỦ Ý và có bất biến riêng
+// (`tests/oxford_best_translation.test.js` chứng minh nó chỉ đổi đề bài), nên bảng
+// này được chụp lại. Từ nay nó là mốc để bắt sửa NGOÀI Ý MUỐN: đỏ ở đây nghĩa là
+// có ai vừa đổi nội dung giáo trình soạn tay — nếu là cố ý thì chụp lại bảng VÀ
+// nói lý do trong commit, đừng chụp lại rồi im lặng.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'fs';

@@ -361,7 +361,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"grouse\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"grouse\"?",
         "options": [
           "lầm bầm phàn nàn",
           "càu nhàu, cằn nhằn",
@@ -754,7 +754,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"alibi\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"alibi\"?",
         "options": [
           "chứng cớ ngoại phạm",
           "sự ăn năn, hối hận tột cùng",
@@ -1160,7 +1160,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"laud\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"laud\"?",
         "options": [
           "khúm núm, nịnh hót quá đáng",
           "tán tụng hết lời",
@@ -1566,7 +1566,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"vow\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"vow\"?",
         "options": [
           "thề, lập lời thề",
           "khoản tiền cá cược",
@@ -1972,7 +1972,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"the good old days\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"the good old days\"?",
         "options": [
           "những ngày tháng xưa tươi đẹp",
           "nhìn lại (quá khứ)",
@@ -2396,7 +2396,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"tally\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"tally\"?",
         "options": [
           "khớp với nhau, đồng nhất",
           "nhất trí hoàn toàn (100%)",
@@ -2768,7 +2768,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"infer\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"infer\"?",
         "options": [
           "bắt nguồn từ, rút ra từ",
           "suy luận, suy ra",
@@ -3143,7 +3143,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"reiterate\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"reiterate\"?",
         "options": [
           "ám chỉ, nói bóng gió tới",
           "nhắc lại, lặp lại (để nhấn mạnh)",
@@ -3558,7 +3558,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"doodle\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"doodle\"?",
         "options": [
           "chữ viết không thể đọc nổi",
           "dấu chấm đầu dòng",
@@ -3997,7 +3997,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"thingummy\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"thingummy\"?",
         "options": [
           "một chút, hơi hơi (ốm nhẹ)",
           "cái gì cơ (quên tên)",
@@ -4394,7 +4394,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"shriek\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"shriek\"?",
         "options": [
           "hét thất thanh, the thé",
           "nói lầm bầm (trong miệng)",
@@ -4833,7 +4833,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"smattering\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"smattering\"?",
         "options": [
           "vài thứ lặt vặt",
           "hay cái gì đó đại loại thế",
@@ -5236,7 +5236,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"have second thoughts\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"have second thoughts\"?",
         "options": [
           "bất thình lình, không báo trước",
           "vật cản, trở ngại lớn",
@@ -5666,7 +5666,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"up and running\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"up and running\"?",
         "options": [
           "hoạt động trơn tru (máy móc, dự án)",
           "tình trạng hỗn loạn, lộn xộn",
@@ -6081,7 +6081,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"soft spot\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"soft spot\"?",
         "options": [
           "sự yêu mến, yếu lòng (trước ai đó)",
           "kẻ đứng sau giật dây / bộ não chủ mưu",
@@ -6493,7 +6493,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"a rough diamond\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"a rough diamond\"?",
         "options": [
           "nhân tố bí ẩn, người có tài năng che giấu",
           "người thích đơn độc (sói đơn độc)",
@@ -6923,7 +6923,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"out of the blue\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"out of the blue\"?",
         "options": [
           "bất thình lình, hoàn toàn bất ngờ",
           "thế giới quả là nhỏ bé (khi gặp người quen ở nơi xa lạ)",
@@ -7347,7 +7347,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"stand back from\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"stand back from\"?",
         "options": [
           "đứng lên bảo vệ (lẽ phải/ai đó)",
           "làm thay thế tạm thời cho ai",
@@ -7735,7 +7735,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"slog away\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"slog away\"?",
         "options": [
           "làm việc cật lực, cặm cụi",
           "bắt tay vào làm việc nghiêm túc",
@@ -8128,7 +8128,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"miss out on\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"miss out on\"?",
         "options": [
           "tràn ngập (sự phấn khích/hạnh phúc)",
           "chung quy lại là (vấn đề cốt lõi)",
@@ -8567,7 +8567,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"kitty-corner\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"kitty-corner\"?",
         "options": [
           "xuống máy bay (tiếng Mỹ)",
           "vỉa hè (tiếng Mỹ, Anh dùng 'pavement')",
@@ -9006,7 +9006,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"craic\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"craic\"?",
         "options": [
           "tiệc nướng ngoài trời (tiếng Úc - BBQ)",
           "nhân viên thu ngân, quầy thanh toán (tiếng Anh ở châu Á)",
@@ -9445,7 +9445,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"spokesperson\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"spokesperson\"?",
         "options": [
           "người phát ngôn (thay vì spokesman/spokeswoman)",
           "tiếp viên hàng không (trung tính hơn 'stewardess')",
@@ -9875,7 +9875,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"oik\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"oik\"?",
         "options": [
           "kẻ vô học, thô lỗ (tiếng lóng Anh khinh miệt giai cấp thấp)",
           "sang chảnh, thuộc tầng lớp thượng lưu",
@@ -10299,7 +10299,7 @@ export const courseData76_100 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"crackdown\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"crackdown\"?",
         "options": [
           "cắt giảm, sa thải (dùng trên báo thay cho 'cut')",
           "sự trừng trị thẳng tay",

@@ -403,7 +403,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"philistinism\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"philistinism\"?",
         "options": [
           "trong suốt, dễ hiểu",
           "có tính châm biếm, mỉa mai",
@@ -842,7 +842,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"chronicle\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"chronicle\"?",
         "options": [
           "sử biên niên, ký sự",
           "hồi ký",
@@ -1281,7 +1281,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"wholesome\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"wholesome\"?",
         "options": [
           "khó chịu, có mùi vị không ngon / đáng ngờ",
           "chất phụ gia",
@@ -1711,7 +1711,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"sweet tooth\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"sweet tooth\"?",
         "options": [
           "sự thích ăn đồ ngọt",
           "để tôi trả tiền (bao)",
@@ -2132,7 +2132,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"hit-and-run\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"hit-and-run\"?",
         "options": [
           "tai nạn đâm xe rồi bỏ chạy",
           "cơn thịnh nộ trên đường (của tài xế)",
@@ -2571,7 +2571,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"deluxe\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"deluxe\"?",
         "options": [
           "cực kỳ sang trọng (hạng sang)",
           "lịch trình chuyến đi",
@@ -3010,7 +3010,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"back to nature\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"back to nature\"?",
         "options": [
           "du lịch sinh thái",
           "hoang sơ, chưa bị phá hủy",
@@ -3425,7 +3425,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"paddy field\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"paddy field\"?",
         "options": [
           "sông băng",
           "người di cư (tìm việc/sống)",
@@ -3855,7 +3855,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"clammy\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"clammy\"?",
         "options": [
           "lạnh nhơm nhớp, ẩm ướt",
           "trận bão tuyết",
@@ -4285,7 +4285,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"glass ceiling\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"glass ceiling\"?",
         "options": [
           "điểm tựa vững chắc (một người)",
           "chìa khóa tới thành công",
@@ -4682,7 +4682,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"nip in the bud\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"nip in the bud\"?",
         "options": [
           "dập tắt từ trong trứng nước",
           "nảy mầm (ý tưởng, hạt giống)",
@@ -5079,7 +5079,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"rodent\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"rodent\"?",
         "options": [
           "động vật ăn cỏ",
           "loài gặm nhấm",
@@ -5509,7 +5509,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"endangered\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"endangered\"?",
         "options": [
           "môi trường sống",
           "nguyên sơ, tinh khôi",
@@ -5948,7 +5948,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"obliging\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"obliging\"?",
         "options": [
           "sẵn lòng giúp đỡ, ân cần",
           "nhanh chóng, ngay lập tức",
@@ -6360,7 +6360,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"sniffer dog\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"sniffer dog\"?",
         "options": [
           "đội cảnh sát phòng chống ma túy",
           "sự phạt tiền tại chỗ",
@@ -6784,7 +6784,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"bigot\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"bigot\"?",
         "options": [
           "kẻ cuồng tín, kẻ bảo thủ cố chấp",
           "giáo lý, nguyên lý cốt lõi",
@@ -7223,7 +7223,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"renewal\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"renewal\"?",
         "options": [
           "nghi lễ",
           "ồn ào, huyên náo",
@@ -7647,7 +7647,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"Germanic\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"Germanic\"?",
         "options": [
           "cú pháp",
           "thuộc ngữ hệ Nhậtĩ-man",
@@ -8077,7 +8077,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"usurp power\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"usurp power\"?",
         "options": [
           "chế độ quân chủ",
           "nông nô",
@@ -8501,7 +8501,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"malnutrition\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"malnutrition\"?",
         "options": [
           "khu ổ chuột",
           "bần cùng, cơ cực",
@@ -8931,7 +8931,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"lobbyist\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"lobbyist\"?",
         "options": [
           "người vận động hành lang",
           "bản tuyên ngôn chính trị",
@@ -9346,7 +9346,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"impeach\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"impeach\"?",
         "options": [
           "luận tội (quan chức cấp cao)",
           "biển thủ, tham ô",
@@ -9776,7 +9776,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"deterrent\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"deterrent\"?",
         "options": [
           "sự răn đe (vũ khí)",
           "các hành động thù địch, chiến sự",
@@ -10215,7 +10215,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"debt\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"debt\"?",
         "options": [
           "sự phá giá tiền tệ",
           "lệnh cấm vận",
@@ -10654,7 +10654,7 @@ export const courseData26_50 = [
     },
     "quiz": [
       {
-        "q": "What is the best translation for \"strapped for cash\"?",
+        "q": "Nghĩa nào dưới đây là nghĩa của \"strapped for cash\"?",
         "options": [
           "cháy túi, nhẵn túi",
           "khoản tiền thưởng hậu hĩnh khi nghỉ việc",
