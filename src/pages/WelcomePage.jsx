@@ -8,10 +8,8 @@ import {
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
 import PetZoo from '../components/common/PetZoo';
-import SrsReview from '../components/vocab/SrsReview';
-import WordNotebook from '../components/vocab/WordNotebook';
-import ErrorReview from '../components/progress/ErrorReview';
-import MockTest from '../components/progress/MockTest';
+import PracticeCard, { PracticeGroup } from '../components/home/PracticeCard';
+import DangMo from '../components/common/DangMo';
 
 import { writingPrompts } from '../data/writingPrompts';
 import { SO_DE_THEO_CHANG } from '../data/writingCounts';
@@ -24,6 +22,14 @@ import { COD_DE_VIET, COD_DE_NOI } from '../utils/bandCoDe';
 // chủ thì ai mở app cũng phải tải, kể cả người không bao giờ vào mục viết —
 // đo được: chunk trang chủ phình từ 743 KB lên 911 KB. Nên panel viết tách
 // chunk riêng, và trang chủ chỉ cần MỘT CON SỐ để hiển thị.
+// Bốn hộp thoại dưới đây trước nhập TĨNH, dù cả bốn chỉ mở khi người học bấm
+// nút. Cùng loại lỗi đã tách ra cho panel viết/nghe/đọc, chỉ nhỏ hơn — và lý do
+// nó sót lại là vì bốn cái này KHÔNG kéo theo kho dữ liệu lớn nên không ai để ý.
+// ĐO ĐƯỢC sau khi tách: chunk trang chủ 328,1 KB -> 290,4 KB (gzip 82,4 -> 73,1).
+const SrsReview = lazy(() => import('../components/vocab/SrsReview'));
+const WordNotebook = lazy(() => import('../components/vocab/WordNotebook'));
+const ErrorReview = lazy(() => import('../components/progress/ErrorReview'));
+const MockTest = lazy(() => import('../components/progress/MockTest'));
 const WritingPromptPanel = lazy(() => import('../components/writing/WritingPromptPanel'));
 const SpeakingPromptPanel = lazy(() => import('../components/speaking/SpeakingPromptPanel'));
 const BandExamPanel = lazy(() => import('../components/exam/BandExamPanel'));
@@ -380,39 +386,39 @@ const WelcomePage = ({
   return (
     <div className="max-w-5xl mx-auto pb-24 font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
 
-      {showReview && <SrsReview onClose={() => setShowReview(false)} playAudio={playAudio} />}
-      {showNotebook && <WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} />}
-      {showErrorReview && <ErrorReview onClose={() => setShowErrorReview(false)} />}
-      {showMockTest && <MockTest onClose={() => setShowMockTest(false)} />}
-      {showDictation && <Suspense fallback={null}><DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} /></Suspense>}
-      {showPassage && <Suspense fallback={null}><ListeningPassagePanel onClose={() => setShowPassage(false)} /></Suspense>}
-      {showReading && <Suspense fallback={null}><ReadingLongPanel onClose={() => setShowReading(false)} /></Suspense>}
-      {showWriting && <Suspense fallback={null}><WritingPromptPanel onClose={() => setShowWriting(false)} /></Suspense>}
-      {showSpeaking && <Suspense fallback={null}><SpeakingPromptPanel onClose={() => setShowSpeaking(false)} /></Suspense>}
-      {changViet && <Suspense fallback={null}><WritingPromptPanel chang={changViet} onClose={() => setChangViet(null)} /></Suspense>}
-      {changNoi && <Suspense fallback={null}><SpeakingPromptPanel chang={changNoi} onClose={() => setChangNoi(null)} /></Suspense>}
-      {changNghe && <Suspense fallback={null}>
+      {showReview && <Suspense fallback={<DangMo />}><SrsReview onClose={() => setShowReview(false)} playAudio={playAudio} /></Suspense>}
+      {showNotebook && <Suspense fallback={<DangMo />}><WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} /></Suspense>}
+      {showErrorReview && <Suspense fallback={<DangMo />}><ErrorReview onClose={() => setShowErrorReview(false)} /></Suspense>}
+      {showMockTest && <Suspense fallback={<DangMo />}><MockTest onClose={() => setShowMockTest(false)} /></Suspense>}
+      {showDictation && <Suspense fallback={<DangMo />}><DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} /></Suspense>}
+      {showPassage && <Suspense fallback={<DangMo />}><ListeningPassagePanel onClose={() => setShowPassage(false)} /></Suspense>}
+      {showReading && <Suspense fallback={<DangMo />}><ReadingLongPanel onClose={() => setShowReading(false)} /></Suspense>}
+      {showWriting && <Suspense fallback={<DangMo />}><WritingPromptPanel onClose={() => setShowWriting(false)} /></Suspense>}
+      {showSpeaking && <Suspense fallback={<DangMo />}><SpeakingPromptPanel onClose={() => setShowSpeaking(false)} /></Suspense>}
+      {changViet && <Suspense fallback={<DangMo />}><WritingPromptPanel chang={changViet} onClose={() => setChangViet(null)} /></Suspense>}
+      {changNoi && <Suspense fallback={<DangMo />}><SpeakingPromptPanel chang={changNoi} onClose={() => setChangNoi(null)} /></Suspense>}
+      {changNghe && <Suspense fallback={<DangMo />}>
         <ListeningPassagePanel
           moBaiId={changNghe.targetId}
           onClose={() => setChangNghe(null)}
           onXong={({ correct, total, loaiCau }) => xongChangCoDiem(changNghe, correct, total, loaiCau)}
         />
       </Suspense>}
-      {changDoc && <Suspense fallback={null}>
+      {changDoc && <Suspense fallback={<DangMo />}>
         <ReadingLongPanel
           moBaiId={changDoc.targetId}
           onClose={() => setChangDoc(null)}
           onXong={({ correct, total, loaiCau }) => xongChangCoDiem(changDoc, correct, total, loaiCau)}
         />
       </Suspense>}
-      {changChinhTa && <Suspense fallback={null}>
+      {changChinhTa && <Suspense fallback={<DangMo />}>
         <DictationPanel
           currentBand={changChinhTa.bandId}
           onClose={() => setChangChinhTa(null)}
           onFinish={({ correct, total }) => xongChangCoDiem(changChinhTa, correct, total, [])}
         />
       </Suspense>}
-      {showBandExam && <Suspense fallback={null}><BandExamPanel onClose={() => setShowBandExam(false)} /></Suspense>}
+      {showBandExam && <Suspense fallback={<DangMo />}><BandExamPanel onClose={() => setShowBandExam(false)} /></Suspense>}
       {loTrinhTang && (
         <RoadmapGrowthNotice
           cu={loTrinhTang.cu}
@@ -636,273 +642,200 @@ const WelcomePage = ({
         </div>
       )}
  
-      {/* --- DAILY GOAL + SPACED REPETITION REVIEW --- */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-        {/* Daily goal card */}
+      {/* --- MỤC TIÊU HÔM NAY ---
+          Trước đây thẻ này ghép đôi với thẻ "Ôn tập từ" trong một lưới 2 cột.
+          Thẻ "Ôn tập từ" đã dời sang nhóm "Ôn lại" (nó là một kho để mở, giống
+          năm thẻ kỹ năng), còn thẻ này KHÔNG phải kho — nó là bảng điều khiển:
+          chọn nhịp mỗi ngày, bật/tắt âm. Nên nó đứng riêng, chiếm cả chiều rộng.
+          Bỏ `md:grid-cols-2` mà giữ thẻ ở đây thì trên máy tính nó chỉ chiếm nửa
+          hàng và bỏ trống nửa còn lại. */}
+      <div className="mb-10">
+        {/* Bên trong chia HAI CỘT khi rộng: bên trái là tiến độ hôm nay, bên
+            phải là bộ chọn nhịp. Trước đây cả hai xếp dọc vì thẻ chỉ rộng nửa
+            hàng; để nguyên khi thẻ chiếm cả hàng thì bộ chọn nhịp bị đẩy xuống
+            rất xa phần nó đang điều chỉnh. */}
         <div className={`border-4 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] transition-all ${dailyDone ? 'bg-emerald-50 dark:bg-emerald-950/20 border-emerald-500' : 'bg-white dark:bg-slate-900 border-slate-800 dark:border-slate-700'}`}>
-          <div className="flex items-center justify-between gap-3 mb-3">
+          <div className="flex items-center justify-between gap-3 mb-4">
             <div className="flex items-center gap-2">
               <Target size={26} className={dailyDone ? 'text-emerald-500' : 'text-blue-500'} />
               <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Mục tiêu hôm nay</h3>
             </div>
-            <button onClick={toggleMute} title={muted ? 'Bật âm thanh' : 'Tắt âm thanh'} className="w-9 h-9 rounded-xl border-3 border-slate-800 dark:border-slate-600 bg-white dark:bg-slate-800 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+            <button onClick={toggleMute} title={muted ? 'Bật âm thanh' : 'Tắt âm thanh'} className="w-9 h-9 rounded-xl border-3 border-slate-800 dark:border-slate-600 bg-white dark:bg-slate-800 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer shrink-0">
               {muted ? <VolumeX size={18} className="text-slate-400" /> : <Volume2 size={18} className="text-blue-500" />}
             </button>
           </div>
-          {dailyDone ? (
-            <p className="font-black text-emerald-600 dark:text-emerald-400 flex items-center gap-2"><CheckCircle2 size={20} /> Đã đạt mục tiêu! Hôm nay bạn học {dailyStats.lessons} chặng (+{dailyStats.xp} XP). Tuyệt vời! 🎉</p>
-          ) : (
-            <>
-              <p className="font-bold text-slate-500 dark:text-slate-400 text-sm mb-2">Hoàn thành {dailyGoal} chặng hôm nay để xây nhịp học đều đặn 🔥</p>
-              <div className="border-3 border-slate-800 dark:border-slate-600 bg-slate-100 dark:bg-slate-800 h-6 rounded-full overflow-hidden">
-                <div className="bg-blue-400 h-full rounded-full transition-all flex items-center justify-end pr-2" style={{ width: `${Math.min(100, ((dailyStats.lessons || 0) / dailyGoal) * 100)}%` }}>
-                  <span className="text-[10px] font-black text-slate-900">{dailyStats.lessons || 0}/{dailyGoal}</span>
-                </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="min-w-0">
+              {dailyDone ? (
+                <p className="font-black text-emerald-600 dark:text-emerald-400 flex items-start gap-2"><CheckCircle2 size={20} className="shrink-0 mt-0.5" /> <span>Đã đạt mục tiêu! Hôm nay bạn học {dailyStats.lessons} chặng (+{dailyStats.xp} XP). Tuyệt vời! 🎉</span></p>
+              ) : (
+                <>
+                  <p className="font-bold text-slate-500 dark:text-slate-400 text-sm mb-2">Hoàn thành {dailyGoal} chặng hôm nay để xây nhịp học đều đặn 🔥</p>
+                  <div className="border-3 border-slate-800 dark:border-slate-600 bg-slate-100 dark:bg-slate-800 h-6 rounded-full overflow-hidden">
+                    <div className="bg-blue-400 h-full rounded-full transition-all flex items-center justify-end pr-2" style={{ width: `${Math.min(100, ((dailyStats.lessons || 0) / dailyGoal) * 100)}%` }}>
+                      <span className="text-[10px] font-black text-slate-900">{dailyStats.lessons || 0}/{dailyGoal}</span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="min-w-0 md:border-l-2 md:border-dashed md:border-slate-200 md:dark:border-slate-700 md:pl-8 pt-5 md:pt-0 border-t-2 border-dashed border-slate-200 dark:border-slate-700 md:border-t-0">
+              <div className="flex items-center gap-2 mb-2.5">
+                <SlidersHorizontal size={16} className="text-slate-500 dark:text-slate-400" />
+                <p className="text-xs font-black uppercase tracking-wide text-slate-500 dark:text-slate-400">Chọn nhịp mỗi ngày</p>
               </div>
-            </>
-          )}
-          <div className="mt-5 pt-4 border-t-2 border-dashed border-slate-200 dark:border-slate-700">
-            <div className="flex items-center gap-2 mb-2.5">
-              <SlidersHorizontal size={16} className="text-slate-500 dark:text-slate-400" />
-              <p className="text-xs font-black uppercase tracking-wide text-slate-500 dark:text-slate-400">Chọn nhịp mỗi ngày</p>
-            </div>
-            <div className="grid grid-cols-4 gap-2" aria-label="Chọn số chặng mục tiêu mỗi ngày">
-              {DAILY_GOAL_OPTIONS.map((goal) => (
-                <button
-                  key={goal}
-                  type="button"
-                  onClick={() => setDailyGoal?.(goal)}
-                  aria-pressed={dailyGoal === goal}
-                  aria-label={`${goal} chặng mỗi ngày`}
-                  className={`min-h-10 rounded-xl border-3 font-black text-sm cursor-pointer transition-all ${dailyGoal === goal
-                    ? 'bg-blue-400 border-slate-800 dark:border-blue-300 text-slate-950 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#93c5fd] -translate-y-0.5'
-                    : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:border-blue-400'
-                  }`}
-                >
-                  {goal}
-                </button>
-              ))}
-            </div>
-            <p className="mt-2 text-[11px] font-bold text-slate-400 dark:text-slate-500">Mục tiêu được lưu trên thiết bị và không ảnh hưởng chuỗi đã đạt.</p>
-          </div>
-        </div>
-
-        {/* Spaced repetition review card */}
-        <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="bg-violet-100 dark:bg-violet-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-              <Brain size={28} className="text-violet-600 dark:text-violet-400" />
-            </div>
-            <div>
-              <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Ôn Tập Từ</h3>
-              <p className="font-bold text-slate-500 dark:text-slate-400 text-sm">
-                {dueCount > 0 ? <><span className="text-violet-600 dark:text-violet-400 font-black">{dueCount} từ</span> cần ôn hôm nay</> : 'Chưa có từ nào cần ôn'}
-              </p>
-              <button onClick={() => setShowNotebook(true)} className="mt-1 text-xs font-black text-violet-600 dark:text-violet-400 hover:underline cursor-pointer">
-                📔 Sổ tay của tôi ({getTotalCount()} từ)
-              </button>
+              <div className="grid grid-cols-4 gap-2" aria-label="Chọn số chặng mục tiêu mỗi ngày">
+                {DAILY_GOAL_OPTIONS.map((goal) => (
+                  <button
+                    key={goal}
+                    type="button"
+                    onClick={() => setDailyGoal?.(goal)}
+                    aria-pressed={dailyGoal === goal}
+                    aria-label={`${goal} chặng mỗi ngày`}
+                    className={`min-h-10 rounded-xl border-3 font-black text-sm cursor-pointer transition-all ${dailyGoal === goal
+                      ? 'bg-blue-400 border-slate-800 dark:border-blue-300 text-slate-950 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#93c5fd] -translate-y-0.5'
+                      : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:border-blue-400'
+                    }`}
+                  >
+                    {goal}
+                  </button>
+                ))}
+              </div>
+              <p className="mt-2 text-[11px] font-bold text-slate-400 dark:text-slate-500">Mục tiêu được lưu trên thiết bị và không ảnh hưởng chuỗi đã đạt.</p>
             </div>
           </div>
-          <button
-            onClick={() => setShowReview(true)}
-            className={`shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 transition-all cursor-pointer ${dueCount > 0 ? 'bg-violet-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-violet-500 animate-pulse' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}
-          >
-            ÔN NGAY
-          </button>
         </div>
       </div>
 
-      {/* --- MOCK TEST: thi thử VSTEP / IELTS --- */}
-      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="bg-emerald-100 dark:bg-emerald-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-            <GraduationCap size={28} className="text-emerald-600 dark:text-emerald-400" />
-          </div>
-          <div>
-            <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Thi Thử VSTEP / IELTS</h3>
-            <p className="font-bold text-slate-500 dark:text-slate-400 text-sm">
-              {lastMock
+      {/* == BA NHOM THE LUYEN TAP ==
+          Truoc day chin the NGANG HET CHIEU RONG xep chong, the nao cung cung
+          mot hinh khoi - mat khong phan biet duoc, phai doc het moi biet dang o
+          dau. Nay xep luoi theo nhom co ten: bon ky nang - thi cu - on lai.
+
+          Dung tu MOT mang du lieu roi map, khong phai chin ban JSX chep tay:
+          chin ban chep tay la cach mot cai nhan hay mot cau mien tru lech nhau
+          giua cac the (dung loi hai ban sao cau "may chi dem duoc so tu").
+
+          MOI DONG NOI RO APP KHONG LAM DUOC GI DEU GIU NGUYEN VAN, khong cat
+          cho gon: "Giong nguoi that", "Khong can API key", "Khong cham phat am",
+          va cau dai nhat cua phan Noi. The hep hon thi the cao thap khong deu -
+          de no khong deu, khong cat chu. */}
+      {[
+        {
+          tieuDe: 'Bốn kỹ năng',
+          phuDe: 'Nghe · Đọc · Viết · Nói — mỗi thẻ mở một kho riêng',
+          the: [
+            {
+              id: 'dictation', icon: <Headphones size={24} className="text-cyan-600 dark:text-cyan-400" />,
+              mauChip: 'bg-cyan-100 dark:bg-cyan-900/40', mauNut: 'bg-cyan-400 text-slate-900 hover:bg-cyan-500',
+              nhan: 'Giọng người thật', tieuDe: 'Nghe chép chính tả',
+              moTa: `${SO_BAN_THU} bản thu giọng người thật · nghe rồi gõ lại từng từ. Chấm theo từ, dấu câu không tính.`,
+              nhanNut: 'CHÉP CHÍNH TẢ', onClick: () => setShowDictation(true),
+            },
+            {
+              id: 'passage', icon: <BookOpen size={24} className="text-indigo-600 dark:text-indigo-400" />,
+              mauChip: 'bg-indigo-100 dark:bg-indigo-900/40', mauNut: 'bg-indigo-400 text-white hover:bg-indigo-500',
+              nhan: 'VOA', tieuDe: 'Bài nghe theo đoạn',
+              moTa: `${SO_BAI_NGHE} bài 3–5 phút · nghe rồi trả lời câu hỏi hiểu ý, bản chép lời hiện ra sau khi trả lời xong.`,
+              nhanNut: 'NGHE ĐOẠN', onClick: () => setShowPassage(true),
+            },
+            {
+              id: 'reading', icon: <BookOpenText size={24} className="text-teal-600 dark:text-teal-400" />,
+              mauChip: 'bg-teal-100 dark:bg-teal-900/40', mauNut: 'bg-teal-400 text-slate-900 hover:bg-teal-500',
+              nhan: 'VOA', tieuDe: 'Đọc bài dài',
+              moTa: `${SO_BAI_DOC} bài báo thật 600–1.000 từ · độ dài của bài đọc trong đề B2–C1 · đọc rồi trả lời câu hỏi hiểu ý.`,
+              nhanNut: 'ĐỌC BÀI DÀI', onClick: () => setShowReading(true),
+            },
+            {
+              id: 'writing', icon: <PenLine size={24} className="text-violet-600 dark:text-violet-400" />,
+              mauChip: 'bg-violet-100 dark:bg-violet-900/40', mauNut: 'bg-violet-400 text-white hover:bg-violet-500',
+              nhan: 'Không cần API key', tieuDe: 'Luyện viết',
+              moTa: `${writingPrompts.length} đề có bài mẫu + ${SO_DE_THEO_CHANG} đề gắn với từng chặng A2 trở lên. Không chấm ngữ pháp, không cho điểm.`,
+              nhanNut: 'VIẾT', onClick: () => setShowWriting(true),
+            },
+            {
+              id: 'speaking', icon: <span className="text-xl" aria-hidden="true">🗣️</span>,
+              mauChip: 'bg-purple-100 dark:bg-purple-900/40', mauNut: 'bg-purple-400 text-white hover:bg-purple-500',
+              nhan: 'Không chấm phát âm', tieuDe: 'Luyện nói theo chủ đề',
+              // Cau nay la cau DAI NHAT trong ca luoi va la cau quan trong nhat:
+              // no chan dung loi hua "AI cham phat am" ma viec 3.5 da go bo.
+              moTa: <>{SO_DE_NOI_THEO_CHANG} đề gắn với từng chặng B1 trở lên. Trình duyệt chỉ ghi lại <b>văn bản nó nghe được</b> — không phải đánh giá phát âm.</>,
+              nhanNut: 'NÓI', onClick: () => setShowSpeaking(true),
+            },
+          ],
+        },
+        {
+          tieuDe: 'Thi và kiểm tra',
+          phuDe: 'Đo bằng phần app chấm được, không đoán phần còn lại',
+          the: [
+            {
+              id: 'mock', icon: <GraduationCap size={24} className="text-emerald-600 dark:text-emerald-400" />,
+              mauChip: 'bg-emerald-100 dark:bg-emerald-900/40', mauNut: 'bg-emerald-400 text-white hover:bg-emerald-500',
+              nhan: 'VSTEP · IELTS', tieuDe: 'Thi thử VSTEP / IELTS',
+              moTa: lastMock
                 ? <>Gần nhất: <span className="text-emerald-600 dark:text-emerald-400 font-black">{lastMock.scale.type === 'ielts' ? `Band ${lastMock.scale.band}` : `${lastMock.scale.score}/10`}</span> ({lastMock.percent}% · {lastMock.testName})</>
-                : 'Đề mini 20 câu có đếm giờ, quy đổi band ước lượng dựa trên từ vựng & ngữ pháp, phân tích từng phần'}
-            </p>
-          </div>
-        </div>
-        <button
-          onClick={() => setShowMockTest(true)}
-          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-emerald-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-emerald-500 transition-all cursor-pointer"
-        >
-          {lastMock ? 'THI LẠI' : 'THI THỬ NGAY'}
-        </button>
-      </div>
-
-      {/* --- (2.3) NGHE CHÉP CHÍNH TẢ — bài đầu tiên dùng giọng người thật --- */}
-      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="bg-cyan-100 dark:bg-cyan-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-            <Headphones size={26} className="text-cyan-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
-              Nghe chép chính tả
-              <span className="px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase">Giọng người thật</span>
-            </h3>
-            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-              {SO_BAN_THU} bản thu giọng người thật · nghe rồi gõ lại từng từ. Chấm theo từ, dấu câu không tính.
-            </p>
-          </div>
-        </div>
-        <button
-          onClick={() => setShowDictation(true)}
-          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-cyan-400 text-slate-900 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-cyan-500 transition-all cursor-pointer"
-        >
-          CHÉP CHÍNH TẢ
-        </button>
-      </div>
-
-      {/* --- (2.2) BÀI NGHE THEO ĐOẠN — nghe mạch nói, không nghe câu lẻ --- */}
-      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="bg-indigo-100 dark:bg-indigo-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-            <BookOpen size={26} className="text-indigo-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
-              Bài nghe theo đoạn
-              <span className="px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase">VOA</span>
-            </h3>
-            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-              {SO_BAI_NGHE} bài 3–5 phút · nghe rồi trả lời câu hỏi hiểu ý, bản chép lời hiện ra sau khi trả lời xong.
-            </p>
-          </div>
-        </div>
-        <button
-          onClick={() => setShowPassage(true)}
-          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-indigo-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-indigo-500 transition-all cursor-pointer"
-        >
-          NGHE ĐOẠN
-        </button>
-      </div>
-
-      {/* --- (5.3) ĐỌC BÀI DÀI — văn bản thật 600–1.000 từ, đường lên C1 --- */}
-      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="bg-teal-100 dark:bg-teal-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-            <BookOpenText size={26} className="text-teal-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
-              Đọc bài dài
-              <span className="px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase">VOA</span>
-            </h3>
-            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-              {SO_BAI_DOC} bài báo thật 600–1.000 từ · độ dài của bài đọc trong đề B2–C1 · đọc rồi trả lời câu hỏi hiểu ý.
-            </p>
-          </div>
-        </div>
-        <button
-          onClick={() => setShowReading(true)}
-          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-teal-400 text-slate-900 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-teal-500 transition-all cursor-pointer"
-        >
-          ĐỌC BÀI DÀI
-        </button>
-      </div>
-
-      {/* --- (3.4) LUYỆN VIẾT — đường KHÔNG CẦN key Gemini --- */}
-      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="bg-violet-100 dark:bg-violet-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-            <PenLine size={26} className="text-violet-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
-              Luyện viết
-              <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-400 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase">Không cần API key</span>
-            </h3>
-            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-              {writingPrompts.length} đề có bài mẫu + {SO_DE_THEO_CHANG} đề gắn với từng chặng A2 trở lên. Không chấm ngữ pháp, không cho điểm.
-            </p>
-          </div>
-        </div>
-        <button
-          onClick={() => setShowWriting(true)}
-          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-violet-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-violet-500 transition-all cursor-pointer"
-        >
-          VIẾT
-        </button>
-      </div>
-
-      {/* --- (3.5) LUYỆN NÓI THEO CHỦ ĐỀ — mở rộng từ "đọc to một từ" --- */}
-      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="bg-purple-100 dark:bg-purple-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-            <span className="text-2xl" aria-hidden="true">🗣️</span>
-          </div>
-          <div>
-            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
-              Luyện nói theo chủ đề
-              <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-400 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase">Không chấm phát âm</span>
-            </h3>
-            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-              {SO_DE_NOI_THEO_CHANG} đề gắn với từng chặng B1 trở lên. Trình duyệt chỉ ghi lại <b>văn bản nó nghe được</b> — không phải đánh giá phát âm.
-            </p>
-          </div>
-        </div>
-        <button
-          onClick={() => setShowSpeaking(true)}
-          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-purple-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-purple-500 transition-all cursor-pointer"
-        >
-          NÓI
-        </button>
-      </div>
-
-      {/* --- (4.2) THI CUỐI BẬC --- */}
-      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="bg-emerald-100 dark:bg-emerald-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-            <span className="text-2xl" aria-hidden="true">🎓</span>
-          </div>
-          <div>
-            <h3 className="text-lg font-black uppercase flex flex-wrap items-center gap-2">
-              Thi cuối bậc
-              <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-400 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase">A2 · B1 · B2</span>
-            </h3>
-            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-              Đủ bốn phần Nghe · Đọc · Viết · Nói, nghe bằng <b>giọng người thật</b>. Đạt/chưa đạt chỉ do <b>Nghe và Đọc</b> quyết định — hai phần app chấm được.
-            </p>
-          </div>
-        </div>
-        <button
-          onClick={() => setShowBandExam(true)}
-          className="shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 bg-emerald-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-emerald-500 transition-all cursor-pointer"
-        >
-          THI
-        </button>
-      </div>
-
-      {/* --- ERROR BANK: học từ lỗi sai --- */}
-      <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="bg-rose-100 dark:bg-rose-900/40 border-4 border-slate-800 dark:border-slate-700 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
-            <span className="text-2xl" aria-hidden="true">🩹</span>
-          </div>
-          <div>
-            <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 uppercase">Học Từ Lỗi Sai</h3>
-            <p className="font-bold text-slate-500 dark:text-slate-400 text-sm">
-              {dueErrors > 0
-                ? <><span className="text-rose-600 dark:text-rose-400 font-black">{dueErrors} câu sai</span> đến hạn ôn lại hôm nay</>
+                : 'Đề mini 20 câu có đếm giờ, quy đổi band ước lượng dựa trên từ vựng & ngữ pháp, phân tích từng phần.',
+              nhanNut: lastMock ? 'THI LẠI' : 'THI THỬ NGAY', onClick: () => setShowMockTest(true),
+            },
+            {
+              id: 'bandexam', icon: <span className="text-xl" aria-hidden="true">🎓</span>,
+              mauChip: 'bg-emerald-100 dark:bg-emerald-900/40', mauNut: 'bg-emerald-400 text-white hover:bg-emerald-500',
+              nhan: 'A2 · B1 · B2', tieuDe: 'Thi cuối bậc',
+              moTa: <>Đủ bốn phần Nghe · Đọc · Viết · Nói, nghe bằng <b>giọng người thật</b>. Đạt/chưa đạt chỉ do <b>Nghe và Đọc</b> quyết định — hai phần app chấm được.</>,
+              nhanNut: 'THI', onClick: () => setShowBandExam(true),
+            },
+          ],
+        },
+        {
+          tieuDe: 'Ôn lại',
+          phuDe: 'Thứ bạn đã học và thứ bạn đã làm sai — quay lại đúng lúc',
+          the: [
+            {
+              id: 'srs', icon: <Brain size={24} className="text-violet-600 dark:text-violet-400" />,
+              mauChip: 'bg-violet-100 dark:bg-violet-900/40', mauNut: 'bg-violet-400 text-white hover:bg-violet-500',
+              nhan: null, tieuDe: 'Ôn tập từ',
+              moTa: dueCount > 0
+                ? <><span className="text-violet-600 dark:text-violet-400 font-black">{dueCount} từ</span> cần ôn hôm nay. Nhắc lại theo khoảng cách tăng dần.</>
+                : 'Chưa có từ nào cần ôn. Từ bạn lưu vào sổ tay sẽ quay lại đây theo lịch.',
+              nhanNut: 'ÔN NGAY', onClick: () => setShowReview(true), noiBat: dueCount > 0,
+            },
+            {
+              id: 'errors', icon: <span className="text-xl" aria-hidden="true">🩹</span>,
+              mauChip: 'bg-rose-100 dark:bg-rose-900/40', mauNut: 'bg-rose-400 text-white hover:bg-rose-500',
+              nhan: '3 → 7 → 14 ngày', tieuDe: 'Học từ lỗi sai',
+              moTa: dueErrors > 0
+                ? <><span className="text-rose-600 dark:text-rose-400 font-black">{dueErrors} câu sai</span> đến hạn ôn lại hôm nay.</>
                 : totalErrors > 0
-                  ? `${totalErrors} câu đang chờ tới lịch ôn (3 → 7 → 14 ngày)`
-                  : 'Câu làm sai trong bài tập sẽ tự quay lại đây để bạn sửa tận gốc'}
-            </p>
-          </div>
-        </div>
-        <button
-          onClick={() => setShowErrorReview(true)}
-          className={`shrink-0 font-black px-5 py-3 rounded-2xl border-4 border-slate-800 dark:border-slate-700 transition-all cursor-pointer ${dueErrors > 0 ? 'bg-rose-400 text-white shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] hover:bg-rose-500 animate-pulse' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}
-        >
-          SỬA LỖI
-        </button>
-      </div>
+                  ? `${totalErrors} câu đang chờ tới lịch ôn (3 → 7 → 14 ngày).`
+                  : 'Câu làm sai trong bài tập sẽ tự quay lại đây để bạn sửa tận gốc.',
+              nhanNut: 'SỬA LỖI', onClick: () => setShowErrorReview(true), noiBat: dueErrors > 0,
+            },
+            {
+              id: 'notebook', icon: <span className="text-xl" aria-hidden="true">📔</span>,
+              mauChip: 'bg-sky-100 dark:bg-sky-900/40', mauNut: 'bg-sky-400 text-slate-900 hover:bg-sky-500',
+              nhan: null, tieuDe: 'Sổ tay của tôi',
+              // Truoc day day la mot lien ket chu nho net ben duoi the "On tap
+              // tu" - dung cho de bo sot nhat tren trang. So tay la noi nguoi
+              // hoc tu them tu, nen no xung mot the rieng.
+              moTa: `${getTotalCount()} từ đã lưu. Xem lại, sửa nghĩa, hoặc bỏ từ không cần nữa.`,
+              nhanNut: 'MỞ SỔ TAY', onClick: () => setShowNotebook(true),
+            },
+          ],
+        },
+      ].map((nhom) => (
+        <PracticeGroup key={nhom.tieuDe} tieuDe={nhom.tieuDe} phuDe={nhom.phuDe}>
+          {nhom.the.map((t) => (
+            <PracticeCard
+              key={t.id}
+              icon={t.icon} nhan={t.nhan} tieuDe={t.tieuDe} moTa={t.moTa}
+              nhanNut={t.nhanNut} onClick={t.onClick}
+              mauChip={t.mauChip} mauNut={t.mauNut} noiBat={t.noiBat}
+            />
+          ))}
+        </PracticeGroup>
+      ))}
 
       {/* --- 7-DAY LEARNING INSIGHTS --- */}
       <section className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 shadow-[6px_6px_0_0_#1c293b] dark:shadow-[6px_6px_0_0_#020617] mb-10" aria-labelledby="weekly-insights-title">
