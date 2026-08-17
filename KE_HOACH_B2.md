@@ -232,7 +232,23 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 2. **Việc 3.1 — câu hỏi thu hẹp phạm vi mà tôi đặt ra ở đây có TIỀN ĐỀ SAI, đã đo lại 17/08.**
    Lối thoát tôi đề nghị ("thu hẹp còn các chặng nằm trong lộ trình chính thay vì cả 267 chủ đề") **không giảm được gì**: đo ra **267/267 chủ đề từ vựng đều đã là chặng `type:'vstep'` trong lộ trình** kể từ Đợt 1 (starter 71 · elementary 74 · intermediate 38 · upper_intermediate 38 · advanced 46). Hai tập trùng khít nhau.
    Trục thu hẹp THẬT nằm ở bậc, và nó đã được ghi sẵn trong chính tiêu chí nghiệm thu: **N5 nói "ở mọi chặng ≥B1" = 122 chặng**, không phải 267. Bảng việc lại ghi "1/267" và mục này ghi "267 bài" — ba con số trong cùng một tài liệu.
-   **Tôi đang làm theo N5 (122), vì đó là cột nghiệm thu.** Bậc B1 (38 chặng) đã xong ở Đợt 7. Nếu bạn muốn phủ cả 267 chủ đề — tức thêm 145 chặng A1/A2 — thì nói, vì đó là quyết định của bạn chứ không phải suy ra được từ tài liệu. **Ràng buộc đo được, cần biết trước khi chọn:** phần thêm là bài đọc A1/A2 — loại **tệ nhất** cho câu hỏi mức văn bản, vì phần lớn là chuỗi diễu hành từ vựng (`nature-countryside`: *"He walked past the barn and the stable to look at his livestock"*), không có nội dung để hỏi. Đúng cái đã buộc loại `digital-society-100`, nhưng ở quy mô lớn hơn nhiều: nhiều chặng sẽ phải loại có lý do, hoặc phải **viết lại bài đọc trước** — mà viết lại là soạn nội dung mới, cần bạn duyệt riêng.
+   **Tôi đang làm theo N5 (122), vì đó là cột nghiệm thu.** Bậc B1 (38 chặng) đã xong ở Đợt 7. Nếu bạn muốn phủ cả 267 chủ đề — tức thêm 145 chặng A1/A2 — thì nói, vì đó là quyết định của bạn chứ không phải suy ra được từ tài liệu.
+   ### ⚠️ RÀNG BUỘC TÔI NÊU RA Ở ĐÂY LÀ SAI, ĐÃ ĐO LẠI 17/08 — ĐÍNH CHÍNH
+
+   Tôi đã nói: *"phần thêm là bài đọc A1/A2 — loại tệ nhất cho câu hỏi mức văn bản, vì phần lớn là chuỗi diễu hành từ vựng"*, dẫn `nature-countryside` làm ví dụ. **Câu đó sai, và sai vì tôi suy rộng từ MỘT ví dụ** — mà ví dụ đó còn không thuộc A1/A2.
+
+   Đo thật (`node scripts/audit_a1a2_story.mjs`, bốn tiêu chí ghi rõ trong file):
+
+   | | Số chặng |
+   |---|---|
+   | **ĐỦ điều kiện soạn** | **93** — starter 47 · elementary 46 |
+   | Không đủ | 52 — starter 24 · elementary 28 |
+
+   Và 48/52 chặng không đủ là vì **thiếu dấu hiệu tường thuật** (đại từ, liên từ), tức đúng là "danh sách chứ không phải văn bản" — nhưng đó là **một phần ba**, không phải "phần lớn". Chỉ 1 chặng quá ngắn, 1 chặng quá ít câu, 4 chặng nhồi từ.
+
+   **Nghĩa là phương án "phủ cả 267" KHÔNG bị chặn bởi chất lượng bài đọc như tôi đã nói.** Cỡ việc thật: **93 chặng × 4 câu = 372 câu soạn tay**, cùng cỡ với 484 câu đã soạn cho ≥B1. 52 chặng còn lại tiếp tục hiện dòng cảnh báo cam, **kèm lý do đo được cho từng chặng** thay vì một câu khái quát.
+
+   **CHỐT: làm 93 chặng đủ điều kiện.** Bộ lọc bốn tiêu chí là để ra DANH SÁCH VIỆC, không phải phán quyết chất lượng — chặng nào đọc rồi thấy không soạn nổi bốn câu tử tế thì loại và **ghi lý do đích danh**, như `digital-society-100`.
 
 3. ~~**Đưa nội dung ngoài lộ trình vào lộ trình**~~ ✅ **ĐÃ LÀM (Đợt 8, 17/08)** — chủ dự án giao tự quyết. Giữ lại nguyên văn phần phân tích bên dưới vì bốn hệ quả vẫn là thứ phải biết khi sửa tiếp.
    **Đưa nội dung ngoài lộ trình vào lộ trình — việc chưa có số trong bảng, phát hiện 17/08.** Hiện **0 chặng dẫn tới** 60 bài nghe, 30 bài đọc dài, kho 239 bản thu và 3 đề thi cuối bậc. **Cỡ việc thật là ~90 chặng mới (~20 bài nghe + ~10 bài đọc mỗi bậc × 3 bậc) cộng 1–3 chặng chép chính tả — không phải 332**, và đề thi cuối bậc có thể vốn không cần nằm trong đường đi (xem bảng ở ghi chú "lỗi 1.3 tái diễn"). Sửa nó nghĩa là **chèn chặng mới vào lộ trình 617 chặng của người đang dùng**, và mở thêm một loại chặng thứ tư ngoài `grammar`/`vstep`/`oxford`. Bốn hệ quả **đã đọc mã để xác nhận**, không phải suy đoán:
