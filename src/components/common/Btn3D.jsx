@@ -1,6 +1,12 @@
 // File: src/components/common/Btn3D.jsx
 
-const Btn3D = ({ onClick, disabled, className, children, color = 'bg-white', shadow = 'border-slate-800' }) => (
+// `className = ''` chứ KHÔNG để undefined: chuỗi class dưới đây nội suy
+// `${className}`, nên mọi nút không truyền prop đó đều nhận `class="... undefined"`.
+// Tailwind không có lớp tên "undefined" nên mắt không thấy gì — nhưng nó là rác
+// trong DOM, và tệ hơn: nó làm bộ rà vẽ-thật (tests/helpers/__quet.mjs dò chữ
+// "undefined" trong HTML) kêu ở mọi màn có nút, tức là bộ rà mất tác dụng đúng ở
+// tín hiệu quan trọng nhất của nó.
+const Btn3D = ({ onClick, disabled, className = '', children, color = 'bg-white', shadow = 'border-slate-800' }) => (
   <button 
     onClick={onClick} 
     disabled={disabled} 

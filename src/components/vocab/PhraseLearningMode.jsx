@@ -39,7 +39,18 @@ const PhraseLearningMode = ({ activeTopic, playAudio, currentWordIndex, onWordCh
     }];
   };
 
-  if (!currentWord) return <div className="p-8 text-center text-slate-400">Đang tải...</div>;
+  // Không phải "đang tải": `currentWord` lấy từ mảng truyền vào bằng prop, có mặt
+  // ngay lần vẽ đầu. Rỗng nghĩa là chủ đề này không có cụm câu nào — trạng thái
+  // vĩnh viễn. Cùng lỗi với bảy bộ bài tập ngữ pháp, do bộ vẽ-thật tìm ra.
+  if (!currentWord) {
+    return (
+      <div className="p-8 text-center rounded-3xl border-4 border-dashed border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-800/50">
+        <p className="text-3xl mb-2">💬</p>
+        <p className="font-black text-slate-600 dark:text-slate-300">Chủ đề này chưa có cụm câu nào.</p>
+        <p className="mt-1 text-xs font-bold text-slate-500 dark:text-slate-400">Chọn một chế độ học khác ở hàng thẻ phía trên.</p>
+      </div>
+    );
+  }
 
   // Lưới an toàn: VocabVstepPage đã ẩn mode này với topic không có phrases soạn
   // tay; nếu vẫn bị render thì BÁO trung thực thay vì hiện màn hình rỗng.

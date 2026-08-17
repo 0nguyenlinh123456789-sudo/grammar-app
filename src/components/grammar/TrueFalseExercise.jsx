@@ -59,6 +59,15 @@ const TrueFalseExercise = ({ exercises, setGlobalProgress, onComplete }) => {
     setQIdx(prev => prev + 1);
   };
 
+  // ⚠️ KHÔNG CÓ CÂU NÀO thì phải BÁO Ở ĐÂY, TRƯỚC màn kết quả. Bộ vẽ-thật
+  // (tests/helpers/render.mjs) bắt được: với danh sách rỗng thì `qIdx >= exercisesLen`
+  // là `0 >= 0` → ĐÚNG, nên nhánh kết quả bên dưới chạy và người học nhận một
+  // bảng điểm cho bài chưa từng có: **"0/0 (NaN% chính xác)"**. Chốt
+  // `if (!curr)` mà tôi thêm ở đợt trước nằm SAU nhánh đó nên chưa bao giờ chạy
+  // cho trường hợp rỗng — sửa nửa vời còn khó thấy hơn không sửa, vì mã đọc vào
+  // trông như đã được chặn.
+  if (!exercisesLen) return <KhongCoCau ten="câu đúng/sai" />;
+
   if (qIdx >= exercisesLen) {
     const percentage = Math.round((score / exercisesLen) * 100);
     return (

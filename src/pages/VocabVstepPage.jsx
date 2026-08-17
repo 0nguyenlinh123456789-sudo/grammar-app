@@ -34,9 +34,25 @@ const MODES = [
   { key: 'speaking',  label: 'Luyện Nói', step: 7, icon: () => <span className="text-xl leading-none">🎤</span>, color: 'bg-pink-400', hoverColor: 'hover:bg-pink-50 dark:hover:bg-pink-900/30', activeText: 'text-white', inactiveIcon: '' },
 ];
 
+// KẸP chỉ số ô từ vào trong khoảng có thật. MỘT hàm dùng cho cả lần vẽ đầu lẫn
+// lần đổi chủ đề — trước đây phép kẹp chỉ có ở trong useEffect, và đó là LỖI:
+//
+//   `loadVocabProgress` trả về đúng con số đã lưu, nó KHÔNG biết chủ đề hiện có
+//   bao nhiêu từ nên không thể tự kẹp. Còn useEffect thì chạy SAU lần vẽ đầu.
+//   Nên ai có tiến độ lưu ở ô thứ 80 mà chủ đề nay còn 50 từ thì `currentWord`
+//   là `undefined` ngay lần vẽ đầu và Flashcard nổ ở `.en` — **màn hình lỗi, mất
+//   chủ đề**. Đây không phải giả thuyết: đợt dọn nội dung 14/08 đã co kho từ lại
+//   thật ("73 chủ đề khai 100 mà có 50"), nên người gặp là người học lâu nhất.
+//
+//   Bộ vẽ-thật tìm ra (tests/helpers/render.mjs). 312 test trước đó xanh hết:
+//   không test nào vẽ trang này ra với một tiến độ đã lưu.
+const kepChiSo = (chiSo, soTu) => Math.min(Math.max(Number(chiSo) || 0, 0), Math.max(0, (soTu || 1) - 1));
+
 const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], completeMilestone }) => {
   const [initialProgress] = useState(() => loadVocabProgress(activeTopic?.id));
-  const [currentWordIndex, setCurrentWordIndex] = useState(initialProgress.currentWordIndex);
+  const [currentWordIndex, setCurrentWordIndex] = useState(
+    () => kepChiSo(initialProgress.currentWordIndex, activeTopic?.words?.length)
+  );
   const [learningMode, setLearningMode] = useState('flashcard');
   const [mascotMood, setMascotMood] = useState('idle');
   const [mascotContext, setMascotContext] = useState('vocab');
@@ -52,7 +68,7 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
     if (!activeTopic?.id) return;
     const saved = loadVocabProgress(activeTopic.id);
     const wordCount = activeTopic.words?.length || 1;
-    setCurrentWordIndex(Math.min(Math.max(saved.currentWordIndex, 0), wordCount - 1));
+    setCurrentWordIndex(kepChiSo(saved.currentWordIndex, wordCount));
     setLearningMode('flashcard');
     setVisitedModes(new Set(saved.visitedModes));
     setStudiedWordIndexes(new Set(saved.studiedWordIndexes.filter((index) => index < wordCount)));
