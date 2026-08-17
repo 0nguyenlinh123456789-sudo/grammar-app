@@ -141,19 +141,22 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
 });
 
 // THIÊN LỆCH ĐỘ DÀI — dấu hiệu bề ngoài thứ hai, cùng loại với chuyện đáp án
-// nằm lì ở ô đầu. Đo được: 84,3% câu có đáp án đúng là lựa chọn dài nhất, trong
-// khi không thiên lệch thì phải quanh 25%. Nghĩa là người học không đọc bài, cứ
-// chọn phương án dài nhất, vẫn đúng ~84%.
+// nằm lì ở ô đầu: cho phép đoán đúng mà không cần hiểu bài.
 //
-// Đây là LỖI TÔI TỰ GÂY RA khi soạn: viết đáp án đúng thành mệnh đề đầy đủ (sát
-// câu căn cứ) rồi thêm ba câu nhiễu ngắn gọn. Chưa sửa xong — bánh cóc dưới đây
-// GHIM con số hiện tại để nó chỉ được phép giảm. Đã sửa xong bậc B1 (84,3% →
-// 74,6% toàn bộ; riêng B1 còn 49,3% và không câu nào lệch quá 20%).
-// Hai con số. "Dài nhất duy nhất" bắt cả những chỗ lệch 1–2 ký tự — mắt thường
-// không dùng được, nên nó không phải mẹo thật. Con số ĐÁNG LO là "dài hơn thấy
-// được": đáp án dài hơn lựa chọn nhì từ 10% trở lên, tức nhìn là thấy ngay.
-const THIEN_LECH_TOI_DA = 0.746;
-const THAY_DUOC_TOI_DA = 0.572;
+// Bản soạn đầu có 84,3% câu mà đáp án đúng là lựa chọn dài nhất (không thiên
+// lệch thì phải quanh 25%) — chọn phương án dài nhất mà không đọc bài vẫn đúng
+// ~84%. LỖI TÔI TỰ GÂY RA: viết đáp án đúng thành mệnh đề đầy đủ bám sát câu
+// căn cứ, rồi thêm ba câu nhiễu ngắn gọn.
+//
+// ĐÃ SỬA XONG cả ba bậc: soạn lại toàn bộ câu nhiễu thành mệnh đề đầy đủ, độ
+// dài xấp xỉ nhau, dựng từ chi tiết có thật trong bài nhưng ghép sai.
+//
+// Hai con số. "Dài nhất duy nhất" (51,0%) bắt cả những chỗ lệch 1-2 ký tự — mắt
+// thường không phân biệt nổi nên đó không phải mẹo dùng được. Con số ĐÁNG LO là
+// "dài hơn THẤY ĐƯỢC": đáp án dài hơn lựa chọn nhì từ 10% trở lên, nhìn là thấy
+// ngay — con số này còn 6,0%, từ 57,2%. Không còn câu nào lệch quá 40%.
+const THIEN_LECH_TOI_DA = 0.510;
+const THAY_DUOC_TOI_DA = 0.060;
 
 test(`thiên lệch độ dài chỉ được giảm (dài nhất ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}% · thấy được ${(THAY_DUOC_TOI_DA * 100).toFixed(1)}% · không thiên lệch ≈ 25%)`, async () => {
   const { doThienLech } = await import('../scripts/audit_story_quiz.mjs');
