@@ -66,11 +66,22 @@
 // danh sách. Vì thế giữ. Ghi ra đây để người đọc sau thấy cả hai phán đoán, chứ
 // không chỉ thấy cái đi theo hướng loại bỏ.
 
+// ĐỢT A1 (17/08) — 47 chặng · 188 câu. Xem đầu storyQuizA1.js để biết bậc A1
+// khác ba bậc kia ở chỗ nào: bài A1 phần lớn là VĂN MIÊU TẢ chứ không phải truyện
+// kể, nên ở đó "dấu hiệu bề ngoài cho phép đoán đúng" xuất hiện dưới dạng thứ ba
+// và khó thấy nhất — CÂU HỎI TRẢ LỜI ĐƯỢC BẰNG KIẾN THỨC CHUNG. Mọi câu ở bậc đó
+// phải neo vào một chi tiết riêng của chính bài.
+//
+// Thiên lệch độ dài sau đợt A1: dài-nhất 51,0% → 43,5%; thấy-được 6,0% → 4,3%.
+// Đợt này bánh cóc thấy-được ĐÃ BẮN một lần (6,0% → 6,3% khi soạn xong 30 chặng
+// đầu) — sửa 9 câu nhiễu cho dài tương đương rồi đo lại, KHÔNG nới mốc.
+import { STORY_QUIZ_A1 } from './storyQuizA1.js';
 import { STORY_QUIZ_B1 } from './storyQuizB1.js';
 import { STORY_QUIZ_B2 } from './storyQuizB2.js';
 import { STORY_QUIZ_C1 } from './storyQuizC1.js';
 
 export const STORY_QUIZ = {
+  ...STORY_QUIZ_A1,
   ...STORY_QUIZ_B1,
   ...STORY_QUIZ_B2,
   ...STORY_QUIZ_C1,

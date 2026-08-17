@@ -25,8 +25,8 @@ const DATA = path.join(ROOT, 'src', 'data');
 
 // Bánh cóc: chỉ được tăng. Số ĐO ĐƯỢC khi soạn xong cả ba bậc B1, B2 và C1 —
 // 121/122 chặng ≥B1 (một chặng loại có lý do, xem đầu src/data/storyQuiz.js).
-const CHU_DE_TOI_THIEU = 121;
-const CAU_HOI_TOI_THIEU = 484;
+const CHU_DE_TOI_THIEU = 168;
+const CAU_HOI_TOI_THIEU = 672;
 
 async function napGop(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
@@ -155,8 +155,8 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
 // thường không phân biệt nổi nên đó không phải mẹo dùng được. Con số ĐÁNG LO là
 // "dài hơn THẤY ĐƯỢC": đáp án dài hơn lựa chọn nhì từ 10% trở lên, nhìn là thấy
 // ngay — con số này còn 6,0%, từ 57,2%. Không còn câu nào lệch quá 40%.
-const THIEN_LECH_TOI_DA = 0.510;
-const THAY_DUOC_TOI_DA = 0.060;
+const THIEN_LECH_TOI_DA = 0.435;
+const THAY_DUOC_TOI_DA = 0.043;
 
 test(`thiên lệch độ dài chỉ được giảm (dài nhất ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}% · thấy được ${(THAY_DUOC_TOI_DA * 100).toFixed(1)}% · không thiên lệch ≈ 25%)`, async () => {
   const { doThienLech } = await import('../scripts/audit_story_quiz.mjs');
@@ -238,7 +238,7 @@ test('bộ câu soạn tay cũ là mức CÂU, không phải mức văn bản', 
 //
 // Ràng buộc tôi từng nêu ("bài đọc A1/A2 phần lớn là chuỗi diễu hành từ vựng")
 // ĐÃ ĐO LẠI VÀ SAI: 93/145 chặng đủ điều kiện. Xem scripts/audit_a1a2_story.mjs.
-const A1A2_CON_THIEU_TOI_DA = 93;
+const A1A2_CON_THIEU_TOI_DA = 46;
 
 test('bánh cóc A1/A2: số chặng đủ điều kiện mà CHƯA có câu hỏi chỉ được giảm', async () => {
   const { doA1A2 } = await import(pathToFileURL(path.join(ROOT, 'scripts/audit_a1a2_story.mjs')).href);
