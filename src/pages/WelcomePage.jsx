@@ -583,10 +583,14 @@ const WelcomePage = ({
             đọc thành lời hứa "học xong trong 587 giờ". */}
         <details className="mt-2 text-xs font-bold text-slate-500 dark:text-slate-400">
           <summary className="cursor-pointer underline decoration-dotted">Con số giờ này tính thế nào?</summary>
+          <p className="mt-2 font-semibold">
+            <b>Đếm được</b> là số bài, số từ, số câu hỏi của từng chặng — máy đếm từ chính dữ liệu, không ai viết tay.
+            Còn <b>sáu con số dưới đây là GIẢ ĐỊNH</b>, không phải số đo: chúng là mức hợp lý để quy số bài ra thời gian, và mỗi người mỗi khác.
+          </p>
           <ul className="mt-2 ml-4 space-y-1 list-disc font-semibold">
             <li>Mỗi câu bài tập / mỗi lượt luyện một mục: <b>{CONG_THUC_GIO.giayMoiMuc} giây</b>.</li>
             <li>Mỗi từ vựng được luyện qua <b>{CONG_THUC_GIO.cheDoMoiTu} chế độ</b>.</li>
-            <li>Đọc bài: <b>{CONG_THUC_GIO.docTu} từ trong {CONG_THUC_GIO.docPhut} phút</b> (tốc độ người học, không phải người bản ngữ).</li>
+            <li>Đọc bài: <b>{CONG_THUC_GIO.docTu} từ trong {CONG_THUC_GIO.docPhut} phút</b> — tức ~{Math.round(CONG_THUC_GIO.docTu / CONG_THUC_GIO.docPhut)} từ/phút, chậm hơn tốc độ đọc thường vì đã tính cả lúc tra từ và trả lời câu hỏi.</li>
             <li>Mỗi mục lý thuyết: <b>{CONG_THUC_GIO.phutMoiMucLyThuyet} phút</b>.</li>
             <li>Mỗi bài nghe theo đoạn: nghe <b>{CONG_THUC_GIO.lanNgheMoiBai} lượt</b> (một lượt nắm ý, một lượt bắt chi tiết).</li>
             <li>Mỗi buổi chép chính tả: <b>{CONG_THUC_GIO.cauMoiBuoiChinhTa} câu</b>, mỗi câu tính <b>{CONG_THUC_GIO.luotMoiCauChinhTa} lượt</b> (nghe · chép · nghe lại soát).</li>

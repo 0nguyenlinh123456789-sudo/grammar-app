@@ -133,8 +133,8 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 |---|---|---|---|---|---|
 | ~~2.1~~ ✅ | **XONG (Đợt 8)** — cổng giấy phép + bộ tải 4 lớp + **239 bản thu giọng người thật** (CC BY 4.0), và **đường đi tới chúng trong lộ trình**: 60 chặng nghe theo đoạn · 30 chặng đọc dài · 3 buổi chép chính tả. **N4 xanh theo cách đo (a)+(b′)** — cách đo cũ và cả bản thay thế đầu tiên của tôi đều không trung thực được, xem hai ghi chú N4. ⚠️ Vế máy không kiểm được: **chưa ai nghe thử**. Xem `BAO_CAO_GIAY_PHEP_AUDIO.md` | Trước đó **0 file âm thanh** trong `public/` | N4 xanh | A | **Lớn** |
 | ~~2.2~~ ✅ | **XONG (Đợt 3)** — **60/60 bài** nghe theo đoạn **3–5 phút** (VOA, có bản chép lời + 4 câu hỏi soạn tay mỗi bài). Mốc "60–150 giây" ban đầu là con số tôi đoán, **đã thay bằng số đo**: loạt bài dạy học của VOA dài 200–300 giây, và 4 phút hợp với mục tiêu "theo dõi mạch nói" hơn 90 giây | B2 đo khả năng theo dõi mạch nói, không đo nhận ra một từ | ≥60 bài nghe đoạn — `tests/listening_passages.test.js` | A | Lớn |
-| 2.3 | ✅ **XONG (Đợt 3)** — nghe chép chính tả, chấm bằng so khớp dãy con dài nhất; thiếu từ đầu câu không kéo sập cả câu | Cơ chế rẻ, hiệu quả cao nhất cho nghe | `tests/dictation.test.js` | A | Nhỏ |
-| 2.4 | ✅ **XONG (Đợt 3)** — nhãn "Giọng máy đọc" ở phần nghe hiểu và phần Nghe của đề thi thử | Thiếu dữ liệu thì BÁO, không thay thế âm thầm | `MachineVoiceTag.jsx` | A | Nhỏ |
+| ~~2.3~~ ✅ | **XONG (Đợt 3)** — nghe chép chính tả, chấm bằng so khớp dãy con dài nhất; thiếu từ đầu câu không kéo sập cả câu | Cơ chế rẻ, hiệu quả cao nhất cho nghe | `tests/dictation.test.js` | A | Nhỏ |
+| ~~2.4~~ ✅ | **XONG (Đợt 3)** — nhãn "Giọng máy đọc" ở phần nghe hiểu và phần Nghe của đề thi thử | Thiếu dữ liệu thì BÁO, không thay thế âm thầm | `MachineVoiceTag.jsx` | A | Nhỏ |
 
 > **Ghi chú cho việc 2.2 — ĐÃ CHỐT 2026-08-15.**
 > Trở ngại hoá ra **không phải cắt file**, mà là **bản chép lời**: một bài nghe theo đoạn cần văn bản khớp đúng đoạn đó để viết câu hỏi, để hiện lại sau khi nghe, và để kiểm được. LibriVox có sẵn mục 60–150 giây (119 mục trong 40 quyển đầu) nhưng **không có văn bản khớp từng mục**, và văn phong tiểu thuyết thế kỷ 19 sai ngữ vực. VOA có **cả hai trên cùng một trang** → chọn VOA.
@@ -177,9 +177,9 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 
 | # | Việc | Vì sao | Nghiệm thu | RB | Công |
 |---|---|---|---|---|---|
-| 4.1 | ✅ **XONG (Đợt 2)** — ngân hàng **50 câu, 10 câu/bậc A1→C1**, bài thích ứng hỏi 12–24 câu. Trình độ lấy từ **nấc thang**, không từ % đúng | Trước đó: 12 câu, 0 câu có nhãn cấp → không tách nổi B2 với C1 | N7 xanh (`tests/placement_bank.test.js`) | A | Trung bình |
+| ~~4.1~~ ✅ | **XONG (Đợt 2)** — ngân hàng **50 câu, 10 câu/bậc A1→C1**, bài thích ứng hỏi 12–24 câu. Trình độ lấy từ **nấc thang**, không từ % đúng | Trước đó: 12 câu, 0 câu có nhãn cấp → không tách nổi B2 với C1 | N7 xanh (`tests/placement_bank.test.js`) | A | Trung bình |
 | ~~4.2~~ ✅ | **Bài thi cuối bậc A2 / B1 / B2** — đủ 4 phần, **42 câu chấm được soạn tay**, nghe bằng giọng người thật; **nhãn bậc chỉ suy từ phần `chamDuoc: true`** | Hiện chỉ có 2 đề thi thử × 20 câu, không gắn với bậc nào | N8 xanh | A (+**B** cho phần viết/nói) | Trung bình |
-| 4.3 | ✅ **XONG (Đợt 2)** — 4 kỹ năng CEFR tách riêng + 2 kỹ năng nền. Nghe/nói/viết hiện **“chưa đo được” kèm lý do**, không phải thanh 0% | B2 nghe ≠ B2 viết; gộp lại là giấu điểm yếu | 4 ô riêng trong Báo cáo tiến bộ (`tests/skill_profile.test.js`) | A | Nhỏ |
+| ~~4.3~~ ✅ | **XONG (Đợt 2)** — 4 kỹ năng CEFR tách riêng + 2 kỹ năng nền. Nghe/nói/viết hiện **“chưa đo được” kèm lý do**, không phải thanh 0% | B2 nghe ≠ B2 viết; gộp lại là giấu điểm yếu | 4 ô riêng trong Báo cáo tiến bộ (`tests/skill_profile.test.js`) | A | Nhỏ |
 | ~~4.4~~ ✅ | **Chứng nhận gắn với kết quả thi** — giữ cả nhánh chuyên cần cũ (#0-D1), nhưng **bậc chỉ đến từ bài thi**, in kèm ngày thi + căn cứ chấm + lời tự phủ nhận là chứng chỉ CEFR | Chứng nhận là chỗ duy nhất app nói với người ngoài | chứng nhận ghi rõ bậc + ngày thi | A | Nhỏ |
 
 
@@ -215,7 +215,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 
 | Đợt | Gồm | Được gì sau đợt |
 |---|---|---|
-| ~~**1**~~ ✅ | 1.1 → 1.4 → 1.2 → 1.3 → 1.5 → 1.6 | Lộ trình liền mạch chữ cái→B2 dẫn qua ~450–590 giờ nội dung **đã có**. Đây là đợt đổi nhiều nhất trên mỗi giờ công. |
+| ~~**1**~~ ✅ | 1.1 → 1.4 → 1.2 → 1.3 → 1.5 → 1.6 | Lộ trình liền mạch chữ cái→B2. Mốc "~450–590 giờ" đặt ra ợ đây là con số ưỗm trước khi đếm; **đo được: 587 giờ đến hết B2, 736 giờ toàn lộ trình**, và từ 17/08 công thức tính hiện ra cho người học. Đây là đợt đổi nhiều nhất trên mỗi giờ công. |
 | ~~**2**~~ ✅ | 4.1 → 4.3 | Biết người học đang ở đâu theo từng kỹ năng — mọi thứ sau đó dựa vào đây. |
 | ~~**3**~~ ✅ | 2.1 → 2.3 → 2.2 → 2.4 | Mở được cửa ải B1→B2 về nghe. **XONG cả bốn việc** (2.1 hoàn tất ở Đợt 8, 2026-08-17). |
 | ~~**4**~~ ✅ | 3.4 → 3.3 → 3.1 → 3.2 → 3.5 | Mở kỹ năng sản sinh và đọc hiểu ở mức văn bản. **XONG cả năm việc** (3.1 hoàn tất ở Đợt 7, 2026-08-17). |

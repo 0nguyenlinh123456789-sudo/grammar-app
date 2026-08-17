@@ -69,6 +69,11 @@ test('màn hình ĐỌC công thức từ file máy sinh, không chép tay hằn
   // Vế "không tính vào" phải đứng cạnh: thiếu nó thì bảng công thức đọc thành
   // lời hứa "học xong trong 587 giờ".
   assert.match(src, /Không tính vào:/, 'thiếu phần nói rõ công thức KHÔNG tính những gì');
+  // Mã nguồn bộ sinh cẩn thận ghi "GIẢ ĐỊNH, không phải số đo" trên LAN_NGHE.
+  // Bảng cho người học thì bày cả sáu hằng số thành một danh sách phẳng dưới một
+  // câu nói con số "từ số bài thật" — đọc thành sáu con số đo được. Cái ĐẾM ĐƯỢC
+  // là số bài/số từ/số câu; sáu hằng số quy chúng ra thời gian đều là giả định.
+  assert.match(src, /GIẢ ĐỊNH/, 'bảng công thức phải tách "đếm được" khỏi "giả định"');
 });
 
 test('mốc cũ chỉ dịch khi tổng chặng THẬT SỰ đổi', () => {
