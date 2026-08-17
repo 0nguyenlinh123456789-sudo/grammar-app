@@ -23,9 +23,9 @@ import { buildComprehension } from '../src/utils/comprehension.js';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'src', 'data');
 
-// Bánh cóc: chỉ được tăng. Đây là số ĐO ĐƯỢC lúc soạn xong bậc B1.
-const CHU_DE_TOI_THIEU = 38;
-const CAU_HOI_TOI_THIEU = 152;
+// Bánh cóc: chỉ được tăng. Đây là số ĐO ĐƯỢC lúc soạn xong bậc B1 và B2.
+const CHU_DE_TOI_THIEU = 75;
+const CAU_HOI_TOI_THIEU = 300;
 
 async function napGop(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
