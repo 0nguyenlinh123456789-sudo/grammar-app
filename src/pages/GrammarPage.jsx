@@ -25,11 +25,30 @@ const GrammarPage = ({ topic: topicGoc, setXp, completeMilestone }) => {
     setTab('theory');
   }, [topic?.id]);
 
-  if (!topic) return null;
+  // BÁO, KHÔNG TRẢ VỀ MÀN HÌNH TRẮNG. Trước đây chỗ này là `return null`: chặng
+  // ngữ pháp trỏ tới một id không còn trong kho (`parsedGrammarData.find` trả về
+  // undefined) thì người học bấm vào chặng và nhận **một trang trắng**, không một
+  // chữ giải thích. Cùng loại lỗi đã sửa cho panel nghe/đọc ở Đợt 8 ("chặng trỏ
+  // tới bài không còn trong kho" hiện dòng cảnh báo hổ phách) và cùng nguyên tắc
+  // của dự án: thiếu dữ liệu thì ẨN hoặc BÁO, tuyệt đối không im lặng.
+  if (!topic) {
+    return (
+      <div className="w-full max-w-3xl mx-auto pt-10 pb-20 font-sans">
+        <div className="p-8 rounded-3xl border-4 border-amber-500 bg-amber-50 dark:bg-amber-950/20 text-center">
+          <p className="text-4xl mb-3">📕🚧</p>
+          <p className="text-xl font-black text-amber-900 dark:text-amber-200">Bài ngữ pháp này không còn trong kho.</p>
+          <p className="mt-2 text-sm font-bold text-amber-800/80 dark:text-amber-300/80">
+            Chặng trong lộ trình đang trỏ tới một bài đã đổi tên hoặc đã bị xoá. Tiến độ của bạn không mất gì —
+            chọn một chặng khác trong Lộ trình, và báo cho chúng tôi biết bạn gặp lỗi này ở đâu.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const tabs = [
     { id: 'theory', label: 'Lý Thuyết', icon: BookOpen, color: 'bg-cyan-500' },
-    { id: 'sentence', label: 'Xếp Câu', icon: Puzzle, color: 'bg-amber-500' },
+    { id: 'sentence', label: 'Xếp Câu', icon: Puzzle, color: 'bg-amber-500', data: topic.sentenceGame },
     { id: 'exercise', label: 'Trắc Nghiệm', icon: PenTool, color: 'bg-emerald-500' },
     { id: 'fillblanks', label: 'Điền Từ', icon: PenLine, color: 'bg-blue-500', data: topic.fillBlanks },
     { id: 'errorcorrection', label: 'Sửa Lỗi', icon: AlertTriangle, color: 'bg-orange-500', data: topic.errorCorrection },
@@ -39,10 +58,20 @@ const GrammarPage = ({ topic: topicGoc, setXp, completeMilestone }) => {
     { id: 'ai', label: 'Gia Sư AI', icon: Bot, color: 'bg-yellow-500' },
   ];
 
-  // Hiển thị TẤT CẢ các tab (kể cả khi chưa có dữ liệu) để fix lỗi người dùng tưởng button không hiển thị
-  // Chỉ hiển thị dạng bài có dữ liệu; các tab nền tảng luôn khả dụng.
+  // Chỉ hiện dạng bài CÓ dữ liệu. Hai tab luôn khả dụng là 'theory' (mọi chủ đề
+  // đều có lý thuyết) và 'ai' (Gia Sư AI không cần bộ bài tập nào).
+  //
+  // ⚠️ 'sentence' TRƯỚC ĐÂY nằm trong danh sách luôn-khả-dụng, và đó là một lỗi
+  // ĐO ĐƯỢC: **12/12 bài của cụm A0 "Mất gốc thật" không có `sentenceGame`**, nên
+  // cả 12 đều hiện tab "Xếp Câu" mà bấm vào chỉ thấy "Đang tải thẻ họ..." — vĩnh
+  // viễn, vì chẳng có gì đang tải. Và đó đúng là 12 chặng ĐẦU TIÊN người mất gốc
+  // gặp: người cần app chạy được nhất lại là người gặp màn hình treo.
+  //
+  // Chú thích cũ ở đây ghi "hiển thị TẤT CẢ các tab để fix lỗi người dùng tưởng
+  // button không hiển thị" — chữa một lỗi bằng cách tạo một lỗi nặng hơn: thà
+  // không thấy tab còn hơn thấy tab dẫn tới màn hình không bao giờ tải xong.
   const availableTabs = tabs.filter((t) => {
-    if (['theory', 'sentence', 'ai'].includes(t.id)) return true;
+    if (['theory', 'ai'].includes(t.id)) return true;
     return Array.isArray(t.data) && t.data.length > 0;
   });
 

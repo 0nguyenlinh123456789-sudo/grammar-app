@@ -4,6 +4,7 @@ import { Link2, ChevronRight, Sparkles, RotateCcw, CheckCircle2, XCircle } from 
 import Btn3D from '../common/Btn3D';
 import MasteryVerdict from '../common/MasteryVerdict';
 import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
+import KhongCoCau from './KhongCoCau';
 
 const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -143,7 +144,7 @@ const MatchingExercise = ({ exercises, setGlobalProgress, onComplete }) => {
     );
   }
 
-  if (!curr || !curr.pairs) return <div className="p-10 font-bold text-slate-500 dark:text-slate-400">Đang tải câu hỏi...</div>;
+  if (!curr || !curr.pairs) return <KhongCoCau ten="cặp câu để nối" />;
 
   return (
     <div className="bg-white dark:bg-slate-900 rounded-[3rem] border-[4px] border-slate-800 dark:border-slate-700 p-8 md:p-10 shadow-[8px_8px_0px_0px_#1e293b] dark:shadow-[8px_8px_0px_0px_#020617]">

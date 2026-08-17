@@ -41,6 +41,10 @@ function quetJsx(thuMuc, ds = []) {
 // không ghim: ghim nó là buộc người khác phải sửa nó.
 const MIEN_TRU_IELTS = /ielts/i;
 
+// MOT dinh nghia duy nhat cho "the nao la mot lop z". Viet regex nay hai lan la
+// hai co hoi go sai — va lan go sai o day KHONG lam test do, no lam test KHONG THE do.
+const RE_LOP_Z = /\bz-(?:\[\d+\]|\d+)/g;
+
 const doZ = (dong) => {
   const m = dong.match(/z-\[(\d+)\]/) || dong.match(/z-(\d+)\b/);
   return m ? Number(m[1]) : null;
@@ -62,6 +66,31 @@ test('mọi lớp phủ toàn màn hình đều nằm trên nút chat trôi', ()
     });
   }
   assert.deepEqual(loi, [], 'lớp phủ nằm sai lớp:\n  ' + loi.join('\n  '));
+});
+
+// LỖI TÔI TỰ GÂY RA KHI SỬA BỐN CHỖ z-50 Ở TRÊN: chèn `z-[140]` vào đầu chuỗi
+// class mà KHÔNG gỡ `z-50` đã có ở cuối cùng chuỗi đó — hai lớp z xung đột trong
+// cùng một className, và cái nào thắng phụ thuộc thứ tự trong file CSS sinh ra,
+// không phải thứ tự trong mã. Tức là "đã sửa" mà có thể vẫn ở z-50.
+//
+// Bộ dò ở test trên KHÔNG bắt được: nó lấy con số z ĐẦU TIÊN gặp trên dòng, thấy
+// 140 là xanh. Đây là chỗ một phép đo hợp lệ vẫn nói sai vì nó chỉ đọc phần đầu.
+test('không className nào khai hai lớp z cùng lúc', () => {
+  const loi = [];
+  for (const f of [...quetJsx('src/components'), ...quetJsx('src/pages'), ...quetJsx('src/layouts')]) {
+    if (MIEN_TRU_IELTS.test(f)) continue;
+    fs.readFileSync(path.join(ROOT, f), 'utf8').split('\n').forEach((d, i) => {
+      // Đếm trong TỪNG chuỗi class, không đếm cả dòng: một dòng có thể chứa hai
+      // className khác nhau (lớp phủ và hộp bên trong) và mỗi cái một lớp z là đúng.
+      for (const m of d.matchAll(/className=(?:\{`|"|`)([^"`]*)/g)) {
+        const z = m[1].match(RE_LOP_Z) || [];
+        // `dark:z-…` hay `lg:z-…` là hai điều kiện khác nhau, không xung đột.
+        const khongDieuKien = z.filter((x) => !m[1].includes(`:${x}`));
+        if (khongDieuKien.length > 1) loi.push(`${f}:${i + 1} — ${khongDieuKien.join(' + ')}`);
+      }
+    });
+  }
+  assert.deepEqual(loi, [], 'className khai nhiều lớp z, cái nào thắng do thứ tự CSS quyết định:\n  ' + loi.join('\n  '));
 });
 
 test('nút chat trôi vẫn ở đúng z đã dùng để đặt mốc', () => {

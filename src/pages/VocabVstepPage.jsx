@@ -69,11 +69,23 @@ const VocabVstepPage = ({ activeTopic, playAudio, completedMilestones = [], comp
     saveVocabProgress(activeTopic.id, { currentWordIndex, visitedModes, studiedWordIndexes });
   }, [activeTopic?.id, currentWordIndex, progressTopicId, studiedWordIndexes, visitedModes]);
 
+  // Dòng cũ ở đây là "Đang tải chủ đề từ vựng..." — và nó KHÔNG BAO GIỜ đúng.
+  // App.jsx đã chặn trước bằng `if (!vstepLoaded) return <RouteLoader />`, nên tới
+  // được đây là dữ liệu ĐÃ nạp xong: `activeTopic` rỗng nghĩa là chủ đề KHÔNG TÌM
+  // THẤY, không phải đang tải. Câu "đang tải" cho một lỗi vĩnh viễn là bảo người
+  // học ngồi đợi một thứ không bao giờ tới — sai còn nặng hơn để trắng, vì trắng
+  // thì người ta biết là hỏng. Cùng loại lỗi với `return null` ở GrammarPage.
   if (!activeTopic) {
     return (
-      <div className="p-10 font-bold text-center text-slate-400 flex flex-col items-center gap-4">
-        <MascotLuna mood="thinking" context="loading" size={80} />
-        <p>Đang tải chủ đề từ vựng...</p>
+      <div className="w-full max-w-3xl mx-auto pt-10 pb-20 font-sans">
+        <div className="p-8 rounded-3xl border-4 border-amber-500 bg-amber-50 dark:bg-amber-950/20 flex flex-col items-center gap-3 text-center">
+          <MascotLuna mood="thinking" context="loading" size={80} />
+          <p className="text-xl font-black text-amber-900 dark:text-amber-200">Không tìm thấy chủ đề từ vựng này.</p>
+          <p className="text-sm font-bold text-amber-800/80 dark:text-amber-300/80">
+            Chặng trong lộ trình đang trỏ tới một chủ đề đã đổi tên hoặc đã bị xoá. Tiến độ của bạn không mất gì —
+            mở mục <b>Từ vựng → Chủ đề</b> để chọn chủ đề khác.
+          </p>
+        </div>
       </div>
     );
   }

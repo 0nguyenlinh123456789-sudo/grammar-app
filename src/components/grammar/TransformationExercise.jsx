@@ -4,6 +4,7 @@ import { Repeat, ChevronRight, Sparkles, RotateCcw, CheckCircle2, XCircle, Light
 import Btn3D from '../common/Btn3D';
 import MasteryVerdict from '../common/MasteryVerdict';
 import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
+import KhongCoCau from './KhongCoCau';
 
 const TransformationExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -108,7 +109,7 @@ const TransformationExercise = ({ exercises, setGlobalProgress, onComplete }) =>
     );
   }
 
-  if (!curr) return <div className="p-10 font-bold text-slate-500 dark:text-slate-400">Đang tải câu hỏi...</div>;
+  if (!curr) return <KhongCoCau ten="câu viết lại" />;
 
   const displayAnswer = Array.isArray(curr.a) ? curr.a[0] : curr.a;
 

@@ -4,6 +4,7 @@ import { Target, ChevronRight } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 import MasteryVerdict from '../common/MasteryVerdict';
 import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
+import KhongCoCau from './KhongCoCau';
 
 const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -87,7 +88,7 @@ const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplet
     );
   }
 
-  if (!curr) return <div className="p-10 font-bold text-slate-500">Đang tải thẻ học...</div>;
+  if (!curr) return <KhongCoCau ten="câu để xếp" />;
 
   return (
     <div className="bg-white rounded-[3rem] border-[4px] border-slate-800 p-8 md:p-10 shadow-[8px_8px_0px_0px_#1e293b]">
