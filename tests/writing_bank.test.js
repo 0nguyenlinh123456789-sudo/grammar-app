@@ -22,7 +22,13 @@ import { kiemTraDeViet } from '../src/utils/writingScorer.js';
 import { roadmapData } from '../src/data/roadmapData.js';
 
 const BAND_A2_TRO_LEN = ['elementary', 'intermediate', 'upper_intermediate', 'advanced'];
-const DE_TOI_THIEU = 531;
+// SIẾT 531 -> 621 (17/08). Mốc 531 đặt ở Đợt 4 khi lộ trình còn 617 chặng; Đợt 8
+// mở lộ trình lên 710 nên kho đề sinh lại thành 621, mà mốc thì đứng nguyên —
+// tức bánh cóc THÔI BẢO VỆ 90 đề: xoá tới 90 đề vẫn xanh. Phát hiện khi đối chiếu
+// con số 621 hiện trên trang chủ với con số 531 ghi trong KE_HOACH_B2.md.
+// Bài học: mở rộng lộ trình thì mọi mốc ĐẾM THEO CHẶNG phải siết theo, không thì
+// bánh cóc lặng lẽ nhả ra đúng bằng phần vừa thêm.
+const DE_TOI_THIEU = 621;
 
 test('bánh cóc: số đề theo chặng chỉ được tăng', () => {
   assert.ok(writingGenerated.length >= DE_TOI_THIEU,

@@ -79,6 +79,16 @@ test('bộ kiểm không trả về bất kỳ trường nào có hình dạng �
 
 // ── 2. PHỦ ĐỦ CHẶNG B1+ ──────────────────────────────────────────────────────
 
+// Bánh cóc số đề nói — trước 17/08 mục này CHỈ có test độ phủ, không có mốc đếm.
+// Độ phủ xanh không thay được mốc đếm: nếu ai đó xoá đề nói ĐỒNG THỜI với việc
+// xoá chặng tương ứng thì độ phủ vẫn 100%, kho vẫn teo lại mà không ai biết.
+const DE_NOI_TOI_THIEU = 476;
+
+test('bánh cóc: số đề nói chỉ được tăng', () => {
+  assert.ok(speakingGenerated.length >= DE_NOI_TOI_THIEU,
+    `còn ${speakingGenerated.length} đề nói, dưới mốc ${DE_NOI_TOI_THIEU} đã đạt được`);
+});
+
 test('mọi chặng B1 trở lên đều có đúng một đề nói', () => {
   const B1_TRO_LEN = new Set(['intermediate', 'upper_intermediate', 'advanced']);
   const thieu = [];
