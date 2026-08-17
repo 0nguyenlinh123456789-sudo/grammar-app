@@ -54,6 +54,11 @@ test('số chặng khai CÓ mà thật ra KHÔNG có đề vẫn nằm trong m�
   const hut = { viet: [], noi: [] };
   for (const band of roadmapData) {
     for (const m of band.milestones) {
+      // Buổi chép chính tả (N4 b′) cố ý KHÔNG có đề viết/nói: 5 câu rời bốc lúc
+      // chạy, không có chủ đề nào để viết hay nói về. Bỏ ra khỏi phép đếm "hụt"
+      // theo LOẠI chặng, chứ không nới con số ghim — nới con số là che mất chỗ
+      // hụt thật nếu sau này có.
+      if (m.type === 'dictation') continue;
       if (COD_DE_VIET.has(band.level) && !deChoChang(m)) hut.viet.push(`${band.level}/${m.targetId}`);
       if (COD_DE_NOI.has(band.level) && !deNoiChoChang(m)) hut.noi.push(`${band.level}/${m.targetId}`);
     }

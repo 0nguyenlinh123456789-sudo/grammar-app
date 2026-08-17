@@ -32,7 +32,7 @@ Cam kết phải kiểm được, không thì lại thành lời hứa suông. �
 | N1 | Lộ trình liên tục từ **chữ cái → B2**, không đứt đoạn, không đòi người học tự đi tìm | test CI: mọi chủ đề/unit/chủ đề ngữ pháp bậc ≤B2 đều thuộc đúng 1 chặng |
 | N2 | Tổng giờ lộ trình dẫn qua **≥ 450 giờ** (ước lượng thật, ghi công thức) | test CI cộng giờ khai báo, đối chiếu số câu thật |
 | N3 | Mỗi chặng đều **đo độ chính xác** trước khi đánh dấu xong | ✅ **đã có** (hạng mục #1/#1b, `tests/milestone_gate.test.js`) |
-| N4 | Người học nghe được **giọng người thật**, nhiều accent, ở mọi chặng ≥B1 | ⚠️ **CHƯA ĐẠT.** (a) kho ≥200 bản thu người thật ✅ · (b′) bài nghe theo đoạn nằm trong lộ trình, đo **theo BẬC**: **0/3 bậc ≥B1** — đã đo, đã ghim. **Cách đo (b) theo từng chặng do chính tôi đề nghị cũng sai và đã tự đính chính** — xem hai ghi chú N4 dưới bảng |
+| N4 | Người học nghe được **giọng người thật**, nhiều accent, ở mọi chặng ≥B1 | ✅ **ĐẠT (Đợt 8)** theo cách đo đã sửa lại hai lần: (a) kho ≥200 bản thu người thật ✅ · (b′) bài nghe theo đoạn **nằm trong lộ trình**, đo **theo BẬC**: **20/20/20 bài ở B1/B2/C1**, mốc ≥15 ✅. ⚠️ **Còn một vế máy không kiểm được: chưa ai NGHE THỬ** 239 bản thu và 60 bài — máy chỉ kiểm được file tồn tại và phát được. Xem hai ghi chú N4 dưới bảng |
 | N5 | Có **đọc hiểu theo VĂN BẢN** (không phải theo câu lẻ) ở mọi chặng ≥B1 | ✅ **ĐẠT (Đợt 7)** — 121/122 chặng ≥B1, 484 câu soạn tay, mỗi câu có căn cứ nguyên văn kiểm được; `tests/story_quiz.test.js` |
 | N6 | Có **viết được chấm** và lỗi vào sổ lỗi, ở mọi chặng ≥A2 | ~~test CI: mỗi chặng A2+ có ≥1 đề viết~~ → **đã đo lại, xem ghi chú N6 dưới bảng.** (a) 531/532 chặng A2+ có đề gắn với nội dung chặng ✅ (b) ≥9 đề soạn tay có bài mẫu ✅ |
 | N7 | Test đầu vào **tách được A1/A2/B1/B2/C1** | test CI: mỗi bậc ≥8 câu có nhãn cấp độ |
@@ -64,22 +64,33 @@ Cam kết phải kiểm được, không thì lại thành lời hứa suông. �
 
 ---
 
-> ## ⚠️ PHÁT HIỆN KHI ĐO N4 — LỖI CỦA VIỆC 1.3 ĐÃ TÁI DIỄN, ĐÃ ĐO, CHƯA SỬA (17/08)
+> **CHỐT 17/08 (chủ dự án giao tự quyết): LÀM THEO (b′).** Đã đưa 60 bài nghe + 30 bài đọc dài + 3 buổi chép chính tả vào lộ trình, lộ trình **617 → 710 chặng**. Bài nghe/bài đọc **xếp theo số từ ĐO ĐƯỢC** rồi chia ba phần đều (bài ngắn ở bậc thấp) — **không gán nhãn cấp độ cho từng bài**, vì gán "bài này là B1" cho một bài VOA là bịa một nhãn không ai kiểm được. Giao diện nói thẳng là sắp theo độ dài.
+
+---
+
+> ## ⚠️ PHÁT HIỆN KHI ĐO N4 — LỖI CỦA VIỆC 1.3 ĐÃ TÁI DIỄN. ĐÃ ĐO 17/08, ĐÃ SỬA CÙNG NGÀY (Đợt 8)
 >
 > Việc 1.3 sinh ra để chữa một chuyện: **260 unit Oxford soạn xong mà không có chặng nào dẫn tới**, nên người đi theo lộ trình không bao giờ gặp. Đo lại hôm nay: **chuyện đó đã lặp lại với bốn kho soạn ở Đợt 3, 5 và 6.**
 >
 > **BỐN KHO KHÔNG PHẢI MỘT VIỆC — chúng khác nhau về BẢN CHẤT, nên số chặng cần thêm không phải 332.** Gộp cả bốn thành "332 mục mồ côi" là tự phóng đại việc mình vừa tìm ra:
 >
-> | Kho | Số mục | Chặng dẫn tới | Bản chất của kho | Chặng cần thêm |
+> | Kho | Số mục | Chặng dẫn tới (trước) | Bản chất của kho | Đã làm |
 > |---|---|---|---|---|
-> | Bài nghe theo đoạn (2.2) | 60 | **0** | **60 bài học** — mỗi bài có bản chép lời + 4 câu hỏi soạn tay, chấm được | **~20/bậc × 3 bậc** — đúng phát hiện, đúng cỡ |
-> | Bài đọc dài 600–1.000 từ (5.3) | 30 | **0** | **30 bài học** — mỗi bài 4 câu hỏi soạn tay, chấm được | **~10/bậc × 3 bậc** — cùng loại phát hiện |
-> | Bản thu chép chính tả (2.1/2.3) | 239 | **0** | **một KHO DÙNG CHUNG**, chia theo độ dài câu — không phải 239 bài học. `DictationPanel` đã nhận `currentBand` | **1–3 chặng tổng cộng** ("làm một buổi chép chính tả"), KHÔNG phải 239 |
-> | Đề thi cuối bậc (4.2) | 3 | **0** | **cửa ải cuối bậc** | **có thể là 0** — N8 không đòi đề thi nằm trong đường đi thẳng; xếp nó vào bảng này có thể là tôi nhầm hạng mục, cần bạn phán |
+> | Bài nghe theo đoạn (2.2) | 60 | **0** | **60 bài học** — mỗi bài có bản chép lời + 4 câu hỏi soạn tay, chấm được | ✅ **60 chặng `listening`**, 20 mỗi bậc B1/B2/C1 |
+> | Bài đọc dài 600–1.000 từ (5.3) | 30 | **0** | **30 bài học** — mỗi bài 4 câu hỏi soạn tay, chấm được | ✅ **30 chặng `reading`**, 10 mỗi bậc |
+> | Bản thu chép chính tả (2.1/2.3) | 239 | **0** | **một KHO DÙNG CHUNG**, chia theo độ dài câu — không phải 239 bài học. `DictationPanel` đã nhận `currentBand` | ✅ **3 chặng `dictation`** (một mỗi bậc), KHÔNG phải 239 |
+> | Đề thi cuối bậc (4.2) | 3 | **0** | **cửa ải cuối bậc** | ❌ **CỐ Ý KHÔNG xếp** — N8 không đòi đề thi nằm trong đường đi thẳng, và chèn nó vào giữa lộ trình biến bài thi thành một bước học. Ghi ra để đây là **quyết định**, không phải bỏ sót |
 >
-> Nội dung vẫn dùng được — nó không chết, không bị ẩn. Nhưng **lộ trình 617 chặng là thứ app bảo người học đi theo**, và nó không đi qua chỗ nào trong bốn kho này. Người học chăm chỉ nhất — người làm đúng từng chặng — là người ít gặp chúng nhất.
+> Nội dung vẫn dùng được — nó không chết, không bị ẩn. Nhưng **lộ trình là thứ app bảo người học đi theo**, và trước đợt này nó không đi qua chỗ nào trong bốn kho. Người học chăm chỉ nhất — người làm đúng từng chặng — là người ít gặp chúng nhất.
 >
-> **Hai hàng đầu là phát hiện thật và đủ cỡ để làm; hàng ba nhỏ hơn nhiều so với con số 239 gợi ra; hàng bốn có thể không phải lỗi.** Và lưu ý: đề nghị N4 (b′) ở ghi chú trên **chỉ phủ hàng một** — hàng hai (bài đọc dài) chưa có tiêu chí nghiệm thu nào đòi nó nằm trong lộ trình.
+> **Cỡ việc thật là 93 chặng, không phải 332.** Gộp cả bốn kho thành "332 mục mồ côi" là tự phóng đại phát hiện của mình: đếm MỤC không phải đếm VIỆC, phải hỏi "mỗi mục có phải một bài học không" trước khi cộng.
+>
+> ### Bốn thứ đợt này phải xử lý kèm, không cái nào đoán ra được từ bàn giấy
+>
+> 1. **Thanh tiến độ tụt, và phải BÁO.** `WelcomePage.jsx` tính `completedCount / tổng số chặng`, nên người đang thấy `120/617` sẽ thấy `120/710`. Có **thông báo một lần** (`RoadmapGrowthNotice`) nói đúng lý do và nói rõ *không mất chặng nào*. `build_roadmap.mjs` **đọc tổng cũ từ chính file nó sắp ghi đè** rồi lưu thành `TONG_CHANG_TRUOC` — không có con số cũ thì không nói được câu "từ 617 thành 710".
+> 2. **93 chặng mới KHÔNG được lọt qua cổng có điểm (N3).** Chặng nghe/đọc ghi bằng chứng từ 4 câu hỏi của chính bài, buổi chép chính tả từ 5 câu. Thiếu bước này là thêm 93 chặng hoàn thành được mà không cần trả lời đúng câu nào — lặng lẽ phá đúng tiêu chí đã tuyên bố đạt.
+> 3. **Hai tiêu chí ĐÃ ĐẠT bị đe doạ, không phải bị bỏ qua.** N6(a) đòi mọi chặng A2+ có đề viết, việc 3.5 đòi mọi chặng B1+ có đề nói — thêm 93 chặng là thêm 93 chỗ trống. Đã sinh **đề tóm tắt** cho cả 90 chặng nghe/đọc (nhiệm vụ gắn với bài thật, không bịa đáp án); 3 buổi chép chính tả **kê đích danh là không có**, vì 5 câu rời bốc lúc chạy thì không có chủ đề nào để viết hay nói về.
+> 4. **Xác minh nhanh không áp cho ba loại chặng mới, và đó là lý do THẬT chứ không phải lối thoát.** Xác minh nhanh sinh ra để di trú các chặng hoàn thành từ bản cũ; ba loại này thêm vào SAU khi cổng có điểm đã chạy, nên không ai có thể có một lượt hoàn thành mà không có bản ghi điểm. Chúng **không** bị đổ vào bánh cóc "100 chặng thiếu nguyên liệu" của Oxford Advanced — trộn hai lý do khác nhau vào một con số là làm con số đó mất nghĩa.
 >
 > **Vì sao không test nào bắt được, và đây mới là phần đáng ghi:**
 > - `tests/orphan_data.test.js` đo mồ côi **ở mức FILE** ("có ai import không"). Cả bốn kho đều được import đàng hoàng nên nó xanh — đúng phận sự của nó. Mồ côi **ở mức ĐƯỜNG ĐI** là chuyện khác, và trước hôm nay chưa ai đo.
@@ -120,7 +131,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 
 | # | Việc | Vì sao | Nghiệm thu | RB | Công |
 |---|---|---|---|---|---|
-| 2.1 | 🟡 **ĐANG DỞ (Đợt 3)** — đã dựng cổng giấy phép + bộ tải 4 lớp + kho bản thu đầu tiên. **N4 chưa đạt.** Xem `BAO_CAO_GIAY_PHEP_AUDIO.md` | Trước đó **0 file âm thanh** trong `public/` | N4 xanh | A | **Lớn** |
+| ~~2.1~~ ✅ | **XONG (Đợt 8)** — cổng giấy phép + bộ tải 4 lớp + **239 bản thu giọng người thật** (CC BY 4.0), và **đường đi tới chúng trong lộ trình**: 60 chặng nghe theo đoạn · 30 chặng đọc dài · 3 buổi chép chính tả. **N4 xanh theo cách đo (a)+(b′)** — cách đo cũ và cả bản thay thế đầu tiên của tôi đều không trung thực được, xem hai ghi chú N4. ⚠️ Vế máy không kiểm được: **chưa ai nghe thử**. Xem `BAO_CAO_GIAY_PHEP_AUDIO.md` | Trước đó **0 file âm thanh** trong `public/` | N4 xanh | A | **Lớn** |
 | ~~2.2~~ ✅ | **XONG (Đợt 3)** — **60/60 bài** nghe theo đoạn **3–5 phút** (VOA, có bản chép lời + 4 câu hỏi soạn tay mỗi bài). Mốc "60–150 giây" ban đầu là con số tôi đoán, **đã thay bằng số đo**: loạt bài dạy học của VOA dài 200–300 giây, và 4 phút hợp với mục tiêu "theo dõi mạch nói" hơn 90 giây | B2 đo khả năng theo dõi mạch nói, không đo nhận ra một từ | ≥60 bài nghe đoạn — `tests/listening_passages.test.js` | A | Lớn |
 | 2.3 | ✅ **XONG (Đợt 3)** — nghe chép chính tả, chấm bằng so khớp dãy con dài nhất; thiếu từ đầu câu không kéo sập cả câu | Cơ chế rẻ, hiệu quả cao nhất cho nghe | `tests/dictation.test.js` | A | Nhỏ |
 | 2.4 | ✅ **XONG (Đợt 3)** — nhãn "Giọng máy đọc" ở phần nghe hiểu và phần Nghe của đề thi thử | Thiếu dữ liệu thì BÁO, không thay thế âm thầm | `MachineVoiceTag.jsx` | A | Nhỏ |
@@ -206,7 +217,7 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 |---|---|---|
 | ~~**1**~~ ✅ | 1.1 → 1.4 → 1.2 → 1.3 → 1.5 → 1.6 | Lộ trình liền mạch chữ cái→B2 dẫn qua ~450–590 giờ nội dung **đã có**. Đây là đợt đổi nhiều nhất trên mỗi giờ công. |
 | ~~**2**~~ ✅ | 4.1 → 4.3 | Biết người học đang ở đâu theo từng kỹ năng — mọi thứ sau đó dựa vào đây. |
-| **3** | 2.1 → 2.3 → 2.2 → 2.4 | Mở được cửa ải B1→B2 về nghe. |
+| ~~**3**~~ ✅ | 2.1 → 2.3 → 2.2 → 2.4 | Mở được cửa ải B1→B2 về nghe. **XONG cả bốn việc** (2.1 hoàn tất ở Đợt 8, 2026-08-17). |
 | ~~**4**~~ ✅ | 3.4 → 3.3 → 3.1 → 3.2 → 3.5 | Mở kỹ năng sản sinh và đọc hiểu ở mức văn bản. **XONG cả năm việc** (3.1 hoàn tất ở Đợt 7, 2026-08-17). |
 | ~~**5**~~ ✅ | 4.2 → 4.4 | Chốt được cam kết: có bài thi cuối bậc B2 và chứng nhận gắn với nó. |
 | ~~**6**~~ ✅ | 5.1 → 5.2 → 5.3 → 5.4 | Nền C1. **XONG cả bốn việc** (2026-08-17). |
@@ -223,7 +234,8 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
    Trục thu hẹp THẬT nằm ở bậc, và nó đã được ghi sẵn trong chính tiêu chí nghiệm thu: **N5 nói "ở mọi chặng ≥B1" = 122 chặng**, không phải 267. Bảng việc lại ghi "1/267" và mục này ghi "267 bài" — ba con số trong cùng một tài liệu.
    **Tôi đang làm theo N5 (122), vì đó là cột nghiệm thu.** Bậc B1 (38 chặng) đã xong ở Đợt 7. Nếu bạn muốn phủ cả 267 chủ đề — tức thêm 145 chặng A1/A2 — thì nói, vì đó là quyết định của bạn chứ không phải suy ra được từ tài liệu. **Ràng buộc đo được, cần biết trước khi chọn:** phần thêm là bài đọc A1/A2 — loại **tệ nhất** cho câu hỏi mức văn bản, vì phần lớn là chuỗi diễu hành từ vựng (`nature-countryside`: *"He walked past the barn and the stable to look at his livestock"*), không có nội dung để hỏi. Đúng cái đã buộc loại `digital-society-100`, nhưng ở quy mô lớn hơn nhiều: nhiều chặng sẽ phải loại có lý do, hoặc phải **viết lại bài đọc trước** — mà viết lại là soạn nội dung mới, cần bạn duyệt riêng.
 
-3. **Đưa nội dung ngoài lộ trình vào lộ trình — việc chưa có số trong bảng, phát hiện 17/08.** Hiện **0 chặng dẫn tới** 60 bài nghe, 30 bài đọc dài, kho 239 bản thu và 3 đề thi cuối bậc. **Cỡ việc thật là ~90 chặng mới (~20 bài nghe + ~10 bài đọc mỗi bậc × 3 bậc) cộng 1–3 chặng chép chính tả — không phải 332**, và đề thi cuối bậc có thể vốn không cần nằm trong đường đi (xem bảng ở ghi chú "lỗi 1.3 tái diễn"). Sửa nó nghĩa là **chèn chặng mới vào lộ trình 617 chặng của người đang dùng**, và mở thêm một loại chặng thứ tư ngoài `grammar`/`vstep`/`oxford`. Bốn hệ quả **đã đọc mã để xác nhận**, không phải suy đoán:
+3. ~~**Đưa nội dung ngoài lộ trình vào lộ trình**~~ ✅ **ĐÃ LÀM (Đợt 8, 17/08)** — chủ dự án giao tự quyết. Giữ lại nguyên văn phần phân tích bên dưới vì bốn hệ quả vẫn là thứ phải biết khi sửa tiếp.
+   **Đưa nội dung ngoài lộ trình vào lộ trình — việc chưa có số trong bảng, phát hiện 17/08.** Hiện **0 chặng dẫn tới** 60 bài nghe, 30 bài đọc dài, kho 239 bản thu và 3 đề thi cuối bậc. **Cỡ việc thật là ~90 chặng mới (~20 bài nghe + ~10 bài đọc mỗi bậc × 3 bậc) cộng 1–3 chặng chép chính tả — không phải 332**, và đề thi cuối bậc có thể vốn không cần nằm trong đường đi (xem bảng ở ghi chú "lỗi 1.3 tái diễn"). Sửa nó nghĩa là **chèn chặng mới vào lộ trình 617 chặng của người đang dùng**, và mở thêm một loại chặng thứ tư ngoài `grammar`/`vstep`/`oxford`. Bốn hệ quả **đã đọc mã để xác nhận**, không phải suy đoán:
    - **(a) Thanh tiến độ của người đang học sẽ TỤT.** `WelcomePage.jsx:142-146` tính `completionPercentage = completedCount / allMilestones.length`, và ô lớn trên trang chủ hiện thẳng `{completedCount}/{totalMilestonesCount}`. Thêm chặng là tăng mẫu số, nên người hôm nay thấy `120/617` mai mở app sẽ thấy `120/677` — họ không làm gì sai mà con số xấu đi. Cái này phải **báo cho người học**, không được đổi lặng lẽ.
    - **(b) Phải mở loại chặng thứ tư.** `launchMilestone` (`WelcomePage.jsx:195-212`) rẽ ba nhánh `grammar`/`oxford`/`vstep`; `roadmap_coverage.test.js` cũng khoá đúng ba giá trị đó. Chặng nghe/đọc-dài/thi cần nhánh mới **và** cách chấm riêng (bài nghe có 4 câu hỏi soạn tay nên chấm được — khác chặng từ vựng).
    - **(c) Tổng giờ khai báo đổi theo**, và N2 (≥450 giờ đến hết B2) tính từ chính con số đó — thêm chặng chỉ làm nó tăng, nên không có rủi ro ngược.

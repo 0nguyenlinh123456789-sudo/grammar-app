@@ -33,6 +33,12 @@ test('bánh cóc: số đề theo chặng chỉ được tăng', () => {
 // Chỗ nào không có thì phải kê đích danh và có lý do — không được im lặng.
 const KHONG_CO_DE = {
   'oxford:elementary:26': 'Unit 26 dạy HẬU TỐ (-ful, -less, -ness…), không phải từ. Không thể bảo người học "dùng từ -ness trong câu".',
+  // Ba buổi chép chính tả (N4 b′): mỗi phiên bốc 5 câu RỜI từ kho dùng chung, và
+  // câu nào rơi vào phiên nào chỉ biết lúc chạy. Không có chủ đề nào để bảo người
+  // học viết về. Độn một đề trống cho đủ số là đúng cái kho khuôn mẫu đã bị xoá.
+  'dictation:-:dictation-intermediate': 'buổi chép chính tả không có chủ đề — 5 câu rời bốc lúc chạy',
+  'dictation:-:dictation-upper_intermediate': 'buổi chép chính tả không có chủ đề — 5 câu rời bốc lúc chạy',
+  'dictation:-:dictation-advanced': 'buổi chép chính tả không có chủ đề — 5 câu rời bốc lúc chạy',
 };
 
 test('mọi chặng A2+ đều có đề viết gắn với nội dung chặng — trừ những chặng kê đích danh', () => {

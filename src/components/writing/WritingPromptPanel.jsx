@@ -232,7 +232,10 @@ function LamBai({ de, onBack, onClose }) {
         {/* Nói thẳng cái mình KHÔNG kiểm được, ngay cạnh cái mình kiểm được. */}
         <p className="mt-3 text-xs font-bold text-slate-500 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-2xl p-3">
           Máy <b>không</b> kiểm được: {kq.khongKiemDuoc.join(' · ')}.
-          {de.chiKiemDuocDoDai && ' Đề của chặng ngữ pháp không có danh sách từ, nên máy chỉ đếm được số từ — nó KHÔNG kiểm được bạn có dùng đúng điểm ngữ pháp hay không.'}
+          {/* Lý do đi theo DỮ LIỆU, không viết cứng ở đây: cùng một cờ nay dùng
+              cho cả chặng ngữ pháp và chặng nghe/đọc, mà hai chỗ đó không kiểm
+              được hai thứ khác nhau. Xem lyDoChiDoDoDai trong writingBank.js. */}
+          {de.chiKiemDuocDoDai && ` ${de.lyDoChiDoDoDai || ''}`}
         </p>
       </div>
 

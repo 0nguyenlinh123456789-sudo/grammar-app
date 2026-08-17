@@ -21,13 +21,23 @@ import { playCorrect, playWrong, playComplete } from '../../utils/sound';
 // phân nhóm bản thu theo độ dài câu chứ không theo bậc (listeningPlan.js).
 const CAC_LOAT = [...new Set(listeningPassages.map((b) => b.series))];
 
-export default function ListeningPassagePanel({ onClose }) {
-  const [baiId, setBaiId] = useState(null);
+// `moBaiId` + `onXong` là đường vào TỪ LỘ TRÌNH (N4 b′): chặng nghe mở thẳng
+// đúng bài của nó và báo điểm về để ghi bằng chứng hoàn thành. Mở từ nút trang
+// chủ thì hai prop này để trống — panel hoạt động y như trước, có danh sách chọn.
+export default function ListeningPassagePanel({ onClose, moBaiId = null, onXong }) {
+  const [baiId, setBaiId] = useState(moBaiId);
   const [loat, setLoat] = useState(null);
   const bai = listeningPassages.find((b) => b.id === baiId) || null;
   const danhSach = loat ? listeningPassages.filter((b) => b.series === loat) : listeningPassages;
 
+  // Chặng lộ trình trỏ tới một bài không còn trong kho: BÁO, không lặng lẽ mở
+  // danh sách rồi để người học tưởng mình bấm nhầm.
+  const baiChangMat = moBaiId && !listeningPassages.some((b) => b.id === moBaiId);
+
   if (!bai) return <Khung onClose={onClose} tieuDe="Bài nghe theo đoạn">
+    {baiChangMat && <p className="text-sm font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-3 border-amber-300 dark:border-amber-800 rounded-2xl p-3 mb-4">
+      ⚠️ Bài nghe của chặng này (<code>{moBaiId}</code>) <b>không còn trong kho</b>. Đây là lỗi dữ liệu, không phải bạn bấm sai. Chọn một bài khác bên dưới trong lúc chờ sửa.
+    </p>}
     <p className="text-sm font-bold text-slate-500 mt-1 mb-4">
       Nghe một đoạn 3–5 phút rồi trả lời câu hỏi hiểu ý. Bản chép lời hiện ra sau khi bạn trả lời xong.
     </p>
@@ -60,10 +70,10 @@ export default function ListeningPassagePanel({ onClose }) {
     <GhiCong danhSach={listeningPassages} />
   </Khung>;
 
-  return <BaiNghe key={bai.id} bai={bai} onBack={() => setBaiId(null)} onClose={onClose} />;
+  return <BaiNghe key={bai.id} bai={bai} onBack={() => setBaiId(null)} onClose={onClose} onXong={onXong} />;
 }
 
-function BaiNghe({ bai, onBack, onClose }) {
+function BaiNghe({ bai, onBack, onClose, onXong }) {
   const audioRef = useRef(null);
   const [dangPhat, setDangPhat] = useState(false);
   const [loiTai, setLoiTai] = useState(false);
@@ -92,7 +102,13 @@ function BaiNghe({ bai, onBack, onClose }) {
 
   const tiep = () => {
     if (idx < bai.questions.length - 1) { setIdx(idx + 1); setChon(null); }
-    else { playComplete(); setXong(true); audioRef.current?.pause(); setDangPhat(false); }
+    else {
+      playComplete(); setXong(true); audioRef.current?.pause(); setDangPhat(false);
+      // `dung` ở đây ĐÃ tính cả câu cuối: nút "Xem kết quả" chỉ hiện sau khi
+      // người học chọn đáp án, tức là đã có một lượt vẽ lại giữa traLoi và tiep.
+      // Mọi câu đều là trắc nghiệm nên ngưỡng đạt là 85% (thresholdFor).
+      onXong?.({ correct: dung, total: bai.questions.length, loaiCau: bai.questions.map(() => 'mcq') });
+    }
   };
 
   return <Khung onClose={onClose} tieuDe={bai.title} phu={bai.series} onBack={onBack}>

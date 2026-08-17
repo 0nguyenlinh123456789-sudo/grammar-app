@@ -175,7 +175,10 @@ test('bậc C1 được đánh dấu là NHÁNH DỰ BỊ, bậc B2 là đích c
 test('sửa nhãn KHÔNG làm mất chặng nào, và số đếm khớp lộ trình thật', () => {
   const that = roadmapData.reduce((s, l) => s + l.milestones.length, 0);
   assert.equal(TONG_CHANG, that, 'roadmapCounts.js lệch với lộ trình thật — chạy lại build_roadmap.mjs');
-  assert.equal(that, 617, `lộ trình còn ${that} chặng (đo được 617 lúc làm việc 5.2)`);
+  // 617 lúc làm việc 5.2 → 710 khi N4 (b′) đưa 60 bài nghe theo đoạn, 30 bài đọc
+  // dài và 3 buổi chép chính tả vào lộ trình. Con số CHỈ ĐƯỢC TĂNG: giảm nghĩa là
+  // có người xoá nội dung, đúng chuyện test này sinh ra để chặn.
+  assert.ok(that >= 710, `lộ trình còn ${that} chặng, ít hơn mức 710 đã đo — có nội dung bị xoá khỏi đường đi?`);
   for (const l of roadmapData) assert.equal(CHANG_THEO_BAC[l.level], l.milestones.length, `số chặng bậc ${l.level} lệch`);
 });
 

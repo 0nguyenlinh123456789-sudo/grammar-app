@@ -48,27 +48,49 @@ const KIEU_LABEL = { cau: 'câu', doan: 'đoạn', bai: 'bài' };
 // Đưa đề sinh về CÙNG HÌNH DẠNG với đề soạn tay, để một bộ kiểm duy nhất
 // (kiemTraDeViet) chạy được cho cả hai. Điểm khác duy nhất được giữ nguyên và
 // nói thẳng: `coBaiMau: false`.
+// LÝ DO "máy chỉ đếm được số từ" — MỘT BẢN DUY NHẤT, ở đây.
+// Trước đây câu này nằm cứng trong WritingPromptPanel và SpeakingPromptPanel với
+// hai cách viết khác nhau, và cả hai đều nói "chặng ngữ pháp". Khi chặng nghe/đọc
+// (N4 b′) cũng dùng cờ này thì hai bản chép đó lập tức nói sai — đúng cái bẫy
+// "một luật chép hai chỗ thì sớm muộn cũng lệch". Nay dữ liệu mang theo lý do.
+export function lyDoChiDoDoDai(nguon) {
+  if (nguon === 'nghe') return 'Đây là đề tóm tắt bài nghe, nên máy chỉ đếm được số từ — nó KHÔNG kiểm được bản tóm tắt của bạn có đúng nội dung bài hay không.';
+  if (nguon === 'doc') return 'Đây là đề tóm tắt bài đọc, nên máy chỉ đếm được số từ — nó KHÔNG kiểm được bản tóm tắt của bạn có đúng nội dung bài hay không.';
+  return 'Đề của chặng ngữ pháp không có danh sách từ, nên máy chỉ đếm được số từ — nó KHÔNG kiểm được bạn có dùng đúng điểm ngữ pháp hay không.';
+}
+
 export function deTuChang(task) {
   if (!task) return null;
   const nhieuTu = task.tuMucTieu?.length > 0;
-  const deBai = nhieuTu
-    ? `Viết một ${KIEU_LABEL[task.kieu]} dài ${task.soTuToiThieu}–${task.soTuToiDa} từ về nội dung chặng “${task.title}”, dùng ít nhất ${task.soTuPhaiDung} trong các từ đã học ở chặng này.`
-    : `Viết ${task.soTuToiThieu}–${task.soTuToiDa} từ, dùng điểm ngữ pháp của chặng “${task.title}”. Hãy viết về chuyện thật của bạn, đừng chép câu ví dụ.`;
+  // Chặng nghe/đọc: nhiệm vụ là TÓM TẮT một bài thật, không phải dùng cho đủ số
+  // từ. Từ trong mục giải nghĩa (nếu bài đó có) chỉ là gợi ý.
+  const batBuocDungTu = nhieuTu && task.soTuPhaiDung > 0;
+  const laTomTat = task.nguon === 'nghe' || task.nguon === 'doc';
+  const deBai = laTomTat
+    ? `Nghe/đọc xong bài “${task.title}”, viết ${task.soTuToiThieu}–${task.soTuToiDa} từ tóm tắt lại nội dung bằng lời của bạn. Đừng chép lại câu trong bài.`
+    : batBuocDungTu
+      ? `Viết một ${KIEU_LABEL[task.kieu]} dài ${task.soTuToiThieu}–${task.soTuToiDa} từ về nội dung chặng “${task.title}”, dùng ít nhất ${task.soTuPhaiDung} trong các từ đã học ở chặng này.`
+      : `Viết ${task.soTuToiThieu}–${task.soTuToiDa} từ, dùng điểm ngữ pháp của chặng “${task.title}”. Hãy viết về chuyện thật của bạn, đừng chép câu ví dụ.`;
+  // `tuGoiY` là từ GỢI Ý (mục giải nghĩa của bài), KHÁC `tuMucTieu` là từ BẮT
+  // BUỘC. Hai nghĩa khác nhau nên hai trường khác nhau — dồn vào một trường rồi
+  // đặt số bắt buộc bằng 0 là làm rỗng bất biến "có danh sách thì phải đòi ≥1 từ".
+  const goiYTu = task.tuGoiY?.length > 0;
+  const goiY = laTomTat
+    ? (goiYTu ? `Có thể dùng các từ đã giải nghĩa trong bài: ${task.tuGoiY.join(', ')}.` : 'Bài này không có mục giải nghĩa, nên hãy tự chọn từ của bạn.')
+    : (batBuocDungTu ? `Từ mục tiêu: ${task.tuMucTieu.join(', ')}.` : 'Không có danh sách từ cho chặng ngữ pháp, nên hãy tự chọn tình huống của mình.');
   return {
     id: task.id,
     kieu: task.kieu,
     bacToiThieu: task.cefr,
     title: task.title,
     deBai,
-    goiY: nhieuTu
-      ? `Từ mục tiêu: ${task.tuMucTieu.join(', ')}.`
-      : 'Không có danh sách từ cho chặng ngữ pháp, nên hãy tự chọn tình huống của mình.',
+    goiY,
     yeuCau: {
       soTuToiThieu: task.soTuToiThieu,
       soTuToiDa: task.soTuToiDa,
       tuBatBuoc: [],
-      tuTuChon: nhieuTu ? { danhSach: task.tuMucTieu, soLuong: task.soTuPhaiDung } : null,
-      moTaTuBatBuoc: nhieuTu
+      tuTuChon: batBuocDungTu ? { danhSach: task.tuMucTieu, soLuong: task.soTuPhaiDung } : null,
+      moTaTuBatBuoc: batBuocDungTu
         ? `Dùng ít nhất ${task.soTuPhaiDung} trong ${task.tuMucTieu.length} từ: ${task.tuMucTieu.join(', ')}.`
         : 'Đề này máy chỉ kiểm được số từ.',
     },
@@ -77,6 +99,7 @@ export function deTuChang(task) {
     // KHÔNG CÓ BÀI MẪU — và giao diện phải nói ra, không lặng lẽ thiếu.
     coBaiMau: false,
     chiKiemDuocDoDai: !!task.chiKiemDuocDoDai,
+    lyDoChiDoDoDai: task.chiKiemDuocDoDai ? lyDoChiDoDoDai(task.nguon) : null,
     theoChang: { type: task.type, targetId: task.targetId, bookId: task.bookId, band: task.band },
   };
 }

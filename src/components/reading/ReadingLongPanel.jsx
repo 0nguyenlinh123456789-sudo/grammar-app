@@ -20,13 +20,22 @@ const CAC_MUC = [...new Set(readingTexts.map((b) => b.series))];
 // build_roadmap.mjs dùng để tính giờ bài đọc. Hai nơi cùng một giả định.
 const phutDoc = (words) => Math.max(1, Math.round(words / 200));
 
-export default function ReadingLongPanel({ onClose }) {
-  const [baiId, setBaiId] = useState(null);
+// `moBaiId` + `onXong` là đường vào TỪ LỘ TRÌNH (chặng đọc dài): mở thẳng đúng
+// bài của chặng và báo điểm về để ghi bằng chứng. Mở từ nút trang chủ thì hai
+// prop này để trống và panel hoạt động y như trước.
+export default function ReadingLongPanel({ onClose, moBaiId = null, onXong }) {
+  const [baiId, setBaiId] = useState(moBaiId);
   const [muc, setMuc] = useState(null);
   const bai = readingTexts.find((b) => b.id === baiId) || null;
   const danhSach = muc ? readingTexts.filter((b) => b.series === muc) : readingTexts;
 
+  // Chặng trỏ tới bài không còn trong kho: BÁO, không lặng lẽ mở danh sách.
+  const baiChangMat = moBaiId && !readingTexts.some((b) => b.id === moBaiId);
+
   if (!bai) return <Khung onClose={onClose} tieuDe="Đọc bài dài">
+    {baiChangMat && <p className="text-sm font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-3 border-amber-300 dark:border-amber-800 rounded-2xl p-3 mb-4">
+      ⚠️ Bài đọc của chặng này (<code>{moBaiId}</code>) <b>không còn trong kho</b>. Đây là lỗi dữ liệu, không phải bạn bấm sai. Chọn một bài khác bên dưới trong lúc chờ sửa.
+    </p>}
     <p className="text-sm font-bold text-slate-500 mt-1 mb-4">
       Bài báo thật của VOA, 600–1.000 từ — độ dài của bài đọc trong đề thi B2–C1. Đọc hết rồi trả lời câu hỏi hiểu ý; được phép đọc lại bài trong lúc trả lời.
     </p>
@@ -59,10 +68,10 @@ export default function ReadingLongPanel({ onClose }) {
     <GhiCong danhSach={readingTexts} />
   </Khung>;
 
-  return <BaiDoc key={bai.id} bai={bai} onBack={() => setBaiId(null)} onClose={onClose} />;
+  return <BaiDoc key={bai.id} bai={bai} onBack={() => setBaiId(null)} onClose={onClose} onXong={onXong} />;
 }
 
-function BaiDoc({ bai, onBack, onClose }) {
+function BaiDoc({ bai, onBack, onClose, onXong }) {
   const audioRef = useRef(null);
   const [dangPhat, setDangPhat] = useState(false);
   const [loiAudio, setLoiAudio] = useState(false);
@@ -90,7 +99,12 @@ function BaiDoc({ bai, onBack, onClose }) {
 
   const tiep = () => {
     if (idx < bai.questions.length - 1) { setIdx(idx + 1); setChon(null); }
-    else { playComplete(); setXong(true); }
+    else {
+      playComplete(); setXong(true);
+      // `dung` đã tính cả câu cuối: nút "Xem kết quả" chỉ hiện sau khi người học
+      // chọn đáp án, tức đã có một lượt vẽ lại giữa traLoi và tiep.
+      onXong?.({ correct: dung, total: bai.questions.length, loaiCau: bai.questions.map(() => 'mcq') });
+    }
   };
 
   return <Khung onClose={onClose} tieuDe={bai.title} phu={bai.series} onBack={onBack}>

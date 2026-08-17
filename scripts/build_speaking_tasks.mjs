@@ -47,6 +47,12 @@ const SACH_OXFORD = [
   { book: 'advanced', parts: [['oxfordAdvancedData1_25.js', 'courseData1_25'], ['oxfordAdvancedData26_50.js', 'courseData26_50'], ['oxfordAdvancedData51_75.js', 'courseData51_75'], ['oxfordAdvancedData76_100.js', 'courseData76_100']] },
 ];
 
+// Kho bài nghe/bài đọc — nay là chặng trong lộ trình (N4 b′) nên cũng cần đề nói.
+const { listeningPassages } = await import(pathToFileURL(path.join(DATA, 'listeningPassages.js')).href);
+const { readingTexts } = await import(pathToFileURL(path.join(DATA, 'readingTexts.js')).href);
+const baiNgheById = new Map(listeningPassages.map((b) => [b.id, b]));
+const baiDocById = new Map(readingTexts.map((b) => [b.id, b]));
+
 const oxfordUnits = new Map();
 for (const s of SACH_OXFORD) {
   for (const [f, k] of s.parts) {
@@ -92,6 +98,26 @@ for (const band of roadmapData) {
       const tu = chonTu(u?.theory?.coreVocab || []);
       if (tu.length < kt.phaiDung) { bo.push(`oxford ${m.bookId}/${m.targetId}: chỉ có ${tu.length} từ dùng được`); continue; }
       ra.push({ ...chung, id: `gs-oxford-${m.bookId}-${m.targetId}`, bookId: m.bookId, tuMucTieu: tu, soTuPhaiDung: kt.phaiDung });
+    } else if (m.type === 'listening' || m.type === 'reading') {
+      // Nói lại nội dung bài vừa nghe/đọc. Cùng luật với đề viết tương ứng (xem
+      // build_writing_tasks.mjs): `soTuPhaiDung` = 0 vì mục giải nghĩa của VOA
+      // dài 0–5 từ tuỳ bài, đòi dùng đủ 4 từ trên một mục 2 từ là đề không làm
+      // được. Từ giải nghĩa là gợi ý; máy khai thẳng nó chỉ đếm được số từ.
+      const bai = m.type === 'listening' ? baiNgheById.get(m.targetId) : baiDocById.get(m.targetId);
+      if (!bai) { bo.push(`${m.type} ${m.targetId}: không tìm thấy bài trong kho`); continue; }
+      ra.push({
+        ...chung, id: `gs-${m.type}-${m.targetId}`,
+        // TỪ GỢI Ý ĐI VÀO TRƯỜNG RIÊNG, không dùng `tuMucTieu`. `tuMucTieu` có
+        // một nghĩa cố định trong cả kho: từ BẮT BUỘC dùng đủ số. Nhồi từ gợi ý
+        // vào đó rồi đặt soTuPhaiDung = 0 là tạo ra một danh sách hiện lên mà
+        // không đòi gì — và làm bất biến "có danh sách thì phải đòi ≥1 từ" mất
+        // hiệu lực cho toàn bộ kho, không chỉ cho mấy đề này.
+        tuMucTieu: [], soTuPhaiDung: 0, tuGoiY: chonTu(bai.glossary || []),
+        nguon: m.type === 'listening' ? 'nghe' : 'doc', chiKiemDuocDoDai: true,
+      });
+    } else if (m.type === 'dictation') {
+      // Buổi chép chính tả không có chủ đề để nói về — cùng lý do như đề viết.
+      bo.push(`${m.targetId}: buổi chép chính tả không có chủ đề để nói về`);
     } else if (m.type === 'grammar') {
       // Chặng ngữ pháp không có danh sách từ → máy chỉ đếm được ĐỘ DÀI lời nói
       // trình duyệt nghe được. Cờ đi theo bản ghi tới tận giao diện.

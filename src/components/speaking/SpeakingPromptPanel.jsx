@@ -207,7 +207,10 @@ function LamBai({ de, onBack, onClose }) {
 
         <p className="mt-3 text-xs font-bold text-slate-500 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-2xl p-3">
           {kq.nguon} Máy <b>không</b> kiểm được: {kq.khongKiemDuoc.join(' · ')}.
-          {de.chiKiemDuocDoDai && ' Đề của chặng ngữ pháp không có danh sách từ, nên máy chỉ đếm được số từ nghe được — nó KHÔNG kiểm được bạn có dùng đúng điểm ngữ pháp hay không.'}
+          {/* Lý do đi theo DỮ LIỆU (xem speakingBank.js): cùng một cờ nay dùng cho
+              cả chặng ngữ pháp và chặng nghe/đọc, hai chỗ không kiểm được hai thứ
+              khác nhau. */}
+          {de.chiKiemDuocDoDai && ` ${de.lyDoChiDoDoDai || ''}`}
         </p>
       </div>
 

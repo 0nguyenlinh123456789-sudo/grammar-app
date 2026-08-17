@@ -57,6 +57,13 @@ const SACH_OXFORD = [
   { book: 'advanced', parts: [['oxfordAdvancedData1_25.js', 'courseData1_25'], ['oxfordAdvancedData26_50.js', 'courseData26_50'], ['oxfordAdvancedData51_75.js', 'courseData51_75'], ['oxfordAdvancedData76_100.js', 'courseData76_100']] },
 ];
 
+// Kho bài nghe theo đoạn và bài đọc dài — nay là chặng trong lộ trình (N4 b′),
+// nên chúng cũng cần đề viết như mọi chặng A2+ khác.
+const { listeningPassages } = await import(pathToFileURL(path.join(DATA, 'listeningPassages.js')).href);
+const { readingTexts } = await import(pathToFileURL(path.join(DATA, 'readingTexts.js')).href);
+const baiNgheById = new Map(listeningPassages.map((b) => [b.id, b]));
+const baiDocById = new Map(readingTexts.map((b) => [b.id, b]));
+
 const oxfordUnits = new Map();
 for (const s of SACH_OXFORD) {
   for (const [f, k] of s.parts) {
@@ -108,6 +115,34 @@ for (const band of roadmapData) {
       const tu = chonTu(u?.theory?.coreVocab || []);
       if (tu.length < kt.phaiDung) { bo.push(`oxford ${m.bookId}/${m.targetId}: chỉ có ${tu.length} từ dùng được`); continue; }
       ra.push({ ...chung, id: `gw-oxford-${m.bookId}-${m.targetId}`, bookId: m.bookId, tuMucTieu: tu, soTuPhaiDung: kt.phaiDung });
+    } else if (m.type === 'listening' || m.type === 'reading') {
+      // Chặng nghe/đọc không có bộ từ vựng của riêng nó, nên đề ở đây là ĐỀ TÓM
+      // TẮT: viết lại nội dung bài bằng lời của mình. Nhiệm vụ này gắn với một
+      // bài THẬT, không bịa đáp án — đúng vế GIỮ của luật.
+      //
+      // `soTuPhaiDung` LUÔN LÀ 0, và đây là lựa chọn có lý do: mục giải nghĩa của
+      // VOA dài từ 0 tới 5 từ tuỳ bài (đo được: 5 bài có 0–1 từ). Đòi "dùng ít
+      // nhất 4 từ" trên một mục 2 từ là đề không làm được, còn hạ mốc theo từng
+      // bài là mỗi bài một luật. Nên từ giải nghĩa là GỢI Ý, không phải yêu cầu —
+      // và máy khai thẳng rằng nó chỉ đếm được số từ.
+      const bai = m.type === 'listening' ? baiNgheById.get(m.targetId) : baiDocById.get(m.targetId);
+      if (!bai) { bo.push(`${m.type} ${m.targetId}: không tìm thấy bài trong kho`); continue; }
+      ra.push({
+        ...chung, id: `gw-${m.type}-${m.targetId}`,
+        // TỪ GỢI Ý ĐI VÀO TRƯỜNG RIÊNG, không dùng `tuMucTieu`. `tuMucTieu` có
+        // một nghĩa cố định trong cả kho: từ BẮT BUỘC dùng đủ số. Nhồi từ gợi ý
+        // vào đó rồi đặt soTuPhaiDung = 0 là tạo ra một danh sách hiện lên mà
+        // không đòi gì — và làm bất biến "có danh sách thì phải đòi ≥1 từ" mất
+        // hiệu lực cho toàn bộ kho, không chỉ cho mấy đề này.
+        tuMucTieu: [], soTuPhaiDung: 0, tuGoiY: chonTu(bai.glossary || []),
+        nguon: m.type === 'listening' ? 'nghe' : 'doc', chiKiemDuocDoDai: true,
+      });
+    } else if (m.type === 'dictation') {
+      // Buổi chép chính tả KHÔNG có chủ đề: mỗi phiên bốc 5 câu rời từ kho dùng
+      // chung, và câu nào rơi vào phiên nào chỉ biết lúc chạy. Không có nội dung
+      // nào để bảo người học viết về. BỎ QUA CÓ LÝ DO, kê đích danh trong
+      // tests/writing_bank.test.js — không độn một đề trống cho đủ số.
+      bo.push(`${m.targetId}: buổi chép chính tả không có chủ đề để viết về`);
     } else if (m.type === 'grammar') {
       // Chặng ngữ pháp KHÔNG có danh sách từ. Nên đề này máy chỉ kiểm được ĐỘ
       // DÀI — và phải nói thẳng ra, không giả vờ kiểm được điểm ngữ pháp. Cờ

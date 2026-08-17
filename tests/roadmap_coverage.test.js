@@ -84,7 +84,11 @@ test('mỗi chặng có id duy nhất, targetId duy nhất, và khai đủ cefr/
 
   const loi = [];
   for (const m of milestones) {
-    if (!['grammar', 'vstep', 'oxford'].includes(m.type)) loi.push(`${m.id}: loại chặng lạ "${m.type}"`);
+    // Ba loại đầu có từ Đợt 1; ba loại sau thêm ở N4 (b′) khi đưa bài nghe theo
+    // đoạn, bài đọc dài và buổi chép chính tả vào lộ trình. Danh sách này là
+    // CỔNG: thêm loại chặng mà không khai ở đây thì test đỏ, và `launchMilestone`
+    // trong WelcomePage cũng phải có nhánh tương ứng (xem test dưới).
+    if (!['grammar', 'vstep', 'oxford', 'listening', 'reading', 'dictation'].includes(m.type)) loi.push(`${m.id}: loại chặng lạ "${m.type}"`);
     if (!m.cefr) loi.push(`${m.id}: thiếu nhãn cefr`);
     if (!Number.isFinite(m.minutes) || m.minutes < 0) loi.push(`${m.id}: số phút không hợp lệ (${m.minutes})`);
     if (!Number.isFinite(m.xp) || m.xp <= 0) loi.push(`${m.id}: xp không hợp lệ (${m.xp})`);
@@ -121,55 +125,72 @@ test('44 chặng soạn tay còn nguyên, không bị bộ sinh ghi đè', async
 });
 
 // ---------------------------------------------------------------------------
-// KHO NỘI DUNG NẰM NGOÀI LỘ TRÌNH — đo, chưa sửa.
+// KHO NỘI DUNG VÀ ĐƯỜNG ĐI TỚI NÓ — nay đòi hỏi thật, không còn ghim số 0.
 //
 // Việc 1.3 của KE_HOACH_B2.md sinh ra để chữa đúng một chuyện: 260 unit Oxford
 // đã soạn xong mà không có chặng nào dẫn tới, nên người đi theo lộ trình không
-// bao giờ gặp. Chuyện đó đã lặp lại. Bốn kho soạn ở Đợt 3, 5 và 6 chỉ với tới
-// được bằng NÚT trên trang chủ (`WelcomePage.jsx`), không có chặng nào trong
-// 617 chặng trỏ tới chúng.
+// bao giờ gặp. Chuyện đó ĐÃ LẶP LẠI với bốn kho soạn ở Đợt 3, 5 và 6 — chỉ với
+// tới được bằng NÚT trên trang chủ. Đo ra 0/60, 0/30, 0/239, 0/3.
 //
 // Vì sao không test nào bắt được:
 //   - `orphan_data.test.js` đo MỒ CÔI Ở MỨC FILE ("có ai import file này
 //     không"). Cả bốn kho đều được import đàng hoàng nên nó xanh — đúng phận
-//     sự của nó. Mồ côi ở mức ĐƯỜNG ĐI là chuyện khác, và chưa ai đo.
+//     sự của nó. Mồ côi ở mức ĐƯỜNG ĐI là chuyện khác.
 //   - N1 ở đầu file này đếm đúng ba kho tồn tại lúc nó được viết.
 // Bài học cũ, chiều mới: "luật thêm sau khi dữ liệu đã có thì không bao giờ
 // chạy trên dữ liệu cũ" — đây là chiều ngược lại, luật viết TRƯỚC thì không
 // bao giờ chạy trên dữ liệu THÊM SAU.
 //
-// TEST NÀY GHIM CON SỐ ĐANG CÓ (0 chặng), KHÔNG ĐẶT MỐC MONG MUỐN. Chèn chặng
-// mới vào 617 chặng là đổi đường học của người đang dùng — phải được duyệt,
-// không phải việc test tự đòi. Khi nào duyệt xong thì con số dưới đây đi xuống
-// và mệnh đề mô tả phải sửa theo.
+// ĐÃ SỬA: 60 bài nghe + 30 bài đọc dài nay MỖI BÀI MỘT CHẶNG, cộng 3 buổi chép
+// chính tả (một mỗi bậc ≥B1). Lộ trình 617 → 710 chặng.
+//
+// HAI KHO CÒN LẠI KHÔNG ĐƯỢC XẾP, VÀ ĐÓ LÀ QUYẾT ĐỊNH CÓ LÝ DO, KHÔNG PHẢI BỎ
+// SÓT — nên chúng vẫn ở trong bảng này với mốc 0, để mai sau ai đọc cũng thấy:
+//   - 239 bản thu chép chính tả là một KHO DÙNG CHUNG chia theo độ dài câu, KHÔNG
+//     phải 239 bài học; mỗi phiên bốc 5 câu. Đường đi tới nó là 3 chặng
+//     `dictation`, không phải 239 chặng.
+//   - 3 đề thi cuối bậc là CỬA ẢI cuối bậc. N8 không đòi đề thi nằm trong đường
+//     đi thẳng, và chèn nó vào giữa lộ trình sẽ biến bài thi thành một bước học.
 const KHO_NGOAI_LO_TRINH = [
-  { file: 'listeningPassages.js', xuat: 'listeningPassages', ten: 'bài nghe theo đoạn (2.2)', soMuc: 60 },
-  { file: 'readingTexts.js', xuat: 'readingTexts', ten: 'bài đọc dài 600–1.000 từ (5.3)', soMuc: 30 },
-  { file: 'audioManifest.js', xuat: 'audioManifest', ten: 'bản thu chép chính tả (2.1/2.3)', soMuc: 239 },
-  { file: 'bandExamBank.js', xuat: 'bandExams', ten: 'đề thi cuối bậc (4.2)', soMuc: 3 },
+  { file: 'listeningPassages.js', xuat: 'listeningPassages', ten: 'bài nghe theo đoạn (2.2)', soMuc: 60, denDuocToiThieu: 60 },
+  { file: 'readingTexts.js', xuat: 'readingTexts', ten: 'bài đọc dài 600–1.000 từ (5.3)', soMuc: 30, denDuocToiThieu: 30 },
+  { file: 'audioManifest.js', xuat: 'audioManifest', ten: 'bản thu chép chính tả (2.1/2.3)', soMuc: 239, denDuocToiThieu: 0, lyDo: 'kho dùng chung, tới bằng 3 chặng dictation' },
+  { file: 'bandExamBank.js', xuat: 'bandExams', ten: 'đề thi cuối bậc (4.2)', soMuc: 3, denDuocToiThieu: 0, lyDo: 'cửa ải cuối bậc, N8 không đòi nằm trong đường đi' },
 ];
 
-test('đo được: bốn kho nội dung không có chặng nào dẫn tới (đúng lỗi 1.3, tái diễn)', async () => {
+test('mọi bài nghe và bài đọc dài đều có chặng dẫn tới (chữa lỗi 1.3 tái diễn)', async () => {
   const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
   const milestones = roadmapData.flatMap((l) => l.milestones);
   const targets = new Set(milestones.map((m) => String(m.targetId)));
 
-  const bang = [];
+  const thieu = [];
   for (const kho of KHO_NGOAI_LO_TRINH) {
     const mod = await import(pathToFileURL(path.join(DATA, kho.file)).href);
     const muc = mod[kho.xuat];
     assert.ok(Array.isArray(muc), `${kho.file}: không xuất mảng "${kho.xuat}" nữa`);
-    // Số mục ghim luôn: kho lớn lên mà dòng mô tả ở KE_HOACH_B2.md không đổi
-    // theo thì lại thành một con số nữa không ai kiểm.
+    // Số mục ghim luôn: kho lớn lên mà không ai xếp phần thêm vào lộ trình thì
+    // lỗi 1.3 tái diễn lần thứ ba — lần này test bắt được.
     assert.equal(muc.length, kho.soMuc,
-      `${kho.ten}: kho có ${muc.length} mục, con số ghim là ${kho.soMuc} — sửa cả đây lẫn ghi chú N4 trong KE_HOACH_B2.md`);
-    bang.push({ ten: kho.ten, denDuoc: muc.filter((m) => targets.has(String(m.id))).length, tong: muc.length });
+      `${kho.ten}: kho có ${muc.length} mục, con số ghim là ${kho.soMuc} — nếu vừa thêm bài thì chạy lại "node scripts/build_roadmap.mjs" rồi sửa con số ở đây`);
+    const denDuoc = muc.filter((m) => targets.has(String(m.id))).length;
+    if (denDuoc < kho.denDuocToiThieu) thieu.push(`${kho.ten}: chỉ ${denDuoc}/${muc.length} có chặng dẫn tới`);
   }
 
-  const coDuong = bang.filter((b) => b.denDuoc > 0);
-  assert.deepEqual(coDuong, [],
-    'MỘT KHO ĐÃ CÓ CHẶNG DẪN TỚI — tin tốt, nhưng phải sửa con số ghim ở đây và sửa ghi chú N4:\n  '
-    + coDuong.map((b) => `${b.ten}: ${b.denDuoc}/${b.tong}`).join('\n  '));
+  assert.deepEqual(thieu, [],
+    'nội dung sau không có đủ chặng dẫn tới — chạy lại "node scripts/build_roadmap.mjs":\n  ' + thieu.join('\n  '));
+});
+
+test('mỗi loại chặng đều có nhánh mở trong launchMilestone — không có chặng bấm vào không ra gì', async () => {
+  const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
+  const loai = [...new Set(roadmapData.flatMap((l) => l.milestones).map((m) => m.type))];
+  const src = fs.readFileSync(path.join(ROOT, 'src', 'pages', 'WelcomePage.jsx'), 'utf8');
+
+  // Bộ sinh lộ trình và giao diện là HAI file, nên thêm một loại chặng ở bộ sinh
+  // mà quên nhánh ở giao diện sẽ ra một chặng bấm vào KHÔNG XẢY RA GÌ — không
+  // lỗi, không báo, chỉ im lặng. Đúng loại hỏng khó thấy nhất.
+  const thieuNhanh = loai.filter((t) => !src.includes(`milestone.type === '${t}'`));
+  assert.deepEqual(thieuNhanh, [],
+    `loại chặng sau có trong lộ trình nhưng launchMilestone không có nhánh mở: ${thieuNhanh.join(', ')}`);
 });
 
 // N4 VẾ (b′) — ĐO THEO BẬC, KHÔNG THEO TỪNG CHẶNG.
@@ -187,33 +208,64 @@ test('đo được: bốn kho nội dung không có chặng nào dẫn tới (đ
 const BAC_TU_B1 = ['intermediate', 'upper_intermediate', 'advanced'];
 const BAI_NGHE_MOI_BAC_TOI_THIEU = 15;
 
-test('N4 vế (b′) đo được: 0/3 bậc ≥B1 có bài nghe theo đoạn nằm trong lộ trình', async () => {
+test('N4 vế (b′) ĐẠT: mỗi bậc ≥B1 có ≥15 bài nghe theo đoạn nằm trong lộ trình', async () => {
   const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
   const { listeningPassages } = await import(pathToFileURL(path.join(DATA, 'listeningPassages.js')).href);
   const idBaiNghe = new Set(listeningPassages.map((p) => String(p.id)));
 
-  const dat = [];
+  const thieu = [];
   for (const bac of BAC_TU_B1) {
     const level = roadmapData.find((l) => l.level === bac);
     assert.ok(level, `lộ trình không còn bậc "${bac}"`);
     const soBai = level.milestones.filter((m) => idBaiNghe.has(String(m.targetId))).length;
-    if (soBai >= BAI_NGHE_MOI_BAC_TOI_THIEU) dat.push(`${bac}: ${soBai}`);
+    if (soBai < BAI_NGHE_MOI_BAC_TOI_THIEU) thieu.push(`${bac}: chỉ ${soBai} bài nghe`);
   }
-  assert.deepEqual(dat, [],
-    `bậc sau đã đạt mốc ${BAI_NGHE_MOI_BAC_TOI_THIEU} bài nghe trong lộ trình — tin tốt, nhưng phải `
-    + 'đổi test này thành đòi hỏi thật (assert ≥ mốc) và sửa ghi chú N4:\n  ' + dat.join('\n  '));
+  assert.deepEqual(thieu, [],
+    `N4 vế (b′) tụt: mỗi bậc ≥B1 phải có ≥${BAI_NGHE_MOI_BAC_TOI_THIEU} bài nghe theo đoạn trong lộ trình:\n  ` + thieu.join('\n  '));
+
+  // KHÔNG bậc nào DƯỚI B1 được xếp bài nghe theo đoạn. Bài VOA là bài dạy cho
+  // người đã đọc được câu; bắt người mất gốc nghe 4 phút liền là một lời hứa sai
+  // về việc họ làm được gì.
+  const duoiB1 = roadmapData
+    .filter((l) => !BAC_TU_B1.includes(l.level))
+    .flatMap((l) => l.milestones.filter((m) => idBaiNghe.has(String(m.targetId))).map((m) => `${l.level}/${m.targetId}`));
+  assert.deepEqual(duoiB1, [], `bài nghe theo đoạn bị xếp vào bậc dưới B1: ${duoiB1.join(', ')}`);
 });
 
-test('hai mẫu số 386 và 122 không được lệch nhau ở đâu nữa', async () => {
+test('chặng nghe/đọc/chép chính tả đi qua cổng có điểm (N3), không mở lại cửa đã đóng', async () => {
+  const src = fs.readFileSync(path.join(ROOT, 'src', 'pages', 'WelcomePage.jsx'), 'utf8');
+
+  // N3 đã được tuyên bố ĐẠT: "mỗi chặng đều đo độ chính xác trước khi đánh dấu
+  // xong". Thêm 93 chặng mà quên đường ghi điểm là lặng lẽ phá đúng tiêu chí đó
+  // — 93 chặng hoàn thành được mà không cần trả lời đúng câu nào.
+  assert.match(src, /buildEvidence\(/, 'WelcomePage phải dựng bằng chứng qua buildEvidence');
+  assert.match(src, /completeMilestone\?\.\([^)]*evidence\)/,
+    'chặng nghe/đọc phải gọi completeMilestone KÈM bằng chứng — thiếu tham số thứ ba là mở lại cửa của hạng mục #1');
+
+  for (const [ten, duong] of [
+    ['nghe theo đoạn', 'src/components/listening/ListeningPassagePanel.jsx'],
+    ['đọc bài dài', 'src/components/reading/ReadingLongPanel.jsx'],
+  ]) {
+    const panel = fs.readFileSync(path.join(ROOT, duong), 'utf8');
+    assert.match(panel, /onXong\?\.\(\{\s*correct:/, `${ten}: panel phải báo số câu đúng về cho lộ trình`);
+    // Và phải BÁO khi chặng trỏ tới bài không còn trong kho — luật ẩn-hoặc-báo.
+    assert.match(panel, /không còn trong kho/, `${ten}: thiếu dòng báo khi chặng trỏ tới bài đã mất`);
+  }
+});
+
+test('ba mẫu số 710 / 479 / 122 không được lệch nhau ở đâu nữa', async () => {
   const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
   const milestones = roadmapData.flatMap((l) => l.milestones);
 
-  // MẪU SỐ PHẢI GỌI RÕ LÀ MẪU SỐ NÀO. Việc 3.1/N5 dùng 122 (chỉ chặng `vstep`
-  // bậc ≥B1); việc 3.5 và ghi chú N4 dùng 386 (MỌI loại chặng bậc ≥B1). Hai con
-  // số đều đúng, nhưng để trần cạnh nhau trong cùng một tài liệu thì thành ba
-  // cách đọc — đã phải sửa chuyện đó hai lần rồi.
+  // MẪU SỐ PHẢI GỌI RÕ LÀ MẪU SỐ NÀO — tài liệu này đã hai lần dính chuyện "ba
+  // con số trong một tài liệu". Ba mẫu số đang dùng:
+  //   710 — toàn bộ lộ trình (mẫu số của thanh tiến độ trên trang chủ)
+  //   479 — mọi loại chặng bậc ≥B1 (N4 và việc 3.5). Trước N4 (b′) là 386.
+  //   122 — chỉ chặng `vstep` bậc ≥B1 (N5 / việc 3.1). KHÔNG đổi, vì đợt này
+  //         không thêm chủ đề từ vựng nào.
+  assert.equal(milestones.length, 710, 'tổng số chặng đổi — mọi con số trong KE_HOACH_B2.md phải sửa theo');
   const tuB1 = milestones.filter((m) => ['B1', 'B2', 'C1'].includes(m.cefr));
-  assert.equal(tuB1.length, 386, 'số chặng ≥B1 đổi — mọi mẫu số N4/3.5 phải sửa theo');
+  assert.equal(tuB1.length, 479, 'số chặng ≥B1 đổi — mọi mẫu số N4/3.5 phải sửa theo');
   assert.equal(tuB1.filter((m) => m.type === 'vstep').length, 122,
     'mẫu số của N5 (chặng từ vựng ≥B1) đổi — sửa cả dòng 3.1 trong KE_HOACH_B2.md');
 });

@@ -87,6 +87,10 @@ test('mọi chặng B1 trở lên đều có đúng một đề nói', () => {
     if (!B1_TRO_LEN.has(band.level)) continue;
     for (const m of band.milestones) {
       dem += 1;
+      // Buổi chép chính tả không có chủ đề để nói về — 5 câu rời bốc lúc chạy.
+      // Kê đích danh theo LOẠI chặng, không phải theo id, vì mỗi bậc có đúng một
+      // buổi và thêm bậc thì lý do vẫn y nguyên.
+      if (m.type === 'dictation') continue;
       if (!deNoiChoChang(m)) thieu.push(`${band.level}/${m.type}:${m.targetId}`);
     }
   }

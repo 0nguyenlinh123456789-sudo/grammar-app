@@ -58,12 +58,19 @@ import LearningReport from '../components/progress/LearningReport';
 import QuickVerifyModal from '../components/progress/QuickVerifyModal';
 import MasteryMigrationNotice from '../components/progress/MasteryMigrationNotice';
 import { shouldShowMigrationNotice, dismissMigrationNotice } from '../utils/masteryMigration';
-import { splitCompleted, isVerified } from '../utils/mastery';
+import { thongBaoLoTrinhTang, daXemLoTrinhTang } from '../utils/roadmapGrowth';
+// Chỉ lấy MỘT CON SỐ từ file đếm — không import cả lộ trình lần thứ hai.
+import { TONG_CHANG_TRUOC } from '../data/roadmapCounts';
+import RoadmapGrowthNotice from '../components/progress/RoadmapGrowthNotice';
+import { splitCompleted, isVerified, buildEvidence } from '../utils/mastery';
 
 const WelcomePage = ({
   xp,
   completedMilestones = [],
   milestoneScores = {},
+  // App.jsx vẫn truyền prop này từ trước, nhưng WelcomePage chưa từng nhận —
+  // chặng nghe/đọc/chép chính tả (N4 b′) cần nó để ghi điểm khi làm xong.
+  completeMilestone,
   verifyMilestone,
   setTopicId,
   setAppMode,
@@ -108,6 +115,12 @@ const WelcomePage = ({
   // không có đề.
   const [changViet, setChangViet] = useState(null);
   const [changNoi, setChangNoi] = useState(null);
+  // (N4 b′) Mở ĐÚNG một bài nghe / bài đọc dài / buổi chép chính tả của lộ
+  // trình. Giữ cả object chặng như changViet/changNoi: panel cần targetId để mở
+  // đúng bài, và cần cefr để DictationPanel chọn nhóm độ dài câu.
+  const [changNghe, setChangNghe] = useState(null);
+  const [changDoc, setChangDoc] = useState(null);
+  const [changChinhTa, setChangChinhTa] = useState(null);
   const [showBandExam, setShowBandExam] = useState(false);
   const lastMock = loadMockHistory()[0] || null;
   const dueErrors = getDueErrorCount();
@@ -165,6 +178,19 @@ const WelcomePage = ({
   }, [unverifiedMilestones.length]);
   const closeMigration = () => { dismissMigrationNotice(localStorage); setShowMigration(false); };
 
+  // (N4 b′) Lộ trình vừa dài ra → mẫu số tiến độ tăng → tỉ lệ của người đang học
+  // tụt xuống dù họ không mất chặng nào. Báo một lần, không đổi lặng lẽ.
+  const [loTrinhTang, setLoTrinhTang] = useState(null);
+  useEffect(() => {
+    setLoTrinhTang(thongBaoLoTrinhTang({
+      storage: localStorage,
+      tongHienTai: totalMilestonesCount,
+      tongTruoc: TONG_CHANG_TRUOC,
+      soChangDaXong: completedCount,
+    }));
+  }, [totalMilestonesCount, completedCount]);
+  const dongLoTrinhTang = () => { daXemLoTrinhTang(localStorage, totalMilestonesCount); setLoTrinhTang(null); };
+
   // Chặng tiếp theo: chặng chưa xong đầu tiên TỪ cấp độ mà bài test đầu vào
   // đề xuất trở lên (chưa làm test → hành vi cũ). Xem src/utils/roadmapNav.js.
   // (4.1) Người chưa qua vòng A1 được giữ Ở TRONG cụm A0 cho tới khi học xong
@@ -208,7 +234,22 @@ const WelcomePage = ({
       setAppMode('vocab');
       setActiveVocabCategory('TOPIC');
       setVstepTopicId(milestone.targetId);
+    } else if (milestone.type === 'listening') {
+      setChangNghe(milestone);
+    } else if (milestone.type === 'reading') {
+      setChangDoc(milestone);
+    } else if (milestone.type === 'dictation') {
+      setChangChinhTa(milestone);
     }
+  };
+
+  // (N4 b′) Ghi điểm cho chặng nghe/đọc/chép chính tả. Đi qua buildEvidence như
+  // mọi màn hình khác để chặng mới KHÔNG mở được cửa mà hạng mục #1 đã đóng:
+  // làm hết bài mà sai quá nhiều thì không được đánh dấu xong.
+  const xongChangCoDiem = (chang, dung, tong, loaiCau) => {
+    if (!chang) return;
+    const evidence = buildEvidence(dung, tong, loaiCau);
+    completeMilestone?.(chang.targetId, 25, evidence);
   };
 
   // Lộ trình nay có 617 chặng. Đổ hết ra một trang thì cuộn mãi không tới và
@@ -350,7 +391,37 @@ const WelcomePage = ({
       {showSpeaking && <Suspense fallback={null}><SpeakingPromptPanel onClose={() => setShowSpeaking(false)} /></Suspense>}
       {changViet && <Suspense fallback={null}><WritingPromptPanel chang={changViet} onClose={() => setChangViet(null)} /></Suspense>}
       {changNoi && <Suspense fallback={null}><SpeakingPromptPanel chang={changNoi} onClose={() => setChangNoi(null)} /></Suspense>}
+      {changNghe && <Suspense fallback={null}>
+        <ListeningPassagePanel
+          moBaiId={changNghe.targetId}
+          onClose={() => setChangNghe(null)}
+          onXong={({ correct, total, loaiCau }) => xongChangCoDiem(changNghe, correct, total, loaiCau)}
+        />
+      </Suspense>}
+      {changDoc && <Suspense fallback={null}>
+        <ReadingLongPanel
+          moBaiId={changDoc.targetId}
+          onClose={() => setChangDoc(null)}
+          onXong={({ correct, total, loaiCau }) => xongChangCoDiem(changDoc, correct, total, loaiCau)}
+        />
+      </Suspense>}
+      {changChinhTa && <Suspense fallback={null}>
+        <DictationPanel
+          currentBand={changChinhTa.bandId}
+          onClose={() => setChangChinhTa(null)}
+          onFinish={({ correct, total }) => xongChangCoDiem(changChinhTa, correct, total, [])}
+        />
+      </Suspense>}
       {showBandExam && <Suspense fallback={null}><BandExamPanel onClose={() => setShowBandExam(false)} /></Suspense>}
+      {loTrinhTang && (
+        <RoadmapGrowthNotice
+          cu={loTrinhTang.cu}
+          moi={loTrinhTang.moi}
+          them={loTrinhTang.them}
+          completedCount={completedCount}
+          onClose={dongLoTrinhTang}
+        />
+      )}
       {showMigration && (
         <MasteryMigrationNotice
           unverifiedCount={unverifiedMilestones.length}

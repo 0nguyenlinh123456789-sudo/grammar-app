@@ -27,6 +27,10 @@ const DATA = path.join(ROOT, 'src', 'data');
 const SEC_PER_ITEM = 20;
 const MODES_PER_WORD = 4;
 const READ_WPM = 200 / 6; // 200 từ trong 6 phút
+// GIẢ ĐỊNH, không phải số đo: một bài nghe theo đoạn được nghe ít nhất hai lượt
+// (một lượt nắm ý, một lượt bắt chi tiết để trả lời câu hỏi). Đổi con số này là
+// đổi tổng giờ của toàn bộ chặng nghe — ghi ra đây để sửa được ở một chỗ.
+const LAN_NGHE = 2;
 
 // ---- Bậc: giữ NGUYÊN 5 id cũ + thêm 'foundation' ở đầu -----------------------
 // Giữ id cũ để không ai mất tiến độ và để roadmapNav/placement không phải viết
@@ -163,6 +167,73 @@ for (const { book, band, label, parts } of OXFORD) {
   }
 }
 
+// ---- (N4 b′) BÀI NGHE THEO ĐOẠN, BÀI ĐỌC DÀI, BUỔI CHÉP CHÍNH TẢ -------------
+// Ba kho này soạn xong ở Đợt 3 và Đợt 6 nhưng KHÔNG có chặng nào dẫn tới: chỉ
+// với tới được bằng nút trên trang chủ. Đó đúng là lỗi việc 1.3 sinh ra để chữa
+// (260 unit Oxford nằm ngoài mọi đường đi), tái diễn ở kho thứ tư.
+//
+// CHỈ XẾP VÀO BA BẬC ≥B1. Bài của VOA Learning English là bài dạy tiếng Anh cho
+// người đã đọc được câu; đưa vào A1/A2 là bắt người mất gốc nghe 4 phút liền.
+// Người học A1/A2 vẫn có đường luyện nghe riêng (chép chính tả câu ngắn).
+const BAC_TU_B1 = ['intermediate', 'upper_intermediate', 'advanced'];
+
+// XẾP THEO SỐ TỪ ĐO ĐƯỢC, KHÔNG GÁN NHÃN CẤP ĐỘ CHO TỪNG BÀI.
+// Gán "bài này là B1" cho một bài VOA là bịa một nhãn không ai kiểm được — đúng
+// loại tuyên bố mà cả chuỗi này đang dọn. Số từ thì đo được: sắp tăng dần rồi
+// chia ba phần đều, bài ngắn vào bậc thấp. Giao diện nói rõ là sắp theo độ dài.
+function chiaBaBac(ds) {
+  const sap = [...ds].sort((a, b) => (a.words || 0) - (b.words || 0) || String(a.id).localeCompare(String(b.id)));
+  const moiPhan = Math.ceil(sap.length / BAC_TU_B1.length);
+  return BAC_TU_B1.map((bac, i) => [bac, sap.slice(i * moiPhan, (i + 1) * moiPhan)]);
+}
+
+const { listeningPassages } = await import(pathToFileURL(path.join(DATA, 'listeningPassages.js')).href);
+const { readingTexts } = await import(pathToFileURL(path.join(DATA, 'readingTexts.js')).href);
+
+let ngheCount = 0;
+for (const [band, dsBai] of chiaBaBac(listeningPassages)) {
+  for (const b of dsBai) {
+    if (curatedTargets.has(b.id)) { bỏQua++; continue; }
+    const phutNghe = Math.round((b.secondsEstimated / 60) * LAN_NGHE);
+    out[band].push({
+      type: 'listening', targetId: b.id, title: b.title,
+      desc: `Nghe theo đoạn · ${b.series} · khoảng ${Math.round(b.secondsEstimated / 60)} phút · ${b.questions.length} câu hỏi soạn tay.`,
+      minutes: phutNghe + minutesFromItems(b.questions.length), cefr: CEFR_OF[band],
+    });
+    ngheCount++;
+  }
+}
+
+let docCount = 0;
+for (const [band, dsBai] of chiaBaBac(readingTexts)) {
+  for (const b of dsBai) {
+    if (curatedTargets.has(b.id)) { bỏQua++; continue; }
+    out[band].push({
+      type: 'reading', targetId: b.id, title: b.title,
+      desc: `Đọc bài dài · ${b.words} từ · ${b.questions.length} câu hỏi soạn tay.`,
+      minutes: Math.round(b.words / READ_WPM) + minutesFromItems(b.questions.length), cefr: CEFR_OF[band],
+    });
+    docCount++;
+  }
+}
+
+// Chép chính tả: MỘT chặng mỗi bậc, không phải 239 chặng. Kho 239 bản thu là
+// một KHO DÙNG CHUNG chia theo độ dài câu, không phải 239 bài học — mỗi phiên
+// bốc 5 câu (SO_CAU trong DictationPanel). `targetId` là id của BUỔI HỌC, không
+// phải id của bản thu nào; DictationPanel tự chọn nhóm độ dài theo bậc.
+const SO_CAU_MOI_BUOI = 5;
+for (const band of BAC_TU_B1) {
+  // Khai `bandId` TƯỜNG MINH thay vì để màn hình suy từ `cefr`. `nhomChoBac()`
+  // nhận id bậc lộ trình ('intermediate'), không nhận nhãn CEFR ('B1') — truyền
+  // sai kiểu thì nó KHÔNG báo lỗi, nó trả về 'vua' mặc định và buổi học lặng lẽ
+  // chạy sai nhóm độ dài. Khai thẳng ra là biết, suy ra là đoán.
+  out[band].push({
+    type: 'dictation', targetId: `dictation-${band}`, bandId: band, title: 'Buổi nghe chép chính tả',
+    desc: `Nghe giọng người thật, chép lại ${SO_CAU_MOI_BUOI} câu. Kho dùng chung, chia theo độ dài câu.`,
+    minutes: minutesFromItems(SO_CAU_MOI_BUOI * 3), cefr: CEFR_OF[band],
+  });
+}
+
 // ---- (5.2) XEN KẼ LOẠI CHẶNG TRONG MỖI BẬC -----------------------------------
 // Vòng lặp ở trên đẩy chặng theo KHỐI: hết ngữ pháp mới tới từ vựng, hết từ
 // vựng mới tới Oxford. Giao diện vẽ mỗi bậc thành MỘT danh sách thẳng và nút
@@ -224,7 +295,8 @@ for (const band of BANDS) {
     // Số thì ghi ra số, chuỗi thì ghi ra chuỗi — không ép kiểu.
     const tid = typeof m.targetId === 'number' ? String(m.targetId) : `'${esc(m.targetId)}'`;
     const book = m.bookId ? `, bookId: '${esc(m.bookId)}'` : '';
-    body += `    { type: '${m.type}', targetId: ${tid}${book}, title: '${esc(m.title)}', desc: '${esc(m.desc)}', minutes: ${m.minutes}, cefr: '${m.cefr}' },\n`;
+    const bandId = m.bandId ? `, bandId: '${esc(m.bandId)}'` : '';
+    body += `    { type: '${m.type}', targetId: ${tid}${book}${bandId}, title: '${esc(m.title)}', desc: '${esc(m.desc)}', minutes: ${m.minutes}, cefr: '${m.cefr}' },\n`;
   }
   body += '  ],\n';
 }
@@ -261,11 +333,30 @@ fs.writeFileSync(path.join(DATA, 'roadmapGenerated.js'), header + body + '};\n' 
 // listeningPassages 398 KB để hiện một con số). Một file, một con số.
 const curatedTotal = roadmapCurated.reduce((s, l) => s + l.milestones.length, 0);
 const soChang = BANDS.map((b) => [b, out[b].length + (roadmapCurated.find((l) => l.level === b)?.milestones.length || 0)]);
-fs.writeFileSync(path.join(DATA, 'roadmapCounts.js'), `// File: src/data/roadmapCounts.js
+
+// TỔNG CỦA LẦN SINH TRƯỚC — đọc từ chính file đang sắp bị ghi đè.
+// Lý do phải giữ con số này: mẫu số của thanh tiến độ là tổng số chặng
+// (WelcomePage tính completedCount / allMilestones.length). Thêm chặng là làm
+// tỉ lệ của MỌI người học đang dùng tụt xuống — họ không làm gì sai mà con số
+// xấu đi. Muốn báo cho họ biết thì phải biết con số CŨ, và chỗ duy nhất còn giữ
+// nó là file cũ. Không có file cũ (lần sinh đầu) thì để bằng tổng mới, tức
+// "không có gì đổi".
+const duongCounts = path.join(DATA, 'roadmapCounts.js');
+const tongMoi = total + curatedTotal;
+let tongTruoc = tongMoi;
+try {
+  const cu = fs.readFileSync(duongCounts, 'utf8').match(/export const TONG_CHANG = (\d+)/);
+  if (cu) tongTruoc = Number(cu[1]);
+} catch { /* chưa có file — lần sinh đầu tiên */ }
+
+fs.writeFileSync(duongCounts, `// File: src/data/roadmapCounts.js
 // ⚠️ MÁY SINH — chạy lại: node scripts/build_roadmap.mjs
 // Chỉ chứa SỐ ĐẾM, để màn hình kích hoạt nói được con số thật mà không phải
 // kéo cả lộ trình vào gói tải đầu.
-export const TONG_CHANG = ${total + curatedTotal};
+export const TONG_CHANG = ${tongMoi};
+// Tổng của lần sinh TRƯỚC, đọc từ file cũ trước khi ghi đè. Dùng để báo cho
+// người học đang dùng biết mẫu số tiến độ vừa tăng — xem roadmapGrowth.js.
+export const TONG_CHANG_TRUOC = ${tongTruoc};
 export const CHANG_THEO_BAC = {
 ${soChang.map(([b, n]) => `  ${b}: ${n},`).join('\n')}
 };
@@ -279,3 +370,4 @@ for (const b of BANDS) {
   console.log(`   ${b.padEnd(20)} ${String(out[b].length).padStart(3)} chặng · ${String(Math.round(mins / 60)).padStart(3)} giờ · ${JSON.stringify(kinds)}`);
 }
 console.log(`   (bỏ qua ${bỏQua} targetId vì đã có chặng soạn tay; Oxford thêm mới ${oxfordCount})`);
+console.log(`   (N4 b′: ${ngheCount} chặng nghe theo đoạn · ${docCount} chặng đọc dài · ${BAC_TU_B1.length} buổi chép chính tả — chỉ ở ba bậc ≥B1)`);

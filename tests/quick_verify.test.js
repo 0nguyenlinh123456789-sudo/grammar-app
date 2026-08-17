@@ -197,6 +197,19 @@ async function importAggregate(file, pick) {
 // làm xong thì hạ con số này xuống.
 const KHONG_DU_CAU_TOI_DA = 100;
 
+// LOẠI CHẶNG KHÔNG CÓ ĐƯỜNG XÁC MINH NHANH — và không cần có.
+//
+// Xác minh nhanh sinh ra để DI TRÚ những chặng hoàn thành từ bản cũ, khi
+// "hoàn thành" chưa đo đúng sai. Ba loại chặng dưới đây thêm vào ở N4 (b′), tức
+// SAU khi cổng có điểm đã hoạt động — nên không ai có thể có một lượt hoàn thành
+// chúng mà không có bản ghi điểm. Bản thân chúng đã ghi bằng chứng qua
+// buildEvidence (4 câu hỏi soạn tay mỗi bài; 5 câu chép chính tả mỗi buổi).
+//
+// Đây là lý do THẬT, khác hẳn "không đủ nguyên liệu" của 100 unit Oxford Advanced
+// — nên chúng không được đổ vào cùng một bánh cóc. Trộn hai thứ vào một con số là
+// làm con số đó mất nghĩa.
+const KHONG_CO_XAC_MINH_NHANH = new Set(['listening', 'reading', 'dictation']);
+
 test('MỌI chặng trong lộ trình đều đủ nguyên liệu ra 5 câu xác minh', async () => {
   const rawTopics = await importAggregate('vocabVstepData.js', (m) => m.default);
   const grammar = await importAggregate('grammarData.js', (m) => m.parsedGrammarData);
@@ -230,6 +243,7 @@ test('MỌI chặng trong lộ trình đều đủ nguyên liệu ra 5 câu xác
   const hong = [];     // sai thật — không được có cái nào
   const khongDu = [];  // thiếu nguyên liệu — có bánh cóc, chỉ được giảm
   for (const m of milestones) {
+    if (KHONG_CO_XAC_MINH_NHANH.has(m.type)) continue;
     const source = m.type === 'grammar' ? grammarById.get(m.targetId)
       : m.type === 'oxford' ? unitById.get(m.targetId)
         : topicById.get(m.targetId);
@@ -256,4 +270,21 @@ test('MỌI chặng trong lộ trình đều đủ nguyên liệu ra 5 câu xác
   // nhưng số lượng chỉ được GIẢM.
   assert.ok(khongDu.length <= KHONG_DU_CAU_TOI_DA,
     `${khongDu.length} chặng không đủ ${QUICK_VERIFY_SIZE} câu, vượt mức đã ghi nhận (${KHONG_DU_CAU_TOI_DA}). Vài chặng đầu:\n  ` + khongDu.slice(0, 10).join('\n  '));
+});
+
+// BỎ QUA TRONG TEST THÌ PHẢI CHỨNG MINH RUNTIME CÓ BÁO — không thì việc bỏ qua ở
+// trên chỉ là giặt sạch một khoảng trống.
+test('loại chặng không có xác minh nhanh thì runtime BÁO, không lặng lẽ mở bài rỗng', async () => {
+  const { hasQuickVerifySupply, buildQuickVerify } = await import(pathToFileURL(path.join(ROOT, 'src/utils/quickVerify.js')).href);
+  for (const loai of KHONG_CO_XAC_MINH_NHANH) {
+    // Nguồn nào cũng vậy: hàm phải trả false cho loại chặng này, và không được
+    // sinh ra một câu nào.
+    assert.equal(hasQuickVerifySupply(loai, { words: [], quiz: [] }), false, `${loai}: hasQuickVerifySupply phải trả false`);
+    assert.equal(buildQuickVerify(loai, { words: [], quiz: [] }, 5).length, 0, `${loai}: không được sinh câu xác minh nào`);
+  }
+
+  // Và màn hình phải rẽ sang nhánh báo "không có dữ liệu" đúng ở chỗ đó.
+  const modal = fs.readFileSync(path.join(ROOT, 'src/components/progress/QuickVerifyModal.jsx'), 'utf8');
+  assert.match(modal, /!source \|\| !hasQuickVerifySupply\(milestone\.type, source\)\) \{ setState\('nodata'\)/,
+    'QuickVerifyModal phải chuyển sang trạng thái "nodata" khi chặng không có đường xác minh nhanh');
 });
