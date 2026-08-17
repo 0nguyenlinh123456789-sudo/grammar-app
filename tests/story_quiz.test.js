@@ -156,7 +156,7 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
 // "dài hơn THẤY ĐƯỢC": đáp án dài hơn lựa chọn nhì từ 10% trở lên, nhìn là thấy
 // ngay — con số này còn 6,0%, từ 57,2%. Không còn câu nào lệch quá 40%.
 const THIEN_LECH_TOI_DA = 0.398;
-const THAY_DUOC_TOI_DA = 0.035;
+const THAY_DUOC_TOI_DA = 0.029;
 
 test(`thiên lệch độ dài chỉ được giảm (dài nhất ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}% · thấy được ${(THAY_DUOC_TOI_DA * 100).toFixed(1)}% · không thiên lệch ≈ 25%)`, async () => {
   const { doThienLech } = await import('../scripts/audit_story_quiz.mjs');

@@ -69,7 +69,7 @@ export const STORY_QUIZ_C1 = {
       options: [
         'Một giáo viên tiến bộ dùng phép so sánh để chỉ dạy anh rõ ràng',
         'Cha mẹ anh doạ sẽ cắt hết mọi khoản trợ cấp hằng tháng',
-        'Anh giành được một suất học bổng ngay vào phút chót',
+        'Anh giành được một suất học bổng ngay vào đúng phút chót',
         'Thầy hiệu trưởng đã cho anh thêm một cơ hội cuối cùng',
       ],
       answer: 0,
@@ -92,7 +92,7 @@ export const STORY_QUIZ_C1 = {
         'Dù quá khứ lười biếng, anh thành người tận tuỵ dành cả đời cho dạy học',
         'Anh tốt nghiệp được nhưng lại không tìm nổi một công việc nào',
         'Anh quay lại chính ngôi trường từng đuổi anh đi ngày trước',
-        'Anh bỏ hẳn ngành nghệ thuật để chuyển sang theo khoa học',
+        'Anh bỏ hẳn ngành nghệ thuật để chuyển sang theo học khoa học',
       ],
       answer: 0,
       dan: 'Ironically, despite the irony of his lazy past, it was an ironic twist that he became a dedicated practitioner who decided to dedicate his life to teaching.',
@@ -503,7 +503,7 @@ export const STORY_QUIZ_C1 = {
       options: [
         'Suy giảm nhận thức, kể cả sa sút trí tuệ, và rối loạn thần kinh',
         'Các bệnh về tim mạch cùng với bệnh tiểu đường tuýp hai',
-        'Những bệnh mạn tính không lây khác ngoài tim mạch ra',
+        'Những bệnh mạn tính không lây khác ngoài bệnh tim mạch ra',
         'Bệnh ung thư ở vào những giai đoạn muộn khó chữa trị',
       ],
       answer: 0,
@@ -749,7 +749,7 @@ export const STORY_QUIZ_C1 = {
       options: [
         'Khi người bị áp bức đấu tranh xoá bỏ chế độ nô lệ và đòi quyền của mình',
         'Khi những quân vương tham vọng đem quân đi xâm chiếm lẫn nhau',
-        'Khi nạn đói kém cùng với dịch bệnh lan rộng ra khắp mọi vùng',
+        'Khi nạn đói kém cùng với dịch bệnh lan rộng ra khắp mọi vùng đất',
         'Khi tầng lớp quý tộc dần dần đánh mất quyền lực vốn có của họ',
       ],
       answer: 0,
@@ -1808,7 +1808,7 @@ export const STORY_QUIZ_C1 = {
       options: [
         'Khảo sát bề mặt hành tinh, mong tìm sự sống hoặc dấu vết thế giới khác',
         'Thu thập những mẫu vật quý rồi tìm cách đưa ngược về Trái Đất',
-        'Thử nghiệm công nghệ cho các chuyến bay có người lái sau này',
+        'Thử nghiệm công nghệ dùng cho các chuyến bay có người lái sau này',
         'Lập bản đồ thật chi tiết cho toàn bộ hệ Mặt Trời của chúng ta',
       ],
       answer: 0,

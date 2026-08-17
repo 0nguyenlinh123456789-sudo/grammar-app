@@ -80,6 +80,19 @@
 // Đợt A1 bánh cóc thấy-được ĐÃ BẮN một lần (6,0% → 6,3% khi soạn xong 30 chặng
 // đầu) — sửa 9 câu nhiễu cho dài tương đương rồi đo lại, KHÔNG nới mốc. Đợt A2
 // khớp độ dài ngay từ lúc soạn nên chỉ phải sửa 3 câu.
+//
+// ĐỢT SỬA PHẦN DƯ (17/08): `node scripts/audit_story_quiz.mjs --cau` nay kê ĐÍCH
+// DANH từng câu lệch ≥10%, sắp theo CHÊNH LỆCH KÝ TỰ. Danh sách đó lộ ra một
+// khuyết điểm của chính phép đo: `history-civilizations-vstep[0]` lệch 13% nhưng
+// chỉ hơn **1 ký tự** (9 vs 8) — trên lựa chọn ngắn thì phần trăm báo động giả,
+// đúng mặt ngược của chuyện đã ghi ở trên. **KHÔNG nới định nghĩa "thấy được" theo
+// phát hiện đó** — nới để con số đẹp hơn là dịch cột gôn; chỉ in thêm chênh lệch
+// tuyệt đối để người soạn biết câu nào đáng sửa thật.
+//
+// Đã kéo dài 16 câu nhiễu ngắn nhất: thấy-được 3,5% → 2,9%; chênh lệch lớn nhất
+// 17 → 9 ký tự. Phần dư 23 câu: nhỏ nhất 1 · **trung vị 7** · lớn nhất 9 ký tự
+// trên lựa chọn 60–75 ký tự, tức dưới một từ. Đó là SỐ ĐO, không phải lời khẳng
+// định — và dừng ở đây là lựa chọn có ghi lý do, không phải bỏ dở.
 import { STORY_QUIZ_A1 } from './storyQuizA1.js';
 import { STORY_QUIZ_A2 } from './storyQuizA2.js';
 import { STORY_QUIZ_B1 } from './storyQuizB1.js';

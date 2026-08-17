@@ -695,7 +695,7 @@ export const STORY_QUIZ_B1 = {
         'Học sinh nông thôn thiếu kết nối, bất bình đẳng giáo dục rộng thêm',
         'Giáo viên phải đứng lớp nhiều giờ hơn hẳn so với trước kia',
         'Các trường buộc phải mua thêm nhiều phần mềm có bản quyền',
-        'Chất lượng bài giảng bị giảm sút đồng loạt ở mọi cấp học',
+        'Chất lượng của bài giảng bị giảm sút đồng loạt ở mọi cấp học',
       ],
       answer: 0,
       dan: 'However, the digital divide left rural students without connectivity or bandwidth, widening educational inequality.',
@@ -751,7 +751,7 @@ export const STORY_QUIZ_B1 = {
       q: 'Bài nói gì về sức khoẻ tinh thần?',
       options: [
         'Đang được chú ý hơn, có nhà tâm lý trị liệu cho căng thẳng và lo âu',
-        'Vẫn đang bị bỏ qua hoàn toàn trong hệ thống y tế hiện nay',
+        'Vẫn đang bị bỏ qua gần như hoàn toàn trong hệ thống y tế hiện nay',
         'Chỉ cần tập thể dục đều đặn mỗi ngày là có thể tự cải thiện',
         'Là vấn đề riêng của những người đã bước vào tuổi cao niên',
       ],
@@ -941,7 +941,7 @@ export const STORY_QUIZ_B1 = {
         'Vẫn là lý thuyết, nhưng công nghệ đang biến viễn tưởng thành hiện thực',
         'Sẽ thực hiện được ngay trong vòng vài thập kỷ sắp tới đây thôi',
         'Là điều bất khả thi với con người dù công nghệ tiến xa đến đâu',
-        'Chỉ khả thi nếu trước đó tìm được một hành tinh sống được',
+        'Chỉ khả thi nếu trước đó tìm được một hành tinh có thể sống được',
       ],
       answer: 0,
       dan: 'While interstellar travel across light years remains a theory in astrophysics, our technological advancements continue to expand our horizon, turning what was once science fiction into reality.',
@@ -1034,7 +1034,7 @@ export const STORY_QUIZ_B1 = {
       options: [
         'Dù là dàn nhạc cổ điển hay ca sĩ nhạc pop, giai điệu bắt tai đều lan xa',
         'Chỉ nhạc cổ điển mới thật sự được xem là nghệ thuật đúng nghĩa',
-        'Âm nhạc hiện đại đang dần mất đi lượng khán giả trung thành',
+        'Âm nhạc hiện đại đang dần mất đi phần lượng khán giả trung thành',
         'Nhạc biểu diễn trực tiếp bao giờ cũng hay hơn nhạc đã thu âm',
       ],
       answer: 0,
@@ -1080,7 +1080,7 @@ export const STORY_QUIZ_B1 = {
       q: 'Bài kết lại rằng quy trình pháp lý này được thiết kế để làm gì?',
       options: [
         'Bảo vệ nạn nhân, trừng phạt người vi phạm và giữ công lý không thiên vị',
-        'Giảm bớt số vụ phạm tội xảy ra hằng năm trên phạm vi cả nước',
+        'Giảm bớt số vụ phạm tội xảy ra hằng năm trên phạm vi của cả nước',
         'Cho người từng phạm tội một cơ hội để làm lại cuộc đời của mình',
         'Củng cố niềm tin của dân chúng vào lực lượng cảnh sát điều tra',
       ],
@@ -1268,7 +1268,7 @@ export const STORY_QUIZ_B1 = {
       q: 'Bài nêu mỗi người có thể góp phần bằng cách nào?',
       options: [
         'Chọn tái chế, dùng sản phẩm thân thiện môi trường, giảm rác hằng ngày',
-        'Chuyển hẳn sang dùng xe điện thay cho xe chạy bằng xăng dầu',
+        'Chuyển hẳn sang dùng xe điện thay cho những xe chạy bằng xăng dầu',
         'Tham gia vào các tổ chức hoạt động vì môi trường ở địa phương',
         'Trồng cây gây rừng vào mỗi dịp cuối tuần cùng với cộng đồng',
       ],

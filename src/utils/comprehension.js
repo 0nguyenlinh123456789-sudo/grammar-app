@@ -103,6 +103,18 @@ export function buildComprehension({ words, authored, story, limit = 10 }) {
     const qs = storyQuestions(story, limit);
     if (qs.length >= 1) return qs;
   }
+  // ⚠️ NHÁNH NÀY HIỆN KHÔNG CÓ ĐƯỜNG TỚI, VÀ ĐÓ LÀ CÓ CHỦ Ý — ghi ra để không ai
+  // đọc nó thành mã đang chạy.
+  //
+  // Chỉ đúng MỘT chủ đề từng có `comprehension` (`travel-transport`), và từ đợt
+  // A1 (17/08) chủ đề đó cũng có `storyQuiz` — nhánh `story` ở trên bắt trước nên
+  // nhánh này không bao giờ được gọi lúc chạy thật.
+  //
+  // VẪN GIỮ, vì hai lý do: (1) bộ câu mức CÂU là một loại nội dung hợp lệ, có thể
+  // soạn thêm sau — và khi soạn thì lỗi "đáp án nằm lì ở ô đầu" phải đã được sửa
+  // sẵn ở đây, không phải sửa lại lần nữa; (2) `tests/core.test.js` và test bằng
+  // chứng lịch sử trong `story_quiz.test.js` đều đi qua nhánh này, và bằng chứng
+  // "điểm xuất phát thật của N5 là 0/267" nằm ở đó.
   if (Array.isArray(authored) && authored.length > 0) {
     const qs = authoredQuestions(authored, limit);
     if (qs.length >= 1) return qs;
