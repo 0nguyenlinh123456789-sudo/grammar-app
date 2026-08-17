@@ -15,6 +15,13 @@
 //
 // Test này FAIL nếu có file trong src/data/ mà không file nào trong dự án nhắc
 // tới. Muốn giữ một file chưa nối vào kho thì thêm vào EXEMPT kèm LÝ DO.
+//
+// ⚠️ PHẠM VI: đây là mồ côi Ở MỨC FILE ("có ai import không"), KHÔNG phải mồ
+// côi ở mức ĐƯỜNG ĐI ("người đi theo lộ trình có bao giờ gặp không"). Bốn kho —
+// bài nghe theo đoạn, bài đọc dài, bản thu chép chính tả, đề thi cuối bậc — đều
+// được import đàng hoàng nên test này xanh, trong khi KHÔNG chặng nào trong 617
+// chặng dẫn tới chúng. Đừng đọc màu xanh ở đây thành "mọi nội dung đều tới
+// được". Phép đo kia nằm ở cuối tests/roadmap_coverage.test.js.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'fs';
