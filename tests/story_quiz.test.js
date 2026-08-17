@@ -147,16 +147,24 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
 //
 // Đây là LỖI TÔI TỰ GÂY RA khi soạn: viết đáp án đúng thành mệnh đề đầy đủ (sát
 // câu căn cứ) rồi thêm ba câu nhiễu ngắn gọn. Chưa sửa xong — bánh cóc dưới đây
-// GHIM con số hiện tại để nó chỉ được phép giảm, không được tệ thêm.
-const THIEN_LECH_TOI_DA = 0.843;
+// GHIM con số hiện tại để nó chỉ được phép giảm. Đã sửa xong bậc B1 (84,3% →
+// 74,6% toàn bộ; riêng B1 còn 49,3% và không câu nào lệch quá 20%).
+// Hai con số. "Dài nhất duy nhất" bắt cả những chỗ lệch 1–2 ký tự — mắt thường
+// không dùng được, nên nó không phải mẹo thật. Con số ĐÁNG LO là "dài hơn thấy
+// được": đáp án dài hơn lựa chọn nhì từ 10% trở lên, tức nhìn là thấy ngay.
+const THIEN_LECH_TOI_DA = 0.746;
+const THAY_DUOC_TOI_DA = 0.572;
 
-test(`thiên lệch độ dài không được tệ thêm (đang ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}%, không thiên lệch ≈ 25%)`, async () => {
+test(`thiên lệch độ dài chỉ được giảm (dài nhất ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}% · thấy được ${(THAY_DUOC_TOI_DA * 100).toFixed(1)}% · không thiên lệch ≈ 25%)`, async () => {
   const { doThienLech } = await import('../scripts/audit_story_quiz.mjs');
   const r = await doThienLech();
   const ty = r.daiNhatDuyNhat / r.tong;
+  const tyThay = r.daiThayDuoc / r.tong;
   assert.ok(ty <= THIEN_LECH_TOI_DA + 0.001,
     `đáp án đúng là lựa chọn dài nhất ở ${(ty * 100).toFixed(1)}% câu — tệ hơn mốc đã ghim. `
     + 'Câu nhiễu phải dài tương đương đáp án, dựng từ nội dung có thật trong bài.');
+  assert.ok(tyThay <= THAY_DUOC_TOI_DA + 0.001,
+    `đáp án đúng dài hơn thấy được ở ${(tyThay * 100).toFixed(1)}% câu — tệ hơn mốc đã ghim.`);
 });
 
 test('phần NGHE không nhận câu mức văn bản, kể cả khi chủ đề có sẵn', () => {
