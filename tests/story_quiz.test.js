@@ -228,3 +228,35 @@ test('bộ câu soạn tay cũ là mức CÂU, không phải mức văn bản', 
   const trongBai = cu.comprehension.filter((q) => bai.includes(chuan(q.en))).length;
   assert.equal(trongBai, 0, 'bộ câu cũ hoá ra có gắn với bài đọc — sửa lại ghi chú 0/267');
 });
+
+// ── PHẠM VI MỞ RỘNG A1/A2 (quyết định 5, chốt 17/08) ─────────────────────────
+//
+// Vì sao có bánh cóc này thay vì một dòng "sẽ làm" trong KE_HOACH_B2.md: mọi
+// dòng khác trong tài liệu đó là một SỐ ĐO, còn "chốt làm 93 chặng" là một LỜI
+// HỨA. Lời hứa nằm giữa các số đo thì sớm muộn cũng trôi. Nên con số nằm ở đây,
+// và test KỂ TÊN chặng còn thiếu — giống test độ phủ N5 đã làm cho 122 chặng ≥B1.
+//
+// Ràng buộc tôi từng nêu ("bài đọc A1/A2 phần lớn là chuỗi diễu hành từ vựng")
+// ĐÃ ĐO LẠI VÀ SAI: 93/145 chặng đủ điều kiện. Xem scripts/audit_a1a2_story.mjs.
+const A1A2_CON_THIEU_TOI_DA = 93;
+
+test('bánh cóc A1/A2: số chặng đủ điều kiện mà CHƯA có câu hỏi chỉ được giảm', async () => {
+  const { doA1A2 } = await import(pathToFileURL(path.join(ROOT, 'scripts/audit_a1a2_story.mjs')).href);
+  const { daCo, du, khong } = await doA1A2();
+
+  // Tổng phải giữ nguyên 145 chặng A1/A2 — đổi nghĩa là có chủ đề bị thêm/xoá,
+  // và lúc đó mọi con số dưới đây phải đo lại chứ không sửa cho vừa.
+  assert.equal(daCo.length + du.length + khong.length, 145,
+    'số chặng A1/A2 (type vstep) đổi — đo lại bằng node scripts/audit_a1a2_story.mjs');
+
+  assert.ok(du.length <= A1A2_CON_THIEU_TOI_DA,
+    `còn ${du.length} chặng đủ điều kiện chưa có câu hỏi, nhiều hơn mức ghim ${A1A2_CON_THIEU_TOI_DA}:\n  `
+    + du.slice(0, 10).map((r) => `${r.bac}/${r.id} (${r.tu} từ, ${r.cau} câu)`).join('\n  '));
+
+  // 52 chặng KHÔNG đủ điều kiện phải có lý do ĐO ĐƯỢC cho từng chặng, không phải
+  // một câu khái quát — chính câu khái quát của tôi đã sai một lần rồi.
+  for (const r of khong) {
+    const coLyDo = r.cau < 6 || r.tu < 80 || r.matDo >= 0.35 || r.tuongThuat < 4;
+    assert.ok(coLyDo, `${r.id} bị xếp là "không đủ" mà không đạt lý do nào — bộ đo hỏng`);
+  }
+});

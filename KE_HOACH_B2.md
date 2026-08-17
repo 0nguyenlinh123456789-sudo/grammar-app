@@ -248,7 +248,9 @@ Cột **Ràng buộc**: **A** = nội dung tĩnh, không cần API, chạy cho m
 
    **Nghĩa là phương án "phủ cả 267" KHÔNG bị chặn bởi chất lượng bài đọc như tôi đã nói.** Cỡ việc thật: **93 chặng × 4 câu = 372 câu soạn tay**, cùng cỡ với 484 câu đã soạn cho ≥B1. 52 chặng còn lại tiếp tục hiện dòng cảnh báo cam, **kèm lý do đo được cho từng chặng** thay vì một câu khái quát.
 
-   **CHỐT: làm 93 chặng đủ điều kiện.** Bộ lọc bốn tiêu chí là để ra DANH SÁCH VIỆC, không phải phán quyết chất lượng — chặng nào đọc rồi thấy không soạn nổi bốn câu tử tế thì loại và **ghi lý do đích danh**, như `digital-society-100`.
+   **CHỐT: làm 93 chặng đủ điều kiện — và con số đó đã được GHIM BẰNG BÁNH CÓC, không để nằm đây làm lời hứa.** `tests/story_quiz.test.js` giữ `A1A2_CON_THIEU_TOI_DA = 93`, chỉ được giảm, và **kể tên** chặng còn thiếu — giống test độ phủ N5 đã làm cho 122 chặng ≥B1. Mọi dòng khác trong tài liệu này là một số đo; một lời hứa nằm giữa các số đo thì sớm muộn cũng trôi.
+
+   **Tiến độ hiện tại: 0/93.** Bộ lọc bốn tiêu chí là để ra DANH SÁCH VIỆC, không phải phán quyết chất lượng — chặng nào đọc rồi thấy không soạn nổi bốn câu tử tế thì loại và **ghi lý do đích danh**, như `digital-society-100`.
 
 3. ~~**Đưa nội dung ngoài lộ trình vào lộ trình**~~ ✅ **ĐÃ LÀM (Đợt 8, 17/08)** — chủ dự án giao tự quyết. Giữ lại nguyên văn phần phân tích bên dưới vì bốn hệ quả vẫn là thứ phải biết khi sửa tiếp.
    **Đưa nội dung ngoài lộ trình vào lộ trình — việc chưa có số trong bảng, phát hiện 17/08.** Hiện **0 chặng dẫn tới** 60 bài nghe, 30 bài đọc dài, kho 239 bản thu và 3 đề thi cuối bậc. **Cỡ việc thật là ~90 chặng mới (~20 bài nghe + ~10 bài đọc mỗi bậc × 3 bậc) cộng 1–3 chặng chép chính tả — không phải 332**, và đề thi cuối bậc có thể vốn không cần nằm trong đường đi (xem bảng ở ghi chú "lỗi 1.3 tái diễn"). Sửa nó nghĩa là **chèn chặng mới vào lộ trình 617 chặng của người đang dùng**, và mở thêm một loại chặng thứ tư ngoài `grammar`/`vstep`/`oxford`. Bốn hệ quả **đã đọc mã để xác nhận**, không phải suy đoán:

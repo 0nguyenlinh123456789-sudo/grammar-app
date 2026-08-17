@@ -269,3 +269,43 @@ test('ba mẫu số 710 / 479 / 122 không được lệch nhau ở đâu nữa'
   assert.equal(tuB1.filter((m) => m.type === 'vstep').length, 122,
     'mẫu số của N5 (chặng từ vựng ≥B1) đổi — sửa cả dòng 3.1 trong KE_HOACH_B2.md');
 });
+
+test('targetId của chặng nghe/đọc khớp NGUYÊN KIỂU với id trong kho', async () => {
+  const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
+  const { listeningPassages } = await import(pathToFileURL(path.join(DATA, 'listeningPassages.js')).href);
+  const { readingTexts } = await import(pathToFileURL(path.join(DATA, 'readingTexts.js')).href);
+
+  // Panel tra bài bằng `b.id === baiId` — SO SÁNH NGHIÊM. Test độ phủ ở trên
+  // dùng String() cả hai bên, nên nó sẽ xanh kể cả khi một bên là số và bên kia
+  // là chuỗi; màn hình thì trả về null và mở danh sách. Repo này đã có đúng cái
+  // bẫy đó ở id unit Oxford (Elementary đánh số, hai quyển kia đánh chuỗi).
+  const idNghe = new Set(listeningPassages.map((b) => b.id));
+  const idDoc = new Set(readingTexts.map((b) => b.id));
+  const lech = [];
+  for (const l of roadmapData) {
+    for (const m of l.milestones) {
+      if (m.type === 'listening' && !idNghe.has(m.targetId)) lech.push(`${m.id}: ${typeof m.targetId} ${JSON.stringify(m.targetId)} không khớp nghiêm id nào trong kho bài nghe`);
+      if (m.type === 'reading' && !idDoc.has(m.targetId)) lech.push(`${m.id}: ${typeof m.targetId} ${JSON.stringify(m.targetId)} không khớp nghiêm id nào trong kho bài đọc`);
+    }
+  }
+  assert.deepEqual(lech, [], 'chặng trỏ tới bài không tra được bằng so sánh nghiêm:\n  ' + lech.slice(0, 10).join('\n  '));
+});
+
+test('cổng có điểm nằm ở completeMilestone và CHẶN THẬT khi chưa đạt', async () => {
+  // Chặng nghe/đọc gọi completeMilestone(id, xp, evidence) mà KHÔNG tự kiểm
+  // isPassing — đúng, vì cổng nằm trong chính completeMilestone. Nhưng "đúng vì
+  // hàm kia lo" là một giả định về file khác, nên nó phải được ghim ở đây: gỡ
+  // cổng đó đi là 93 chặng mới hoàn thành được với 0/4 câu đúng.
+  const app = fs.readFileSync(path.join(ROOT, 'src', 'App.jsx'), 'utf8');
+  assert.match(app, /const passed = !hasEvidence \|\| isPassing\(evidence\)/,
+    'completeMilestone không còn suy "đạt" từ isPassing — chặng nghe/đọc dựa vào đúng dòng này');
+  assert.match(app, /if \(!passed \|\| alreadyDone\) \{/,
+    'completeMilestone không còn thoát sớm khi chưa đạt — cổng của hạng mục #1 bị mở lại');
+
+  const { buildEvidence } = await import(pathToFileURL(path.join(ROOT, 'src/utils/mastery.js')).href);
+  // 4 câu trắc nghiệm, ngưỡng 85% ⇒ 3/4 (75%) là CHƯA đạt, 4/4 mới đạt.
+  const mcq4 = ['mcq', 'mcq', 'mcq', 'mcq'];
+  assert.equal(buildEvidence(0, 4, mcq4).passed, false, '0/4 phải là chưa đạt');
+  assert.equal(buildEvidence(3, 4, mcq4).passed, false, '3/4 = 75% phải là chưa đạt với ngưỡng trắc nghiệm 85%');
+  assert.equal(buildEvidence(4, 4, mcq4).passed, true, '4/4 phải là đạt');
+});
