@@ -75,9 +75,60 @@ test('chặng xếp "cần viết lại" thì KHÔNG được lặng lẽ có c�
   }
 });
 
-test('bậc A2 để TRỐNG có chủ ý, chứ không xếp bừa khi chưa đọc', () => {
-  // 28 chặng A2 chưa đọc tới. Xếp loại mà chưa đọc thì đúng là làm lại cái sai
-  // của bộ lọc, chỉ khác là bằng tay.
-  assert.deepEqual(PHAN_LOAI_A2, {},
-    'A2 đã có mục thì phải kèm test phủ giống A1, không để nửa vời');
+// ── BẬC A2: cùng bộ phép phủ, chỉ đổi đúng một chữ trong bộ lọc bậc ────────
+// ĐÃ THỬ ĐỎ BA CÁCH, và một trong ba cho kết quả khác tôi đoán — ghi lại cả
+// chỗ đoán sai vì nó mới là chỗ dạy được điều gì:
+//   1. Xóa một mục A2 khỏi bảng → đỏ, báo đích danh 'hotel-accommodation-daily'.
+//   2. Sao chép khối A1 xuống mà quên đổi 'starter' → 'elementary'. Tôi tưởng nó
+//      XANH giả; thử thì ĐỎ, vì `conThieu` thành danh sách A1 còn `daXep` là
+//      khóa A2, nên 11 id A1 rơi hết vào `sot`. Lời báo đọc lẫn (gọi id A1 là
+//      "chặng A2") nhưng nó có bắn.
+//   3. Gõ sai tên bậc — `'elementry'` — thì `conThieu` RỖNG. Đây MỚI là chỗ im
+//      lặng thật: `sot` và `bia` đều rỗng nên hai phép so đều qua, test xanh mà
+//      không phủ một chặng nào. Chính vì vậy có dòng `conThieu.length > 0`; thử
+//      thì đúng dòng đó bắt được.
+test('phân loại phủ ĐÚNG các chặng A2 bị bộ lọc loại — không sót, không bịa', () => {
+  const conThieu = kq.khong.filter((c) => c.bac === 'elementary').map((c) => c.id);
+  const daCo = new Set(kq.daCo);
+  const daXep = Object.keys(PHAN_LOAI_A2);
+
+  assert.ok(conThieu.length > 0,
+    'không đo được chặng A2 nào bị loại — bộ lọc bậc đang sai, test này không phủ gì');
+
+  const sot = conThieu.filter((id) => !daXep.includes(id));
+  assert.deepEqual(sot, [], `chặng A2 bị loại mà chưa xếp: ${sot.join(', ')}`);
+
+  const bia = daXep.filter((id) => !conThieu.includes(id) && !daCo.has(id));
+  assert.deepEqual(bia, [], `xếp loại cho chặng không nằm trong danh sách nào: ${bia.join(', ')}`);
+});
+
+test('mục A2 nào cũng có nhóm hợp lệ và LÝ DO ĐÍCH DANH', () => {
+  for (const [id, m] of Object.entries(PHAN_LOAI_A2)) {
+    assert.ok(['soan', 'viet-lai'].includes(m.nhom), `${id}: nhóm lạ "${m.nhom}"`);
+    assert.ok(m.vi && m.vi.length >= 60, `${id}: lý do quá ngắn để là lý do đích danh`);
+  }
+});
+
+test('A2 khai "đã soạn" thì kho phải CÓ THẬT ≥4 câu', () => {
+  // Bậc A2 hiện chưa có mục nào mang `xong: true` — 'soan' ở đây nghĩa là ĐỦ
+  // ĐIỀU KIỆN, CHƯA soạn câu, nên tấm băng cảnh báo cam còn bật là đúng. Phép
+  // kiểm này để dành cho lúc soạn: khai xong mà kho trống thì nó bắt.
+  for (const [id, m] of Object.entries(PHAN_LOAI_A2)) {
+    if (!m.xong) continue;
+    const ds = STORY_QUIZ[id];
+    assert.ok(Array.isArray(ds) && ds.length >= 4,
+      `${id}: khai đã soạn nhưng kho chỉ có ${ds?.length || 0} câu`);
+  }
+});
+
+test('chặng A2 xếp "cần viết lại" thì KHÔNG được lặng lẽ có câu hỏi', () => {
+  // ⚠️ HÔM NAY PHÉP KIỂM NÀY QUA MỘT CÁCH HIỂN NHIÊN, và nói ra để phiên sau
+  // đừng nhầm nó là bằng chứng: audit chỉ xếp vào `khong` những chặng CHƯA có
+  // câu hỏi, nên cả 28 chặng A2 đương nhiên vắng mặt trong kho. Việc của nó là
+  // bắn về SAU — lúc ai đó soạn câu cho một chặng còn bị xếp là diễu hành từ
+  // vựng, làm tắt băng cảnh báo trong khi cái lỗ vẫn còn.
+  for (const [id, m] of Object.entries(PHAN_LOAI_A2)) {
+    if (m.nhom !== 'viet-lai') continue;
+    assert.ok(!STORY_QUIZ[id], `${id}: xếp "cần viết lại" mà lại có câu hỏi trong kho gộp`);
+  }
 });
