@@ -194,3 +194,64 @@ test('TÊN GÓI trong bảng giá phải khớp KHOÁ GIÁ — lệch một ch�
   const vd = fs.readFileSync('.env.example', 'utf8');
   for (const k of Object.values(KHOA_GIA)) assert.ok(vd.includes(k), `${k} thiếu trong .env.example`);
 });
+
+// ══════════════════════════════════════════════════════════════════════════════
+// LỜI QUẢNG CÁO PHẢI KHỚP THỨ MÁY CHỦ THẬT SỰ CƯỠNG CHẾ.
+//
+// Nhóm test này ra đời vì 392 test xanh vẫn để lọt một chuyện: bảng giá bán
+// Premium bằng dòng "Trợ lý AI viết/ảnh/hỏi-đáp", trong khi api/ai.js ghi thẳng
+// trong mã rằng nó KHÔNG kiểm gói — khách Standard mang key thì dùng AI y hệt.
+// Và "Placement test & chứng nhận" cũng thế: không màn hình nào đọc access.plan.
+//
+// Không test nào so QUẢNG CÁO với CƯỠNG CHẾ, nên cả hai dòng sai sống yên. Đây
+// đúng họ với các lỗi khác của dự án: một phía nói, không phía nào kiểm.
+// ══════════════════════════════════════════════════════════════════════════════
+
+const nguonGoi = () => {
+  const src = fs.readFileSync('src/components/access/AccessGate.jsx', 'utf8');
+  const dau = src.indexOf('  const plans = [');
+  return src.slice(dau, src.indexOf('];', src.indexOf("action: 'MUA TRỌN ĐỜI' },", dau)));
+};
+
+test('AI vẫn là BYOK không chặn theo gói — nên bảng giá không được bán AI như đặc quyền', () => {
+  // Chiều 1: máy chủ đúng là không chặn. Nếu ngày nào đó có người thêm chặn thì
+  // dòng này đỏ, và người đó buộc phải quay lại sửa cả chữ trên bảng giá.
+  const mayChu = fs.readFileSync('api/ai.js', 'utf8') + fs.readFileSync('functions/api/ai.js', 'utf8');
+  const coChan = /\bplan\b\s*(===|!==|\.includes)|requirePlan|premiumOnly/.test(mayChu);
+  assert.equal(coChan, false,
+    'api/ai.js nay CÓ chặn AI theo gói — phải sửa lại chữ trên bảng giá cho khớp, '
+    + 'và cân nhắc lại: quyết định BYOK là khách tự trả tiền key của họ');
+
+  // Chiều 2: vì không chặn, gói rẻ nhất PHẢI được nêu là có AI. Bản cũ chỉ nêu
+  // AI ở Premium như một bậc nâng cấp, tức bán một thứ Standard vốn đã có.
+  const goi = nguonGoi();
+  const standard = goi.slice(goi.indexOf("name: 'Standard'"), goi.indexOf("name: 'Premium'"));
+  assert.match(standard, /AI/,
+    'gói Standard không nêu AI, trong khi máy chủ cho Standard dùng AI đầy đủ');
+
+  // Chiều 3: không được để lại đúng hai dòng đã đo được là sai.
+  assert.ok(!goi.includes('Trợ lý AI viết/ảnh/hỏi-đáp'),
+    'vẫn bán AI như đặc quyền Premium, trong khi Standard dùng AI y hệt');
+  assert.ok(!goi.includes('Placement test & chứng nhận'),
+    'vẫn bán placement test/chứng nhận như đặc quyền, trong khi không màn hình nào chặn theo gói');
+});
+
+test('thứ CÓ khác nhau thật giữa các gói phải được nêu, vì đó là lý do trả thêm tiền', () => {
+  // `maxDevices` chặn thật trong api/access.js, `expiresAt` chặn thật trong
+  // accessCore. Đó là hai thứ duy nhất phân biệt được, nên phải nói ra — không
+  // nói thì khách không có lý do nào để chọn gói đắt hơn.
+  const goi = nguonGoi();
+  for (const [ten, mong] of [['Standard', /1 thiết bị/], ['Premium', /3 thiết bị/], ['Trọn đời', /5 thiết bị/]]) {
+    const i = goi.indexOf(`name: '${ten}'`);
+    const khoi = goi.slice(i, goi.indexOf("action: 'MUA", i));
+    assert.match(khoi, mong, `gói ${ten} không nêu số thiết bị — thứ duy nhất được cưỡng chế thật`);
+  }
+  const tronDoi = goi.slice(goi.indexOf("name: 'Trọn đời'"));
+  assert.match(tronDoi, /KHÔNG HẾT HẠN|không hết hạn/,
+    'gói Trọn đời không nêu việc không hết hạn, trong khi đó là điều plan THẬT SỰ điều khiển');
+
+  // Và máy chủ đúng là cưỡng chế hai thứ đó.
+  const loi = fs.readFileSync('src/server/accessCore.js', 'utf8');
+  assert.match(loi, /plan === 'lifetime' \? null/, 'accessCore không còn cho lifetime khỏi hết hạn');
+  assert.match(fs.readFileSync('api/access.js', 'utf8'), /maxDevices/, 'api/access.js không còn chặn số thiết bị');
+});

@@ -207,10 +207,31 @@ function PricingModal({ onClose }) {
     const kq = await saoChepLoiNhan(loiNhanDatMua(plan, import.meta.env));
     setBaoSaoChep(kq.chu);
   };
+  // ══ ĐO 19/08: `plan` KHÔNG CHẶN TÍNH NĂNG NÀO CẢ ══
+  // Đã dò hết src/ api/ functions/. `record.plan` chỉ dùng cho ĐÚNG hai việc:
+  // hiện nhãn trong bảng quản trị, và `plan === 'lifetime'` thì `expiresAt`
+  // bằng null (src/server/accessCore.js). Hết. Không màn hình nào đọc
+  // `access.plan` để bật/tắt thứ gì.
+  //
+  // Nên bản chữ cũ BÁN PREMIUM BẰNG HAI DÒNG KHÔNG CÓ THẬT:
+  //   · "Trợ lý AI viết/ảnh/hỏi-đáp" — api/ai.js ghi thẳng trong mã rằng nó
+  //     KHÔNG kiểm gói, vì mọi lượt AI tính vào key Gemini của chính người học.
+  //     Khách Standard mang key thì dùng AI y hệt.
+  //   · "Placement test & chứng nhận" — PlacementTest.jsx và LearningReport.jsx
+  //     không có một dòng nào nhắc tới plan.
+  //
+  // Cách chữa là SỬA CHỮ cho khớp thứ đang chạy, KHÔNG phải đi thêm chặn theo
+  // gói: chặn AI theo gói thì trái hẳn quyết định BYOK — khách tự trả tiền cho
+  // key của họ, mình không có cớ gì bắt trả thêm để được dùng key của chính họ.
+  //
+  // Hai thứ KHÁC NHAU THẬT giữa các gói, và cả hai đều cưỡng chế được:
+  //   · SỐ THIẾT BỊ — `maxDevices` chặn thật trong api/access.js;
+  //   · THỜI HẠN — `expiresAt`, và lifetime thì bằng null.
+  // Đó là toàn bộ thứ được phép ghi lên bảng giá.
   const plans = [
-    { name: 'Standard', caption: 'Bắt đầu có định hướng', color: 'bg-slate-100', features: ['Toàn bộ lộ trình ngữ pháp & từ vựng', 'SRS và báo cáo tiến độ', 'Trợ lý AI bằng API key miễn phí của bạn', '1 thiết bị'], action: 'MUA STANDARD' },
-    { name: 'Premium', caption: 'Lựa chọn phổ biến', color: 'bg-yellow-200', features: ['Tất cả Standard', 'Trợ lý AI viết/ảnh/hỏi-đáp', 'Placement test & chứng nhận', 'Tối đa 3 thiết bị'], action: 'MUA PREMIUM', popular: true },
-    { name: 'Trọn đời', caption: 'Đầu tư một lần', color: 'bg-indigo-200', features: ['Tất cả Premium', 'Không hết hạn', 'Ưu tiên hỗ trợ cập nhật', 'Tối đa 5 thiết bị'], action: 'MUA TRỌN ĐỜI' },
+    { name: 'Standard', caption: 'Học một mình, một máy', color: 'bg-slate-100', features: ['Toàn bộ lộ trình A0 → B2 và nhánh C1 dự bị', 'Đủ mọi tính năng học: SRS, trò chơi, báo cáo, placement test, chứng nhận', 'Trợ lý AI đầy đủ bằng API key miễn phí của bạn', '1 thiết bị · theo thời hạn đã mua'], action: 'MUA STANDARD' },
+    { name: 'Premium', caption: 'Học trên nhiều máy', color: 'bg-yellow-200', features: ['Nội dung và AI GIỐNG HỆT Standard — không tính năng nào bị khóa bớt', 'Tối đa 3 thiết bị: điện thoại, máy tính, máy tính bảng cùng một mã', 'Tiến độ đồng bộ giữa các thiết bị', 'Thời hạn dài hơn theo gói bạn chọn'], action: 'MUA PREMIUM', popular: true },
+    { name: 'Trọn đời', caption: 'Mua một lần', color: 'bg-indigo-200', features: ['Mọi thứ của Premium', 'KHÔNG HẾT HẠN — mã dùng mãi mãi, không phải gia hạn', 'Tối đa 5 thiết bị', 'Nhận mọi bản cập nhật nội dung về sau'], action: 'MUA TRỌN ĐỜI' },
   ];
   return <div className="fixed inset-0 z-[140] bg-slate-950/80 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="pricing-title"><div className="max-w-5xl mx-auto my-5 bg-[#fffdf4] dark:bg-slate-900 text-slate-900 dark:text-white border-4 border-slate-900 dark:border-slate-700 rounded-[2rem] p-5 md:p-8 shadow-[10px_10px_0_0_#020617]"><div className="flex justify-between items-start gap-4"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">Đầu tư cho kết quả học</p><h2 id="pricing-title" className="text-3xl md:text-4xl font-black mt-1">Chọn gói phù hợp</h2><p className="text-sm font-bold text-slate-500 mt-2">Mã truy cập được cấp sau khi xác nhận thanh toán.</p></div><button onClick={onClose} className="w-10 h-10 rounded-xl border-3 border-slate-800 font-black">×</button></div><div className="grid md:grid-cols-3 gap-4 mt-7">{plans.map((plan) => <article key={plan.name} className={`relative ${plan.color} text-slate-900 border-3 border-slate-900 rounded-3xl p-5 shadow-[4px_4px_0_0_#1e293b]`}>{plan.popular && <span className="absolute -top-3 right-4 px-3 py-1 rounded-full bg-rose-500 text-white border-2 border-slate-900 text-[10px] font-black">ĐƯỢC CHỌN NHIỀU</span>}<h3 className="text-2xl font-black">{plan.name}</h3><p className="text-xs font-black uppercase mt-1 opacity-70">{plan.caption}</p>{(() => { const g = giaGoi(plan.name, import.meta.env); return g ? <p className="text-2xl font-black mt-3">{g}</p> : <p className="text-sm font-black mt-3 text-rose-700">{CHUA_CO_GIA}</p>; })()}<ul className="mt-5 space-y-2.5">{plan.features.map((feature) => <li key={feature} className="text-sm font-bold flex gap-2"><CheckCircle2 size={17} className="shrink-0 text-emerald-700" />{feature}</li>)}</ul><button onClick={() => requestPlan(plan.name)} className="w-full mt-6 px-3 py-3 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm">{plan.action}</button></article>)}</div>{daChon && <section className="mt-7 border-3 border-slate-900 dark:border-slate-600 rounded-2xl p-4 bg-amber-50 dark:bg-slate-800"><p className="text-sm font-black">Đơn của bạn: gói {daChon}</p>{kenh.length > 0 ? <><p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Gửi lời nhắn dưới đây cho người bán qua một trong các kênh sau:</p><div className="flex flex-wrap gap-2 mt-3">{kenh.map((k) => <a key={k.loai} href={k.href} target="_blank" rel="noopener noreferrer" className="px-3 py-2 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-xs">{k.nhan} · {k.hien}</a>)}</div></> : <p className="text-xs font-bold text-rose-700 dark:text-rose-300 mt-1">{CHUA_CO_KENH}</p>}<textarea readOnly value={loiNhan} onFocus={(e) => e.target.select()} rows={2} aria-label="Lời nhắn đặt mua" className="w-full mt-3 p-2.5 rounded-xl border-2 border-slate-400 dark:border-slate-600 bg-white dark:bg-slate-900 text-xs font-bold" />{baoSaoChep && <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-2">{baoSaoChep}</p>}</section>}<div className="mt-7 grid md:grid-cols-3 gap-3 text-xs font-bold text-slate-600 dark:text-slate-300"><p>🧪 Có thể bắt đầu bằng placement test.</p><p>🔒 Mã không lưu dạng plaintext.</p><p>💬 Mã truy cập được cấp sau khi xác nhận thanh toán.</p></div></div></div>;
 }
