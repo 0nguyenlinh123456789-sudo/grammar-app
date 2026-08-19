@@ -98,8 +98,22 @@ try {
 
       ghi(`"${nhan}" → hiện khối xác nhận, không im lặng`, hien && !noLoi,
         [hien ? '' : 'bấm xong không có gì hiện ra', noLoi ? 'và có lỗi bắn ra' : ''].filter(Boolean).join(' '));
-      ghi(`"${nhan}" → nói rõ khách vừa chọn gói nào`,
-        new RegExp(`Đơn của bạn: gói ${ten}`, 'i').test(chu), `trong hộp: ${JSON.stringify(chu.slice(0, 60))}`);
+      // Dòng xác nhận phải nêu CẢ tên gói LẪN giá. Giá ở đây đi qua
+      // `timGoiTheoTen` (khách bấm nút thì chỉ có TÊN gói, không có id), một
+      // đường tra chỉ có test đơn vị đi qua chứ chưa từng vẽ ra trong trình
+      // duyệt. Thiếu giá ở đây thì khách mở app ngân hàng mà không biết gõ bao
+      // nhiêu — đúng lúc thiếu giá đau nhất.
+      // So KHÔNG PHÂN BIỆT HOA THƯỜNG: nhãn nút đã viết hoa (`MUA GÓI 1 THÁNG`)
+      // nên `ten` ra "1 THÁNG" trong khi gói tên "1 tháng". Bản đầu so thẳng và
+      // ra null cho cả ba gói — hỏng ở thước đo, app không sai. Phép canh cũ dùng
+      // cờ `i` nên nó che mất chuyện này.
+      const g = DS_GOI.find((x) => x.ten.toLowerCase() === ten.toLowerCase());
+      const giaMong = g ? tienVN(giaGoi(g.ma, {})) : null;
+      ghi(`"${nhan}" → nói rõ khách vừa chọn gói nào, KÈM giá`,
+        new RegExp(`Đơn của bạn: gói ${ten}`, 'i').test(chu) && !!giaMong && chu.includes(giaMong),
+        giaMong && !chu.includes(giaMong)
+          ? `không thấy giá ${giaMong} trong dòng xác nhận`
+          : `gói ${ten} · ${giaMong}`);
     }
 
     // 4b. GIÁ. Thêm 19/08 sau khi phát hiện "bảng giá" không có một con số nào.
