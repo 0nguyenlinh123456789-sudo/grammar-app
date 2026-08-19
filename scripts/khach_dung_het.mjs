@@ -151,6 +151,57 @@ try {
     return 'đã vào được màn chính';
   });
 
+  // ── BÀI KIỂM TRA ĐẦU VÀO ─────────────────────────────────────────────────
+  // ⚠️ LỖ DO CHÍNH BỘ NÀY TẠO RA. `veTrangChu()` bấm "Để sau, vào học luôn"
+  // ở mỗi lần về trang chủ — tức khoảng hai chục lần một lượt chạy. Nghĩa là
+  // đúng tính năng quyết định câu "từ mất gốc" có thật hay không thì chưa bao
+  // giờ được đi qua. Nó cũng chính là `placementResultV1`, khoá đã gây ra vụ
+  // "reset lộ trình không hoạt động".
+  await khuVuc('KIỂM TRA ĐẦU VÀO: làm hết bài và lộ trình mở đúng bậc đo được', async () => {
+    // Trình hướng dẫn chỉ hiện MỘT lần; bước đầu của bộ này đã đi qua nó nên
+    // nó không hiện lại. Phải dựng lại đúng trạng thái khách mới.
+    await t.diToi(BASE); await cho(800);
+    await t.danhGia('localStorage.clear(); true'); await cho(200);
+    await t.diToi(BASE); await cho(1800);
+    await t.danhGia(BAM_THEO_CHU('BẮT ĐẦU NÀO')); await cho(500);
+    await t.danhGia(BAM_THEO_CHU('TIẾP TỤC')); await cho(500);
+    if (!await t.danhGia(BAM_THEO_CHU('LÀM TEST NGAY'))) throw new Error('không thấy nút LÀM TEST NGAY');
+    await cho(1500);
+    // Trả lời như người mất gốc: luôn chọn phương án A. Bài tự điều chỉnh độ
+    // khó nên chọn bừa sẽ tụt xuống bậc thấp — đó chính là điều cần kiểm.
+    let soCau = 0;
+    for (let i = 0; i < 30; i += 1) {
+      const conCau = await t.danhGia(`/Xác nhận/.test(${CHU_TRONG_PANEL})`);
+      if (!conCau) break;
+      const chon = await t.danhGia(`(() => {
+        const p = [...document.querySelectorAll('.fixed.inset-0')].filter((e) => e.getBoundingClientRect().width > 0)[0];
+        if (!p) return false;
+        const o = [...p.querySelectorAll('button')].find((e) => /^A[^-]/.test((e.innerText || '').trim()));
+        if (!o) return false; o.click(); return true;
+      })()`);
+      if (!chon) break;
+      await cho(250);
+      await t.danhGia(BAM_THAY_DUOC('Xác nhận'));
+      soCau += 1;
+      await cho(700);
+    }
+    if (soCau < 8) throw new Error(`chỉ trả lời được ${soCau} câu rồi bài dừng — bài khai 12 câu`);
+    if (!await t.danhGia(BAM_THAY_DUOC('Vào chặng phù hợp'))) throw new Error('làm hết bài mà không có nút vào chặng phù hợp');
+    await cho(2000);
+    const kq = await t.danhGia("localStorage.getItem('placementResultV1')");
+    if (!kq) throw new Error('làm xong bài mà KHÔNG lưu kết quả đo — lộ trình sẽ không biết mở ở đâu');
+    const muc = JSON.parse(kq);
+    const bac = muc.level || muc.band || '';
+    const HOP_LE = ['foundation', 'starter', 'elementary', 'intermediate', 'upper_intermediate', 'advanced'];
+    if (!HOP_LE.includes(bac)) throw new Error(`kết quả đo ghi bậc lạ: ${JSON.stringify(muc).slice(0, 90)}`);
+    // Người trả lời bừa mà bị xếp thẳng vào bậc trên thì toàn bộ 340 giờ nội
+    // dung A1+A2 nằm sau lưng họ, và lời hứa "từ mất gốc" hỏng ngay màn đầu.
+    if (['upper_intermediate', 'advanced'].includes(bac)) {
+      throw new Error(`trả lời bừa mà bị xếp vào ${bac} — người mất gốc sẽ bị thả vào bậc quá cao`);
+    }
+    return `${soCau} câu · xếp vào bậc "${bac}"`;
+  });
+
   // ── NGỮ PHÁP ─────────────────────────────────────────────────────────────
   await khuVuc('NGỮ PHÁP: vào một bài THẬT và thấy nội dung', async () => {
     if (!await t.danhGia(BAM_THAY_DUOC('NGỮ PHÁP'))) throw new Error('không thấy nút NGỮ PHÁP');
@@ -329,8 +380,45 @@ try {
       await cho(900);
       await veTrangChu();
     }
+    // TRẢ LẠI khung máy tính trước khi thoát bước. Bản đầu để nguyên 390px,
+    // nên ba bước sau đó đều chạy trên bố cục thu gọn và cùng báo "không thấy
+    // nút" — ba lỗi giả liên tiếp từ một dòng thiếu.
+    await t.goi('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+    await cho(600);
     if (thieu.length) throw new Error(`trên điện thoại KHÔNG tới được: ${thieu.join(', ')}`);
     return 'cả bốn lối đều tới được';
+  });
+
+  // ── BẬC A0 "MẤT GỐC" ─────────────────────────────────────────────────────
+  // Bậc mặc định của màn ngữ pháp là B1, nên bước ngữ pháp bên trên chưa hề
+  // chạm tới A0 — đúng chỗ mà lời hứa "từ mất gốc" bắt đầu.
+  await veTrangChu();
+  await khuVuc('BẬC A0 (mất gốc): mở được và có nội dung học', async () => {
+    if (!await t.danhGia(BAM_THAY_DUOC('NGỮ PHÁP'))) throw new Error('không thấy nút NGỮ PHÁP');
+    await cho(2000);
+    if (!await t.danhGia(BAM_THAY_DUOC('A0 - Mất Gốc'))) throw new Error('không thấy thẻ bậc A0 - Mất Gốc');
+    await cho(1800);
+    const mo = await t.danhGia(BAM_NOI_DUNG('^[0-9]+[.]'));
+    if (!mo) throw new Error('bậc A0 không có bài nào mở được');
+    await cho(2000);
+    const chu = await t.danhGia('document.body.innerText.length');
+    if (chu < 400) throw new Error(`bài A0 mở ra gần như trống (${chu} ký tự)`);
+    return `đã mở bài A0: "${mo}" · ${chu} ký tự`;
+  });
+
+  // ── QUÉT AI ──────────────────────────────────────────────────────────────
+  await veTrangChu();
+  await khuVuc('QUÉT AI: chưa có key thì phải NÓI RA, không để màn câm', async () => {
+    if (!await t.danhGia(BAM_THAY_DUOC('QUÉT AI'))) throw new Error('không thấy nút QUÉT AI');
+    await cho(2500);
+    const chu = await t.danhGia('document.body.innerText');
+    if (chu.length < 120) throw new Error('màn quét AI gần như trống');
+    // Không lái được máy ảnh trong bộ rà, nên chỉ đo đúng thứ đo được: màn này
+    // cần key AI, và khách chưa có key thì phải thấy lời báo chứ không phải một
+    // nút bấm vào không ra gì.
+    const coBao = /key|khóa ai|khoá ai|API|chưa có|cần.*AI/i.test(chu);
+    if (!coBao) throw new Error('màn quét AI không nói gì về việc cần key AI');
+    return 'có lời báo về key (không lái được máy ảnh nên chỉ đo được phần này)';
   });
 
   // ── Toàn cảnh ────────────────────────────────────────────────────────────
