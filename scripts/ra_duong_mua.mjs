@@ -110,6 +110,39 @@ try {
       coSo ? 'đã đặt giá nên hiện số tiền' : (coGia ? 'chưa đặt giá nên báo "liên hệ người bán" (đúng)'
         : 'thẻ gói không có giá VÀ không có lời báo — khách không biết phải trả bao nhiêu'));
 
+    // 4c. CHUYỂN KHOẢN. Chủ dự án chọn nhận tiền thẳng vào ngân hàng và chấp
+    // nhận lộ TÊN chủ tài khoản (không lộ thứ khác). Bước này chấp nhận cả hai
+    // trạng thái đúng, nhưng KHÔNG chấp nhận trạng thái thứ ba: im lặng.
+    //
+    // Đặt VITE_BANK_NAME + VITE_BANK_ACCOUNT rồi chạy lại để rà nhánh ĐÃ cấu hình.
+    // ⚠️ CỜ `i` KHÔNG PHẢI CHO CHẮC ĂN — không có nó thì phép so này SAI HẲN.
+    // `innerText` trả về chữ ĐÃ bị `text-transform: uppercase` biến đổi, mà tiêu
+    // đề khối chuyển khoản có class `uppercase`, nên chuỗi thật là "CHUYỂN KHOẢN
+    // NGÂN HÀNG". Lượt chạy đầu báo "không có khối, cũng không báo" trong khi khối
+    // hiện ra đầy đủ — hỏng ở thước đo chứ không ở sản phẩm. Nhánh "Chưa có thông
+    // tin chuyển khoản" lọt lưới chỉ vì câu đó tình cờ không viết hoa.
+    const coCK = /chuyển khoản ngân hàng/i.test(chuThe);
+    const baoCK = /chưa có thông tin chuyển khoản/i.test(chuThe);
+    ghi('có khối chuyển khoản, hoặc BÁO là chưa có thông tin chuyển khoản',
+      coCK || baoCK,
+      coCK ? 'đã cấu hình ngân hàng nên hiện khối chuyển khoản'
+        : (baoCK ? 'chưa cấu hình nên BÁO (đúng)'
+          : 'không có khối, cũng không báo — khách không biết trả tiền kiểu gì'));
+
+    // Mã đơn là sợi dây DUY NHẤT nối một khoản tiền với một người mua. Có khối
+    // chuyển khoản thì mã đơn phải hiện, phải hiện ở NHIỀU chỗ (khối mã + dòng
+    // Nội dung), và tất cả phải là CÙNG MỘT mã — hai mã khác nhau trên cùng một
+    // màn hình thì khách chép nhầm, và khoản tiền mất dấu sau khi đã trả.
+    if (coCK) {
+      const ma = chuThe.match(/BE-[A-Z0-9]{6}/g) || [];
+      const rieng = new Set(ma);
+      ghi('mã đơn hiện ra, cùng một mã, ở nhiều chỗ',
+        ma.length >= 2 && rieng.size === 1,
+        rieng.size > 1
+          ? `hiện ${rieng.size} mã KHÁC NHAU: ${[...rieng].join(', ')}`
+          : `${ma.length} lần, mã ${[...rieng][0] || '(không có)'}`);
+    }
+
     // 5. Chưa cấu hình kênh nào (đúng trạng thái hiện tại) thì phải BÁO.
     const chu = await t.danhGia(CHU_HOP);
     const coBao = chu.includes(CHUA_CO_KENH.slice(0, 40));
