@@ -1,0 +1,140 @@
+// File: scripts/ra_duong_mua.mjs
+//
+//   npm run ra:mua
+//
+// RÀ ĐƯỜNG ĐẶT MUA — đường duy nhất mang lại tiền, và cho tới nay là đường
+// KHÔNG bộ nào đi qua.
+//
+// ══ VÌ SAO CÓ FILE NÀY ══
+// Ba bộ rà đã có đều đi vào app với `/api/access` bị chặn và trả lời "đã kích
+// hoạt" — tức chúng dựng lại trạng thái KHÁCH ĐÃ MUA. Hợp lý cho việc kiểm bài
+// học, nhưng nó bỏ trắng đúng cái màn hình mà khách CHƯA mua nhìn thấy đầu tiên,
+// và bỏ trắng cả ba cái nút "MUA …".
+//
+// Cái nằm im trong khoảng trắng đó, đo được trên bản live: bấm "MUA PREMIUM"
+// thì app sao chép một lời nhắn "vui lòng gửi thông tin thanh toán" — mà cả app
+// không có một số điện thoại, Zalo hay email nào để gửi. Và nó khai "Đã sao
+// chép" ngay cả khi `navigator.clipboard` không tồn tại. Chi tiết ở
+// `src/utils/banHang.js`.
+//
+// ══ ĐI QUA CỔNG THẬT ══
+// `moTab(cong, { chanApi: false })`. Bản dựng ở máy không có API, nên `/api/access`
+// trả về index.html và app **fail-closed** — đúng trạng thái khách chưa mua.
+// Đó là điều kiện để màn hình bảng giá hiện ra.
+//
+// ══ PHÉP KIỂM THẬT SỰ ĐÁNG HỎI ══
+// Giống bước micro ở `hoc_that.mjs`: **bấm một cái nút thì phải có gì đó xảy
+// ra, và thứ xảy ra không được nói dối.** Cụ thể:
+//   · phải hiện ra một khối nói rõ khách vừa chọn gói nào;
+//   · chưa cấu hình kênh nào thì phải BÁO đúng chuyện đó, không im lặng;
+//   · lời nhắn phải nằm trong một ô khách chọn và tự sao chép được — đường đi
+//     tiếp cho cả trường hợp clipboard bị chặn;
+//   · và tuyệt đối không được khai "đã sao chép" khi chưa sao chép được.
+
+import { moMayChuXemTruoc } from '../tests/helpers/mayChuXemTruoc.mjs';
+import { moTrinhDuyet, moTab, BAM_THEO_CHU } from '../tests/helpers/trinhduyet.mjs';
+import { CHUA_CO_KENH } from '../src/utils/banHang.js';
+
+const CONG = 4341;
+const GOI = ['MUA STANDARD', 'MUA PREMIUM', 'MUA TRỌN ĐỜI'];
+
+const may = await moMayChuXemTruoc({ cong: CONG, dungLai: process.env.BO_DUNG !== '1' });
+const { tienTrinh, cong } = await moTrinhDuyet({ cong: 9361 });
+const t = await moTab(cong, { chanApi: false });
+
+const ket = [];
+const ghi = (nhan, ok, ct = '') => {
+  ket.push(ok);
+  console.log(`${ok ? 'ĐẠT ' : 'HỎNG'} ${nhan}${ct ? ` :: ${ct}` : ''}`);
+};
+const loiThat = () => t.nhatKy.filter((x) => x.loai !== 'CONSOLE_WARN' && !x.loai.endsWith('_WARNING'));
+
+// Hộp bảng giá, tìm theo `aria-labelledby` chứ không theo thứ tự: lấy panel
+// "cuối cùng" hay "đầu tiên" đã báo oan hai lần ở `hoc_that.mjs`.
+const HOP = 'document.querySelector(\'.fixed.inset-0[aria-labelledby="pricing-title"]\')';
+const CHU_HOP = `(${HOP} ? ${HOP}.innerText : '')`;
+
+try {
+  await t.diToi(`http://127.0.0.1:${CONG}/`);
+  await new Promise((r) => setTimeout(r, 1500));
+
+  // 1. Khách CHƯA mua phải gặp cổng, không được vào thẳng bài học.
+  const trongApp = await t.danhGia("document.body.innerText.includes('TÌM TRONG KHÓA HỌC')");
+  ghi('khách chưa có mã thì GẶP cổng kích hoạt, không vào thẳng được', !trongApp,
+    trongApp ? 'vào thẳng được app mà không cần mã — cổng bán hàng bị hở' : '');
+
+  // 2. Từ cổng đó phải mở được bảng giá — không mở được thì khách không biết mua kiểu gì.
+  const moBang = await t.danhGia(BAM_THEO_CHU('XEM BẢNG GIÁ'));
+  await new Promise((r) => setTimeout(r, 700));
+  const coHop = await t.danhGia(`!!${HOP}`);
+  ghi('mở được bảng giá từ màn hình kích hoạt', moBang && coHop,
+    [moBang ? '' : 'không tìm thấy nút mở bảng giá', coHop ? '' : 'bấm rồi mà hộp bảng giá không hiện'].filter(Boolean).join(' | '));
+
+  if (coHop) {
+    // 3. Ba nút mua phải có mặt đủ.
+    for (const nhan of GOI) {
+      const co = await t.danhGia(`${CHU_HOP}.includes(${JSON.stringify(nhan)})`);
+      ghi(`bảng giá có nút "${nhan}"`, co);
+    }
+
+    // 4. Bấm từng gói: phải có gì đó xảy ra, và không được nói dối.
+    for (const nhan of GOI) {
+      const truoc = loiThat().length;
+      const bam = await t.danhGia(BAM_THEO_CHU(nhan));
+      if (!bam) { ghi(`bấm "${nhan}"`, false, 'không bấm được'); continue; }
+      // Chờ tới lúc khối xác nhận hiện ra, chứ không chờ một khoảng cố định.
+      let hien = false;
+      for (let i = 0; i < 40; i += 1) {
+        if (await t.danhGia(`${CHU_HOP}.includes('Đơn của bạn')`)) { hien = true; break; }
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      const chu = await t.danhGia(CHU_HOP);
+      const noLoi = loiThat().length > truoc;
+      const ten = nhan.replace('MUA ', '');
+
+      ghi(`"${nhan}" → hiện khối xác nhận, không im lặng`, hien && !noLoi,
+        [hien ? '' : 'bấm xong không có gì hiện ra', noLoi ? 'và có lỗi bắn ra' : ''].filter(Boolean).join(' '));
+      ghi(`"${nhan}" → nói rõ khách vừa chọn gói nào`,
+        new RegExp(`Đơn của bạn: gói ${ten}`, 'i').test(chu), `trong hộp: ${JSON.stringify(chu.slice(0, 60))}`);
+    }
+
+    // 5. Chưa cấu hình kênh nào (đúng trạng thái hiện tại) thì phải BÁO.
+    const chu = await t.danhGia(CHU_HOP);
+    const coBao = chu.includes(CHUA_CO_KENH.slice(0, 40));
+    const coKenh = /Nhắn Zalo|Gửi email|Gọi điện|Mở trang đặt mua/.test(chu);
+    ghi('chưa cấu hình kênh đặt mua thì BÁO thẳng, không để khách chờ vô ích',
+      coBao || coKenh,
+      coKenh ? 'đã có kênh cấu hình nên hiện kênh (cũng đúng)' : (coBao ? '' : 'không báo, cũng không có kênh nào — khách bấm MUA rồi không biết làm gì'));
+
+    // 6. Ô lời nhắn phải có mặt để tự sao chép được — đường đi tiếp khi clipboard bị chặn.
+    const oLoiNhan = await t.danhGia(`(() => {
+      const o = ${HOP} && ${HOP}.querySelector('textarea[aria-label="Lời nhắn đặt mua"]');
+      return o ? o.value.length : 0;
+    })()`);
+    ghi('có ô lời nhắn để khách tự chọn và sao chép', oLoiNhan > 40, `${oLoiNhan} ký tự`);
+
+    // 7. KHÔNG được khai đã sao chép khi trình duyệt không cho.
+    //
+    // ⚠️ NÓI RÕ GIỚI HẠN: bước này ĐẠT cả trên bản cũ, nên nó KHÔNG phải bằng
+    // chứng cho bản vá. Lý do: ở Chrome headless, `writeText` **từ chối** chứ
+    // không phải vắng mặt, nên bản cũ ném ngoại lệ và không kịp khai gì cả —
+    // cái bắt được bản cũ là bước 4 (không có gì hiện ra) và bước cuối (có
+    // ngoại lệ). Nhánh "clipboard vắng mặt" thì chỉ `tests/ban_hang.test.js`
+    // với hàng giả mới đi tới được.
+    const khaiSai = chu.includes('Đã sao chép') && !chu.includes('Đã sao chép lời nhắn');
+    ghi('không khai "đã sao chép" một cách vô căn cứ', !khaiSai,
+      khaiSai ? 'hộp nói đã sao chép trong khi không có gì bảo đảm việc đó xảy ra' : '');
+  }
+
+  const loi = loiThat();
+  ghi('không có lỗi console / ngoại lệ / request hỏng trên đường mua', loi.length === 0,
+    loi.slice(0, 3).map((x) => `${x.loai}: ${String(x.text).slice(0, 120)}`).join(' | '));
+} finally {
+  t.dong();
+  tienTrinh.kill();
+  may.dong();
+}
+
+const dat = ket.filter(Boolean).length;
+console.log(`\nbước đạt: ${dat}/${ket.length}`);
+process.exit(dat === ket.length ? 0 : 1);

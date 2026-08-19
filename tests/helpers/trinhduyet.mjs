@@ -56,7 +56,22 @@ export async function moTrinhDuyet({ cong = 9333 } = {}) {
 }
 
 /** Nối vào một tab mới và bật sẵn MỌI kênh báo lỗi TRƯỚC khi điều hướng. */
-export async function moTab(cong) {
+/**
+ * Mở một tab mới và nối vào nó.
+ *
+ * `chanApi` (mặc định true) chặn `/api/access` và trả lời "đã kích hoạt", tức
+ * dựng lại trạng thái KHÁCH ĐÃ MUA. Đặt false khi muốn đi qua **cổng thật** —
+ * ví dụ kiểm bản live, nơi API có thật và việc cổng đó chặn đúng là một phần
+ * của phép kiểm.
+ *
+ * ⚠️ VÌ SAO CÓ THAM SỐ NÀY: `scripts/kiem_live_trinh_duyet.mjs` ghi ở đầu file
+ * rằng "Ở đây KHÔNG chặn /api/access", nhưng nó gọi `moTab(cong)` và bản cũ của
+ * hàm này chặn VÔ ĐIỀU KIỆN. Nên dòng nó in ra — "vào được app (không kẹt màn
+ * kích hoạt): true" — là đo trên một phiên ĐÃ ĐƯỢC GIẢ LÀ premium, không phải
+ * đo cổng thật. Đo lại bằng curl: live trả về 401 {"authenticated":false}, tức
+ * khách thật GẶP cổng. Bộ đo nói ngược với sự thật nó định đo.
+ */
+export async function moTab(cong, { chanApi = true } = {}) {
   const tab = await (await fetch(`http://127.0.0.1:${cong}/json/new?about:blank`, { method: 'PUT' })).json();
   const ws = new WebSocket(tab.webSocketDebuggerUrl);
   await new Promise((r, j) => { ws.onopen = r; ws.onerror = () => j(new Error('không nối được tab')); });
@@ -116,7 +131,9 @@ export async function moTab(cong) {
   await goi('Log.enable');
   await goi('Network.enable');
   await goi('Page.enable');
-  await goi('Fetch.enable', { patterns: [{ urlPattern: '*/api/*' }] });
+  // Chỉ bật khi thật sự cần chặn: bật rồi không chặn thì mọi request /api/* bị
+  // treo chờ `continueRequest`, chậm mà không rõ vì sao.
+  if (chanApi) await goi('Fetch.enable', { patterns: [{ urlPattern: '*/api/*' }] });
 
   const danhGia = async (bieuThuc) => {
     const r = await goi('Runtime.evaluate', { expression: bieuThuc, awaitPromise: true, returnByValue: true });
