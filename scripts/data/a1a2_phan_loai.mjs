@@ -26,7 +26,7 @@
 
 /** 'soan' = hỏi được ngay, không phải viết lại. 'viet-lai' = diễu hành từ vựng. */
 export const PHAN_LOAI_A1 = {
-  // ── ĐÃ SOẠN XONG 19/08 (9 chặng · 36 câu) ─────────────────────────────────
+  // ── ĐỢT MỘT 19/08 (9 chặng · 36 câu) ──────────────────────────────────────
   'kids-starter': { nhom: 'soan', xong: true, vi: 'Truyện ngôi thứ nhất của Luna: chào mặt trời, chạy tới trường cùng con mèo, cô giáo khen, thấy cầu vồng. Bốn mốc kể chuyện rõ ràng.' },
   'food-cooking': { nhom: 'soan', xong: true, vi: 'Hai cảnh có trình tự: lớp nấu ăn (thái/gọt/cắt → đun nước → rán hành) và bữa tối Chủ nhật (mẹ quay gà, bố nướng bánh kẹp).' },
   'time-dates-beginner': { nhom: 'soan', xong: true, vi: 'Thói quen CỦA MỘT NGƯỜI CỤ THỂ: dậy 6h30, học thứ Hai–thứ Sáu, ngủ trước nửa đêm, sinh nhật tháng Năm.' },
@@ -37,11 +37,11 @@ export const PHAN_LOAI_A1 = {
   'house-rooms-beginner-p2': { nhom: 'soan', xong: true, vi: 'Nhà bốn phòng, có số đếm và vị trí kiểm được: mở cửa vào là phòng khách, tranh và đồng hồ trên tường.' },
   'school-classroom-beginner': { nhom: 'soan', xong: true, vi: 'Lớp học cụ thể: cô đứng gần bảng trắng dùng phấn hoặc bút, trong cặp có vở/bút chì/tẩy/thước, thích toán nhưng khoa học và lịch sử cũng hay.' },
 
-  // ── HỎI ĐƯỢC, CHƯA SOẠN (đợt sau) ─────────────────────────────────────────
-  'numbers-time-beginner': { nhom: 'soan', xong: false, vi: 'Có mốc cá nhân neo được (dậy 7h, ngủ trước nửa đêm để ngủ đủ 8 tiếng), nhưng nửa bài là kiến thức chung (60 giây một phút) nên phải chọn câu cẩn thận.' },
-  'body-parts-beginner': { nhom: 'soan', xong: false, vi: 'Ngôi thứ nhất và có thói quen riêng (rửa tay bằng xà phòng TRƯỚC KHI ăn, chải tóc), nhưng phần tả bộ phận cơ thể là kiến thức chung.' },
-  'numbers-shapes-beginner': { nhom: 'soan', xong: false, vi: 'Có phát biểu kiểm được từ chính bài: 10 quả táo thêm 5 thành 15, bớt 2 còn 8; cô bảo vẽ TIM ĐỎ và SAO VÀNG; cửa lớp là hình chữ nhật.' },
-  'travel-transport-beginner': { nhom: 'soan', xong: false, vi: 'Có trình tự chuyến đi (soạn hành lý → hộ chiếu và thị thực nếu ra nước ngoài → đặt phòng khách sạn), tuy phần lớn viết theo lối "bạn có thể…".' },
+  // ── ĐỢT HAI 19/08 (4 chặng · 16 câu) — khó hơn vì nửa bài là kiến thức chung ─
+  'numbers-time-beginner': { nhom: 'soan', xong: true, vi: 'Có mốc cá nhân neo được (dậy 7h, ngủ trước nửa đêm để ngủ đủ 8 tiếng), nhưng nửa bài là kiến thức chung (60 giây một phút) nên phải chọn câu cẩn thận.' },
+  'body-parts-beginner': { nhom: 'soan', xong: true, vi: 'Ngôi thứ nhất và có thói quen riêng (rửa tay bằng xà phòng TRƯỚC KHI ăn, chải tóc), nhưng phần tả bộ phận cơ thể là kiến thức chung.' },
+  'numbers-shapes-beginner': { nhom: 'soan', xong: true, vi: 'Có phát biểu kiểm được từ chính bài: 10 quả táo thêm 5 thành 15, bớt 2 còn 8; cô bảo vẽ TIM ĐỎ và SAO VÀNG; cửa lớp là hình chữ nhật.' },
+  'travel-transport-beginner': { nhom: 'soan', xong: true, vi: 'Có trình tự chuyến đi (soạn hành lý → hộ chiếu và thị thực nếu ra nước ngoài → đặt phòng khách sạn), tuy phần lớn viết theo lối "bạn có thể…".' },
 
   // ── DIỄU HÀNH TỪ VỰNG — CẦN VIẾT LẠI ──────────────────────────────────────
   'animals-pets-beginner': { nhom: 'viet-lai', vi: 'Danh mục định nghĩa: "A dog is a very friendly animal", "A cat is also a popular pet". Hỏi gì cũng thành hỏi kiến thức chung về con vật.' },

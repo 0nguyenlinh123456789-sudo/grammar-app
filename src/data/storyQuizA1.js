@@ -2664,6 +2664,197 @@ export const STORY_QUIZ_A1 = {
       dan: 'At the end of the day, we close our book and the teacher gives us homework.',
     },
   ],
+
+  // ── ĐỢT HAI 19/08 — bốn chặng A1 còn lại của nhóm "hỏi được" ──────────────
+  // Bốn bài này khó soạn hơn chín bài trước vì NỬA BÀI LÀ KIẾN THỨC CHUNG (60
+  // giây một phút; mắt để nhìn; hình vuông có bốn cạnh). Hỏi vào đó là hỏi về
+  // THẾ GIỚI, người học ghi điểm mà chưa đọc bài. Nên mọi câu dưới đây neo vào
+  // chi tiết CHỈ CÓ trong chính bài: mười ngón, mười apple thêm năm, tim ĐỎ và
+  // sao VÀNG, con đường rộng còn lối trong vườn hẹp.
+  'numbers-time-beginner': [
+    {
+      q: 'Bài đưa ra hai cách nói giờ nào làm ví dụ?',
+      options: [
+        '"Chín giờ" và "mười giờ rưỡi"',
+        '"Bảy giờ" và "mười hai giờ trưa"',
+        '"Sáu giờ rưỡi" và "chín giờ tối"',
+        '"Nửa đêm" và "tám giờ sáng"',
+      ],
+      answer: 0,
+      dan: "When people ask 'What time is it?', you can say 'It is nine o'clock' or 'It is half past ten'.",
+    },
+    {
+      q: 'Người kể thức dậy lúc mấy giờ?',
+      options: [
+        'Bảy giờ',
+        'Sáu giờ',
+        'Mười giờ rưỡi',
+        'Mười hai giờ trưa',
+      ],
+      answer: 0,
+      dan: 'At 7 o\'clock, I wake up.',
+    },
+    {
+      q: 'Vì sao người kể luôn đi ngủ trước nửa đêm?',
+      options: [
+        'Để ngủ được đủ tám tiếng',
+        'Để kịp thức dậy lúc bảy giờ',
+        'Để có thời gian rảnh vào cuối tuần',
+        'Để không bao giờ bị muộn giờ làm',
+      ],
+      answer: 0,
+      dan: 'I always go to bed before midnight, so I can sleep for eight hours.',
+    },
+    {
+      q: 'Theo bài, người kể làm gì để không bao giờ bị muộn?',
+      options: [
+        'Lên lịch trong sổ và xem đồng hồ đeo tay',
+        'Đi ngủ trước nửa đêm và ngủ đủ tám tiếng',
+        'Thức dậy sớm từ bảy giờ mỗi buổi sáng',
+        'Chỉ làm việc từ sáng tới hết buổi chiều',
+      ],
+      answer: 0,
+      dan: 'Sometimes I feel like there is never enough time in a day, but if I plan my calendar and check my watch, I am never late.',
+    },
+  ],
+  'body-parts-beginner': [
+    {
+      q: 'Người kể nói mình có bao nhiêu ngón tay và bao nhiêu ngón chân?',
+      options: [
+        'Mười ngón tay và mười ngón chân',
+        'Mười ngón tay và năm ngón chân',
+        'Năm ngón tay và mười ngón chân',
+        'Hai bàn tay và hai bàn chân',
+      ],
+      answer: 0,
+      dan: 'I have ten fingers on my hands.',
+    },
+    {
+      q: 'Người kể dùng hai bàn tay để làm những việc gì?',
+      options: [
+        'Chạm vào đồ vật, giữ một quyển sách, hoặc vỗ tay',
+        'Đứng, đi bộ, chạy và nhảy lên khỏi mặt đất',
+        'Nhai thức ăn, nói chuyện, ăn uống và mỉm cười',
+        'Rửa mặt, đánh răng và chải lại mái tóc mỗi ngày',
+      ],
+      answer: 0,
+      dan: 'I use my hands to touch things, hold a book, or clap.',
+    },
+    {
+      q: 'Người kể rửa tay bằng xà phòng vào lúc nào?',
+      options: [
+        'Trước khi ăn',
+        'Sau khi ăn xong',
+        'Trước khi đi ngủ',
+        'Sau khi chạy và nhảy',
+      ],
+      answer: 0,
+      dan: 'I wash my hands with soap and water before I eat.',
+    },
+    {
+      q: 'Ba việc người kể làm để chăm sóc cơ thể mỗi ngày là gì?',
+      options: [
+        'Rửa mặt, đánh răng và chải tóc',
+        'Rửa tay, uống nước và ăn đồ ăn lành',
+        'Đứng, đi bộ và chạy cho cơ thể khoẻ',
+        'Ngủ, nghỉ và tới bệnh viện gặp bác sĩ',
+      ],
+      answer: 0,
+      dan: 'I wash my face, brush my teeth, and comb my hair.',
+    },
+  ],
+  'numbers-shapes-beginner': [
+    {
+      q: 'Theo ví dụ trong bài, mười quả táo thêm năm quả thì được bao nhiêu?',
+      options: [
+        'Mười lăm quả',
+        'Tám quả',
+        'Hai mươi quả',
+        'Mười hai quả',
+      ],
+      answer: 0,
+      dan: 'If you have ten apples and you add five, you get fifteen apples.',
+    },
+    {
+      q: 'Còn mười quả táo bớt đi hai quả thì còn lại bao nhiêu?',
+      options: [
+        'Tám quả',
+        'Mười lăm quả',
+        'Mười hai quả',
+        'Năm quả',
+      ],
+      answer: 0,
+      dan: 'If you have ten apples and you subtract two, you have eight left.',
+    },
+    {
+      q: 'Cô giáo yêu cầu cả lớp vẽ những gì?',
+      options: [
+        'Một trái tim màu đỏ và một ngôi sao màu vàng',
+        'Một trái tim màu vàng và một ngôi sao màu đỏ',
+        'Một đường thẳng và một đường cong trên giấy',
+        'Một hình vuông bốn cạnh và một hình tam giác',
+      ],
+      answer: 0,
+      dan: 'Our teacher asks us to draw a red heart and a yellow star.',
+    },
+    {
+      q: 'Bài so sánh con đường về nhà với lối đi trong vườn thế nào?',
+      options: [
+        'Đường về nhà thì rộng, còn lối trong vườn thì hẹp',
+        'Đường về nhà thì hẹp, còn lối trong vườn thì rộng',
+        'Đường về nhà thì dài, còn lối trong vườn thì ngắn',
+        'Cả hai đều hẹp, chỉ khác nhau ở chỗ dài hay ngắn',
+      ],
+      answer: 0,
+      dan: 'The road to my house is wide, but the path in the garden is narrow.',
+    },
+  ],
+  'travel-transport-beginner': [
+    {
+      q: 'Theo bài, việc cần làm TRƯỚC KHI đi là gì?',
+      options: [
+        'Soạn túi và hành lý của mình',
+        'Đặt một phòng khách sạn có giường êm',
+        'Xem bản đồ hoặc nghe hướng dẫn viên',
+        'Mua vé rồi ra sân bay để lên máy bay',
+      ],
+      answer: 0,
+      dan: 'Before you go, you pack your bag and your luggage.',
+    },
+    {
+      q: 'Bài nhắc đừng quên thứ gì khi đi sang một nước khác?',
+      options: [
+        'Hộ chiếu và thị thực',
+        'Vé máy bay và bản đồ',
+        'Máy ảnh để chụp hình',
+        'Túi và hành lý của mình',
+      ],
+      answer: 0,
+      dan: "Don't forget your passport and visa if you go to another country.",
+    },
+    {
+      q: 'Khi tới nơi, khách du lịch có thể làm gì để đi thăm các nơi đẹp?',
+      options: [
+        'Xem bản đồ hoặc nghe hướng dẫn viên du lịch',
+        'Đặt một phòng khách sạn rồi nghỉ trên giường êm',
+        'Soạn lại túi và hành lý cho gọn trước khi ra ngoài',
+        'Gọi một chiếc taxi hoặc thuê một chiếc xe đạp',
+      ],
+      answer: 0,
+      dan: 'As a tourist or visitor, you can look at a map or listen to a tour guide to visit beautiful places.',
+    },
+    {
+      q: 'Bài kết lại bằng lời nhắc nào?',
+      options: [
+        'Nhớ mang máy ảnh để chụp lại những nơi mình thấy',
+        'Nhớ mang hộ chiếu và thị thực nếu ra nước ngoài',
+        'Nhớ đặt phòng khách sạn trước khi bắt đầu chuyến đi',
+        'Nhớ đội mũ bảo hiểm và cài dây an toàn cho an toàn',
+      ],
+      answer: 0,
+      dan: 'Just remember to bring your camera to take a beautiful picture or photo of the sun and the places you see.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_A1;
