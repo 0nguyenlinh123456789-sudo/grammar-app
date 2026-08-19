@@ -3048,6 +3048,337 @@ export const STORY_QUIZ_A1 = {
       dan: 'The only factory in our town is outside it, beyond the bridge and close to the river.',
     },
   ],
+
+  // ══ ĐỢT HAI 19/08 — 7 CHẶNG A1 CÒN LẠI, ĐÃ VIẾT LẠI BÀI ĐỌC ════════════════════════════════
+  // Bảy chặng này trước đây là diễu hành từ vựng ("A dog is a very friendly
+  // animal"), nên chúng nằm trong nhóm 'viet-lai' và mang băng cảnh báo cam.
+  // Bài đọc ĐÃ ĐƯỢC VIẾT LẠI thành một cảnh có nhân vật và có việc xảy ra —
+  // xem `scripts/data/viet_lai_bai_doc.mjs`. Nay hỏi được, nên soạn câu.
+  //
+  // `dan` ở đây do MÁY lấy từ chính mảng câu của bài, không gõ lại — cùng lý do
+  // đã phải chép bằng máy ở đợt A2 (dấu gạch ngang, nháy lồng nhau).
+  'body-health-beginner-p3': [
+    {
+      q: 'Long bị đau ở đâu?',
+      options: [
+        'Đầu gối bên trái',
+        'Đầu gối bên phải',
+        'Đầu bên trái',
+        'Bàn chân bên trái',
+      ],
+      answer: 0,
+      dan: 'During the sports lesson my friend Long fell on the hard ground and hurt his left knee.',
+    },
+    {
+      q: 'Cô y tế kết luận vì sao người kể bị đau đầu?',
+      options: [
+        'Vì ngủ quá ít, không phải vì bệnh',
+        'Vì bị sốt nhẹ từ buổi sáng',
+        'Vì chạy nhiều trong giờ thể dục',
+        'Vì uống quá ít nước cả ngày',
+      ],
+      answer: 0,
+      dan: 'She checked my temperature, and it was normal, so she said the problem was sleep, not illness.',
+    },
+    {
+      q: 'Vì sao cô y tế không tự xử lý cho Hoa?',
+      options: [
+        'Vì cô không làm gì được với một cái răng',
+        'Vì Hoa phải về nhà nghỉ ngay lập tức',
+        'Vì thuốc trong phòng y tế đã hết',
+        'Vì Hoa còn bị sốt cao hơn bình thường',
+      ],
+      answer: 0,
+      dan: 'The nurse could do nothing for a tooth, so she called Hoa\'s mother to take her to the dentist.',
+    },
+    {
+      q: 'Cô y tế cho Long chơi lại với điều kiện gì?',
+      options: [
+        'Đau là phải ngừng chơi ngay',
+        'Phải chờ thêm một tuần nữa',
+        'Phải đi gặp bác sĩ ở bệnh viện',
+        'Phải ngủ đủ tám tiếng mỗi đêm',
+      ],
+      answer: 0,
+      dan: 'She checked it once more and said yes, but only if he stopped playing the moment it hurt.',
+    },
+  ],
+  'food-drinks-beginner-p2': [
+    {
+      q: 'Vì sao món tỏi đầu tiên phải bỏ đi?',
+      options: [
+        'Vì để trên lửa quá lâu nên cháy đen và đắng',
+        'Vì tỏi mua ở chợ sáng đó đã bị hỏng sẵn rồi',
+        'Vì người kể cho muối vào tỏi hai lần',
+        'Vì em trai không ăn được món có tỏi',
+      ],
+      answer: 0,
+      dan: 'I fried the garlic first, and I left it on the heat too long, so it turned black and bitter.',
+    },
+    {
+      q: 'Vì sao em trai người kể không ăn cá?',
+      options: [
+        'Vì sợ xương cá',
+        'Vì cá bị mặn quá',
+        'Vì em thích trứng hơn',
+        'Vì cá đã nguội hết',
+      ],
+      answer: 0,
+      dan: 'The fish came out well, but my little brother would not eat any of it because of the bones.',
+    },
+    {
+      q: 'Món canh bị mặn vì lý do gì?',
+      options: [
+        'Vì cho muối hai lần, do quên mất lần đầu',
+        'Vì nước dùng bị cạn khi đun quá lâu',
+        'Vì cho cả muối lẫn nước mắm vào canh',
+        'Vì mẹ đã cho muối trước khi người kể nấu',
+      ],
+      answer: 0,
+      dan: 'The soup was too salty, because I added salt twice and forgot the first time.',
+    },
+    {
+      q: 'Bố người kể nhận xét thế nào về bữa ăn?',
+      options: [
+        'Nói thật rằng món canh là chỗ yếu',
+        'Nói bữa ăn ngon hết, không có chỗ nào dở',
+        'Không nói gì cho tới khi ăn xong bữa',
+        'Nói món cá dở hơn cá ở nhà hàng',
+      ],
+      answer: 0,
+      dan: 'My mother said the meal was delicious, but my father said the truth: the soup was the weak part.',
+    },
+  ],
+  'animals-nature-beginner': [
+    {
+      q: 'Vì sao ông gọi người kể dậy lúc bốn giờ ba mươi?',
+      options: [
+        'Vì ông nói chim hát hay nhất trước khi mặt trời lên',
+        'Vì hai người phải lên tới đỉnh núi trước khi trời mưa',
+        'Vì con cáo chỉ băng qua lối mòn vào sáng sớm',
+        'Vì nước hồ trên đỉnh lạnh nhất vào lúc đó',
+      ],
+      answer: 0,
+      dan: 'He wakes me at half past four, because he says the birds sing best before the sun comes up.',
+    },
+    {
+      q: 'Khi thấy con cáo, ông đã làm gì?',
+      options: [
+        'Không động đậy, và đặt tay lên vai người kể',
+        'Chỉ tay về phía rừng cho người kể nhìn theo',
+        'Bật cười vì người kể hét lên quá to',
+        'Dừng lại ở tảng đá phẳng để nghỉ năm phút',
+      ],
+      answer: 0,
+      dan: 'My grandfather did not move at all, and he put his hand on my shoulder so that I would not move either.',
+    },
+    {
+      q: 'Người kể đếm được bao nhiêu con ong trên một bông hoa?',
+      options: [
+        'Mười một con',
+        'Năm con',
+        'Mười con',
+        'Hai mươi con',
+      ],
+      answer: 0,
+      dan: 'On the way down we passed a dead tree covered in insects, and I counted eleven bees on one flower.',
+    },
+    {
+      q: 'Ông nói gì khi người kể hét lên vì con ếch?',
+      options: [
+        'Con ếch sợ người kể còn hơn người kể sợ nó',
+        'Ngọn núi dạy nhiều hơn bất cứ quyển sách nào',
+        'Con chim xám trong hồ năm nào cũng là con đó',
+        'Trời sắp mưa to nên phải xuống núi ngay',
+      ],
+      answer: 0,
+      dan: 'He told me the frog was more afraid of me than I was of it.',
+    },
+  ],
+  'nature-animals-beginner': [
+    {
+      q: 'Vì sao cô giáo đếm cả lớp bốn lần trên đường?',
+      options: [
+        'Vì cô sợ mất một đứa nào đó',
+        'Vì xe buýt phải dừng lại bốn lần',
+        'Vì có tám đứa lần đầu được thấy biển',
+        'Vì cô muốn chia lớp thành bốn nhóm',
+      ],
+      answer: 0,
+      dan: 'Our teacher counted us four times on the way, because she was afraid of losing someone.',
+    },
+    {
+      q: 'Sau khi tìm thấy con cua dưới hòn đá, cả lớp làm gì?',
+      options: [
+        'Đặt hòn đá lại đúng như cũ',
+        'Mang con cua về cho cô giáo xem',
+        'Thả con cua xuống nước rồi đi tiếp',
+        'Lấy hòn đá đó mang về làm quà',
+      ],
+      answer: 0,
+      dan: 'In the afternoon we found a small crab under a stone, and we put the stone back exactly as it was.',
+    },
+    {
+      q: 'Vì sao buổi tối không ai bơi được?',
+      options: [
+        'Vì gió mạnh lên và biển động',
+        'Vì trời đã tối hẳn và đầy sao',
+        'Vì cô giáo thổi còi gọi cả lớp về',
+        'Vì trời mưa suốt cả buổi tối đó',
+      ],
+      answer: 0,
+      dan: 'That evening the wind grew strong, and the sea became too rough for anyone to swim.',
+    },
+    {
+      q: 'Theo cô giáo, vì sao cả lớp không thấy con vật hoang dã nào?',
+      options: [
+        'Vì các con vật đã thấy cả lớp từ lâu trước khi lớp tới',
+        'Vì trời mưa nên các con vật đều trú trong hang',
+        'Vì khu rừng phía sau bãi biển vốn không có con vật nào',
+        'Vì cả lớp đi quá nhanh nên không kịp nhìn thấy',
+      ],
+      answer: 0,
+      dan: 'The teacher said we were lucky, because the animals had seen us long before we arrived.',
+    },
+  ],
+  'human-body-beginner': [
+    {
+      q: 'Luật duy nhất thầy đưa ra trong ngày đầu là gì?',
+      options: [
+        'Thở ra dưới nước, không bao giờ thở vào',
+        'Bám vào thành bể bằng cả hai tay',
+        'Đạp chân chầm chậm và đừng dùng tay',
+        'Không bao giờ cười một người mới học',
+      ],
+      answer: 0,
+      dan: 'On the first day he said the only rule was to breathe out under the water, never in.',
+    },
+    {
+      q: 'Người kể bơi được lần đầu trong hoàn cảnh nào?',
+      options: [
+        'Thầy rút tay đỡ bụng ra mà người kể không nhận ra',
+        'Người kể tự bỏ tay khỏi thành bể ở buổi thứ ba',
+        'Sau một tháng bơi hết chiều dài bể hai lượt',
+        'Sau khi thầy bảo dùng tay ít và dùng chân nhiều hơn',
+      ],
+      answer: 0,
+      dan: 'When he took his hand away I did not notice for several seconds, and by then I was swimming.',
+    },
+    {
+      q: 'Theo thầy, vì sao hai cánh tay người kể bị yếu?',
+      options: [
+        'Vì dùng tay quá nhiều và dùng chân quá ít',
+        'Vì nhấc cặp sách bằng vai phải quá nặng',
+        'Vì đạp phải thành bể trong tuần thứ hai',
+        'Vì uống quá nhiều nước ở buổi học đầu',
+      ],
+      answer: 0,
+      dan: 'He said that meant I was using my arms too much and my legs too little.',
+    },
+    {
+      q: 'Vì sao đầu gối người kể vẫn đau vào ngày lạnh?',
+      options: [
+        'Vì tuần thứ hai đạp phải thành bể',
+        'Vì bơi hai lượt bể mà không dừng nghỉ',
+        'Vì đạp chân quá chậm trong buổi thứ tư',
+        'Vì bám thành bể bằng hai tay suốt ba buổi',
+      ],
+      answer: 0,
+      dan: 'My knees still hurt on cold days, because I kicked the wall by mistake in the second week.',
+    },
+  ],
+  'colors-shapes-beginner-p3': [
+    {
+      q: 'Bài tập cô dạy vẽ đưa ra là gì?',
+      options: [
+        'Vẽ chính phòng mình theo trí nhớ, không kẻ bút chì',
+        'Vẽ phòng mình sau khi đo tất cả các món đồ trong đó',
+        'Vẽ hai bức về cùng một phòng rồi so sánh',
+        'Vẽ một hình chữ nhật và một hình vuông',
+      ],
+      answer: 0,
+      dan: 'Our art teacher gave the class one strange task: paint your own room from memory, with no pencil lines.',
+    },
+    {
+      q: 'Hai chị em vẽ cái cửa sổ khác nhau thế nào?',
+      options: [
+        'Người kể vẽ hình chữ nhật rộng, em vẽ gần như hình vuông',
+        'Người kể vẽ gần như hình vuông, em vẽ hình chữ nhật rộng',
+        'Người kể vẽ cửa sổ tròn, em vẽ cửa sổ chữ nhật',
+        'Cả hai vẽ giống nhau, chỉ khác màu của khung',
+      ],
+      answer: 0,
+      dan: 'In my picture the window is a wide rectangle, but in my sister\'s it is almost square.',
+    },
+    {
+      q: 'Chi tiết nào chỉ em gái nhớ mà người kể quên hẳn?',
+      options: [
+        'Một trái tim đỏ nhỏ em vẽ lên tường lúc sáu tuổi',
+        'Một đường kẻ đen mảnh chạy dọc theo sàn nhà gỗ',
+        'Cái đồng hồ tròn màu trắng phía trên cửa',
+        'Cái màn cửa có hai mặt hai màu khác nhau',
+      ],
+      answer: 0,
+      dan: 'She remembered a small red heart she had drawn on the wall when she was six; I had forgotten it completely.',
+    },
+    {
+      q: 'Cuối cùng hóa ra cái màn cửa như thế nào?',
+      options: [
+        'Một mặt xanh lá, mặt kia xanh dương',
+        'Xanh lá hết, nên em gái đã đúng',
+        'Xanh dương hết, nên người kể đã đúng',
+        'Đã được đổi màu từ hồi em sáu tuổi',
+      ],
+      answer: 0,
+      dan: 'The curtain, we found out, is green on one side and blue on the other.',
+    },
+  ],
+  'school-life-100': [
+    {
+      q: 'Cô giáo xử lý việc quên bài tập hôm thứ Ba thế nào?',
+      options: [
+        'Viết lời nhắn vào vở và nhờ mẹ ký vào đó',
+        'Cho làm lại bài tập đó vào hôm thứ Sáu',
+        'Bắt đọc chung sách với bạn cùng lớp',
+        'Không nói gì và bỏ qua chuyện đó luôn',
+      ],
+      answer: 0,
+      dan: 'My teacher did not shout; she wrote a note in my notebook and asked my mother to sign it.',
+    },
+    {
+      q: 'Vì sao người kể học sai môn cho bài kiểm tra thứ Năm?',
+      options: [
+        'Vì đọc sai tuần trên tờ lịch',
+        'Vì quên mất giờ thi là tám giờ',
+        'Vì để quên sách giáo khoa ở nhà',
+        'Vì mất cái thước và cái tẩy hôm thứ Tư',
+      ],
+      answer: 0,
+      dan: 'I had studied for the science test instead, because I read the wrong week on the calendar.',
+    },
+    {
+      q: 'Người kể trả lời được bao nhiêu câu trong bài kiểm tra đó?',
+      options: [
+        'Chín trong hai mươi câu',
+        'Mười trong hai mươi câu',
+        'Chín trong mười câu',
+        'Hai mươi trong hai mươi câu',
+      ],
+      answer: 0,
+      dan: 'I answered only nine of the twenty questions, and my score was the lowest in the class.',
+    },
+    {
+      q: 'Lời khuyên cô giáo cho người kể là gì?',
+      options: [
+        'Viết mọi thứ ra giấy, đừng để trong đầu',
+        'Xem lại sổ hai lần mỗi ngày cho chắc',
+        'Đừng bao giờ để quên sách ở nhà nữa',
+        'Học trước cho cả hai môn để khỏi sai',
+      ],
+      answer: 0,
+      dan: 'She also gave me one piece of advice: write everything on paper, never in your head.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_A1;

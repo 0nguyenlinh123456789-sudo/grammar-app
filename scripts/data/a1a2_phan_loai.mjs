@@ -54,18 +54,24 @@ export const PHAN_LOAI_A1 = {
   // không được lặng lẽ có câu hỏi" mà tôi ghi là "để dành bắn về sau" đã bắn lần
   // đầu, đúng lúc cần.
 
-  // ── DIỄU HÀNH TỪ VỰNG — CẦN VIẾT LẠI ──────────────────────────────────────
+  // ── BẬC A1 KHÔNG CÒN CHẶNG NÀO CẦN VIẾT LẠI ───────────────────────────────
+  // Cả 24 chặng A1 nay đều ở nhóm 'soan' và đều `xong: true`. 11 chặng từng bị
+  // xếp là diễu hành từ vựng đã được VIẾT LẠI CHÍNH BÀI ĐỌC trong hai đợt ngày
+  // 19/08 (4 chặng ở commit 9b745eb, 7 chặng ngay sau đó), rồi mới soạn câu hỏi.
+  // Không chặng A1 nào còn mang băng cảnh báo cam.
+  //
+  // Việc còn lại của cả bảng này nằm hết ở bậc A2: 23 chặng.
   'animals-pets-beginner': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: từ danh mục định nghĩa thành chuyện của Mai — chó Bo còn nhỏ, mèo Mun lông xám một chân trắng, đi trang trại cậu, đi sở thú với lớp. Con sư tử ngủ trong bóng mát nên cả lớp không thấy; con khỉ lấy mũ của Nam.' },
   'transport-vehicles-beginner': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành một chuyến đi có thật từ làng ra sân bay — trượt xe buýt bảy giờ vì không tìm thấy vé, qua sông bằng cầu cũ vì đường hầm đóng, bác tài taxi đòi thắt dây an toàn trước khi nổ máy.' },
   'body-health-beginner-p2': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành một đợt cả nhà ốm — anh trai đau răng đi nha sĩ, người kể sốt ba mươi chín độ, y tá đo huyết áp trước, bác sĩ dặn một viên hai lần một ngày sau khi ăn trong năm ngày.' },
-  'body-health-beginner-p3': { nhom: 'viet-lai', vi: 'Cùng dạng với bản p2, viết lại bằng lời khác. Thêm phần vệ sinh nhưng vẫn là lời khuyên chung.' },
+  'body-health-beginner-p3': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành một ngày ba học sinh cùng vào phòng y tế — Long đau đầu gối TRÁI, người kể đau đầu vì ngủ có bốn tiếng chứ không phải vì bệnh, Hoa đau răng nên cô y tế đành gọi mẹ đưa đi nha sĩ.' },
   'places-buildings-beginner': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành một thị trấn có địa lý kiểm được — chợ đối diện bưu điện, thư viện phía trên quán cà phê lên bằng cầu thang hông, bà ở căn hộ tầng năm, nhà máy ngoài thị trấn bên kia cầu.' },
-  'food-drinks-beginner-p2': { nhom: 'viet-lai', vi: 'Danh mục món ăn theo bữa. Có chữ "First… Then…" nhưng chủ ngữ là "families" chung chung, không phải một bữa ăn có thật.' },
-  'animals-nature-beginner': { nhom: 'viet-lai', vi: 'Diễu hành thiên nhiên và con vật. Các câu là định nghĩa rời ("A dog runs fast, and a cat sleeps all day").' },
-  'nature-animals-beginner': { nhom: 'viet-lai', vi: '0 dấu hiệu tường thuật, và đo bằng mắt cũng đúng: một chuỗi "you can see…" từ đầu tới cuối.' },
-  'human-body-beginner': { nhom: 'viet-lai', vi: 'Bài giải phẫu đi từ đầu xuống chân, câu nào cũng là định nghĩa chung ai cũng biết: mắt để nhìn, tai để nghe, tim bơm máu. Không một chi tiết nào riêng của bài để neo câu hỏi.' },
-  'colors-shapes-beginner-p3': { nhom: 'viet-lai', vi: 'Danh mục màu và hình, nối bằng "when you look around". Không có sự việc nào.' },
-  'school-life-100': { nhom: 'viet-lai', vi: 'Chỉ 5 câu / 77 từ — dưới CẢ hai ngưỡng độ dài, không phải chỉ trượt phần đếm đại từ. Ngắn tới mức bốn câu hỏi sẽ hỏi lại cùng một chỗ.' },
+  'food-drinks-beginner-p2': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành bữa tối sinh nhật mẹ do người kể tự nấu — tỏi cháy đen vì để lửa quá lâu, canh mặn vì cho muối hai lần, em trai không ăn cá vì sợ xương, bố nói thật là canh dở.' },
+  'animals-nature-beginner': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành những buổi lên đồi với ông lúc bốn giờ ba mươi — thấy con cáo băng qua lối mòn, đếm được mười một con ong trên một bông hoa, ông bảo con ếch sợ mình hơn mình sợ nó.' },
+  'nature-animals-beginner': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyến đi biển hai ngày của lớp — cô đếm học sinh bốn lần vì sợ mất người, đặt lại hòn đá đúng như cũ sau khi xem con cua, gió mạnh nên tối không ai bơi được.' },
+  'human-body-beginner': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyện học bơi năm mười hai tuổi — luật duy nhất là thở RA dưới nước, bơi được lần đầu lúc thầy rút tay đỡ bụng mà không hay, tay yếu vì dùng tay nhiều chân ít.' },
+  'colors-shapes-beginner-p3': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành bài vẽ phòng mình theo trí nhớ — hai chị em vẽ màn cửa hai màu khác nhau, cửa sổ một bức chữ nhật rộng một bức gần vuông, và cuối cùng màn cửa hóa ra hai mặt hai màu.' },
+  'school-life-100': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08 (bài cũ chỉ 77 từ/5 câu, dưới CẢ hai ngưỡng độ dài): thành một tháng hay quên — cô viết lời nhắn nhờ mẹ ký, học sai môn vì đọc sai tuần trên lịch, chỉ làm được chín trên hai mươi câu.' },
 };
 
 // ══ BẬC A2 (elementary) — ĐÃ ĐỌC HẾT 28 CHẶNG 19/08 ══════════════════════

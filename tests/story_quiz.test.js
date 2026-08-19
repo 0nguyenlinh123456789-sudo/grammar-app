@@ -25,8 +25,8 @@ const DATA = path.join(ROOT, 'src', 'data');
 
 // Bánh cóc: chỉ được tăng. Số ĐO ĐƯỢC khi soạn xong cả ba bậc B1, B2 và C1 —
 // 121/122 chặng ≥B1 (một chặng loại có lý do, xem đầu src/data/storyQuiz.js).
-const CHU_DE_TOI_THIEU = 236;
-const CAU_HOI_TOI_THIEU = 944;
+const CHU_DE_TOI_THIEU = 243;
+const CAU_HOI_TOI_THIEU = 972;
 
 async function napGop(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
@@ -164,8 +164,17 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
 // được" đứng y nguyên ở 2,9% và tôi đã nói thẳng là không cải thiện). Mức
 // giảm nhỏ vì 20 câu trên 928 thì chỉ đổi được chừng đó — nói ra để không ai
 // đọc con số này thành một bước tiến lớn.
-const THIEN_LECH_TOI_DA = 0.377;
-const THAY_DUOC_TOI_DA = 0.028;  // đo 2,75% — siết mốc nữa thì sát mép quá
+const THIEN_LECH_TOI_DA = 0.371;
+// ⚠️ BÁNH CÓC NÀY ĐÃ BẮT ĐƯỢC TÔI, ghi lại vì đó là lần nó chứng minh mình có
+// việc để làm. Soạn xong 28 câu cho 7 chặng A1 viết lại, đo ra 3,09% — TỆ HƠN
+// mốc 0.028 đang ghim, nên test đỏ. Bốn câu là nguyên nhân: đáp án đúng dài hơn
+// câu nhiễu nhì từ 11% đến 20% (một câu về tỏi cháy, một câu về giờ ông gọi dậy,
+// hai câu ở bài vẽ phòng). Cách sửa là VIẾT DÀI CÂU NHIỄU RA, không phải cắt ngắn
+// đáp án đúng — đáp án phải giữ đúng nội dung bài. Sửa xong đo lại: 2,67%.
+//
+// Nếu lúc đó tôi nới mốc lên 0.031 cho test xanh thì kho vừa lớn thêm 28 câu vừa
+// tệ đi, và không ai biết. Đó đúng là việc mà bánh cóc tồn tại để chặn.
+const THAY_DUOC_TOI_DA = 0.027;
 
 test(`thiên lệch độ dài chỉ được giảm (dài nhất ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}% · thấy được ${(THAY_DUOC_TOI_DA * 100).toFixed(1)}% · không thiên lệch ≈ 25%)`, async () => {
   const { doThienLech } = await import('../scripts/audit_story_quiz.mjs');
@@ -265,7 +274,9 @@ const A1A2_CON_THIEU_TOI_DA = 0;
 // 19/08 lần hai: 34 → 30 sau khi VIẾT LẠI bài đọc cho 4 chặng A1. Đây là lần đầu
 // con số này giảm bằng đường "viết lại bài" chứ không phải đường "soạn thêm câu",
 // và nó chứng minh cả hai đường đều thông như chú thích ở trên nói.
-const A1A2_KHONG_DU_TOI_DA = 30;
+// 19/08 lần ba: 30 → 23. BẬC A1 ĐÓNG HẲN — cả 24 chặng đều có câu hỏi mức văn
+// bản, không chặng nào còn băng cảnh báo cam. 23 chặng còn lại đều là bậc A2.
+const A1A2_KHONG_DU_TOI_DA = 23;
 
 test('bánh cóc A1/A2: số chặng đủ điều kiện mà CHƯA có câu hỏi chỉ được giảm', async () => {
   const { doA1A2 } = await import(pathToFileURL(path.join(ROOT, 'scripts/audit_a1a2_story.mjs')).href);

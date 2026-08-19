@@ -54,7 +54,10 @@ for (const id of ['clothes-fashion-daily', 'clothes-fashion-daily-p2', 'clothes-
 }
 
 // Trái Đất khi nói về HÀNH TINH thì viết hoa.
-for (const id of ['animals-nature-daily', 'weather-seasons-daily-p2', 'nature-animals-beginner',
+// 'nature-animals-beginner' đã bị gỡ khỏi danh sách này 19/08: bài đọc của chặng
+// đó được VIẾT LẠI và bản mới không còn chữ "Earth" nào. Giữ lại là để một ngoại lệ
+// mục ruỗng — và chính phép kiểm "mọi ngoại lệ đều còn khớp một chỗ có thật" đã bắt.
+for (const id of ['animals-nature-daily', 'weather-seasons-daily-p2',
   'environment-ecology-daily']) {
   muc.push([id, 'Earth', 'tên hành tinh']);
 }
