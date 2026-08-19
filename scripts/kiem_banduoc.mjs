@@ -194,7 +194,8 @@ if (!hongMa.length && !hongChu.length) {
 }
 console.log('\n  Lưu ý: file này đọc biến ở MÁY ĐANG CHẠY. Biến VITE_* nhúng LÚC DỰNG,');
 console.log('  nên đặt trên bảng điều khiển mà chưa deploy lại thì bản live vẫn cũ.');
-console.log('  Muốn biết bản LIVE có gì thật: npm run kiem:live');
+console.log('  Muốn biết bản LIVE có gì thật: npm run kiem:banlive — nó tải gói về và');
+console.log('  đối chiếu, nên bắt được đúng lỗi "đã đặt biến mà quên deploy lại".');
 
 // Mã thoát để dùng được trong quy trình tự động: 0 = bán được, 1 = mã còn lỗi,
 // 2 = mã xong nhưng còn chờ chủ dự án. Ba trạng thái, không gộp — gộp là mất
