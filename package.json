@@ -10,7 +10,8 @@
     "test": "node scripts/validate_content.mjs && node --test tests/*.test.js",
     "validate:content": "node scripts/validate_content.mjs",
     "preview": "vite preview",
-    "ra:khach": "node scripts/ra_khach.mjs"
+    "ra:khach": "node scripts/ra_khach.mjs",
+    "kiem:live": "node scripts/kiem_live_trinh_duyet.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",
