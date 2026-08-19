@@ -98,6 +98,18 @@ try {
         new RegExp(`Đơn của bạn: gói ${ten}`, 'i').test(chu), `trong hộp: ${JSON.stringify(chu.slice(0, 60))}`);
     }
 
+    // 4b. GIÁ. Thêm 19/08 sau khi phát hiện "bảng giá" không có một con số nào.
+    // Kiểm bằng TRÌNH DUYỆT THẬT chứ không chỉ dò chuỗi trong mã: dự án này đã
+    // dính chuyện chuỗi nằm đúng trong nguồn mà màn hình không hiện ra (đếm lớp
+    // z-index, và băng cảnh báo bị lớp phủ che). Ở đây phải đọc được bằng mắt.
+    const chuThe = await t.danhGia(CHU_HOP);
+    const coGia = /Giá: liên hệ người bán/.test(chuThe);
+    const coSo = /[0-9][0-9. ]*(đ|VNĐ|VND|k\b)/i.test(chuThe);
+    ghi('mỗi gói NÓI RÕ giá, hoặc nói rõ là chưa có giá — không để trống lặng lẽ',
+      coGia || coSo,
+      coSo ? 'đã đặt giá nên hiện số tiền' : (coGia ? 'chưa đặt giá nên báo "liên hệ người bán" (đúng)'
+        : 'thẻ gói không có giá VÀ không có lời báo — khách không biết phải trả bao nhiêu'));
+
     // 5. Chưa cấu hình kênh nào (đúng trạng thái hiện tại) thì phải BÁO.
     const chu = await t.danhGia(CHU_HOP);
     const coBao = chu.includes(CHUA_CO_KENH.slice(0, 40));

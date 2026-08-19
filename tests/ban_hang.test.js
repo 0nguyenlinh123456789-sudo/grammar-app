@@ -18,6 +18,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {
   KENH, kenhDatMua, loiNhanDatMua, saoChepLoiNhan, CHUA_CO_KENH,
+  KHOA_GIA, giaGoi, CHUA_CO_GIA,
 } from '../src/utils/banHang.js';
 
 test('chưa cấu hình kênh nào thì trả về mảng RỖNG, không bịa một kênh mặc định', () => {
@@ -127,4 +128,69 @@ test('danh sách KENH khai đúng hình, để .env.example và màn hình khôn
   // trống, và không ai thấy hậu quả.
   const vd = fs.readFileSync('.env.example', 'utf8');
   for (const k of KENH) assert.ok(vd.includes(k.khoa), `${k.khoa} thiếu trong .env.example`);
+});
+
+// ══════════════════════════════════════════════════════════════════════════════
+// LỖ THỨ HAI, TÌM RA 19/08: BẢNG GIÁ KHÔNG CÓ GIÁ.
+//
+// Modal tên "Chọn gói phù hợp", ba thẻ Standard / Premium / Trọn đời, mỗi thẻ
+// một nút "MUA …" — và không một con số nào trong cả AccessGate.jsx lẫn
+// banHang.js. Khách phải nhắn tin hỏi giá rồi CHỜ trả lời mới quyết được, tức
+// mất người mua đúng ở bước dễ mất nhất.
+//
+// Cùng họ với lỗ "không có kênh đặt mua": cả hai đều là chỗ lặng lẽ thiếu chứ
+// không phải chỗ báo là thiếu. Nên luật ở đây giống hệt bên đó — chưa đặt giá
+// thì màn hình phải NÓI RA.
+// ══════════════════════════════════════════════════════════════════════════════
+
+test('chưa đặt giá thì giaGoi trả rỗng, và màn hình phải BÁO chứ không để trống', () => {
+  for (const goi of Object.keys(KHOA_GIA)) {
+    assert.equal(giaGoi(goi, {}), '', `${goi}: env rỗng mà vẫn ra giá`);
+  }
+  assert.equal(giaGoi('Premium', { VITE_PRICE_PREMIUM: '   ' }), '',
+    'giá toàn dấu cách phải bị coi là chưa đặt, không thì thẻ hiện một ô trắng');
+  assert.equal(giaGoi('Gói không tồn tại', { VITE_PRICE_PREMIUM: '499.000đ' }), '');
+  assert.ok(CHUA_CO_GIA.length > 6, 'câu báo thiếu giá phải nói được thành lời');
+});
+
+test('đặt giá thì hiện đúng chuỗi đã đặt, không tự định dạng lại', () => {
+  // Không tự thêm "đ", không tự chấm phẩy: chủ dự án gõ sao hiện vậy. Tự định
+  // dạng là một kiểu thay thế âm thầm, và đơn vị tiền thì không được đoán.
+  assert.equal(giaGoi('Premium', { VITE_PRICE_PREMIUM: '499.000đ' }), '499.000đ');
+  assert.equal(giaGoi('Trọn đời', { VITE_PRICE_LIFETIME: '1.990.000 VNĐ' }), '1.990.000 VNĐ');
+  assert.equal(giaGoi('Standard', { VITE_PRICE_STANDARD: ' 299k ' }), '299k');
+});
+
+test('lời nhắn đặt mua mang theo giá khi đã có giá', () => {
+  // Người mua và người bán cùng nhìn một con số, khỏi cãi nhau sau khi đã
+  // chuyển khoản. Chưa có giá thì lời nhắn KHÔNG được bịa ra dấu ngoặc rỗng.
+  const co = loiNhanDatMua('Premium', { VITE_PRICE_PREMIUM: '499.000đ' });
+  assert.ok(co.includes('Premium') && co.includes('499.000đ'), co);
+  const khong = loiNhanDatMua('Premium', {});
+  assert.ok(khong.includes('Premium'), khong);
+  assert.ok(!/\(\s*\)/.test(khong), `lời nhắn có cặp ngoặc rỗng: ${khong}`);
+  // Gọi thiếu tham số env vẫn phải chạy, vì còn chỗ gọi cũ trong bộ test khác.
+  assert.ok(loiNhanDatMua('Standard').includes('Standard'));
+});
+
+test('TÊN GÓI trong bảng giá phải khớp KHOÁ GIÁ — lệch một chữ là giá biến mất', () => {
+  // Phép canh đáng giá nhất của nhóm này. `giaGoi` tra bảng theo TÊN GÓI, nên
+  // đổi 'Trọn đời' thành 'Trọn Đời' ở AccessGate.jsx là đủ để thẻ đó im lặng
+  // rơi về "liên hệ người bán" mãi mãi — không lỗi, không cảnh báo, và mọi test
+  // khác vẫn xanh. Đây đúng kiểu hỏng đã dính nhiều lần: thiếu dữ liệu mà không
+  // ai báo. Nên tên gói phải lấy TỪ CHÍNH MÀN HÌNH chứ không chép tay sang đây.
+  const src = fs.readFileSync('src/components/access/AccessGate.jsx', 'utf8');
+  const khoi = src.slice(src.indexOf('const plans = ['), src.indexOf('const plans = [') + 1500);
+  const ten = [...khoi.matchAll(/\{ name: '([^']+)'/g)].map((m) => m[1]);
+
+  assert.equal(ten.length, 3, `đọc được ${ten.length} gói từ AccessGate thay vì 3 — bộ đọc hỏng thì phép so dưới đây vô nghĩa`);
+  assert.deepEqual([...ten].sort(), Object.keys(KHOA_GIA).sort(),
+    'tên gói trên màn hình và khoá giá trong banHang.js đã lệch nhau');
+
+  // Và màn hình phải thật sự có nhánh BÁO, không chỉ có hàm tra giá.
+  assert.ok(src.includes('giaGoi('), 'PricingModal không tra giá');
+  assert.ok(src.includes('CHUA_CO_GIA'), 'PricingModal thiếu nhánh BÁO khi chưa có giá');
+
+  const vd = fs.readFileSync('.env.example', 'utf8');
+  for (const k of Object.values(KHOA_GIA)) assert.ok(vd.includes(k), `${k} thiếu trong .env.example`);
 });

@@ -55,10 +55,44 @@ export function kenhDatMua(env = {}) {
   return ra;
 }
 
+// ══ LỖ THỨ HAI, TÌM RA 19/08: BẢNG GIÁ KHÔNG CÓ GIÁ ══
+// Modal tên là "Chọn gói phù hợp", có ba thẻ Standard / Premium / Trọn đời,
+// mỗi thẻ liệt kê tính năng và một nút "MUA …" — và KHÔNG MỘT CON SỐ NÀO.
+// Đã dò cả AccessGate.jsx lẫn file này: không có chuỗi giá ở đâu hết.
+//
+// Đây không phải chuyện thẩm mỹ. Khách phải nhắn tin hỏi giá rồi chờ trả lời
+// mới quyết được có mua hay không, tức mất người mua ngay tại bước dễ mất
+// nhất. Và nó phạm đúng luật của dự án: thiếu dữ liệu thì ẨN hoặc BÁO. Bảng
+// giá không giá thì không ẩn, cũng không báo — nó lặng lẽ thiếu.
+//
+// Giá đọc từ biến môi trường cho cùng một cơ chế với VITE_SALES_*, nên chủ dự
+// án chỉ phải học một chỗ. ⚠️ KÈM ĐÚNG MỘT CÁI BẪY: biến VITE_* được NHÚNG LÚC
+// DỰNG, nên đặt biến trên Vercel mà không deploy lại thì bảng điều khiển trông
+// như đã xong trong khi bản live vẫn hiện "Giá: liên hệ người bán".
+export const KHOA_GIA = {
+  Standard: 'VITE_PRICE_STANDARD',
+  Premium: 'VITE_PRICE_PREMIUM',
+  'Trọn đời': 'VITE_PRICE_LIFETIME',
+};
+
+/**
+ * Giá của một gói, hoặc chuỗi rỗng khi chủ dự án chưa đặt.
+ * Chuỗi rỗng là thứ màn hình phải NÓI RA, không phải thứ để bỏ trống.
+ */
+export function giaGoi(goi, env = {}) {
+  const khoa = KHOA_GIA[String(goi ?? '').trim()];
+  return khoa ? String(env[khoa] ?? '').trim() : '';
+}
+
+export const CHUA_CO_GIA = 'Giá: liên hệ người bán';
+
 /** Lời nhắn đặt mua, để khách gửi qua kênh nào cũng được. */
-export function loiNhanDatMua(goi) {
+export function loiNhanDatMua(goi, env = {}) {
   const ten = String(goi || '').trim() || 'chưa rõ';
-  return `Tôi muốn đăng ký Bunny English - gói ${ten}. `
+  const gia = giaGoi(ten, env);
+  // Có giá thì NHẮC LẠI trong lời nhắn: người mua và người bán cùng nhìn một
+  // con số, khỏi cãi nhau về số tiền sau khi đã chuyển khoản.
+  return `Tôi muốn đăng ký Bunny English - gói ${ten}${gia ? ` (${gia})` : ''}. `
     + 'Vui lòng gửi thông tin thanh toán và mã truy cập.';
 }
 
