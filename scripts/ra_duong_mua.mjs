@@ -34,9 +34,13 @@
 import { moMayChuXemTruoc } from '../tests/helpers/mayChuXemTruoc.mjs';
 import { moTrinhDuyet, moTab, BAM_THEO_CHU } from '../tests/helpers/trinhduyet.mjs';
 import { CHUA_CO_KENH } from '../src/utils/banHang.js';
+import { GOI as DS_GOI, giaGoi, tienVN } from '../src/utils/goi.js';
 
 const CONG = 4341;
-const GOI = ['MUA STANDARD', 'MUA PREMIUM', 'MUA TRỌN ĐỜI'];
+// Tên nút dựng TỪ danh sách gói thật, không gõ tay: gõ tay thì đổi gói xong bộ
+// rà vẫn tìm nút cũ và báo hỏng ở chỗ không hỏng — hoặc tệ hơn, tìm đúng nút cũ
+// còn sót và chấm ĐẠT cho một bảng giá đã lỗi thời.
+const NUT = DS_GOI.map((g) => `MUA GÓI ${g.ten.toUpperCase()}`);
 
 const may = await moMayChuXemTruoc({ cong: CONG, dungLai: process.env.BO_DUNG !== '1' });
 const { tienTrinh, cong } = await moTrinhDuyet({ cong: 9361 });
@@ -72,13 +76,13 @@ try {
 
   if (coHop) {
     // 3. Ba nút mua phải có mặt đủ.
-    for (const nhan of GOI) {
+    for (const nhan of NUT) {
       const co = await t.danhGia(`${CHU_HOP}.includes(${JSON.stringify(nhan)})`);
       ghi(`bảng giá có nút "${nhan}"`, co);
     }
 
     // 4. Bấm từng gói: phải có gì đó xảy ra, và không được nói dối.
-    for (const nhan of GOI) {
+    for (const nhan of NUT) {
       const truoc = loiThat().length;
       const bam = await t.danhGia(BAM_THEO_CHU(nhan));
       if (!bam) { ghi(`bấm "${nhan}"`, false, 'không bấm được'); continue; }
@@ -90,7 +94,7 @@ try {
       }
       const chu = await t.danhGia(CHU_HOP);
       const noLoi = loiThat().length > truoc;
-      const ten = nhan.replace('MUA ', '');
+      const ten = nhan.replace('MUA GÓI ', '');
 
       ghi(`"${nhan}" → hiện khối xác nhận, không im lặng`, hien && !noLoi,
         [hien ? '' : 'bấm xong không có gì hiện ra', noLoi ? 'và có lỗi bắn ra' : ''].filter(Boolean).join(' '));
@@ -103,12 +107,13 @@ try {
     // dính chuyện chuỗi nằm đúng trong nguồn mà màn hình không hiện ra (đếm lớp
     // z-index, và băng cảnh báo bị lớp phủ che). Ở đây phải đọc được bằng mắt.
     const chuThe = await t.danhGia(CHU_HOP);
-    const coGia = /Giá: liên hệ người bán/.test(chuThe);
-    const coSo = /[0-9][0-9. ]*(đ|VNĐ|VND|k\b)/i.test(chuThe);
-    ghi('mỗi gói NÓI RÕ giá, hoặc nói rõ là chưa có giá — không để trống lặng lẽ',
-      coGia || coSo,
-      coSo ? 'đã đặt giá nên hiện số tiền' : (coGia ? 'chưa đặt giá nên báo "liên hệ người bán" (đúng)'
-        : 'thẻ gói không có giá VÀ không có lời báo — khách không biết phải trả bao nhiêu'));
+    // Giá nay LUÔN có (đặt sẵn trong goi.js), nên không còn nhánh "chưa có giá"
+    // để chấp nhận. Hỏi thẳng: ĐỦ ba con số đúng bằng ba giá thật hay không.
+    const thieuGia = DS_GOI.filter((g) => !chuThe.includes(tienVN(giaGoi(g.ma, {}))));
+    ghi('mỗi gói hiện ĐÚNG giá của nó', thieuGia.length === 0,
+      thieuGia.length
+        ? `không thấy giá của: ${thieuGia.map((g) => `${g.ten} (${tienVN(giaGoi(g.ma, {}))})`).join(', ')}`
+        : `đủ ba giá: ${DS_GOI.map((g) => tienVN(giaGoi(g.ma, {}))).join(' · ')}`);
 
     // 4c. CHUYỂN KHOẢN. Chủ dự án chọn nhận tiền thẳng vào ngân hàng và chấp
     // nhận lộ TÊN chủ tài khoản (không lộ thứ khác). Bước này chấp nhận cả hai

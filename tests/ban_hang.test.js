@@ -18,8 +18,9 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {
   KENH, kenhDatMua, loiNhanDatMua, saoChepLoiNhan, CHUA_CO_KENH,
-  KHOA_GIA, giaGoi, CHUA_CO_GIA,
 } from '../src/utils/banHang.js';
+import { GOI, giaGoi, moiThang, tienVN, tietKiem } from '../src/utils/goi.js';
+import { createAccessRecord } from '../src/server/accessCore.js';
 
 test('chưa cấu hình kênh nào thì trả về mảng RỖNG, không bịa một kênh mặc định', () => {
   assert.deepEqual(kenhDatMua({}), []);
@@ -131,127 +132,145 @@ test('danh sách KENH khai đúng hình, để .env.example và màn hình khôn
 });
 
 // ══════════════════════════════════════════════════════════════════════════════
-// LỖ THỨ HAI, TÌM RA 19/08: BẢNG GIÁ KHÔNG CÓ GIÁ.
+// BA GÓI: QUẢNG CÁO PHẢI KHỚP THỨ MÁY CHỦ CƯỠNG CHẾ ĐƯỢC.
 //
-// Modal tên "Chọn gói phù hợp", ba thẻ Standard / Premium / Trọn đời, mỗi thẻ
-// một nút "MUA …" — và không một con số nào trong cả AccessGate.jsx lẫn
-// banHang.js. Khách phải nhắn tin hỏi giá rồi CHỜ trả lời mới quyết được, tức
-// mất người mua đúng ở bước dễ mất nhất.
+// Nhóm này thay hẳn nhóm cũ (Standard / Premium / Trọn đời, giá dạng chuỗi đọc
+// từ biến môi trường). Ba chuyện đổi ngày 19/08 theo yêu cầu của chủ dự án:
+//   1. BỎ gói vĩnh viễn — không cam kết duy trì web trọn đời được;
+//   2. giá ĐẶT SẴN trong mã (số, không phải chuỗi), biến chỉ để ghi đè;
+//   3. gói + thời hạn + số thiết bị gom vào MỘT danh sách `GOI`, ba nơi cùng đọc.
 //
-// Cùng họ với lỗ "không có kênh đặt mua": cả hai đều là chỗ lặng lẽ thiếu chứ
-// không phải chỗ báo là thiếu. Nên luật ở đây giống hệt bên đó — chưa đặt giá
-// thì màn hình phải NÓI RA.
+// Điểm 3 đóng một lỗ có thật: bảng giá quảng cáo "3 thiết bị" trong khi form cấp
+// mã mặc định `maxDevices = 1` bất kể gói nào, và máy chủ chỉ cưỡng chế đúng con
+// số form gửi lên. Khách trả tiền cho một lời hứa mà bản ghi không mang, và
+// KHÔNG có gì báo — người bán phải tự nhớ.
 // ══════════════════════════════════════════════════════════════════════════════
 
-test('chưa đặt giá thì giaGoi trả rỗng, và màn hình phải BÁO chứ không để trống', () => {
-  for (const goi of Object.keys(KHOA_GIA)) {
-    assert.equal(giaGoi(goi, {}), '', `${goi}: env rỗng mà vẫn ra giá`);
+test('ba gói khác nhau ĐÚNG hai trục máy chủ cưỡng chế được', () => {
+  // Chỉ `maxDevices` (api/access.js) và `expiresAt` (accessCore) là thật. Mọi
+  // trục thứ ba nghĩ ra đều là quảng cáo suông — đúng lỗi đã sửa hôm nay khi
+  // bảng giá bán AI như đặc quyền Premium trong lúc máy chủ không chặn AI.
+  assert.equal(GOI.length, 3);
+  const ngay = GOI.map((g) => g.ngay);
+  const may = GOI.map((g) => g.thietBi);
+  assert.deepEqual(ngay, [...ngay].sort((a, b) => a - b), 'gói phải xếp từ ngắn tới dài');
+  assert.deepEqual(may, [...may].sort((a, b) => a - b), 'số thiết bị phải tăng dần theo gói');
+  assert.equal(new Set(ngay).size, 3, 'hai gói cùng thời hạn thì không có gì phân biệt');
+
+  // KHÔNG gói nào vĩnh viễn.
+  for (const g of GOI) {
+    assert.ok(g.ngay > 0 && g.ngay <= 366, `${g.ma}: thời hạn ${g.ngay} ngày`);
+    assert.ok(!/vĩnh viễn|trọn đời|lifetime/i.test(`${g.ma} ${g.ten} ${g.caption}`),
+      `${g.ma} còn hơi hướng vĩnh viễn`);
   }
-  assert.equal(giaGoi('Premium', { VITE_PRICE_PREMIUM: '   ' }), '',
-    'giá toàn dấu cách phải bị coi là chưa đặt, không thì thẻ hiện một ô trắng');
-  assert.equal(giaGoi('Gói không tồn tại', { VITE_PRICE_PREMIUM: '499.000đ' }), '');
-  assert.ok(CHUA_CO_GIA.length > 6, 'câu báo thiếu giá phải nói được thành lời');
 });
 
-test('đặt giá thì hiện đúng chuỗi đã đặt, không tự định dạng lại', () => {
-  // Không tự thêm "đ", không tự chấm phẩy: chủ dự án gõ sao hiện vậy. Tự định
-  // dạng là một kiểu thay thế âm thầm, và đơn vị tiền thì không được đoán.
-  assert.equal(giaGoi('Premium', { VITE_PRICE_PREMIUM: '499.000đ' }), '499.000đ');
-  assert.equal(giaGoi('Trọn đời', { VITE_PRICE_LIFETIME: '1.990.000 VNĐ' }), '1.990.000 VNĐ');
-  assert.equal(giaGoi('Standard', { VITE_PRICE_STANDARD: ' 299k ' }), '299k');
+test('giá LUÔN có, và biến gõ sai KHÔNG được làm bảng giá ra 0đ', () => {
+  for (const g of GOI) {
+    assert.ok(giaGoi(g.ma, {}) > 0, `${g.ma} không có giá mặc định`);
+    assert.ok(moiThang(g.ma, {}) > 0);
+  }
+  // Ghi đè được, kể cả khi gõ kèm dấu chấm và chữ "đ".
+  assert.equal(giaGoi('thang6', { VITE_PRICE_6M: '350000' }), 350000);
+  assert.equal(giaGoi('thang6', { VITE_PRICE_6M: '350.000đ' }), 350000);
+  // Gõ hẳn chữ thì BỎ QUA và giữ giá mặc định. Bảng giá ghi "0đ" hay "NaNđ" tệ
+  // hơn hẳn giá cũ, nên đây không phải chuyện cho chắc ăn.
+  for (const rac of ['ba trăm nghìn', '', '   ', '-5', '0', 'abc']) {
+    assert.equal(giaGoi('thang6', { VITE_PRICE_6M: rac }), giaGoi('thang6', {}),
+      `rác "${rac}" làm đổi giá`);
+  }
 });
 
-test('lời nhắn đặt mua mang theo giá khi đã có giá', () => {
-  // Người mua và người bán cùng nhìn một con số, khỏi cãi nhau sau khi đã
-  // chuyển khoản. Chưa có giá thì lời nhắn KHÔNG được bịa ra dấu ngoặc rỗng.
-  const co = loiNhanDatMua('Premium', { VITE_PRICE_PREMIUM: '499.000đ' });
-  assert.ok(co.includes('Premium') && co.includes('499.000đ'), co);
-  const khong = loiNhanDatMua('Premium', {});
-  assert.ok(khong.includes('Premium'), khong);
-  assert.ok(!/\(\s*\)/.test(khong), `lời nhắn có cặp ngoặc rỗng: ${khong}`);
-  // Gọi thiếu tham số env vẫn phải chạy, vì còn chỗ gọi cũ trong bộ test khác.
-  assert.ok(loiNhanDatMua('Standard').includes('Standard'));
+test('gói dài hơn phải RẺ HƠN tính theo tháng — không thì không ai mua', () => {
+  const mt = GOI.map((g) => moiThang(g.ma, {}));
+  for (let i2 = 1; i2 < mt.length; i2 += 1) {
+    assert.ok(mt[i2] < mt[i2 - 1],
+      `${GOI[i2].ten} (${tienVN(mt[i2])}/tháng) không rẻ hơn ${GOI[i2 - 1].ten} (${tienVN(mt[i2 - 1])}/tháng)`);
+  }
+  assert.equal(tietKiem(GOI[0].ma, {}), 0, 'gói ngắn nhất không thể tự rẻ hơn chính nó');
+  assert.ok(tietKiem(GOI[2].ma, {}) >= 30,
+    'gói dài nhất phải rẻ hơn rõ rệt thì mới làm được mỏ neo giá');
 });
 
-test('TÊN GÓI trong bảng giá phải khớp KHOÁ GIÁ — lệch một chữ là giá biến mất', () => {
-  // Phép canh đáng giá nhất của nhóm này. `giaGoi` tra bảng theo TÊN GÓI, nên
-  // đổi 'Trọn đời' thành 'Trọn Đời' ở AccessGate.jsx là đủ để thẻ đó im lặng
-  // rơi về "liên hệ người bán" mãi mãi — không lỗi, không cảnh báo, và mọi test
-  // khác vẫn xanh. Đây đúng kiểu hỏng đã dính nhiều lần: thiếu dữ liệu mà không
-  // ai báo. Nên tên gói phải lấy TỪ CHÍNH MÀN HÌNH chứ không chép tay sang đây.
-  const src = fs.readFileSync('src/components/access/AccessGate.jsx', 'utf8');
-  const khoi = src.slice(src.indexOf('const plans = ['), src.indexOf('const plans = [') + 1500);
-  const ten = [...khoi.matchAll(/\{ name: '([^']+)'/g)].map((m) => m[1]);
-
-  assert.equal(ten.length, 3, `đọc được ${ten.length} gói từ AccessGate thay vì 3 — bộ đọc hỏng thì phép so dưới đây vô nghĩa`);
-  assert.deepEqual([...ten].sort(), Object.keys(KHOA_GIA).sort(),
-    'tên gói trên màn hình và khoá giá trong banHang.js đã lệch nhau');
-
-  // Và màn hình phải thật sự có nhánh BÁO, không chỉ có hàm tra giá.
-  assert.ok(src.includes('giaGoi('), 'PricingModal không tra giá');
-  assert.ok(src.includes('CHUA_CO_GIA'), 'PricingModal thiếu nhánh BÁO khi chưa có giá');
-
-  const vd = fs.readFileSync('.env.example', 'utf8');
-  for (const k of Object.values(KHOA_GIA)) assert.ok(vd.includes(k), `${k} thiếu trong .env.example`);
+test('tienVN định dạng theo lối Việt Nam, không lẫn dấu phẩy kiểu Mỹ', () => {
+  assert.equal(tienVN(399000), '399.000đ');
+  assert.equal(tienVN(99000), '99.000đ');
+  assert.equal(tienVN(0), '0đ');
+  for (const g of GOI) assert.ok(!tienVN(giaGoi(g.ma, {})).includes(','), `${g.ma} lẫn dấu phẩy`);
 });
 
-// ══════════════════════════════════════════════════════════════════════════════
-// LỜI QUẢNG CÁO PHẢI KHỚP THỨ MÁY CHỦ THẬT SỰ CƯỠNG CHẾ.
-//
-// Nhóm test này ra đời vì 392 test xanh vẫn để lọt một chuyện: bảng giá bán
-// Premium bằng dòng "Trợ lý AI viết/ảnh/hỏi-đáp", trong khi api/ai.js ghi thẳng
-// trong mã rằng nó KHÔNG kiểm gói — khách Standard mang key thì dùng AI y hệt.
-// Và "Placement test & chứng nhận" cũng thế: không màn hình nào đọc access.plan.
-//
-// Không test nào so QUẢNG CÁO với CƯỠNG CHẾ, nên cả hai dòng sai sống yên. Đây
-// đúng họ với các lỗi khác của dự án: một phía nói, không phía nào kiểm.
-// ══════════════════════════════════════════════════════════════════════════════
+test('MÁY CHỦ lấy gói làm SÀN: không cấp được mã hụt so với thứ đã bán', () => {
+  // Phép canh đáng giá nhất nhóm này. Form cũ để ba ô độc lập nên người bán hoàn
+  // toàn có thể cấp mã 1 thiết bị cho khách vừa mua gói 3 thiết bị, và không có
+  // gì báo. Nay `Math.max(gói, yêu cầu)`: rộng tay thêm thì được, hụt thì không.
+  // Bất đối xứng là cố ý — rộng tay là quyết định, hụt là tai nạn.
+  const dai = GOI[GOI.length - 1];
+  const hut = createAccessRecord({ plan: dai.ma, maxDevices: '1', durationDays: '1' });
+  assert.equal(hut.plan, dai.ma);
+  assert.equal(hut.maxDevices, dai.thietBi,
+    `cấp ${hut.maxDevices} thiết bị cho gói đã bán ${dai.thietBi}`);
+  const ngayThat = Math.round((new Date(hut.expiresAt).getTime() - Date.now()) / 86400000);
+  assert.ok(ngayThat >= dai.ngay - 1, `cấp ${ngayThat} ngày cho gói đã bán ${dai.ngay} ngày`);
 
-const nguonGoi = () => {
-  const src = fs.readFileSync('src/components/access/AccessGate.jsx', 'utf8');
-  const dau = src.indexOf('  const plans = [');
-  return src.slice(dau, src.indexOf('];', src.indexOf("action: 'MUA TRỌN ĐỜI' },", dau)));
-};
+  // Rộng tay hơn gói thì VẪN giữ nguyên.
+  const rong = createAccessRecord({ plan: GOI[0].ma, maxDevices: '5', durationDays: '400' });
+  assert.equal(rong.maxDevices, 5);
+  assert.ok(Math.round((new Date(rong.expiresAt).getTime() - Date.now()) / 86400000) >= 399);
+
+  // KHÔNG còn đường tạo mã vĩnh viễn, kể cả khi gọi thẳng bằng id cũ.
+  for (const cu of ['lifetime', 'premium', 'standard', 'không-có-thật', undefined]) {
+    const r = createAccessRecord({ plan: cu });
+    assert.ok(r.expiresAt, `plan="${cu}" vẫn tạo ra mã không hết hạn`);
+    assert.ok(GOI.some((g) => g.ma === r.plan), `plan="${cu}" ra gói lạ: ${r.plan}`);
+  }
+});
+
+test('bảng giá và form cấp mã cùng đọc GOI, không gõ tay lại', () => {
+  // Không có phép canh này thì hai màn hình lại trôi khỏi nhau như trước.
+  const gia = fs.readFileSync('src/components/access/AccessGate.jsx', 'utf8');
+  const admin = fs.readFileSync('src/components/access/AdminAccessPanel.jsx', 'utf8');
+  assert.match(gia, /GOI\.map\(/, 'bảng giá vẫn gõ tay danh sách gói');
+  assert.match(admin, /GOI\.map\(/, 'form cấp mã vẫn gõ tay danh sách gói');
+  for (const g of GOI) {
+    assert.ok(!new RegExp(`name: '${g.ten}'`).test(gia), `${g.ten} bị gõ cứng trong bảng giá`);
+  }
+
+  // Bảng tra tên PHẢI giữ ba id cũ: mã cấp trước 19/08 vẫn nằm trong Redis với
+  // plan: 'premium', và xóa khỏi bảng thì bảng quản trị vẽ ra `undefined` cho
+  // đúng những khách đang học.
+  for (const cu of ['standard', 'premium', 'lifetime']) {
+    assert.ok(admin.includes(`${cu}:`),
+      `bảng tra tên đã bỏ id cũ "${cu}" — mã cũ sẽ hiện undefined`);
+  }
+});
 
 test('AI vẫn là BYOK không chặn theo gói — nên bảng giá không được bán AI như đặc quyền', () => {
-  // Chiều 1: máy chủ đúng là không chặn. Nếu ngày nào đó có người thêm chặn thì
-  // dòng này đỏ, và người đó buộc phải quay lại sửa cả chữ trên bảng giá.
+  // Chiều 1: máy chủ đúng là không chặn. Thêm chặn thì dòng này đỏ, buộc người
+  // thêm quay lại sửa cả chữ trên bảng giá.
   const mayChu = fs.readFileSync('api/ai.js', 'utf8') + fs.readFileSync('functions/api/ai.js', 'utf8');
-  const coChan = /\bplan\b\s*(===|!==|\.includes)|requirePlan|premiumOnly/.test(mayChu);
-  assert.equal(coChan, false,
-    'api/ai.js nay CÓ chặn AI theo gói — phải sửa lại chữ trên bảng giá cho khớp, '
-    + 'và cân nhắc lại: quyết định BYOK là khách tự trả tiền key của họ');
+  assert.equal(/\bplan\b\s*(===|!==|\.includes)|requirePlan|premiumOnly/.test(mayChu), false,
+    'api/ai.js nay CÓ chặn AI theo gói — phải sửa lại chữ trên bảng giá cho khớp');
 
-  // Chiều 2: vì không chặn, gói rẻ nhất PHẢI được nêu là có AI. Bản cũ chỉ nêu
-  // AI ở Premium như một bậc nâng cấp, tức bán một thứ Standard vốn đã có.
-  const goi = nguonGoi();
-  const standard = goi.slice(goi.indexOf("name: 'Standard'"), goi.indexOf("name: 'Premium'"));
-  assert.match(standard, /AI/,
-    'gói Standard không nêu AI, trong khi máy chủ cho Standard dùng AI đầy đủ');
+  // Chiều 2: vì không chặn, gói RẺ NHẤT phải được nêu là có AI. Bản cũ chỉ nêu AI
+  // ở gói đắt như một bậc nâng cấp, tức bán một thứ gói rẻ vốn đã có.
+  const gia = fs.readFileSync('src/components/access/AccessGate.jsx', 'utf8');
+  const khoi = gia.slice(gia.indexOf('const plans = GOI.map'), gia.indexOf('return <div className="fixed inset-0 z-[140]'));
+  assert.ok(khoi.length > 100, 'không cắt được khối dựng gói — phép so dưới đây vô nghĩa');
+  assert.match(khoi, /AI/, 'không thẻ gói nào nêu AI');
+  assert.ok(!khoi.includes('Trợ lý AI viết/ảnh/hỏi-đáp'), 'vẫn bán AI như đặc quyền gói đắt');
+  assert.ok(!khoi.includes('Placement test & chứng nhận'), 'vẫn bán placement test như đặc quyền');
 
-  // Chiều 3: không được để lại đúng hai dòng đã đo được là sai.
-  assert.ok(!goi.includes('Trợ lý AI viết/ảnh/hỏi-đáp'),
-    'vẫn bán AI như đặc quyền Premium, trong khi Standard dùng AI y hệt');
-  assert.ok(!goi.includes('Placement test & chứng nhận'),
-    'vẫn bán placement test/chứng nhận như đặc quyền, trong khi không màn hình nào chặn theo gói');
+  // Và nói THẲNG rằng gói đắt không mở thêm tính năng nào — giấu chuyện đó chính
+  // là cách bản cũ bán được hai dòng không có thật.
+  assert.match(khoi, /GIỐNG HỆT/, 'không nói rõ nội dung các gói là như nhau');
 });
 
-test('thứ CÓ khác nhau thật giữa các gói phải được nêu, vì đó là lý do trả thêm tiền', () => {
-  // `maxDevices` chặn thật trong api/access.js, `expiresAt` chặn thật trong
-  // accessCore. Đó là hai thứ duy nhất phân biệt được, nên phải nói ra — không
-  // nói thì khách không có lý do nào để chọn gói đắt hơn.
-  const goi = nguonGoi();
-  for (const [ten, mong] of [['Standard', /1 thiết bị/], ['Premium', /3 thiết bị/], ['Trọn đời', /5 thiết bị/]]) {
-    const i = goi.indexOf(`name: '${ten}'`);
-    const khoi = goi.slice(i, goi.indexOf("action: 'MUA", i));
-    assert.match(khoi, mong, `gói ${ten} không nêu số thiết bị — thứ duy nhất được cưỡng chế thật`);
-  }
-  const tronDoi = goi.slice(goi.indexOf("name: 'Trọn đời'"));
-  assert.match(tronDoi, /KHÔNG HẾT HẠN|không hết hạn/,
-    'gói Trọn đời không nêu việc không hết hạn, trong khi đó là điều plan THẬT SỰ điều khiển');
-
-  // Và máy chủ đúng là cưỡng chế hai thứ đó.
-  const loi = fs.readFileSync('src/server/accessCore.js', 'utf8');
-  assert.match(loi, /plan === 'lifetime' \? null/, 'accessCore không còn cho lifetime khỏi hết hạn');
-  assert.match(fs.readFileSync('api/access.js', 'utf8'), /maxDevices/, 'api/access.js không còn chặn số thiết bị');
+test('điều khoản không được nhắc tới gói không còn bán', () => {
+  // Văn bản pháp lý hứa một gói không tồn tại là cùng loại lỗi quảng-cáo-vs-
+  // cưỡng-chế, chỉ nằm ở file không ai nghĩ tới khi đổi bảng giá.
+  const dk = fs.readFileSync('src/components/common/PolicyDialog.jsx', 'utf8');
+  assert.ok(!/Standard \/ Premium \/ Lifetime/.test(dk), 'điều khoản vẫn kê ba gói cũ');
+  assert.match(dk, /không bán gói vĩnh viễn/, 'điều khoản không nói rõ là không có gói vĩnh viễn');
+  assert.match(dk, /gia hạn ngay trên mã cũ/,
+    'điều khoản không nêu đường gia hạn — thứ thay cho gói vĩnh viễn');
 });

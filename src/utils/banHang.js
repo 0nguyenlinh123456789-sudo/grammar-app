@@ -55,36 +55,21 @@ export function kenhDatMua(env = {}) {
   return ra;
 }
 
-// ══ LỖ THỨ HAI, TÌM RA 19/08: BẢNG GIÁ KHÔNG CÓ GIÁ ══
-// Modal tên là "Chọn gói phù hợp", có ba thẻ Standard / Premium / Trọn đời,
-// mỗi thẻ liệt kê tính năng và một nút "MUA …" — và KHÔNG MỘT CON SỐ NÀO.
-// Đã dò cả AccessGate.jsx lẫn file này: không có chuỗi giá ở đâu hết.
+// ══ GIÁ: ĐÃ CHUYỂN SANG src/utils/goi.js ══
+// Ban đầu giá nằm ở đây dưới dạng CHUỖI đọc từ biến môi trường, và chưa đặt thì
+// bảng giá hiện "Giá: liên hệ người bán". Chủ dự án sau đó yêu cầu tự đặt luôn
+// ba gói với giá hợp lý, nên giá nay có SẴN trong mã (`giaMacDinh`) và biến môi
+// trường chỉ để ghi đè. Nhánh "chưa có giá" vì thế KHÔNG CÒN XẢY RA ĐƯỢC và đã
+// bỏ hẳn thay vì để lại một nhánh chết không ai chạy tới.
 //
-// Đây không phải chuyện thẩm mỹ. Khách phải nhắn tin hỏi giá rồi chờ trả lời
-// mới quyết được có mua hay không, tức mất người mua ngay tại bước dễ mất
-// nhất. Và nó phạm đúng luật của dự án: thiếu dữ liệu thì ẨN hoặc BÁO. Bảng
-// giá không giá thì không ẩn, cũng không báo — nó lặng lẽ thiếu.
-//
-// Giá đọc từ biến môi trường cho cùng một cơ chế với VITE_SALES_*, nên chủ dự
-// án chỉ phải học một chỗ. ⚠️ KÈM ĐÚNG MỘT CÁI BẪY: biến VITE_* được NHÚNG LÚC
-// DỰNG, nên đặt biến trên Vercel mà không deploy lại thì bảng điều khiển trông
-// như đã xong trong khi bản live vẫn hiện "Giá: liên hệ người bán".
-export const KHOA_GIA = {
-  Standard: 'VITE_PRICE_STANDARD',
-  Premium: 'VITE_PRICE_PREMIUM',
-  'Trọn đời': 'VITE_PRICE_LIFETIME',
-};
+// Giá cũng đổi từ chuỗi sang SỐ, để tính được "mỗi tháng bao nhiêu" và "rẻ hơn
+// bao nhiêu %" — hai con số người Việt thật sự dùng để so gói.
+// `export ... from` CHỈ tái xuất, KHÔNG đưa tên vào phạm vi file này — nên
+// `loiNhanDatMua` bên dưới vẫn phải nhập riêng. Lint bắt được ngay, nhưng ghi
+// lại vì đây là chỗ dễ tưởng là xong.
+import { giaGoi, tienVN } from './goi.js';
 
-/**
- * Giá của một gói, hoặc chuỗi rỗng khi chủ dự án chưa đặt.
- * Chuỗi rỗng là thứ màn hình phải NÓI RA, không phải thứ để bỏ trống.
- */
-export function giaGoi(goi, env = {}) {
-  const khoa = KHOA_GIA[String(goi ?? '').trim()];
-  return khoa ? String(env[khoa] ?? '').trim() : '';
-}
-
-export const CHUA_CO_GIA = 'Giá: liên hệ người bán';
+export { GOI, giaGoi, moiThang, tienVN, tietKiem, timGoi, timGoiTheoTen } from './goi.js';
 
 // ══════════════════════════════════════════════════════════════════════════
 // CHUYỂN KHOẢN NGÂN HÀNG — quyết định của chủ dự án ngày 19/08.
@@ -181,13 +166,15 @@ export function maDonGiuLai(kho = globalThis.localStorage) {
 /** Lời nhắn đặt mua, để khách gửi qua kênh nào cũng được. */
 export function loiNhanDatMua(goi, env = {}, maDon = '') {
   const ten = String(goi || '').trim() || 'chưa rõ';
+  // `giaGoi` nay trả SỐ (đồng) chứ không phải chuỗi, nên phải định dạng —
+  // không thì lời nhắn gửi cho người bán ghi "(399000)".
   const gia = giaGoi(ten, env);
   const ma = String(maDon || '').trim();
   // Có giá thì NHẮC LẠI trong lời nhắn: người mua và người bán cùng nhìn một
   // con số, khỏi cãi nhau về số tiền sau khi đã chuyển khoản.
   // Có mã đơn thì nêu ngay đầu câu: đó là thứ người bán cần đầu tiên để tra ra
   // khoản tiền, chứ không phải tên gói.
-  return `Tôi muốn đăng ký Bunny English - gói ${ten}${gia ? ` (${gia})` : ''}. `
+  return `Tôi muốn đăng ký Bunny English - gói ${ten}${gia ? ` (${tienVN(gia)})` : ''}. `
     + (ma ? `Mã đơn của tôi: ${ma}. ` : '')
     + 'Vui lòng gửi thông tin thanh toán và mã truy cập.';
 }

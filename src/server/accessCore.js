@@ -1,4 +1,7 @@
 import { createHash, createHmac, randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
+// Ba gói bán hàng là MỘT danh sách duy nhất, xem src/utils/goi.js. Máy chủ đọc
+// nó để bản ghi cấp ra không bao giờ HỤT so với thứ bảng giá đã hứa.
+import { GOI, timGoi } from '../utils/goi.js';
 
 export const ACCESS_COOKIE = 'grammar_access';
 export const ADMIN_COOKIE = 'grammar_admin';
@@ -130,10 +133,21 @@ export function publicRecord(record) {
 
 export function createAccessRecord(input = {}, now = Date.now()) {
   const requestedDays = Number.parseInt(input.durationDays, 10);
-  const durationDays = Number.isFinite(requestedDays) && requestedDays > 0
+  const xinNgay = Number.isFinite(requestedDays) && requestedDays > 0
     ? Math.min(3650, requestedDays)
-    : 90;
-  const plan = ['standard', 'premium', 'lifetime'].includes(input.plan) ? input.plan : 'premium';
+    : 0;
+  // GÓI LÀM SÀN, không phải làm gợi ý.
+  //
+  // Bản cũ lấy `plan`, `durationDays`, `maxDevices` từ ba ô độc lập của form,
+  // nên người bán hoàn toàn có thể cấp một mã 1 THIẾT BỊ cho khách vừa mua gói
+  // 3 thiết bị — form mặc định maxDevices = 1 bất kể gói nào — và KHÔNG có gì
+  // báo. Khách trả tiền cho một lời hứa mà bản ghi không mang.
+  //
+  // Nay lấy `Math.max(gói, yêu cầu)`: người bán vẫn rộng tay thêm được (tặng
+  // thêm thiết bị, cộng thêm ngày) nhưng KHÔNG THỂ cấp ít hơn thứ đã bán.
+  // Hướng bất đối xứng đó là cố ý — rộng tay là quyết định, hụt là tai nạn.
+  const goi = timGoi(input.plan) || GOI[0];
+  const plan = goi.ma;
   const createdAt = new Date(now).toISOString();
   return {
     id: randomUUID(),
@@ -141,8 +155,12 @@ export function createAccessRecord(input = {}, now = Date.now()) {
     customer: String(input.customer || '').trim().slice(0, 120),
     plan,
     status: 'active',
-    maxDevices: Math.max(1, Math.min(10, Number.parseInt(input.maxDevices, 10) || 1)),
-    expiresAt: plan === 'lifetime' ? null : new Date(now + durationDays * 86_400_000).toISOString(),
+    maxDevices: Math.min(10, Math.max(goi.thietBi, Number.parseInt(input.maxDevices, 10) || 1)),
+    // KHÔNG còn nhánh vĩnh viễn: chủ dự án nói thẳng là không cam kết duy trì
+    // web trọn đời được, và bán một lời hứa không giữ nổi thì tệ hơn không bán.
+    // Mã cũ dạng vĩnh viễn (expiresAt = null) vẫn chạy bình thường —
+    // `validateRecord` bỏ qua null — nên không ai bị cắt giữa chừng.
+    expiresAt: new Date(now + Math.max(goi.ngay, xinNgay) * 86_400_000).toISOString(),
     devices: {},
     version: 1,
     createdAt,

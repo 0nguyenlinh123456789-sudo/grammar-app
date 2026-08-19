@@ -3,7 +3,8 @@ import { ArrowRight, CheckCircle2, Clock3, KeyRound, Laptop, LogOut, ShieldCheck
 import AdminAccessPanel from './AdminAccessPanel';
 import PolicyDialog from '../common/PolicyDialog';
 import { readAccessResponse } from '../../utils/apiResponse';
-import { kenhDatMua, loiNhanDatMua, saoChepLoiNhan, CHUA_CO_KENH, CHUA_CO_GIA, giaGoi, maDonGiuLai } from '../../utils/banHang';
+import { kenhDatMua, loiNhanDatMua, saoChepLoiNhan, CHUA_CO_KENH, maDonGiuLai } from '../../utils/banHang';
+import { GOI, giaGoi, moiThang, tienVN, tietKiem } from '../../utils/goi';
 import ChuyenKhoan from './ChuyenKhoan';
 // Chỉ một con số — KHÔNG import roadmapData ở màn hình kích hoạt (xem
 // scripts/build_roadmap.mjs, phần sinh roadmapCounts.js).
@@ -197,13 +198,13 @@ function PricingModal({ onClose }) {
   const [daChon, setDaChon] = useState(null);      // gói khách vừa bấm
   const [baoSaoChep, setBaoSaoChep] = useState('');
   // MỘT mã đơn cho cả lượt mở bảng giá, KHÔNG sinh lại mỗi lần bấm gói: khách
-  // bấm Premium, chép mã, rồi bấm nhầm Standard là đủ để mã đổi và thứ họ vừa
+  // bấm gói này, chép mã, rồi bấm nhầm gói kia là đủ để mã đổi và thứ họ vừa
   // chép thành rác. Một lần mở bảng giá là một đơn.
   const [maDon, setMaDon] = useState('');
   const loiNhan = daChon ? loiNhanDatMua(daChon, import.meta.env, maDon) : '';
 
-  const requestPlan = async (plan) => {
-    setDaChon(plan);
+  const requestPlan = async (ten) => {
+    setDaChon(ten);
     const ma = maDon || maDonGiuLai();
     if (!maDon) setMaDon(ma);
     // Có trang đặt mua thì mở luôn — đó là đường ngắn nhất. Nhưng VẪN hiện ô
@@ -211,38 +212,92 @@ function PricingModal({ onClose }) {
     // khách không được rơi vào im lặng.
     const trang = kenh.find((k) => k.loai === 'trang');
     if (trang) window.open(trang.href, '_blank', 'noopener,noreferrer');
-    const kq = await saoChepLoiNhan(loiNhanDatMua(plan, import.meta.env, ma));
+    const kq = await saoChepLoiNhan(loiNhanDatMua(ten, import.meta.env, ma));
     setBaoSaoChep(kq.chu);
   };
-  // ══ ĐO 19/08: `plan` KHÔNG CHẶN TÍNH NĂNG NÀO CẢ ══
-  // Đã dò hết src/ api/ functions/. `record.plan` chỉ dùng cho ĐÚNG hai việc:
-  // hiện nhãn trong bảng quản trị, và `plan === 'lifetime'` thì `expiresAt`
-  // bằng null (src/server/accessCore.js). Hết. Không màn hình nào đọc
-  // `access.plan` để bật/tắt thứ gì.
-  //
-  // Nên bản chữ cũ BÁN PREMIUM BẰNG HAI DÒNG KHÔNG CÓ THẬT:
-  //   · "Trợ lý AI viết/ảnh/hỏi-đáp" — api/ai.js ghi thẳng trong mã rằng nó
-  //     KHÔNG kiểm gói, vì mọi lượt AI tính vào key Gemini của chính người học.
-  //     Khách Standard mang key thì dùng AI y hệt.
-  //   · "Placement test & chứng nhận" — PlacementTest.jsx và LearningReport.jsx
-  //     không có một dòng nào nhắc tới plan.
-  //
-  // Cách chữa là SỬA CHỮ cho khớp thứ đang chạy, KHÔNG phải đi thêm chặn theo
-  // gói: chặn AI theo gói thì trái hẳn quyết định BYOK — khách tự trả tiền cho
-  // key của họ, mình không có cớ gì bắt trả thêm để được dùng key của chính họ.
-  //
-  // Hai thứ KHÁC NHAU THẬT giữa các gói, và cả hai đều cưỡng chế được:
-  //   · SỐ THIẾT BỊ — `maxDevices` chặn thật trong api/access.js;
-  //   · THỜI HẠN — `expiresAt`, và lifetime thì bằng null.
-  // Đó là toàn bộ thứ được phép ghi lên bảng giá.
-  const plans = [
-    { name: 'Standard', caption: 'Học một mình, một máy', color: 'bg-slate-100', features: ['Toàn bộ lộ trình A0 → B2 và nhánh C1 dự bị', 'Đủ mọi tính năng học: SRS, trò chơi, báo cáo, placement test, chứng nhận', 'Trợ lý AI đầy đủ bằng API key miễn phí của bạn', '1 thiết bị · theo thời hạn đã mua'], action: 'MUA STANDARD' },
-    { name: 'Premium', caption: 'Học trên nhiều máy', color: 'bg-yellow-200', features: ['Nội dung và AI GIỐNG HỆT Standard — không tính năng nào bị khóa bớt', 'Tối đa 3 thiết bị: điện thoại, máy tính, máy tính bảng cùng một mã', 'Tiến độ đồng bộ giữa các thiết bị', 'Thời hạn dài hơn theo gói bạn chọn'], action: 'MUA PREMIUM', popular: true },
-    { name: 'Trọn đời', caption: 'Mua một lần', color: 'bg-indigo-200', features: ['Mọi thứ của Premium', 'KHÔNG HẾT HẠN — mã dùng mãi mãi, không phải gia hạn', 'Tối đa 5 thiết bị', 'Nhận mọi bản cập nhật nội dung về sau'], action: 'MUA TRỌN ĐỜI' },
-  ];
-  return <div className="fixed inset-0 z-[140] bg-slate-950/80 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="pricing-title"><div className="max-w-5xl mx-auto my-5 bg-[#fffdf4] dark:bg-slate-900 text-slate-900 dark:text-white border-4 border-slate-900 dark:border-slate-700 rounded-[2rem] p-5 md:p-8 shadow-[10px_10px_0_0_#020617]"><div className="flex justify-between items-start gap-4"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">Đầu tư cho kết quả học</p><h2 id="pricing-title" className="text-3xl md:text-4xl font-black mt-1">Chọn gói phù hợp</h2><p className="text-sm font-bold text-slate-500 mt-2">Mã truy cập được cấp sau khi xác nhận thanh toán.</p></div><button onClick={onClose} className="w-10 h-10 rounded-xl border-3 border-slate-800 font-black">×</button></div><div className="grid md:grid-cols-3 gap-4 mt-7">{plans.map((plan) => <article key={plan.name} className={`relative ${plan.color} text-slate-900 border-3 border-slate-900 rounded-3xl p-5 shadow-[4px_4px_0_0_#1e293b]`}>{plan.popular && <span className="absolute -top-3 right-4 px-3 py-1 rounded-full bg-rose-500 text-white border-2 border-slate-900 text-[10px] font-black">ĐƯỢC CHỌN NHIỀU</span>}<h3 className="text-2xl font-black">{plan.name}</h3><p className="text-xs font-black uppercase mt-1 opacity-70">{plan.caption}</p>{(() => { const g = giaGoi(plan.name, import.meta.env); return g ? <p className="text-2xl font-black mt-3">{g}</p> : <p className="text-sm font-black mt-3 text-rose-700">{CHUA_CO_GIA}</p>; })()}<ul className="mt-5 space-y-2.5">{plan.features.map((feature) => <li key={feature} className="text-sm font-bold flex gap-2"><CheckCircle2 size={17} className="shrink-0 text-emerald-700" />{feature}</li>)}</ul><button onClick={() => requestPlan(plan.name)} className="w-full mt-6 px-3 py-3 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm">{plan.action}</button></article>)}</div>{daChon && <section className="mt-7 border-3 border-slate-900 dark:border-slate-600 rounded-2xl p-4 bg-amber-50 dark:bg-slate-800"><p className="text-sm font-black">Đơn của bạn: gói {daChon}</p>{kenh.length > 0 && <ChuyenKhoan maDon={maDon} soTien={giaGoi(daChon, import.meta.env)} env={import.meta.env} />}{kenh.length > 0 ? <><p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Bước 2 — sau khi đã chuyển khoản, gửi mã đơn cho người bán qua một trong các kênh sau để nhận mã truy cập:</p><div className="flex flex-wrap gap-2 mt-3">{kenh.map((k) => <a key={k.loai} href={k.href} target="_blank" rel="noopener noreferrer" className="px-3 py-2 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-xs">{k.nhan} · {k.hien}</a>)}</div></> : <p className="text-xs font-bold text-rose-700 dark:text-rose-300 mt-1">{CHUA_CO_KENH}</p>}<textarea readOnly value={loiNhan} onFocus={(e) => e.target.select()} rows={2} aria-label="Lời nhắn đặt mua" className="w-full mt-3 p-2.5 rounded-xl border-2 border-slate-400 dark:border-slate-600 bg-white dark:bg-slate-900 text-xs font-bold" />{baoSaoChep && <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-2">{baoSaoChep}</p>}</section>}<div className="mt-7 grid md:grid-cols-3 gap-3 text-xs font-bold text-slate-600 dark:text-slate-300"><p>🧪 Có thể bắt đầu bằng placement test.</p><p>🔒 Mã không lưu dạng plaintext.</p><p>💬 Mã truy cập được cấp sau khi xác nhận thanh toán.</p></div></div></div>;
-}
 
+  // ══ BA GÓI DỰNG TỪ `GOI`, KHÔNG GÕ TAY LẠI ══
+  // `plan` chỉ cưỡng chế được ĐÚNG hai thứ: `maxDevices` (api/access.js) và
+  // `expiresAt` (accessCore). Nên ba thẻ dưới đây khác nhau đúng hai thứ đó, và
+  // dòng đầu của gói 6/12 tháng NÓI THẲNG rằng nội dung giống hệt — bản chữ cũ
+  // giấu chuyện đó rồi bán Premium bằng hai dòng tính năng không có thật.
+  //
+  // Không có gói vĩnh viễn: chủ dự án không cam kết duy trì web trọn đời được.
+  // Thay vào đó mọi thẻ đều nêu việc GIA HẠN trên chính mã cũ — `extendDays`
+  // trong api/access-admin.js cộng hạn mà KHÔNG tăng `version`, nên người học
+  // không bị đăng xuất và giữ nguyên tiến độ. Đó là đường thật, không phải hứa.
+  const plans = GOI.map((g, i) => {
+    const re = tietKiem(g.ma, import.meta.env);
+    return {
+      ma: g.ma,
+      name: g.ten,
+      caption: g.caption,
+      color: g.mau,
+      popular: g.noiBat,
+      gia: giaGoi(g.ma, import.meta.env),
+      moiThang: moiThang(g.ma, import.meta.env),
+      tietKiem: re,
+      action: `MUA GÓI ${g.ten.toUpperCase()}`,
+      features: [
+        i === 0
+          ? 'Mở toàn bộ lộ trình A0 → B2 và nhánh C1 dự bị'
+          : 'Nội dung GIỐNG HỆT gói 1 tháng — không khóa bớt tính năng nào',
+        `Dùng trong ${g.ngay} ngày kể từ lúc kích hoạt mã`,
+        `${g.thietBi} thiết bị cùng lúc${g.thietBi > 1 ? ', tiến độ đồng bộ' : ''}`,
+        'Trợ lý AI đầy đủ bằng API key miễn phí của bạn',
+        'Hết hạn thì gia hạn ngay trên mã cũ, giữ nguyên tiến độ',
+      ],
+    };
+  });
+
+  return <div className="fixed inset-0 z-[140] bg-slate-950/80 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="pricing-title">
+    <div className="max-w-5xl mx-auto my-5 bg-[#fffdf4] dark:bg-slate-900 text-slate-900 dark:text-white border-4 border-slate-900 dark:border-slate-700 rounded-[2rem] p-5 md:p-8 shadow-[10px_10px_0_0_#020617]">
+      <div className="flex justify-between items-start gap-4">
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">Đầu tư cho kết quả học</p>
+          <h2 id="pricing-title" className="text-3xl md:text-4xl font-black mt-1">Chọn gói phù hợp</h2>
+          <p className="text-sm font-bold text-slate-500 mt-2">Mã truy cập được cấp sau khi xác nhận thanh toán.</p>
+        </div>
+        <button onClick={onClose} aria-label="Đóng bảng giá" className="w-10 h-10 rounded-xl border-3 border-slate-800 font-black">×</button>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-4 mt-7">{plans.map((plan) => (
+        <article key={plan.ma} className={`relative ${plan.color} text-slate-900 border-3 border-slate-900 rounded-3xl p-5 shadow-[4px_4px_0_0_#1e293b]`}>
+          {plan.popular && <span className="absolute -top-3 right-4 px-3 py-1 rounded-full bg-rose-500 text-white border-2 border-slate-900 text-[10px] font-black">ĐƯỢC CHỌN NHIỀU</span>}
+          <h3 className="text-2xl font-black">{plan.name}</h3>
+          <p className="text-xs font-black uppercase mt-1 opacity-70">{plan.caption}</p>
+          <p className="text-3xl font-black mt-3">{tienVN(plan.gia)}</p>
+          <p className="text-xs font-bold opacity-70">≈ {tienVN(plan.moiThang)}/tháng
+            {plan.tietKiem > 0 && <span className="ml-1.5 px-1.5 py-0.5 rounded-md bg-rose-500 text-white font-black">RẺ HƠN {plan.tietKiem}%</span>}
+          </p>
+          <ul className="mt-5 space-y-2.5">{plan.features.map((feature) => (
+            <li key={feature} className="text-sm font-bold flex gap-2"><CheckCircle2 size={17} className="shrink-0 text-emerald-700" />{feature}</li>
+          ))}</ul>
+          <button onClick={() => requestPlan(plan.name)} className="w-full mt-6 px-3 py-3 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm">{plan.action}</button>
+        </article>
+      ))}</div>
+
+      {daChon && <section className="mt-7 border-3 border-slate-900 dark:border-slate-600 rounded-2xl p-4 bg-amber-50 dark:bg-slate-800">
+        <p className="text-sm font-black">Đơn của bạn: gói {daChon} — {tienVN(giaGoi(daChon, import.meta.env))}</p>
+        {kenh.length > 0 && <ChuyenKhoan maDon={maDon} soTien={tienVN(giaGoi(daChon, import.meta.env))} env={import.meta.env} />}
+        {kenh.length > 0 ? <>
+          <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-3">Bước 2 — sau khi đã chuyển khoản, gửi mã đơn cho người bán qua một trong các kênh sau để nhận mã truy cập:</p>
+          <div className="flex flex-wrap gap-2 mt-3">{kenh.map((k) => (
+            <a key={k.loai} href={k.href} target="_blank" rel="noopener noreferrer" className="px-3 py-2 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-xs">{k.nhan} · {k.hien}</a>
+          ))}</div>
+        </> : <p className="text-xs font-bold text-rose-700 dark:text-rose-300 mt-1">{CHUA_CO_KENH}</p>}
+        <textarea readOnly value={loiNhan} onFocus={(e) => e.target.select()} rows={2} aria-label="Lời nhắn đặt mua" className="w-full mt-3 p-2.5 rounded-xl border-2 border-slate-400 dark:border-slate-600 bg-white dark:bg-slate-900 text-xs font-bold" />
+        {baoSaoChep && <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-2">{baoSaoChep}</p>}
+      </section>}
+
+      <div className="mt-7 grid md:grid-cols-3 gap-3 text-xs font-bold text-slate-600 dark:text-slate-300">
+        <p>🧪 Có thể bắt đầu bằng placement test.</p>
+        <p>🔒 Mã không lưu dạng plaintext.</p>
+        <p>💬 Mã truy cập được cấp sau khi xác nhận thanh toán.</p>
+      </div>
+    </div>
+  </div>;
+}
 function AccessBadge({ access, onLogout }) {
   const expires = access?.expiresAt ? new Intl.DateTimeFormat('vi-VN').format(new Date(access.expiresAt)) : 'Trọn đời';
   return <aside className="fixed bottom-20 lg:bottom-3 right-3 z-[100] group"><div className="flex items-center gap-2 bg-slate-900 text-white border-2 border-slate-700 rounded-2xl px-3 py-2 shadow-lg"><ShieldCheck size={17} className="text-emerald-400" /><div><p className="text-[10px] font-black uppercase text-emerald-300">{access?.plan || 'premium'}</p><p className="text-[10px] font-bold text-slate-300 flex items-center gap-1"><Clock3 size={10} /> {expires}</p></div><button onClick={onLogout} title="Đăng xuất mã truy cập" className="ml-1 w-8 h-8 rounded-lg bg-slate-800 hover:bg-rose-600 flex items-center justify-center"><LogOut size={14} /></button></div></aside>;

@@ -13,11 +13,16 @@ const TABS = [
     body: (
       <>
         {/* (#0-B) Điều khoản dịch vụ không được hứa "4 kỹ năng" — mô tả đúng phạm vi thật */}
-        <p><strong>1. Dịch vụ.</strong> Bunny English là ứng dụng tự học tiếng Anh (ngữ pháp, từ vựng, đọc hiểu, luyện phát âm từng từ) dành cho người dùng cá nhân. Quyền truy cập được cấp qua mã truy cập theo gói (Standard / Premium / Lifetime) với thời hạn ghi trên mã.</p>
+        <p><strong>1. Dịch vụ.</strong> Bunny English là ứng dụng tự học tiếng Anh (ngữ pháp, từ vựng, đọc hiểu, luyện phát âm từng từ) dành cho người dùng cá nhân. Quyền truy cập được cấp qua mã truy cập theo gói 1 / 6 / 12 tháng, với thời hạn và số thiết bị ghi trên mã.</p>
         <p><strong>2. Tài khoản &amp; thiết bị.</strong> Mỗi mã truy cập giới hạn số thiết bị theo gói đã mua. Không chia sẻ, bán lại hoặc công khai mã truy cập; mã bị lạm dụng có thể bị khóa.</p>
         <p><strong>3. Nội dung.</strong> Toàn bộ bài học, dữ liệu và hình ảnh thuộc về Bunny English hoặc các bên cấp phép. Bạn được dùng cho việc học cá nhân, không sao chép hay phân phối lại.</p>
         <p><strong>4. Tính năng AI.</strong> Các tính năng AI (chấm Writing, Quét ảnh) hoạt động bằng API key Google Gemini do chính bạn cung cấp và chịu điều khoản của Google. Ứng dụng không bán API key.</p>
         <p><strong>5. Thay đổi dịch vụ.</strong> Chúng tôi có thể cập nhật, thêm hoặc điều chỉnh tính năng để cải thiện việc học; các quyền lợi cốt lõi của gói đã mua được giữ trong suốt thời hạn mã.</p>
+{/* Nói thẳng vì sao KHÔNG bán gói vĩnh viễn. Người mua có quyền biết giới hạn
+    thật của cam kết, và nói ra trước thì tốt hơn nhiều so với để họ tự phát
+    hiện. Gia hạn là đường thay thế, và nó có thật: `extendDays` trong
+    api/access-admin.js cộng hạn lên chính mã cũ mà không đăng xuất người học. */}
+<p><strong>6. Thời hạn &amp; gia hạn.</strong> Gói dài nhất là 12 tháng; chúng tôi <strong>không bán gói vĩnh viễn</strong> vì không cam kết duy trì dịch vụ trọn đời được. Khi hết hạn, bạn gia hạn ngay trên mã cũ — toàn bộ tiến độ, XP và bộ từ ôn tập được giữ nguyên, không phải học lại từ đầu.</p>
       </>
     ),
   },

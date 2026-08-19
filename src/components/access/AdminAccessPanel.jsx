@@ -4,6 +4,7 @@ import {
   LockKeyhole, LogOut, Pause, Play, Plus, RefreshCw, Search, ShieldCheck, Trash2,
 } from 'lucide-react';
 import { readAccessResponse } from '../../utils/apiResponse';
+import { GOI, timGoi } from '../../utils/goi';
 
 // Fail closed like the learner gate: a 200 that is not our JSON (an SPA
 // fallback page, a static file) must never open the owner console.
@@ -27,9 +28,17 @@ const apiRequest = async (options = {}, { requireAuth = false } = {}) => {
 
 const formatDate = (value) => value
   ? new Intl.DateTimeFormat('vi-VN', { dateStyle: 'medium' }).format(new Date(value))
-  : 'Trọn đời';
+  // Mã cấp từ 19/08 LUÔN có hạn. `null` chỉ còn ở mã cũ, nên nói đúng như vậy
+  // thay vì gọi nó là một gói ('Trọn đời') mà nay không bán nữa.
+  : 'Không hết hạn (mã cũ)';
 
-const planName = { standard: 'Standard', premium: 'Premium', lifetime: 'Trọn đời' };
+// ⚠️ GIỮ NGUYÊN BA TÊN CŨ. Chúng KHÔNG còn cấp mới được (xem `GOI`), nhưng mã
+// đã cấp trước 19/08 vẫn nằm trong Redis với `plan: "premium"` v.v. Xóa khỏi
+// bảng tra thì bảng quản trị vẽ ra `undefined` cho chính những khách đang học.
+const planName = {
+  ...Object.fromEntries(GOI.map((g) => [g.ma, g.ten])),
+  standard: 'Standard (cũ)', premium: 'Premium (cũ)', lifetime: 'Trọn đời (cũ)',
+};
 
 export default function AdminAccessPanel() {
   const [authenticated, setAuthenticated] = useState(null);
@@ -41,7 +50,17 @@ export default function AdminAccessPanel() {
   const [message, setMessage] = useState('');
   const [revealedCode, setRevealedCode] = useState('');
   const [copied, setCopied] = useState(false);
-  const [form, setForm] = useState({ customer: '', label: 'Tài khoản học tiếng Anh', plan: 'premium', durationDays: '90', maxDevices: '1' });
+  // Gói đầu tiên làm mặc định, và ĐỔI GÓI THÌ TỰ ĐỔI luôn thời hạn + số thiết
+  // bị theo đúng gói. Bản cũ để ba ô độc lập với `maxDevices` mặc định 1, nên
+  // cấp nhầm mã 1 thiết bị cho khách mua gói 3 thiết bị là chuyện chỉ chờ xảy
+  // ra — và không có gì báo. Máy chủ nay cũng chặn (gói làm SÀN), nhưng sửa ở
+  // form thì người bán nhìn thấy đúng con số trước khi bấm, chứ không phải tin.
+  const [form, setForm] = useState({ customer: '', label: 'Tài khoản học tiếng Anh', plan: GOI[0].ma, durationDays: String(GOI[0].ngay), maxDevices: String(GOI[0].thietBi) });
+
+  const doiGoi = (ma) => {
+    const g = timGoi(ma) || GOI[0];
+    setForm((cu) => ({ ...cu, plan: g.ma, durationDays: String(g.ngay), maxDevices: String(g.thietBi) }));
+  };
 
   const loadCodes = async () => {
     try {
@@ -125,7 +144,7 @@ export default function AdminAccessPanel() {
 
   const exportCsv = () => {
     const rows = [['Khách hàng', 'Nhãn', 'Gói', 'Trạng thái', 'Mã', 'Thiết bị', 'Hết hạn'], ...codes.map((code) => [
-      code.customer, code.label, planName[code.plan], code.status, code.codePreview, `${code.deviceCount}/${code.maxDevices}`, code.expiresAt || 'Trọn đời',
+      code.customer, code.label, planName[code.plan] || code.plan, code.status, code.codePreview, `${code.deviceCount}/${code.maxDevices}`, code.expiresAt || 'Không hết hạn (mã cũ)',
     ])];
     const csv = rows.map((row) => row.map((cell) => `"${String(cell || '').replaceAll('"', '""')}"`).join(',')).join('\n');
     const link = document.createElement('a');
@@ -180,9 +199,9 @@ export default function AdminAccessPanel() {
             <h2 className="text-xl font-black flex items-center gap-2"><Plus className="text-blue-600" /> Cấp mã mới</h2>
             <Field label="Tên khách hàng"><input value={form.customer} onChange={(e) => setForm({ ...form, customer: e.target.value })} placeholder="Nguyễn Văn A" required /></Field>
             <Field label="Ghi chú / đơn hàng"><input value={form.label} onChange={(e) => setForm({ ...form, label: e.target.value })} required /></Field>
-            <Field label="Gói sản phẩm"><select value={form.plan} onChange={(e) => setForm({ ...form, plan: e.target.value, durationDays: e.target.value === 'lifetime' ? '0' : (form.durationDays === '0' ? '90' : form.durationDays) })}><option value="standard">Standard</option><option value="premium">Premium</option><option value="lifetime">Trọn đời</option></select></Field>
+            <Field label="Gói sản phẩm"><select value={form.plan} onChange={(e) => doiGoi(e.target.value)}>{GOI.map((g) => <option key={g.ma} value={g.ma}>{g.ten} · {g.ngay} ngày · {g.thietBi} máy</option>)}</select></Field>
             <div className="grid grid-cols-2 gap-3">
-              <Field label="Thời hạn"><select disabled={form.plan === 'lifetime'} value={form.durationDays} onChange={(e) => setForm({ ...form, durationDays: e.target.value })}>{form.plan === 'lifetime' && <option value="0">Trọn đời</option>}<option value="30">30 ngày</option><option value="90">90 ngày</option><option value="180">180 ngày</option><option value="365">1 năm</option></select></Field>
+              <Field label="Thời hạn"><select value={form.durationDays} onChange={(e) => setForm({ ...form, durationDays: e.target.value })}>{[...new Set([...GOI.map((g) => g.ngay), 30, 90, 180, 365])].sort((a, b) => a - b).map((n) => <option key={n} value={n}>{n} ngày</option>)}</select></Field>
               <Field label="Số thiết bị"><select value={form.maxDevices} onChange={(e) => setForm({ ...form, maxDevices: e.target.value })}>{[1, 2, 3, 5, 10].map((n) => <option key={n} value={n}>{n} máy</option>)}</select></Field>
             </div>
             <button disabled={busy === 'create'} className="w-full mt-5 h-13 rounded-2xl bg-blue-500 text-white border-3 border-slate-900 font-black shadow-[4px_4px_0_0_#1e293b] disabled:opacity-50">{busy === 'create' ? 'ĐANG TẠO...' : 'TẠO MÃ TRUY CẬP'}</button>
