@@ -44,24 +44,51 @@
 // Ghi lại ở đây vì nó là lý do bộ này đáng tồn tại: 319 test cũ và một lượt rà
 // 21/21 lối vào đều không thấy, chỉ có việc NGỒI LÀM HẾT MỘT BÀI mới thấy.
 //
+// ══ PHẦN HAI: CHÉP CHÍNH TẢ ══
+// Thêm 19/08 sau khi phần bài đọc chạy xanh. Đây là bài duy nhất người học phải
+// GÕ BÀN PHÍM, và nó đi qua một đường chấm khác hẳn (`chamChinhTa`, so từng từ,
+// bỏ dấu câu và chữ hoa) với một NGƯỠNG KHÁC: chặng này gửi `loaiCau` rỗng nên
+// ngưỡng là 80%, không phải 85% như bài toàn trắc nghiệm. Bộ này bắt màn hình
+// nói ra con số đó.
+//
 // ══ VẪN CHƯA PHỦ ══
-// Chép chính tả (gõ bàn phím), viết, nói (thu âm), và chấm bằng AI. Ghi ra để
-// không ai đọc kết quả rộng hơn thứ nó đo.
+// Viết, nói (thu âm), và chấm bằng AI. Ghi ra để không ai đọc kết quả rộng hơn
+// thứ nó đo.
 
 import { moTrinhDuyet, moTab, BAM_THEO_CHU, DONG_PANEL } from '../tests/helpers/trinhduyet.mjs';
 import { moMayChuXemTruoc } from '../tests/helpers/mayChuXemTruoc.mjs';
+import { audioManifest } from '../src/data/audioManifest.js';
+
+// Chép chính tả không học được đáp án từ lượt trước như bài trắc nghiệm: mỗi lượt
+// `chonBoCau` BỐC NGẪU NHIÊN 5 câu khác nhau. Nên thay vì học, tra: đọc xem
+// `<audio>` đang trỏ vào tệp nào rồi lấy lời thoại từ CHÍNH kho dữ liệu app dùng.
+//
+// Đây không phải "nhúng đáp án cho script tự qua bài". Thứ đang được kiểm là
+// `chamChinhTa` + cả đường ống phần thưởng, và phép kiểm còn mạnh hơn thế: nếu
+// lời thoại trong kho KHÁC thứ app chấm, gõ đúng theo kho sẽ không ra 100% —
+// tức nó bắt luôn được trường hợp dữ liệu và màn chấm lệch nhau.
+const CHU_THEO_TEP = new Map(audioManifest.map((e) => [e.file, e.text]));
 
 const nghi = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// Panel bài đọc, nhận theo `role="dialog"`.
+// Panel đang làm bài — nhắm ĐÍCH DANH theo tên của nó, không nhắm theo "hộp
+// thoại trên cùng" hay "hộp thoại đầu tiên".
 //
-// ⚠️ BẢN ĐẦU LẤY "LỚP PHỦ TRÊN CÙNG" (`.fixed.inset-0` cuối cùng) VÀ NÓ SAI —
-// theo kiểu khó thấy nhất. Làm đúng hết bài thì app bắn pháo giấy, mà pháo giấy
-// cũng là một `.fixed.inset-0`, nằm SAU trong DOM và KHÔNG CÓ CHỮ. Nên đúng vào
-// lúc bài làm thành công, `innerText` của "panel" bỗng rỗng, và bộ rà kết luận
-// "không thấy màn kết quả" — tức nó BÁO HỎNG ĐÚNG LÚC APP CHẠY ĐÚNG. Chỉ hộp
-// thoại thật mới khai `role="dialog"`, pháo giấy thì không.
-const PANEL = "document.querySelector('.fixed.inset-0[role=\"dialog\"]')";
+// ⚠️ ĐÃ SAI HAI LẦN VÌ CHỌN PANEL KIỂU TƯƠNG ĐỐI:
+//   · Bản đầu lấy `.fixed.inset-0` CUỐI CÙNG → đúng lúc làm đúng hết bài thì nó
+//     bắt phải một lớp phủ không có chữ, `innerText` rỗng, và bộ rà kết luận
+//     "không thấy màn kết quả" — tức BÁO HỎNG ĐÚNG LÚC APP CHẠY ĐÚNG.
+//   · Bản sau lấy hộp thoại ĐẦU TIÊN → mở chặng chép chính tả trong khi panel bài
+//     đọc còn đó thì nó đọc `<audio>` của bài đọc (tệp VOA tên GUID) và kêu kho
+//     dữ liệu thiếu bản thu.
+// Cả hai lần đều là bộ rà sai, app đúng. Hai panel mà bộ này lái đều tự khai tên
+// qua `aria-labelledby`, nên hỏi đích danh thì không còn gì để đoán. Mỗi lúc chỉ
+// một trong hai mở (có `dongHan` canh giữa các chặng).
+const PANEL = "document.querySelector('.fixed.inset-0[aria-labelledby=\"reading-title\"], .fixed.inset-0[aria-labelledby=\"dictation-title\"]')";
+const SO_PANEL = "document.querySelectorAll('.fixed.inset-0[role=\"dialog\"]').length";
+
+// Hộp thoại nào đang mở — chỉ dùng khi có bước hỏng, để lần sau không phải đoán.
+const TEN_PANEL_DANG_MO = "[...document.querySelectorAll('.fixed.inset-0[role=\"dialog\"]')].map((e) => e.getAttribute('aria-labelledby') || e.getAttribute('aria-label') || '(không tên)').join(', ')";
 
 // Nút phương án trả lời. Nhận theo `text-left p-3.5` — chỉ nút phương án mới có
 // cặp lớp này; nút "Câu tiếp theo", nút Đóng, nút Nghe kèm đều không.
@@ -115,6 +142,43 @@ const t = await moTab(cong);
 const LA_CANH_BAO = (x) => x.loai === 'CONSOLE_WARN' || x.loai.endsWith('_WARNING');
 const loiThat = () => t.nhatKy.filter((x) => !LA_CANH_BAO(x));
 
+/**
+ * Đóng panel đang mở RỒI CHỜ CHO NÓ BIẾN MẤT HẲN.
+ *
+ * Bấm đóng xong đi tiếp ngay là không đủ, và đã sai thật: bộ này mở chặng chép
+ * chính tả trong khi panel bài đọc còn đó, rồi đọc `<audio>` của bài đọc (một
+ * tệp VOA tên GUID) và tưởng kho dữ liệu thiếu bản thu. Chờ tới khi đếm được 0
+ * hộp thoại thì không còn chỗ để nhầm — và nếu panel KHÔNG chịu đóng thì đó là
+ * lỗi thật, đáng dừng lại chứ không đáng bỏ qua.
+ */
+async function dongHan(nhan) {
+  // Bấm nút Đóng CỦA CHÍNH PANEL NÀY, không dò khắp trang. `DONG_PANEL` dùng
+  // chung bấm nút `aria-label="Đóng"` cuối cùng thấy được trên toàn trang — và
+  // sau khi hoàn thành một chặng, trang chủ vẽ thêm thứ khác cũng có nút Đóng,
+  // nên nó bấm nhầm chỗ rồi báo "panel không chịu đóng".
+  const bam = await t.danhGia(`(() => {
+    const p = ${PANEL};
+    const el = p && p.querySelector('[aria-label="Đóng"]');
+    if (!el) return false;
+    el.click();
+    return true;
+  })()`);
+  if (!bam) await t.danhGia(DONG_PANEL);
+  await t.doi(`!${PANEL}`, { giay: 10, nhan: `${nhan} đóng hẳn` });
+
+  // Còn hộp thoại KHÁC đứng lại thì dẹp nó đi — nhưng NÓI RA. Chính chỗ này lộ
+  // ra lỗi "báo lộ trình dài ra cho người mới cài app": sau khi chặng đầu tiên
+  // hoàn thành, `roadmap-growth-title` chen lên. Bỏ qua lặng lẽ thì lần sau có
+  // hộp thoại lạ nào chen vào cũng không ai biết.
+  const conLai = await t.danhGia(TEN_PANEL_DANG_MO);
+  if (conLai) {
+    console.log(`   (còn hộp thoại khác sau khi đóng ${nhan}: ${conLai} — dẹp để đi tiếp)`);
+    await t.danhGia(DONG_PANEL);
+    await nghi(400);
+  }
+  await nghi(400);
+}
+
 /** Trả lời hết một bài đọc. `chon(i, key)` quyết định bấm phương án nào. */
 async function lamBai(chon) {
   const dapAn = [];
@@ -137,6 +201,61 @@ async function lamBai(chon) {
   const m = (await t.danhGia(`(${CHU_PANEL}.match(/Đúng (\\d+)\\/(\\d+)/) || []).slice(1).join(',')`)).split(',');
   await nghi(700);   // để React kịp ghi localStorage
   return { dapAn, dung: Number(m[0]), tong: Number(m[1]) };
+}
+
+// ── Chép chính tả ───────────────────────────────────────────────────────────
+const TEP_DANG_PHAT = `(() => {
+  const p = ${PANEL};
+  const a = p && p.querySelector('audio');
+  return a ? String(a.getAttribute('src') || '').split('/').pop() : '';
+})()`;
+
+// Gõ vào ô nhập của React KHÔNG gõ được bằng `ta.value = '…'`: React theo dõi giá
+// trị qua bộ đặt của lớp gốc, gán thẳng thì state không đổi và nút "Nộp bài" vẫn
+// mờ. Phải gọi đúng bộ đặt đó rồi bắn sự kiện `input`.
+const GO_CHU = (chu) => `(() => {
+  const p = ${PANEL};
+  const ta = p && p.querySelector('textarea');
+  if (!ta) return false;
+  const dat = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
+  dat.call(ta, ${JSON.stringify(chu)});
+  ta.dispatchEvent(new Event('input', { bubbles: true }));
+  return true;
+})()`;
+
+const KET_QUA_CAU = `(() => {
+  const m = ${CHU_PANEL}.match(/(Đạt|Chưa đạt) — đúng (\\d+)\\/(\\d+) từ \\((\\d+)%\\)/);
+  return m ? { dat: m[1] === 'Đạt', dung: Number(m[2]), tong: Number(m[3]), phanTram: Number(m[4]) } : null;
+})()`;
+
+/** Làm hết một buổi chép chính tả. `soanChu(chuDung)` quyết định gõ gì. */
+async function lamChinhTa(soanChu) {
+  const cau = [];
+  for (let i = 0; i < 12; i++) {
+    await t.doi(`${TEP_DANG_PHAT}.length > 0`, { giay: 15, nhan: `bản thu câu ${i + 1}` });
+    const tep = await t.danhGia(TEP_DANG_PHAT);
+    const chuDung = CHU_THEO_TEP.get(tep);
+    if (!chuDung) throw new Error(`kho dữ liệu không có lời thoại cho bản thu "${tep}"`);
+
+    await t.danhGia(GO_CHU(soanChu(chuDung)));
+    // Nút "Nộp bài" luôn có mặt nhưng BỊ KHOÁ cho tới khi ô nhập có chữ. Chờ nó
+    // mở khoá chứ không chỉ chờ nó xuất hiện: bấm vào nút khoá thì không có gì
+    // xảy ra, và bước sau sẽ hết giờ ở một chỗ chẳng liên quan.
+    await t.doi(`[...${PANEL}.querySelectorAll('button')].some((b) => (b.innerText || '').includes('Nộp bài') && !b.disabled)`,
+      { giay: 10, nhan: `nút Nộp bài mở khoá (câu ${i + 1})` });
+    await t.danhGia(BAM_TRONG_PANEL('Nộp bài'));
+    await t.doi(`${KET_QUA_CAU} !== null`, { giay: 10, nhan: `bảng chấm câu ${i + 1}` });
+    cau.push({ tep, ...(await t.danhGia(KET_QUA_CAU)) });
+
+    const cuoi = await t.danhGia(`${CHU_PANEL}.includes('Xem kết quả')`);
+    await t.danhGia(BAM_TRONG_PANEL(cuoi ? 'Xem kết quả' : 'Câu tiếp theo'));
+    if (cuoi) break;
+    await nghi(250);
+  }
+  await t.doi(`${CHU_PANEL}.includes('Xong buổi chép chính tả')`, { giay: 10, nhan: 'màn kết quả chép chính tả' });
+  const m = (await t.danhGia(`(${CHU_PANEL}.match(/Đạt (\\d+)\\/(\\d+) câu/) || []).slice(1).join(',')`)).split(',');
+  await nghi(700);
+  return { cau, dat: Number(m[0]), tong: Number(m[1]) };
 }
 
 /** Mở chặng đọc thứ `thu` trong danh sách lộ trình đang hiện. */
@@ -211,8 +330,7 @@ try {
       nenXong === daXong ? (nenXong ? 'đạt ngưỡng → có đánh dấu ✓ (đúng luật)' : 'dưới ngưỡng → không đánh dấu ✓ (đúng luật)')
         : `SAI LUẬT: ${phanTram}% mà ${daXong ? 'vẫn được' : 'không được'} đánh dấu hoàn thành`);
 
-    await t.danhGia(DONG_PANEL);
-    await nghi(800);
+    await dongHan('panel bài đọc (lượt dò)');
     if (!nenXong) { khoa = r.dapAn; break; }
     console.log(`   (lượt dò trúng cả ${r.tong} câu — hiếm; đổi sang chặng đọc khác để hai lượt sau còn ý nghĩa)`);
     thu++;
@@ -238,8 +356,7 @@ try {
   // chính xác biến thành hình phạt.
   ghi('lượt CỐ SAI: VẪN tính là một buổi học', sau2.buoi > truoc2.buoi, `buổi ${truoc2.buoi} → ${sau2.buoi}`);
 
-  await t.danhGia(DONG_PANEL);
-  await nghi(800);
+  await dongHan('panel bài đọc (lượt cố sai)');
 
   // ── LƯỢT 3: LÀM ĐÚNG HẾT ──────────────────────────────────────────────────
   const truoc3 = await t.danhGia(ANH_CHUP);
@@ -257,6 +374,61 @@ try {
   ghi('lượt LÀM ĐÚNG: ngưỡng ghi đúng 85% (bài toàn trắc nghiệm)',
     !!ban && ban.threshold === 85, ban ? `ghi ${ban.threshold}%` : '—');
   ghi('lượt LÀM ĐÚNG: VẪN tính là một buổi học', sau3.buoi > truoc3.buoi, `buổi ${truoc3.buoi} → ${sau3.buoi}`);
+
+  await dongHan('panel bài đọc (lượt làm đúng)');
+
+  // ══ PHẦN HAI: CHÉP CHÍNH TẢ — bài duy nhất phải GÕ BÀN PHÍM ═══════════════
+  // Khác bài đọc ở hai điểm đáng kể: người học GÕ chứ không chọn, và chấm bằng
+  // `chamChinhTa` (so từng từ, bỏ dấu câu và chữ hoa) chứ không so cả chuỗi.
+  // Ngưỡng cũng khác: chặng này gửi `loaiCau` rỗng nên `thresholdFor` trả 80%,
+  // không phải 85% như bài toàn trắc nghiệm — con số đó cần được thấy tận mắt.
+  const moCt = await t.danhGia(`(() => {
+    const ds = [...document.querySelectorAll('div.cursor-pointer')]
+      .filter((e) => (e.innerText || '').includes('chép chính tả'));
+    if (!ds[0]) return false;
+    ds[0].scrollIntoView({ block: 'center' });
+    ds[0].click();
+    return true;
+  })()`);
+  ghi('mở chặng chép chính tả từ lộ trình', moCt, moCt ? '' : 'không thấy chặng nào');
+
+  if (moCt) {
+    await t.doi(`${TEP_DANG_PHAT}.length > 0`, { giay: 25, nhan: 'panel chép chính tả có bản thu' });
+
+    // ── Lượt CỐ SAI ─────────────────────────────────────────────────────────
+    const truocCt = await t.danhGia(ANH_CHUP);
+    const s1 = await lamChinhTa(() => 'zzz qqq xxx');
+    const sauCt = await t.danhGia(ANH_CHUP);
+
+    ghi('chép chính tả CỐ SAI: không câu nào được tính đạt', s1.dat === 0, `app chấm ${s1.dat}/${s1.tong} câu`);
+    ghi('chép chính tả CỐ SAI: KHÔNG đánh dấu hoàn thành',
+      sauCt.xong.length === truocCt.xong.length, `chặng xong ${truocCt.xong.length} → ${sauCt.xong.length}`);
+    ghi('chép chính tả CỐ SAI: KHÔNG cộng XP thưởng', sauCt.xp === truocCt.xp, `XP ${truocCt.xp} → ${sauCt.xp}`);
+    ghi('chép chính tả CỐ SAI: VẪN tính là một buổi học', sauCt.buoi > truocCt.buoi, `buổi ${truocCt.buoi} → ${sauCt.buoi}`);
+
+    // ── Lượt LÀM ĐÚNG ───────────────────────────────────────────────────────
+    // "Làm bộ khác" bốc bộ câu mới ngay trong panel — không phải đóng mở lại.
+    await t.danhGia(BAM_TRONG_PANEL('Làm bộ khác'));
+    await nghi(900);
+    const truocCt2 = await t.danhGia(ANH_CHUP);
+    const s2 = await lamChinhTa((chuDung) => chuDung);
+    const sauCt2 = await t.danhGia(ANH_CHUP);
+
+    // Gõ đúng nguyên văn mà không đạt 100% thì hoặc `chamChinhTa` sai, hoặc lời
+    // thoại trong kho khác thứ màn hình đang chấm — cả hai đều đáng dừng lại.
+    ghi('chép chính tả LÀM ĐÚNG: mọi câu đều đạt', s2.dat === s2.tong,
+      `app chấm ${s2.dat}/${s2.tong} câu · từng câu: ${s2.cau.map((c) => `${c.phanTram}%`).join(' ')}`);
+    const idMoiCt = sauCt2.xong.filter((x) => !truocCt2.xong.includes(x));
+    ghi('chép chính tả LÀM ĐÚNG: có đánh dấu hoàn thành', idMoiCt.length === 1,
+      idMoiCt.join(', ') || 'không chặng nào được đánh dấu');
+    ghi('chép chính tả LÀM ĐÚNG: có cộng XP thưởng', sauCt2.xp > truocCt2.xp, `XP ${truocCt2.xp} → ${sauCt2.xp}`);
+    const banCt = idMoiCt.length === 1 ? sauCt2.diem[idMoiCt[0]] : null;
+    ghi('chép chính tả LÀM ĐÚNG: ngưỡng ghi đúng 80% (KHÔNG phải 85%)',
+      !!banCt && banCt.threshold === 80,
+      banCt ? `${banCt.correct}/${banCt.total} = ${banCt.percent}% · ngưỡng ${banCt.threshold}%` : 'không có bản điểm');
+
+    await dongHan('panel chép chính tả');
+  }
 
   // ── nhật ký lỗi trong suốt lượt ────────────────────────────────────────────
   const lm = loiThat();
@@ -276,6 +448,7 @@ try {
   process.exitCode = ket.every((x) => x.ok) ? 0 : 1;
 } catch (e) {
   console.log('\nRÀ DỪNG GIỮA CHỪNG:', e.message);
+  try { console.log('hộp thoại đang mở lúc đó:', await t.danhGia(TEN_PANEL_DANG_MO) || '(không có)'); } catch { /* tab đã chết */ }
   console.log('nhật ký tới lúc đó:', JSON.stringify(loiThat().slice(0, 6), null, 1));
   process.exitCode = 1;
 } finally {

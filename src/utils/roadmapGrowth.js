@@ -28,8 +28,27 @@ function docSoDaXem(storage) {
 // ghi vào roadmapCounts.js. Dùng nó làm mốc cho người CHƯA có cờ trong máy: đó
 // đúng là con số họ đã nhìn thấy ở bản trước.
 export function thongBaoLoTrinhTang({ storage, tongHienTai, tongTruoc, soChangDaXong }) {
-  if (!soChangDaXong) return null;
   if (!Number.isFinite(tongHienTai) || tongHienTai <= 0) return null;
+  if (!soChangDaXong) {
+    // CHƯA XONG CHẶNG NÀO THÌ KHÔNG BÁO — nhưng chỉ trả về null là chưa đủ, và
+    // đây là chỗ file này từng phản lại chính dòng đầu của nó ("KHÔNG hiện với
+    // người mới cài app").
+    //
+    // Vì mốc cũ được SUY RA từ `tongTruoc` khi máy chưa có cờ, người mới cài
+    // hôm nay vẫn mang mốc 617 trong khi họ chưa bao giờ nhìn thấy con số đó.
+    // Chừng nào họ chưa xong chặng nào thì lời báo bị chặn — nhưng **ngay khi
+    // học xong chặng ĐẦU TIÊN**, `soChangDaXong` thành 1 và lời báo bật ra:
+    // "lộ trình vừa tăng từ 617 lên 710, bạn không mất chặng nào". Với người
+    // vừa cài app sáng nay thì cả câu đó không có gì đúng.
+    //
+    // Nên đóng mốc lại ngay: chưa xong gì thì mẫu số hiện tại CHÍNH LÀ con số
+    // đầu tiên họ nhìn thấy. Người dùng cũ không bị ảnh hưởng — họ đã có chặng
+    // xong nên không đi qua nhánh này.
+    // (Bộ `npm run hoc:that` tìm ra: sau khi chặng đầu tiên hoàn thành, một hộp
+    // thoại lạ chen lên giữa lượt rà.)
+    if (docSoDaXem(storage) === null) daXemLoTrinhTang(storage, tongHienTai);
+    return null;
+  }
   const mocCu = docSoDaXem(storage) ?? (Number.isFinite(tongTruoc) ? tongTruoc : null);
   if (mocCu === null || mocCu >= tongHienTai) return null;
   return { cu: mocCu, moi: tongHienTai, them: tongHienTai - mocCu };
