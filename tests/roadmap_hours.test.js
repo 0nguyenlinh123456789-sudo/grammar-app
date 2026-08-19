@@ -95,3 +95,33 @@ test('mốc cũ trong file hiện tại vẫn còn chuyện để báo', () => {
   // cả hai phải đổi được. Chỉ ghim quan hệ — mốc cũ không bao giờ vượt tổng.
   assert.ok(truoc <= tong, `TONG_CHANG_TRUOC (${truoc}) > TONG_CHANG (${tong}) — lời báo sẽ nói lộ trình teo lại`);
 });
+
+// ══════════════════════════════════════════════════════════════════════════
+// "BẬC B2 MỎNG" LÀ MỘT KẾT LUẬN SAI ĐƠN VỊ — GHIM CON SỐ ĐÃ SỬA.
+//
+// Bộ đo cam kết từng in ra "B2 93 giờ, B1 151, C1 149 → bậc đích mỏng hơn hàng
+// xóm", và tôi đã báo với chủ dự án đúng như vậy. Đo kỹ hơn thì con số đó TRỘN
+// hai thứ khác hẳn nhau: nội dung do chính dự án soạn, và bộ giáo trình Oxford
+// mà kho tình cờ có tập cho A2/B1/C1 nhưng không có tập cho B2.
+//
+// Tách ra thì đảo chiều: bỏ Oxford, ba bậc trên gần bằng nhau (94 / 93 / 98).
+// KHÔNG có thiếu hụt nội dung nào để đi soạn bù — thứ thiếu là một cuốn sách
+// phải mua hoặc xin phép. Hai kết luận đó dẫn tới hai việc hoàn toàn khác nhau
+// (một là hàng tuần soạn nội dung, một là một quyết định mua tài liệu), nên
+// con số phải được ghim để đừng ai đọc lại cột TỔNG rồi kết luận như cũ.
+test('nội dung TỰ SOẠN ở bậc đích không mỏng hơn hai bậc bên cạnh', async () => {
+  const { roadmapData, BAC_CAM_KET, BAC_DU_BI } = await import(new URL('../src/data/roadmapData.js', import.meta.url).href);
+  const bands = Array.isArray(roadmapData) ? roadmapData : Object.values(roadmapData);
+  const gioTuSoan = (level) => (bands.find((b) => b.level === level)?.milestones || [])
+    .filter((m) => m.type !== 'oxford')
+    .reduce((s, m) => s + (m.minutes || 0), 0) / 60;
+
+  const b1 = gioTuSoan('intermediate');
+  const b2 = gioTuSoan(BAC_CAM_KET);
+  const c1 = gioTuSoan(BAC_DU_BI);
+
+  assert.ok(b2 >= b1 * 0.8,
+    `nội dung tự soạn ở B2 (${b2.toFixed(0)}h) tụt dưới 80% của B1 (${b1.toFixed(0)}h) — đây MỚI là thiếu hụt soạn bù được`);
+  assert.ok(b2 >= c1 * 0.8,
+    `nội dung tự soạn ở B2 (${b2.toFixed(0)}h) tụt dưới 80% của C1 (${c1.toFixed(0)}h), mà C1 chỉ là nhánh dự bị`);
+});

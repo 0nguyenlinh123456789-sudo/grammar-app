@@ -86,21 +86,55 @@ console.log('      một cá nhân — người học nhanh chậm khác nhau.)'
 const gB1 = (soPhut.get('intermediate') || 0) / 60;
 const gB2 = (soPhut.get(BAC_CAM_KET) || 0) / 60;
 const gC1 = (soPhut.get(BAC_DU_BI) || 0) / 60;
+// ⚠️ CHIA THEO NGUỒN TRƯỚC KHI KẾT LUẬN "BẬC NÀY MỎNG".
+//
+// Bản trước của file này in ra "B2 93 giờ, B1 151, C1 149 → bậc đích mỏng hơn
+// hàng xóm" và dừng ở đó. Đo kỹ hơn thì con số ấy TRỘN HAI THỨ KHÁC HẲN NHAU:
+// nội dung do chính dự án soạn, và một bộ giáo trình bên thứ ba mà kho tình cờ
+// có tập cho A2/B1/C1 nhưng KHÔNG có tập cho B2.
+//
+// Tách ra thì bức tranh đảo chiều: bỏ Oxford, ba bậc trên gần như bằng nhau.
+// Nghĩa là KHÔNG có thiếu hụt nội dung nào để đi soạn bù — thứ thiếu là một
+// cuốn sách phải mua hoặc xin phép. Hai kết luận đó dẫn tới hai việc hoàn toàn
+// khác nhau, và bản trước suýt đẩy dự án vào việc sai.
+const gioLoai = (lv, loc) => {
+  const b = bac.find((x) => x.level === lv);
+  return (b?.milestones || []).filter(loc).reduce((s, m) => s + (m.minutes || 0), 0) / 60;
+};
+const khongOxford = (m) => m.type !== 'oxford';
 console.log('');
+console.log('  ── Tách nguồn: nội dung của dự án, và giáo trình bên thứ ba ──');
+in2(`${'bậc'.padEnd(20)}CEFR`, `${'tự soạn'.padStart(10)}${'Oxford'.padStart(10)}`);
+for (const b of bac) {
+  const tuSoan = gioLoai(b.level, khongOxford);
+  const ox = gioLoai(b.level, (m) => m.type === 'oxford');
+  in2(`${String(b.level).padEnd(20)}${CEFR_OF_BAND[b.level] || '?'}`,
+    `${`${tuSoan.toFixed(0)} giờ`.padStart(10)}${(ox ? `${ox.toFixed(0)} giờ` : '—').padStart(10)}`);
+}
+const tsB1 = gioLoai('intermediate', khongOxford);
+const tsB2 = gioLoai(BAC_CAM_KET, khongOxford);
+const tsC1 = gioLoai(BAC_DU_BI, khongOxford);
+console.log('');
+if (tsB2 >= tsB1 * 0.8 && tsB2 >= tsC1 * 0.8) {
+  console.log(`  ✅ NỘI DUNG TỰ SOẠN Ở BẬC ĐÍCH KHÔNG MỎNG: B2 ${tsB2.toFixed(0)} giờ,`);
+  console.log(`     B1 ${tsB1.toFixed(0)} giờ, C1 ${tsC1.toFixed(0)} giờ — ba bậc ngang nhau.`);
+} else {
+  console.log(`  ⚠️ NỘI DUNG TỰ SOẠN Ở BẬC ĐÍCH MỎNG THẬT: B2 ${tsB2.toFixed(0)} giờ so với`);
+  console.log(`     B1 ${tsB1.toFixed(0)} giờ và C1 ${tsC1.toFixed(0)} giờ. Chỗ này soạn bù được.`);
+}
 if (gB2 < gB1 * 0.8 || gB2 < gC1 * 0.8) {
-  console.log(`  ⚠️ RIÊNG BẬC ĐÍCH MỎNG HƠN HÀNG XÓM: B2 ${gB2.toFixed(0)} giờ, B1 ${gB1.toFixed(0)} giờ,`);
-  console.log(`     C1 (chỉ là nhánh DỰ BỊ) ${gC1.toFixed(0)} giờ.`);
-  // Nguyên nhân ĐO ĐƯỢC, không phải phỏng đoán: bộ giáo trình Oxford có tập
-  // cho B1 và tập cho C1, không có tập nào rơi vào B2.
   const sachTheoBac = new Map();
   for (const b of bac) {
     const s = new Set((b.milestones || []).filter((m) => m.type === 'oxford').map((m) => m.bookId));
     if (s.size) sachTheoBac.set(b.level, [...s].join(', '));
   }
-  console.log('     NGUYÊN NHÂN — giáo trình Oxford xếp theo bậc:');
+  console.log('');
+  console.log(`  Chênh lệch TỔNG (B2 ${gB2.toFixed(0)} giờ vs B1 ${gB1.toFixed(0)}, C1 ${gC1.toFixed(0)}) đến từ`);
+  console.log('  đúng một chỗ — bộ giáo trình Oxford không có tập nào rơi vào B2:');
   for (const lv of ROADMAP_BANDS) {
-    in2(`       ${lv} (${CEFR_OF_BAND[lv]})`, sachTheoBac.get(lv) || '— KHÔNG CÓ TẬP NÀO —');
+    in2(`    ${lv} (${CEFR_OF_BAND[lv]})`, sachTheoBac.get(lv) || '— KHÔNG CÓ TẬP NÀO —');
   }
+  console.log('  Đây là việc MUA/XIN PHÉP tài liệu, không phải việc ngồi soạn thêm.');
 }
 
 // ── 1b. ĐỀ NÓI / ĐỀ VIẾT PHỦ TỚI ĐÂU ───────────────────────────────────────
