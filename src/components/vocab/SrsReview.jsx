@@ -28,7 +28,7 @@ const SrsReview = ({ onClose, playAudio }) => {
   return (
     <div className="fixed inset-0 bg-slate-900/70 dark:bg-black/85 backdrop-blur-sm z-[140] flex items-center justify-center p-4">
       <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-[10px_10px_0_0_#1e293b] dark:shadow-[10px_10px_0_0_#000] relative">
-        <button onClick={onClose} className="absolute top-4 right-4 w-9 h-9 rounded-xl border-3 border-slate-800 dark:border-slate-600 bg-white dark:bg-slate-800 flex items-center justify-center hover:bg-rose-50 cursor-pointer">
+        <button onClick={onClose} aria-label="Đóng" className="absolute top-4 right-4 w-9 h-9 rounded-xl border-3 border-slate-800 dark:border-slate-600 bg-white dark:bg-slate-800 flex items-center justify-center hover:bg-rose-50 cursor-pointer">
           <X size={20} />
         </button>
 

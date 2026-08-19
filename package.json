@@ -9,7 +9,8 @@
     "lint": "eslint src vite.config.js functions api",
     "test": "node scripts/validate_content.mjs && node --test tests/*.test.js",
     "validate:content": "node scripts/validate_content.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ra:khach": "node scripts/ra_khach.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",
