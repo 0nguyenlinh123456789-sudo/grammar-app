@@ -24,7 +24,15 @@
 // nạp, rồi lấy tiếp mọi đường dẫn `/assets/*.js` xuất hiện bên trong chúng
 // (đó là cách Vite ghi các chunk nạp trễ). Không có bước nào phải đoán.
 
-const GOC = String(process.env.LIVE_BASE || 'https://grammar-app-gray.vercel.app').replace(/\/$/, '');
+import { docEnv } from './lib/docEnv.mjs';
+
+// ĐỌC BIẾN BẰNG LUẬT DÙNG CHUNG, không đọc thẳng `process.env`.
+// Bản đầu của file này đọc thẳng, nên khi chủ dự án để số tài khoản trong
+// `.env` thì bộ đo báo "máy chưa đặt biến nào để đối chiếu" — tức công cụ
+// dựng lên để bắt lỗi "quên deploy" lại im lặng đúng trường hợp thường gặp
+// nhất. Xem scripts/lib/docEnv.mjs.
+const env = docEnv();
+const GOC = String(env.LIVE_BASE || 'https://grammar-app-gray.vercel.app').replace(/\/$/, '');
 
 const in2 = (a, b) => console.log(`  ${String(a).padEnd(40)}${b}`);
 const che = (v) => String(v).replace(/.(?=.{3})/g, '•');
@@ -93,33 +101,38 @@ const CAN = [
 ];
 
 console.log('\n═══ CẤU HÌNH Ở MÁY vs BẢN LIVE ═══');
-const datOMay = CAN.filter((c) => String(process.env[c.khoa] || '').trim());
+const datOMay = CAN.filter((c) => String(env[c.khoa] || '').trim());
 const lech = [];
 if (!datOMay.length) {
   console.log('  Máy này chưa đặt biến bán hàng nào, nên không có gì để đối chiếu.');
   console.log('  (Chạy lại trên máy đã đặt biến thì mới bắt được lỗi "quên deploy".)');
 } else {
   for (const c of datOMay) {
-    const v = String(process.env[c.khoa]).trim();
+    const v = String(env[c.khoa]).trim();
     const co = tatCa.includes(v);
     in2(`${c.ten}`, co ? `✅ có trên live (${che(v)})` : `❌ ĐẶT Ở MÁY MÀ LIVE KHÔNG CÓ (${che(v)})`);
     if (!co) lech.push(c.khoa);
   }
 }
 
-// ── Bản live tự nó đang ở trạng thái nào ───────────────────────────────────
-// Đọc được kể cả khi máy chưa đặt biến nào: app có câu nói thẳng khi chưa có
-// kênh, nên sự CÓ MẶT của câu đó là bằng chứng bản live chưa bán được.
-console.log('\n═══ KHÁCH VÀO BẢN LIVE THÌ THẤY GÌ ═══');
-const coKhoiChuyenKhoan = /Chuyển khoản ngân hàng/i.test(tatCa);
-const coLoiChuaCoKenh = /chưa có kênh đặt mua|chưa cấu hình/i.test(tatCa);
-in2('có khối chuyển khoản trong gói', coKhoiChuyenKhoan ? 'có' : 'không');
-in2('có lời báo "chưa có kênh"', coLoiChuaCoKenh ? 'có' : 'không');
-// Lưu ý đọc: cả hai chuỗi đều nằm trong mã dưới dạng nhánh, nên sự có mặt của
-// chúng KHÔNG chứng minh khách nhìn thấy nhánh nào. Thứ chứng minh được là
-// GIÁ TRỊ CẤU HÌNH có nằm trong gói hay không — đó là phần đối chiếu bên trên.
-console.log('  (Hai dòng trên chỉ cho biết mã CÓ hai nhánh đó, không cho biết');
-console.log('   khách rơi vào nhánh nào. Bằng chứng thật là phần đối chiếu trên.)');
+// ── Bản live có mang lấy MỘT kênh nào không ────────────────────────────────
+// Bản đầu in ra hai dòng "gói có khối chuyển khoản không / có lời báo chưa có
+// kênh không". Cả hai chuỗi LUÔN có mặt, vì cả hai nhánh đều được dịch vào
+// gói — nên hai dòng đó không phân biệt được gì, và chính chú thích của chúng
+// đã thừa nhận thế. Một phép đo mà lời chú thích phải nói "cái này không chứng
+// minh gì" thì thứ cần bỏ là phép đo, không phải lời chú thích: chú thích rụng
+// mất khi người ta trích dẫn con số.
+//
+// Thứ QUYẾT ĐỊNH được từ gói tải về: có giá trị cấu hình nào trong đó không.
+// Thử lần hai cũng hỏng, nên ghi lại kết luận thay vì thử lần ba: TỪ GÓI TẢI
+// VỀ, KHÔNG BIẾT TRƯỚC GIÁ TRỊ THÌ KHÔNG QUYẾT ĐỊNH ĐƯỢC là kênh đã cấu hình
+// hay chưa. Dấu hiệu `zalo.me/` và `mailto:` đều nằm sẵn trong mã dựng chuỗi
+// của banHang.js (`https://zalo.me/${…}`), nên chúng có mặt kể cả khi chưa đặt
+// kênh nào — đúng cái khuyết điểm vừa gỡ bỏ ở đoạn trước.
+//
+// Nên bộ đo này chỉ khẳng định MỘT điều, và khẳng định chắc: giá trị bạn đã
+// đặt ở máy có nằm trong bản live hay không. Muốn biết KHÁCH thấy gì thì phải
+// mở thật — `npm run kiem:live`.
 
 console.log('\n═══ KẾT LUẬN ═══');
 if (lech.length) {

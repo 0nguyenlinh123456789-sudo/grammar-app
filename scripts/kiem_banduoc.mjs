@@ -28,29 +28,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { docEnv } from './lib/docEnv.mjs';
 
 const ROOT = path.resolve('.');
 const nap = (p) => import(pathToFileURL(path.join(ROOT, p)).href);
 const doc = (p) => (fs.existsSync(path.join(ROOT, p)) ? fs.readFileSync(path.join(ROOT, p), 'utf8') : '');
 
-// ── Đọc biến môi trường: ưu tiên biến thật, rồi tới .env.local / .env ────────
-// KHÔNG đọc `.env.example` — nó là bản mẫu với ô trống, và coi bản mẫu là cấu
-// hình thật là đúng kiểu "thay thế âm thầm" mà dự án cấm.
-function docEnv() {
-  const ra = { ...process.env };
-  for (const ten of ['.env', '.env.local']) {
-    const t = doc(ten);
-    if (!t) continue;
-    for (const dong of t.split(/\r?\n/)) {
-      const m = /^\s*([A-Z0-9_]+)\s*=\s*(.*)$/.exec(dong);
-      if (!m) continue;
-      const v = m[2].trim().replace(/^["']|["']$/g, '');
-      if (v) ra[m[1]] = v;
-    }
-  }
-  return ra;
-}
-const env = docEnv();
+// Luật đọc biến nằm ở MỘT bản duy nhất, dùng chung với `kiem_ban_live.mjs` —
+// xem scripts/lib/docEnv.mjs để biết chuyện gì xảy ra khi có hai bản.
+const env = docEnv(ROOT);
 
 const MUC = [];
 const them = (ai, ten, dat, chiTiet) => MUC.push({ ai, ten, dat, chiTiet });
