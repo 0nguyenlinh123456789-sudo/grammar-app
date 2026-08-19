@@ -39,8 +39,13 @@ test('mọi mã lỗi — kể cả mã lạ và mã rác — đều dẫn tới
 test('lời báo nói RÕ chuyện gì xảy ra, không chỉ nói "có lỗi"', () => {
   assert.match(loiMicThanhChu('khong-ho-tro'), /không hỗ trợ nhận dạng giọng nói/);
   assert.match(loiMicThanhChu('not-allowed'), /chưa được cấp quyền dùng micro/);
-  // `service-not-allowed` cũng là chuyện quyền, không phải "lỗi không rõ".
-  assert.match(loiMicThanhChu('service-not-allowed'), /chưa được cấp quyền dùng micro/);
+  // `service-not-allowed` KHÔNG được gộp vào nhóm quyền micro. Bản đầu tôi gộp
+  // vì tên giống, rồi ghim luôn bằng test — tức là khoá lại một chẩn đoán tôi
+  // không kiểm được. Hai thứ khác nhau: một cái là micro bị từ chối, cái kia là
+  // dịch vụ nhận giọng bị chặn. Nó phải gọi đúng tên mã lỗi và để người học tự
+  // biết mà tra, chứ không chỉ họ sang đúng chỗ không có lỗi.
+  assert.match(loiMicThanhChu('service-not-allowed'), /Nhận dạng gặp lỗi: service-not-allowed/);
+  assert.doesNotMatch(loiMicThanhChu('service-not-allowed'), /cấp quyền dùng micro/);
   assert.match(loiMicThanhChu('network'), /network/);
 });
 

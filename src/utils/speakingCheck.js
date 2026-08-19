@@ -146,7 +146,15 @@ export function loiMicThanhChu(ma) {
   if (ma === 'khong-ho-tro') {
     return `Trình duyệt này không hỗ trợ nhận dạng giọng nói (hãy dùng Chrome hoặc Edge). ${DUONG_RA_GO_TAY}`;
   }
-  if (ma === 'not-allowed' || ma === 'service-not-allowed') {
+  // CHỈ `not-allowed`. Bản đầu tôi gộp cả `service-not-allowed` vào đây vì tên
+  // giống — mà bộ rà chỉ quan sát được `not-allowed`, còn cái kia tôi suy ra.
+  // Theo Web Speech API hai thứ khác nhau: `not-allowed` là micro bị người dùng
+  // hoặc thiết bị từ chối; `service-not-allowed` là DỊCH VỤ nhận giọng bị chặn
+  // (chính sách trình duyệt, cấu hình máy công ty). Bảo người thứ hai đi kiểm
+  // quyền micro là chỉ họ sang đúng chỗ không có lỗi. Nên nó rơi xuống nhánh
+  // chung: gọi đúng tên mã lỗi, không phán nguyên nhân mình không kiểm được —
+  // cùng luật với "không thấy ≠ không có".
+  if (ma === 'not-allowed') {
     return `Trình duyệt chưa được cấp quyền dùng micro. ${DUONG_RA_GO_TAY}`;
   }
   return `Nhận dạng gặp lỗi: ${ma || 'không rõ'}. ${DUONG_RA_GO_TAY}`;

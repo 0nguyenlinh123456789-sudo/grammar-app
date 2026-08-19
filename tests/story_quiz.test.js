@@ -155,7 +155,11 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
 // thường không phân biệt nổi nên đó không phải mẹo dùng được. Con số ĐÁNG LO là
 // "dài hơn THẤY ĐƯỢC": đáp án dài hơn lựa chọn nhì từ 10% trở lên, nhìn là thấy
 // ngay — con số này còn 6,0%, từ 57,2%. Không còn câu nào lệch quá 40%.
-const THIEN_LECH_TOI_DA = 0.398;
+// SIẾT 19/08 sau khi thêm 52 câu A1: đo lại toàn kho 908 câu ra 37,9% (từ mốc
+// 39,8%). Bánh cóc thì phải đi theo — để mốc đứng yên trong khi kho lớn lên là
+// đúng cái đã xảy ra với `DE_TOI_THIEU` (đứng ở 531 khi kho đã 621). Chừa lại
+// một chút biên như bản trước, không siết sát mép.
+const THIEN_LECH_TOI_DA = 0.383;
 const THAY_DUOC_TOI_DA = 0.029;
 
 test(`thiên lệch độ dài chỉ được giảm (dài nhất ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}% · thấy được ${(THAY_DUOC_TOI_DA * 100).toFixed(1)}% · không thiên lệch ≈ 25%)`, async () => {
