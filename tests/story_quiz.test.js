@@ -25,8 +25,8 @@ const DATA = path.join(ROOT, 'src', 'data');
 
 // Bánh cóc: chỉ được tăng. Số ĐO ĐƯỢC khi soạn xong cả ba bậc B1, B2 và C1 —
 // 121/122 chặng ≥B1 (một chặng loại có lý do, xem đầu src/data/storyQuiz.js).
-const CHU_DE_TOI_THIEU = 232;
-const CAU_HOI_TOI_THIEU = 928;
+const CHU_DE_TOI_THIEU = 236;
+const CAU_HOI_TOI_THIEU = 944;
 
 async function napGop(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
@@ -164,8 +164,8 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
 // được" đứng y nguyên ở 2,9% và tôi đã nói thẳng là không cải thiện). Mức
 // giảm nhỏ vì 20 câu trên 928 thì chỉ đổi được chừng đó — nói ra để không ai
 // đọc con số này thành một bước tiến lớn.
-const THIEN_LECH_TOI_DA = 0.379;
-const THAY_DUOC_TOI_DA = 0.028;
+const THIEN_LECH_TOI_DA = 0.377;
+const THAY_DUOC_TOI_DA = 0.028;  // đo 2,75% — siết mốc nữa thì sát mép quá
 
 test(`thiên lệch độ dài chỉ được giảm (dài nhất ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}% · thấy được ${(THAY_DUOC_TOI_DA * 100).toFixed(1)}% · không thiên lệch ≈ 25%)`, async () => {
   const { doThienLech } = await import('../scripts/audit_story_quiz.mjs');
@@ -262,7 +262,10 @@ const A1A2_CON_THIEU_TOI_DA = 0;
 //   · viết lại bài đọc cho đạt bốn tiêu chí — nhưng lúc đó nó nhảy sang `du`, và
 //     `A1A2_CON_THIEU_TOI_DA = 0` bắt phải soạn câu ngay trong cùng đợt. Không có
 //     đường nào làm con số đẹp lên mà không thêm nội dung.
-const A1A2_KHONG_DU_TOI_DA = 34;
+// 19/08 lần hai: 34 → 30 sau khi VIẾT LẠI bài đọc cho 4 chặng A1. Đây là lần đầu
+// con số này giảm bằng đường "viết lại bài" chứ không phải đường "soạn thêm câu",
+// và nó chứng minh cả hai đường đều thông như chú thích ở trên nói.
+const A1A2_KHONG_DU_TOI_DA = 30;
 
 test('bánh cóc A1/A2: số chặng đủ điều kiện mà CHƯA có câu hỏi chỉ được giảm', async () => {
   const { doA1A2 } = await import(pathToFileURL(path.join(ROOT, 'scripts/audit_a1a2_story.mjs')).href);

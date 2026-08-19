@@ -2855,6 +2855,199 @@ export const STORY_QUIZ_A1 = {
       dan: 'Just remember to bring your camera to take a beautiful picture or photo of the sun and the places you see.',
     },
   ],
+
+  // ══ ĐỢT 19/08 — CHẶNG ĐÃ VIẾT LẠI BÀI ĐỌC ════════════════════════════════
+  // Bốn chặng này trước đây là diễu hành từ vựng ("A dog is a very friendly
+  // animal"), nên chúng nằm trong nhóm 'viet-lai' và mang băng cảnh báo cam.
+  // Bài đọc ĐÃ ĐƯỢC VIẾT LẠI thành một cảnh có nhân vật và có việc xảy ra —
+  // xem `scripts/data/viet_lai_bai_doc.mjs`. Nay hỏi được, nên soạn câu.
+  //
+  // `dan` ở đây do MÁY lấy từ chính mảng câu của bài, không gõ lại — cùng lý do
+  // đã phải chép bằng máy ở đợt A2 (dấu gạch ngang, nháy lồng nhau).
+  'animals-pets-beginner': [
+    {
+      q: 'Con mèo Mun trông thế nào?',
+      options: [
+        'Lông xám, có một bàn chân trắng',
+        'Lông xám, có một cái tai trắng',
+        'Lông trắng, có một bàn chân xám',
+        'Lông xám hết, không có chỗ nào trắng',
+      ],
+      answer: 0,
+      dan: 'My cat is called Mun, and she has grey fur with one white paw.',
+    },
+    {
+      q: 'Vì sao người kể không lại gần con lợn?',
+      options: [
+        'Vì nó to hơn người kể tưởng nhiều',
+        'Vì cậu của người kể không cho lại gần',
+        'Vì nó đang ăn và có thể cắn người kể',
+        'Vì nó trốn sau một cái tổ bằng cỏ khô',
+      ],
+      answer: 0,
+      dan: 'I did not go near the pig, because it was much bigger than I expected.',
+    },
+    {
+      q: 'Vì sao bạn Nam thích con khỉ?',
+      options: [
+        'Vì con khỉ lấy mũ của cậu ấy và không trả lại',
+        'Vì con khỉ uống nước bằng cái mũi dài của nó',
+        'Vì con khỉ chạy khỏi cậu ấy rồi trốn sau cái tổ',
+        'Vì con khỉ ngủ trong bóng mát cả buổi chiều',
+      ],
+      answer: 0,
+      dan: 'My friend Nam liked the monkey, because the monkey took his hat and would not give it back.',
+    },
+    {
+      q: 'Vì sao cả lớp không thấy con sư tử?',
+      options: [
+        'Người trông sở thú nói nó đang ngủ trong bóng mát',
+        'Cô giáo dặn cả lớp phải đứng ở phía sau cái lồng',
+        'Cả lớp về sớm nên không kịp đi hết vòng sở thú',
+        'Nó bị chuyển sang một sở thú khác từ hôm thứ Hai',
+      ],
+      answer: 0,
+      dan: 'We did not see the lion at all; the keeper said it was asleep in the shade.',
+    },
+  ],
+  'transport-vehicles-beginner': [
+    {
+      q: 'Vì sao người kể trượt chuyến xe buýt bảy giờ?',
+      options: [
+        'Vì không tìm thấy vé trong túi',
+        'Vì con đường ra khỏi làng quá hẹp',
+        'Vì chuyến xe đó tới muộn một tiếng',
+        'Vì phải dừng lại vì một xe tải chậm',
+      ],
+      answer: 0,
+      dan: 'I missed the seven o\'clock bus, because I could not find my ticket in my bag.',
+    },
+    {
+      q: 'Người kể qua sông bằng đường nào, và vì sao?',
+      options: [
+        'Bằng cây cầu cũ, vì đường hầm mới đang đóng',
+        'Bằng đường hầm mới, vì cây cầu cũ đang đóng',
+        'Bằng thuyền, vì cả cầu và đường hầm đều đóng',
+        'Bằng cây cầu mới, vì đường hầm cũ quá hẹp',
+      ],
+      answer: 0,
+      dan: 'We crossed the river on an old bridge, not through the new tunnel, because the tunnel was closed.',
+    },
+    {
+      q: 'Bác tài taxi yêu cầu người kể làm gì trước khi nổ máy?',
+      options: [
+        'Thắt dây an toàn',
+        'Trình vé máy bay',
+        'Đội mũ bảo hiểm',
+        'Cất bản đồ vào túi',
+      ],
+      answer: 0,
+      dan: 'The taxi driver told me to put on my seat belt before he would start the engine.',
+    },
+    {
+      q: 'Theo anh trai người kể, vì sao ở làng thì xe đạp tốt hơn?',
+      options: [
+        'Vì lối đi sau trường quá hẹp cho một chiếc xe hơi',
+        'Vì đi xe đạp thì không cần phải đội mũ bảo hiểm',
+        'Vì đường cao tốc gần làng có quá nhiều xe tải lớn',
+        'Vì xe máy chạy nhanh hơn nhưng lại không an toàn',
+      ],
+      answer: 0,
+      dan: 'He says a bicycle is better in our village, because the path behind the school is too narrow for a car.',
+    },
+  ],
+  'body-health-beginner-p2': [
+    {
+      q: 'Nhiệt độ của người kể lúc buổi tối là bao nhiêu?',
+      options: [
+        'Ba mươi chín độ',
+        'Ba mươi bảy độ',
+        'Bốn mươi độ',
+        'Ba mươi tám độ',
+      ],
+      answer: 0,
+      dan: 'That afternoon I began to cough, and by evening my temperature was thirty-nine degrees.',
+    },
+    {
+      q: 'Ai bị đau răng, và người đó được đưa đi gặp ai?',
+      options: [
+        'Anh trai người kể, mẹ đưa đi gặp nha sĩ',
+        'Người kể, bố đưa đi gặp bác sĩ ở bệnh viện',
+        'Em gái người kể, mẹ đưa đi gặp nha sĩ',
+        'Anh trai người kể, bố đưa đi gặp y tá',
+      ],
+      answer: 0,
+      dan: 'My brother woke up with a bad toothache, so my mother took him to the dentist that morning.',
+    },
+    {
+      q: 'Y tá làm gì cho người kể TRƯỚC TIÊN?',
+      options: [
+        'Đo huyết áp',
+        'Xem cổ họng và hai tai',
+        'Nghe ngực xem có gì không',
+        'Đưa thuốc giảm đau',
+      ],
+      answer: 0,
+      dan: 'A nurse checked my blood pressure first, and then she looked at my throat and my ears.',
+    },
+    {
+      q: 'Bác sĩ dặn uống thuốc thế nào?',
+      options: [
+        'Một viên, hai lần một ngày, sau khi ăn, trong năm ngày',
+        'Hai viên, một lần một ngày, trước khi ăn, trong năm ngày',
+        'Một viên, hai lần một ngày, trước khi ngủ, trong ba ngày',
+        'Hai viên, hai lần một ngày, sau khi ăn, trong bảy ngày',
+      ],
+      answer: 0,
+      dan: 'He told me to take one pill twice a day, after food, for five days.',
+    },
+  ],
+  'places-buildings-beginner': [
+    {
+      q: 'Cái chợ nằm đối diện cái gì?',
+      options: [
+        'Bưu điện',
+        'Ngân hàng',
+        'Đồn cảnh sát',
+        'Quán cà phê',
+      ],
+      answer: 0,
+      dan: 'The market is right opposite the post office, so my mother sends a letter and buys fish on the same trip.',
+    },
+    {
+      q: 'Bà của người kể sống ở đâu?',
+      options: [
+        'Một căn hộ ở tầng năm, gần công viên',
+        'Một ngôi nhà nhỏ ở gần công viên',
+        'Một căn hộ ở tầng năm, sau ngôi đền',
+        'Một căn hộ ở tầng nhất, gần cây cầu',
+      ],
+      answer: 0,
+      dan: 'My grandmother does not live in a house; she lives in a flat on the fifth floor near the park.',
+    },
+    {
+      q: 'Muốn lên thư viện thì đi thế nào?',
+      options: [
+        'Lên bằng cầu thang hẹp ở bên hông tòa nhà',
+        'Lên bằng thang máy trong tòa nhà quán cà phê',
+        'Đi qua khu vườn có hai cây cổ thụ ở giữa',
+        'Đi bên kia cây cầu rồi men theo dòng sông',
+      ],
+      answer: 0,
+      dan: 'The library is above the cafe, and you reach it by a narrow staircase at the side of the building.',
+    },
+    {
+      q: 'Nhà máy duy nhất của thị trấn nằm ở đâu?',
+      options: [
+        'Ngoài thị trấn, bên kia cây cầu và sát dòng sông',
+        'Trong thị trấn, ở cuối con phố chính',
+        'Ngoài thị trấn, trên đỉnh ngọn đồi sau làng',
+        'Trong thị trấn, phía sau ngôi đền và khu vườn',
+      ],
+      answer: 0,
+      dan: 'The only factory in our town is outside it, beyond the bridge and close to the river.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_A1;

@@ -43,12 +43,23 @@ export const PHAN_LOAI_A1 = {
   'numbers-shapes-beginner': { nhom: 'soan', xong: true, vi: 'Có phát biểu kiểm được từ chính bài: 10 quả táo thêm 5 thành 15, bớt 2 còn 8; cô bảo vẽ TIM ĐỎ và SAO VÀNG; cửa lớp là hình chữ nhật.' },
   'travel-transport-beginner': { nhom: 'soan', xong: true, vi: 'Có trình tự chuyến đi (soạn hành lý → hộ chiếu và thị thực nếu ra nước ngoài → đặt phòng khách sạn), tuy phần lớn viết theo lối "bạn có thể…".' },
 
+  // ── ĐỢT BA 19/08 — 4 CHẶNG ĐƯỢC VIẾT LẠI BÀI ĐỌC, KHÔNG CHỈ SOẠN CÂU ─────
+  // Bốn mục ngay dưới đây từng nằm ở nhóm 'viet-lai'. Việc làm là VIẾT LẠI CHÍNH
+  // BÀI ĐỌC (cả `storyEn` lẫn `storyVi`, xem `scripts/data/viet_lai_bai_doc.mjs`)
+  // rồi mới soạn câu — chứ không phải cố nặn bốn câu hỏi từ một bài không hỏi được.
+  //
+  // Đổi bài đọc làm `tests/story_caps.test.js` ĐỎ, đúng như thiết kế của nó: ảnh
+  // chụp băm chữ thường bắt được đúng 4 id, không sót không tràn, rồi mới chụp lại
+  // có chủ ý. Và `tests/a1a2_phan_loai.test.js` cũng đỏ — phép kiểm "chặng viet-lai
+  // không được lặng lẽ có câu hỏi" mà tôi ghi là "để dành bắn về sau" đã bắn lần
+  // đầu, đúng lúc cần.
+
   // ── DIỄU HÀNH TỪ VỰNG — CẦN VIẾT LẠI ──────────────────────────────────────
-  'animals-pets-beginner': { nhom: 'viet-lai', vi: 'Danh mục định nghĩa: "A dog is a very friendly animal", "A cat is also a popular pet". Hỏi gì cũng thành hỏi kiến thức chung về con vật.' },
-  'transport-vehicles-beginner': { nhom: 'viet-lai', vi: 'Danh mục phương tiện viết theo lối "bạn có thể…". Không nhân vật, không việc gì xảy ra.' },
-  'body-health-beginner-p2': { nhom: 'viet-lai', vi: 'Liệt kê bộ phận cơ thể rồi liệt kê bệnh. Mọi câu hỏi rút ra được đều trả lời được mà không đọc bài.' },
+  'animals-pets-beginner': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: từ danh mục định nghĩa thành chuyện của Mai — chó Bo còn nhỏ, mèo Mun lông xám một chân trắng, đi trang trại cậu, đi sở thú với lớp. Con sư tử ngủ trong bóng mát nên cả lớp không thấy; con khỉ lấy mũ của Nam.' },
+  'transport-vehicles-beginner': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành một chuyến đi có thật từ làng ra sân bay — trượt xe buýt bảy giờ vì không tìm thấy vé, qua sông bằng cầu cũ vì đường hầm đóng, bác tài taxi đòi thắt dây an toàn trước khi nổ máy.' },
+  'body-health-beginner-p2': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành một đợt cả nhà ốm — anh trai đau răng đi nha sĩ, người kể sốt ba mươi chín độ, y tá đo huyết áp trước, bác sĩ dặn một viên hai lần một ngày sau khi ăn trong năm ngày.' },
   'body-health-beginner-p3': { nhom: 'viet-lai', vi: 'Cùng dạng với bản p2, viết lại bằng lời khác. Thêm phần vệ sinh nhưng vẫn là lời khuyên chung.' },
-  'places-buildings-beginner': { nhom: 'viet-lai', vi: 'Danh mục địa điểm và công dụng ("go to the bank if you need money"). Không có thị trấn cụ thể như bản p2.' },
+  'places-buildings-beginner': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành một thị trấn có địa lý kiểm được — chợ đối diện bưu điện, thư viện phía trên quán cà phê lên bằng cầu thang hông, bà ở căn hộ tầng năm, nhà máy ngoài thị trấn bên kia cầu.' },
   'food-drinks-beginner-p2': { nhom: 'viet-lai', vi: 'Danh mục món ăn theo bữa. Có chữ "First… Then…" nhưng chủ ngữ là "families" chung chung, không phải một bữa ăn có thật.' },
   'animals-nature-beginner': { nhom: 'viet-lai', vi: 'Diễu hành thiên nhiên và con vật. Các câu là định nghĩa rời ("A dog runs fast, and a cat sleeps all day").' },
   'nature-animals-beginner': { nhom: 'viet-lai', vi: '0 dấu hiệu tường thuật, và đo bằng mắt cũng đúng: một chuỗi "you can see…" từ đầu tới cuối.' },
