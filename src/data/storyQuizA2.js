@@ -2410,6 +2410,291 @@ export const STORY_QUIZ_A2 = {
       dan: 'You take the item to the fitting room to see if it fits your size or suits your style.',
     },
   ],
+
+  // ══ ĐỢT 19/08 — CHẶNG A2 ĐÃ VIẾT LẠI BÀI ĐỌC ════════════════════════════════
+  // Các chặng này trước đây là diễu hành từ vựng ("A dog is a very friendly
+  // animal"), nên chúng nằm trong nhóm 'viet-lai' và mang băng cảnh báo cam.
+  // Bài đọc ĐÃ ĐƯỢC VIẾT LẠI thành một cảnh có nhân vật và có việc xảy ra —
+  // xem `scripts/data/viet_lai_bai_doc.mjs`. Nay hỏi được, nên soạn câu.
+  //
+  // `dan` ở đây do MÁY lấy từ chính mảng câu của bài, không gõ lại — cùng lý do
+  // đã phải chép bằng máy ở đợt A2 (dấu gạch ngang, nháy lồng nhau).
+  'animals-nature-daily': [
+    {
+      q: 'Trại cứu hộ của cô Chi trả được tiền gì, và không trả được tiền gì?',
+      options: [
+        'Trả được tiền thuốc, không trả được tiền ăn',
+        'Trả được tiền ăn, không trả được tiền thuốc',
+        'Trả được cả tiền ăn lẫn tiền thuốc cho con vật',
+        'Không trả được gì, tất cả nhờ người tới cho',
+      ],
+      answer: 0,
+      dan: 'She told us the shelter refuses no animal, but it can only pay for medicine, not for food.',
+    },
+    {
+      q: 'Cô Chi biết con chó khoảng bốn tuổi nhờ vào đâu?',
+      options: [
+        'Nhờ nhìn răng của nó',
+        'Nhờ nhìn bộ lông của nó',
+        'Nhờ người ở tầng một kể lại',
+        'Nhờ ảnh gia đình nhận nuôi gửi',
+      ],
+      answer: 0,
+      dan: 'Chi said his teeth showed he was about four years old, not a puppy as we had thought.',
+    },
+    {
+      q: 'Theo cô Chi, vì sao động vật trang trại phải để ở khu riêng?',
+      options: [
+        'Vì một con bò hoảng sợ còn nguy hiểm hơn con vật hoang dã',
+        'Vì chúng có thể làm chó và mèo trong trại bị bệnh',
+        'Vì người nông dân sẽ tới nhận chúng về sau vài tuần nữa',
+        'Vì chúng cần một khu đất rộng hơn để đi lại tự do',
+      ],
+      answer: 0,
+      dan: 'Chi keeps farm animals in a separate field, because a frightened cow is more dangerous than any wild animal she has met.',
+    },
+    {
+      q: 'Cô Chi từng bị con vật nào làm xước tay?',
+      options: [
+        'Một con vịt, bằng cái mỏ',
+        'Một con chó, bằng hàm răng',
+        'Một con dê, bằng cái sừng',
+        'Một con vẹt, bằng móng chân',
+      ],
+      answer: 0,
+      dan: 'She has never been bitten by a dog, but a duck once cut her hand with its beak.',
+    },
+  ],
+  'technology-internet-daily': [
+    {
+      q: 'Vấn đề đầu tiên khi bà học dùng điện thoại là gì?',
+      options: [
+        'Bà không cảm được khác nhau giữa chạm nhẹ và giữ lâu',
+        'Bà không biết cách bật wifi trên máy của mình',
+        'Bà không nhớ được mật khẩu tài khoản ngân hàng của bà',
+        'Bà không phân biệt được tên tôi với tên anh họ',
+      ],
+      answer: 0,
+      dan: 'The first problem was not the internet; it was that she could not feel the difference between a tap and a long press.',
+    },
+    {
+      q: 'Vì sao suốt hai tuần bà gọi cho người kể thay vì gọi anh họ?',
+      options: [
+        'Vì hai cái tên bắt đầu bằng cùng một chữ',
+        'Vì anh họ chỉ gọi về hai lần mỗi tháng',
+        'Vì bà chưa tự bật được wifi trên máy',
+        'Vì tờ giấy dán trên tường ghi sai bước',
+      ],
+      answer: 0,
+      dan: 'For two weeks she called me instead of my cousin, because both names begin with the same letter.',
+    },
+    {
+      q: 'Khi nhận tin nhắn đòi nhập mật khẩu, bà đã làm gì?',
+      options: [
+        'Chụp ảnh tin nhắn rồi gửi cho người kể trước',
+        'Nhập mật khẩu vào trang web đó rồi mới hỏi',
+        'Gọi ngay cho ngân hàng để hỏi cho chắc',
+        'Xóa tin nhắn đi và không kể với ai cả',
+      ],
+      answer: 0,
+      dan: 'She did not type it; she took a photograph of the message and sent it to me first.',
+    },
+    {
+      q: 'Vì sao pin điện thoại của bà hết vào khoảng hai giờ chiều?',
+      options: [
+        'Vì bà không bao giờ tắt cái gì',
+        'Vì bà xem video nấu ăn cả buổi sáng',
+        'Vì bà để lại quá nhiều bình luận',
+        'Vì bà quên cắm sạc từ tối hôm trước',
+      ],
+      answer: 0,
+      dan: 'Her battery runs out by two in the afternoon, because she never closes anything.',
+    },
+  ],
+  'hobbies-entertainment-daily': [
+    {
+      q: 'Vì sao chủ quán luôn rút được tờ "xem phim"?',
+      options: [
+        'Vì ông gấp tờ đá bóng nhỏ hơn cho khó rút',
+        'Vì hai đứa muốn xem phim viết chữ to hơn',
+        'Vì ông cũng thích phim hài hơn là đá bóng',
+        'Vì tờ đá bóng bị ướt nên dính vào nhau',
+      ],
+      answer: 0,
+      dan: 'It turned out he had folded the football paper smaller, because he did not want us shouting outside his shop.',
+    },
+    {
+      q: 'Luật mới của nhóm sau vụ rút giấy là gì?',
+      options: [
+        'Ai tới muộn nhất thì được chọn, người khác không được cãi',
+        'Ai tới sớm nhất thì được chọn cho cả buổi chiều hôm đó',
+        'Mỗi tuần đổi một người chọn, xoay đủ năm người',
+        'Bỏ hẳn việc chọn, thứ Bảy nào cũng ngồi ở quán',
+      ],
+      answer: 0,
+      dan: 'After that we changed the rule: whoever arrives last chooses, and the others may not complain.',
+    },
+    {
+      q: 'Lan học chơi cờ từ ai, và bằng cách nào?',
+      options: [
+        'Từ bố cô, người không bao giờ để cô thắng một ván',
+        'Từ bốn người bạn trong nhóm suốt hai tuần mưa',
+        'Từ chủ quán cà phê, người dạy cô mỗi thứ Bảy',
+        'Từ một quyển sách cô mang tới quán để đọc',
+      ],
+      answer: 0,
+      dan: 'She learned it from her father, who taught her by never letting her win a single game.',
+    },
+    {
+      q: 'Chủ quán nhận xét thế nào về nhóm?',
+      options: [
+        'Là khách yên nhất và cũng tệ nhất, vì năm người chia hai ly',
+        'Là khách tốt nhất, vì tuần nào cũng tới đúng thứ Bảy đó',
+        'Là khách ồn nhất, vì hay hò hét ngay ngoài cửa hàng',
+        'Là khách lạ nhất, vì vừa đọc sách vừa chơi cờ',
+      ],
+      answer: 0,
+      dan: 'The owner says we are his quietest customers and his worst customers, because five people share two drinks.',
+    },
+  ],
+  'clothes-fashion-daily': [
+    {
+      q: 'Bộ đồ màu xám ở chợ không vừa ở chỗ nào?',
+      options: [
+        'Phần vai',
+        'Phần bụng',
+        'Ống quần',
+        'Cổ áo',
+      ],
+      answer: 0,
+      dan: 'I went to the market first, where a woman showed me a grey suit that fitted everywhere except the shoulders.',
+    },
+    {
+      q: 'Cái quần ở cửa hàng thứ hai sai thế nào?',
+      options: [
+        'Dài sai bốn xăng-ti-mét',
+        'Rộng sai bốn xăng-ti-mét',
+        'Ngắn sai một cỡ áo',
+        'Chật ở phần bụng',
+      ],
+      answer: 0,
+      dan: 'In the second shop the jacket was cheap and the trousers were the wrong length by four centimetres.',
+    },
+    {
+      q: 'Người kể xử lý chỗ hơi rộng ở bụng bằng cách nào?',
+      options: [
+        'Đeo một cái dây lưng để che',
+        'Mua rộng hơn một cỡ nữa',
+        'Nhờ cửa hàng sửa lại cho vừa',
+        'Mặc thêm một cái áo bên trong',
+      ],
+      answer: 0,
+      dan: 'It was slightly too loose at the waist, but a belt hid that completely.',
+    },
+    {
+      q: 'Chuyện gì xảy ra ở đám cưới với bộ đồ đó?',
+      options: [
+        'Hai khách nữa mặc đúng bộ đó, từ đúng cửa hàng đang dẹp',
+        'Không ai nhận ra người kể mặc đồ mua ở chợ',
+        'Đôi giày của bố bị tuột ra ngay khi người kể đi lại',
+        'Mẹ người kể nhận ra ngay là bộ đồ hơi rộng',
+      ],
+      answer: 0,
+      dan: 'At the wedding two other guests were wearing exactly the same dark blue suit from the same closing shop.',
+    },
+  ],
+  'house-furniture-daily': [
+    {
+      q: 'Vì sao cái sofa không lên được?',
+      options: [
+        'Vì nó rộng hơn cái cửa sáu xăng-ti-mét',
+        'Vì cầu thang lên tầng ba quẹo hai lần',
+        'Vì bốn người đẩy nó sai hướng suốt hai mươi phút',
+        'Vì phải tháo chân ghế ra mới nhấc được',
+      ],
+      answer: 0,
+      dan: 'My uncle measured the doorway and the sofa, and the sofa was six centimetres wider.',
+    },
+    {
+      q: 'Vì sao mẹ người kể khóc vì cái tủ quần áo?',
+      options: [
+        'Vì bà ngoại đã cho mẹ nó vào đúng ngày cưới của mẹ',
+        'Vì cái tủ đó là món đồ đắt nhất trong nhà cũ',
+        'Vì gia đình mua nhà cũ trả giá quá thấp cho nó',
+        'Vì cái tủ bị hỏng khi nhấc qua tay cầm cầu thang',
+      ],
+      answer: 0,
+      dan: 'My mother cried about the wardrobe, because her mother had given it to her at her own wedding.',
+    },
+    {
+      q: 'Chuyện gì xảy ra với cái tủ lạnh?',
+      options: [
+        'Không chạy suốt hai ngày rồi tự chạy lại',
+        'Không chạy nữa và phải bán lại cho người khác',
+        'Chạy được ngay nhưng kêu to hơn ở nhà cũ',
+        'Không vào được cửa nên phải tháo cánh ra',
+      ],
+      answer: 0,
+      dan: 'The fridge was easier, but it did not work for two days after the move and then started again by itself.',
+    },
+    {
+      q: 'Gia đình trước để lại thứ gì trong tủ?',
+      options: [
+        'Một cái thảm đỏ đậm, vừa khít phòng khách',
+        'Một cái đèn để lắp phía trên bếp',
+        'Một cái bàn ăn nhỏ có thể gấp gọn lại được',
+        'Một cái tủ quần áo cũ đã tháo rời',
+      ],
+      answer: 0,
+      dan: 'On the fourth day we found that the previous family had left a carpet rolled up in a cupboard.',
+    },
+  ],
+  'body-health-daily': [
+    {
+      q: 'Vì sao lần này bố người kể không tránh được việc đi khám?',
+      options: [
+        'Vì công ty trả tiền cho mọi người trên năm mươi tuổi đi khám',
+        'Vì bố đã tăng mười một ki-lô so với ảnh cưới',
+        'Vì bác sĩ đã yêu cầu bố phải tới đo lại huyết áp lần nữa',
+        'Vì mẹ người kể muốn đi bộ cùng bố mỗi ngày',
+      ],
+      answer: 0,
+      dan: 'Last spring his company paid for everyone over fifty to see a doctor, so he could not avoid it.',
+    },
+    {
+      q: 'Câu nào của bác sĩ làm bố sợ?',
+      options: [
+        'Rằng một người có thể thấy bình thường mà vẫn đang gặp chuyện',
+        'Rằng con số huyết áp của bố đã cao hơn mức cho phép nhiều',
+        'Rằng bố phải ngừng ăn sau tám giờ tối mỗi ngày',
+        'Rằng bố đã tăng cân quá nhiều từ ngày cưới',
+      ],
+      answer: 0,
+      dan: 'That was the sentence that frightened him: that a person can feel fine and still be in trouble.',
+    },
+    {
+      q: 'Trong ba việc bác sĩ dặn, việc nào bố KHÔNG giữ được?',
+      options: [
+        'Ngừng ăn sau tám giờ tối',
+        'Đi bộ ba mươi phút mỗi ngày',
+        'Ăn ít muối hơn trước',
+        'Đi đo lại huyết áp hằng tháng',
+      ],
+      answer: 0,
+      dan: 'He kept the walking and the salt, but the evening rule lasted four days.',
+    },
+    {
+      q: 'Bố nói gì về năm ki-lô đã giảm?',
+      options: [
+        'Hai ki-lô cuối khó hơn ba ki-lô đầu cộng lại',
+        'Ba ki-lô đầu khó hơn hai ki-lô cuối rất nhiều',
+        'Cả năm ki-lô đều giảm dễ nhờ đi bộ mỗi ngày',
+        'Bố giảm được nhờ ngừng ăn sau tám giờ tối',
+      ],
+      answer: 0,
+      dan: 'He lost five kilograms, and he says the last two were harder than the first three together.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_A2;

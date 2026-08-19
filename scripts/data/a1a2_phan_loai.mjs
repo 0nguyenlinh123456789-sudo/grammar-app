@@ -100,13 +100,19 @@ export const PHAN_LOAI_A2 = {
   'food-cooking-daily-p2': { nhom: 'soan', xong: true, vi: 'Có quy trình CÓ THỨ TỰ (đầu tiên lấy dao thái hành và cà chua → trộn trong bát rồi khuấy nước sốt trên bếp) và các cặp cách-nấu–món-ăn tự đặt của bài: món lành thì HẤP rau và NƯỚNG VỈ cá. Kết bằng trình tự ở nhà hàng, khép lại bằng để tiền tip.' },
   'shopping-clothes-daily': { nhom: 'soan', xong: true, vi: 'Có câu hỏi dẫn nguyên văn lời người mua (\'Can I try this on?\'), ba kiểu không vừa mà kiểu thứ ba không đoán ra được (quá chật, quá rộng, SAI ĐỘ DÀI), lý do giữ hóa đơn nói đích danh (khóa kéo đứt hay mất cúc), và chỗ mang hàng tới để thử.' },
 
+  // ── ĐÃ VIẾT LẠI BÀI ĐỌC 19/08 (đợt A2 thứ nhất, 6 chặng) ─────────────────
+  // Sáu mục ngay trên đây từng ở nhóm 'viet-lai'. RÀNG BUỘC RIÊNG của bậc A2:
+  // nhiều chặng trùng đề tài, và chính chỗ trùng đó là lý do bản cũ đọc xong không
+  // phân biệt được bài nào nói gì. Nên mỗi bài viết lại là một CẢNH KHÁC HẲN, chứ
+  // không chỉ đổi câu chữ — nếu không thì viết lại xong vẫn trùng như cũ.
+
   // ── CẦN VIẾT LẠI: bài văn phủ danh sách từ vựng ──────────────────────────
-  'animals-nature-daily': { nhom: 'viet-lai', vi: 'Diễu hành thiên nhiên theo lối \'from… to…\' rồi \'you can see…\'. Mọi phát biểu rút ra được đều là kiến thức chung: lợn lăn trong bùn, ô nhiễm đe dọa môi trường sống, hổ và voi thành nguy cấp khi rừng bị chặt.' },
-  'technology-internet-daily': { nhom: 'viet-lai', vi: 'Bài khuyên chung về công nghệ, chủ ngữ là \'we\' và \'people\' chung chung. Bốn câu hỏi rút ra được (treo máy thì khởi động lại, cập nhật cho an toàn) đều trả lời được mà không đọc bài.' },
-  'hobbies-entertainment-daily': { nhom: 'viet-lai', vi: 'Danh mục sở thích chia theo nhóm người (\'some prefer…\', \'others are more creative\'). Không nhân vật, không việc gì xảy ra, nên hỏi gì cũng thành hỏi bài liệt kê những gì.' },
-  'clothes-fashion-daily': { nhom: 'viet-lai', vi: 'Danh mục quần áo theo dịp, và cặp dịp–trang phục nào cũng là kiến thức chung: đi cưới thì bộ đồ lịch sự, mùa đông thì áo len dày. Trình tự giặt phơi là ủi gấp cũng vậy.' },
-  'house-furniture-daily': { nhom: 'viet-lai', vi: 'Đi từng phòng liệt kê đồ đạc và công dụng (tủ lạnh giữ đồ ăn tươi, lò vi ba hâm nóng). Trùng đề tài với housing-home-daily nhưng KHÔNG có nhân vật nào, nên mất đúng chỗ neo được câu hỏi.' },
-  'body-health-daily': { nhom: 'viet-lai', vi: 'Bài khuyên chung về sức khỏe, khép lại bằng câu châm ngôn \'prevention is better than cure\'. Mọi cặp bệnh–xử lý là kiến thức chung: đau răng thì đi nha sĩ, cảm thì nghỉ và ngủ đủ.' },
+  'animals-nature-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyện con chó lạc ngủ dưới gầm cầu thang và trại cứu hộ của cô Chi — trại trả được tiền thuốc chứ không trả được tiền ăn, xem răng biết chó bốn tuổi, cô từng bị một con VỊT làm xước tay chứ chưa bị chó cắn.' },
+  'technology-internet-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyện bà bảy mươi tám học gọi video — khó nhất là phân biệt chạm nhẹ với giữ lâu, bà gọi nhầm vì hai tên cùng chữ đầu, và bà chụp ảnh tin nhắn lừa đảo gửi hỏi trước khi nhập mật khẩu.' },
+  'hobbies-entertainment-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chiều thứ Bảy của năm đứa tranh nhau đá bóng hay xem phim — chủ quán gấp tờ đá bóng nhỏ hơn cho khó rút, luật mới là ai tới muộn nhất được chọn, Lan thắng cờ cả bốn đứa.' },
+  'clothes-fashion-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành hai tuần tìm đồ dự cưới với rất ít tiền — bộ xám vừa hết trừ phần vai, quần dài sai bốn xăng-ti-mét, và ở đám cưới có hai khách mặc đúng bộ đó từ đúng cửa hàng đang dẹp.' },
+  'house-furniture-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành một cuộc chuyển nhà không tính toán gì — sofa rộng hơn cửa sáu xăng-ti-mét, tủ quần áo bà ngoại cho phải bán lại, và gia đình trước để lại một tấm thảm đỏ vừa khít phòng khách.' },
+  'body-health-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành lần đi khám đầu tiên sau mười chín năm của bố — câu làm bố sợ là "người ta có thể thấy bình thường mà vẫn đang gặp chuyện", và trong ba việc bác sĩ dặn thì luật ăn tối trụ được bốn ngày.' },
   'weather-seasons-daily-p2': { nhom: 'viet-lai', vi: 'Tả bốn mùa theo lối chung chung (xuân ấm, hạ nóng, thu mát, đông lạnh nhất). Không sự việc nào của riêng bài, khác hẳn phần 2 của chặng weather-seasons.' },
   'hobbies-interests-daily': { nhom: 'viet-lai', vi: 'Bản thứ hai của cùng danh mục sở thích, chia theo \'if you prefer…\' / \'if you are an active person…\'. Không có ai làm gì ở đâu để hỏi.' },
   'transport-travel-daily': { nhom: 'viet-lai', vi: 'Có ba chỗ neo được (ra sân bay bằng taxi, muốn khám phá vùng quê thì lái xe, vượt biển thì đi từ cảng) nhưng câu thứ tư thì tụt xuống thành liệt kê phương tiện — tức là chưa đủ bốn, theo đúng phép thử.' },

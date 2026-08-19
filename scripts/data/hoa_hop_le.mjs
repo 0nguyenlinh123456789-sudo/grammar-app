@@ -47,7 +47,9 @@ for (const id of LICH) {
 }
 
 // "T-shirt" viết hoa chữ T vì chữ T là HÌNH DÁNG áo, không phải chữ đầu câu.
-for (const id of ['clothes-fashion-daily', 'clothes-fashion-daily-p2', 'clothes-colors-beginner',
+// 'clothes-fashion-daily' gỡ 19/08: bài viết lại (tìm đồ dự cưới) không còn chữ
+// "T-shirt" nào.
+for (const id of ['clothes-fashion-daily-p2', 'clothes-colors-beginner',
   'clothes-fashion-beginner', 'clothes-accessories-beginner', 'clothes-accessories-beginner-p2',
   'clothes-fashion-beginner-p2']) {
   muc.push([id, 'T-shirt', 'chữ T là hình dáng áo, không phải chữ đầu câu']);
@@ -57,7 +59,9 @@ for (const id of ['clothes-fashion-daily', 'clothes-fashion-daily-p2', 'clothes-
 // 'nature-animals-beginner' đã bị gỡ khỏi danh sách này 19/08: bài đọc của chặng
 // đó được VIẾT LẠI và bản mới không còn chữ "Earth" nào. Giữ lại là để một ngoại lệ
 // mục ruỗng — và chính phép kiểm "mọi ngoại lệ đều còn khớp một chỗ có thật" đã bắt.
-for (const id of ['animals-nature-daily', 'weather-seasons-daily-p2',
+// 'animals-nature-daily' gỡ 19/08 cùng lý do: bài viết lại (trại cứu hộ của cô Chi)
+// không còn chữ "Earth" nào.
+for (const id of ['weather-seasons-daily-p2',
   'environment-ecology-daily']) {
   muc.push([id, 'Earth', 'tên hành tinh']);
 }
