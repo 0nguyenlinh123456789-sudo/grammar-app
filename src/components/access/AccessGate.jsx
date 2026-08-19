@@ -40,6 +40,10 @@ async function requestAccess(options = {}, { requireAuth = true } = {}) {
 // gate locally. Production builds always go through ProtectedApp.
 const DEV_BYPASS = import.meta.env.DEV && import.meta.env.VITE_FORCE_ACCESS_GATE !== '1';
 
+// Nhịp tự kiểm quyền. Đây là con số đắt nhất trong cả app tính theo hạn mức
+// Redis — xem chú thích ở vòng useEffect bên dưới trước khi giảm nó xuống.
+export const KIEM_LAI_MS = 15 * 60 * 1000;
+
 export default function AccessGate({ children }) {
   const params = new URLSearchParams(window.location.search);
   if (params.get('admin') === 'access') return <AdminAccessPanel />;
@@ -75,9 +79,30 @@ function ProtectedApp({ children }) {
   }, []);
 
   useEffect(() => { verify(); }, [verify]);
+  // ══ VÒNG TỰ KIỂM QUYỀN — ĐÂY LÀ TRẦN SỨC CHỨA CỦA CẢ WEB ══
+  // Mỗi lượt `verify` gọi `/api/access`, và `requireLearner` ĐỌC REDIS mỗi lần
+  // (accessCore.js). Gói Upstash miễn phí cho 500.000 lệnh/THÁNG, nên chính con
+  // số dưới đây — chứ không phải băng thông hay kích thước bundle — quyết định
+  // web nuôi được bao nhiêu người học miễn phí.
+  //
+  // Bản cũ: 5 phút/lượt, và chạy CẢ KHI TAB BỊ ẨN. Một tab để quên 8 tiếng đốt
+  // ~96 lệnh/ngày cho một người KHÔNG hề đang học — gần 2.900 lệnh/tháng, tức chỉ
+  // ~170 người như vậy là hết hạn mức.
+  //
+  // Hai thay đổi, không mất gì:
+  //   · BỎ QUA khi tab đang ẩn. Không mất gì thật, vì `onVisible` ngay dưới đã
+  //     kiểm lại đúng lúc người ta quay về tab — thứ duy nhất bị bỏ là những lượt
+  //     kiểm cho một màn hình không ai nhìn.
+  //   · 5 phút → 15 phút. Giá phải trả là mã bị khoá có thể còn dùng thêm tối đa
+  //     15 phút thay vì 5, và chỉ trên tab ĐANG MỞ SẴN; mở tab mới hay quay lại
+  //     tab cũ đều kiểm ngay. Vòng này chống lạm dụng số thiết bị, không phải
+  //     chốt bảo mật, nên đánh đổi đó rẻ.
   useEffect(() => {
     if (state.status !== 'active') return undefined;
-    const timer = setInterval(() => verify(true), 5 * 60 * 1000);
+    const timer = setInterval(() => {
+      if (document.visibilityState !== 'visible') return;
+      verify(true);
+    }, KIEM_LAI_MS);
     const onVisible = () => { if (document.visibilityState === 'visible') verify(true); };
     document.addEventListener('visibilitychange', onVisible);
     return () => { clearInterval(timer); document.removeEventListener('visibilitychange', onVisible); };

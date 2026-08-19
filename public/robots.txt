@@ -1,0 +1,15 @@
+# Bunny English
+# Web là MỘT url duy nhất (SPA, không router), nên sitemap chỉ có một dòng và
+# đó là sự thật chứ không phải sự lười: khai thêm url không tồn tại thì công cụ
+# tìm kiếm nhận 200 kèm cùng một trang, và đó là thứ bị đánh giá là trang rác.
+User-agent: *
+Allow: /
+
+# Bảng quản trị mở bằng ?admin=access. Chặn để nó không lọt vào kết quả tìm kiếm.
+Disallow: /?admin=access
+
+# Khoá học video chỉ chạy ở máy cá nhân của chủ dự án, không phục vụ công khai.
+Disallow: /ielts-foundation/
+Disallow: /ielts-prep/
+
+Sitemap: https://grammar-app-gray.vercel.app/sitemap.xml
