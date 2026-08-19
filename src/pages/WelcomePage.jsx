@@ -775,7 +775,11 @@ const WelcomePage = ({
               mauChip: 'bg-emerald-100 dark:bg-emerald-900/40', mauNut: 'bg-emerald-400 text-white hover:bg-emerald-500',
               nhan: 'VSTEP · IELTS', tieuDe: 'Thi thử VSTEP / IELTS',
               moTa: lastMock
-                ? <>Gần nhất: <span className="text-emerald-600 dark:text-emerald-400 font-black">{lastMock.scale.type === 'ielts' ? `Band ${lastMock.scale.band}` : `${lastMock.scale.score}/10`}</span> ({lastMock.percent}% · {lastMock.testName})</>
+                ? <>Gần nhất: <span className="text-emerald-600 dark:text-emerald-400 font-black">{/* `?.` không phải cho chắc ăn: một bản ghi lịch sử thi thiếu `scale` làm dòng
+                    này ném và SẬP CẢ TRANG CHỦ, không có đường lùi nào. Đo được 19/08 khi bộ
+                    rà gieo một bản ghi thiếu trường — và bản ghi cũ từ trước lúc thêm `scale`
+                    gây ra đúng như vậy trên máy người học thật. Thiếu thì hiện "—", không sập. */}
+                {lastMock.scale?.type === 'ielts' ? `Band ${lastMock.scale.band}` : `${lastMock.scale?.score ?? '—'}/10`}</span> ({lastMock.percent}% · {lastMock.testName})</>
                 : 'Đề mini 20 câu có đếm giờ, quy đổi band ước lượng dựa trên từ vựng & ngữ pháp, phân tích từng phần.',
               nhanNut: lastMock ? 'THI LẠI' : 'THI THỬ NGAY', onClick: () => setShowMockTest(true),
             },
@@ -1170,7 +1174,17 @@ const WelcomePage = ({
             </div>
             
             <p className="font-bold text-slate-600 dark:text-slate-350 leading-relaxed mb-6 text-sm">
-              Hành động này sẽ <span className="text-rose-500 dark:text-rose-400 font-black">XÓA TOÀN BỘ</span> điểm năng lượng (XP) và tất cả bài học đã hoàn thành của bạn trên bản đồ lộ trình. Bạn có thực sự muốn học lại từ đầu không?
+              {/* Chữ cũ hứa "học lại từ đầu" trong khi `placementResultV1` sống sót,
+                  mà chính nó quyết định lộ trình mở ở CẤP NÀO — nên reset xong lộ
+                  trình vẫn ở chỗ cũ và người dùng đọc đó là "nút hỏng". Nay reset xoá
+                  cả nó, và chữ ở đây kê ĐÚNG hai danh sách: xoá gì, giữ gì. */}
+              Hành động này <span className="text-rose-500 dark:text-rose-400 font-black">KHÔNG THỂ HOÀN TÁC</span>.
+              <br /><br />
+              <span className="font-black">Sẽ xoá:</span> XP, chuỗi ngày học, mọi chặng đã hoàn thành, điểm đã xác minh,
+              hàng đợi ôn tập, sổ lỗi sai, lịch sử thi thử và <span className="font-black">kết quả test đầu vào</span> —
+              nên lộ trình quay hẳn về chặng đầu tiên.
+              <br /><br />
+              <span className="font-black">Được giữ lại:</span> sổ bài viết và sổ lượt nói bạn đã làm, cùng kỷ lục chuỗi ngày dài nhất.
             </p>
             
             <div className="flex gap-4">

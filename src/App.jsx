@@ -485,7 +485,33 @@ export default function App() {
     setMilestoneScores({});
     localStorage.removeItem(MASTERY_STORAGE_KEY);
     clearVocabProgress();
-    // Note: bestStreak is a lifetime record — intentionally not reset.
+
+    // ══ ĐO 19/08: RESET ĐỂ SÓT 10 KHOÁ, VÀ MỘT TRONG SỐ ĐÓ LÀM NÚT NÀY
+    //    TRÔNG NHƯ HỎNG ══
+    // Hộp xác nhận hứa "học lại từ đầu". Nhưng `placementResultV1` sống sót,
+    // mà chính nó quyết định lộ trình MỞ Ở CẤP NÀO — nên bấm reset xong, lộ
+    // trình vẫn mở đúng chỗ cũ. Người dùng đọc đó là "reset không hoạt động",
+    // và họ đúng: thứ họ gọi là "lộ trình" thì không hề reset.
+    //
+    // Kèm theo: hàng đợi SRS và sổ lỗi sai vẫn đầy, nên từ cũ và câu sai cũ
+    // vẫn quay lại đòi ôn cho một người vừa xin học lại từ đầu.
+    for (const khoa of [
+      'placementResultV1',    // cấp độ đo được — thứ giữ lộ trình ở chỗ cũ
+      'srsStore_v1',          // hàng đợi ôn tập
+      'errorBankV1',          // sổ lỗi sai
+      'streakFreezeV1',       // vé đóng băng chuỗi (chuỗi đã về 0 thì vé cũng vậy)
+      'mockTestHistoryV1',    // lịch sử thi thử
+      'onboardingDoneV1',     // cho chạy lại hướng dẫn — nó mời làm test đầu vào,
+      'learningGoalV1',       //   đúng thứ cần ngay sau khi xoá cấp độ cũ
+    ]) localStorage.removeItem(khoa);
+
+    // ══ CỐ Ý GIỮ, và đây là ranh giới của nút này ══
+    // · bestStreak — kỷ lục đời người.
+    // · dailyGoalV1 — số bài mỗi ngày là một TUỲ CHỈNH, không phải tiến độ.
+    // · writingLogV1 / speakingLogV1 — bài viết và lượt nói là thứ người học
+    //   TỰ LÀM RA. `backup.js` ghi thẳng "mất là mất hẳn". Xoá lén chúng dưới
+    //   một cái nút tên "reset lộ trình" là phá công sức của người ta vì một
+    //   việc họ không hề xin. Hộp xác nhận nay NÓI RÕ là hai sổ này được giữ.
   };
 
   // Computed selections
@@ -774,7 +800,6 @@ export default function App() {
       completedMilestones={completedMilestones}
       theme={theme}
       setTheme={setTheme}
-      resetRoadmap={resetRoadmap}
       streak={streak}
     >
       <Suspense fallback={<RouteLoader />}>

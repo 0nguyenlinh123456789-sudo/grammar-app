@@ -71,7 +71,20 @@ export async function moTrinhDuyet({ cong = 9333 } = {}) {
  * đo cổng thật. Đo lại bằng curl: live trả về 401 {"authenticated":false}, tức
  * khách thật GẶP cổng. Bộ đo nói ngược với sự thật nó định đo.
  */
-export async function moTab(cong, { chanApi = true } = {}) {
+/**
+ * @param {object} [tuyChon]
+ * @param {boolean} [tuyChon.chanApi]
+ * @param {{data: object|null, updatedAt: number|null}} [tuyChon.khoTienDo]
+ *   Kho tiến độ giả cho `/api/progress`. Truyền vào thì tab này có một "máy
+ *   chủ đồng bộ" cư xử ĐÚNG như api/progress.js thật: GET trả bản đang giữ,
+ *   PUT từ chối khi bản đang giữ MỚI HƠN và trả về bản cũ kèm accepted:false.
+ *
+ *   Cần thiết vì bản dựng chạy ở máy KHÔNG có Redis: `/api/progress` trả về
+ *   index.html, `read.json()` ném, App.jsx nuốt lỗi, và đồng bộ IM LẶNG không
+ *   chạy. Nghĩa là mọi bộ rà trước nay đều đo một app KHÔNG hề đồng bộ — đúng
+ *   nửa nguy hiểm nhất của chức năng reset lại nằm ngoài tầm với.
+ */
+export async function moTab(cong, { chanApi = true, khoTienDo = null } = {}) {
   const tab = await (await fetch(`http://127.0.0.1:${cong}/json/new?about:blank`, { method: 'PUT' })).json();
   const ws = new WebSocket(tab.webSocketDebuggerUrl);
   await new Promise((r, j) => { ws.onopen = r; ws.onerror = () => j(new Error('không nối được tab')); });
@@ -90,7 +103,33 @@ export async function moTab(cong, { chanApi = true } = {}) {
   // chạy bản dựng ở máy thì API đó không có, và màn kích hoạt sẽ chặn mọi thứ.
   // Đây là dựng lại đúng trạng thái KHÁCH ĐÃ MUA, không phải vô hiệu hoá cổng.
   const traLoiChan = async (p) => {
+    const traJson = (requestId, obj) => goi('Fetch.fulfillRequest', {
+      requestId,
+      responseCode: 200,
+      responseHeaders: [{ name: 'Content-Type', value: 'application/json' }],
+      body: Buffer.from(JSON.stringify(obj)).toString('base64'),
+    });
     try {
+      if (khoTienDo && String(p.request.url).includes('/api/progress')) {
+        if (p.request.method === 'GET') {
+          await traJson(p.requestId, { data: khoTienDo.data, updatedAt: khoTienDo.updatedAt });
+          return;
+        }
+        // Bắt chước ĐÚNG api/progress.js: bản đang giữ mới hơn thì TỪ CHỐI và
+        // trả bản cũ về — đó chính là nhánh làm tiến độ vừa xoá quay trở lại.
+        const than = JSON.parse(p.request.postData || '{}');
+        const den = Number(than.updatedAt) || Date.now();
+        if (khoTienDo.updatedAt && Number(khoTienDo.updatedAt) > den) {
+          khoTienDo.soLanTuChoi = (khoTienDo.soLanTuChoi || 0) + 1;
+          await traJson(p.requestId, { accepted: false, data: khoTienDo.data, updatedAt: khoTienDo.updatedAt });
+          return;
+        }
+        khoTienDo.data = than.data;
+        khoTienDo.updatedAt = Date.now();
+        khoTienDo.soLanNhan = (khoTienDo.soLanNhan || 0) + 1;
+        await traJson(p.requestId, { accepted: true, updatedAt: khoTienDo.updatedAt });
+        return;
+      }
       if (String(p.request.url).includes('/api/access')) {
         const body = JSON.stringify({
           authenticated: true,
@@ -133,7 +172,9 @@ export async function moTab(cong, { chanApi = true } = {}) {
   await goi('Page.enable');
   // Chỉ bật khi thật sự cần chặn: bật rồi không chặn thì mọi request /api/* bị
   // treo chờ `continueRequest`, chậm mà không rõ vì sao.
-  if (chanApi) await goi('Fetch.enable', { patterns: [{ urlPattern: '*/api/*' }] });
+  // `requestStage: Request` + Fetch.enable cho ta đọc được `postData` của PUT —
+  // không có nó thì thân request về rỗng và kho tiến độ giả không biết app gửi gì.
+  if (chanApi) await goi('Fetch.enable', { patterns: [{ urlPattern: '*/api/*', requestStage: 'Request' }] });
 
   const danhGia = async (bieuThuc) => {
     const r = await goi('Runtime.evaluate', { expression: bieuThuc, awaitPromise: true, returnByValue: true });

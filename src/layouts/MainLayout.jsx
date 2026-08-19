@@ -1,6 +1,6 @@
 // File: src/layouts/MainLayout.jsx
 import { useEffect, useState } from 'react';
-import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, AlertTriangle, GraduationCap, KeyRound } from 'lucide-react';
+import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Search, GraduationCap, KeyRound } from 'lucide-react';
 import AiKeyDialog from '../components/common/AiKeyDialog';
 import PolicyDialog from '../components/common/PolicyDialog';
 import BottomTabBar from '../components/common/BottomTabBar';
@@ -27,13 +27,11 @@ const MainLayout = ({
   oxfordLoaded = true,
   activeOxfordBookId = 'elementary',
   setActiveOxfordBookId,
-  resetRoadmap,
   children
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isVocabMenuOpen, setIsVocabMenuOpen] = useState(true); // Default open to make experience smoother
   const [vstepSearch, setVstepSearch] = useState('');
-  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [activeGrammarLevel, setActiveGrammarLevel] = useState('B1');
   const [openVocabGroups, setOpenVocabGroups] = useState({ vstep: true, daily: false, ielts: false, beginner: false });
   const [globalSearch, setGlobalSearch] = useState('');
@@ -500,39 +498,12 @@ const MainLayout = ({
       {/* --- TERMS / PRIVACY / REFUND --- */}
       {isPolicyOpen && <PolicyDialog onClose={() => setIsPolicyOpen(false)} />}
 
-      {/* --- CONFIRM RESET ROADMAP MODAL --- */}
-      {isResetModalOpen && (
-        <div role="dialog" aria-modal="true" aria-labelledby="reset-roadmap-title" className="fixed inset-0 z-[140] bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl p-6 md:p-8 max-w-md w-full shadow-[8px_8px_0_0_#1e293b] dark:shadow-[8px_8px_0_0_#000] animate-in zoom-in-95">
-            <div className="flex items-center gap-3 text-rose-500 mb-4">
-              <AlertTriangle size={32} className="animate-bounce text-rose-500" />
-              <h3 id="reset-roadmap-title" className="text-2xl font-black uppercase tracking-tight text-slate-800 dark:text-slate-100">Xác nhận làm mới</h3>
-            </div>
-            
-            <p className="font-bold text-slate-600 dark:text-slate-350 leading-relaxed mb-6 text-sm">
-              Hành động này sẽ <span className="text-rose-500 dark:text-rose-400 font-black">XÓA TOÀN BỘ</span> điểm năng lượng (XP) và tất cả bài học đã hoàn thành của bạn trên bản đồ lộ trình. Bạn có thực sự muốn học lại từ đầu không?
-            </p>
-            
-            <div className="flex gap-4">
-              <button
-                onClick={() => setIsResetModalOpen(false)}
-                className="flex-1 py-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-3 border-slate-800 dark:border-slate-700 rounded-2xl font-black shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#020617] hover:bg-slate-50 dark:hover:bg-slate-700 transition-all cursor-pointer text-sm"
-              >
-                HỦY BỎ
-              </button>
-              <button
-                onClick={() => {
-                  resetRoadmap();
-                  setIsResetModalOpen(false);
-                }}
-                className="flex-1 py-3 bg-rose-500 text-white border-3 border-slate-800 rounded-2xl font-black shadow-[3px_3px_0_0_#000] hover:bg-rose-600 transition-all cursor-pointer text-sm"
-              >
-                XÁC NHẬN RESET
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Hộp xác nhận reset ĐÃ BỎ KHỎI ĐÂY (19/08): file này dựng nó nhưng KHÔNG
+          có gì gọi `setIsResetModalOpen(true)` — mã chết trông y như một tính năng.
+          Nó còn tốn của tôi một chẩn đoán sai: bộ rà tìm hộp theo
+          `aria-labelledby="reset-roadmap-title"` (id của hộp CHẾT này) nên báo "nút
+          chết" trong khi nút thật ở WelcomePage chạy bình thường. Nút reset thật nằm
+          ở WelcomePage, cạnh nút sao lưu. */}
 
     </div>
   );
