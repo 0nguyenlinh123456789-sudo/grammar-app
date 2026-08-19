@@ -2230,6 +2230,440 @@ export const STORY_QUIZ_A1 = {
       dan: 'Most people agree that it is better to have enough for both of us than to be hungry.',
     },
   ],
+
+  // ══ ĐỢT 19/08 — 9 CHẶNG A1 TRƯỢT BỘ LỌC NHƯNG ĐỌC RA THÌ HỎI ĐƯỢC ══════════
+  //
+  // 52 chặng A1/A2 bị `scripts/audit_a1a2_story.mjs` xếp là "không đủ điều kiện
+  // soạn", và 48/52 trượt vì ĐẾM ĐƯỢC ÍT HƠN 4 DẤU HIỆU TƯỜNG THUẬT (đại từ,
+  // liên từ). Đọc thật cả 24 chặng bậc A1 thì bộ đếm đó gộp hai chuyện khác hẳn:
+  //
+  //   · `kids-starter` là truyện kể ngôi thứ nhất — Luna chào mặt trời, chạy tới
+  //     trường cùng con mèo, cô giáo khen. Trượt vì chỉ có 1 chữ "After".
+  //   · `nature-animals-beginner` thì đúng là diễu hành từ vựng: "you can see a
+  //     tall tree with a green leaf and a beautiful flower" — không một mệnh đề
+  //     nào để hỏi, hỏi gì cũng thành hỏi kiến thức chung.
+  //
+  // Phép thử thật sự KHÔNG phải đếm đại từ, mà là: **chỉ ra được BỐN CÂU KHÁC
+  // NHAU trong bài, mỗi câu trả lời một câu hỏi khác nhau, không đoán ra bằng
+  // kiến thức chung.** Chín chặng dưới đây qua phép thử đó. Phần còn lại ghi lý
+  // do đích danh trong `scripts/data/a1a2_phan_loai.mjs`.
+  //
+  // Chính file `audit_a1a2_story.mjs` đã tự dặn ở đầu: "BỘ LỌC THÔ để ra DANH
+  // SÁCH VIỆC, KHÔNG phải phán quyết chất lượng."
+  'kids-starter': [
+    {
+      q: 'Buổi sáng, Luna chào ai đầu tiên?',
+      options: [
+        'Chào mặt trời màu vàng, ngay sau khi thức dậy sớm',
+        'Chào con mèo nhỏ, người bạn cùng chạy tới trường',
+        'Chào cô giáo đứng chờ sẵn ở cổng trường buổi sáng',
+        'Chào cầu vồng bảy màu hiện ra trên bầu trời sớm',
+      ],
+      answer: 0,
+      dan: 'I wake up early and say "Good morning!" to the yellow sun',
+    },
+    {
+      q: 'Luna tới trường cùng với ai?',
+      options: [
+        'Cùng con mèo nhỏ, và Luna chạy rất nhanh',
+        'Cùng cô giáo, người khen Luna giỏi hôm nay',
+        'Cùng quả bóng mà Luna chơi ở ngoài vườn',
+        'Cùng bông hoa mà Luna vẽ bằng bút chì xanh',
+      ],
+      answer: 0,
+      dan: 'I run fast to school with my friend, the little cat',
+    },
+    {
+      q: 'Ở trường, Luna học nội dung gì?',
+      options: [
+        'Học các màu: đỏ, xanh dương, xanh lá và vàng',
+        'Học đếm số: một, hai, ba, cho tới hết buổi tối',
+        'Học vẽ hoa bằng cây bút chì màu xanh lá cây',
+        'Học bảy màu của cầu vồng hiện trên bầu trời',
+      ],
+      answer: 0,
+      dan: 'At school, I learn colors: red, blue, green, yellow!',
+    },
+    {
+      q: 'Cô giáo nói gì với Luna?',
+      options: [
+        'Rằng hôm nay Luna rất giỏi',
+        'Rằng hôm nay Luna tới lớp muộn',
+        'Rằng Luna nên vẽ thêm một bông hoa',
+        'Rằng Luna hãy đếm sao vào buổi tối',
+      ],
+      answer: 0,
+      dan: 'My teacher says: "Luna, you are very good today!"',
+    },
+  ],
+  'food-cooking': [
+    {
+      q: 'Ở lớp nấu ăn, người đầu bếp dạy những việc gì?',
+      options: [
+        'Thái rau, gọt khoai tây và cắt bánh mì cho đúng cách',
+        'Nướng gà, nướng bánh mì kẹp và khuấy nồi súp cho đều',
+        'Đun nước, rán hành và nêm gia vị sao cho vừa miệng',
+        'Rửa rau, bày đĩa khai vị và làm bánh ngọt tráng miệng',
+      ],
+      answer: 0,
+      dan: 'The chef taught us how to chop vegetables, peel potatoes, and slice bread properly.',
+    },
+    {
+      q: 'Theo bài, thứ tự hai việc đầu tiên khi nấu là gì?',
+      options: [
+        'Đun nước luộc mì trước, rồi mới rán hành với dầu ô liu',
+        'Rán hành với dầu ô liu trước, rồi mới đun nước luộc mì',
+        'Nêm gia vị cho vừa trước, rồi mới đun nước để luộc mì',
+        'Thái rau và gọt khoai trước, rồi mới rán hành với dầu',
+      ],
+      answer: 0,
+      dan: 'First, we had to boil water for the pasta, then fry onions in olive oil.',
+    },
+    {
+      q: 'Trong bữa tối Chủ nhật, mẹ và bố mỗi người làm món gì?',
+      options: [
+        'Mẹ quay gà, còn bố nướng bánh mì kẹp thịt',
+        'Mẹ nướng bánh mì kẹp thịt, còn bố quay gà',
+        'Mẹ khuấy nồi súp, còn bố làm bánh tráng miệng',
+        'Mẹ làm bánh tráng miệng, còn bố bày món khai vị',
+      ],
+      answer: 0,
+      dan: 'Mom likes to roast chicken while Dad grills burgers.',
+    },
+    {
+      q: 'Gia đình xử lý thức ăn thừa như thế nào?',
+      options: [
+        'Không bỏ phí, thức ăn thừa thành bữa trưa hôm sau',
+        'Không bỏ phí, thức ăn thừa thành món khai vị hôm sau',
+        'Bỏ đi hết, vì bữa tối Chủ nhật nào cũng nấu rất nhiều',
+        'Đem chia cho hàng xóm, vì nhà nấu nhiều hơn mức ăn hết',
+      ],
+      answer: 0,
+      dan: "We never waste food – any leftovers become tomorrow's lunch!",
+    },
+  ],
+  'time-dates-beginner': [
+    {
+      q: 'Người kể thức dậy lúc mấy giờ?',
+      options: [
+        'Sáu giờ rưỡi, và luôn luôn dậy vào giờ đó',
+        'Sáu giờ đúng, và luôn luôn dậy vào giờ đó',
+        'Bảy giờ rưỡi, sau khi đã ăn xong bữa sáng',
+        'Trước nửa đêm, vì hôm sau còn phải đi học',
+      ],
+      answer: 0,
+      dan: 'I always wake up at half past six.',
+    },
+    {
+      q: 'Người kể đi học vào những ngày nào?',
+      options: [
+        'Từ thứ Hai đến thứ Sáu',
+        'Từ thứ Hai đến thứ Bảy',
+        'Chỉ thứ Bảy và Chủ nhật',
+        'Cả bảy ngày trong một tuần',
+      ],
+      answer: 0,
+      dan: 'I go to school from Monday to Friday.',
+    },
+    {
+      q: 'Sinh nhật của người kể vào tháng nào, và tháng đó thuộc mùa gì?',
+      options: [
+        'Tháng Năm, và đó là một tháng của mùa xuân',
+        'Tháng Sáu, và đó là một tháng của mùa xuân',
+        'Tháng Năm, và đó là một tháng của mùa hè',
+        'Tháng Sáu, và đó là tháng mùa hè bắt đầu',
+      ],
+      answer: 0,
+      dan: 'My birthday is in May, which is a spring month.',
+    },
+    {
+      q: 'Bài nói gì về thói quen đi ngủ của người kể?',
+      options: [
+        'Không bao giờ ngủ muộn, thường ngủ trước nửa đêm',
+        'Không bao giờ ngủ muộn, thường ngủ trước mười giờ',
+        'Thường ngủ muộn vào cuối tuần vì được nghỉ học',
+        'Thường ngủ muộn vì buổi tối còn phải làm bài tập',
+      ],
+      answer: 0,
+      dan: 'I never go to bed late; I usually sleep before midnight.',
+    },
+  ],
+  'house-rooms-beginner': [
+    {
+      q: 'Trong phòng khách có những gì?',
+      options: [
+        'Ghế sofa êm, một cái TV và tấm thảm màu đỏ trên sàn',
+        'Ghế sofa êm, một cái TV và cái bàn gỗ lớn để ăn cơm',
+        'Bếp ga, lò nướng và lò vi sóng mẹ dùng để nấu ăn',
+        'Một cái giường có gối mềm và một cái chăn thật ấm',
+      ],
+      answer: 0,
+      dan: 'There is a comfortable sofa, a TV, and a red carpet on the floor.',
+    },
+    {
+      q: 'Gia đình cất thịt và sữa ở đâu?',
+      options: [
+        'Trong tủ lạnh, còn bát đĩa thì rửa ở bồn rửa',
+        'Trong tủ quần áo, còn bát đĩa thì để trong bếp',
+        'Trong lò vi sóng, còn bát đĩa thì rửa ở bồn rửa',
+        'Trên bàn gỗ lớn ở phòng ăn, cạnh phòng khách',
+      ],
+      answer: 0,
+      dan: 'We keep meat and milk in the fridge, and we wash the plates and bowls in the sink.',
+    },
+    {
+      q: 'Trên tầng có mấy phòng ngủ?',
+      options: [
+        'Ba phòng ngủ và một phòng tắm',
+        'Hai phòng ngủ và một phòng tắm',
+        'Ba phòng ngủ và hai phòng tắm',
+        'Một phòng ngủ và một phòng khách',
+      ],
+      answer: 0,
+      dan: 'Upstairs, there are three bedrooms and a bathroom.',
+    },
+    {
+      q: 'Khi ra khỏi nhà, gia đình luôn làm gì?',
+      options: [
+        'Đóng cửa sổ và khoá cửa bằng chìa để nhà được an toàn',
+        'Quét sàn bằng chổi và lau bụi trên các món đồ trong nhà',
+        'Tắt bếp ga, lò nướng và lò vi sóng ở trong phòng bếp',
+        'Đóng cửa nhà xe và tưới nước cho khu vườn phía trước',
+      ],
+      answer: 0,
+      dan: 'When we leave home, we always close the windows and lock the door with a key to keep our house safe.',
+    },
+  ],
+  'weather-seasons-beginner-p2': [
+    {
+      q: 'Bài tả mùa xuân thế nào?',
+      options: [
+        'Không khí ấm, trời quang, hoa bắt đầu mọc trên cỏ xanh',
+        'Không khí mát, gió nhẹ thổi, lá vàng rụng khỏi thân cây',
+        'Nhiệt độ tăng cao, trời xanh không một gợn mây trắng nào',
+        'Trời lạnh cóng, nước trong hồ đóng băng và tuyết rơi xuống',
+      ],
+      answer: 0,
+      dan: 'In the spring, the air is warm, the sky is clear, and beautiful flowers begin to grow on the green grass.',
+    },
+    {
+      q: 'Vào mùa thu, lá cây trong bài có màu gì?',
+      options: [
+        'Màu nâu và màu vàng, và lá rụng khỏi cây',
+        'Màu xanh lá và màu vàng, và lá rụng khỏi cây',
+        'Màu trắng, vì tuyết phủ kín cả tán lá trên cây',
+        'Màu đỏ và màu nâu, và lá vẫn còn ở trên cây',
+      ],
+      answer: 0,
+      dan: 'A gentle breeze blows, and brown and yellow leaves drop from the trees.',
+    },
+    {
+      q: 'Mùa đông, nước ở đâu có thể đóng thành băng?',
+      options: [
+        'Nước trong hồ, còn tuyết thì rơi xuống từ bầu trời',
+        'Nước ngoài biển, còn tuyết thì rơi xuống từ bầu trời',
+        'Nước trong hồ, còn mưa thì kèm theo sấm và chớp',
+        'Nước ngoài biển, nơi mọi người bơi vào mùa hè',
+      ],
+      answer: 0,
+      dan: 'The water in the lake might freeze into ice, and snow falls from the sky.',
+    },
+    {
+      q: 'Bài kết lại bằng ý nào?',
+      options: [
+        'Sau mùa đông lạnh, băng sẽ tan và mùa xuân quay trở lại',
+        'Sau mùa đông lạnh, tuyết sẽ rơi dày hơn ở trên các con đường',
+        'Sau mùa hè nóng, trời sẽ mát dần và gió nhẹ bắt đầu thổi',
+        'Sau mùa thu mát, bão sẽ mang theo mưa, sấm và cả chớp nữa',
+      ],
+      answer: 0,
+      dan: 'After a cold winter, the ice will melt, and spring will return again.',
+    },
+  ],
+  'places-buildings-beginner-p2': [
+    {
+      q: 'Ở trung tâm thị trấn có gì?',
+      options: [
+        'Một quảng trường lớn, gần đó là nhiều toà nhà',
+        'Một công viên đẹp, gần đó là trường của người kể',
+        'Một bệnh viện lớn màu trắng dành cho người bị ốm',
+        'Một nhà ga để bắt tàu đi lên thành phố vào cuối tuần',
+      ],
+      answer: 0,
+      dan: 'In the center of the town, there is a big square.',
+    },
+    {
+      q: 'Đối diện quán cà phê là những nơi nào?',
+      options: [
+        'Một ngân hàng và một bưu điện',
+        'Một siêu thị và một cửa hàng nhỏ',
+        'Một đồn cảnh sát và một trạm cứu hoả',
+        'Một công viên và một cái hồ nhỏ',
+      ],
+      answer: 0,
+      dan: 'Opposite the cafe is a bank and a post office.',
+    },
+    {
+      q: 'Trường của người kể nằm ở đâu?',
+      options: [
+        'Bên tay phải, ngay cạnh một công viên đẹp',
+        'Bên tay trái, ngay cạnh một công viên đẹp',
+        'Ngay cạnh siêu thị nơi mẹ người kể mua đồ ăn',
+        'Ở trung tâm thị trấn, ngay cạnh quảng trường lớn',
+      ],
+      answer: 0,
+      dan: 'My school is on the right, next to a beautiful park.',
+    },
+    {
+      q: 'Phòng khách sạn của gia đình ở tầng mấy?',
+      options: [
+        'Tầng mười, và có thang máy để đi lên',
+        'Tầng một, nên không cần dùng tới thang máy',
+        'Tầng mười, nhưng phải đi bộ vì không có thang máy',
+        'Tầng hai, ngay phía trên sảnh của khách sạn',
+      ],
+      answer: 0,
+      dan: 'The hotel has an elevator to go up to our room on the 10th floor.',
+    },
+  ],
+  'daily-routine-beginner': [
+    {
+      q: 'Khi thức dậy, đồng hồ chỉ mấy giờ?',
+      options: [
+        'Sáu giờ sáng',
+        'Bảy giờ sáng',
+        'Mười hai giờ trưa',
+        'Sáu giờ chiều',
+      ],
+      answer: 0,
+      dan: 'I look at the clock, it is 6 AM.',
+    },
+    {
+      q: 'Người kể tới trường hoặc chỗ làm bằng cách nào?',
+      options: [
+        'Đi bộ ra bến xe buýt, hoặc đôi khi bố chở đi',
+        'Đi bộ ra bến xe buýt, hoặc đôi khi mẹ chở đi',
+        'Tự lái xe đi, vì bến xe buýt ở khá xa nhà',
+        'Đạp xe đi, vì nhà nằm ngay gần chỗ học và làm',
+      ],
+      answer: 0,
+      dan: 'I leave my house and walk to the bus stop, or sometimes my dad drives me.',
+    },
+    {
+      q: 'Sau bữa tối, người kể làm việc nhà gì?',
+      options: [
+        'Quét sàn nhà hoặc rửa bát đĩa',
+        'Quét sàn nhà hoặc lau cửa sổ cho sạch',
+        'Nấu bữa tối cùng cả nhà rồi cùng ngồi ăn',
+        'Làm bài tập rồi nằm nghỉ trên ghế sofa',
+      ],
+      answer: 0,
+      dan: 'I sweep the floor or wash up the plates.',
+    },
+    {
+      q: 'Việc cuối cùng người kể làm trước khi ngủ là gì?',
+      options: [
+        'Đọc một quyển sách',
+        'Làm nốt bài tập về nhà',
+        'Xem TV hoặc chơi trò chơi',
+        'Rửa mặt và đánh răng',
+      ],
+      answer: 0,
+      dan: 'At night, before I go to sleep, I read a book.',
+    },
+  ],
+  'house-rooms-beginner-p2': [
+    {
+      q: 'Nhà của người kể có mấy phòng?',
+      options: [
+        'Bốn phòng',
+        'Ba phòng',
+        'Năm phòng',
+        'Hai phòng',
+      ],
+      answer: 0,
+      dan: 'My house has four rooms.',
+    },
+    {
+      q: 'Mở cửa vào là bước thẳng vào phòng nào?',
+      options: [
+        'Phòng khách',
+        'Phòng bếp',
+        'Phòng ngủ',
+        'Phòng tắm',
+      ],
+      answer: 0,
+      dan: 'When you open the door, you walk into the living room.',
+    },
+    {
+      q: 'Trên tường phòng khách có gì?',
+      options: [
+        'Một bức tranh đẹp và một cái đồng hồ xem giờ',
+        'Một cái TV và một cái bàn nhỏ kê ở giữa phòng',
+        'Một tấm gương, một cái khăn và một bánh xà phòng',
+        'Một cái giá sách đựng sách, bút mực và bút chì',
+      ],
+      answer: 0,
+      dan: 'There is a beautiful picture on the wall and a clock to tell the time.',
+    },
+    {
+      q: 'Trong phòng tắm có những gì?',
+      options: [
+        'Một tấm gương, một cái khăn và một ít xà phòng',
+        'Một tấm gương, một cái bàn học và một cái ghế',
+        'Nhiều cốc, ly, đĩa và bát dùng cho bữa ăn hằng ngày',
+        'Một cái giường lớn để ngủ và một cái cặp đựng sách',
+      ],
+      answer: 0,
+      dan: 'In the bathroom, you can find a mirror, a towel, and some soap to wash your hands when they are dirty.',
+    },
+  ],
+  'school-classroom-beginner': [
+    {
+      q: 'Cô giáo đứng ở đâu và dùng gì để viết bài?',
+      options: [
+        'Đứng gần bảng trắng, dùng phấn hoặc bút để viết',
+        'Đứng gần bàn học, dùng bút chì và thước để viết',
+        'Đứng gần cửa lớp, dùng phấn để viết lên bảng đen',
+        'Ngồi ở bàn giáo viên, dùng sách để đọc bài cho lớp',
+      ],
+      answer: 0,
+      dan: 'The teacher stands near the whiteboard and uses chalk or a pen to write the lesson.',
+    },
+    {
+      q: 'Trong cặp của người kể có những gì?',
+      options: [
+        'Một quyển vở, một cây bút chì, một cục tẩy và một cái thước',
+        'Một quyển sách, một mẩu phấn, một cái bảng và một cây bút',
+        'Một quyển vở, một tờ giấy, một cái ghế và một cái bàn học',
+        'Một quyển sách, một cục tẩy, một cây bút mực và một cái cặp',
+      ],
+      answer: 0,
+      dan: 'In my bag, I have a notebook, a pencil, an eraser, and a ruler.',
+    },
+    {
+      q: 'Người kể nói gì về các môn học?',
+      options: [
+        'Thích toán, nhưng khoa học và lịch sử cũng thú vị',
+        'Thích lịch sử, nhưng toán và khoa học thì rất khó',
+        'Thích môn mỹ thuật, nhưng không thích môn thể thao',
+        'Thích khoa học, còn toán thì chỉ học vì bắt buộc',
+      ],
+      answer: 0,
+      dan: 'I like math, but science and history are also interesting.',
+    },
+    {
+      q: 'Cuối buổi học, chuyện gì xảy ra?',
+      options: [
+        'Cả lớp gấp sách lại và cô giáo giao bài tập về nhà',
+        'Cả lớp mở sách ra và cô giáo đọc bài học tiếp theo',
+        'Cả lớp ra sân chạy nhảy trong giờ thể thao cuối ngày',
+        'Cả lớp làm bài kiểm tra để lấy điểm tổng kết cuối kỳ',
+      ],
+      answer: 0,
+      dan: 'At the end of the day, we close our book and the teacher gives us homework.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_A1;
