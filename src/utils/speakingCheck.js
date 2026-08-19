@@ -123,3 +123,31 @@ export const CHECKLIST_NOI = {
 };
 
 export const GHI_CHU_CHECKLIST_NOI = 'Bảng tiêu chí này dùng chung cho mọi đề cùng kiểu — nó không được viết riêng cho đề này.';
+
+// ── LỜI BÁO KHI MICRO KHÔNG DÙNG ĐƯỢC ───────────────────────────────────────
+//
+// ĐÂY TỪNG LÀ MỘT CÁI LỖ THẬT, và nó nằm ở đúng trường hợp hay xảy ra nhất.
+// Bản trước viết ba lời báo ngay trong component, và chỉ HAI trong ba nói cho
+// người học biết họ vẫn làm tiếp được bằng cách gõ tay. Nhánh còn lại — **micro
+// bị từ chối quyền** — chỉ nói đúng một câu "Trình duyệt chưa được cấp quyền
+// dùng micro." rồi hết. Mà đó là nhánh gặp nhiều nhất: ai bấm "Chặn" ở hộp xin
+// quyền, hay dùng máy không có micro, đều rơi vào đây. Họ đọc xong và tưởng đề
+// này không làm được, trong khi ô gõ tay nằm ngay bên dưới.
+//
+// Tìm ra bằng `npm run hoc:that`: Chrome headless CÓ khai `webkitSpeechRecognition`
+// nên nó đi vào nhánh `onerror` thật, và bộ rà đòi mọi lời báo phải chỉ được
+// đường đi tiếp.
+//
+// Nay ba lời báo là DỮ LIỆU, không phải chuỗi rải trong JSX — để test đi hết được
+// mọi nhánh, kể cả nhánh mã lỗi lạ mà không ai lường trước.
+export const DUONG_RA_GO_TAY = 'Bạn vẫn có thể tự gõ lại lời mình nói vào ô bên dưới.';
+
+export function loiMicThanhChu(ma) {
+  if (ma === 'khong-ho-tro') {
+    return `Trình duyệt này không hỗ trợ nhận dạng giọng nói (hãy dùng Chrome hoặc Edge). ${DUONG_RA_GO_TAY}`;
+  }
+  if (ma === 'not-allowed' || ma === 'service-not-allowed') {
+    return `Trình duyệt chưa được cấp quyền dùng micro. ${DUONG_RA_GO_TAY}`;
+  }
+  return `Nhận dạng gặp lỗi: ${ma || 'không rõ'}. ${DUONG_RA_GO_TAY}`;
+}

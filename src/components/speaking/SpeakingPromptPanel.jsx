@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AlertTriangle, CheckCircle2, Mic, Sparkles, Square, X, XCircle } from 'lucide-react';
 import { deNoiSinh, deNoiTuChang, deNoiChoChang } from '../../utils/speakingBank';
-import { kiemTraLuotNoi, nhanXetLuotNoiBangAI, GHI_CHU_CHECKLIST_NOI, NHAN_KIEU_NOI } from '../../utils/speakingCheck';
+import { kiemTraLuotNoi, nhanXetLuotNoiBangAI, GHI_CHU_CHECKLIST_NOI, NHAN_KIEU_NOI, loiMicThanhChu } from '../../utils/speakingCheck';
 import { luuBaiLam } from '../../utils/selfReportLog';
 import { hasGeminiKey } from '../../utils/aiKey';
 
@@ -105,8 +105,10 @@ function LamBai({ de, onBack, onClose }) {
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SR) {
       // THIẾU THÌ BÁO, KHÔNG THAY THẾ ÂM THẦM: vẫn còn ô gõ tay bên dưới để
-      // người dùng trình duyệt không hỗ trợ vẫn làm được đề này.
-      setLoiMic('Trình duyệt này không hỗ trợ nhận dạng giọng nói (hãy dùng Chrome hoặc Edge). Bạn vẫn có thể tự gõ lại lời mình nói vào ô bên dưới.');
+      // người dùng trình duyệt không hỗ trợ vẫn làm được đề này. Lời báo lấy từ
+      // utils/speakingCheck.js — xem ở đó vì sao chúng là dữ liệu chứ không phải
+      // chuỗi rải trong JSX.
+      setLoiMic(loiMicThanhChu('khong-ho-tro'));
       return;
     }
     const r = new SR();
@@ -123,9 +125,7 @@ function LamBai({ de, onBack, onClose }) {
     };
     r.onerror = (e) => {
       setDangNghe(false);
-      setLoiMic(e?.error === 'not-allowed'
-        ? 'Trình duyệt chưa được cấp quyền dùng micro.'
-        : `Nhận dạng gặp lỗi: ${e?.error || 'không rõ'}. Bạn vẫn có thể tự gõ lại lời mình nói.`);
+      setLoiMic(loiMicThanhChu(e?.error));
     };
     r.onend = () => setDangNghe(false);
     nhanDangRef.current = r;

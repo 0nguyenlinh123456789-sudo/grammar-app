@@ -51,9 +51,17 @@
 // ngưỡng là 80%, không phải 85% như bài toàn trắc nghiệm. Bộ này bắt màn hình
 // nói ra con số đó.
 //
+// ══ PHẦN BA VÀ BỐN: VIẾT VÀ NÓI ══
+// Thêm 19/08. Hai phần này KHÁC HẲN hai phần trên ở một điểm mà bộ rà phải hiểu
+// đúng, không thì nó báo lỗi oan: **chúng cố ý KHÔNG đánh dấu chặng hoàn thành.**
+// Bài viết và lượt nói ở đây là TỰ BÁO CÁO — máy không chấm được nội dung, nên
+// mọi bản ghi mang cờ `tuBaoCao: true` và không có trường điểm. Bộ này khoá đúng
+// tính chất đó lại: một ngày nào đó tự báo cáo biến thành "đã xác minh" thì đó là
+// một tuyên bố không có gì đỡ.
+//
 // ══ VẪN CHƯA PHỦ ══
-// Viết, nói (thu âm), và chấm bằng AI. Ghi ra để không ai đọc kết quả rộng hơn
-// thứ nó đo.
+// Chấm bằng AI (cần key Gemini của người học). Bộ này chỉ kiểm được rằng KHÔNG có
+// key thì app BÁO đúng chứ không im lặng — phần chấm thật thì chưa.
 
 import { moTrinhDuyet, moTab, BAM_THEO_CHU, DONG_PANEL } from '../tests/helpers/trinhduyet.mjs';
 import { moMayChuXemTruoc } from '../tests/helpers/mayChuXemTruoc.mjs';
@@ -84,7 +92,8 @@ const nghi = (ms) => new Promise((r) => setTimeout(r, ms));
 // Cả hai lần đều là bộ rà sai, app đúng. Hai panel mà bộ này lái đều tự khai tên
 // qua `aria-labelledby`, nên hỏi đích danh thì không còn gì để đoán. Mỗi lúc chỉ
 // một trong hai mở (có `dongHan` canh giữa các chặng).
-const PANEL = "document.querySelector('.fixed.inset-0[aria-labelledby=\"reading-title\"], .fixed.inset-0[aria-labelledby=\"dictation-title\"]')";
+const TEN_HOP = ['reading-title', 'dictation-title', 'writing-title', 'speaking-title'];
+const PANEL = `document.querySelector('${TEN_HOP.map((t) => `.fixed.inset-0[aria-labelledby="${t}"]`).join(', ')}')`;
 const SO_PANEL = "document.querySelectorAll('.fixed.inset-0[role=\"dialog\"]').length";
 
 // Hộp thoại nào đang mở — chỉ dùng khi có bước hỏng, để lần sau không phải đoán.
@@ -428,6 +437,119 @@ try {
       banCt ? `${banCt.correct}/${banCt.total} = ${banCt.percent}% · ngưỡng ${banCt.threshold}%` : 'không có bản điểm');
 
     await dongHan('panel chép chính tả');
+  }
+
+  // ══ PHẦN BA: VIẾT — bài TỰ BÁO CÁO, không phải bài được chấm ═══════════════
+  const moViet = await t.danhGia(BAM_THEO_CHU('VIẾT VỀ CHẶNG NÀY'));
+  ghi('mở đề viết của một chặng', moViet, moViet ? '' : 'không thấy nút');
+
+  if (moViet) {
+    await t.doi(`!!${PANEL} && ${CHU_PANEL}.length > 100`, { giay: 25, nhan: 'panel viết mở' });
+    const truocV = await t.danhGia(ANH_CHUP);
+
+    // Nộp một bài CỐ TÌNH QUÁ NGẮN. Cái đáng kiểm không phải "có báo chưa đạt"
+    // mà là **có nói THIẾU BAO NHIÊU TỪ** — "chưa đạt" suông thì người học phải
+    // tự đếm, và đó đúng là loại phản hồi rỗng cả tháng nay đang dẹp.
+    await t.danhGia(GO_CHU('I like it.'));
+    await t.doi(`[...${PANEL}.querySelectorAll('button')].some((b) => (b.innerText || '').includes('Nộp bài') && !b.disabled)`,
+      { giay: 10, nhan: 'nút Nộp bài mở khoá' });
+    await t.danhGia(BAM_TRONG_PANEL('Nộp bài'));
+    await t.doi(`/Còn thiếu \\d+ từ/.test(${CHU_PANEL}) || /Độ dài đạt/.test(${CHU_PANEL})`,
+      { giay: 10, nhan: 'bảng chấm độ dài' });
+    const chuV = await t.danhGia(CHU_PANEL);
+    const mThieu = chuV.match(/Còn thiếu (\d+) từ \(đang (\d+), cần ít nhất (\d+)\)/);
+    ghi('viết: bài quá ngắn thì nói rõ THIẾU BAO NHIÊU TỪ, không chỉ "chưa đạt"',
+      !!mThieu, mThieu ? `thiếu ${mThieu[1]} từ (đang ${mThieu[2]}, cần ${mThieu[3]})` : 'không thấy con số thiếu');
+
+    // Không có key Gemini thì phải BÁO, không được im lặng bày một nút chết.
+    const coNutAi = await t.danhGia(`[...${PANEL}.querySelectorAll('button')].some((b) => (b.innerText || '').includes('bằng AI'))`);
+    const coLoiBao = await t.danhGia(`${CHU_PANEL}.includes('cần key Gemini của bạn')`);
+    ghi('viết: chưa có key AI thì ẨN nút và NÓI vì sao', !coNutAi && coLoiBao,
+      `nút AI ${coNutAi ? 'vẫn hiện' : 'đã ẩn'} · lời báo ${coLoiBao ? 'có' : 'KHÔNG có'}`);
+
+    // Lưu vào sổ rồi soi bản ghi: phải mang cờ tự báo cáo và KHÔNG có trường điểm.
+    const daLuu = await t.danhGia(BAM_TRONG_PANEL('Lưu bài này vào sổ'));
+    await nghi(700);
+    const ban = await t.danhGia(`(() => {
+      try {
+        const ds = JSON.parse(localStorage.getItem('writingLogV1') || '[]');
+        return ds.length ? ds[ds.length - 1] : null;
+      } catch { return null; }
+    })()`);
+    ghi('viết: bản ghi mang cờ tuBaoCao và KHÔNG có trường điểm',
+      !!ban && ban.tuBaoCao === true && !('percent' in ban) && !('diem' in ban) && !('score' in ban),
+      ban ? `banSo ${ban.banSo} · ${ban.soTu} từ · tuBaoCao=${ban.tuBaoCao}` : (daLuu ? 'không đọc được bản ghi' : 'không thấy nút Lưu vào sổ'));
+
+    const sauV = await t.danhGia(ANH_CHUP);
+    // KHOÁ TÍNH CHẤT CỐ Ý: tự báo cáo KHÔNG được thành chặng hoàn thành.
+    ghi('viết: tự báo cáo KHÔNG biến thành chặng hoàn thành hay bản điểm',
+      sauV.xong.length === truocV.xong.length && Object.keys(sauV.diem).length === Object.keys(truocV.diem).length,
+      `chặng xong ${truocV.xong.length} → ${sauV.xong.length} · bản điểm ${Object.keys(truocV.diem).length} → ${Object.keys(sauV.diem).length}`);
+
+    await dongHan('panel viết');
+  }
+
+  // ══ PHẦN BỐN: NÓI — và phép kiểm "thiếu thì BÁO" ═══════════════════════════
+  const moNoi = await t.danhGia(BAM_THEO_CHU('NÓI VỀ CHẶNG NÀY'));
+  ghi('mở đề nói của một chặng', moNoi, moNoi ? '' : 'không thấy nút');
+
+  if (moNoi) {
+    await t.doi(`!!${PANEL} && ${CHU_PANEL}.length > 100`, { giay: 25, nhan: 'panel nói mở' });
+    const truocN = await t.danhGia(ANH_CHUP);
+
+    // ĐO, KHÔNG ĐOÁN. Bản đầu tôi viết "Chrome headless KHÔNG có
+    // SpeechRecognition" rồi đòi đúng câu báo "không hỗ trợ" — và nó báo oan:
+    // headless CÓ khai `webkitSpeechRecognition`, chỉ là dịch vụ nhận giọng không
+    // với tới được. Nên hỏi trình duyệt trước, rồi mới xét theo nhánh đúng.
+    const coApiNoi = await t.danhGia('!!(window.SpeechRecognition || window.webkitSpeechRecognition)');
+    const truocLoi = loiThat().length;
+    await t.danhGia(BAM_TRONG_PANEL('Bắt đầu nói'));
+
+    // Phép kiểm THẬT SỰ đáng hỏi, dùng được cho cả hai nhánh: **bấm một cái nút
+    // thì phải có gì đó xảy ra.** Hoặc app báo không dùng được (kèm đường đi
+    // tiếp), hoặc nó thật sự bắt đầu nghe (nút đổi thành "Dừng lại"). Im lặng
+    // tuyệt đối là câu trả lời duy nhất không được phép.
+    let ketNoi = 'im lặng';
+    for (let i = 0; i < 80; i += 1) {
+      const chu = await t.danhGia(CHU_PANEL);
+      if (chu.includes('Dừng lại')) { ketNoi = 'đã bắt đầu nghe'; break; }
+      if (/không hỗ trợ nhận dạng giọng nói|Nhận dạng gặp lỗi|chưa được cấp quyền dùng micro/.test(chu)) {
+        ketNoi = 'báo rõ lý do'; break;
+      }
+      await nghi(100);
+    }
+    const noLoi = loiThat().length > truocLoi;
+    ghi('nói: bấm "Bắt đầu nói" thì PHẢI có gì đó xảy ra, không được im lặng',
+      ketNoi !== 'im lặng' && !noLoi,
+      `API nhận giọng: ${coApiNoi ? 'có' : 'không'} · kết quả: ${ketNoi}${noLoi ? ' · và có lỗi bắn ra' : ''}`);
+
+    // Nếu app báo lỗi thì lời báo phải chỉ luôn đường đi tiếp, không bỏ người học
+    // ở đó. (Nhánh nghe được thì không cần lời báo nào.)
+    if (ketNoi === 'báo rõ lý do') {
+      const coDuongRa = await t.danhGia(`${CHU_PANEL}.includes('tự gõ lại lời mình nói')`);
+      ghi('nói: lời báo chỉ luôn đường làm tiếp (gõ tay), không bỏ người học ở đó', coDuongRa);
+    }
+
+    // Ô gõ tay phải LUÔN có mặt, kể cả khi nhận giọng chạy được: đó là đường
+    // thoát duy nhất cho người không cấp quyền micro hoặc máy không có micro.
+    const coOGoTay = await t.danhGia(`!!${PANEL}.querySelector('textarea')`);
+    ghi('nói: luôn có ô gõ tay để làm tiếp không cần micro', coOGoTay);
+
+    await t.danhGia(GO_CHU('I usually get up at six and then I walk to school with my friend because the bus is often late.'));
+    await t.doi(`[...${PANEL}.querySelectorAll('button')].some((b) => (b.innerText || '').includes('Nộp lượt nói') && !b.disabled)`,
+      { giay: 10, nhan: 'nút Nộp lượt nói mở khoá' });
+    await t.danhGia(BAM_TRONG_PANEL('Nộp lượt nói'));
+    await nghi(900);
+    const chuN = await t.danhGia(CHU_PANEL);
+    ghi('nói: gõ tay rồi nộp thì có bảng đối chiếu', /\d+ từ|Độ dài|tiêu chí/i.test(chuN),
+      chuN.replace(/\s+/g, ' ').slice(-120));
+
+    const sauN = await t.danhGia(ANH_CHUP);
+    ghi('nói: tự báo cáo KHÔNG biến thành chặng hoàn thành hay bản điểm',
+      sauN.xong.length === truocN.xong.length && Object.keys(sauN.diem).length === Object.keys(truocN.diem).length,
+      `chặng xong ${truocN.xong.length} → ${sauN.xong.length} · bản điểm ${Object.keys(truocN.diem).length} → ${Object.keys(sauN.diem).length}`);
+
+    await dongHan('panel nói');
   }
 
   // ── nhật ký lỗi trong suốt lượt ────────────────────────────────────────────
