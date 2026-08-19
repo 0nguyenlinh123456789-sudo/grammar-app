@@ -75,6 +75,72 @@ export function parseCookies(header = '') {
   }).filter(([key]) => key));
 }
 
+// ══════════════════════════════════════════════════════════════════════════
+// ĐỌC HEADER / BODY MÀ KHÔNG PHỤ THUỘC NƠI CHẠY
+//
+// Lõi này ban đầu chỉ chạy trên Vercel (Node), nên nó đọc thẳng
+// `request.headers.cookie` và `request.body`. Cả hai đều SAI trên nền chạy
+// kiểu Web (Cloudflare Workers/Pages), và sai theo kiểu tệ nhất — KHÔNG NÉM
+// LỖI:
+//
+//   · `request.headers` ở đó là một đối tượng `Headers`, nên `.cookie` ra
+//     `undefined` → không đọc được phiên → người học bị báo "hết phiên truy
+//     cập, hãy nhập lại mã" dù mã còn hạn.
+//   · `request.body` ở đó là một `ReadableStream`, nên
+//     `typeof body === 'string' ? JSON.parse(body) : body || {}` trả về CHÍNH
+//     CÁI STREAM. `body.action` thành `undefined` và mọi thao tác im lặng đi
+//     nhầm nhánh.
+//
+// Hai hàm dưới đây nhận cả hai kiểu. Chúng phải được dùng ở MỌI chỗ đọc
+// header/body — đọc thẳng là mở lại đúng hai cái bẫy trên.
+// ══════════════════════════════════════════════════════════════════════════
+
+/** Đọc một header, chấp nhận cả `Headers` (Web) lẫn object thường (Node). */
+export function layHeader(request, ten) {
+  const h = request?.headers;
+  if (!h) return undefined;
+  // `Headers` của Web API: tra bằng .get(), không phân biệt hoa thường.
+  if (typeof h.get === 'function') return h.get(ten) ?? undefined;
+  // Node: object thường, khoá đã được hạ về chữ thường sẵn.
+  const v = h[ten] ?? h[String(ten).toLowerCase()];
+  return Array.isArray(v) ? v[0] : v;
+}
+
+/**
+ * Đọc thân yêu cầu thành object, chấp nhận cả ba dạng đã gặp:
+ * object đã phân tích sẵn (Vercel), chuỗi JSON, và ReadableStream (Web).
+ * Thân hỏng hoặc rỗng thì trả `{}` — KHÔNG ném, vì mọi chỗ gọi đều đã có
+ * nhánh "thiếu trường thì từ chối" và nhánh đó cho lời báo sát hơn.
+ */
+export async function layBody(request) {
+  const b = request?.body;
+  if (typeof b === 'string') {
+    try { return JSON.parse(b); } catch { return {}; }
+  }
+  // ReadableStream — dấu nhận biết là có `getReader`. Phải đọc qua .json()
+  // của chính request, không được trả về stream.
+  const laStream = b && typeof b === 'object' && typeof b.getReader === 'function';
+  if (laStream || (b == null && typeof request?.json === 'function')) {
+    try { return (await request.json()) || {}; } catch { return {}; }
+  }
+  return (b && typeof b === 'object') ? b : {};
+}
+
+/**
+ * Lấy khoá ký phiên, NÉM khi thiếu thay vì trả null.
+ *
+ * Vì sao phải ném: nếu thiếu khoá mà chỉ trả null thì `requireLearner` ra null,
+ * và mọi tuyến đọc null thành "phiên đã hết hạn, hãy nhập lại mã". Khách trả
+ * tiền rồi ngồi nhập đi nhập lại một mã hoàn toàn hợp lệ, còn người bán thì
+ * thấy log sạch. Đây đúng là "thay thế âm thầm" mà dự án cấm — máy chủ chưa
+ * cấu hình phải nói là máy chủ chưa cấu hình.
+ */
+export function khoaKyPhien(env) {
+  const s = env?.ACCESS_SESSION_SECRET;
+  if (!s || String(s).length < 32) throw new AccessConfigError('session-secret-missing');
+  return String(s);
+}
+
 const encode = (value) => Buffer.from(value).toString('base64url');
 const sign = (payload, secret) => createHmac('sha256', secret).update(payload).digest('base64url');
 
@@ -111,7 +177,10 @@ export function clearCookie(name, secure = true) {
 }
 
 export function isSecureRequest(request, env = process.env) {
-  return env.VERCEL === '1' || request.headers['x-forwarded-proto'] === 'https' || request.headers['x-forwarded-proto']?.startsWith('https');
+  const proto = layHeader(request, 'x-forwarded-proto');
+  // Cloudflare không đặt `VERCEL`, nhưng bản triển khai thật của nó luôn là
+  // https; `x-forwarded-proto` phủ cả hai nơi nên không cần cờ riêng.
+  return env?.VERCEL === '1' || proto === 'https' || !!proto?.startsWith('https');
 }
 
 export function publicRecord(record) {
@@ -187,8 +256,14 @@ export async function writeAccessRecord(env, codeHash, record) {
 }
 
 export function clientIdentifier(request) {
-  const forwarded = request.headers['x-forwarded-for'];
-  return hashValue(Array.isArray(forwarded) ? forwarded[0] : String(forwarded || request.headers['x-real-ip'] || 'unknown').split(',')[0].trim());
+  const forwarded = layHeader(request, 'x-forwarded-for');
+  // Trên Cloudflare còn có `cf-connecting-ip`, chính xác hơn cả hai cái kia vì
+  // nó do chính lớp biên đặt và khách không giả được.
+  const nguon = forwarded
+    || layHeader(request, 'cf-connecting-ip')
+    || layHeader(request, 'x-real-ip')
+    || 'unknown';
+  return hashValue(String(nguon).split(',')[0].trim());
 }
 
 export async function enforceRateLimit(env, scope, identifier, limit, windowSeconds) {
@@ -197,7 +272,31 @@ export async function enforceRateLimit(env, scope, identifier, limit, windowSeco
   return Number(count) <= limit;
 }
 
+/**
+ * Trả JSON cho CẢ HAI nền chạy.
+ *
+ * `response` là đối tượng phản hồi kiểu Node (Vercel) — hoặc `null` khi đang
+ * chạy trên nền kiểu Web (Cloudflare), lúc đó hàm trả về một `Response`.
+ *
+ * Một hàm phục vụ hai nền, thay vì hai bản chép. Dự án này đã ba lần trả giá
+ * cho việc giữ hai bản của cùng một thứ: hai bản thì sớm muộn cũng lệch, và
+ * lệch ở lớp xác thực thì lệch thành lỗ bảo mật.
+ */
 export function jsonResponse(response, status, data, extraHeaders = {}) {
+  if (!response) {
+    const h = new Headers({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'no-store',
+      'X-Content-Type-Options': 'nosniff',
+    });
+    for (const [key, value] of Object.entries(extraHeaders)) {
+      // APPEND chứ không SET: một yêu cầu có thể cần đặt hai cookie, và `set`
+      // sẽ nuốt mất cái trước.
+      if (Array.isArray(value)) for (const v of value) h.append(key, v);
+      else h.append(key, value);
+    }
+    return new Response(JSON.stringify(data), { status, headers: h });
+  }
   response.setHeader('Cache-Control', 'no-store');
   response.setHeader('X-Content-Type-Options', 'nosniff');
   for (const [key, value] of Object.entries(extraHeaders)) response.setHeader(key, value);
@@ -205,8 +304,11 @@ export function jsonResponse(response, status, data, extraHeaders = {}) {
 }
 
 export async function requireLearner(request, env = process.env) {
-  const token = parseCookies(request.headers.cookie)[ACCESS_COOKIE];
-  const payload = verifyToken(token, env.ACCESS_SESSION_SECRET);
+  // `khoaKyPhien` NÉM khi thiếu khoá — xem chú thích của nó. Trả null ở đây sẽ
+  // biến "máy chủ chưa cấu hình" thành "mã của bạn hết hạn".
+  const secret = khoaKyPhien(env);
+  const token = parseCookies(layHeader(request, 'cookie'))[ACCESS_COOKIE];
+  const payload = verifyToken(token, secret);
   if (!payload || payload.role !== 'learner') return null;
   const record = await readAccessRecord(env, payload.codeHash);
   if (!validateRecord(record).ok || record.version !== payload.version || !record.devices?.[payload.deviceHash]) return null;
@@ -214,9 +316,10 @@ export async function requireLearner(request, env = process.env) {
 }
 
 export function requireAdmin(request, env = process.env) {
-  const token = parseCookies(request.headers.cookie)[ADMIN_COOKIE];
-  const payload = verifyToken(token, env.ACCESS_SESSION_SECRET);
-  return payload?.role === 'admin' && payload.adminKeyHash === hashValue(env.ACCESS_ADMIN_SECRET)
+  const secret = khoaKyPhien(env);
+  const token = parseCookies(layHeader(request, 'cookie'))[ADMIN_COOKIE];
+  const payload = verifyToken(token, secret);
+  return payload?.role === 'admin' && payload.adminKeyHash === hashValue(env?.ACCESS_ADMIN_SECRET)
     ? payload
     : null;
 }

@@ -16,7 +16,8 @@
     "ra:mua": "node scripts/ra_duong_mua.mjs",
     "ai:that": "node scripts/kiem_ai_that.mjs",
     "ra:reset": "node scripts/ra_reset.mjs",
-    "kiem:camket": "node scripts/kiem_cam_ket.mjs"
+    "kiem:camket": "node scripts/kiem_cam_ket.mjs",
+    "kiem:banduoc": "node scripts/kiem_banduoc.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",

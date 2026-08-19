@@ -2,7 +2,7 @@ import {
   AI_KEY_HEADER, MISSING_KEY_RESPONSE, buildRequest, describeProviderFailure,
   geminiEndpoint, getRequestError, readGeminiKey,
 } from '../functions/api/ai.js';
-import { AccessConfigError, requireLearner } from '../src/server/accessCore.js';
+import { AccessConfigError, layBody, layHeader, requireLearner } from '../src/server/accessCore.js';
 
 export default async function handler(request, response) {
   response.setHeader('Cache-Control', 'no-store');
@@ -12,7 +12,7 @@ export default async function handler(request, response) {
     return response.status(405).json({ code: 'method-not-allowed', message: 'Phương thức không được hỗ trợ.' });
   }
   try {
-    const session = await requireLearner(request);
+    const session = await requireLearner(request, process.env);
     if (!session) {
       return response.status(401).json({ code: 'access-required', message: 'Phiên truy cập đã hết hạn. Hãy nhập lại mã truy cập.' });
     }
@@ -24,17 +24,17 @@ export default async function handler(request, response) {
     }
     return response.status(503).json({ code: 'access-unavailable', message: 'Chưa thể kiểm tra quyền truy cập lúc này.' });
   }
-  const apiKey = readGeminiKey(request.headers[AI_KEY_HEADER]);
+  const apiKey = readGeminiKey(layHeader(request, AI_KEY_HEADER));
   if (!apiKey) {
     return response.status(400).json(MISSING_KEY_RESPONSE);
   }
-  if (Number(request.headers['content-length'] || 0) > 6 * 1024 * 1024) {
+  if (Number(layHeader(request, 'content-length') || 0) > 6 * 1024 * 1024) {
     return response.status(413).json({ code: 'request-too-large', message: 'Dữ liệu gửi lên quá lớn.' });
   }
 
   let parts;
   try {
-    const body = typeof request.body === 'string' ? JSON.parse(request.body) : request.body || {};
+    const body = await layBody(request);
     parts = buildRequest(body.mode, body.payload);
   } catch (error) {
     const [code, message] = getRequestError(error);

@@ -1,0 +1,32 @@
+# File: wrangler.toml
+# CẤU HÌNH CLOUDFLARE PAGES — đường thay thế cho Vercel.
+#
+# ══ VÌ SAO CÓ FILE NÀY ══
+# Gói Vercel Hobby CẤM dùng cho mục đích thương mại. Web này sắp bán mã truy
+# cập, nên chạy trên Hobby là vi phạm điều khoản bất kể mã tốt tới đâu. Hai
+# đường ra: trả tiền Vercel Pro, hoặc chuyển sang một nơi cho phép thương mại
+# ở mức miễn phí. Cloudflare Pages + Workers là đường thứ hai.
+#
+# ⚠️ FILE NÀY MỚI CHỈ LÀ ĐƯỜNG ĐÃ DỌN, CHƯA PHẢI ĐÃ CHUYỂN NHÀ. Bản live vẫn ở
+# Vercel. Việc đổi nơi đặt web là quyết định của chủ dự án, không phải của
+# người viết mã — xem docs/chuyen_nha_cloudflare.md.
+
+name = "bunny-english"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-08-01"
+
+# ⚠️ CỜ NÀY LÀ BẮT BUỘC, KHÔNG PHẢI TÙY CHỌN.
+# Lõi xác thực (src/server/accessCore.js) dùng `node:crypto` — createHash,
+# createHmac, randomBytes, randomUUID, timingSafeEqual — và dùng `Buffer` để
+# mã hoá base64url của thẻ phiên. Thiếu `nodejs_compat` thì hàm không nạp
+# được, và hỏng ngay từ lúc khởi động chứ không phải lúc có khách.
+compatibility_flags = ["nodejs_compat"]
+
+# ══ BIẾN MÔI TRƯỜNG — ĐẶT Ở BẢNG ĐIỀU KHIỂN, KHÔNG ĐẶT Ở ĐÂY ══
+# Bốn biến bí mật (UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN,
+# ACCESS_SESSION_SECRET, ACCESS_ADMIN_SECRET) phải đặt dạng Secret trong
+# Cloudflare Pages → Settings → Environment variables. Viết chúng vào file này
+# là đẩy bí mật lên GitHub.
+#
+# Các biến VITE_* thì khác: chúng được NHÚNG LÚC DỰNG, nên phải có mặt ở bước
+# build của Pages, và đổi chúng thì phải DEPLOY LẠI mới ăn.
