@@ -25,8 +25,8 @@ const DATA = path.join(ROOT, 'src', 'data');
 
 // Bánh cóc: chỉ được tăng. Số ĐO ĐƯỢC khi soạn xong cả ba bậc B1, B2 và C1 —
 // 121/122 chặng ≥B1 (một chặng loại có lý do, xem đầu src/data/storyQuiz.js).
-const CHU_DE_TOI_THIEU = 261;
-const CAU_HOI_TOI_THIEU = 1044;
+const CHU_DE_TOI_THIEU = 266;
+const CAU_HOI_TOI_THIEU = 1064;
 
 async function napGop(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
@@ -166,6 +166,10 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
 // đọc con số này thành một bước tiến lớn.
 // GIỮ NGUYÊN 0.371 sau đợt A2 thứ nhất: đo lại 996 câu ra 37,05%, tức gần y mốc
 // cũ. Nói thẳng là KHÔNG cải thiện chỉ số này, thay vì siết một con số ảo.
+// GIỮ NGUYÊN 0.369 ở đợt A2 cuối: đo lại 1064 câu ra 36,94%, tức NHÍCH LÊN một chút
+// so với 36,88% của đợt trước. Nói ra chứ không siết: chỉ số "dài nhất duy nhất"
+// bắt cả những chỗ lệch 1-2 ký tự, nên nó dao động quanh 37% và không phải chỗ đáng
+// bám. Chỉ số đáng lo là "thấy được", và chỉ số đó thì giảm đều.
 const THIEN_LECH_TOI_DA = 0.369;
 // ⚠️ BÁNH CÓC NÀY ĐÃ BẮT ĐƯỢC TÔI, ghi lại vì đó là lần nó chứng minh mình có
 // việc để làm. Soạn xong 28 câu cho 7 chặng A1 viết lại, đo ra 3,09% — TỆ HƠN
@@ -188,6 +192,8 @@ const THIEN_LECH_TOI_DA = 0.369;
 // Đợt A2 thứ ba: 2,55% → 2,49%. Ba đợt liền chốt chặn lúc soạn bắt được lỗi
 // TRƯỚC KHI ghi (3 câu, 3 câu, 4 câu), và ba đợt liền chỉ số này đi xuống thay vì
 // đi lên. Trước khi có chốt đó thì hai đợt liền nó đi lên.
+// Đợt A2 cuối: 2,49% → 2,44%. Bốn đợt liền có chốt chặn lúc soạn thì bốn lần giảm.
+// Từ 84,3% ban đầu của cả kho xuống 2,44% là đường dài nhất của việc 3.1.
 const THAY_DUOC_TOI_DA = 0.024;
 
 test(`thiên lệch độ dài chỉ được giảm (dài nhất ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}% · thấy được ${(THAY_DUOC_TOI_DA * 100).toFixed(1)}% · không thiên lệch ≈ 25%)`, async () => {
@@ -293,7 +299,15 @@ const A1A2_CON_THIEU_TOI_DA = 0;
 // 19/08 lần bốn: 23 → 17 (viết lại 6 bài đọc A2 đầu tiên).
 // 19/08 lần năm: 17 → 11 (viết lại 6 bài đọc A2 nữa).
 // 19/08 lần sáu: 11 → 5.
-const A1A2_KHONG_DU_TOI_DA = 5;
+// ══ VỀ 0 (19/08) — DANH SÁCH A1/A2 "KHÔNG ĐỦ ĐIỀU KIỆN" ĐÃ ĐÓNG HẾT ══
+// Đi từ 52 → 39 → 34 → 30 → 23 → 17 → 11 → 5 → 0 trong một ngày. Cả 145 chặng
+// A1/A2 đều có câu hỏi mức văn bản; không chặng nào còn băng cảnh báo cam.
+//
+// ⚠️ TỪ ĐÂY MỐC NÀY KHÔNG CÒN LÀ BÁNH CÓC MÀ LÀ ĐÒI HỎI THẬT, giống như
+// `A1A2_CON_THIEU_TOI_DA` đã về 0 từ 17/08. Hai mốc cùng bằng 0 nghĩa là: thêm một
+// chủ đề A1/A2 nào mà không soạn câu hỏi cho nó thì test ĐỎ, dù bài đọc của nó đạt
+// bốn tiêu chí hay không. Không còn đường nào để một chặng A1/A2 lặng lẽ thiếu câu.
+const A1A2_KHONG_DU_TOI_DA = 0;
 
 test('bánh cóc A1/A2: số chặng đủ điều kiện mà CHƯA có câu hỏi chỉ được giảm', async () => {
   const { doA1A2 } = await import(pathToFileURL(path.join(ROOT, 'scripts/audit_a1a2_story.mjs')).href);

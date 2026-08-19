@@ -63,7 +63,9 @@ for (const [id, b] of Object.entries(VIET_LAI)) {
     const dung = doDai[h.answer];
     const nhi = Math.max(...doDai.filter((_, k) => k !== h.answer));
     if (dung > nhi && (dung - nhi) / nhi >= 0.10) {
-      const canThem = Math.ceil(dung / 1.1) - nhi;
+      // Math.max(1, …): ở đúng mốc 10% thì phép trừ ra 0, và lời khuyên "viết dài thêm
+      // ≥0 ký tự" là một câu vô nghĩa. Ngưỡng là >= 0.10 nên bao giờ cũng cần ít nhất 1.
+      const canThem = Math.max(1, Math.ceil(dung / 1.1) - nhi);
       loi.push(`${id} câu ${i + 1}: đáp án đúng dài ${dung} ký tự, nhiễu dài nhất chỉ ${nhi} `
         + `(lệch ${Math.round(((dung - nhi) / nhi) * 100)}%, THẤY ĐƯỢC bằng mắt). Viết dài thêm `
         + `≥${canThem} ký tự cho một câu nhiễu — ĐỪNG cắt ngắn đáp án đúng.`);

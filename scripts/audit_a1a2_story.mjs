@@ -51,14 +51,22 @@ export async function doA1A2() {
   const { STORY_QUIZ } = await import(pathToFileURL(path.join(DATA, 'storyQuiz.js')).href);
   const byId = new Map(topics.map((t) => [t.id, t]));
 
-  const ra = { daCo: [], du: [], khong: [] };
+  const ra = { daCo: [], du: [], khong: [], moiBac: [] };
   for (const l of roadmapData) {
     if (!BAC_A1A2.includes(l.level)) continue;
     for (const m of l.milestones) {
       if (m.type !== 'vstep') continue;
       const t = byId.get(m.targetId);
       if (!t) continue;
-      if (STORY_QUIZ[t.id]) { ra.daCo.push(t.id); continue; }
+      if (STORY_QUIZ[t.id]) {
+        ra.daCo.push(t.id);
+        // `daCo` là mảng id trần vì nhiều chỗ đang dùng nó như vậy. `moiBac` kê thêm
+        // BẬC của MỌI chặng, kể cả chặng đã có câu hỏi — cần cho phép kiểm độ phủ:
+        // khi một bậc đã soạn xong hết thì `khong`/`du` của bậc đó rỗng, và phép phủ
+        // dựa vào hai danh sách ấy không còn gì để so.
+        ra.moiBac.push({ id: t.id, bac: l.level });
+        continue;
+      }
 
       const en = String(t.storyEn || '').trim();
       const tu = en.split(/\s+/).filter(Boolean).length;
@@ -72,6 +80,7 @@ export async function doA1A2() {
       const dat = cau >= TIEU_CHI.cauToiThieu && tu >= TIEU_CHI.tuToiThieu
         && matDo < TIEU_CHI.matDoToiDa && tuongThuat >= TIEU_CHI.tuongThuatToiThieu;
       const ban = { id: t.id, bac: l.level, tu, cau, matDo: +matDo.toFixed(2), tuongThuat };
+      ra.moiBac.push({ id: t.id, bac: l.level });
       (dat ? ra.du : ra.khong).push(ban);
     }
   }

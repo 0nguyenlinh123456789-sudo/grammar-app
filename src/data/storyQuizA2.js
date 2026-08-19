@@ -3265,6 +3265,245 @@ export const STORY_QUIZ_A2 = {
       dan: 'The coach told him a striker who never misses is a striker who never shoots, and Kien did not answer.',
     },
   ],
+
+  // ══ ĐỢT 19/08 — CHẶNG A2 ĐÃ VIẾT LẠI BÀI ĐỌC ════════════════════════════════
+  // Các chặng này trước đây là diễu hành từ vựng ("A dog is a very friendly
+  // animal"), nên chúng nằm trong nhóm 'viet-lai' và mang băng cảnh báo cam.
+  // Bài đọc ĐÃ ĐƯỢC VIẾT LẠI thành một cảnh có nhân vật và có việc xảy ra —
+  // xem `scripts/data/viet_lai_bai_doc.mjs`. Nay hỏi được, nên soạn câu.
+  //
+  // `dan` ở đây do MÁY lấy từ chính mảng câu của bài, không gõ lại — cùng lý do
+  // đã phải chép bằng máy ở đợt A2 (dấu gạch ngang, nháy lồng nhau).
+  'music-entertainment-daily': [
+    {
+      q: 'Người láng giềng nói gì về bốn thế bấm mà anh dạy?',
+      options: [
+        'Bốn thế bấm là đủ cho khoảng một nửa số bài người kể thích',
+        'Bốn thế bấm chỉ đủ để chơi được đúng năm bài hát mà thôi',
+        'Phải tập hai tháng liền thì mới bấm được cả bốn thế đó',
+        'Bốn thế bấm là những gì anh dùng khi chơi ở các đám cưới',
+      ],
+      answer: 0,
+      dan: 'He taught me four chords and said that four chords are enough for about half the songs I like.',
+    },
+    {
+      q: 'Vì sao người kể đi hết được bài trên sân khấu?',
+      options: [
+        'Vì đèn quá sáng nên không thấy khán giả một chút nào',
+        'Vì đã tập đúng một bài đó liên tục suốt sáu tuần liền',
+        'Vì cậu ngồi hàng đầu đã lịch sự nhìn sang chỗ khác',
+        'Vì bài hát chỉ dài ba phút nên qua rất nhanh chóng',
+      ],
+      answer: 0,
+      dan: 'I could not see the audience at all, which turned out to be the only reason I got through it.',
+    },
+    {
+      q: 'Người thầy chưa từng nói chuyện đã nhận xét gì?',
+      options: [
+        'Đoạn hai của bài hay hơn đoạn một',
+        'Tay người kể run ở hai dòng đầu bài',
+        'Lỗi ở thế bấm thứ ba không ai nghe ra',
+        'Nên dạy lại cho hai bạn học sinh khác',
+      ],
+      answer: 0,
+      dan: 'A teacher I had never spoken to told me the second verse was better than the first.',
+    },
+    {
+      q: 'Người láng giềng nhận xét thế nào sau buổi diễn?',
+      options: [
+        'Lỗi ở thế bấm thứ ba là lỗi không ai khác nghe ra được',
+        'Đoạn hai của bài rõ ràng là hay hơn hẳn đoạn thứ nhất',
+        'Người kể nên tập thêm để chơi được nhiều hơn năm bài',
+        'Đèn sân khấu quá sáng nên khó mà nhìn thấy khán giả',
+      ],
+      answer: 0,
+      dan: 'My neighbour came to watch, and he said the mistake in the third chord was one nobody else would hear.',
+    },
+  ],
+  'transport-vehicles-daily': [
+    {
+      q: 'Luật đầu tiên bố đặt ra khi dạy đi xe là gì?',
+      options: [
+        'Phải dừng được thì mới được dạy đi nhanh hơn',
+        'Phải phanh cả hai phanh cùng một lúc mỗi lần',
+        'Phải tập ở sân chợ trống suốt ba Chủ nhật liền',
+        'Phải kiểm lốp và phanh trước mỗi lần ra đường',
+      ],
+      answer: 0,
+      dan: 'His first rule was that I had to be able to stop before he would teach me to go faster.',
+    },
+    {
+      q: 'Vì sao người kể đâm vào bờ vỉa ở Chủ nhật thứ tư?',
+      options: [
+        'Vì người kể nhìn vào chính cái bờ vỉa đó',
+        'Vì người kể chưa phanh được bằng cả hai phanh',
+        'Vì một chiếc xe buýt đã vượt sát bên cạnh',
+        'Vì bố mới cho chạy quanh sân lần đầu tiên',
+      ],
+      answer: 0,
+      dan: 'On the fourth Sunday he let me ride around the square, and I hit the kerb because I looked at it.',
+    },
+    {
+      q: 'Bố làm gì khi người kể ngồi trên bờ vỉa mười phút?',
+      options: [
+        'Chờ, và tuyệt đối không nói gì cả',
+        'Bảo người kể lên xe đi tiếp ngay lập tức',
+        'Giải thích lại luật phanh bằng hai phanh',
+        'Đưa người kể về nhà rồi hôm sau dạy lại',
+      ],
+      answer: 0,
+      dan: 'My father did not tell me to get back on; he waited and said nothing at all.',
+    },
+    {
+      q: 'Theo bố, một cái mũ bảo hiểm thế nào thì coi như hết dùng?',
+      options: [
+        'Mũ đã bị rơi mạnh một lần',
+        'Mũ đã dùng quá ba năm rồi',
+        'Mũ không còn vừa với đầu nữa',
+        'Mũ đã có vết xước ở bên ngoài',
+      ],
+      answer: 0,
+      dan: 'My helmet is three years old, and my father says a helmet that has been dropped hard is finished.',
+    },
+  ],
+  'hotel-accommodation-daily': [
+    {
+      q: 'Bố người kể phản ứng thế nào khi lễ tân nói phòng đã bị hủy?',
+      options: [
+        'Đặt tờ xác nhận in từ một tuần trước lên quầy mà không nói gì',
+        'Yêu cầu gặp ngay người quản lý của khách sạn để giải quyết',
+        'Đề nghị đổi sang một phòng suite ở tầng trên cùng luôn',
+        'Xin bớt ba mươi phần trăm hóa đơn cho cả bốn đêm ở đó',
+      ],
+      answer: 0,
+      dan: 'My father had the confirmation on paper, printed a week earlier, and he put it on the desk without speaking.',
+    },
+    {
+      q: 'Vì sao chuyện thang máy hỏng lại thành vấn đề lớn?',
+      options: [
+        'Vì phòng của họ ở tầng tám, tầng trên cùng của khách sạn',
+        'Vì bà của người kể thì không hề phàn nàn một lần nào cả hết',
+        'Vì bữa sáng dừng lúc tám giờ ba mươi mỗi buổi sáng',
+        'Vì phòng chỉ được dọn mỗi ngày trừ ngày Chủ nhật',
+      ],
+      answer: 0,
+      dan: 'The lift was out of order for the first two days, and the top floor is the eighth.',
+    },
+    {
+      q: 'Chuyện gì xảy ra vào bữa sáng đầu tiên?',
+      options: [
+        'Xuống lúc chín giờ kém hai mươi nên chỉ có bánh nguội, không trứng',
+        'Bữa sáng ngon thật sự vì cả nhà đã kịp đặt báo thức từ trước',
+        'Không ai nói cho cả nhà biết là bữa sáng vốn có sẵn trong giá phòng',
+        'Người dọn phòng để lại một tờ giấy giải thích về bữa sáng',
+      ],
+      answer: 0,
+      dan: 'On the first morning we arrived at twenty to nine and were given cold bread and no eggs.',
+    },
+    {
+      q: 'Người quản lý làm gì vào ngày cuối?',
+      options: [
+        'Bớt ba mươi phần trăm hóa đơn mà không cần ai phải xin',
+        'Đề nghị cho ở thêm một đêm nữa mà không tính tiền',
+        'Xin lỗi thêm một lần nữa về chuyện phòng đã bị hủy từ đầu',
+        'Sửa xong cái thang máy để cả nhà đi lại cho dễ',
+      ],
+      answer: 0,
+      dan: 'On the last day the manager took thirty percent off the bill without being asked.',
+    },
+  ],
+  'arts-culture-daily': [
+    {
+      q: 'Người kể cảm thấy thế nào khi đứng trước bức tranh nổi tiếng?',
+      options: [
+        'Không cảm thấy gì cả, và thấy xấu hổ vì mình không cảm thấy gì',
+        'Thấy thất vọng vì bức tranh nhỏ hơn so với ảnh trên bìa sách',
+        'Thấy khó chịu vì căn phòng quanh nó đầy người đang nói chuyện',
+        'Thấy thích ngay từ phút đầu, đúng như đã mong suốt một tháng',
+      ],
+      answer: 0,
+      dan: 'When I stood in front of it, I felt nothing at all, and I was ashamed of feeling nothing.',
+    },
+    {
+      q: 'Điều gì đặc biệt ở bức vẽ người đàn bà đang khâu?',
+      options: [
+        'Một bàn tay của bà chưa vẽ xong, thấy được chỗ họa sĩ dừng lại',
+        'Nó được vẽ bằng bút chì bởi một họa sĩ rất nổi tiếng thời đó',
+        'Nó nhỏ hơn nhiều so với bức tranh nổi tiếng ở phòng bên cạnh',
+        'Nó là bức duy nhất trong bảo tàng còn bưu thiếp để bán lại',
+      ],
+      answer: 0,
+      dan: 'The drawing is in pencil, and one of her hands is not finished; you can see where the artist stopped.',
+    },
+    {
+      q: 'Người hướng dẫn giải thích thế nào về bức vẽ chưa xong?',
+      options: [
+        'Bức vẽ xong cho thấy kết quả, bức chưa xong cho thấy công việc',
+        'Bảo tàng mua nó vì họa sĩ đó về sau trở nên rất nổi tiếng',
+        'Bức chưa xong thì luôn có giá cao hơn bức đã được vẽ xong',
+        'Người xem sẽ đứng lâu hơn trước một bức còn dở dang như thế',
+      ],
+      answer: 0,
+      dan: 'She explained that a finished picture shows you the result, and an unfinished one shows you the work.',
+    },
+    {
+      q: 'Cô giáo nói riêng điều gì với người kể?',
+      options: [
+        'Cô cũng chưa bao giờ thích bức tranh ấy, trong hai mươi sáu năm',
+        'Cô thấy bức vẽ bút chì đáng xem hơn bức tranh nổi tiếng kia',
+        'Cô đã phải đi tìm người kể vì đứng quá lâu ở phòng bên',
+        'Cô khuyên đừng tranh luận với bốn bạn ở trên xe về nhà',
+      ],
+      answer: 0,
+      dan: 'My teacher told me privately that she has never liked that painting either, in twenty-six years of visits.',
+    },
+  ],
+  'science-technology-daily': [
+    {
+      q: 'Cô giáo nói câu hỏi thật sự của thí nghiệm là gì?',
+      options: [
+        'Chậm hơn bao nhiêu, và ở nồng độ nào thì nó ngừng đóng băng',
+        'Nước muối có đóng băng chậm hơn nước thường hay là không',
+        'Muối có làm đổi hình dạng của tinh thể băng hay là không',
+        'Bao nhiêu thìa muối thì cần cho chín cái cốc thí nghiệm',
+      ],
+      answer: 0,
+      dan: 'She told us the question was not whether it freezes slower, but by how much, and at what concentration it stops.',
+    },
+    {
+      q: 'Vì sao lần thử đầu tiên thất bại?',
+      options: [
+        'Vì cứ mở tủ đá ra xem mười phút một lần',
+        'Vì cái nhiệt kế không đọc được qua cửa kính',
+        'Vì cốc tám thìa muối không đóng băng nổi',
+        'Vì chín cái cốc được đặt ở hai tủ đá khác nhau',
+      ],
+      answer: 0,
+      dan: 'Our first attempt failed completely, because we opened the freezer every ten minutes to look.',
+    },
+    {
+      q: 'Theo cô giáo, phần hay nhất trong bài của nhóm là gì?',
+      options: [
+        'Trang ghi lại những gì nhóm đã làm sai ở lần đầu',
+        'Đường cong đẹp vẽ ra từ số liệu của lần thứ hai',
+        'Câu trả lời của Ngân trước ban giám khảo hôm đó',
+        'Cái cốc tám thìa muối không đóng băng suốt bốn tiếng',
+      ],
+      answer: 0,
+      dan: 'We wrote down what we had done wrong the first time, and the teacher said that page was the best part.',
+    },
+    {
+      q: 'Ngân trả lời ban giám khảo sẽ thử gì tiếp nếu có thêm một tháng?',
+      options: [
+        'Thử xem muối có làm đổi hình dạng của tinh thể băng không',
+        'Thử thêm nhiều cốc nữa với nồng độ muối cao hơn tám thìa',
+        'Thử đo nhiệt độ trong tủ đá mà không mở cửa kính ra lần nào',
+        'Thử làm một cái máy phát sáng như của nhóm được giải tư',
+      ],
+      answer: 0,
+      dan: 'My friend Ngan answered that she would test whether the salt changes the shape of the ice crystals.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_A2;

@@ -106,7 +106,16 @@ export const PHAN_LOAI_A2 = {
   // phân biệt được bài nào nói gì. Nên mỗi bài viết lại là một CẢNH KHÁC HẲN, chứ
   // không chỉ đổi câu chữ — nếu không thì viết lại xong vẫn trùng như cũ.
 
-  // ── CẦN VIẾT LẠI: bài văn phủ danh sách từ vựng ──────────────────────────
+  // ── BẬC A2 KHÔNG CÒN CHẶNG NÀO CẦN VIẾT LẠI ───────────────────────────────
+  // Cả 28 chặng A2 nay đều ở nhóm 'soan' và đều `xong: true`. 23 chặng từng bị xếp
+  // là văn phủ danh sách từ vựng đã được VIẾT LẠI CHÍNH BÀI ĐỌC trong bốn đợt ngày
+  // 19/08 (6 + 6 + 6 + 5 chặng), rồi mới soạn câu.
+  //
+  // ══ DANH SÁCH 34 CHẶNG A1/A2 "KHÔNG ĐỦ ĐIỀU KIỆN" ĐÃ ĐÓNG HẾT ══
+  // Không chặng A1 hay A2 nào còn mang băng cảnh báo cam "chưa có câu hỏi về bài
+  // đọc". Đường đi: đọc thật 52 bài → xếp loại bằng cách SOẠN THỬ BỐN CÂU TRƯỚC →
+  // 18 chặng hỏi được ngay thì soạn câu → 34 chặng còn lại thì viết lại chính bài
+  // đọc (cả `storyEn` lẫn `storyVi`) rồi mới soạn.
   'animals-nature-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyện con chó lạc ngủ dưới gầm cầu thang và trại cứu hộ của cô Chi — trại trả được tiền thuốc chứ không trả được tiền ăn, xem răng biết chó bốn tuổi, cô từng bị một con VỊT làm xước tay chứ chưa bị chó cắn.' },
   'technology-internet-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyện bà bảy mươi tám học gọi video — khó nhất là phân biệt chạm nhẹ với giữ lâu, bà gọi nhầm vì hai tên cùng chữ đầu, và bà chụp ảnh tin nhắn lừa đảo gửi hỏi trước khi nhập mật khẩu.' },
   'hobbies-entertainment-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chiều thứ Bảy của năm đứa tranh nhau đá bóng hay xem phim — chủ quán gấp tờ đá bóng nhỏ hơn cho khó rút, luật mới là ai tới muộn nhất được chọn, Lan thắng cờ cả bốn đứa.' },
@@ -125,9 +134,9 @@ export const PHAN_LOAI_A2 = {
   'weather-seasons-daily-p3': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành đám cưới gặp mưa dù bản tin nói nắng — mười một người dọn bốn mươi cái ghế trong đêm, chín mươi khách ăn trong phòng dựng cho năm mươi, và tới chiều thì đất khô hẳn.' },
   'nature-environment-daily-p2': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành ngọn đồi trơ được ông Bảy trồng lại suốt hơn hai mươi năm — mười chín trong ba mươi cây đầu chết vì chọn sai loại, và ông xin dỡ tấm bảng ghi tên mình xuống.' },
   'sports-fitness-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành trận chung kết thua ở loạt luân lưu — Kiên không tập thứ Tư vì làm ở cửa hàng nhà, hai cầu thủ mệt nhất nhất định nhận sút và đều ghi được, còn Kiên là người duy nhất sút trượt.' },
-  'music-entertainment-daily': { nhom: 'viet-lai', vi: 'Danh mục giải trí kèm định nghĩa vai (đạo diễn hướng dẫn diễn viên, khán giả vỗ tay). Trùng đề tài với entertainment-media-daily-p2 và cùng một lý do.' },
-  'transport-vehicles-daily': { nhom: 'viet-lai', vi: 'Danh mục phương tiện và hạ tầng theo lối \'you can…\', khép bằng lời khuyên chung (kiểm động cơ, bánh, lốp; đừng chạy nhanh quá). Không chuyến đi nào có thật.' },
-  'hotel-accommodation-daily': { nhom: 'viet-lai', vi: 'Có quy trình nhận và trả phòng, nhưng thử soạn thì chỉ ra ba câu neo được, câu thứ tư tụt xuống thành \'buồng tắm riêng có những gì\' — đúng loại câu liệt kê mà phép thử loại.' },
-  'arts-culture-daily': { nhom: 'viet-lai', vi: 'Danh mục loại hình nghệ thuật kèm định nghĩa người làm nghề (họa sĩ nổi tiếng vẽ tranh sơn dầu, nhà văn viết sách hoặc thơ). Trùng đề tài với culture-traditions-daily.' },
-  'science-technology-daily': { nhom: 'viet-lai', vi: 'Mật độ từ vựng chủ đề cao nhất cả bậc A2 (0,30) và đọc thấy đúng vậy: mỗi câu nhồi một chùm thuật ngữ (hóa–sinh–lý, tế bào và gen, tên lửa và vệ tinh). Mọi cặp là kiến thức chung: kính viễn vọng để nhìn mặt trăng.' },
+  'music-entertainment-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyện cây ghi ta cũ giá bằng bốn bát phở và buổi hòa nhạc cuối năm — bốn thế bấm đủ cho một nửa số bài, đèn quá sáng nên không thấy khán giả và đó là lý do duy nhất đi hết được bài.' },
+  'transport-vehicles-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyện học đi xe máy ở sân chợ trống — luật đầu là phải dừng được thì mới được đi nhanh hơn, đâm bờ vỉa vì nhìn vào nó, và bố nói cái xe đi về nơi mắt đi về.' },
+  'hotel-accommodation-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyện đặt hai phòng mà tới chỉ có một — bố đặt tờ xác nhận in sẵn lên quầy không nói gì, thang máy hỏng hai ngày mà phòng ở tầng tám, và ngày cuối quản lý tự bớt ba mươi phần trăm.' },
+  'arts-culture-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành chuyện đi bảo tàng và KHÔNG cảm thấy gì trước bức tranh nổi tiếng, rồi đứng nửa tiếng trước một bức vẽ bút chì có bàn tay chưa vẽ xong — "bức vẽ xong cho thấy kết quả, bức chưa xong cho thấy công việc".' },
+  'science-technology-daily': { nhom: 'soan', xong: true, vi: 'ĐÃ VIẾT LẠI 19/08: thành hội chợ khoa học với thí nghiệm nước muối — lần đầu thất bại vì cứ mở tủ đá ra xem, và cô giáo nói phần hay nhất là TRANG GHI LẠI CÁI SAI, không phải đường cong đẹp.' },
 };

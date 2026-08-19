@@ -92,9 +92,37 @@ test('phân loại phủ ĐÚNG các chặng A2 bị bộ lọc loại — khôn
   const daCo = new Set(kq.daCo);
   const daXep = Object.keys(PHAN_LOAI_A2);
 
-  assert.ok(conThieu.length > 0,
-    'không đo được chặng A2 nào bị loại — bộ lọc bậc đang sai, test này không phủ gì');
-
+  // ⚠️ HAI LẦN SỬA DÒNG CANH Ở ĐÂY, và lần thứ nhất tôi đã tự tin sai.
+  //
+  // Bản 1: `assert.ok(conThieu.length > 0)` — bắt việc gõ sai tên bậc ('elementry')
+  // làm danh sách rỗng và test xanh mà không phủ gì. Đúng lúc viết, nhưng nó ngầm
+  // giả định bậc A2 sẽ LUÔN còn chặng bị loại. Khi 23 chặng A2 cuối viết lại xong thì
+  // `conThieu` rỗng THẬT, và dòng đó đỏ vì việc đã xong — cái bẫy ngược.
+  //
+  // Bản 2: `assert.equal(daXep.length, 28)` kèm lời khai rằng "nếu bộ lọc sai thì
+  // `bia` sẽ nêu tên cả 28 chặng". **Lời khai đó SAI, và tôi đã thử ra.** Khi mọi
+  // chặng A2 đều có câu hỏi thì chúng nằm hết trong `daCo`, nên `bia` lọc ra rỗng và
+  // test vẫn xanh với bộ lọc sai. Cùng họ với vụ `service-not-allowed`: ghim một
+  // chẩn đoán chưa kiểm.
+  //
+  // Bản 3 (đang dùng): neo vào TOÀN BỘ chặng của bậc thay vì vào việc còn lại.
+  // `doA1A2` nay kê `moiBac` cho MỌI chặng, kể cả chặng đã có câu hỏi, nên phép phủ
+  // còn nghĩa cả khi danh sách việc đã rỗng. Gõ sai tên bậc thì `moiBacNay` rỗng và
+  // dòng dưới đỏ ngay. Đã thử lại bằng 'elementry'.
+  // Bản 3 đầu tiên tôi so `daXep` với TOÀN BỘ chặng A2 và nó đỏ ngay: đo được **74**
+  // chặng A2 chứ không phải 28. Đúng — và chỗ sai là ở tôi, không ở phép đo: bảng này
+  // chưa bao giờ có phạm vi "mọi chặng A2". Phạm vi của nó là **những chặng bị bộ lọc
+  // xếp là không đủ điều kiện**, tức 28 trong 74; 46 chặng còn lại vốn đã đạt.
+  //
+  // Nên chia làm hai việc, mỗi việc neo vào đúng thứ nó nói được:
+  //   · `moiBac` đếm được 74 chặng A2 → chống gõ sai tên bậc (bản 2 KHÔNG làm được
+  //     việc này, và tôi đã khai sai là làm được);
+  //   · `daXep` đúng 28 mục → bảng không bị thêm bớt mục.
+  const moiBacNay = kq.moiBac.filter((c) => c.bac === 'elementary');
+  assert.equal(moiBacNay.length, 74,
+    `đo được ${moiBacNay.length} chặng A2 thay vì 74 — bộ lọc bậc sai thì mọi phép so dưới đây vô nghĩa`);
+  assert.equal(daXep.length, 28,
+    `bảng phân loại A2 phải có đúng 28 mục (số chặng bị bộ lọc loại lúc đầu), đang có ${daXep.length}`);
   const sot = conThieu.filter((id) => !daXep.includes(id));
   assert.deepEqual(sot, [], `chặng A2 bị loại mà chưa xếp: ${sot.join(', ')}`);
 
