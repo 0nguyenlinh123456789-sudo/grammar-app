@@ -91,6 +91,9 @@ import { tryConsumeFreezes } from './utils/streakFreeze';
 import OnboardingWizard from './components/common/OnboardingWizard';
 import { needsOnboarding } from './utils/onboarding';
 import { isPassing, saveScore, loadScores, isVerified, MASTERY_STORAGE_KEY } from './utils/mastery';
+import { goMotLan, canBao, daBaoRoi } from './utils/tinCayXacMinh';
+import { roadmapData } from './data/roadmapData';
+import XacMinhGoNotice from './components/progress/XacMinhGoNotice';
 
 // Page/Route layer — lazy-loaded so each route ships as its own chunk and the
 // initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
@@ -181,7 +184,17 @@ export default function App() {
   // Điểm ĐÃ XÁC MINH của từng chặng (hạng mục #1). Giữ trong state chứ không
   // đọc thẳng localStorage mỗi lần vẽ, để lộ trình đổi nhãn NGAY sau khi người
   // học làm xong bài xác minh nhanh, không cần tải lại trang.
-  const [milestoneScores, setMilestoneScores] = useState(() => loadScores(localStorage));
+  //
+  // GỠ BẢN GHI "ĐÃ XÁC MINH" KIẾM ĐƯỢC KHI ĐÁP ÁN CÒN NẰM Ở Ô ĐẦU (19/08).
+  // Chạy TRONG hàm khởi tạo, tức TRƯỚC lần vẽ đầu tiên — chạy trong useEffect thì
+  // có một nhịp mà lộ trình đã vẽ xong với nhãn "đã xác minh" cũ, và người học
+  // kịp nhìn thấy một tuyên bố đang bị gỡ. Xem src/utils/tinCayXacMinh.js.
+  const [milestoneScores, setMilestoneScores] = useState(() => {
+    const kq = goMotLan(localStorage, roadmapData);
+    return kq.scores || loadScores(localStorage);
+  });
+  const [soChangDaGo, setSoChangDaGo] = useState(() => canBao(localStorage));
+  const dongBaoXacMinhGo = () => { daBaoRoi(localStorage); setSoChangDaGo(0); };
 
   // Keep milestone awarding atomic across rapid clicks and child callbacks.
   // A state closure can lag behind when several exercises finish in one tick.
@@ -717,6 +730,13 @@ export default function App() {
 
   return (
     <>
+    {soChangDaGo > 0 && (
+      <XacMinhGoNotice
+        soChang={soChangDaGo}
+        onClose={dongBaoXacMinhGo}
+        onVerifyNow={() => { dongBaoXacMinhGo(); setAppMode('home'); }}
+      />
+    )}
     {showOnboarding && (
       <OnboardingWizard
         dailyGoal={dailyGoal}

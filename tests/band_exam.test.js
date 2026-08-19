@@ -226,7 +226,10 @@ test('bản ghi kết quả THIẾU TRƯỜNG vẫn đọc ra được hình d�
   const { luotDatGanNhat, BAND_EXAM_KEY } = await import('../src/utils/bandExam.js');
 
   kho.set(BAND_EXAM_KEY, JSON.stringify([
-    { examId: 'exam-b1', cefr: 'B1', dat: true, lucLam: '2026-08-16T00:00:00.000Z' }, // thiếu phan/phanKhongTinh
+    // Ngày thi phải SAU 19/08 — mốc `MOC_TRON_PHUONG_AN`. Test này kiểm việc
+    // chuẩn hoá bản ghi cụt, không kiểm ranh giới tin cậy; để ngày trước mốc thì
+    // bản ghi bị loại vì lý do khác và test đo nhầm chuyện.
+    { examId: 'exam-b1', cefr: 'B1', dat: true, lucLam: '2026-08-20T00:00:00.000Z' }, // thiếu phan/phanKhongTinh
   ]));
   const k = luotDatGanNhat('B1');
   assert.ok(Array.isArray(k.phan) && Array.isArray(k.phanKhongTinh), 'phải chuẩn hoá thành mảng rỗng, không để undefined');
@@ -251,4 +254,38 @@ test('câu hỏi Nghe B2 không trùng nội dung với câu hỏi của chính 
   const trung = nghe.items.filter((it) => cu.includes(chuan(it.prompt)));
   assert.deepEqual(trung.map((t) => t.id), [],
     'câu thi trùng nguyên văn câu hỏi luyện tập — người đã luyện bài đó biết sẵn đáp án');
+});
+
+// ══ LƯỢT THI TRƯỚC 19/08 KHÔNG CÒN LÀ CĂN CỨ TUYÊN BỐ ══════════════════════
+// Tới hôm đó, cả 42/42 câu của ba đề thi cuối bậc đều để đáp án đúng ở ô ĐẦU:
+// bấm ô đầu mọi câu là qua sạch bài thi dùng để nói người học đã xong một bậc.
+// `utils/tronPhuongAn.js` vá từ đó trở đi, nhưng lượt thi ĐÃ LƯU vẫn nằm trong sổ.
+//
+// Bản ghi KHÔNG bị xoá — sổ thi là nhật ký của người học. Chỉ thôi dùng nó để
+// TUYÊN BỐ, và tuyên bố chỉ đi qua đúng hai hàm này.
+test('lượt thi trước mốc trộn phương án không còn gắn được nhãn bậc', async () => {
+  const kho = new Map();
+  globalThis.localStorage = {
+    getItem: (k) => (kho.has(k) ? kho.get(k) : null),
+    setItem: (k, v) => kho.set(k, String(v)),
+    removeItem: (k) => kho.delete(k),
+  };
+  const { luotDatGanNhat, bacDaDat, BAND_EXAM_KEY } = await import('../src/utils/bandExam.js');
+
+  kho.set(BAND_EXAM_KEY, JSON.stringify([
+    { examId: 'exam-b2', cefr: 'B2', dat: true, lucLam: '2026-08-10T00:00:00.000Z', phan: [], phanKhongTinh: [] },
+  ]));
+  assert.equal(bacDaDat(), null, 'lượt B2 thi trên bộ đề còn xếp đáp án ở ô đầu không được gắn nhãn "đã đạt B2"');
+  assert.equal(luotDatGanNhat('B2'), null, 'và cũng không in được ra giấy');
+
+  // Bản ghi vẫn còn nguyên trong sổ: gỡ tuyên bố, không xoá lịch sử.
+  assert.equal(JSON.parse(kho.get(BAND_EXAM_KEY)).length, 1);
+
+  // Thi lại sau bản vá thì tuyên bố trở lại bình thường.
+  kho.set(BAND_EXAM_KEY, JSON.stringify([
+    { examId: 'exam-b2', cefr: 'B2', dat: true, lucLam: '2026-08-10T00:00:00.000Z', phan: [], phanKhongTinh: [] },
+    { examId: 'exam-b2', cefr: 'B2', dat: true, lucLam: '2026-08-25T00:00:00.000Z', phan: [], phanKhongTinh: [] },
+  ]));
+  assert.equal(bacDaDat(), 'B2');
+  assert.equal(luotDatGanNhat('B2').lucLam, '2026-08-25T00:00:00.000Z');
 });

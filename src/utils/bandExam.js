@@ -19,6 +19,8 @@
 // Ngưỡng áp cho TỪNG phần chấm được. Lấy tổng thì một người nghe 0/6 mà đọc
 // 8/8 vẫn "đạt" — trong khi cái đang cần chứng nhận là cả hai.
 
+import { MOC_TRON_PHUONG_AN } from './tinCayXacMinh.js';
+
 const KEY = 'bandExamHistoryV1';
 const TOI_DA = 30;
 
@@ -118,9 +120,23 @@ function chuanHoa(k) {
   };
 }
 
+// LƯỢT THI TRƯỚC 19/08/2026 KHÔNG DÙNG LÀM CĂN CỨ TUYÊN BỐ NỮA.
+//
+// Tới hôm đó, cả 42/42 câu của ba đề thi cuối bậc đều để đáp án đúng ở ô ĐẦU —
+// bấm ô đầu mọi câu là qua sạch. `utils/tronPhuongAn.js` vá từ đó trở đi, nhưng
+// lượt thi ĐÃ LƯU thì vẫn nằm trong sổ.
+//
+// Bản ghi KHÔNG bị xoá: sổ thi là nhật ký của người học, xoá là xoá lịch sử họ
+// thật sự đã làm. Chỉ thôi dùng chúng để TUYÊN BỐ — mà tuyên bố chỉ đi qua đúng
+// hai hàm dưới đây, nên chặn ở đây là đủ, không phá gì.
+//
+// Bản ghi không ghi ngày cũng bị loại: không chứng minh được nó có sau bản vá thì
+// không dùng để nói người học đã đạt bậc nào.
+const laLuotTinDuoc = (k) => !!k?.lucLam && String(k.lucLam) >= MOC_TRON_PHUONG_AN;
+
 /** Lượt ĐẠT gần nhất của một bậc — căn cứ duy nhất để gắn nhãn bậc. */
 export function luotDatGanNhat(cefr) {
-  const ds = load().filter((k) => k?.cefr === cefr && k?.dat).map(chuanHoa).filter(Boolean);
+  const ds = load().filter((k) => k?.cefr === cefr && k?.dat && laLuotTinDuoc(k)).map(chuanHoa).filter(Boolean);
   // Bản ghi không có ngày thi thì KHÔNG dùng làm căn cứ in giấy: nghiệm thu của
   // việc 4.4 đòi ghi rõ bậc VÀ ngày thi, in một tờ giấy thiếu ngày thì thà không in.
   const co = ds.filter((k) => k.lucLam);
@@ -132,7 +148,7 @@ export function bacDaDat() {
   const THU_TU = ['A2', 'B1', 'B2'];
   let cao = null;
   for (const k of load()) {
-    if (!k.dat) continue;
+    if (!k.dat || !laLuotTinDuoc(k)) continue;
     if (cao === null || THU_TU.indexOf(k.cefr) > THU_TU.indexOf(cao)) cao = k.cefr;
   }
   return cao;
