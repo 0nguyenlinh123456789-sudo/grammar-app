@@ -2980,6 +2980,291 @@ export const STORY_QUIZ_A2 = {
       dan: 'They spelled the cook\'s name wrong, and she was more annoyed about that than about anything else.',
     },
   ],
+
+  // ══ ĐỢT 19/08 — CHẶNG A2 ĐÃ VIẾT LẠI BÀI ĐỌC ════════════════════════════════
+  // Các chặng này trước đây là diễu hành từ vựng ("A dog is a very friendly
+  // animal"), nên chúng nằm trong nhóm 'viet-lai' và mang băng cảnh báo cam.
+  // Bài đọc ĐÃ ĐƯỢC VIẾT LẠI thành một cảnh có nhân vật và có việc xảy ra —
+  // xem `scripts/data/viet_lai_bai_doc.mjs`. Nay hỏi được, nên soạn câu.
+  //
+  // `dan` ở đây do MÁY lấy từ chính mảng câu của bài, không gõ lại — cùng lý do
+  // đã phải chép bằng máy ở đợt A2 (dấu gạch ngang, nháy lồng nhau).
+  'culture-traditions-daily': [
+    {
+      q: 'Việc nhà dịp Tết được chia thế nào trong gia đình người kể?',
+      options: [
+        'Mẹ và cô nấu ăn, bố và cậu dọn sửa, trẻ con bê đồ',
+        'Bà quyết ngày, mẹ và cô dọn dẹp, bố và cậu nấu ăn',
+        'Mọi người cùng làm chung, không ai có việc riêng cả',
+        'Trẻ con nấu ăn, người lớn thì dọn dẹp và sửa sang',
+      ],
+      answer: 0,
+      dan: 'My mother and my aunt cook, my father and my uncle clean and repair, and the children carry things.',
+    },
+    {
+      q: 'Vì sao phải cọ cả nhà ba ngày trước Tết?',
+      options: [
+        'Vì bà nói bụi của năm cũ không được bước sang năm mới',
+        'Vì cái cổng trước cần được sơn lại trước ngày Tết',
+        'Vì láng giềng sẽ tới thăm nhà vào ngày thứ hai',
+        'Vì bà là người quyết định ngày nhà phải xong hẳn',
+      ],
+      answer: 0,
+      dan: 'Three days before Tet we scrub the whole house, because my grandmother says dirt from the old year must not cross into the new one.',
+    },
+    {
+      q: 'Chuyện gì xảy ra khi anh họ ở thành phố đưa tiền cũ?',
+      options: [
+        'Bà trả lại cho anh mà không nói một tiếng nào',
+        'Bà giải thích lại cho anh vì sao phải là tờ mới',
+        'Bà giả vờ không biết chuyện đó, như với nồi canh',
+        'Bà nhận nhưng không đưa cho đứa trẻ con nào cả',
+      ],
+      answer: 0,
+      dan: 'My cousin from the city once gave used notes, and my grandmother returned them to him without a word.',
+    },
+    {
+      q: 'Cô của người kể làm gì tới ngày thứ ba?',
+      options: [
+        'Lén nấu một nồi canh nhạt vì ai cũng chán món cũ',
+        'Đi thăm láng giềng và ăn một thứ ở mỗi nhà',
+        'Quét nhà cho sạch sau ba ngày không được quét',
+        'Nấu thêm món mới để bà không phải ăn món cũ',
+      ],
+      answer: 0,
+      dan: 'By the third day everyone is tired of the same food, and my aunt secretly makes a pot of plain soup.',
+    },
+  ],
+  'weather-climate-daily': [
+    {
+      q: 'Bố người kể dựa vào cái gì để biết nước sắp lên?',
+      options: [
+        'Nghe dòng sông, vì sông lên thì đổi tiếng trước khi đổi mực nước',
+        'Nghe bản tin trên radio, vì bản tin đó đã báo trước là sẽ mưa lớn',
+        'Xem mực nước ở bậc thứ hai của nhà mình mỗi buổi tối',
+        'Hỏi người láng giềng đã sống ở đó lâu hơn gia đình mình',
+      ],
+      answer: 0,
+      dan: 'My father listens to the river instead of the radio, and he says a rising river changes its sound before its level.',
+    },
+    {
+      q: 'Gia đình mang những gì lên gác, và để lại gì?',
+      options: [
+        'Mang gạo, sách và cái quạt điện; để nguyên đồ gỗ',
+        'Mang đồ gỗ và gạo; để lại sách và cái quạt điện',
+        'Mang hai cái thùng nhựa quan trọng; để lại tất cả',
+        'Mang tất cả mọi thứ lên gác, không để lại thứ gì',
+      ],
+      answer: 0,
+      dan: 'We carried the rice, the books and the electric fan upstairs, and we left the furniture where it was.',
+    },
+    {
+      q: 'Vì sao người láng giềng mất nhiều hơn?',
+      options: [
+        'Vì ông đi thành phố và không ai liên lạc được với ông',
+        'Vì nhà ông thấp hơn nhà người kể tới ba mươi xăng-ti-mét',
+        'Vì mấy con gà của ông không sống được qua trận lụt đó',
+        'Vì ông không nghe radio nên không biết trời sẽ mưa lớn',
+      ],
+      answer: 0,
+      dan: 'Our neighbour lost more than we did, because he had gone to the city and nobody could reach him.',
+    },
+    {
+      q: 'Theo bài, thứ gì tệ hơn cả nước?',
+      options: [
+        'Lớp bùn ở lại sau khi nước đã rút hết',
+        'Cái mùi ở trong tủ gỗ suốt nhiều tháng',
+        'Chín ngày phải dọn dẹp lại toàn bộ nhà',
+        'Hai mùa mưa rất ít làm cái giếng cạn đi',
+      ],
+      answer: 0,
+      dan: 'The water went down after two days, and the mud that stayed was worse than the water.',
+    },
+  ],
+  'nature-environment-daily': [
+    {
+      q: 'Ông Tuấn xin bao nhiêu người, và bao nhiêu người tới?',
+      options: [
+        'Xin mười người, và ba mươi mốt người đã tới',
+        'Xin ba mươi người, và chỉ có mười người tới',
+        'Xin mười người, và đúng mười người đã tới',
+        'Xin sáu người, và ba mươi mốt người đã tới',
+      ],
+      answer: 0,
+      dan: 'A retired teacher named Mr Tuan put a paper notice on the wall asking for ten volunteers on a Sunday.',
+    },
+    {
+      q: 'Vì sao ông Tuấn ghi lại danh sách những thứ tìm được?',
+      options: [
+        'Vì ông nói một bản danh sách khó cãi hơn một lời phàn nàn',
+        'Vì báo địa phương yêu cầu phải có con số cụ thể mới in',
+        'Vì quận đòi bản danh sách trước khi cử xe tải tới chở',
+        'Vì ông muốn so số rác giữa tháng này với tháng trước',
+      ],
+      answer: 0,
+      dan: 'Mr Tuan wrote down what we found, because he said a list is harder to argue with than a complaint.',
+    },
+    {
+      q: 'Theo ông Tuấn, phần KHÔNG dễ là gì?',
+      options: [
+        'Thứ chảy vào nước từ nhà máy, không phải rác vớt lên',
+        'Việc thuyết phục quận cử xe tải tới chở bao rác đi',
+        'Việc giữ cho ba mươi mốt người quay lại mỗi tháng',
+        'Việc kéo cái khung xe máy nặng lên khỏi bờ suối',
+      ],
+      answer: 0,
+      dan: 'He says the rubbish we remove is the easy part, and what runs into the water from the factory is not.',
+    },
+    {
+      q: 'Ông Tuấn nói mục đích thật của việc này là gì?',
+      options: [
+        'Để láng giềng nói chuyện với nhau, chưa bao giờ là con suối',
+        'Để nước con suối sạch trở lại như nhiều năm trước đây',
+        'Để báo địa phương chú ý và quận phải có trách nhiệm',
+        'Để chim quay lại đủ mười một loài như trước khi có rác',
+      ],
+      answer: 0,
+      dan: 'Mr Tuan is seventy, and he says the point was never the stream; it was getting neighbours to speak to each other.',
+    },
+  ],
+  'weather-seasons-daily-p3': [
+    {
+      q: 'Vì sao em gái người kể chọn tháng Mười Một để cưới?',
+      options: [
+        'Vì tháng Mười Một ở đây là tháng khô',
+        'Vì bản tin một tuần trước nói trời sẽ nắng',
+        'Vì tối thứ Sáu trời trong đủ để thấy sao',
+        'Vì bà nói cưới tháng đó thì nhà đông người',
+      ],
+      answer: 0,
+      dan: 'My sister chose the last Saturday of November for her wedding, because November is the dry month here.',
+    },
+    {
+      q: 'Bà của người kể nói gì khi mẹ khóc?',
+      options: [
+        'Cưới mà mưa thì cả đời nhà đông người',
+        'Mưa sẽ tạnh trước giờ đám cưới bắt đầu',
+        'Nên dọn bàn ghế vào trong nhà cho chắc',
+        'Bản tin thời tiết ở tỉnh này không tin được',
+      ],
+      answer: 0,
+      dan: 'My mother cried, and my grandmother said a wet wedding means a full house for the rest of your life.',
+    },
+    {
+      q: 'Chín mươi khách đã ăn ở đâu?',
+      options: [
+        'Trong một phòng dựng cho năm mươi người',
+        'Ngoài sân, sau khi mặt đất đã khô hẳn',
+        'Chia làm hai chỗ, một nửa trong một nửa ngoài',
+        'Trong nhà buổi sáng, ngoài sân buổi chiều',
+      ],
+      answer: 0,
+      dan: 'We could not use the garden, so ninety guests ate inside a room built for fifty.',
+    },
+    {
+      q: 'Bố người kể kết luận thế nào về bản tin thời tiết?',
+      options: [
+        'Ở tỉnh này bản tin trung thực duy nhất là bản tin cho hôm qua',
+        'Bản tin một tuần trước đáng tin hơn bản tin hai ngày trước',
+        'Nên nghe bà hơn là nghe bản tin thời tiết trên radio',
+        'Tháng Mười Một vẫn là tháng khô nhất trong cả năm ở đây',
+      ],
+      answer: 0,
+      dan: 'My father now says that in this province the only honest forecast is the one for yesterday.',
+    },
+  ],
+  'nature-environment-daily-p2': [
+    {
+      q: 'Vì sao mười chín cây đầu tiên của ông Bảy bị chết?',
+      options: [
+        'Vì ông chọn loại cần nhiều nước hơn thứ đất đó giữ được',
+        'Vì một vụ cháy đã thiêu mất toàn bộ mặt phía nam đồi',
+        'Vì ông trồng một mình nên không kịp tưới hết số cây',
+        'Vì con suối dưới chân đồi ngừng chảy vào tháng Ba',
+      ],
+      answer: 0,
+      dan: 'Nineteen of his first thirty trees died, because he chose a kind that needs more water than that soil holds.',
+    },
+    {
+      q: 'Trường của người kể tổ chức việc gì trên đồi?',
+      options: [
+        'Mỗi năm một lần, mỗi đứa trồng một cây và ghi số vào thẻ',
+        'Mỗi tháng một lần, cả lớp cùng trồng chung một hàng cây',
+        'Mỗi năm một lần, cả trường trồng lại mặt phía nam đồi',
+        'Mỗi năm hai lần, mỗi đứa tưới cây mình đã trồng năm trước',
+      ],
+      answer: 0,
+      dan: 'My school sent us up the hill once a year, and each child had to plant one tree and write its number on a card.',
+    },
+    {
+      q: 'Ông Bảy nói gì sau vụ cháy?',
+      options: [
+        'Một vụ cháy dạy anh biết nên trồng gì tiếp theo',
+        'Mặt phía nam của đồi thì không nên trồng lại nữa',
+        'Phải đổi hẳn sang loại cây bản địa cho chắc chắn',
+        'Chim sẽ quay lại trước cả côn trùng sau vụ cháy',
+      ],
+      answer: 0,
+      dan: 'Mr Bay replanted that side with a different mix, and he said a fire teaches you what to plant next.',
+    },
+    {
+      q: 'Ông Bảy phản ứng thế nào với tấm bảng ghi tên ông?',
+      options: [
+        'Ông xin hội đồng làng dỡ nó xuống, và vẫn nói vậy mỗi năm',
+        'Ông đồng ý để đó vì cả làng đều tự hào về cánh rừng',
+        'Ông tự dỡ nó xuống rồi mang về nhà mình giữ lại',
+        'Ông xin đổi tên trên tấm bảng đó thành tên của trường học',
+      ],
+      answer: 0,
+      dan: 'The village council put a sign at the path with his name on it, and he asked them to take it down.',
+    },
+  ],
+  'sports-fitness-daily': [
+    {
+      q: 'Vì sao Kiên không tập cùng đội vào thứ Tư?',
+      options: [
+        'Vì thứ Tư cậu ấy làm ở cửa hàng của gia đình mình',
+        'Vì cậu ấy đã chơi cho một câu lạc bộ của quận',
+        'Vì thầy huấn luyện muốn cậu ấy nghỉ giữa các trận',
+        'Vì cậu ấy quá gầy nên không tập nổi cả tuần liền',
+      ],
+      answer: 0,
+      dan: 'He worked at his family\'s shop on Wednesdays, and the coach allowed it because Kien never missed a match.',
+    },
+    {
+      q: 'Trường kia ghi bàn mở tỉ số như thế nào?',
+      options: [
+        'Ở phút thứ chín, từ một quả góc không ai chịu kèm',
+        'Ở phút hai mươi, từ một cú sút thủ môn không giữ nổi',
+        'Ở nửa sau, sau khi đội của người kể dội cột ngang',
+        'Ở loạt luân lưu, sau khi Kiên đã sút không vào',
+      ],
+      answer: 0,
+      dan: 'In the final the other school scored first, in the ninth minute, from a corner nobody defended.',
+    },
+    {
+      q: 'Hai cầu thủ mệt nhất đã làm gì ở loạt luân lưu?',
+      options: [
+        'Nhất định nhận sút, và cả hai đều ghi được bàn',
+        'Nghe theo thầy và không nhận quả luân lưu nào',
+        'Nhận sút nhưng cả hai đều sút trượt như Kiên',
+        'Xin thầy cho người khác sút thay mình hai quả',
+      ],
+      answer: 0,
+      dan: 'Both of them insisted, and both of them scored, which the coach mentioned in every speech afterwards.',
+    },
+    {
+      q: 'Thầy huấn luyện nói gì với Kiên sau khi cậu sút trượt?',
+      options: [
+        'Một tiền đạo không bao giờ sút trượt là người không bao giờ sút',
+        'Cả hội trường rồi sẽ vỗ tay cho đội dù đội đã thua trận',
+        'Cậu ấy nên tập cùng cả đội vào cả ngày thứ Tư kể từ mùa giải sau',
+        'Trận này là trận cuối thầy dẫn nên đừng tự trách mình',
+      ],
+      answer: 0,
+      dan: 'The coach told him a striker who never misses is a striker who never shoots, and Kien did not answer.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_A2;
