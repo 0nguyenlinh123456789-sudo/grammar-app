@@ -30,9 +30,11 @@
 // Lượt 2 và 3 là hai đầu của cái cổng. Lượt 1 chỉ khẳng định "kết quả ghi nhận
 // khớp với điểm quan sát được" — nó không thể tự sai thành báo động giả.
 //
-// ⚠ Lượt DÒ có xác suất ~0,4% trúng cả 4 câu (bài đọc dài đều 4 câu, 4 phương
-// án). Trúng hết thì chặng đó ĐÃ hoàn thành và hai lượt sau mất ý nghĩa, nên bộ
-// này tự chuyển sang chặng đọc khác thay vì báo bừa.
+// ⚠ **Kể từ khi có `src/utils/tronPhuongAn.js`**, lượt DÒ có xác suất ~0,4%
+// trúng cả 4 câu (bài đọc dài đều 4 câu, 4 phương án). Con số đó là HỆ QUẢ CỦA
+// BẢN VÁ, không phải tính chất sẵn có: gỡ bản vá ra thì nó thành 100%. Trúng hết
+// thì chặng đó ĐÃ hoàn thành và hai lượt sau mất ý nghĩa, nên bộ này tự chuyển
+// sang chặng đọc khác thay vì báo bừa.
 //
 // ══ LẦN CHẠY THÀNH CÔNG ĐẦU TIÊN, "0,4%" ĐÓ LÀ 100% ══
 // Lượt DÒ trúng cả 4/4 ngay lần đầu. Đo lại thì ra: 542/546 câu của bốn kho

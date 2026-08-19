@@ -57,7 +57,11 @@ test('tronThuTu trả về hoán vị của 0..n-1, và giữ nguyên khi có d�
 });
 
 // ── 2. Cho KHO THẬT đi qua bộ trộn, đúng công thức khoá của từng màn hình ───
-const NGUONG = 50;   // % ô đầu tối đa. Ngẫu nhiên đều là 25–33%.
+// % ô đầu tối đa. Ngẫu nhiên đều là 25–33%; ĐO THẬT sau khi vá: đọc dài 27,5%,
+// nghe 29,6%, thi cuối bậc 26,2%, A0 27,1%. Đặt 40 chứ không đặt 50: ở 50 thì
+// một nửa kho có thể tụt ngược về ô đầu mà test vẫn xanh — đúng kiểu mốc
+// `DE_TOI_THIEU` đứng yên ở 531 trong khi kho đã lên 621, canh mà không canh gì.
+const NGUONG = 40;
 
 const phanBoODau = (viTri) => {
   const dau = viTri.filter((i) => i === 0).length;
@@ -107,20 +111,45 @@ test('bài A0 (mất gốc): sau khi trộn, đáp án không còn dồn về ô
 });
 
 // ── 3. Thứ tự đã trộn có RA TỚI HTML không ──────────────────────────────────
-// Bước 2 chứng minh bộ trộn đúng; nó KHÔNG chứng minh màn hình có gọi bộ trộn.
-// Một component quên gọi vẫn để cả bốn test trên xanh.
+// Bước 2 chứng minh bộ TRỘN đúng; nó KHÔNG chứng minh MÀN HÌNH có gọi bộ trộn.
+// Một component quên gọi vẫn để cả bốn test trên xanh. Nên phải soi HTML, và
+// phải soi ĐỦ BA màn hình đã vá — bản đầu của file này chỉ soi bài đọc dài, tức
+// ba chỗ còn lại chỉ được bảo đảm gián tiếp qua bộ trộn.
+// (Chỗ thứ tư — thi cuối bậc — chấm theo chỉ số nên canh riêng ở mục 4.)
+const soiThuTuTrongHtml = (nhan, html, phuongAn) => {
+  const viTri = phuongAn.map((o) => html.indexOf(o));
+  assert.ok(viTri.every((v) => v >= 0), `${nhan}: không thấy đủ phương án trong HTML — test đo nhầm chỗ`);
+  const theoHtml = [...phuongAn].sort((a, b) => html.indexOf(a) - html.indexOf(b));
+  assert.notDeepEqual(theoHtml, phuongAn,
+    `${nhan}: HTML vẫn xếp phương án y thứ tự dữ liệu → màn hình chưa gọi bộ trộn`);
+};
+
 test('bài đọc dài: thứ tự phương án trong HTML khác thứ tự trong dữ liệu', async () => {
   const { readingTexts } = await import('../src/data/readingTexts.js');
   const { default: Panel } = await napComponent('src/components/reading/ReadingLongPanel.jsx');
   // Mở thẳng một bài để panel vẽ luôn phần câu hỏi.
   const bai = readingTexts[0];
   const html = veRa(h(Panel, { moBaiId: bai.id, onClose() {} }));
-  const cau = bai.questions[0];
-  const viTri = cau.opts.map((o) => html.indexOf(o));
-  assert.ok(viTri.every((v) => v >= 0), 'không thấy đủ phương án trong HTML — test đo nhầm chỗ');
-  const theoHtml = [...cau.opts].sort((a, b) => html.indexOf(a) - html.indexOf(b));
-  assert.notDeepEqual(theoHtml, cau.opts,
-    'HTML vẫn xếp phương án đúng y thứ tự dữ liệu → màn hình chưa gọi bộ trộn');
+  soiThuTuTrongHtml('bài đọc dài', html, bai.questions[0].opts);
+});
+
+test('bài nghe theo đoạn: thứ tự phương án trong HTML khác thứ tự trong dữ liệu', async () => {
+  const { listeningPassages } = await import('../src/data/listeningPassages.js');
+  const { default: Panel } = await napComponent('src/components/listening/ListeningPassagePanel.jsx');
+  const bai = listeningPassages[0];
+  const html = veRa(h(Panel, { moBaiId: bai.id, onClose() {} }));
+  soiThuTuTrongHtml('bài nghe', html, bai.questions[0].opts);
+});
+
+test('bài A0 (mất gốc): thứ tự phương án trong HTML khác thứ tự trong dữ liệu', async () => {
+  const { foundationData } = await import('../src/data/foundationData.js');
+  const { default: QuizEngine } = await napComponent('src/components/grammar/QuizEngine.jsx');
+  // Bài A0 là kho dính lỗi nặng nhất về số câu (144/144) và cũng là bài ĐẦU TIÊN
+  // người mất gốc làm — chỗ đáng soi bằng mắt nhất trong cả bốn.
+  const bai = foundationData.find((t) => (t.exercises || []).some((c) => Array.isArray(c.opts)));
+  const cau = bai.exercises.find((c) => Array.isArray(c.opts));
+  const html = veRa(h(QuizEngine, { exercises: bai.exercises }));
+  soiThuTuTrongHtml('bài A0', html, cau.opts);
 });
 
 // ── 4. Màn chấm-THEO-CHỈ-SỐ: chữ và chỉ số bấm phải từ CÙNG MỘT BIẾN ────────
