@@ -13,7 +13,7 @@ const ACCESS_ERROR_CODES = new Set(['access-required', 'access-unavailable', 'ac
 const STEPS = [
   <>Mở <strong>Google AI Studio</strong> bằng nút bên dưới rồi đăng nhập tài khoản Google của bạn.</>,
   <>Bấm <strong>“Create API key”</strong> (Tạo khóa API). Gói miễn phí đủ dùng cho việc học hằng ngày.</>,
-  <>Sao chép chuỗi key (bắt đầu bằng <code className="font-mono">AIza…</code>) và dán vào ô bên dưới.</>,
+  <>Sao chép <strong>toàn bộ</strong> chuỗi key rồi dán vào ô bên dưới. Google cấp key ở hai dạng — mở đầu bằng <code className="font-mono">AIza…</code> hoặc <code className="font-mono">AQ.…</code> — app nhận cả hai.</>,
 ];
 
 /**
@@ -156,7 +156,7 @@ const AiKeyDialog = ({ onClose }) => {
             spellCheck="false"
             value={draft}
             onChange={(event) => { setDraft(event.target.value); setStatus({ type: '', message: '' }); }}
-            placeholder="AIzaSy..."
+            placeholder="AIzaSy... hoặc AQ...."
             className="mt-2 w-full h-14 px-4 rounded-2xl border-3 border-slate-800 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 dark:text-white font-mono font-bold outline-none focus:ring-4 focus:ring-blue-200"
           />
 
@@ -196,7 +196,7 @@ const AiKeyDialog = ({ onClose }) => {
           <ul className="mt-3 space-y-2.5 text-xs font-bold text-slate-600 dark:text-slate-300 leading-relaxed">
             <li><strong>Không thấy nút "Create API key":</strong> hãy đăng nhập Google trước, sau đó vào lại đường link. Nếu trang hỏi đồng ý điều khoản, bấm chấp nhận rồi nút tạo key sẽ hiện ra.</li>
             <li><strong>Sợ mất phí:</strong> gói miễn phí của Google không cần thẻ ngân hàng. Hết lượt miễn phí trong ngày thì AI tạm nghỉ, không bao giờ tự trừ tiền.</li>
-            <li><strong>Key báo không hợp lệ:</strong> kiểm tra đã sao chép đủ chuỗi bắt đầu bằng <code className="font-mono">AIza</code> (không dính dấu cách ở đầu/cuối). Bấm <strong>KIỂM TRA KEY</strong> để xác nhận hoạt động.</li>
+            <li><strong>Key báo không hợp lệ:</strong> kiểm tra đã sao chép <strong>đủ cả chuỗi</strong> và không dính dấu cách ở đầu/cuối. Key của Google mở đầu bằng <code className="font-mono">AIza</code> hoặc <code className="font-mono">AQ.</code>, cả hai đều dùng được. Bấm <strong>KIỂM TRA KEY</strong> để xác nhận hoạt động.</li>
           </ul>
         </details>
 

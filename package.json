@@ -13,7 +13,8 @@
     "ra:khach": "node scripts/ra_khach.mjs",
     "hoc:that": "node scripts/hoc_that.mjs",
     "kiem:live": "node scripts/kiem_live_trinh_duyet.mjs",
-    "ra:mua": "node scripts/ra_duong_mua.mjs"
+    "ra:mua": "node scripts/ra_duong_mua.mjs",
+    "ai:that": "node scripts/kiem_ai_that.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",
