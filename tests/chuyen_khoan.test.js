@@ -18,7 +18,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createElement as h } from 'react';
 import {
-  CHUA_CO_CHUYEN_KHOAN, KHOA_NGAN_HANG, loiNhanDatMua, maDonHang, thongTinChuyenKhoan,
+  CHUA_CO_CHUYEN_KHOAN, KHOA_NGAN_HANG, MAU_MA_DON, loiNhanDatMua, maDonGiuLai, maDonHang,
+  thongTinChuyenKhoan,
 } from '../src/utils/banHang.js';
 import { napComponent, veRa, camGlobalTrinhDuyet } from './helpers/render.mjs';
 
@@ -71,10 +72,16 @@ test('mã đơn gõ lại được: không có ký tự dễ nhìn nhầm, và k
   // (ví dụ quên gọi getRandomValues và trả về cùng một mảng 0).
   assert.ok(new Set(ds).size >= 499, `500 mã chỉ ra ${new Set(ds).size} giá trị khác nhau — bộ sinh hỏng`);
 
-  // Không có crypto thì vẫn phải sinh được, chỉ là kém ngẫu nhiên hơn — mã này
+  // Không có crypto thì vẫn phải sinh được, chỉ kém ngẫu nhiên hơn — mã này
   // không cấp quyền gì nên đánh đổi đó chấp nhận được, nhưng NÉM LỖI thì không.
-  const ds2 = Array.from({ length: 50 }, () => maDonHang(undefined));
+  //
+  // ⚠️ Bản đầu viết `maDonHang(undefined)` và chú thích rằng nó chạy nhánh dự
+  // phòng. SAI: tham số có giá trị mặc định `globalThis.crypto`, nên truyền
+  // `undefined` là KÍCH HOẠT mặc định — nó chạy lại đúng nhánh crypto, và
+  // nhánh Math.random không hề được đụng tới trong khi test khai là có.
+  const ds2 = Array.from({ length: 50 }, () => maDonHang(null));
   assert.equal(new Set(ds2).size >= 49, true, 'nhánh không có crypto sinh ra mã trùng nhau');
+  for (const m of ds2) assert.match(m, /^BE-[ABCDEFGHJKMNPQRTUVWXY346789]{6}$/, m);
 });
 
 test('lời nhắn đặt mua nêu mã đơn TRƯỚC, vì đó là thứ người bán cần đầu tiên', () => {
@@ -119,13 +126,51 @@ test('vẽ ChuyenKhoan: chưa đặt giá thì nói thẳng ngay tại chỗ s�
   assert.match(html, /Chưa có giá niêm yết/, 'không có giá mà cũng không nói gì');
 });
 
+test('KHÔNG hiện số tài khoản khi chưa có đường GIAO mã truy cập', () => {
+  // ⚠️ LỖ TÔI TỰ TẠO RA Ở COMMIT TRƯỚC, và bộ rà của tôi CHẤM ĐẠT cho nó.
+  // Đặt VITE_BANK_* mà để trống cả bốn VITE_SALES_* thì màn hình hiện số tài
+  // khoản thật, mã đơn thật — rồi ngay bên dưới nói "Chưa có kênh đặt mua nào
+  // được cấu hình". Khách chuyển tiền thật xong đọc câu đó. Trước commit đó
+  // KHÔNG AI trả được tiền nên không ai kẹt; sau nó thì có.
+  //
+  // Bộ rà lọt vì nó kiểm TỪNG MẢNH riêng: `coCK || baoCK` đạt, `coBao || coKenh`
+  // đạt, và không phép nào hỏi về CẶP. Đúng hình dạng hai cái bẫy đã sửa trước
+  // đó trong phiên này: mỗi nửa đúng, cặp thì sai.
+  //
+  // Luật của dự án quyết định chỗ này: hướng dẫn trả tiền mà không có đường
+  // nhận hàng thì không phải ẨN, cũng không phải BÁO — nên không được hiện.
+  const s = fs.readFileSync('src/components/access/AccessGate.jsx', 'utf8');
+  assert.match(s, /{kenh.length > 0 && <ChuyenKhoan/,
+    'khối chuyển khoản KHÔNG bị chặn theo việc có kênh giao mã — khách trả tiền xong sẽ không nhận được gì');
+});
+
+test('mã đơn GIỮ LẠI qua các lượt mở, không sinh mới mỗi lần', () => {
+  // Đóng tab rồi mở lại mà ra mã khác thì khoản tiền vừa chuyển mang một mã app
+  // đã quên — đúng thứ mã đơn sinh ra để chặn, đến bằng cửa khác.
+  const kho = new Map();
+  const gia = { getItem: (k) => kho.get(k) ?? null, setItem: (k, v) => kho.set(k, v) };
+  const lan1 = maDonGiuLai(gia);
+  assert.match(lan1, MAU_MA_DON);
+  assert.equal(maDonGiuLai(gia), lan1, 'lượt sau ra mã khác — khách chép mã cũ thành rác');
+
+  // Giá trị rác trong localStorage (người dùng tự sửa, phiên bản cũ) phải bị bỏ
+  // và sinh lại, chứ không đem một chuỗi vô nghĩa đi bảo khách gõ vào ngân hàng.
+  kho.set('grammarMaDonV1', 'rác không đúng hình');
+  assert.match(maDonGiuLai(gia), MAU_MA_DON);
+
+  // Safari chế độ riêng tư NÉM khi chạm localStorage. Vẫn phải ra mã dùng được.
+  const nem = { getItem() { throw new Error("SecurityError"); }, setItem() { throw new Error("SecurityError"); } };
+  assert.match(maDonGiuLai(nem), MAU_MA_DON);
+  assert.match(maDonGiuLai(undefined), MAU_MA_DON);
+});
+
 test('bảng giá thật sự dùng khối này, và .env.example khai đủ khóa', () => {
   const s = fs.readFileSync('src/components/access/AccessGate.jsx', 'utf8');
   assert.ok(s.includes('<ChuyenKhoan'), 'PricingModal không gắn khối chuyển khoản');
-  assert.ok(s.includes('maDonHang'), 'PricingModal không sinh mã đơn');
-  // Mã đơn phải là TRẠNG THÁI, không phải gọi thẳng trong JSX: gọi trong JSX thì
-  // mỗi lần React vẽ lại ra một mã khác, và mã khách vừa chép thành rác.
-  assert.ok(!/<ChuyenKhoan[^>]*maDon=\{maDonHang\(\)\}/.test(s),
+  assert.ok(s.includes('maDonGiuLai'), 'PricingModal không lấy mã đơn giữ lại');
+  // Mã đơn phải là TRẠNG THÁI, không gọi thẳng trong JSX: gọi trong JSX thì mỗi
+  // lần React vẽ lại ra một mã khác, và mã khách vừa chép thành rác.
+  assert.ok(!/<ChuyenKhoan[^>]*maDon={maDon(GiuLai|Hang)()}/.test(s),
     'mã đơn sinh ngay trong JSX — mỗi lần vẽ lại sẽ đổi mã');
 
   const vd = fs.readFileSync('.env.example', 'utf8');

@@ -136,6 +136,8 @@ export const CHUA_CO_CHUYEN_KHOAN = 'Chưa có thông tin chuyển khoản. Hãy
 // chuyển khoản trên app ngân hàng, nên một cặp ký tự nhìn giống nhau là đủ để
 // người bán không tra ra đơn. Thà mã dài hơn một chút.
 const CHU_MA = 'ABCDEFGHJKMNPQRTUVWXY346789';
+export const MAU_MA_DON = /^BE-[ABCDEFGHJKMNPQRTUVWXY346789]{6}$/;
+const KHOA_MA_DON = 'grammarMaDonV1';
 
 /**
  * Mã đơn ngắn, đọc và gõ lại được. Dạng `BE-XXXXXX`.
@@ -152,6 +154,28 @@ export function maDonHang(nguon = globalThis.crypto) {
   let ra = '';
   for (let i = 0; i < n; i += 1) ra += CHU_MA[so[i] % CHU_MA.length];
   return `BE-${ra}`;
+}
+
+/**
+ * Mã đơn của trình duyệt này, GIỮ LẠI giữa các lượt mở.
+ *
+ * ⚠️ Bản đầu để mã trong `useState` và chỉ thế thôi. Hỏng theo đúng cách mà
+ * chính mã đơn sinh ra để chặn: khách chép BE-3GNRYP, chuyển khoản, đóng tab,
+ * mở lại xem — ra một mã KHÁC. Giờ họ có một khoản tiền mang mã mà app đã
+ * quên, và nếu không ghi lại thì họ sẽ đọc cho người bán cái mã mới. Một
+ * khoản tiền không tra được, đến bằng cửa khác.
+ *
+ * Cùng cách `getDeviceId()` trong AccessGate giữ mã thiết bị. Bọc try/catch vì
+ * Safari chế độ riêng tư NÉM khi chạm localStorage chứ không trả null.
+ */
+export function maDonGiuLai(kho = globalThis.localStorage) {
+  try {
+    const cu = String(kho?.getItem(KHOA_MA_DON) ?? '').trim();
+    if (MAU_MA_DON.test(cu)) return cu;
+  } catch { /* không đọc được thì sinh mới, vẫn dùng được trong lượt này */ }
+  const moi = maDonHang();
+  try { kho?.setItem(KHOA_MA_DON, moi); } catch { /* không ghi được cũng không sao */ }
+  return moi;
 }
 
 /** Lời nhắn đặt mua, để khách gửi qua kênh nào cũng được. */

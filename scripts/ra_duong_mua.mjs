@@ -121,13 +121,37 @@ try {
     // NGÂN HÀNG". Lượt chạy đầu báo "không có khối, cũng không báo" trong khi khối
     // hiện ra đầy đủ — hỏng ở thước đo chứ không ở sản phẩm. Nhánh "Chưa có thông
     // tin chuyển khoản" lọt lưới chỉ vì câu đó tình cờ không viết hoa.
+    const coKenh = /Nhắn Zalo|Gửi email|Gọi điện|Mở trang đặt mua/.test(chuThe);
     const coCK = /chuyển khoản ngân hàng/i.test(chuThe);
     const baoCK = /chưa có thông tin chuyển khoản/i.test(chuThe);
-    ghi('có khối chuyển khoản, hoặc BÁO là chưa có thông tin chuyển khoản',
-      coCK || baoCK,
-      coCK ? 'đã cấu hình ngân hàng nên hiện khối chuyển khoản'
-        : (baoCK ? 'chưa cấu hình nên BÁO (đúng)'
-          : 'không có khối, cũng không báo — khách không biết trả tiền kiểu gì'));
+    // ⚠️ CHỈ HỎI KHI CÓ KÊNH GIAO MÃ. Bản đầu hỏi vô điều kiện và nó ĐỎ ngay lúc
+    // bản vá đúng vừa vào: khi chưa có kênh, khối chuyển khoản bị giấu HẲN nên
+    // không có khối mà cũng không có lời báo — và phép canh cũ đọc đó là hỏng.
+    // Tức nó đòi app phải mời khách trả tiền. Cùng họ với `conThieu.length > 0`
+    // hồi trước: một phép canh hoá SAI đúng lúc việc được làm cho đúng.
+    if (coKenh) {
+      ghi('có khối chuyển khoản, hoặc BÁO là chưa có thông tin chuyển khoản',
+        coCK || baoCK,
+        coCK ? 'đã cấu hình ngân hàng nên hiện khối chuyển khoản'
+          : (baoCK ? 'chưa cấu hình ngân hàng nên BÁO (đúng)'
+            : 'không có khối, cũng không báo — khách không biết trả tiền kiểu gì'));
+    } else {
+      ghi('chưa có kênh giao mã thì KHÔNG mời trả tiền', !coCK && !baoCK,
+        coCK || baoCK
+          ? 'vẫn nói chuyện chuyển khoản dù không có cách nào gửi mã truy cập'
+          : 'giấu hẳn phần trả tiền (đúng) — chưa có đường giao thì chưa mở bán');
+    }
+
+    // ⚠️ PHÉP CANH VỀ CẶP, KHÔNG PHẢI VỀ TỪNG MẢNH. Bộ rà này từng chấm 18/18
+    // ĐẠT cho đúng trạng thái tệ nhất: ngân hàng đã cấu hình, kênh liên hệ thì
+    // chưa — khách đọc số tài khoản thật, chuyển tiền thật, rồi đọc câu "Chưa có
+    // kênh đặt mua nào được cấu hình". Nó lọt vì mỗi phép chỉ hỏi một mảnh:
+    // `coCK || baoCK` đạt, `coBao || coKenh` đạt, và không phép nào hỏi về CẶP.
+    // Cùng hình dạng hai cái bẫy đã sửa trước đó trong phiên này.
+    ghi('KHÔNG hiện số tài khoản khi chưa có đường giao mã truy cập',
+      !(coCK && !coKenh),
+      coCK && !coKenh ? 'ĐANG mời khách chuyển tiền trong khi không có cách nào gửi mã truy cập cho họ'
+        : (coCK ? 'có cả chuyển khoản lẫn kênh giao mã (đúng)' : 'chưa mở chuyển khoản'));
 
     // Mã đơn là sợi dây DUY NHẤT nối một khoản tiền với một người mua. Có khối
     // chuyển khoản thì mã đơn phải hiện, phải hiện ở NHIỀU chỗ (khối mã + dòng
@@ -146,7 +170,6 @@ try {
     // 5. Chưa cấu hình kênh nào (đúng trạng thái hiện tại) thì phải BÁO.
     const chu = await t.danhGia(CHU_HOP);
     const coBao = chu.includes(CHUA_CO_KENH.slice(0, 40));
-    const coKenh = /Nhắn Zalo|Gửi email|Gọi điện|Mở trang đặt mua/.test(chu);
     ghi('chưa cấu hình kênh đặt mua thì BÁO thẳng, không để khách chờ vô ích',
       coBao || coKenh,
       coKenh ? 'đã có kênh cấu hình nên hiện kênh (cũng đúng)' : (coBao ? '' : 'không báo, cũng không có kênh nào — khách bấm MUA rồi không biết làm gì'));
