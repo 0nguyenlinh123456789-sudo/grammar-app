@@ -53,6 +53,43 @@ test('người MỚI CÀI học xong chặng ĐẦU TIÊN: KHÔNG được báo 
     'người vừa cài app sáng nay bị kể về lần lộ trình tăng 617 → 710 mà họ chưa từng có mặt');
 });
 
+// ══ CÁI BẪY NGƯỢC, NGUY HIỂM HƠN CHÍNH LỖI ĐANG VÁ ═════════════════════════
+// `soChangDaXong` là `completedCount` của WelcomePage — số chặng đã xong CÒN KHỚP
+// với lộ trình hiện tại, chứ KHÔNG phải độ dài `completedMilestones`. Người học cũ
+// có 120 chặng xong nhưng id đã đổi trong một đợt dọn nội dung sẽ ra đúng 0. Nếu
+// lấy con số đó làm dấu hiệu "máy còn trắng" thì mốc bị đóng lại và lời báo biến
+// mất — với ĐÚNG người mà cả file này sinh ra để phục vụ.
+//
+// Ba test dưới đây là thứ ba test trên KHÔNG THỂ bắt được: cùng một chuỗi lời gọi
+// (0 rồi N), nên một phép kiểm chỉ nhìn `soChangDaXong` sẽ xanh ở cả hai đường.
+test('người học CŨ mà chặng đã xong không còn khớp lộ trình: KHÔNG được đóng mốc', () => {
+  const kho = khoTam({ xp: '450', completedMilestones: JSON.stringify(['chang-cu-1', 'chang-cu-2']) });
+  thongBaoLoTrinhTang({ storage: kho, tongHienTai: 710, tongTruoc: 617, soChangDaXong: 0 });
+  assert.equal(kho.getItem(ROADMAP_GROWTH_KEY), null,
+    'đóng mốc ở đây là xoá mất lời báo của người học cũ bị đổi id chặng');
+});
+
+test('người học CŨ: gọi với 0 trước rồi 120 sau thì VẪN phải báo', () => {
+  const kho = khoTam({ xp: '450', completedMilestones: JSON.stringify(['a', 'b']) });
+  thongBaoLoTrinhTang({ storage: kho, tongHienTai: 710, tongTruoc: 617, soChangDaXong: 0 });
+  const r = thongBaoLoTrinhTang({ storage: kho, tongHienTai: 710, tongTruoc: 617, soChangDaXong: 120 });
+  assert.deepEqual(r, { cu: 617, moi: 710, them: 93 });
+});
+
+test('có lịch sử học nhưng chưa xong chặng nào: cũng KHÔNG đóng mốc', () => {
+  const kho = khoTam({ learningActivityV1: JSON.stringify([{ date: '2026-08-01', lessons: 3, xp: 0 }]) });
+  thongBaoLoTrinhTang({ storage: kho, tongHienTai: 710, tongTruoc: 617, soChangDaXong: 0 });
+  assert.equal(kho.getItem(ROADMAP_GROWTH_KEY), null);
+});
+
+test('khoá do App ghi sẵn ở lần vẽ đầu ("xp"="0", "completedMilestones"="[]") vẫn là máy trắng', () => {
+  // Xét theo GIÁ TRỊ chứ không theo sự tồn tại của khoá: App ghi hai khoá này
+  // xuống máy ngay lần vẽ đầu, nên "khoá có mặt" đúng với cả người vừa cài app.
+  const kho = khoTam({ xp: '0', completedMilestones: '[]', learningActivityV1: '[]' });
+  thongBaoLoTrinhTang({ storage: kho, tongHienTai: 710, tongTruoc: 617, soChangDaXong: 0 });
+  assert.equal(kho.getItem(ROADMAP_GROWTH_KEY), '710');
+});
+
 test('đã xem rồi thì thôi: có cờ bằng tổng hiện tại là không báo nữa', () => {
   const kho = khoTam({ [ROADMAP_GROWTH_KEY]: '710' });
   assert.equal(thongBaoLoTrinhTang({ storage: kho, tongHienTai: 710, tongTruoc: 617, soChangDaXong: 120 }), null);
