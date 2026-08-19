@@ -2695,6 +2695,291 @@ export const STORY_QUIZ_A2 = {
       dan: 'He lost five kilograms, and he says the last two were harder than the first three together.',
     },
   ],
+
+  // ══ ĐỢT 19/08 — CHẶNG A2 ĐÃ VIẾT LẠI BÀI ĐỌC ════════════════════════════════
+  // Các chặng này trước đây là diễu hành từ vựng ("A dog is a very friendly
+  // animal"), nên chúng nằm trong nhóm 'viet-lai' và mang băng cảnh báo cam.
+  // Bài đọc ĐÃ ĐƯỢC VIẾT LẠI thành một cảnh có nhân vật và có việc xảy ra —
+  // xem `scripts/data/viet_lai_bai_doc.mjs`. Nay hỏi được, nên soạn câu.
+  //
+  // `dan` ở đây do MÁY lấy từ chính mảng câu của bài, không gõ lại — cùng lý do
+  // đã phải chép bằng máy ở đợt A2 (dấu gạch ngang, nháy lồng nhau).
+  'weather-seasons-daily-p2': [
+    {
+      q: 'Mùa xuân năm ngoái, thời tiết làm hỏng việc thế nào?',
+      options: [
+        'Mưa tới muộn ba tuần, rồi lại mưa chín ngày không ngớt',
+        'Nhiệt độ ở trên ba mươi tám độ suốt cả nửa tháng liền',
+        'Một cơn bão tới đúng bốn ngày trước khi cắt lúa xong',
+        'Gió đêm mạnh tới mức làm xê dịch hết ngói trên mái nhà',
+      ],
+      answer: 0,
+      dan: 'Last spring the rain came three weeks late, and the ground was too dry to work with.',
+    },
+    {
+      q: 'Theo mẹ người kể, vì sao mùa hè nóng dễ tính trước hơn mùa hè ướt?',
+      options: [
+        'Vì nước là thứ mình không lấy ra được',
+        'Vì cái nóng làm lúa chín nhanh hơn hẳn',
+        'Vì mùa hè ướt thường kèm theo bão lớn',
+        'Vì đất khô thì dễ làm hơn đất ngập nước',
+      ],
+      answer: 0,
+      dan: 'My mother says a hot summer is easier to plan for than a wet one, because water is the thing you cannot remove.',
+    },
+    {
+      q: 'Vì sao gia đình không mất hết trong cơn bão tháng Mười?',
+      options: [
+        'Vì hai thửa đầu đã cắt xong và phơi khô dưới mái che',
+        'Vì bão chỉ đi qua đúng một thửa ruộng thứ ba',
+        'Vì bố đã cắt cả ba thửa sớm hơn một tuần',
+        'Vì mái che và hàng rào vừa mới được sửa lại xong hết',
+      ],
+      answer: 0,
+      dan: 'The first two fields were already cut and dry under cover, which is why we did not lose everything.',
+    },
+    {
+      q: 'Bố người kể đổi cách làm thế nào sau chuyện đó?',
+      options: [
+        'Cắt thửa sớm nhất trước một tuần, dù lúa chưa đẹp',
+        'Chỉ trồng hai thửa thay vì trồng cả ba thửa ruộng',
+        'Ngó lịch nhiều hơn ngó trời khi tới vụ cấy lúa',
+        'Dựng thêm mái che cho cả ba thửa ruộng của nhà',
+      ],
+      answer: 0,
+      dan: 'My father now cuts the earliest field a week sooner than he used to, even if the rice is not perfect.',
+    },
+  ],
+  'hobbies-interests-daily': [
+    {
+      q: 'Trong hai cái thùng cậu để lại có gì?',
+      options: [
+        'Tiền xu của mười chín nước, xếp trong phong bì có ghi ngày',
+        'Tiền xu của mười chín nước cùng một danh sách viết tay',
+        'Tiền xu và tem của nhiều nước, xếp lẫn vào nhau',
+        'Hai cái phong bì giấy đựng những đồng xu quý nhất',
+      ],
+      answer: 0,
+      dan: 'Inside were coins from nineteen countries, sorted into paper envelopes with dates written on them.',
+    },
+    {
+      q: 'Vì sao người kể giữ lại đúng hai cái phong bì?',
+      options: [
+        'Vì chúng đựng những đồng xu cậu mua đúng năm người kể sinh ra',
+        'Vì chính ông ở cửa hàng đã khuyên nên giữ lại hai cái đó',
+        'Vì hai cái đó là những phong bì duy nhất còn nguyên vẹn',
+        'Vì mẹ người kể muốn giữ lại vài thứ để làm kỷ niệm',
+      ],
+      answer: 0,
+      dan: 'Those two envelopes held coins my uncle had bought in the same year I was born.',
+    },
+    {
+      q: 'Luật riêng của người kể khi sưu tập là gì?',
+      options: [
+        'Chỉ lấy xu của nước mà một người trong nhà đã đặt chân tới',
+        'Chỉ lấy những đồng xu có trong danh sách của cậu để lại',
+        'Chỉ lấy xu mua được ở chợ gần nhà, không mua ở cửa hàng',
+        'Chỉ lấy xu đúc trong năm mà người kể được sinh ra',
+      ],
+      answer: 0,
+      dan: 'Now I collect coins myself, but only from countries somebody in my family has actually visited.',
+    },
+    {
+      q: 'Người kể nói gì về đồng xu tìm được ở chợ năm ngoái?',
+      options: [
+        'Nó không hiếm cũng không quý với ai ngoài chính người kể',
+        'Nó là đồng xu quý nhất trong cả bộ sưu tập hiện nay',
+        'Nó lấy của người kể hai ngày công nhưng bán lại được giá',
+        'Nó vốn thuộc về cậu nhưng đã bị bán đi từ trước đó',
+      ],
+      answer: 0,
+      dan: 'It cost me two days of work, and it is not rare or valuable to anybody but me.',
+    },
+  ],
+  'transport-travel-daily': [
+    {
+      q: 'Theo ông ngồi cạnh, mẹo khi bị hoãn chuyến là gì?',
+      options: [
+        'Hỏi hãng sẽ chi trả những gì, không hỏi mấy giờ máy bay đi',
+        'Hỏi liên tục ở quầy cho tới khi họ nói ra giờ bay thật',
+        'Đổi ngay sang một chuyến khác của hãng khác cho chắc',
+        'Ra ngoài đường tìm chỗ ngủ vì trong sân bay rất lạnh',
+      ],
+      answer: 0,
+      dan: 'He was calm about it, and he told me the trick is to ask what the airline will pay for, not when the plane will leave.',
+    },
+    {
+      q: 'Vì sao cái phiếu ăn trở thành vô dụng?',
+      options: [
+        'Vì cửa hàng trong sân bay đóng lúc mười một giờ đêm',
+        'Vì trị giá của nó chỉ bằng khoảng hai bát phở',
+        'Vì người kể đã ngủ mất và quên không dùng nó',
+        'Vì người dọn vệ sinh bắt người kể dịch chỗ hai lần',
+      ],
+      answer: 0,
+      dan: 'The airport shops closed at eleven, so the card was useless until six in the morning.',
+    },
+    {
+      q: 'Phi công nói nguyên nhân của việc hoãn là gì?',
+      options: [
+        'Một bộ phận phải chở từ một thành phố khác tới',
+        'Thời tiết ở nơi đến quá xấu để hạ cánh an toàn',
+        'Nhiều hành khách đã bỏ chuyến nên phải xếp lại',
+        'Máy bay không đầy được một nửa số ghế trên khoang',
+      ],
+      answer: 0,
+      dan: 'The pilot apologised over the speaker and said the problem had been a part they had to fly in from another city.',
+    },
+    {
+      q: 'Trong vali, thứ duy nhất có vấn đề là gì?',
+      options: [
+        'Một chai nước mắm, chai đó đã bị bung ra',
+        'Một bộ quần áo bị ướt hết vì trời mưa',
+        'Cái bàn chải bị mất trong hai ngày chờ đợi',
+        'Toàn bộ số áo người kể mang theo bị bẩn',
+      ],
+      answer: 0,
+      dan: 'Inside it, everything was fine except a bottle of fish sauce, which had opened.',
+    },
+  ],
+  'health-body-daily-p2': [
+    {
+      q: 'Vì sao hai tuần đầu vai người kể đau hơn cả chân?',
+      options: [
+        'Vì người kể giữ hai tay quá cao khi chạy',
+        'Vì người kể chưa hít thở bằng mũi khi chạy',
+        'Vì bắp cơ phía trên đầu gối vốn đã bị yếu',
+        'Vì ngày đầu chạy chưa nổi bốn phút liên tục',
+      ],
+      answer: 0,
+      dan: 'My shoulders hurt more than my legs in the first two weeks, because I was holding my arms too high.',
+    },
+    {
+      q: 'Bác sĩ giải thích cơn đau đầu gối là do đâu?',
+      options: [
+        'Bắp cơ phía trên đầu gối yếu nên đầu gối làm việc không phải của nó',
+        'Chạy quá xa trong tuần thứ năm mà không nghỉ đủ giữa các buổi',
+        'Bỏ qua cơn đau suốt chín ngày nên chỗ đau nặng thêm nhiều',
+        'Đi xuống cầu thang mà không bám tay vào tay cầm bên cạnh',
+      ],
+      answer: 0,
+      dan: 'He said the muscle above the knee was weak, so the knee was doing work that was not its own.',
+    },
+    {
+      q: 'Bác sĩ dặn nghỉ chạy bao lâu?',
+      options: [
+        'Mười hai ngày, tuyệt đối không chạy',
+        'Chín ngày, đúng bằng số ngày đã bỏ qua',
+        'Hai tuần, rồi chạy lại thật chậm',
+        'Tám tuần, tức là hết cả thời gian tập',
+      ],
+      answer: 0,
+      dan: 'He gave me four exercises and told me not to run at all for twelve days.',
+    },
+    {
+      q: 'Kết quả ngày chạy chính thức của người kể thế nào?',
+      options: [
+        'Ba mươi bốn phút, chậm hơn cả buổi tập tệ nhất',
+        'Ba mươi bốn phút, nhanh hơn mọi buổi tập trước đó',
+        'Không về đích được vì giày đầy nước sau một ki-lô',
+        'Về đích trước cô ở công viên đúng mười một phút',
+      ],
+      answer: 0,
+      dan: 'I finished in thirty-four minutes, which was slower than my worst practice run.',
+    },
+  ],
+  'technology-gadgets-daily': [
+    {
+      q: 'Vì sao người kể biết điện thoại không phải chỉ hết pin?',
+      options: [
+        'Vì màn hình không hiện gì mà cái máy thì vẫn ấm',
+        'Vì cửa hàng gần trường đã nói màn hình không sao',
+        'Vì máy đã tối lại đúng sau chín phút chạy được',
+        'Vì trước đó máy vẫn chụp được sáu mươi trang ghi chép',
+      ],
+      answer: 0,
+      dan: 'The screen showed nothing at all, but the phone was warm, so I knew it had not simply run out of battery.',
+    },
+    {
+      q: 'Cửa hàng thứ hai làm được gì mà cửa hàng thứ nhất không làm?',
+      options: [
+        'Có một bộ phận lấy từ máy khác cùng đời để thay ngay',
+        'Sửa xong hẳn cái máy chỉ trong vòng bốn ngày chờ',
+        'Đưa ra một cái giá thấp hơn nhiều so với chỗ đầu',
+        'Chỉ ra rằng màn hình mới là chỗ thật sự bị hỏng',
+      ],
+      answer: 0,
+      dan: 'He said the same part had failed, but he had one from another phone of the same model.',
+    },
+    {
+      q: 'Vì sao anh ở cửa hàng thứ hai không lấy tiền?',
+      options: [
+        'Vì lần sửa đó không trụ được, máy tối lại sau chín phút',
+        'Vì người kể là sinh viên và sắp phải đi thi cuối kỳ',
+        'Vì bộ phận thay vào là đồ cũ lấy từ một máy khác',
+        'Vì người kể sẽ giới thiệu cửa hàng cho những người khác',
+      ],
+      answer: 0,
+      dan: 'Then it went dark again, and he did not charge me anything because the repair had not lasted.',
+    },
+    {
+      q: 'Theo anh ấy, cái sai thật sự của người kể là gì?',
+      options: [
+        'Chỉ giữ một bản của một thứ quan trọng',
+        'Không mang máy đi sửa ngay từ hôm đầu',
+        'Chụp ghi chép bằng ảnh thay vì in ra giấy',
+        'Mua một cái điện thoại quá rẻ ngay từ đầu',
+      ],
+      answer: 0,
+      dan: 'He told me the real mistake was not the phone; it was keeping one copy of anything important.',
+    },
+  ],
+  'entertainment-media-daily-p2': [
+    {
+      q: 'Điều đầu tiên người kể học được khi làm báo trường là gì?',
+      options: [
+        'Không ai muốn viết, nhưng ai cũng muốn được phỏng vấn',
+        'Số báo có ảnh ở trang nhất thì luôn bán hết trước',
+        'Phải chạy theo người ta rất lâu mới xin được một đoạn',
+        'In nguyên câu trả lời thì dễ hơn là tự viết thành bài',
+      ],
+      answer: 0,
+      dan: 'The first thing I learned is that nobody wants to write, but everybody wants to be interviewed.',
+    },
+    {
+      q: 'Cô nấu bếp kể chi tiết gì về công việc của mình?',
+      options: [
+        'Cô biết lớp nào đang đi dọc hành lang chỉ bằng cách nghe tiếng',
+        'Cô đã nấu ăn trong bếp trường suốt hai mươi hai năm liền',
+        'Cô khó chịu nhất là chuyện tờ báo địa phương viết sai tên',
+        'Cô thấy số báo có ảnh trang nhất thì học sinh đọc nhiều hơn',
+      ],
+      answer: 0,
+      dan: 'She told me she knows which class is coming down the corridor by the sound alone.',
+    },
+    {
+      q: 'Bạn muốn viết điểm phim gặp vấn đề gì?',
+      options: [
+        'Cậu ấy chỉ muốn viết về những phim cậu chưa hề xem',
+        'Cậu ấy viết ba câu mà hai câu trong đó giống nhau',
+        'Cậu ấy muốn được phỏng vấn thay vì phải tự viết bài',
+        'Cậu ấy viết về chuyện xếp hàng ở rạp thay vì về phim',
+      ],
+      answer: 0,
+      dan: 'One student wanted to review films, but he only wanted to review films he had not seen.',
+    },
+    {
+      q: 'Cô nấu bếp khó chịu nhất về chuyện gì?',
+      options: [
+        'Tờ báo địa phương viết sai tên cô',
+        'Tờ báo địa phương không hỏi trước khi in',
+        'Bài phỏng vấn chỉ được in lại có hai đoạn',
+        'Hai thầy cô phải hỏi xin thêm bản báo',
+      ],
+      answer: 0,
+      dan: 'They spelled the cook\'s name wrong, and she was more annoyed about that than about anything else.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_A2;

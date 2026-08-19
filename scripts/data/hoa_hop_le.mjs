@@ -61,7 +61,11 @@ for (const id of ['clothes-fashion-daily-p2', 'clothes-colors-beginner',
 // mục ruỗng — và chính phép kiểm "mọi ngoại lệ đều còn khớp một chỗ có thật" đã bắt.
 // 'animals-nature-daily' gỡ 19/08 cùng lý do: bài viết lại (trại cứu hộ của cô Chi)
 // không còn chữ "Earth" nào.
-for (const id of ['weather-seasons-daily-p2',
+// 'weather-seasons-daily-p2' gỡ 19/08: bài viết lại (một năm của hai thửa ruộng)
+// không còn chữ "Earth" nào. Đây là mục thứ tư của cùng một họ bị gỡ trong ngày —
+// mỗi lần viết lại một bài đọc là một lần danh sách ngoại lệ có thể mục ruỗng, và
+// phép kiểm "mọi ngoại lệ còn khớp chỗ có thật" bắt được cả bốn lần.
+for (const id of [
   'environment-ecology-daily']) {
   muc.push([id, 'Earth', 'tên hành tinh']);
 }
