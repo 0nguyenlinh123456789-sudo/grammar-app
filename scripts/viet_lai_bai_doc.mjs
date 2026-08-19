@@ -47,6 +47,27 @@ for (const [id, b] of Object.entries(VIET_LAI)) {
     dungCau.add(h.cau);
     if (!Array.isArray(h.options) || h.options.length < 3) loi.push(`${id} câu ${i + 1}: quá ít lựa chọn`);
     if (new Set(h.options).size !== h.options.length) loi.push(`${id} câu ${i + 1}: có hai lựa chọn trùng nhau`);
+
+    // ── CHẶN THIÊN LỆCH ĐỘ DÀI NGAY LÚC SOẠN ────────────────────────────────
+    // Bánh cóc `THAY_DUOC_TOI_DA` đã bắt tôi HAI LẦN LIỀN (28 câu A1 → 3,09%;
+    // 24 câu A2 → 3,41%), cùng một thói quen: viết đáp án đúng thành mệnh đề đầy
+    // đủ rồi thêm ba câu nhiễu ngắn gọn. Đó cũng chính là thói quen đã tạo ra
+    // 84,3% ở bản soạn đầu tiên của cả kho.
+    //
+    // Bắt ở đây thay vì bắt ở bánh cóc là khác nhau thật: bánh cóc bắt SAU KHI câu
+    // đã vào kho, nên phải sửa ngược trong hai file; chốt này bắt TRƯỚC KHI ghi, và
+    // nó nói luôn phải kéo dài câu nhiễu nào. Ngưỡng 10% lấy đúng định nghĩa "dài
+    // hơn THẤY ĐƯỢC" của `scripts/audit_story_quiz.mjs` — cùng một phép đo, chỉ
+    // dịch lên sớm hơn một bước.
+    const doDai = h.options.map((o) => String(o).length);
+    const dung = doDai[h.answer];
+    const nhi = Math.max(...doDai.filter((_, k) => k !== h.answer));
+    if (dung > nhi && (dung - nhi) / nhi >= 0.10) {
+      const canThem = Math.ceil(dung / 1.1) - nhi;
+      loi.push(`${id} câu ${i + 1}: đáp án đúng dài ${dung} ký tự, nhiễu dài nhất chỉ ${nhi} `
+        + `(lệch ${Math.round(((dung - nhi) / nhi) * 100)}%, THẤY ĐƯỢC bằng mắt). Viết dài thêm `
+        + `≥${canThem} ký tự cho một câu nhiễu — ĐỪNG cắt ngắn đáp án đúng.`);
+    }
   }
 }
 if (loi.length) {
