@@ -31,30 +31,14 @@
 // Ba lần đầu chạy, bộ này báo 13 rồi 7 rồi 3 "lỗi" — gần như tất cả là lỗi CỦA
 // CHÍNH NÓ. Bài học: bộ rà mới thì nghi ngờ bộ rà trước, đừng nghi ngờ app trước.
 
-import { spawn } from 'node:child_process';
 import { moTrinhDuyet, moTab, BAM_THEO_CHU, BAM_DUNG_NHAN, DONG_PANEL, CHE_BOI_LOP_PHU_KHAC } from '../tests/helpers/trinhduyet.mjs';
+import { moMayChuXemTruoc } from '../tests/helpers/mayChuXemTruoc.mjs';
 
-// --- dựng máy chủ xem thử bản dựng THẬT (không phải npm run dev) -------------
-// Chạy vite thẳng bằng node, KHÔNG qua npm.cmd: Node 24 trên Windows chặn
-// spawn một file .cmd nếu không bật shell (EINVAL), mà bật shell thì lại khó
-// giết tiến trình con cho sạch.
-// DỰNG LẠI TRƯỚC KHI RÀ. Lần chạy đầu sau khi sửa một lỗi, bộ này vẫn báo lỗi đó
-// — vì `vite preview` phục vụ thư mục dist CŨ. Đúng họ lỗi "kiểm bản chậm một
-// commit" đã dính hai lần với bản live; ở đây thì tự dựng được nên tự dựng.
-const dung = spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'build'], { stdio: 'ignore' });
-await new Promise((r) => dung.on('exit', r));
-
-const sv = spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'preview', '--port', '4319', '--strictPort', '--host', '127.0.0.1'], { stdio: ['ignore', 'pipe', 'pipe'] });
-let log = '';
-sv.stdout.on('data', (d) => { log += d; });
-sv.stderr.on('data', (d) => { log += d; });
-// : vite preview mac dinh gan vao "localhost", ma tren Windows ten
-// do co the chi phan giai ra ::1 (IPv6) -> fetch toi 127.0.0.1 bi ERR_CONNECTION_REFUSED.
-const BASE = 'http://127.0.0.1:4319';
-for (let i = 0; i < 120; i++) {
-  try { const r = await fetch(BASE); if (r.ok) break; } catch { /* chưa lên */ }
-  await new Promise((r) => setTimeout(r, 250));
-}
+// Dựng bản build THẬT rồi phục vụ nó. Hai cái bẫy của bước này (phải tự chạy
+// `vite build` trước, và phải `--host 127.0.0.1`) nay nằm trong chính helper —
+// một chỗ cho cả hai bộ rà, để sửa một lần là cả hai cùng đúng.
+const may = await moMayChuXemTruoc({ cong: 4319 });
+const BASE = may.BASE;
 
 const { tienTrinh, cong } = await moTrinhDuyet({ cong: 9334 });
 const t = await moTab(cong);
@@ -185,7 +169,6 @@ try {
 } finally {
   t.dong();
   tienTrinh.kill();
-  sv.kill();
-  if (!log.includes('Local')) console.log('\n(preview log)', log.slice(0, 400));
+  may.dong();
   setTimeout(() => process.exit(0), 300);
 }

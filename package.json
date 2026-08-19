@@ -11,6 +11,7 @@
     "validate:content": "node scripts/validate_content.mjs",
     "preview": "vite preview",
     "ra:khach": "node scripts/ra_khach.mjs",
+    "hoc:that": "node scripts/hoc_that.mjs",
     "kiem:live": "node scripts/kiem_live_trinh_duyet.mjs"
   },
   "dependencies": {

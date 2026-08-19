@@ -1,10 +1,11 @@
 // File: src/components/grammar/QuizEngine.jsx
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { PenTool, ChevronRight, Sparkles } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 import MasteryVerdict from '../common/MasteryVerdict';
 import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 import KhongCoCau from './KhongCoCau';
+import { tronPhuongAn } from '../../utils/tronPhuongAn';
 
 const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -24,6 +25,13 @@ const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
   const exercisesLen = exercises?.length || 0;
 
   const curr = exercises && exercisesLen > 0 ? exercises[qIdx] : null;
+
+  // Kho ngữ pháp B1/B2/C1 xếp đáp án khá đều (16–40% ở ô đầu), NHƯNG kho A0
+  // "mất gốc" thì 144/144 câu để đáp án ở ô ĐẦU — bài đầu tiên đời học của người
+  // mất gốc lại là bài bấm bừa cũng qua. Trộn ở đây vá cả hai kho vì cùng đi qua
+  // một màn hình. Khoá lấy từ CHÍNH CÂU HỎI nên thứ tự không nhảy giữa hai lần
+  // vẽ lại, và mở lại bài cũ vẫn thấy đúng thứ tự cũ.
+  const phuongAn = useMemo(() => tronPhuongAn(`${curr?.q || ''}:${qIdx}`, curr?.opts || []), [curr, qIdx]);
 
   useEffect(() => {
     // reportedRef: onComplete là arrow tạo mới mỗi lần render nên effect này
@@ -94,7 +102,7 @@ const QuizEngine = ({ exercises, setGlobalProgress, onComplete }) => {
        </div>
        <p className="font-black text-3xl mb-8 leading-relaxed">{curr.q}</p>
        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          {curr.opts.map((o, i) => (
+          {phuongAn.map((o, i) => (
              <button 
                key={i} 
                disabled={status !== 'idle'} 

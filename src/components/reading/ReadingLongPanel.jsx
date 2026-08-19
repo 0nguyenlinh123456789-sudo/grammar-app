@@ -9,10 +9,11 @@
 // `audioUrl` (nếu bài có bản thu) chỉ là tuỳ chọn nghe kèm, trỏ thẳng máy chủ
 // VOA — hỏng thì im lặng giấu nút, KHÔNG chặn bài đọc: nội dung chính (văn
 // bản) đã nằm trong ứng dụng rồi, không có gì phải "báo to" như bài nghe.
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, BookOpenText, CheckCircle2, ExternalLink, Pause, Play, Trophy, X, XCircle } from 'lucide-react';
 import { readingTexts } from '../../data/readingTexts';
 import { playCorrect, playWrong, playComplete } from '../../utils/sound';
+import { tronPhuongAn } from '../../utils/tronPhuongAn';
 
 const CAC_MUC = [...new Set(readingTexts.map((b) => b.series))];
 
@@ -82,6 +83,13 @@ function BaiDoc({ bai, onBack, onClose, onXong }) {
 
   const cau = bai.questions[idx];
 
+  // Kho câu hỏi xếp đáp án đúng ở ô ĐẦU gần như mọi câu (đo được: bài đọc dài
+  // 120/120, bài nghe 236/240), nên "cứ bấm ô đầu" là qua sạch mà không cần đọc
+  // hay nghe. Trộn lúc vẽ, cố định theo khoá bài+câu để thứ tự không nhảy giữa
+  // hai lần vẽ lại. Chấm ở đây so THEO GIÁ TRỊ (`opt === cau.a`) nên trộn xong
+  // là xong, không phải ánh xạ lại đáp án.
+  const phuongAn = useMemo(() => tronPhuongAn(`${bai.id}:${idx}`, cau.opts), [bai.id, idx, cau.opts]);
+
   useEffect(() => () => { audioRef.current?.pause(); }, []);
 
   const toggle = () => {
@@ -142,7 +150,7 @@ function BaiDoc({ bai, onBack, onClose, onXong }) {
       </div>
       <h3 className="text-lg md:text-xl font-black mt-5 leading-snug">{cau.q}</h3>
       <div className="grid gap-2.5 mt-4">
-        {cau.opts.map((o) => {
+        {phuongAn.map((o) => {
           let cls = 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-600 hover:border-teal-400 cursor-pointer';
           if (chon !== null) {
             if (o === cau.a) cls = 'bg-emerald-100 dark:bg-emerald-950/40 border-emerald-600 text-emerald-900 dark:text-emerald-200';

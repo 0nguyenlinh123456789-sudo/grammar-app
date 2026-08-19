@@ -8,6 +8,7 @@ import { luuBaiLam } from '../../utils/selfReportLog';
 import { audioManifest } from '../../data/audioManifest';
 import { listeningPassages } from '../../data/listeningPassages';
 import { recordError } from '../../utils/errorBank';
+import { tronThuTu } from '../../utils/tronPhuongAn';
 
 // BÀI THI CUỐI BẬC (việc 4.2).
 //
@@ -260,14 +261,20 @@ function PhanTieuDe({ nhan, chamDuoc = false, huongDan, lyDo }) {
 }
 
 function CauHoi({ so, it, chon, onChon, truoc }) {
+  // ĐO ĐƯỢC 19/08: cả 42/42 câu của ba đề thi cuối bậc đều để đáp án đúng ở ô
+  // ĐẦU. Tức là bấm ô đầu tiên mọi câu thì qua sạch bài thi dùng để nói người
+  // học đã xong một bậc. Trộn thứ tự HIỆN RA, nhưng báo về CHỈ SỐ GỐC — nhờ vậy
+  // `chamBaiThi`, phần lưu bài làm và mọi chỗ hiện `options[answer]` không phải
+  // sửa gì, và không có chỗ nào để quên ánh xạ ngược.
+  const thuTu = useMemo(() => tronThuTu(it.id, it.options.length), [it.id, it.options.length]);
   return <div className="mb-4">
     {truoc}
     <p className="text-sm font-black mb-1.5">{so}. {it.prompt}</p>
     <div className="grid gap-1.5">
-      {it.options.map((o, k) => <button key={k} onClick={() => onChon(k)}
+      {thuTu.map((goc) => <button key={goc} onClick={() => onChon(goc)}
         className={`text-left px-3 py-2 rounded-xl border-2 text-sm font-bold transition-all cursor-pointer ${
-          chon === k ? 'border-emerald-600 bg-emerald-50 dark:bg-emerald-950/40' : 'border-slate-200 dark:border-slate-700 hover:border-slate-400'
-        }`}>{o}</button>)}
+          chon === goc ? 'border-emerald-600 bg-emerald-50 dark:bg-emerald-950/40' : 'border-slate-200 dark:border-slate-700 hover:border-slate-400'
+        }`}>{it.options[goc]}</button>)}
     </div>
   </div>;
 }
