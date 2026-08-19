@@ -69,6 +69,29 @@ test('số chặng khai CÓ mà thật ra KHÔNG có đề vẫn nằm trong m�
   assert.equal(hut.noi.length, 0, `${hut.noi.length} chặng khai có đề nói mà không có: ${hut.noi.slice(0, 5).join(', ')}`);
 });
 
+// Bộ đo cam kết (scripts/kiem_cam_ket.mjs) TỪNG trả lời câu "có đề nói/viết
+// không" bằng cách đếm `milestone.type`, thấy không có type nào tên speaking/
+// writing, rồi báo động rằng lộ trình không giao bài nói bài viết nào. Sai
+// hoàn toàn — đề gắn theo chặng qua hai hàm tra dưới đây, phủ 99–100%.
+//
+// Cái giá của lần sai đó là suýt soạn thừa hàng tuần nội dung. Nên ghim luôn:
+// bộ đo phải hỏi ĐÚNG hai cửa tra mà giao diện hỏi.
+test('bộ đo cam kết hỏi kho đề qua đúng cửa tra của giao diện, không đếm milestone.type', async () => {
+  const fs = await import('node:fs');
+  const src = fs.readFileSync('scripts/kiem_cam_ket.mjs', 'utf8');
+  // Bắt DẤU GỌI `ten(` chứ không phải chỉ chuỗi `ten`: đổi tên thành
+  // `deChoChangX` vẫn chứa chuỗi cũ, nên phép canh theo chuỗi trần không đỏ.
+  // (Đã thử: bản đầu của chính test này lọt đúng kiểu đó.)
+  for (const ham of ['deChoChang', 'deNoiChoChang']) {
+    assert.match(src, new RegExp(`\\b${ham}\\(`),
+      `kiem_cam_ket.mjs không GỌI ${ham}() — nó đang đo độ phủ đề bằng cách khác với cách giao diện mở đề`);
+  }
+  for (const cua of ['COD_DE_VIET', 'COD_DE_NOI']) {
+    assert.ok(src.includes(cua),
+      `kiem_cam_ket.mjs không áp cửa bậc ${cua} — sẽ đếm cả bậc cố ý không mở đề`);
+  }
+});
+
 test('trang chủ KHÔNG import kho đề — nếu không thì chunk trang chủ phình trở lại', async () => {
   const fs = await import('node:fs');
   const src = fs.readFileSync('src/pages/WelcomePage.jsx', 'utf8');
