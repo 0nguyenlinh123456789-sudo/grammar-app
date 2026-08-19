@@ -15,6 +15,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { PHAN_LOAI_A1, PHAN_LOAI_A2 } from '../scripts/data/a1a2_phan_loai.mjs';
 import { STORY_QUIZ_A1 } from '../src/data/storyQuizA1.js';
+import { STORY_QUIZ } from '../src/data/storyQuiz.js';
 import { doA1A2 } from '../scripts/audit_a1a2_story.mjs';
 
 let kq;
@@ -65,7 +66,12 @@ test('chặng xếp "cần viết lại" thì KHÔNG được lặng lẽ có c�
   // cái lỗ vẫn còn — đúng kiểu "thay thế âm thầm" mà dự án cấm.
   for (const [id, m] of Object.entries(PHAN_LOAI_A1)) {
     if (m.nhom !== 'viet-lai') continue;
-    assert.ok(!STORY_QUIZ_A1[id], `${id}: xếp "cần viết lại" mà lại có câu hỏi trong kho`);
+    // Hỏi KHO GỘP, không hỏi riêng kho A1. Bản đầu của test này hỏi
+    // `STORY_QUIZ_A1` — mà tấm băng cảnh báo cam tắt theo `STORY_QUIZ` (gộp cả
+    // A1/A2/B1/B2). Một chặng có câu hỏi nằm ở file khác thì test vẫn xanh trong
+    // khi băng đã tắt và cái lỗ vẫn còn. Cùng họ điểm mù với chuyện hỏi nhầm đối
+    // tượng hẹp hơn thứ mình đang canh.
+    assert.ok(!STORY_QUIZ[id], `${id}: xếp "cần viết lại" mà lại có câu hỏi trong kho gộp`);
   }
 });
 
