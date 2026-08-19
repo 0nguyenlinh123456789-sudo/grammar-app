@@ -79,14 +79,9 @@ export function describeProviderFailure(upstreamStatus) {
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 const MAX_IMAGE_BASE64_LENGTH = 4 * Math.ceil(MAX_IMAGE_BYTES / 3);
 
-const json = (data, status = 200) => new Response(JSON.stringify(data), {
-  status,
-  headers: {
-    'Content-Type': 'application/json; charset=utf-8',
-    'Cache-Control': 'no-store',
-    'X-Content-Type-Options': 'nosniff',
-  },
-});
+// Helper `json` cu da bo: moi phan hoi nay di qua `jsonResponse` trong
+// src/server/accessCore.js, mot ham phuc vu ca hai nen chay. Giu lai ban thu
+// hai o day la dung lai cai bay hai-ban ma ca dot nay dang go.
 
 const requestErrors = {
   'empty-input': ['empty-input', 'Hãy nhập nội dung trước khi chấm.'],
@@ -151,63 +146,33 @@ Phản hồi ngắn gọn bằng tiếng Việt gồm: (1) nội dung đã trả
   throw new Error('unsupported-mode');
 }
 
-export async function onRequestPost({ request }) {
-  const apiKey = readGeminiKey(request.headers.get(AI_KEY_HEADER));
-  if (!apiKey) return json(MISSING_KEY_RESPONSE, 400);
-
-  const contentLength = Number(request.headers.get('content-length') || 0);
-  if (contentLength > 6 * 1024 * 1024) {
-    return json({ code: 'request-too-large', message: 'Dữ liệu gửi lên quá lớn.' }, 413);
-  }
-
-  let parts;
-  try {
-    const { mode, payload } = await request.json();
-    parts = buildRequest(mode, payload);
-  } catch (error) {
-    const [code, message] = getRequestError(error);
-    return json({ code, message }, 400);
-  }
-
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 25000);
-    let upstream;
-    try {
-      upstream = await fetch(
-        geminiEndpoint(apiKey),
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ contents: [{ parts }] }),
-          signal: controller.signal,
-        },
-      );
-    } finally {
-      clearTimeout(timeoutId);
-    }
-
-    let result;
-    try {
-      result = await upstream.json();
-    } catch {
-      return json({ code: 'provider-error', message: 'AI chưa thể xử lý yêu cầu này. Hãy thử lại sau.' }, 502);
-    }
-    const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!upstream.ok || !text) {
-      const [code, message, status] = describeProviderFailure(upstream.status);
-      return json({ code, message }, status);
-    }
-
-    return json({ text });
-  } catch (error) {
-    if (error?.name === 'AbortError') {
-      return json({ code: 'provider-timeout', message: 'AI phản hồi quá chậm. Hãy thử lại sau.' }, 504);
-    }
-    return json({ code: 'provider-error', message: 'AI chưa thể xử lý yêu cầu này. Hãy thử lại sau.' }, 502);
-  }
+// ══════════════════════════════════════════════════════════════════════════
+// VỎ BỌC CLOUDFLARE PAGES cho tuyến /api/ai.
+//
+// ⚠️ BẢN TRƯỚC CỦA CHỖ NÀY KHÔNG CÓ CỔNG.
+// Nó nhận `{ request }` rồi đi thẳng tới Google, không hề gọi `requireLearner`
+// — trong khi bản Vercel (api/ai.js) thì CÓ kiểm mã truy cập. Nghĩa là nếu
+// chuyển nhà sang Cloudflare, `/api/ai` thành cổng chuyển tiếp CÔNG KHAI: bất
+// kỳ ai trên Internet cũng POST được mà không cần mã, và máy chủ của chủ dự án
+// đứng ra gọi hộ. Không lộ key của chủ (mỗi người mang key riêng), nhưng đó là
+// hạ tầng bị dùng chùa — và là đúng kiểu lệch mà cách làm "một thân dùng
+// chung" sinh ra để chặn.
+//
+// Thân thật nằm ở src/server/routes/ai.js, dùng chung với vỏ bọc Vercel.
+//
+// ══ VÌ SAO NHẬP ĐỘNG CHỨ KHÔNG NHẬP Ở ĐẦU FILE ══
+// Thân tuyến cần các hàm nhà cung cấp Ở CHÍNH FILE NÀY, nên nhập tĩnh hai
+// chiều sẽ thành vòng. Bốn export ở trên là `const` (MODEL, AI_KEY_HEADER,
+// GEMINI_KEY_PATTERN, MISSING_KEY_RESPONSE) — `const` KHÔNG được nâng, nên
+// vòng đó sẽ nổ TDZ tuỳ thứ tự nạp. Nhập động cắt vòng dứt điểm.
+export async function onRequestPost({ request, env }) {
+  const { xuLyAi } = await import('../../src/server/routes/ai.js');
+  return xuLyAi(request, env);
 }
 
-export function onRequest() {
-  return json({ code: 'method-not-allowed', message: 'Phương thức không được hỗ trợ.' }, 405);
+// Mọi phương thức khác. Thân dùng chung cũng tự trả 405, nhưng Pages gọi
+// `onRequest` cho các phương thức không có hàm riêng nên vẫn cần lối vào này.
+export async function onRequest({ request, env }) {
+  const { xuLyAi } = await import('../../src/server/routes/ai.js');
+  return xuLyAi(request, env);
 }

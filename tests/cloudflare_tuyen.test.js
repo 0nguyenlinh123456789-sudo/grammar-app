@@ -180,6 +180,10 @@ test('không có cookie thì bị từ chối, và từ chối KHÔNG kèm dữ 
 // một quyết định nào.
 test('hai vỏ bọc Vercel/Cloudflare đều chỉ gọi thân dùng chung, không tự xử lý', async () => {
   const fs = await import('node:fs');
+  // ⚠️ BẢN ĐẦU CỦA MẢNG NÀY THIẾU TUYẾN `ai`, VÀ ĐÓ LÀ TUYẾN DUY NHẤT KHI ẤY
+  // CÒN HAI BẢN RIÊNG — tức tuyến duy nhất cần canh lại là tuyến không ai canh.
+  // Hai bản đó đã lệch ở đúng chỗ nguy hiểm nhất: bản Vercel có cổng mã truy
+  // cập, bản Cloudflare thì không có dòng nào.
   const CAP = [
     ['api/access.js', 'functions/api/access.js', 'routes/access.js'],
     ['api/access-admin.js', 'functions/api/access-admin.js', 'routes/accessAdmin.js'],
@@ -202,6 +206,44 @@ test('hai vỏ bọc Vercel/Cloudflare đều chỉ gọi thân dùng chung, kh�
       assert.ok(soDong <= 8, `${vo} dài ${soDong} dòng mã — vỏ bọc phải mỏng, logic thuộc về thân dùng chung`);
     }
   }
+});
+
+// Tuyến `ai` không kiểm bằng luật "vỏ mỏng" như ba tuyến kia được: file
+// `functions/api/ai.js` còn giữ toàn bộ hiểu biết về nhà cung cấp (MODEL,
+// buildRequest, mô tả lỗi 404…) và nhiều nơi nhập thẳng từ đó. Nên ghim bằng
+// một bất biến khác, sắc hơn: **phần gọi Google chỉ được nằm ở MỘT chỗ.**
+test('tuyến AI: cả hai vỏ bọc đều gọi thân dùng chung, và không tự gọi Google', async () => {
+  const fs = await import('node:fs');
+  for (const vo of ['api/ai.js', 'functions/api/ai.js']) {
+    const src = fs.readFileSync(vo, 'utf8');
+    const ma = src.split('\n').filter((d) => d.trim() && !d.trim().startsWith('//')).join('\n');
+    assert.ok(/xuLyAi\s*\(/.test(ma), `${vo} không gọi xuLyAi() — tuyến AI lại có hai bản`);
+    // Phân biệt LỜI GỌI với KHAI BÁO: `functions/api/ai.js` vẫn là nơi ĐỊNH
+    // NGHĨA `geminiEndpoint`, và đó là đúng chỗ của nó. Thứ bị cấm là vỏ bọc
+    // tự GỌI nó. Bản đầu của chốt này quét cả hai nên đỏ vì chính khai báo.
+    for (const ham of ['geminiEndpoint', 'readGeminiKey']) {
+      assert.ok(!new RegExp(`(?<!function\\s)\\b${ham}\\s*\\(`).test(ma),
+        `${vo} tự gọi ${ham}() — phần nói chuyện với Google đã rò ra vỏ bọc, hai nền sẽ lệch nhau`);
+    }
+  }
+});
+
+// Bản Cloudflare cũ đi thẳng tới Google mà không hỏi mã truy cập lấy một câu.
+// Phép kiểm này không cần key Gemini thật: thứ cần chứng minh là yêu cầu bị
+// CHẶN TRƯỚC KHI tới chỗ cần key.
+test('tuyến AI trên hình dạng Cloudflare CÓ cổng — không có mã thì không đi tiếp', async () => {
+  const { onRequestPost } = await import('../functions/api/ai.js');
+  const khoiPhuc = dungRedisGia();
+  try {
+    const req = new Request('https://bunny.test/api/ai', {
+      method: 'POST',
+      headers: new Headers({ 'content-type': 'application/json', 'x-gemini-key': 'AIzaSyDUMMYKEYDUMMYKEYDUMMYKEY12345' }),
+      body: JSON.stringify({ mode: 'writing', payload: { text: 'hello world' } }),
+    });
+    const res = await onRequestPost({ request: req, env: ENV });
+    assert.equal(res.status, 401, 'gọi AI không có mã truy cập mà KHÔNG bị chặn — cổng chuyển tiếp đang mở cho cả Internet');
+    assert.equal((await res.json()).code, 'access-required');
+  } finally { khoiPhuc(); }
 });
 
 // Đây là cái bẫy nguy hiểm nhất trong cả cuộc chuyển nhà: trên Workers
