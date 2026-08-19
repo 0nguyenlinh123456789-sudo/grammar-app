@@ -71,15 +71,17 @@ export const PHAN_LOAI_A1 = {
 // đo được ở cả 28 file. Danh sách từ bậc A2 dài hơn A1 nên bài bị nhồi nặng hơn.
 // Nới tay để con số trông đẹp hơn là đúng cái sai mà cả đợt này đang canh.
 //
-// ⚠️ 'soan' KHÔNG kèm `xong: true` nghĩa là **đủ điều kiện, CHƯA soạn câu**.
-// Tấm băng cảnh báo cam vẫn bật, và không chỗ nào khai khống.
+// ⚠️ 'soan' KHÔNG kèm `xong: true` nghĩa là **đủ điều kiện, CHƯA soạn câu** —
+// tấm băng cảnh báo cam vẫn bật, và không chỗ nào khai khống. Cả 5 chặng 'soan'
+// của bậc này đã soạn xong trong cùng ngày nên mang `xong: true`; 23 chặng
+// 'viet-lai' thì KHÔNG, và băng cảnh báo của chúng còn nguyên.
 export const PHAN_LOAI_A2 = {
   // ── SOẠN ĐƯỢC: bốn câu đã soạn thử được trước khi xếp loại ───────────────
-  'weather-seasons': { nhom: 'soan', vi: 'Phần 2 là một sự việc có thật của bài: NĂM NGOÁI thành phố hạn rồi tới lụt (đúng thứ tự đó), sét đánh CÂY GẦN NHÀ, trời u nhiều ngày rồi cầu vồng hiện ra. Cộng một mốc cá nhân: mùa thu là mùa người kể thích nhất.' },
-  'places-directions-daily': { nhom: 'soan', vi: 'Có hẳn một lời chỉ đường dẫn nguyên văn, và đường đi là một chuỗi mốc kiểm được: đi thẳng HAI dãy nhà, tới chỗ giao có đèn thì RẼ TRÁI, đi qua BƯU ĐIỆN, bảo tàng ĐỐI DIỆN thư viện. Không câu nào đoán được bằng kiến thức chung.' },
-  'housing-home-daily': { nhom: 'soan', vi: 'Ngôi thứ nhất và có PHÂN CÔNG việc nhà theo từng người: chị/em gái dọn buồng tắm, anh/em trai quét sàn và bỏ rác, người kể giúp mẹ rửa bát xếp vào tủ. Bên cạnh giường là bàn học. Đổi người nào cũng hợp lý ngoài đời nên phải đọc mới trả lời được.' },
-  'food-cooking-daily-p2': { nhom: 'soan', vi: 'Có quy trình CÓ THỨ TỰ (đầu tiên lấy dao thái hành và cà chua → trộn trong bát rồi khuấy nước sốt trên bếp) và các cặp cách-nấu–món-ăn tự đặt của bài: món lành thì HẤP rau và NƯỚNG VỈ cá. Kết bằng trình tự ở nhà hàng, khép lại bằng để tiền tip.' },
-  'shopping-clothes-daily': { nhom: 'soan', vi: 'Có câu hỏi dẫn nguyên văn lời người mua (\'Can I try this on?\'), ba kiểu không vừa mà kiểu thứ ba không đoán ra được (quá chật, quá rộng, SAI ĐỘ DÀI), lý do giữ hóa đơn nói đích danh (khóa kéo đứt hay mất cúc), và chỗ mang hàng tới để thử.' },
+  'weather-seasons': { nhom: 'soan', xong: true, vi: 'Phần 2 là một sự việc có thật của bài: NĂM NGOÁI thành phố hạn rồi tới lụt (đúng thứ tự đó), sét đánh CÂY GẦN NHÀ, trời u nhiều ngày rồi cầu vồng hiện ra. Cộng một mốc cá nhân: mùa thu là mùa người kể thích nhất.' },
+  'places-directions-daily': { nhom: 'soan', xong: true, vi: 'Có hẳn một lời chỉ đường dẫn nguyên văn, và đường đi là một chuỗi mốc kiểm được: đi thẳng HAI dãy nhà, tới chỗ giao có đèn thì RẼ TRÁI, đi qua BƯU ĐIỆN, bảo tàng ĐỐI DIỆN thư viện. Không câu nào đoán được bằng kiến thức chung.' },
+  'housing-home-daily': { nhom: 'soan', xong: true, vi: 'Ngôi thứ nhất và có PHÂN CÔNG việc nhà theo từng người: chị/em gái dọn buồng tắm, anh/em trai quét sàn và bỏ rác, người kể giúp mẹ rửa bát xếp vào tủ. Bên cạnh giường là bàn học. Đổi người nào cũng hợp lý ngoài đời nên phải đọc mới trả lời được.' },
+  'food-cooking-daily-p2': { nhom: 'soan', xong: true, vi: 'Có quy trình CÓ THỨ TỰ (đầu tiên lấy dao thái hành và cà chua → trộn trong bát rồi khuấy nước sốt trên bếp) và các cặp cách-nấu–món-ăn tự đặt của bài: món lành thì HẤP rau và NƯỚNG VỈ cá. Kết bằng trình tự ở nhà hàng, khép lại bằng để tiền tip.' },
+  'shopping-clothes-daily': { nhom: 'soan', xong: true, vi: 'Có câu hỏi dẫn nguyên văn lời người mua (\'Can I try this on?\'), ba kiểu không vừa mà kiểu thứ ba không đoán ra được (quá chật, quá rộng, SAI ĐỘ DÀI), lý do giữ hóa đơn nói đích danh (khóa kéo đứt hay mất cúc), và chỗ mang hàng tới để thử.' },
 
   // ── CẦN VIẾT LẠI: bài văn phủ danh sách từ vựng ──────────────────────────
   'animals-nature-daily': { nhom: 'viet-lai', vi: 'Diễu hành thiên nhiên theo lối \'from… to…\' rồi \'you can see…\'. Mọi phát biểu rút ra được đều là kiến thức chung: lợn lăn trong bùn, ô nhiễm đe dọa môi trường sống, hổ và voi thành nguy cấp khi rừng bị chặt.' },

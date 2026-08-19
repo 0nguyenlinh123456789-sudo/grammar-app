@@ -25,8 +25,8 @@ const DATA = path.join(ROOT, 'src', 'data');
 
 // Bánh cóc: chỉ được tăng. Số ĐO ĐƯỢC khi soạn xong cả ba bậc B1, B2 và C1 —
 // 121/122 chặng ≥B1 (một chặng loại có lý do, xem đầu src/data/storyQuiz.js).
-const CHU_DE_TOI_THIEU = 227;
-const CAU_HOI_TOI_THIEU = 908;
+const CHU_DE_TOI_THIEU = 232;
+const CAU_HOI_TOI_THIEU = 928;
 
 async function napGop(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
@@ -159,8 +159,13 @@ test('vị trí đáp án đúng được XÁO, không nằm lì ở ô đầu',
 // 39,8%). Bánh cóc thì phải đi theo — để mốc đứng yên trong khi kho lớn lên là
 // đúng cái đã xảy ra với `DE_TOI_THIEU` (đứng ở 531 khi kho đã 621). Chừa lại
 // một chút biên như bản trước, không siết sát mép.
-const THIEN_LECH_TOI_DA = 0.383;
-const THAY_DUOC_TOI_DA = 0.029;
+// SIẾT LẦN HAI 19/08 sau khi thêm 20 câu A2: kho 928 câu ra **37,50%** và
+// **2,80%**. Lần này cả hai con số ĐỀU nhích xuống (lần trước con số "thấy
+// được" đứng y nguyên ở 2,9% và tôi đã nói thẳng là không cải thiện). Mức
+// giảm nhỏ vì 20 câu trên 928 thì chỉ đổi được chừng đó — nói ra để không ai
+// đọc con số này thành một bước tiến lớn.
+const THIEN_LECH_TOI_DA = 0.379;
+const THAY_DUOC_TOI_DA = 0.028;
 
 test(`thiên lệch độ dài chỉ được giảm (dài nhất ${(THIEN_LECH_TOI_DA * 100).toFixed(1)}% · thấy được ${(THAY_DUOC_TOI_DA * 100).toFixed(1)}% · không thiên lệch ≈ 25%)`, async () => {
   const { doThienLech } = await import('../scripts/audit_story_quiz.mjs');
@@ -247,6 +252,18 @@ test('bộ câu soạn tay cũ là mức CÂU, không phải mức văn bản', 
 // đạt bốn tiêu chí mà không soạn câu hỏi cho nó là test đỏ.
 const A1A2_CON_THIEU_TOI_DA = 0;
 
+// SỐ CHẶNG "KHÔNG ĐỦ ĐIỀU KIỆN" cũng phải là bánh cóc, chứ trước nay chỉ có phép
+// kiểm "mỗi chặng bị loại đều đạt một lý do đo được" — phép đó vẫn qua khi con số
+// TĂNG. Nó đã đi 52 → 39 → 34 (A1 11 · A2 23) mà không chỗ nào ghim lại, đúng
+// kiểu mốc `DE_TOI_THIEU` đứng ở 531 khi kho đã 621.
+//
+// Nó chỉ giảm được bằng hai đường, và cả hai đều là việc thật:
+//   · soạn câu cho một chặng bị loại (nó nhảy sang `daCo`);
+//   · viết lại bài đọc cho đạt bốn tiêu chí — nhưng lúc đó nó nhảy sang `du`, và
+//     `A1A2_CON_THIEU_TOI_DA = 0` bắt phải soạn câu ngay trong cùng đợt. Không có
+//     đường nào làm con số đẹp lên mà không thêm nội dung.
+const A1A2_KHONG_DU_TOI_DA = 34;
+
 test('bánh cóc A1/A2: số chặng đủ điều kiện mà CHƯA có câu hỏi chỉ được giảm', async () => {
   const { doA1A2 } = await import(pathToFileURL(path.join(ROOT, 'scripts/audit_a1a2_story.mjs')).href);
   const { daCo, du, khong } = await doA1A2();
@@ -255,6 +272,10 @@ test('bánh cóc A1/A2: số chặng đủ điều kiện mà CHƯA có câu h�
   // và lúc đó mọi con số dưới đây phải đo lại chứ không sửa cho vừa.
   assert.equal(daCo.length + du.length + khong.length, 145,
     'số chặng A1/A2 (type vstep) đổi — đo lại bằng node scripts/audit_a1a2_story.mjs');
+
+  assert.ok(khong.length <= A1A2_KHONG_DU_TOI_DA,
+    `còn ${khong.length} chặng A1/A2 không đủ điều kiện, nhiều hơn mức ghim `
+    + `${A1A2_KHONG_DU_TOI_DA} — bài đọc bị sửa cho kém đi, hoặc có chủ đề mới chưa soạn.`);
 
   assert.ok(du.length <= A1A2_CON_THIEU_TOI_DA,
     `còn ${du.length} chặng đủ điều kiện chưa có câu hỏi, nhiều hơn mức ghim ${A1A2_CON_THIEU_TOI_DA}:\n  `

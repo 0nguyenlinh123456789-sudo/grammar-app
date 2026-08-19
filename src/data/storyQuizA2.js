@@ -2170,6 +2170,246 @@ export const STORY_QUIZ_A2 = {
       dan: 'If someone hurts you, it is better to forgive them than to hold onto fear and anger.',
     },
   ],
+
+  // ══ ĐỢT 19/08 — 5 CHẶNG A2 SOẠN ĐƯỢC / 28 CHẶNG ĐÃ ĐỌC ═══════════════════
+  // Lý do xếp loại từng chặng: `scripts/data/a1a2_phan_loai.mjs`. 23 chặng còn
+  // lại là bài văn viết ra để phủ danh sách từ vựng, KHÔNG soạn — băng cảnh báo
+  // cam của chúng vẫn bật, chứ không tắt bằng bốn câu hỏi kiến thức chung.
+  //
+  // Bốn câu của mỗi chặng neo vào BỐN CÂU KHÁC NHAU trong bài, và câu nhiễu là
+  // HOÁN VỊ chi tiết có thật trong chính bài đó (đổi trái thành phải, đổi việc
+  // của chị sang việc của anh, đổi thứ tự hạn–lụt). Nhiễu kiểu đó buộc phải đọc
+  // đúng câu chứa thông tin, và dài tương đương đáp án nên không đoán theo độ dài.
+  'weather-seasons': [
+    {
+      q: 'Người kể thích mùa nào nhất, và tả mùa đó thế nào?',
+      options: [
+        'Mùa thu, với những buổi sáng lành lạnh và nắng đẹp',
+        'Mùa xuân, với nhiệt độ dịu nhẹ và những cơn gió hiu hiu',
+        'Mùa hè, dù trời có thể nóng như thiêu và rất ẩm ướt',
+        'Mùa đông, khi có sương giá và đôi lúc cả bão tuyết nữa',
+      ],
+      answer: 0,
+      dan: 'Autumn is my favorite – chilly mornings with beautiful sunshine.',
+    },
+    {
+      q: 'Năm ngoái thành phố của người kể trải qua hai chuyện gì, theo thứ tự nào?',
+      options: [
+        'Một đợt hạn nặng, rồi sau đó là lụt',
+        'Một trận lụt, rồi sau đó là đợt hạn nặng',
+        'Một cơn dông có sét, rồi sau đó là lụt',
+        'Nhiều ngày trời u, rồi sau đó là hạn nặng',
+      ],
+      answer: 0,
+      dan: 'Last year, our city experienced a terrible drought followed by a flood.',
+    },
+    {
+      q: 'Trong cơn dông, sét đánh vào đâu?',
+      options: [
+        'Một cái cây gần nhà người kể',
+        'Chính mái nhà của người kể',
+        'Một cái cây trong công viên thành phố',
+        'Cột điện ở đầu con phố nhà người kể',
+      ],
+      answer: 0,
+      dan: 'During a thunderstorm, lightning struck a tree near our house.',
+    },
+    {
+      q: 'Sau nhiều ngày trời u và sáng nào cũng sương mù, chuyện gì xảy ra?',
+      options: [
+        'Một cầu vồng hiện ra, và mọi người lại thấy hy vọng',
+        'Trời đổ mưa suốt mấy giờ, rồi lụt tràn vào thành phố',
+        'Sét đánh vào một cái cây, tiếng sấm dội mấy giờ liền',
+        'Sương giá phủ khắp nơi, và có cả một cơn bão tuyết',
+      ],
+      answer: 0,
+      dan: 'Then a rainbow appeared, and everyone felt hopeful again.',
+    },
+  ],
+  'places-directions-daily': [
+    {
+      q: 'Bài dẫn nguyên văn câu người khách hỏi đường là gì?',
+      options: [
+        '“Xin lỗi, chỉ giúp tôi đường tới viện bảo tàng với?”',
+        '“Xin lỗi, ngân hàng gần nhất ở lối nào ạ?”',
+        '“Xin lỗi, cho hỏi thư viện có xa chỗ này không?”',
+        '“Xin lỗi, tôi đi bộ tới trung tâm phố được không ạ?”',
+      ],
+      answer: 0,
+      dan: 'You can say, \'Excuse me, could you tell me the way to the museum?\'',
+    },
+    {
+      q: 'Người địa phương bảo đi thẳng con phố này mấy dãy nhà, rồi rẽ hướng nào?',
+      options: [
+        'Hai dãy nhà, tới chỗ giao có đèn thì rẽ trái',
+        'Hai dãy nhà, tới chỗ giao có đèn thì rẽ phải',
+        'Ba dãy nhà, tới chỗ giao có đèn thì rẽ trái',
+        'Hai dãy nhà, tới góc quảng trường thì rẽ trái',
+      ],
+      answer: 0,
+      dan: 'Go straight down this street for two blocks. When you reach the intersection with the traffic light, turn left.',
+    },
+    {
+      q: 'Viện bảo tàng nằm cạnh cái gì, và đối diện cái gì?',
+      options: [
+        'Cạnh một công viên lớn, đối diện thư viện',
+        'Cạnh thư viện, đối diện một công viên lớn',
+        'Cạnh bưu điện, đối diện một công viên lớn',
+        'Cạnh một công viên lớn, đối diện bưu điện',
+      ],
+      answer: 0,
+      dan: 'The museum is on your right, next to a large park and opposite the library.',
+    },
+    {
+      q: 'Nếu cần tiền mặt thì bài nói thường có ngân hàng ở đâu?',
+      options: [
+        'Ở góc quảng trường',
+        'Ở ngay cạnh bưu điện',
+        'Ở giữa trung tâm phố',
+        'Ở đối diện thư viện',
+      ],
+      answer: 0,
+      dan: 'If you need cash, there is usually a bank on the corner of the square.',
+    },
+  ],
+  'housing-home-daily': [
+    {
+      q: 'Trong nhà người kể, ai lau dọn buồng tắm, rửa bồn rửa và bồn tắm?',
+      options: [
+        'Chị (hoặc em) gái của người kể',
+        'Anh (hoặc em) trai của người kể',
+        'Mẹ của người kể',
+        'Chính người kể',
+      ],
+      answer: 0,
+      dan: 'My sister cleans the bathroom, washing the sink and the bathtub.',
+    },
+    {
+      q: 'Ai quét sàn và mang rác đi bỏ?',
+      options: [
+        'Anh (hoặc em) trai của người kể',
+        'Chị (hoặc em) gái của người kể',
+        'Người kể, làm cùng với mẹ',
+        'Cả nhà cùng làm việc đó',
+      ],
+      answer: 0,
+      dan: 'My brother sweeps the floor and takes out the rubbish.',
+    },
+    {
+      q: 'Bên cạnh giường của người kể có những gì?',
+      options: [
+        'Một cái bàn để làm bài tập và một cái tủ để treo quần áo',
+        'Một cái tủ đựng bát đĩa và một cái bàn để làm bài tập',
+        'Một cái chăn ấm và một cái gối mềm để ngủ cho ngon',
+        'Một cái ghế và cái bàn lớn mà cả nhà ngồi ăn quanh',
+      ],
+      answer: 0,
+      dan: 'Beside my bed is a desk where I do my homework, and a wardrobe where I hang my clothes.',
+    },
+    {
+      q: 'Người kể giúp mẹ làm việc gì?',
+      options: [
+        'Rửa bát rồi xếp vào tủ',
+        'Quét sàn rồi mang rác đi bỏ',
+        'Rửa bồn rửa và bồn tắm',
+        'Nấu ăn bằng lò và lò vi ba',
+      ],
+      answer: 0,
+      dan: 'I help my mother wash the dishes and put them in the cupboard.',
+    },
+  ],
+  'food-cooking-daily-p2': [
+    {
+      q: 'Bài nói muốn ăn món lành thì làm cách nào?',
+      options: [
+        'Hấp rau hoặc nướng vỉ cá',
+        'Luộc rau hoặc rán cá trong chảo',
+        'Rán rau trong chảo hoặc hấp cá',
+        'Nướng rau trong lò hoặc luộc cá',
+      ],
+      answer: 0,
+      dan: 'If you like healthy food, you can steam vegetables or grill fish.',
+    },
+    {
+      q: 'Bài bảo dùng dao sắc để thái hoặc xắt những gì?',
+      options: [
+        'Hành và cà chua',
+        'Thịt và cá',
+        'Rau và thịt gà',
+        'Hành và rau',
+      ],
+      answer: 0,
+      dan: 'First, you must take a sharp knife to chop or slice the onions and tomatoes.',
+    },
+    {
+      q: 'Thái xong rồi thì bài bảo làm gì tiếp?',
+      options: [
+        'Trộn mọi thứ trong bát rồi khuấy nước sốt trên bếp',
+        'Cho cả con gà vào lò nướng rồi hấp rau lên trên',
+        'Rót một cốc nước rồi dọn bàn với nĩa, thìa và dao',
+        'Nếm thử rồi thêm muối cho mặn hoặc đường cho ngọt',
+      ],
+      answer: 0,
+      dan: 'Then, you mix everything in a bowl and stir the sauce on the stove.',
+    },
+    {
+      q: 'Bài kết phần nhà hàng bằng những việc gì?',
+      options: [
+        'Xem thực đơn, gọi món, rồi trả tiền và để lại tiền tip',
+        'Xem thực đơn, tự chọn chỗ, rồi trả tiền bằng thẻ tín dụng',
+        'Gọi món với người phục vụ, rồi mang phần còn lại về nhà',
+        'Đặt bàn trước, gọi món, rồi trả tiền và giữ lại hóa đơn',
+      ],
+      answer: 0,
+      dan: 'You look at the menu, tell the waiter or waitress your order, and enjoy a wonderful meal before paying the bill and leaving a tip.',
+    },
+  ],
+  'shopping-clothes-daily': [
+    {
+      q: 'Bài dẫn nguyên văn câu người mua hỏi nhân viên bán hàng là gì?',
+      options: [
+        '“Tôi thử cái này được không?”',
+        '“Cái này bao nhiêu tiền ạ?”',
+        '“Có cỡ lớn hơn không ạ?”',
+        '“Tôi trả bằng thẻ được không?”',
+      ],
+      answer: 0,
+      dan: 'you can ask the shop assistant: \'Can I try this on?\'',
+    },
+    {
+      q: 'Bài kể ba kiểu quần áo không vừa là gì?',
+      options: [
+        'Quá chật, quá rộng, hoặc sai độ dài',
+        'Quá chật, quá rộng, hoặc sai màu',
+        'Quá dày, quá mỏng, hoặc sai độ dài',
+        'Quá chật, sai cỡ, hoặc sai kiểu dáng',
+      ],
+      answer: 0,
+      dan: 'Sometimes clothes are too tight, too loose, or the wrong length.',
+    },
+    {
+      q: 'Theo bài, giữ hóa đơn để làm gì?',
+      options: [
+        'Để trả lại hoặc đổi hàng nếu khóa kéo đứt hay mất cúc',
+        'Để được giảm giá vào lần mua sắm sau ở cùng cửa hàng',
+        'Để chứng minh mình đã trả tiền nếu nhân viên hỏi lại',
+        'Để tính lại tiền thừa nếu người bán đưa thiếu cho mình',
+      ],
+      answer: 0,
+      dan: 'Always keep your receipt in your wallet or pocket, so you can return or exchange the item later if there is a broken zip or a missing button.',
+    },
+    {
+      q: 'Người mua mang món hàng tới đâu để xem có vừa cỡ mình không?',
+      options: [
+        'Phòng thử đồ',
+        'Quầy thu ngân',
+        'Chỗ nhân viên bán hàng',
+        'Trước một cái gương lớn',
+      ],
+      answer: 0,
+      dan: 'You take the item to the fitting room to see if it fits your size or suits your style.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_A2;

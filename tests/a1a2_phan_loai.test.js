@@ -110,9 +110,10 @@ test('mục A2 nào cũng có nhóm hợp lệ và LÝ DO ĐÍCH DANH', () => {
 });
 
 test('A2 khai "đã soạn" thì kho phải CÓ THẬT ≥4 câu', () => {
-  // Bậc A2 hiện chưa có mục nào mang `xong: true` — 'soan' ở đây nghĩa là ĐỦ
-  // ĐIỀU KIỆN, CHƯA soạn câu, nên tấm băng cảnh báo cam còn bật là đúng. Phép
-  // kiểm này để dành cho lúc soạn: khai xong mà kho trống thì nó bắt.
+  // 5 chặng A2 mang `xong: true` sau đợt soạn 19/08. Phép kiểm hỏi KHO GỘP
+  // (`STORY_QUIZ`) chứ không hỏi riêng `STORY_QUIZ_A2`: băng cảnh báo cam tắt
+  // theo kho gộp, nên hỏi đối tượng hẹp hơn thứ mình đang canh là điểm mù đã
+  // dính một lần ở phép kiểm 'viet-lai' của bậc A1.
   for (const [id, m] of Object.entries(PHAN_LOAI_A2)) {
     if (!m.xong) continue;
     const ds = STORY_QUIZ[id];
