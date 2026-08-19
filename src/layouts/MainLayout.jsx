@@ -172,8 +172,18 @@ const MainLayout = ({
            <div className="flex flex-col gap-2">
              <button 
                onClick={() => {
-                 setAppMode('vocab'); 
-                 setIsVocabMenuOpen(!isVocabMenuOpen);
+                 // Bấm TỪ VỰNG khi ĐANG Ở CHỖ KHÁC = "cho tôi vào từ vựng", nên
+                 // phải MỞ menu con chứ không lật trạng thái. Bản cũ lật vô điều
+                 // kiện, mà menu con mặc định đang mở — nên cú bấm tự nhiên nhất
+                 // để vào từ vựng lại ĐÓNG mất hai lối con của chính nó, trong đó
+                 // có OXFORD (260 unit, một trong những khối nội dung lớn nhất
+                 // của app). Người học bấm vào rồi thấy lối đó biến mất thì kết
+                 // luận là không có, chứ không nghĩ tới việc bấm lần nữa.
+                 //
+                 // Đang ở trong từ vựng rồi thì vẫn cho lật, để ai muốn thu gọn
+                 // vẫn thu gọn được.
+                 setIsVocabMenuOpen(appMode === 'vocab' ? !isVocabMenuOpen : true);
+                 setAppMode('vocab');
                }}
                className={`relative p-3 font-black border-4 border-slate-800 dark:border-slate-700 rounded-xl transition-all flex justify-center items-center gap-2 cursor-pointer ${appMode === 'vocab' ? 'bg-green-400 dark:bg-green-500 text-white shadow-none translate-y-1' : 'bg-white dark:bg-slate-800 dark:text-slate-200 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617]'}`}
              >

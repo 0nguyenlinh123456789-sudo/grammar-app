@@ -18,7 +18,8 @@
     "ra:reset": "node scripts/ra_reset.mjs",
     "kiem:camket": "node scripts/kiem_cam_ket.mjs",
     "kiem:banduoc": "node scripts/kiem_banduoc.mjs",
-    "kiem:banlive": "node scripts/kiem_ban_live.mjs"
+    "kiem:banlive": "node scripts/kiem_ban_live.mjs",
+    "khach:het": "node scripts/khach_dung_het.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",

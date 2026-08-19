@@ -1,0 +1,355 @@
+// File: scripts/khach_dung_het.mjs
+//
+//   npm run khach:het
+//
+// ĐÓNG VAI HỌC VIÊN VÀ DÙNG HẾT CÁC KHU VỰC CỦA APP, KHÔNG CHỈ MỞ RA NHÌN.
+//
+// ══ VÌ SAO CẦN BỘ NÀY KHI ĐÃ CÓ `ra:khach` VÀ `hoc:that` ══
+//   · `ra:khach` đi 21 lối vào và chỉ BẤM MỞ — panel hiện ra là đạt.
+//   · `hoc:that` làm hết một bài THẬT, nhưng chỉ ở hai chỗ: bài đọc dài và
+//     chép chính tả.
+// Còn lại — ngữ pháp, từ vựng VSTEP, giáo trình Oxford, trò chơi, ô luyện
+// viết, ô luyện nói, thi cuối bậc, sổ tay — chưa có bộ nào ngồi dùng. Đó là
+// phần lớn thời gian của một người học thật.
+//
+// ══ NÓ ĐO GÌ ══
+//   1. Vào được không.
+//   2. LÀM được không — bấm đúng thứ người học bấm, và có phản hồi.
+//   3. **Thiếu điều kiện thì có NÓI RA không.** Luật của dự án: "thiếu dữ liệu
+//      thì ẨN hoặc BÁO, tuyệt đối không thay thế âm thầm". Khách chưa có key AI
+//      mà bấm chấm bài rồi màn hình quay vòng vô hạn là hỏng, kể cả khi console
+//      sạch bong.
+//
+// ══ BỐN LỖI CỦA CHÍNH BỘ NÀY, ĐỀU BẮT ĐƯỢC Ở LẦN CHẠY ĐẦU ══
+// Ghi lại vì chúng là cùng một họ với lỗi selector đã làm tôi chẩn sai nút
+// reset, và vì bản đầu của bộ này báo "13/16 đạt" trong khi phần lớn số đó
+// không đo cái nó nói là đang đo:
+//
+//   1. **Khổ màn hình.** Chrome mặc định 800px nên app ở bố cục thu gọn, menu
+//      nằm sau nút ba gạch. Phải `Emulation.setDeviceMetricsOverride`.
+//   2. **Bấm thứ khách không thấy.** `BAM_THEO_CHU` bấm phần tử ĐẦU TIÊN khớp
+//      chữ, kể cả khi nó nằm trong menu đang đóng. Nên bộ này báo "đã mở bài
+//      ngữ pháp: IELTS NỀN TẢNG" và "đã vào chủ đề: LỘ TRÌNH" — cả hai là NÚT
+//      MENU. Nay chỉ bấm thứ thật sự hiện ra.
+//   3. **Tự tay đóng lối đi rồi báo không có lối.** Nó bấm TỪ VỰNG (làm menu
+//      con sập xuống) rồi kết luận "không thấy nút OXFORD".
+//   4. **Chưa chọn đề đã tìm ô soạn.** Ô luyện viết mở ra là một DANH SÁCH ĐỀ;
+//      phải chọn một đề thì ô soạn mới hiện. Bản đầu tìm `textarea` ngay và báo
+//      "không tìm thấy ô soạn bài".
+//
+// Nguyên tắc rút ra, áp cho mọi bộ rà sau: **một bước chỉ được tính là ĐẠT khi
+// nó nói được nó đã chạm vào CÁI GÌ.** "Đã mở một bài" mà không in ra tên bài
+// thì không phân biệt được với "đã bấm nhầm nút menu".
+import {
+  moTrinhDuyet, moTab, BAM_THEO_CHU, BAM_DUNG_NHAN, DONG_PANEL,
+} from '../tests/helpers/trinhduyet.mjs';
+import { moMayChuXemTruoc } from '../tests/helpers/mayChuXemTruoc.mjs';
+
+const may = await moMayChuXemTruoc({ cong: 4357 });
+const BASE = may.BASE;
+const { tienTrinh, cong } = await moTrinhDuyet({ cong: 9337 });
+const t = await moTab(cong);
+
+/** Chỉ bấm phần tử khách THẬT SỰ nhìn thấy — xem lỗi số 2 ở đầu file. */
+const BAM_THAY_DUOC = (chu) => `(() => {
+  const hien = (e) => {
+    const r = e.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) return false;
+    const s = getComputedStyle(e);
+    if (s.visibility === 'hidden' || s.display === 'none' || Number(s.opacity) < 0.05) return false;
+    return r.right > 0 && r.bottom > 0 && r.left < innerWidth;
+  };
+  const ds = [...document.querySelectorAll('button, a, [role=button]')]
+    .filter((e) => hien(e) && (e.innerText || '').toUpperCase().includes(${JSON.stringify(chu)}.toUpperCase()));
+  if (!ds.length) return false;
+  ds[0].scrollIntoView({ block: 'center' });
+  ds[0].click();
+  return (ds[0].innerText || '').trim().replace(/\\s+/g, ' ').slice(0, 46) || 'ĐÃ BẤM';
+})()`;
+
+/**
+ * Bấm một mục NỘI DUNG, loại trừ mọi nhãn điều hướng. Danh sách cấm là viết
+ * tay và đó là điểm yếu đã biết của bộ này — nhưng nó CÓ TRẢ VỀ TÊN mục vừa
+ * bấm, nên nhìn nhật ký là biết ngay nó có bấm nhầm menu không.
+ */
+const BAM_NOI_DUNG = (locChu = '') => `(() => {
+  const hien = (e) => { const r = e.getBoundingClientRect(); return r.width > 60 && r.height > 24 && r.left < innerWidth; };
+  // RANH GIỚI ĐO ĐƯỢC GIỮA "ĐIỀU KHIỂN" VÀ "NỘI DUNG":
+  // trong app này mọi nhãn điều hướng và nút công cụ đều VIẾT HOA TOÀN BỘ
+  // ("NGỮ PHÁP", "TÌM TRONG KHÓA HỌC", "MỞ SỔ TAY"), còn tiêu đề nội dung thì
+  // luôn có chữ thường ("Unit 1: Talking…", "Hiện Tại Hoàn Thành", "🌍 Xã Hội…").
+  // Bản trước dùng danh sách cấm viết tay và trượt ngay: nó bấm ô "TÌM TRONG
+  // KHÓA HỌC" rồi báo "đã mở bài ngữ pháp". Một luật đo được thì không phải bổ
+  // sung mãi như danh sách cấm.
+  //
+  // ⚠️ KHÔNG dò chữ thường bằng dải [a-zà-ỹ]: dải đó chạy từ U+00E0 tới U+1EF9
+  // nên nó BAO CẢ CHỮ HOA tiếng Việt (Ọ = U+1ECC). "TÌM TRONG KHÓA HỌC" vì thế
+  // bị coi là "có chữ thường" và lọt lưới — bộ rà lại bấm đúng ô tìm kiếm rồi
+  // báo "đã mở bài ngữ pháp". So với bản viết hoa của chính nó thì đúng ở mọi
+  // bảng chữ cái, không phải nhớ dải mã nào.
+  const laDieuKhien = (s) => s === s.toUpperCase() && s.length < 40;
+  const ds = [...document.querySelectorAll('button')].filter((e) => {
+    const s = (e.innerText || '').trim();
+    if (!s || !hien(e) || laDieuKhien(s)) return false;
+    return ${JSON.stringify(locChu)} ? new RegExp(${JSON.stringify(locChu)}).test(s) : s.length > 8;
+  });
+  if (!ds.length) return false;
+  ds[0].scrollIntoView({ block: 'center' });
+  ds[0].click();
+  return ds[0].innerText.trim().replace(/\\s+/g, ' ').slice(0, 52);
+})()`;
+
+const CHU_TRONG_PANEL = `(() => {
+  return [...document.querySelectorAll('.fixed.inset-0')]
+    .filter((e) => e.getBoundingClientRect().width > 0)
+    .map((e) => e.innerText || '').join('\\n');
+})()`;
+
+const ket = [];
+const ghi = (buoc, ok, chiTiet = '') => {
+  ket.push({ buoc, ok, chiTiet });
+  console.log(`${ok ? 'ĐẠT ' : 'HỎNG'} ${buoc}${chiTiet ? ' :: ' + chiTiet : ''}`);
+};
+const cho = (ms) => new Promise((r) => setTimeout(r, ms));
+const soLoi = () => t.nhatKy.length;
+// Cảnh báo AudioContext là hệ quả của việc chưa có cử chỉ người dùng, không
+// phải lỗi app — `hoc:that` cũng loại nó ra.
+const LOC = (x) => x.loai !== 'CONSOLE_WARN' && !/AudioContext/i.test(String(x.text));
+const loiMoi = (tu) => t.nhatKy.slice(tu).filter(LOC);
+const goiLoi = (ds) => ds.map((x) => `${x.loai}: ${String(x.text).slice(0, 120)}`).join(' ; ');
+
+async function khuVuc(ten, viec) {
+  const truoc = soLoi();
+  let ok = true; let chiTiet = '';
+  try { chiTiet = (await viec()) || ''; } catch (e) { ok = false; chiTiet = e.message; }
+  const lm = loiMoi(truoc);
+  if (lm.length) { ok = false; chiTiet += (chiTiet ? ' | ' : '') + goiLoi(lm); }
+  ghi(ten, ok, chiTiet);
+  return ok;
+}
+
+/** Về trang chủ sạch sẽ, bỏ qua trình hướng dẫn nếu nó hiện lại. */
+async function veTrangChu() {
+  await t.diToi(BASE); await cho(1500);
+  for (const n of ['BẮT ĐẦU NÀO', 'TIẾP TỤC', 'Để sau, vào học luôn']) {
+    await t.danhGia(BAM_THEO_CHU(n)); await cho(350);
+  }
+}
+
+try {
+  // Khách thật dùng màn hình máy tính hoặc điện thoại, không ai dùng 800×600.
+  await t.goi('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  await t.diToi(BASE);
+  await cho(1500);
+
+  await khuVuc('khách mới đi qua trình hướng dẫn', async () => {
+    for (const nhan of ['BẮT ĐẦU NÀO', 'TIẾP TỤC', 'Để sau, vào học luôn']) {
+      await t.danhGia(BAM_THEO_CHU(nhan)); await cho(500);
+    }
+    const conPhu = await t.danhGia("!![...document.querySelectorAll('.fixed.inset-0')].find(e => getComputedStyle(e).zIndex === '150')");
+    if (conPhu) throw new Error('lớp phủ hướng dẫn không đóng');
+    return 'đã vào được màn chính';
+  });
+
+  // ── NGỮ PHÁP ─────────────────────────────────────────────────────────────
+  await khuVuc('NGỮ PHÁP: vào một bài THẬT và thấy nội dung', async () => {
+    if (!await t.danhGia(BAM_THAY_DUOC('NGỮ PHÁP'))) throw new Error('không thấy nút NGỮ PHÁP');
+    await cho(2000);
+    // Bài ngữ pháp đánh số "N. Tên bài"; thẻ lọc cấp độ thì không. Đây là dấu
+    // hiệu phân biệt được, thay cho việc bấm bừa nút dài nhất.
+    const mo = await t.danhGia(BAM_NOI_DUNG('^[0-9]+[.]'));
+    if (!mo) throw new Error('không thấy bài ngữ pháp nào để mở');
+    await cho(2000);
+    const chu = await t.danhGia('document.body.innerText.length');
+    if (chu < 400) throw new Error(`vào bài xong màn hình gần như trống (${chu} ký tự)`);
+    return `đã mở: "${mo}" · ${chu} ký tự`;
+  });
+
+  await khuVuc('NGỮ PHÁP: mở một dạng bài tập và màn hình CÓ đổi', async () => {
+    // Mở bài ra thì có dải thẻ: Lý Thuyết · Xếp Câu · Điền Từ · Sửa Lỗi ·
+    // Viết Lại · Nối Câu · Đúng/Sai · Gia Sư AI. Đó mới là chỗ luyện tập.
+    const chu = await t.danhGia('document.body.innerText');
+    const dang = ['Điền Từ', 'Xếp Câu', 'Sửa Lỗi', 'Đúng/Sai'].filter((d) => chu.includes(d));
+    if (!dang.length) throw new Error('bài mở ra mà không có dạng bài tập nào');
+    const truoc = chu.length;
+    const bam = await t.danhGia(BAM_THAY_DUOC(dang[0]));
+    if (!bam) throw new Error(`thấy chữ "${dang[0]}" mà không bấm được`);
+    await cho(2000);
+    const sau = await t.danhGia('document.body.innerText');
+    if (sau.length === truoc) throw new Error(`bấm "${dang[0]}" mà màn hình không đổi gì`);
+    return `có ${dang.length} dạng bài tập; mở "${dang[0]}" → ${truoc} → ${sau.length} ký tự`;
+  });
+
+  // ── TỪ VỰNG (CHỦ ĐỀ) ─────────────────────────────────────────────────────
+  await veTrangChu();
+  await khuVuc('TỪ VỰNG: vào một chủ đề THẬT và thấy đủ các bước học', async () => {
+    // Bấm CHỦ ĐỀ là ĐÃ ra thẳng danh sách chủ đề. Bản trước còn bấm thêm nút
+    // nhóm "Chủ đề thi VSTEP", và cú bấm thừa đó đưa thẳng vào trong một chủ
+    // đề — nên bước sau tìm thẻ chủ đề thì không còn thấy, và báo "không mở
+    // được chủ đề nào" trong khi thật ra đã vào rồi.
+    if (!await t.danhGia(BAM_THAY_DUOC('CHỦ ĐỀ'))) throw new Error('không thấy lối CHỦ ĐỀ');
+    await cho(2500);
+    // Thẻ chủ đề luôn kèm số từ ("117 từ A2-B1"); nút nhóm chỉ có số trơn.
+    const mo = await t.danhGia(BAM_NOI_DUNG('[0-9]+ ?từ'));
+    if (!mo) throw new Error('không thấy thẻ chủ đề nào (thẻ phải kèm số từ)');
+    await cho(3000);
+    const chu = await t.danhGia('document.body.innerText');
+    if (chu.length < 300) throw new Error(`vào chủ đề xong màn hình trống (${chu.length} ký tự)`);
+    // Màn học một chủ đề có SÁU bước, không phải bốn.
+    const buoc = ['Nhận Diện', 'Nghe', 'Hành Động', 'Câu Chuyện', 'Gõ Từ', 'Luyện Nói']
+      .filter((b) => chu.includes(b));
+    if (buoc.length < 4) throw new Error(`chỉ thấy ${buoc.length}/6 bước học: ${buoc.join(', ')}`);
+    return `chủ đề "${mo}" · ${buoc.length}/6 bước: ${buoc.join(' · ')}`;
+  });
+
+  // ── OXFORD ───────────────────────────────────────────────────────────────
+  // KHÔNG bấm TỪ VỰNG trước: menu con mặc định ĐANG MỞ, bấm vào là đóng nó lại
+  // (xem lỗi số 3 ở đầu file).
+  await veTrangChu();
+  await khuVuc('OXFORD: vào được và mở một unit', async () => {
+    if (!await t.danhGia(BAM_THAY_DUOC('OXFORD'))) throw new Error('không thấy lối OXFORD');
+    await t.doi("!/Đang tải/.test(document.body.innerText)", { giay: 40, nhan: 'Oxford tải xong' });
+    await cho(2000);
+    if (!await t.danhGia("/Unit /i.test(document.body.innerText)")) throw new Error('tải xong mà không có unit nào');
+    const mo = await t.danhGia(BAM_NOI_DUNG('Unit '));
+    if (!mo) throw new Error('không bấm được unit nào');
+    await cho(2500);
+    const chu = await t.danhGia('document.body.innerText.length');
+    if (chu < 400) throw new Error(`unit mở ra gần như trống (${chu} ký tự)`);
+    return `đã mở: "${mo}" · ${chu} ký tự`;
+  });
+
+  // ── GAMES ────────────────────────────────────────────────────────────────
+  await veTrangChu();
+  await khuVuc('GAMES: mở được và vào một trò', async () => {
+    if (!await t.danhGia(BAM_THAY_DUOC('GAMES'))) throw new Error('không thấy nút GAMES');
+    await cho(2500);
+    const choi = await t.danhGia(BAM_NOI_DUNG());
+    if (!choi) throw new Error('không có trò nào bấm được');
+    await cho(2500);
+    const chu = await t.danhGia('document.body.innerText.length');
+    return `đã vào: "${choi}" · ${chu} ký tự`;
+  });
+
+  // ── LUYỆN VIẾT ───────────────────────────────────────────────────────────
+  await veTrangChu();
+  await khuVuc('LUYỆN VIẾT: chọn đề rồi gõ bài được', async () => {
+    if (!await t.danhGia(BAM_DUNG_NHAN('VIẾT'))) throw new Error('không thấy nút VIẾT');
+    await t.doi(`${CHU_TRONG_PANEL}.includes('Luyện viết')`, { giay: 30, nhan: 'panel luyện viết' });
+    await cho(1200);
+    // Panel mở ra là DANH SÁCH ĐỀ — phải chọn một đề thì ô soạn mới hiện.
+    // Phải là THẺ ĐỀ, không phải nút LỌC. Nút lọc ghi "Viết câu"; thẻ đề ghi
+    // "VIẾT CÂU · A1" rồi xuống dòng tới tên đề. Bản trước khớp trúng nút lọc
+    // rồi báo "không có ô soạn bài nào" — lỗi của bộ rà, không phải của app.
+    const de = await t.danhGia(BAM_NOI_DUNG('·\\s*(A1|A2|B1|B2|C1)'));
+    if (!de) throw new Error('không chọn được đề nào trong danh sách');
+    await cho(1800);
+    const goDuoc = await t.danhGia(`(() => {
+      const ta = [...document.querySelectorAll('textarea')].find((e) => e.getBoundingClientRect().height > 30);
+      if (!ta) return false;
+      const setter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
+      setter.call(ta, 'My family lives in a small town near the river. We often go to the market together on Sunday morning and buy fresh vegetables for lunch. I like cooking with my mother.');
+      ta.dispatchEvent(new Event('input', { bubbles: true }));
+      return true;
+    })()`);
+    if (!goDuoc) throw new Error(`chọn đề "${de}" rồi mà không có ô soạn bài nào`);
+    return `đề "${de}" · đã gõ được bài`;
+  });
+
+  await khuVuc('LUYỆN VIẾT: bấm chấm khi CHƯA CÓ key AI thì phải BÁO RA', async () => {
+    await cho(700);
+    const bam = await t.danhGia(`(() => {
+      const el = [...document.querySelectorAll('button')]
+        .find((e) => /chấm|nộp bài|gửi bài/i.test(e.innerText || '') && !e.disabled && e.getBoundingClientRect().width > 0);
+      if (!el) return false;
+      el.click(); return (el.innerText || '').trim().replace(/\\s+/g, ' ').slice(0, 30);
+    })()`);
+    if (!bam) return 'không có nút chấm nào bấm được — hợp lệ nếu app khoá nút khi chưa có key';
+    await cho(4000);
+    const chu = await t.danhGia(CHU_TRONG_PANEL);
+    // ĐÂY LÀ PHÉP ĐO ĐÁNG GIÁ NHẤT CỦA CẢ BỘ.
+    const coBao = /key|khóa ai|khoá ai|API|chưa cấu hình|chưa có|cần.*AI/i.test(chu);
+    const dangQuay = /đang chấm|đang xử lý|vui lòng chờ/i.test(chu);
+    if (dangQuay && !coBao) throw new Error('bấm chấm xong màn hình quay mãi mà không nói vì sao — khách chưa có key sẽ ngồi đợi vô hạn');
+    if (!coBao) throw new Error('bấm chấm mà không có lời báo nào về việc thiếu key AI');
+    return `đã báo ra (nút "${bam}")`;
+  });
+
+  // ── LUYỆN NÓI ────────────────────────────────────────────────────────────
+  await veTrangChu();
+  await khuVuc('LUYỆN NÓI: mở được và nói rõ giới hạn phát âm', async () => {
+    if (!await t.danhGia(BAM_DUNG_NHAN('NÓI'))) throw new Error('không thấy nút NÓI');
+    await t.doi(`${CHU_TRONG_PANEL}.includes('Luyện nói')`, { giay: 30, nhan: 'panel luyện nói' });
+    await cho(1000);
+    const chu = await t.danhGia(CHU_TRONG_PANEL);
+    const thanhThat = /không.*(chấm|đánh giá).*phát âm|phát âm.*không.*(chấm|đánh giá)|nghe được|bản chữ/i.test(chu);
+    if (!thanhThat) throw new Error('panel nói KHÔNG nói rõ là máy không chấm được phát âm');
+    return 'có nói rõ giới hạn';
+  });
+
+  // ── THI THỬ ──────────────────────────────────────────────────────────────
+  await veTrangChu();
+  await khuVuc('THI THỬ: mở được và có nội dung đề', async () => {
+    if (!await t.danhGia(BAM_DUNG_NHAN('THI THỬ NGAY'))) throw new Error('không thấy nút THI THỬ NGAY');
+    await t.doi(`${CHU_TRONG_PANEL}.length > 150`, { giay: 30, nhan: 'panel thi thử' });
+    await cho(1500);
+    const chu = await t.danhGia(CHU_TRONG_PANEL);
+    if (chu.length < 150) throw new Error('panel thi thử trống');
+    return `${chu.length} ký tự`;
+  });
+
+  // ── SỔ TAY ───────────────────────────────────────────────────────────────
+  await veTrangChu();
+  await khuVuc('SỔ TAY: rỗng thì phải NÓI là rỗng, không để màn trắng', async () => {
+    if (!await t.danhGia(BAM_DUNG_NHAN('MỞ SỔ TAY'))) throw new Error('không thấy nút MỞ SỔ TAY');
+    await t.doi(`${CHU_TRONG_PANEL}.length > 60`, { giay: 30, nhan: 'panel sổ tay' });
+    await cho(1000);
+    const chu = await t.danhGia(CHU_TRONG_PANEL);
+    const noiRong = /chưa có|trống|chưa lưu|hãy thêm|chưa ghi/i.test(chu);
+    if (!noiRong && chu.length < 200) throw new Error('sổ tay rỗng nhưng không có lời giải thích nào');
+    return noiRong ? 'có lời báo sổ rỗng' : `${chu.length} ký tự nội dung`;
+  });
+
+  // ── ĐIỆN THOẠI: mọi lối vào lớn phải tới được ────────────────────────────
+  // Phần lớn người học Việt Nam dùng điện thoại. Một lối chỉ hiện ở màn rộng
+  // thì với họ là không tồn tại.
+  await khuVuc('ĐIỆN THOẠI (390px): tới được NGỮ PHÁP, CHỦ ĐỀ, OXFORD, GAMES', async () => {
+    await t.goi('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
+    await veTrangChu();
+    const thieu = [];
+    for (const loi of ['NGỮ PHÁP', 'CHỦ ĐỀ', 'OXFORD', 'GAMES']) {
+      // Mở menu ba gạch nếu có (bố cục thu gọn giấu điều hướng sau nó).
+      await t.danhGia(`(() => {
+        const b = [...document.querySelectorAll('button')].find((e) => (e.getAttribute('aria-label')||'') === 'Mở menu điều hướng');
+        if (b && b.getBoundingClientRect().width > 2) b.click();
+        return true;
+      })()`);
+      await cho(700);
+      if (!await t.danhGia(BAM_THAY_DUOC(loi))) thieu.push(loi);
+      await cho(900);
+      await veTrangChu();
+    }
+    if (thieu.length) throw new Error(`trên điện thoại KHÔNG tới được: ${thieu.join(', ')}`);
+    return 'cả bốn lối đều tới được';
+  });
+
+  // ── Toàn cảnh ────────────────────────────────────────────────────────────
+  const tatCaLoi = t.nhatKy.filter(LOC);
+  ghi('không có lỗi console / ngoại lệ / request hỏng trên toàn hành trình',
+    tatCaLoi.length === 0,
+    tatCaLoi.length ? `${tatCaLoi.length} lỗi: ${goiLoi(tatCaLoi.slice(0, 4))}` : '');
+} finally {
+  const canh = t.nhatKy.filter((x) => !LOC(x));
+  if (canh.length) console.log(`\ncảnh báo (KHÔNG tính vào kết quả): ${canh.length}`);
+  t.dong();
+  tienTrinh.kill();
+  await may.dong?.();
+}
+
+const dat = ket.filter((k) => k.ok).length;
+console.log(`\nbước đạt: ${dat}/${ket.length}`);
+if (dat < ket.length) {
+  console.log('\nCÁC BƯỚC HỎNG:');
+  for (const k of ket.filter((x) => !x.ok)) console.log(`  · ${k.buoc} :: ${k.chiTiet}`);
+}
+process.exit(dat === ket.length ? 0 : 1);
