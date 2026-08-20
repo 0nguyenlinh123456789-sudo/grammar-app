@@ -47,7 +47,11 @@ import { moMayChuXemTruoc } from '../tests/helpers/mayChuXemTruoc.mjs';
 
 const may = await moMayChuXemTruoc({ cong: 4357 });
 const BASE = may.BASE;
-const { tienTrinh, cong } = await moTrinhDuyet({ cong: 9337 });
+// `microGia`: bộ này có một bước lái THẲNG qua ghi âm (getUserMedia +
+// MediaRecorder), nên nó cần một micro. Chỉ bộ này xin — xem ghi chú ở
+// `moTrinhDuyet`: bật mặc định thì nó âm thầm gỡ mất phép kiểm "báo lỗi micro
+// có chỉ đường gõ tay không" của hoc_that.mjs.
+const { tienTrinh, cong } = await moTrinhDuyet({ cong: 9337, microGia: true });
 const t = await moTab(cong);
 
 /** Chỉ bấm phần tử khách THẬT SỰ nhìn thấy — xem lỗi số 2 ở đầu file. */
@@ -421,6 +425,53 @@ try {
     return 'có lời báo về key (không lái được máy ảnh nên chỉ đo được phần này)';
   });
 
+  // ── GHI ÂM NGHE LẠI ──────────────────────────────────────────────────────
+  // Test đơn vị của ghi âm chạy trên một trình duyệt GIẢ do chính test dựng ra.
+  // Nó chứng minh logic đúng; nó không chứng minh `getUserMedia` +
+  // `MediaRecorder` thật ghép được với nút bấm thật. Chỗ này lái trên Chrome
+  // thật với micro giả — đúng cái ranh giới giữa hai loại kiểm.
+  await khuVuc('GHI ÂM: nói xong phải NGHE LẠI được, và nói rõ máy KHÔNG chấm', async () => {
+    await veTrangChu(); await cho(800);
+    if (!await t.danhGia(BAM_DUNG_NHAN('NÓI'))) throw new Error('không thấy nút NÓI trên trang chủ');
+    await cho(1000);
+
+    // Thẻ đề nói là <button> chứa dòng "~N giây". `BAM_NOI_DUNG` lọc theo luật
+    // "có chữ thường" và trượt ở đây vì mấy nút lọc kiểu đề cũng có chữ thường.
+    // Nhận diện bằng dấu hiệu RIÊNG của thẻ đề thay vì một luật chung.
+    const daChonDe = await t.danhGia(`(() => {
+      const ds = [...document.querySelectorAll('button')]
+        .filter((e) => /~\\d+ giây/.test(e.innerText || '') && e.getBoundingClientRect().width > 100);
+      if (!ds.length) return false;
+      ds[0].scrollIntoView({ block: 'center' }); ds[0].click(); return true;
+    })()`);
+    if (!daChonDe) throw new Error('không chọn được đề nói nào trong danh sách');
+    await cho(1200);
+
+    if (!await t.danhGia(BAM_THEO_CHU('Bắt đầu nói'))) throw new Error('không thấy nút Bắt đầu nói');
+    await cho(2500);   // để máy thu kịp gom vài mẩu dữ liệu
+
+    if (!await t.danhGia(BAM_THEO_CHU('Dừng lại'))) throw new Error('bấm nói xong không có nút Dừng lại — micro sẽ còn bật');
+    await cho(1800);
+
+    const coTrinhPhat = await t.danhGia("!![...document.querySelectorAll('audio')].find((e) => e.controls && (e.src || '').startsWith('blob:'))");
+    const chu = await t.danhGia('document.body.innerText');
+    if (!coTrinhPhat) {
+      // Micro giả vẫn có thể không đẻ ra dữ liệu trên vài bản Chrome. Nếu vậy thì
+      // app PHẢI báo, không được im — đó mới là điều bắt buộc ở đây.
+      if (!/không ghi âm được|Không mở được micro|Bản thu rỗng|chưa cho phép dùng micro/i.test(chu)) {
+        throw new Error('không có trình phát để nghe lại VÀ cũng không có lời báo nào — màn hình im lặng');
+      }
+      await t.danhGia(DONG_PANEL); await cho(400);
+      return 'micro giả không đẻ ra bản thu, nhưng app CÓ báo ra (không im lặng)';
+    }
+
+    // Có bản thu thì phải kèm đủ hai lời: không chấm, và không lưu.
+    if (!/không chấm/.test(chu)) throw new Error('có bản ghi âm mà không nói rõ máy KHÔNG chấm nó');
+    if (!/không được lưu vào máy/.test(chu)) throw new Error('không nói rõ bản thu không được lưu lại');
+
+    await t.danhGia(DONG_PANEL); await cho(400);
+    return 'thu được, nghe lại được, và có đủ hai lời: máy không chấm + bản thu không lưu';
+  });
   // ── MỤC TIÊU HỌC ─────────────────────────────────────────────────────────
   // `getLearningGoal()` từng có ĐÚNG 0 nơi gọi: hỏi ở màn hình đầu tiên rồi vứt.
   // Test tĩnh chứng minh được hàm có người gọi; nó KHÔNG chứng minh bấm vào
@@ -680,8 +731,21 @@ try {
   await may.dong?.();
 }
 
+// ══ BÁNH CÓC SỐ BƯỚC ═══════════════════════════════════════════════════════
+// Một bộ rà MẤT BƯỚC mà vẫn báo "toàn ĐẠT" là kiểu hỏng tệ nhất của một bộ rà:
+// nó không đỏ, nó chỉ soi ít đi. Đã dính thật — thêm hai cờ micro giả cho Chrome
+// làm một bước có điều kiện của một bộ rà khác biến mất, và nó tụt từ 35 xuống 34 bước
+// trong khi vẫn in "bước đạt: 34/34".
+//
+// Con số dưới là công thật, chỉ được đi LÊN. Bớt bước có chủ ý thì sửa nó và
+// ghi vì sao — nhưng phải là một quyết định có chữ, không phải một dòng lọt qua.
+const SO_BUOC_TOI_THIEU = 21;
 const dat = ket.filter((k) => k.ok).length;
 console.log(`\nbước đạt: ${dat}/${ket.length}`);
+if (ket.length < SO_BUOC_TOI_THIEU) {
+  console.log(`\n❌ MẤT BƯỚC: chỉ chạy ${ket.length}/${SO_BUOC_TOI_THIEU} bước. Bộ rà đang soi ít hơn trước mà không ai bảo nó bớt.`);
+  process.exit(1);
+}
 if (dat < ket.length) {
   console.log('\nCÁC BƯỚC HỎNG:');
   for (const k of ket.filter((x) => !x.ok)) console.log(`  · ${k.buoc} :: ${k.chiTiet}`);

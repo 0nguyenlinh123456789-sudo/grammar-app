@@ -42,13 +42,34 @@ const doiCong = async (cong, giay = 20) => {
   throw new Error(`Chrome không mở cổng ${cong}`);
 };
 
-export async function moTrinhDuyet({ cong = 9333 } = {}) {
+/**
+ * @param {object} [tuyChon]
+ * @param {boolean} [tuyChon.microGia] cấp sẵn một micro tổng hợp cho tab.
+ *
+ * ⚠️ `microGia` PHẢI LÀ TUỲ CHỌN, KHÔNG ĐƯỢC BẬT MẶC ĐỊNH.
+ * Bản đầu bật cờ này cho MỌI bộ rà, và nó âm thầm gỡ mất một phép kiểm của
+ * `hoc_that.mjs`: bộ đó có một bước chỉ chạy KHI app báo lỗi micro (kiểm rằng
+ * lời báo có chỉ đường gõ tay hay không). Micro được cấp sẵn ⇒ không có lỗi ⇒
+ * bước đó biến mất, và bộ rà tụt từ 35 xuống 34 bước mà vẫn báo "toàn ĐẠT".
+ *
+ * Mất phép kiểm mà vẫn xanh là kiểu hỏng tệ nhất của một bộ rà. Nên môi trường
+ * chỉ được đổi ở đúng bộ CẦN đổi.
+ */
+export async function moTrinhDuyet({ cong = 9333, microGia = false } = {}) {
   const tienTrinh = spawn(timChrome(), [
     '--headless=new', `--remote-debugging-port=${cong}`,
     '--no-first-run', '--no-default-browser-check', '--disable-gpu',
     // Cửa sổ đủ rộng để KHÔNG rơi vào bố cục điện thoại — thanh bên và lưới thẻ
     // của trang chủ chỉ hiện đầy đủ ở bề ngang lớn.
     '--window-size=1440,900',
+    // MICRO GIẢ — chỉ khi bộ rà XIN. Không có hai cờ này thì `getUserMedia`
+    // trong Chrome headless trả về NotAllowedError, nên đường ghi âm không bao
+    // giờ đi qua được và bộ rà báo xanh vì nó không chạm tới.
+    // Micro giả phát một tiếng bíp tổng hợp: đủ để MediaRecorder có dữ liệu.
+    //
+    // KHÔNG kiểm được: chất lượng thu, và Web Speech có nghe ra chữ không —
+    // nhận dạng giọng nói cần dịch vụ đám mây của Google, headless không có.
+    ...(microGia ? ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream'] : []),
     'about:blank',
   ], { stdio: 'ignore' });
   const ver = await doiCong(cong);

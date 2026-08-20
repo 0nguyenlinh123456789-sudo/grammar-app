@@ -566,7 +566,20 @@ try {
   console.log(`\ncảnh báo (KHÔNG tính vào kết quả): ${cb.length}`);
   for (const [k, n] of gomCb) console.log(`  ${n}× ${k}`);
 
+// ══ BÁNH CÓC SỐ BƯỚC ═══════════════════════════════════════════════════════
+// Một bộ rà MẤT BƯỚC mà vẫn báo "toàn ĐẠT" là kiểu hỏng tệ nhất của một bộ rà:
+// nó không đỏ, nó chỉ soi ít đi. Đã dính thật — thêm hai cờ micro giả cho Chrome
+// làm một bước có điều kiện của bộ này biến mất, và nó tụt từ 35 xuống 34 bước
+// trong khi vẫn in "bước đạt: 34/34".
+//
+// Con số dưới là công thật, chỉ được đi LÊN. Bớt bước có chủ ý thì sửa nó và
+// ghi vì sao — nhưng phải là một quyết định có chữ, không phải một dòng lọt qua.
+  const SO_BUOC_TOI_THIEU = 35;
   console.log(`\nbước đạt: ${ket.filter((x) => x.ok).length}/${ket.length}`);
+  if (ket.length < SO_BUOC_TOI_THIEU) {
+    console.log(`\n❌ MẤT BƯỚC: chỉ chạy ${ket.length}/${SO_BUOC_TOI_THIEU} bước. Bộ rà đang soi ít hơn trước mà không ai bảo nó bớt.`);
+    process.exitCode = 1;
+  }
   process.exitCode = ket.every((x) => x.ok) ? 0 : 1;
 } catch (e) {
   console.log('\nRÀ DỪNG GIỮA CHỪNG:', e.message);
