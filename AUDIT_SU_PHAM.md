@@ -7,7 +7,7 @@ Ngày: 2026-08-12   |   Commit: `d595572`
 > **[Mục 10](#10-audit-lại-2026-08-20--đo-lại-từng-khẳng-định-của-mục-08) đo lại từng khẳng định trên mã hiện tại** và đảo ngược nhiều kết luận lớn — riêng ba câu dưới đây nay đều SAI:
 >
 > - ~~"trần CEFR của web là A2"~~ → đo lại: **587 giờ cộng dồn A0→B2**, đủ so với mốc CEFR 500–600 giờ.
-> - ~~"không có một file audio người thật nào"~~ → **239 tệp thu**, 60 bài nghe đoạn dài có bản ghi lời và giấy phép.
+> - ~~"không có một file audio người thật nào"~~ → **239 tệp thu ship kèm bản dựng**, cộng **60 bài nghe đoạn dài của VOA** (bản ghi lời + giấy phép đầy đủ) — nhưng 60 bài đó **phát từ máy chủ VOA**, xem rủi ro ở 10.2 #9.
 > - ~~"không có module phát âm/phonics nào"~~ → **bậc A0 = 12 chặng phonics**, có cả cặp tối thiểu và lỗi đặc thù người Việt.
 >
 > Giữ nguyên mục 0–8 làm hồ sơ lịch sử: chúng cho thấy sản phẩm đã đi từ đâu, và mục 9 (nguyên tắc GIỮ/XÓA nội dung máy sinh) vẫn còn hiệu lực nguyên vẹn.
@@ -271,7 +271,7 @@ Toàn bộ rác truy về được các nhánh fallback trong `generate_preint_d
 | # | Kết luận cũ (12/08) | Đo lại 20/08 | Bằng chứng |
 |---|---|---|---|
 | 1 | Câu hỏi đọc hiểu **không hỏi về bài đọc**; chỉ **1/280** chủ đề có câu soạn tay | **532 chủ đề · 2.128 câu**, và **100% kèm câu DẪN CHỨNG trích nguyên văn từ bài** (trường `dan`) | `storyQuiz*.js` ×6 |
-| 2 | **0 file audio người thật** trong bản ship; 100% TTS | **239 tệp thu**; **60 bài nghe đoạn dài**, 100% có bản ghi lời, câu hỏi kèm căn cứ, và **khai giấy phép** | `public/audio/`, `listeningPassages.js` |
+| 2 | **0 file audio người thật** trong bản ship; 100% TTS | Nay có bản thu người thật, nhưng ở **HAI kho tách biệt**: **239 tệp `tat-*.mp3` (Tatoeba) ship kèm bản dựng** trong `public/audio`, phục vụ mục từ/chép chính tả; và **60 bài nghe đoạn dài của VOA** — 100% có bản ghi lời, câu hỏi kèm căn cứ, khai giấy phép, nhưng **phát trực tiếp từ máy chủ VOA**, không có tệp nội bộ. Xem rủi ro ở [10.2 #9](#102-những-gì-vẫn-còn-thiếu-đo-được-2008) | `public/audio/` (239, git theo dõi đủ), `listeningPassages.js` |
 | 3 | **Không có module phát âm/phonics nào** — "0 kết quả sư phạm" | **Bậc A0 = 12 chặng phonics**: bảng chữ cái, IPA, nguyên âm ngắn/dài/đôi, **/θ/–/ð/**, **âm cuối (đúng lỗi người Việt)**, đuôi -s/-ed, trọng âm, ngữ điệu, nối âm. Có cặp tối thiểu (ship/sheep, bit/beat) | `foundationData.js` 43 KB |
 | 4 | Gamification **thưởng cho cú bấm**; QuizEngine tính điểm rồi vứt | **Cổng độ chính xác**: `PASS_THRESHOLD = 0.8`, `PASS_THRESHOLD_MCQ_HEAVY = 0.85`. `milestone_gate.test.js` bắt mọi chỗ gọi `completeMilestone` phải có **bằng chứng**, hoặc miễn trừ có lý do ghi rõ | `src/utils/mastery.js` |
 | 5 | 30 cú click = danh hiệu **"C2 Master"**, in cả lên ảnh chia sẻ | Đã bỏ — chỉ còn **chú thích ghi lại rằng đã bỏ**. `c1_branch.test.js` chặn **mọi chuỗi** hứa vượt "B2 + nền C1" | `WelcomePage.jsx:268` |
@@ -295,6 +295,7 @@ Toàn bộ rác truy về được các nhánh fallback trong `generate_preint_d
 | **6** | **Chấm nói/viết cần key Gemini của người học** | 100% BYOK, không key server | Người không lấy key **mất phần chấm** của hai kỹ năng sản sinh | Đã nói thẳng trong app; cân nhắc chấm ngoại tuyến theo tiêu chí |
 | **7** | **Bậc B2 mỏng hơn hàng xóm** | B2 **93 giờ** vs B1 151, C1 149 — chênh lệch **đúng bằng** một bộ giáo trình Oxford mà kho không có tập cho B2 | Bậc ĐÍCH là bậc ít giờ nhất | **Mua/xin phép** tài liệu B2 — không phải việc soạn thêm |
 | **8** | **Không khoá chặng** (chỉ khoá mềm) | Chỉ có băng cảnh báo **"⚠ Vượt cấp"**; không chặn | **CỐ Ý** (ghi rõ "(1.6) Khoá MỀM: cảnh báo, không chặn"). Ghi ở đây để không ai đọc nhầm là bỏ sót | Giữ nguyên, trừ khi đổi chủ trương |
+| **9** | **Toàn bộ 60 bài nghe đoạn dài phụ thuộc máy chủ VOA lúc chạy** | **60/60** `audioUrl` trỏ ra `voa-audio.voanews.eu`; **0** tệp nội bộ. `public/audio` có 239 tệp nhưng là bản thu **câu Tatoeba** (`tat-*.mp3`) cho mục khác — **hai tập rời nhau**. `npm run kiem:voa`: **60/60 còn sống** (20/08) | Kỹ năng NGHE của một sản phẩm **có thu phí** treo vào bên thứ ba. VOA đổi hoặc gỡ đường dẫn thì mục nghe **tắt hẳn**, không có bản dự phòng. VOA là tài sản công (public domain) nên **được phép** tải về — đây là rủi ro vận hành, không phải rủi ro bản quyền | Tải 60 tệp về `public/audio` như đã làm với Tatoeba, giữ `audioUrl` gốc làm đường lùi; chạy `kiem:voa` định kỳ cho tới khi tải xong |
 
 ### 10.3 Trả lời lại hai câu hỏi gốc
 
@@ -304,8 +305,8 @@ Audit 12/08 trả lời **"CHƯA, trần là A2"**. Đo lại 20/08: **ĐẠT v�
 
 - **587 giờ** nội dung cộng dồn A0→B2, so với mốc tham chiếu CEFR/Cambridge **500–600 giờ**.
 - Người mất gốc thật **không bị thả nhầm chỗ**: sai hết → `starter` + cờ `preA1` → chỉ thẳng vào cụm A0.
-- Bốn kỹ năng đều có đường: đọc **2.128 câu có dẫn chứng**, nghe **60 bài thu thật**, viết phủ **99–100%** chặng A2+, nói phủ **99–100%** chặng B1+.
-- **Hai giới hạn thật**: phát âm **không chấm được**; chấm nói/viết **cần key AI của chính người học**.
+- Bốn kỹ năng đều có đường: đọc **2.128 câu có dẫn chứng**, nghe **60 bài thu thật** (phát từ máy chủ VOA — xem 10.2 #9), viết phủ **99–100%** chặng A2+, nói phủ **99–100%** chặng B1+.
+- **Ba giới hạn thật**: phát âm **không chấm được**; chấm nói/viết **cần key AI của chính người học**; và mục nghe **phụ thuộc máy chủ VOA lúc chạy**.
 
 **Q2 — Đã có lộ trình rõ ràng chưa?**
 

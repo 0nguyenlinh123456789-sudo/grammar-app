@@ -19,7 +19,8 @@
     "kiem:camket": "node scripts/kiem_cam_ket.mjs",
     "kiem:banduoc": "node scripts/kiem_banduoc.mjs",
     "kiem:banlive": "node scripts/kiem_ban_live.mjs",
-    "khach:het": "node scripts/khach_dung_het.mjs"
+    "khach:het": "node scripts/khach_dung_het.mjs",
+    "kiem:voa": "node scripts/check_voa_links.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",
