@@ -1,6 +1,17 @@
 # BÁO CÁO AUDIT SƯ PHẠM — Bunny English
 Ngày: 2026-08-12   |   Commit: `d595572`
 
+> ## ⛔ MỤC 0–8 LÀ ẢNH CHỤP NGÀY 12/08 VÀ PHẦN LỚN ĐÃ HẾT HIỆU LỰC
+>
+> Đừng trích dẫn mục 0–8 như tình trạng hiện tại. Chúng mô tả commit `d595572`.
+> **[Mục 10](#10-audit-lại-2026-08-20--đo-lại-từng-khẳng-định-của-mục-08) đo lại từng khẳng định trên mã hiện tại** và đảo ngược nhiều kết luận lớn — riêng ba câu dưới đây nay đều SAI:
+>
+> - ~~"trần CEFR của web là A2"~~ → đo lại: **587 giờ cộng dồn A0→B2**, đủ so với mốc CEFR 500–600 giờ.
+> - ~~"không có một file audio người thật nào"~~ → **239 tệp thu**, 60 bài nghe đoạn dài có bản ghi lời và giấy phép.
+> - ~~"không có module phát âm/phonics nào"~~ → **bậc A0 = 12 chặng phonics**, có cả cặp tối thiểu và lỗi đặc thù người Việt.
+>
+> Giữ nguyên mục 0–8 làm hồ sơ lịch sử: chúng cho thấy sản phẩm đã đi từ đâu, và mục 9 (nguyên tắc GIỮ/XÓA nội dung máy sinh) vẫn còn hiệu lực nguyên vẹn.
+
 > Audit chỉ-đọc. Mọi con số dưới đây được đếm bằng script từ dữ liệu thật trong `src/data/`, mọi nhận định đều kèm `file:dòng`. Những gì không kiểm chứng được nằm ở mục 8.
 
 ---
@@ -244,3 +255,60 @@ Toàn bộ rác truy về được các nhánh fallback trong `generate_preint_d
 - Chính sách runtime đi kèm (đợt (f)): **thiếu dữ liệu thì ẨN hoặc BÁO, tuyệt đối không thay thế âm thầm; mọi nội dung thay thế phải tự khai báo là nội dung thay thế.**
 
 *Hết báo cáo. Người viết: audit tự động (Claude Code); audit gốc trên commit `d595572`, phụ lục mục 9 bổ sung cùng ngày sau kiểm kê theo item.*
+
+---
+
+## 10. AUDIT LẠI 2026-08-20 — ĐO LẠI TỪNG KHẲNG ĐỊNH CỦA MỤC 0–8
+
+> Audit gốc lập ngày **2026-08-12** trên commit `d595572`. Tám ngày sau, phần lớn kết luận của nó **đã hết hiệu lực**. Mục này đo lại **từng khẳng định** trên mã hiện tại (`2c7aa4b`) — không tin trí nhớ, không tin báo cáo cũ.
+>
+> ⚠️ **Bản đầu của chính phép đo này đã hỏng và suýt cho kết quả sai.** Nó gọi `rg`, mà shell ở máy này không có `rg`, nên một nửa số phép đếm trả về **0 giả** — đọc thành "tính năng không tồn tại". Nay bộ đo có **chốt tự kiểm**: nếu grep không tìm nổi một chuỗi chắc chắn có thật (`completeMilestone`) thì nó dừng và báo THƯỚC HỎNG thay vì in ra số.
+>
+> Bài học thứ hai, cùng loại: tra `"minimal pair"` ra 0 kết quả và suýt kết luận "không có luyện cặp tối thiểu" — trong khi dữ liệu A0 có sẵn `ship/sheep`, `bit/beat`. **Tra bằng THUẬT NGỮ thì đo được cách người ta đặt tên, không đo được thứ có thật.**
+
+### 10.1 Những gì audit 12/08 nói ĐÚNG lúc đó, nay ĐÃ SỬA
+
+| # | Kết luận cũ (12/08) | Đo lại 20/08 | Bằng chứng |
+|---|---|---|---|
+| 1 | Câu hỏi đọc hiểu **không hỏi về bài đọc**; chỉ **1/280** chủ đề có câu soạn tay | **532 chủ đề · 2.128 câu**, và **100% kèm câu DẪN CHỨNG trích nguyên văn từ bài** (trường `dan`) | `storyQuiz*.js` ×6 |
+| 2 | **0 file audio người thật** trong bản ship; 100% TTS | **239 tệp thu**; **60 bài nghe đoạn dài**, 100% có bản ghi lời, câu hỏi kèm căn cứ, và **khai giấy phép** | `public/audio/`, `listeningPassages.js` |
+| 3 | **Không có module phát âm/phonics nào** — "0 kết quả sư phạm" | **Bậc A0 = 12 chặng phonics**: bảng chữ cái, IPA, nguyên âm ngắn/dài/đôi, **/θ/–/ð/**, **âm cuối (đúng lỗi người Việt)**, đuôi -s/-ed, trọng âm, ngữ điệu, nối âm. Có cặp tối thiểu (ship/sheep, bit/beat) | `foundationData.js` 43 KB |
+| 4 | Gamification **thưởng cho cú bấm**; QuizEngine tính điểm rồi vứt | **Cổng độ chính xác**: `PASS_THRESHOLD = 0.8`, `PASS_THRESHOLD_MCQ_HEAVY = 0.85`. `milestone_gate.test.js` bắt mọi chỗ gọi `completeMilestone` phải có **bằng chứng**, hoặc miễn trừ có lý do ghi rõ | `src/utils/mastery.js` |
+| 5 | 30 cú click = danh hiệu **"C2 Master"**, in cả lên ảnh chia sẻ | Đã bỏ — chỉ còn **chú thích ghi lại rằng đã bỏ**. `c1_branch.test.js` chặn **mọi chuỗi** hứa vượt "B2 + nền C1" | `WelcomePage.jsx:268` |
+| 6 | Chứng nhận in **trình độ ĐẦU VÀO** như thành tựu | Bậc trên giấy **chỉ lấy từ lượt THI ĐẠT**; tờ giấy **tự phủ nhận** nó là chứng chỉ CEFR | `tests/certificate.test.js` |
+| 7 | Biểu đồ kỹ năng là **ảnh chụp đông cứng** của bài test đầu vào | Hồ sơ kỹ năng: kỹ năng **chưa đo được thì ghi rõ lý do**, không dựng khung rỗng, không suy bậc từ kết quả cũ | `tests/skill_profile.test.js` |
+| 8 | Kết quả placement **không điều hướng bất cứ thứ gì** | `recommendationFromPlacement` được `WelcomePage.jsx` dùng thật. Sai hết → bậc `starter` + cờ **`preA1`** → băng vàng chỉ thẳng *"bắt đầu ở cụm A0 — Mất Gốc"*. Đã lái thử tận nơi | `khach:het` bước "KIỂM TRA ĐẦU VÀO" |
+| 9 | Rác template Oxford: `wrong_word_`, `"word": "Từ"`, `"use the word X"` | `wrong_word_` = **0**, `"word": "Từ"` = **0**. Có `contentFilter.js` lọc runtime + `validate_content.mjs` chạy trong `npm test` | đếm trên `src/data` |
+| 10 | Viết: **1 màn hình, 1 câu/lần**; tiến trình câu→đoạn→bài **không tồn tại** | **9 đề soạn tay có bài mẫu** chia đúng ba mức (**2 câu · 4 đoạn · 3 bài**) + **621 đề gắn theo chặng** | `writingPrompts.js`, `writingCounts.js` |
+| 11 | Nhãn nói quá: "AI NGHE THẤY", "Phát âm chuẩn!" | Cả hai **đã bỏ**; chỉ còn chú thích lịch sử. Panel nói thẳng máy **không chấm được phát âm** | `GamesPage.jsx:428` |
+| 12 | Lộ trình **44 chặng**, phủ 9% từ vựng / 24% ngữ pháp / **0/260** unit Oxford | **710 chặng**; tiêu chí **N1 xanh** — *mọi* nội dung đã soạn đều có đúng một chặng dẫn tới | `roadmap_coverage.test.js` |
+
+### 10.2 Những gì VẪN CÒN THIẾU (đo được, 20/08)
+
+| # | Thiếu sót | Đo được | Ảnh hưởng tới cam kết | Việc cần làm |
+|---|---|---|---|---|
+| **1** | **Không có bài thi cuối bậc cho A1 và C1** | Chỉ có **3** bài: A2, B1, B2 (14 câu · 4 phần · ngưỡng 0,7) | Cam kết nói "lên từng bậc **A1**, A2, B1, B2 và **nền C1**" — hai đầu của thang **không có cửa đo** | Soạn `exam-a1` và `exam-c1` theo đúng khuôn 4 phần đã có |
+| **2** | **Mục tiêu học hỏi xong rồi bỏ đó** | `getLearningGoal()` — **0 nơi gọi** | Người chọn "thi VSTEP" và người chọn "giao tiếp" nhận **cùng một lộ trình** | Lọc/xếp lại thứ tự chặng theo `learningGoalV1` |
+| **3** | **App không đo thời gian học** | 0 dòng `timeSpent`/`minutesSpent` | Mọi con số "~N giờ" là **ước lượng tĩnh**, không cá nhân hoá và không tự kiểm được | Ghi thời lượng mỗi buổi, đối chiếu với ước lượng |
+| **4** | **Không ghi âm được giọng mình** | `MediaRecorder`/`getUserMedia` = **0** | Không nghe lại, không shadowing — vòng luyện nói còn hở một nửa | Thêm ghi âm + nghe lại (không hứa chấm phát âm) |
+| **5** | **Không chấm phát âm ở bất kỳ mức nào** | Trình duyệt chỉ trả **bản chữ** | "Tốt 4 kỹ năng" đúng phần nội dung, **không đúng phần phát âm** | Cần API chấm phát âm chuyên dụng — có phí |
+| **6** | **Chấm nói/viết cần key Gemini của người học** | 100% BYOK, không key server | Người không lấy key **mất phần chấm** của hai kỹ năng sản sinh | Đã nói thẳng trong app; cân nhắc chấm ngoại tuyến theo tiêu chí |
+| **7** | **Bậc B2 mỏng hơn hàng xóm** | B2 **93 giờ** vs B1 151, C1 149 — chênh lệch **đúng bằng** một bộ giáo trình Oxford mà kho không có tập cho B2 | Bậc ĐÍCH là bậc ít giờ nhất | **Mua/xin phép** tài liệu B2 — không phải việc soạn thêm |
+| **8** | **Không khoá chặng** (chỉ khoá mềm) | Chỉ có băng cảnh báo **"⚠ Vượt cấp"**; không chặn | **CỐ Ý** (ghi rõ "(1.6) Khoá MỀM: cảnh báo, không chặn"). Ghi ở đây để không ai đọc nhầm là bỏ sót | Giữ nguyên, trừ khi đổi chủ trương |
+
+### 10.3 Trả lời lại hai câu hỏi gốc
+
+**Q1 — Người mất gốc học hết web này có đạt B2 + nền C1 không?**
+
+Audit 12/08 trả lời **"CHƯA, trần là A2"**. Đo lại 20/08: **ĐẠT về khối lượng và đường đi**, với hai giới hạn đã công bố.
+
+- **587 giờ** nội dung cộng dồn A0→B2, so với mốc tham chiếu CEFR/Cambridge **500–600 giờ**.
+- Người mất gốc thật **không bị thả nhầm chỗ**: sai hết → `starter` + cờ `preA1` → chỉ thẳng vào cụm A0.
+- Bốn kỹ năng đều có đường: đọc **2.128 câu có dẫn chứng**, nghe **60 bài thu thật**, viết phủ **99–100%** chặng A2+, nói phủ **99–100%** chặng B1+.
+- **Hai giới hạn thật**: phát âm **không chấm được**; chấm nói/viết **cần key AI của chính người học**.
+
+**Q2 — Đã có lộ trình rõ ràng chưa?**
+
+**RÕ hơn hẳn, còn thiếu ba mắt xích.** Có 710 chặng phủ trọn kho, có đo đầu vào dẫn đúng bậc, có cổng độ chính xác 0,8/0,85, có thi cuối bậc làm căn cứ cấp chứng nhận. **Thiếu**: bài thi cuối bậc cho **A1** và **C1** (mục 10.2 #1), lộ trình **không đổi theo mục tiêu** người học đã chọn (#2), và app **không đo thời gian thật** (#3).
+
+*Phụ lục mục 10 lập 2026-08-20 trên commit `2c7aa4b`. Mọi con số đo bằng script có chốt tự kiểm; chỗ nào không đo được đã ghi rõ là không đo được.*
