@@ -15,6 +15,34 @@ export const BAND_EXAM_INDEX = {
   advanced: {"id":"exam-c1","cefr":"C1","nhan":"Nền C1","ten":"Kiểm tra nền C1","phut":45,"soCauChamDuoc":14},
 };
 
+/**
+ * NHÃN CÔNG BỐ theo mã bậc — thứ được phép in ra giấy.
+ *
+ * Có bảng này vì chuanHoa() trong bandExam.js phải xử lý bản ghi CŨ, tức là
+ * bản ghi thiếu nhanIn. Rơi về k.cefr thì một bản ghi bậc C1 in ra chữ
+ * "C1" trần — đúng cái nói quá mà cả đề nền C1 dựng lên để tránh. Ở đây thì
+ * nó tra đúng "Nền C1" như mọi bản ghi mới.
+ */
+export const NHAN_THEO_CEFR = {
+  "A1": "A1",
+  "A2": "A2",
+  "B1": "B1",
+  "B2": "B2",
+  "C1": "Nền C1",
+};
+
+/**
+ * LỜI GIẢI NGHĨA đi kèm nhãn, tra theo mã bậc.
+ *
+ * Đã dính thật: bản ghi cũ (thiếu nhanIn) đi qua chuanHoa() thì tra ra đúng
+ * nhãn "Nền C1", nhưng ghiChuBac rơi về null — nên tờ giấy in một cái nhãn
+ * lạ mà không nói nó nghĩa là gì. Bộ lái trình duyệt bắt được ở đúng bước
+ * mở tờ chứng nhận. Nhãn và lời giải nghĩa phải đi cùng nhau, luôn.
+ */
+export const GHI_CHU_THEO_CEFR = {
+  "C1": "Đạt đề này nghĩa là phần NGHE và ĐỌC của bạn đã làm được ở mức trên B2 — đủ nền để đi tiếp lên C1. Nó KHÔNG có nghĩa bạn đã đạt C1: một bậc C1 đầy đủ còn cần cả phần nói và viết được người có chuyên môn chấm, mà ứng dụng này không làm được.",
+};
+
 /** Bậc này có đề thi cuối bậc không? Bậc A0 (foundation) cố ý KHÔNG có. */
 export const deThiCuaBac = (band) => BAND_EXAM_INDEX[band] || null;
 

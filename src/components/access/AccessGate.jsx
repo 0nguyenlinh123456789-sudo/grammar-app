@@ -162,9 +162,12 @@ function ProtectedApp({ children }) {
 // without a code — the sales pitch lives here, not behind the gate.
 function LandingSections({ onPricing }) {
   const features = [
-    // (#0-B1) Không hứa "4 kỹ năng"/"luyện nghe": app chưa có bài nghe đoạn dài
-    // hay chấm nói thật — chỉ nghe TTS từng từ/câu và đọc to so khớp văn bản.
-    { icon: '🎧', title: 'Học đủ chiều', desc: 'Ngữ pháp & Từ vựng chuyên sâu, đọc hiểu song ngữ, nghe phát âm chuẩn từng từ và trò chơi ôn tập.' },
+    // (#0-B1) Chữ cũ ở đây viết lúc kho chưa có bản thu nào: "nghe phát âm chuẩn
+    // từng từ". Nay nói ĐÚNG cái có — 239 bản thu giọng người thật và 60 bài nghe
+    // đoạn dài — và vẫn KHÔNG hứa cái không có: app không chấm phát âm, không
+    // chấm ngữ pháp bài viết. Nói ít hơn sự thật cũng là một dạng sai, chỉ là
+    // sai về phía mình chịu thiệt.
+    { icon: '🎧', title: 'Học đủ chiều', desc: 'Ngữ pháp & Từ vựng chuyên sâu, đọc hiểu song ngữ, bài nghe giọng người thật có giấy phép, đề viết và đề nói theo từng chặng. Ứng dụng KHÔNG chấm phát âm và không chấm ngữ pháp bài viết.' },
     // (#0-E1 → #2 2026-08-13) Chữ này giờ đúng với cơ chế thật: làm xong test
     // đầu vào, pickNextMilestone chọn chặng chưa xong đầu tiên TỪ cấp độ đo
     // được trở lên và app mở thẳng chặng đó. Không hứa gì hơn thế — các cấp

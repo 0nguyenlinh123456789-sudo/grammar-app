@@ -78,7 +78,8 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
       </div>
       <table><tr><td style="color:#64748b;text-transform:uppercase;font-size:12px">Kỹ năng (test đầu vào)</td><td></td></tr>${skills}</table>
       <p class="foot">"Đã mở app có tương tác" đo thời gian tab đang hiện và có thao tác — nó KHÔNG khẳng định toàn bộ thời gian đó là thời gian học, và không tính phần học trên giấy.</p>
-      <p class="foot">Nghe, nói và viết chưa được đo: ứng dụng chưa có bài nghe giọng người thật, chưa có đề viết và đề nói được chấm.</p>
+      <p class="foot">Bảng kỹ năng ở trên lấy từ <b>bài kiểm tra đầu vào</b>, và bài đó chỉ hỏi phần Đọc và Ngữ pháp — nên Nghe, Nói, Viết không có số ở đây. Điều đó KHÔNG có nghĩa ứng dụng thiếu nội dung cho ba kỹ năng đó: ứng dụng có bài nghe giọng người thật, có đề viết và đề nói theo từng chặng.</p>
+      <p class="foot">Muốn có con số cho bốn kỹ năng thì làm <b>bài thi cuối bậc</b>. Ngay cả ở đó, phần Nói và Viết vẫn không được chấm điểm: ứng dụng không chấm phát âm và không chấm ngữ pháp bài viết.</p>
       <p class="foot">Báo cáo tạo tự động từ dữ liệu học trên Bunny English. In hoặc lưu PDF bằng Ctrl+P.</p>
       <script>window.print()</script></body></html>`);
     win.document.close();

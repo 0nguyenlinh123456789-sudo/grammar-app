@@ -20,6 +20,7 @@
 // 8/8 vẫn "đạt" — trong khi cái đang cần chứng nhận là cả hai.
 
 import { MOC_TRON_PHUONG_AN } from './tinCayXacMinh.js';
+import { NHAN_THEO_CEFR, GHI_CHU_THEO_CEFR } from '../data/bandExamIndex.js';
 
 const KEY = 'bandExamHistoryV1';
 const TOI_DA = 30;
@@ -124,10 +125,17 @@ function chuanHoa(k) {
     phanKhongTinh: Array.isArray(k.phanKhongTinh) ? k.phanKhongTinh : [],
     moTaCanCu: k.moTaCanCu || 'Bản ghi cũ không lưu lại căn cứ chấm của lượt thi này.',
     lucLam: k.lucLam || null,
-    // Bản ghi lưu TRƯỚC khi có `nhanIn` thì nhãn in bằng chính mã bậc — đúng
-    // như lúc đó nó vẫn in.
-    nhanIn: k.nhanIn || k.cefr || '',
-    ghiChuBac: k.ghiChuBac || null,
+    // Bản ghi lưu TRƯỚC khi có `nhanIn` thì tra nhãn theo mã bậc.
+    //
+    // KHÔNG rơi thẳng về `k.cefr`: một bản ghi bậc C1 mà thiếu `nhanIn` sẽ in
+    // ra chữ "C1" trần lên tờ giấy đi ra ngoài — đúng cái nói quá mà cả đề nền
+    // C1 dựng lên để tránh. Bản ghi trong localStorage thì ai cũng sửa được, và
+    // "chưa từng có bản ghi C1 cũ" là một lý lẽ đúng HÔM NAY, không đúng mãi.
+    nhanIn: k.nhanIn || NHAN_THEO_CEFR[k.cefr] || k.cefr || '',
+    // Nhãn và lời giải nghĩa PHẢI đi cùng nhau. Bản ghi cũ tra ra đúng nhãn
+    // "Nền C1" mà lời giải nghĩa rơi về null thì tờ giấy in một cái nhãn lạ
+    // và im lặng về nó — người đọc vẫn hiểu thành "đạt C1".
+    ghiChuBac: k.ghiChuBac || GHI_CHU_THEO_CEFR[k.cefr] || null,
   };
 }
 

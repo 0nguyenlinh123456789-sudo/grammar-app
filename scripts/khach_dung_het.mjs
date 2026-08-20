@@ -535,6 +535,116 @@ try {
     await t.danhGia(DONG_PANEL); await cho(400);
     return `${soCua} cửa ải · đề trên thẻ: ${tenTrenThe.join(' · ')} · bấm mở thẳng đúng đề`;
   });
+  // ── BÀI NGHE KHI MÁY CHỦ VOA CHẾT ────────────────────────────────────────
+  // Cả 60 bài nghe đoạn dài PHÁT TỪ MÁY CHỦ VOA, không có một tệp nội bộ nào
+  // (tải hết về là 116,9 MB — đã đo bằng content-length, không ước lượng).
+  // Câu hỏi đáng hỏi không phải "VOA có rủi ro không" — có. Mà là: **hôm nay,
+  // link chết thì người học thấy gì?** Luật của dự án là "thiếu dữ liệu thì ẨN
+  // hoặc BÁO, tuyệt đối không thay thế âm thầm", nên một thẻ <audio> chết câm
+  // mới là lỗi thật, và nó không tốn một MB nào để sửa.
+  //
+  // Chặn thẳng tên miền VOA ở tầng mạng — đúng thứ xảy ra khi VOA đổi đường dẫn
+  // hoặc mạng nhà người học chặn. Không giả lập bằng cách sửa src.
+  await khuVuc('BÀI NGHE: máy chủ VOA chết thì phải BÁO và vẫn học được, không câm', async () => {
+    await t.goi('Network.setBlockedURLs', { urls: ['*voa-audio.voanews.eu*'] });
+    try {
+      await veTrangChu(); await cho(700);
+      if (!await t.danhGia(BAM_DUNG_NHAN('NGHE ĐOẠN'))) throw new Error('không thấy nút NGHE ĐOẠN trên trang chủ');
+      await cho(900);
+
+      // Vào một bài bất kỳ trong danh sách.
+      const daVao = await t.danhGia(`(() => {
+        const ds = [...document.querySelectorAll('button')]
+          .filter((e) => /phút/.test(e.innerText || '') && e.getBoundingClientRect().width > 0);
+        if (!ds.length) return false;
+        ds[0].scrollIntoView({ block: 'center' }); ds[0].click(); return true;
+      })()`);
+      if (!daVao) throw new Error('không vào được bài nghe nào từ danh sách');
+      await cho(1200);
+
+      // Trình duyệt chỉ nạp audio khi bấm phát (preload="none").
+      await t.danhGia(BAM_THEO_CHU('Nghe'));
+      await cho(2000);
+
+      const chu = await t.danhGia('document.body.innerText');
+      if (!/Không tải được bản thu/.test(chu)) {
+        throw new Error('máy chủ âm thanh chết mà màn hình KHÔNG báo gì — thẻ audio chết câm');
+      }
+      // Báo thôi chưa đủ: phải còn đường học tiếp, nếu không thì chỉ là một lời
+      // xin lỗi lịch sự trước một màn hình vô dụng.
+      if (!/VOA/.test(chu)) throw new Error('lời báo không nói ra bản thu nằm ở đâu');
+      const coChepLoi = await t.danhGia(`/Bản chép lời|bản chép lời/.test(document.body.innerText)`);
+      if (!coChepLoi) throw new Error('báo lỗi xong không đưa bản chép lời — người học hết đường làm câu hỏi');
+
+      await t.danhGia(DONG_PANEL); await cho(400);
+      return 'chặn tên miền VOA → có băng báo, có nói rõ nguồn, và vẫn còn bản chép lời để làm bài';
+    } finally {
+      await t.goi('Network.setBlockedURLs', { urls: [] });
+    }
+  });
+  // ── TỜ CHỨNG NHẬN ────────────────────────────────────────────────────────
+  // Đây là bề mặt NẶNG NHẤT của cả app: tờ giấy duy nhất đi ra ngoài cho người
+  // khác đọc. Test tĩnh chỉ chứng minh `chamBaiThi` TRẢ VỀ nhãn "Nền C1", và
+  // chứng minh chuỗi `luotThi.nhanIn` có trong mã nguồn. Không cái nào chứng
+  // minh dòng chữ cỡ 5xl trên tờ giấy in ra đúng chữ đó.
+  //
+  // KHÔNG đi thi thật ở đây: `tronPhuongAn` trộn đáp án mỗi lượt, nên lái cho
+  // đạt là chống lại chính bản vá chống bấm bừa. Gieo thẳng sổ thi rồi mở tờ
+  // giấy — đúng thứ cần đo.
+  await khuVuc('TỜ CHỨNG NHẬN: bậc C1 in ra “Nền C1”, KHÔNG in “C1” trần', async () => {
+    await veTrangChu(); await cho(600);
+
+    // Hai bản ghi, hai đường đi khác nhau tới cùng một chỗ:
+    //   · bản MỚI  — có sẵn nhanIn/ghiChuBac;
+    //   · bản CŨ   — THIẾU cả hai, đi qua chuanHoa(). Đây mới là bản ghi thật
+    //     của một người thi trước khi có nhãn công bố, và là đường dễ để lọt
+    //     chữ "C1" trần ra giấy nhất.
+    // Ngày thi phải SAU mốc trộn phương án, nếu không bản ghi bị loại vì lý do
+    // khác và bước này đo nhầm chuyện.
+    const gieo = (coNhan) => `(() => {
+      localStorage.setItem("bandExamHistoryV1", JSON.stringify([{
+        examId: "exam-c1", cefr: "C1", dat: true,
+        lucLam: "2026-08-20T02:00:00.000Z",
+        phan: [{ key: "listening", nhan: "Nghe", dung: 6, tong: 6 }, { key: "reading", nhan: "Đọc", dung: 8, tong: 8 }],
+        phanKhongTinh: [{ key: "writing", nhan: "Viết" }, { key: "speaking", nhan: "Nói" }],
+        moTaCanCu: "Chỉ dựa trên phần Nghe và Đọc.",
+        ...(${coNhan} ? { nhanIn: "Nền C1", ghiChuBac: "Đạt đề này nghĩa là phần NGHE và ĐỌC của bạn đã làm được ở mức trên B2." } : {})
+      }]));
+      return true;
+    })()`;
+
+    const doMotLuot = async (coNhan, ten) => {
+      await t.danhGia(gieo(coNhan));
+      await t.diToi(BASE); await cho(1600);
+      for (const n of ['BẮT ĐẦU NÀO', 'TIẾP TỤC', 'Để sau, vào học luôn']) { await t.danhGia(BAM_THEO_CHU(n)); await cho(300); }
+
+      if (!await t.danhGia(BAM_THEO_CHU('CHỨNG NHẬN'))) throw new Error(`${ten}: không mở được tờ chứng nhận`);
+      await cho(900);
+
+      // Đọc ĐÚNG dòng chữ to nhất trên tờ giấy, không đọc cả trang.
+      const nhanTo = await t.danhGia(`(() => {
+        const el = [...document.querySelectorAll('p')].find((e) => /text-5xl/.test(e.className || ''));
+        return el ? (el.innerText || '').trim() : null;
+      })()`);
+      if (nhanTo === null) throw new Error(`${ten}: không thấy dòng nhãn bậc trên tờ giấy`);
+      if (nhanTo === 'C1') throw new Error(`${ten}: tờ giấy in “C1” trần — nói quá đúng một bậc so với cam kết`);
+      if (nhanTo !== 'Nền C1') throw new Error(`${ten}: nhãn trên giấy là “${nhanTo}”, phải là “Nền C1”`);
+
+      const chu = await t.danhGia('document.body.innerText');
+      if (!/Nhãn này nghĩa là gì/.test(chu)) throw new Error(`${ten}: tờ giấy in nhãn mà không giải nghĩa nhãn`);
+      if (!/KHÔNG phải chứng chỉ CEFR/.test(chu)) throw new Error(`${ten}: mất câu tự phủ nhận chứng chỉ CEFR`);
+
+      await t.danhGia(DONG_PANEL); await cho(400);
+      return nhanTo;
+    };
+
+    const a = await doMotLuot(true, 'bản ghi MỚI');
+    const b = await doMotLuot(false, 'bản ghi CŨ (thiếu nhanIn)');
+
+    await t.danhGia('localStorage.removeItem("bandExamHistoryV1")');
+    await t.diToi(BASE); await cho(800);
+    return `bản mới in “${a}” · bản cũ thiếu nhanIn cũng in “${b}”`;
+  });
   // ── Toàn cảnh ────────────────────────────────────────────────────────────
   const tatCaLoi = t.nhatKy.filter(LOC);
   ghi('không có lỗi console / ngoại lệ / request hỏng trên toàn hành trình',

@@ -398,3 +398,54 @@ test('lộ trình DỰNG THẬT cửa ải cuối bậc, và mở thẳng vào �
   assert.ok(/examIdBanDau/.test(panel),
     'màn hình thi không nhận mã đề mở sẵn — cửa ải sẽ đổ người học vào danh sách năm đề và bắt họ tự tìm lại');
 });
+
+// ══ BẢN GHI CŨ CŨNG PHẢI RA ĐÚNG NHÃN ═════════════════════════════════════
+// Bộ lái trình duyệt bắt được chỗ này ở đúng bước mở tờ chứng nhận: bản ghi
+// THIẾU `nhanIn` (bản ghi của người thi trước khi có nhãn công bố, hoặc bản ghi
+// bị sửa tay trong localStorage) đi qua `chuanHoa()`. Bản đầu rơi thẳng về
+// `k.cefr` → in ra "C1" trần. Vá xong thì nhãn đúng nhưng LỜI GIẢI NGHĨA lại
+// rơi về null → tờ giấy in một cái nhãn lạ rồi im lặng về nó.
+//
+// Hai lần hỏng, cùng một gốc: **nhãn và lời giải nghĩa phải đi cùng nhau.**
+test('bản ghi THIẾU nhanIn vẫn ra đúng nhãn công bố VÀ lời giải nghĩa', async () => {
+  const kho = new Map();
+  globalThis.localStorage = {
+    getItem: (k) => (kho.has(k) ? kho.get(k) : null),
+    setItem: (k, v) => kho.set(k, String(v)),
+    removeItem: (k) => kho.delete(k),
+  };
+  const { luotDatGanNhat, BAND_EXAM_KEY } = await import('../src/utils/bandExam.js');
+
+  // Bản ghi tối giản, KHÔNG có nhanIn, KHÔNG có ghiChuBac — đúng hình dạng một
+  // bản ghi cũ. Ngày sau mốc trộn phương án để nó không bị loại vì lý do khác.
+  kho.set(BAND_EXAM_KEY, JSON.stringify([
+    { examId: 'exam-c1', cefr: 'C1', dat: true, lucLam: '2026-08-20T02:00:00.000Z' },
+  ]));
+  const k = luotDatGanNhat('C1');
+  assert.ok(k, 'bản ghi hợp lệ mà không đọc ra được');
+  assert.notEqual(k.nhanIn, 'C1', 'bản ghi cũ in ra “C1” trần — nói quá đúng một bậc so với cam kết');
+  assert.equal(k.nhanIn, 'Nền C1');
+  assert.ok(k.ghiChuBac && k.ghiChuBac.length > 80,
+    'in nhãn “Nền C1” mà không giải nghĩa thì người đọc tờ giấy vẫn hiểu thành “đạt C1”');
+
+  // Bậc không có nhãn riêng thì hai thứ vẫn trùng nhau, không đẻ ra ghi chú thừa.
+  kho.set(BAND_EXAM_KEY, JSON.stringify([
+    { examId: 'exam-b1', cefr: 'B1', dat: true, lucLam: '2026-08-20T02:00:00.000Z' },
+  ]));
+  const b1 = luotDatGanNhat('B1');
+  assert.equal(b1.nhanIn, 'B1');
+  assert.equal(b1.ghiChuBac, null, 'bậc không khai nhãn riêng thì không được mọc ra lời giải nghĩa');
+});
+
+test('bảng tra NHÃN và GHI CHÚ luôn đi cùng nhau, và khớp kho đề', async () => {
+  const { NHAN_THEO_CEFR, GHI_CHU_THEO_CEFR } = await import('../src/data/bandExamIndex.js');
+  for (const e of bandExams) {
+    assert.equal(NHAN_THEO_CEFR[e.cefr], e.nhanCongBo || e.cefr, `${e.id}: bảng tra nhãn lệch kho`);
+    if (e.nhanCongBo && e.nhanCongBo !== e.cefr) {
+      assert.ok(GHI_CHU_THEO_CEFR[e.cefr], `${e.id}: có nhãn riêng mà bảng tra thiếu lời giải nghĩa`);
+      assert.equal(GHI_CHU_THEO_CEFR[e.cefr], e.ghiChuBac, `${e.id}: lời giải nghĩa trong bảng tra lệch kho`);
+    } else {
+      assert.ok(!GHI_CHU_THEO_CEFR[e.cefr], `${e.id}: không có nhãn riêng mà lại có lời giải nghĩa`);
+    }
+  }
+});

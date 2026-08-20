@@ -2,13 +2,23 @@
 // HỒ SƠ NĂNG LỰC THEO KỸ NĂNG (việc 4.3) — thuần tính toán, có test.
 //
 // "B2 nghe ≠ B2 viết; gộp lại là giấu điểm yếu." Nhưng tách ra bốn thanh rồi
-// điền số vào cả bốn thì còn tệ hơn gộp: hiện app CHƯA ĐO ĐƯỢC nghe, nói, viết.
-//   - Nghe: kho không có một file âm thanh giọng người thật nào (việc 2.1, Đợt 3).
-//     Đo bằng giọng máy đọc rồi gọi là "điểm nghe" là thay thế âm thầm.
-//   - Viết / Nói: chưa có ngân hàng đề, cũng chưa có cách chấm (3.3/3.5, Đợt 4).
-// Nên hồ sơ này hiển thị ĐỦ BỐN KỸ NĂNG, và ba kỹ năng chưa đo được thì ghi
-// thẳng "CHƯA ĐO ĐƯỢC" kèm lý do — không phải một thanh 0% (0% là một tuyên bố
-// sai: nó nói người học làm sai hết).
+// điền số vào cả bốn thì còn tệ hơn gộp: hồ sơ này dựng từ BÀI TEST ĐẦU VÀO,
+// mà bài đó chỉ hỏi phần Đọc và Ngữ pháp. Nghe, Nói, Viết không có số ở đây.
+// Nên hồ sơ hiển thị ĐỦ BỐN KỸ NĂNG, và ba kỹ năng không có số thì ghi thẳng
+// "CHƯA ĐO ĐƯỢC" kèm lý do — không phải một thanh 0% (0% là một tuyên bố sai:
+// nó nói người học làm sai hết).
+//
+// ⚠️ LÝ DO Ở ĐÂY ĐÃ TỪNG SAI, VÀ SAI THEO KIỂU KHÓ THẤY NHẤT.
+// Ba dòng lý do cũ nói: "kho không có một file âm thanh giọng người thật nào",
+// "chưa có đề nói", "chưa có ngân hàng đề viết". Cả ba đều ĐÚNG lúc viết ra và
+// đều đã HẾT đúng: nay có 239 bản thu Tatoeba ship kèm, 60 bài nghe VOA, 621
+// đề viết và 620 đề nói gắn theo chặng. Câu "chưa đo được" thì vẫn đúng —
+// nhưng LÝ DO đi kèm đã thành lời nói xấu chính kho nội dung của mình, in ra
+// tận tờ báo cáo phụ huynh.
+//
+// Bài học: **lý do phải nói về CÁI ĐO, không nói về CÁI CÓ.** Cái đo (test đầu
+// vào hỏi gì) là thứ ổn định; cái có (kho nội dung) thì lớn lên mỗi đợt, và
+// mỗi lần nó lớn lên là một dòng lý do ở đây âm thầm thành sai.
 export const CEFR_SKILL_ORDER = ['listening', 'speaking', 'reading', 'writing'];
 
 export const SKILL_LABEL = {
@@ -25,12 +35,13 @@ export const SKILL_ICON = {
   grammar: '🧱', vocabulary: '📚',
 };
 
-// Lý do CỤ THỂ, kèm mốc — "chưa có" mà không nói bao giờ có thì cũng là một
-// dạng im lặng.
+// Lý do phải nói về CÁI ĐO, không về CÁI CÓ — xem ghi chú ở đầu file. Và phải
+// chỉ ra đường đi tiếp: "chưa đo được" mà không nói đo ở đâu cũng là một dạng
+// im lặng.
 export const NOT_MEASURED_REASON = {
-  listening: 'Chưa đo được — cần bài nghe giọng người thật, chưa có file âm thanh nào trong kho.',
-  speaking: 'Chưa đo được — chưa có đề nói và cách chấm phát âm.',
-  writing: 'Chưa đo được — chưa có ngân hàng đề viết và cách chấm.',
+  listening: 'Chưa đo được — bài kiểm tra đầu vào không có phần Nghe. Muốn có số, làm bài thi cuối bậc (phần Nghe dùng giọng người thật).',
+  speaking: 'Chưa đo được — bài kiểm tra đầu vào không có phần Nói, và ứng dụng KHÔNG chấm phát âm ở bất kỳ đâu. Đề nói thì có sẵn theo từng chặng.',
+  writing: 'Chưa đo được — bài kiểm tra đầu vào không có phần Viết, và ứng dụng KHÔNG chấm ngữ pháp bài viết. Đề viết kèm bài mẫu thì có sẵn theo từng chặng.',
 };
 
 // Hai kỹ năng nền: không nằm trong bốn kỹ năng CEFR, nhưng bài test đầu vào đo
