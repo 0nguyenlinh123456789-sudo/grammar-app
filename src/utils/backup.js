@@ -15,6 +15,17 @@ export const LEARNING_STORAGE_KEYS = [
   // học TỰ LÀM RA, mất là mất hẳn — nên phải nằm trong sao lưu và đồng bộ.
   'writingLogV1',
   'speakingLogV1',
+  // SỔ THI CUỐI BẬC. Đây là CĂN CỨ DUY NHẤT để app gắn nhãn bậc và in tờ
+  // chứng nhận — `luotDatGanNhat`/`bacDaDat` không đọc ở đâu khác. Nó nằm
+  // ngoài danh sách này từ lúc dựng bộ thi, nghĩa là đổi máy hay khôi phục
+  // sao lưu là mất sạch mọi lượt thi đã đạt, và tờ chứng nhận tụt về bản
+  // "chuyên cần". Người học không mất bài học nào nhưng mất đúng thứ chứng
+  // minh họ đã qua bậc.
+  'bandExamHistoryV1',
+  // Đồng hồ học. Là NHẬT KÝ ĐỜI NGƯỜI như bestStreak, không phải tiến độ:
+  // đổi máy mà mất thì con số "đã mở app 40 giờ" về 0 trong khi 40 giờ đó
+  // có thật.
+  'thoiGianHocV1',
 ];
 
 export function createLearningBackup(storage = localStorage) {

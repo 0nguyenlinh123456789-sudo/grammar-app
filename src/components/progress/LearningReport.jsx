@@ -3,8 +3,15 @@ import { Award, BarChart3, Printer, X } from 'lucide-react';
 import SkillProfile from './SkillProfile';
 import { buildSkillProfile, SKILL_LABEL } from '../../utils/skillProfile';
 import { luotDatGanNhat, bacDaDat } from '../../utils/bandExam';
+import { tongGiay, giayGanDay, soNgayCoHoc, doVoiUocLuong } from '../../utils/thoiGianHoc';
 
-export default function LearningReport({ placementResult, weeklyLessons, weeklyXp, completionPercentage = 0, streak = 0, weeklyGoalDays = 0, completedCount = 0, verifiedCount = 0, totalMilestonesCount = 0, onRetakePlacement }) {
+const doiGio = (giay) => {
+  const p = Math.round(giay / 60);
+  if (p < 60) return `${p} phút`;
+  return `${Math.floor(p / 60)} giờ ${p % 60 ? `${p % 60} phút` : ''}`.trim();
+};
+
+export default function LearningReport({ placementResult, weeklyLessons, weeklyXp, completionPercentage = 0, streak = 0, weeklyGoalDays = 0, completedCount = 0, verifiedCount = 0, totalMilestonesCount = 0, phutUocLuongDaDi = 0, onRetakePlacement }) {
   const [showCertificate, setShowCertificate] = useState(false);
   if (!placementResult) return null;
 
@@ -24,6 +31,14 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
   //
   // NHÃN BẬC CHỈ ĐẾN TỪ BÀI THI. Đi hết lộ trình không đẻ ra một bậc nào, vì đi
   // hết lộ trình không phải một phép đo năng lực.
+  // ĐỒNG HỒ HỌC. Trước bản này app không đo một giây nào, nên mọi con số
+  // "~N giờ" trên lộ trình là ước lượng tĩnh KHÔNG AI KIỂM ĐƯỢC — kể cả chủ
+  // dự án. Con số ở đây là thứ đầu tiên cho phép nói ước lượng đó sai bao nhiêu.
+  const giayHoc = tongGiay();
+  const giayTuan = giayGanDay(7);
+  const ngayHoc = soNgayCoHoc();
+  const doSanh = doVoiUocLuong(phutUocLuongDaDi, giayHoc);
+
   const bacThi = bacDaDat();
   const luotThi = bacThi ? luotDatGanNhat(bacThi) : null;
   const certificateReady = (totalMilestonesCount > 0 && verifiedCount >= totalMilestonesCount) || !!luotThi;
@@ -59,8 +74,10 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
         <div class="stat">Đã xác minh bằng bài kiểm tra<b>${verifiedCount}/${totalMilestonesCount} chặng</b></div>
         <div class="stat">Chặng học 7 ngày qua<b>${weeklyLessons} chặng (+${weeklyXp} XP)</b></div>
         <div class="stat">Chuỗi ngày hiện tại<b>${streak} ngày · ${weeklyGoalDays}/7 ngày đạt mục tiêu</b></div>
+        <div class="stat">Đã mở app có tương tác<b>${doiGio(giayHoc)}</b></div>
       </div>
       <table><tr><td style="color:#64748b;text-transform:uppercase;font-size:12px">Kỹ năng (test đầu vào)</td><td></td></tr>${skills}</table>
+      <p class="foot">"Đã mở app có tương tác" đo thời gian tab đang hiện và có thao tác — nó KHÔNG khẳng định toàn bộ thời gian đó là thời gian học, và không tính phần học trên giấy.</p>
       <p class="foot">Nghe, nói và viết chưa được đo: ứng dụng chưa có bài nghe giọng người thật, chưa có đề viết và đề nói được chấm.</p>
       <p class="foot">Báo cáo tạo tự động từ dữ liệu học trên Bunny English. In hoặc lưu PDF bằng Ctrl+P.</p>
       <script>window.print()</script></body></html>`);
@@ -73,6 +90,36 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
           trăm KHÔNG còn nói lên trình độ — bài leo đến khi sai nên ai cũng hội
           tụ về quanh 50–60%. Ô này nay in BẬC; phần trăm lùi xuống dòng phụ. */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5"><ReportStat label="Bậc đầu vào" value={placementResult.cefr || placementResult.levelLabel} hint={placementResult.total ? `${placementResult.correct}/${placementResult.total} câu đúng` : null} /><ReportStat label="Chặng tuần này" value={weeklyLessons} /><ReportStat label="XP tuần này" value={`+${weeklyXp}`} /><ReportStat label="Hoàn thành" value={`${completionPercentage}%`} /></div>
+      {/* Nhãn phải là "MỞ APP CÓ TƯƠNG TÁC", KHÔNG được là "thời gian học".
+          App đo được tab đang hiện và người dùng có chạm vào; nó KHÔNG biết
+          người đó có đang học hay không. Gọi sai tên là biến một phép đo thật
+          thành một tuyên bố sai — đúng loại đã gỡ ở "AI NGHE THẤY". */}
+      {giayHoc > 0 && (
+        <div className="mt-5 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 p-4">
+          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+            <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">Đã mở app có tương tác</p>
+            <p className="text-xl font-black text-slate-900 dark:text-slate-100">{doiGio(giayHoc)}</p>
+            <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+              7 ngày qua: {doiGio(giayTuan)}{ngayHoc > 0 ? ` · ${ngayHoc} ngày có mở` : ''}
+            </p>
+          </div>
+          {doSanh ? (
+            <p className="mt-2 text-[11px] font-bold text-slate-600 dark:text-slate-300 leading-relaxed">
+              Ước lượng cho {completedCount} chặng bạn đã đi là <b>{doiGio(doSanh.phutUocLuong * 60)}</b>; đồng hồ đo được <b>{doiGio(giayHoc)}</b>.{' '}
+              {doSanh.nhan === 'sat' && 'Ước lượng của lộ trình đang sát với nhịp học thật của bạn.'}
+              {doSanh.nhan === 'cham hon' && 'Bạn đang đi CHẬM hơn ước lượng — hoàn toàn bình thường, con số trên lộ trình là mức trung bình chứ không phải hạn nộp.'}
+              {doSanh.nhan === 'nhanh hon' && 'Bạn đang đi NHANH hơn ước lượng. Nếu là vì bấm cho xong thì phần “xác minh nhanh” sẽ nói cho bạn biết.'}
+            </p>
+          ) : (
+            <p className="mt-2 text-[11px] font-bold text-slate-400 leading-relaxed">
+              Chưa đủ dữ liệu để đối chiếu với ước lượng của lộ trình — cần ít nhất 30 phút mở app và một vài chặng đã hoàn thành.
+            </p>
+          )}
+          <p className="mt-2 text-[10px] font-bold text-slate-400 leading-relaxed">
+            Đồng hồ chỉ chạy khi tab đang hiện và bạn có thao tác trong 90 giây gần nhất. Nó <b>không biết</b> bạn có đang học hay không, và không tính thời gian bạn học trên giấy.
+          </p>
+        </div>
+      )}
       <SkillProfile placementResult={placementResult} onRetake={onRetakePlacement} />
       {luotThi && <p className="mt-5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
         Đã đạt <b>bài thi cuối bậc {luotThi.nhanIn || luotThi.cefr}</b> ngày {new Intl.DateTimeFormat('vi-VN').format(new Date(luotThi.lucLam))}. {luotThi.moTaCanCu}

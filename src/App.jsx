@@ -90,6 +90,7 @@ import { SHOW_IELTS_FOUNDATION } from './utils/localOnly';
 import { tryConsumeFreezes } from './utils/streakFreeze';
 import OnboardingWizard from './components/common/OnboardingWizard';
 import { needsOnboarding } from './utils/onboarding';
+import { batDongHoHoc } from './utils/dongHoHoc';
 import { isPassing, saveScore, loadScores, isVerified, MASTERY_STORAGE_KEY } from './utils/mastery';
 import { goMotLan, canBao, daBaoRoi } from './utils/tinCayXacMinh';
 import { roadmapData } from './data/roadmapData';
@@ -246,6 +247,12 @@ export default function App() {
   const [showOnboarding, setShowOnboarding] = useState(needsOnboarding);
 
   useEffect(() => { prefetchLessonDataWhenIdle(); }, []);
+
+  // ĐỒNG HỒ HỌC. Trước bản này app KHÔNG đo thời gian thật một giây nào, nên
+  // mọi con số "~N giờ" trên lộ trình là ước lượng tĩnh không ai kiểm được.
+  // Đồng hồ chỉ chạy khi tab đang HIỆN và có tương tác gần đây — xem lý do
+  // trong utils/dongHoHoc.js.
+  useEffect(() => batDongHoHoc(), []);
 
   useEffect(() => {
     let syncing = false;
@@ -508,6 +515,10 @@ export default function App() {
     // ══ CỐ Ý GIỮ, và đây là ranh giới của nút này ══
     // · bestStreak — kỷ lục đời người.
     // · dailyGoalV1 — số bài mỗi ngày là một TUỲ CHỈNH, không phải tiến độ.
+    // · bandExamHistoryV1 — sổ thi là NHẬT KÝ những lượt thi người học đã
+    //   thật sự làm. Nút này xoá TIẾN ĐỘ, không xoá lịch sử. (Nếu sau này
+    //   muốn đổi, phải đổi cả hộp xác nhận: hiện nó không hứa xoá sổ thi.)
+    // · thoiGianHocV1 — đồng hồ học, cùng loại với bestStreak.
     // · writingLogV1 / speakingLogV1 — bài viết và lượt nói là thứ người học
     //   TỰ LÀM RA. `backup.js` ghi thẳng "mất là mất hẳn". Xoá lén chúng dưới
     //   một cái nút tên "reset lộ trình" là phá công sức của người ta vì một

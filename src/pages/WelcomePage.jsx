@@ -883,7 +883,10 @@ const WelcomePage = ({
         {weeklyLessons === 0 && <p className="mt-4 text-center text-sm font-bold text-slate-500 dark:text-slate-400">Hoàn thành một chặng để bắt đầu tạo nhịp học của bạn.</p>}
       </section>
 
-      <LearningReport placementResult={placementResult} weeklyLessons={weeklyLessons} weeklyXp={weeklyXp} completionPercentage={completionPercentage} streak={streak} weeklyGoalDays={weeklyGoalDays} completedCount={completedCount} verifiedCount={verifiedCount} totalMilestonesCount={totalMilestonesCount} onRetakePlacement={() => setShowPlacement(true)} />
+      {/* `phutUocLuongDaDi` = tổng ước lượng của đúng những chặng đã hoàn
+          thành. Đây là vế thứ hai của phép so: không có nó thì thời gian đo
+          được chỉ là một con số lẻ loi, không nói lên ước lượng đúng hay sai. */}
+      <LearningReport placementResult={placementResult} weeklyLessons={weeklyLessons} weeklyXp={weeklyXp} completionPercentage={completionPercentage} streak={streak} weeklyGoalDays={weeklyGoalDays} completedCount={completedCount} verifiedCount={verifiedCount} totalMilestonesCount={totalMilestonesCount} phutUocLuongDaDi={allMilestones.filter((m) => completedMilestones.includes(m.targetId)).reduce((s, m) => s + (m.minutes || 0), 0)} onRetakePlacement={() => setShowPlacement(true)} />
 
       {/* --- VƯỜN THÚ (bộ sưu tập thú cưng, mở khoá bằng việc học) --- */}
       <PetZoo done={completedMilestones} streak={streak} className="mb-10" />
