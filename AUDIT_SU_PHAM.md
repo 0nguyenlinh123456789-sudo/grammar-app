@@ -359,4 +359,13 @@ Cỡ tải về, **đo bằng `content-length`, 60/60 bài**: **116,9 MB** (trun
 | **Tải 60 bài nghe về** | **116,9 MB** | Vào lịch sử git và mọi lần triển khai. Hôm nay link chết đã **báo và vẫn học được** (11.3), nên đây là chọn giữa rủi ro vận hành và dung lượng — chọn của người trả tiền máy chủ |
 | Số tài khoản + ảnh QR, một kênh giao mã, nơi đặt web | — | Chủ dự án đã hẹn đưa sau cùng |
 
+### 11.5 Ba lỗ tìm thấy TRONG LÚC sửa — không nằm trong bảng 10.2
+
+| Lỗ | Vì sao nó âm thầm | Đã làm gì |
+|---|---|---|
+| **Câu sai in ra TỜ GIẤY ĐƯA PHỤ HUYNH**: *"ứng dụng chưa có bài nghe giọng người thật, chưa có đề viết và đề nói được chấm"* | Cả ba vế **đúng lúc viết ra**. Kho lớn lên (239 bản thu · 60 bài nghe · 621 đề viết · 620 đề nói) nhưng câu chữ đứng yên. Không test nào đỏ vì **không có gì sai về mặt mã** | Sửa cả ba chỗ cùng lứa (, , ). Nguyên tắc mới: **lý do phải nói về CÁI ĐO, không nói về CÁI CÓ**.  đối chiếu mỗi lời khai *"không có X"* thẳng với kho thật |
+| **Onboarding mời chọn mục tiêu "Thi IELTS"** ở màn hình ĐẦU TIÊN người mua thấy — trong khi cụm IELTS **bị ẩn** trên bản khách | Danh sách mục tiêu viết cứng, không hỏi cờ ẩn/hiện | Danh sách dẫn xuất từ dữ liệu; mục tiêu đó chỉ hiện nơi cụm đó hiện |
+| ** không nằm trong sao lưu** — đó là căn cứ **duy nhất** để gắn nhãn bậc và in chứng nhận | Sao lưu vẫn chạy, vẫn báo *"đã khôi phục N mục"*. Chỉ là N thiếu mất một. Lộ ra đúng lúc người ta cần nó nhất | Đưa vào danh sách. Và vì đồng bộ là **đè nguyên khối**, thêm  để sổ thi + đồng hồ học **được GỘP thay vì đè** |
+
+Ba lỗ này đều **không nằm trong bảng 10.2**. Chúng lộ ra vì đi sửa những mục có trong bảng — không phải vì bảng đó soi trúng.
 *Mục 11 lập 2026-08-20. Mọi con số đo bằng script hoặc bằng bộ lái trình duyệt thật; chỗ nào không đo được đã ghi rõ là không đo được.*
