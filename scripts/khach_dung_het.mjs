@@ -421,6 +421,47 @@ try {
     return 'có lời báo về key (không lái được máy ảnh nên chỉ đo được phần này)';
   });
 
+  // ── CỬA ẢI CUỐI BẬC ──────────────────────────────────────────────────────
+  // Test tĩnh chỉ chứng minh chuỗi `<CuaAiCuoiBac` NẰM TRONG mã nguồn. Nó
+  // không chứng minh thẻ đó vẽ ra được, không bị lớp nào che, và bấm vào có
+  // mở đúng đề của bậc hay không — đúng ba thứ chỉ trình duyệt trả lời được.
+  await khuVuc('CỬA ẢI CUỐI BẬC: đủ 5 bậc có cửa, và bấm mở THẲNG đúng đề của bậc', async () => {
+    await veTrangChu(); await cho(900);
+
+    // Mặc định lộ trình chỉ vẽ BẬC ĐỀ XUẤT, nên phải sang tab "TẤT CẢ LỘ TRÌNH"
+    // mới đếm được đủ. Bản đầu của bước này bỏ qua chuyện đó và đếm số <div>
+    // khớp chữ — ra 6 trong khi chỉ có ĐÚNG MỘT cửa ải trên màn hình. Con số 6
+    // là số div lồng nhau của cùng một thẻ. Nay đếm bằng TÊN ĐỀ trên thẻ: mỗi
+    // cửa ải có đúng một tên, nên đếm tên là đếm cửa.
+    if (!await t.danhGia(BAM_THEO_CHU('TẤT CẢ LỘ TRÌNH'))) throw new Error('không thấy tab TẤT CẢ LỘ TRÌNH');
+    await cho(1200);
+
+    const tenTrenThe = await t.danhGia(`(() => {
+      const ds = [...document.querySelectorAll('h4')].map((e) => (e.innerText || '').trim());
+      return ds.filter((x) => /^(Thi cuối bậc|Kiểm tra nền)/.test(x));
+    })()`);
+    const soCua = tenTrenThe.length;
+    if (soCua !== 5) {
+      throw new Error(`lộ trình vẽ ra ${soCua} cửa ải, phải là 5 (A1·A2·B1·B2·nền C1). Thấy: ${tenTrenThe.join(' / ') || 'không thấy tên nào'}`);
+    }
+    // Bậc A0 cố ý KHÔNG có cửa: CEFR không có bậc nào dưới A1.
+    if (tenTrenThe.some((x) => /A0/.test(x))) throw new Error(`mọc ra một cửa ải bậc A0 không tồn tại: ${tenTrenThe.join(' / ')}`);
+
+    // Bấm VÀO THI ở cửa ải ĐẦU TIÊN, rồi soi màn hình mở ra là đề nào.
+    const daBam = await t.danhGia(BAM_DUNG_NHAN('VÀO THI'));
+    if (!daBam) throw new Error('không bấm được nút VÀO THI trên cửa ải');
+    await cho(1200);
+
+    // Mở THẲNG vào đề, KHÔNG đổ vào danh sách 5 đề rồi bắt tự tìm lại.
+    const man = await t.danhGia("document.body.innerText.slice(0, 3000)");
+    const laDanhSach = /Mỗi đề có/.test(man) && /Thi cuối bậc A1/.test(man) && /Thi cuối bậc B2/.test(man);
+    if (laDanhSach) throw new Error('bấm VÀO THI lại đổ vào DANH SÁCH đề — examIdBanDau không tới nơi');
+    const khopDe = tenTrenThe.some((ten) => man.includes(ten));
+    if (!khopDe) throw new Error(`màn mở ra không phải đề của cửa ải vừa bấm. Trên thẻ: ${tenTrenThe.join(' / ')}`);
+
+    await t.danhGia(DONG_PANEL); await cho(400);
+    return `${soCua} cửa ải · đề trên thẻ: ${tenTrenThe.join(' · ')} · bấm mở thẳng đúng đề`;
+  });
   // ── Toàn cảnh ────────────────────────────────────────────────────────────
   const tatCaLoi = t.nhatKy.filter(LOC);
   ghi('không có lỗi console / ngoại lệ / request hỏng trên toàn hành trình',

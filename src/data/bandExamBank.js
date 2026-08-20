@@ -39,6 +39,86 @@
 // định dạng và độ dài; máy KHÔNG kiểm được giọng đọc có nghe ra không.
 
 export const bandExams = [
+  // ══════════════════════════════════════════════════════════════════ A1
+  // Bậc A1 là bậc ĐẦU TIÊN người mất gốc bước qua, nên nó là cửa đo cần nhất —
+  // và nó là cửa duy nhất bị bỏ trống suốt từ lúc dựng bộ thi. Câu Nghe ở đây
+  // cố ý chọn bản thu 4–5 từ: A1 chưa nghe nổi câu dài, đưa câu dài vào thì bài
+  // thi đo sức nghe câu dài chứ không đo bậc A1.
+  {
+    id: 'exam-a1',
+    cefr: 'A1',
+    name: 'Thi cuối bậc A1',
+    moTa: 'Hiểu từ và câu rất ngắn về bản thân, gia đình, việc quen thuộc.',
+    phut: 20,
+    sections: [
+      {
+        key: 'listening',
+        nhan: 'Nghe',
+        chamDuoc: true,
+        nguon: 'clip',
+        huongDan: 'Nghe từng câu ngắn (giọng người thật, nghe lại bao nhiêu lần cũng được) rồi chọn ý đúng.',
+        items: [
+          { id: 'ea1-l1', clipId: 'tat-63168', prompt: 'Carol đang học gì?', options: ['Tiếng Tây Ban Nha', 'Tiếng Pháp', 'Tiếng Nhật', 'Tiếng Trung'], answer: 0, explanation: '“Carol is studying Spanish.” — Spanish = tiếng Tây Ban Nha.' },
+          { id: 'ea1-l2', clipId: 'tat-259840', prompt: 'Người nói thích gì?', options: ['Món ăn Nhật', 'Món ăn Việt', 'Món ăn Ý', 'Món ăn Hàn'], answer: 0, explanation: '“I like Japanese dishes.” — dishes ở đây là MÓN ĂN, không phải cái đĩa.' },
+          { id: 'ea1-l3', clipId: 'tat-252304', prompt: 'Người nói đã đi đâu?', options: ['Nagasaki', 'Tokyo', 'Kyoto', 'Osaka'], answer: 0, explanation: '“I went to Nagasaki.” — went là quá khứ của go.' },
+          { id: 'ea1-l4', clipId: 'tat-32123', prompt: 'Mọi người gọi anh ấy là gì?', options: ['Jeff', 'Jack', 'John', 'James'], answer: 0, explanation: '“Everyone calls him Jeff.” — call ai đó + TÊN nghĩa là gọi bằng tên đó.' },
+          { id: 'ea1-l5', clipId: 'tat-281598', prompt: 'Người nói nói gì về Nhật Bản?', options: ['Đó là một đất nước đẹp', 'Đó là một đất nước lớn', 'Đó là một đất nước lạnh', 'Đó là một hòn đảo nhỏ'], answer: 0, explanation: '“Japan is a beautiful country.” — beautiful = đẹp.' },
+          { id: 'ea1-l6', clipId: 'tat-284814', prompt: 'Câu vừa nghe là gì?', options: ['Một câu hỏi xem anh ấy có con không', 'Một lời kể về con của anh ấy', 'Một câu hỏi xem anh ấy bao nhiêu tuổi', 'Một lời mời'], answer: 0, explanation: '“Does he have any children?” — bắt đầu bằng Does nên đây là CÂU HỎI.' },
+        ],
+      },
+      {
+        key: 'reading',
+        nhan: 'Đọc',
+        chamDuoc: true,
+        huongDan: 'Đọc biển báo, lời nhắn và câu rất ngắn rồi chọn ý đúng.',
+        items: [
+          { id: 'ea1-r1', doan: 'BAKERY — OPEN 7:00 to 11:00', prompt: 'Tiệm bánh mở cửa lúc mấy giờ?', options: ['7 giờ', '11 giờ', '8 giờ', 'Cả ngày'], answer: 0, explanation: '“OPEN 7:00 to 11:00” — mở từ 7 giờ tới 11 giờ.' },
+          { id: 'ea1-r2', doan: 'NO PHOTOS IN THIS ROOM.', prompt: 'Bạn KHÔNG được làm gì trong phòng này?', options: ['Chụp ảnh', 'Nói chuyện', 'Đi vào', 'Ngồi xuống'], answer: 0, explanation: '“No photos” — không được chụp ảnh.' },
+          { id: 'ea1-r3', doan: 'Tom is my brother. He is ten.', prompt: 'Tom bao nhiêu tuổi?', options: ['Mười tuổi', 'Mười một tuổi', 'Hai tuổi', 'Không nói'], answer: 0, explanation: '“He is ten.” — ten = mười.' },
+          { id: 'ea1-r4', doan: 'I have two cats. Their names are Milo and Kiki.', prompt: 'Người viết có mấy con mèo?', options: ['Hai con', 'Một con', 'Ba con', 'Không có con nào'], answer: 0, explanation: '“I have two cats.” — two = hai.' },
+          { id: 'ea1-r5', doan: 'Hi Mai! I am at the park. Come here! — Nam', prompt: 'Nam đang ở đâu?', options: ['Ở công viên', 'Ở nhà', 'Ở trường', 'Ở cửa hàng'], answer: 0, explanation: '“I am at the park.” — park = công viên.' },
+          { id: 'ea1-r6', doan: 'My school is near my house. I walk to school every day.', prompt: 'Người viết đi học bằng cách nào?', options: ['Đi bộ', 'Đi xe đạp', 'Đi xe buýt', 'Bố mẹ chở'], answer: 0, explanation: '“I walk to school” — walk = đi bộ.' },
+          { id: 'ea1-r7', doan: 'It is hot today. I want some water.', prompt: 'Người viết muốn gì?', options: ['Một chút nước', 'Một cái áo', 'Một quyển sách', 'Một bữa ăn'], answer: 0, explanation: '“I want some water.” — water = nước.' },
+          { id: 'ea1-r8', doan: 'THE SHOP IS CLOSED TODAY. Open again on Monday.', prompt: 'Hôm nay cửa hàng thế nào?', options: ['Đóng cửa', 'Mở cửa', 'Mở nửa ngày', 'Không rõ'], answer: 0, explanation: '“CLOSED TODAY” — closed = đóng cửa.' },
+        ],
+      },
+      {
+        key: 'writing',
+        nhan: 'Viết',
+        chamDuoc: false,
+        lyDoKhongCham: 'App không chấm ngữ pháp và không cho điểm bài viết. Máy chỉ đối chiếu được số từ và các cụm bắt buộc; phần còn lại bạn tự soi theo bảng tiêu chí.',
+        de: {
+          id: 'ex-w-a1',
+          deBai: 'Viết 25–50 từ về gia đình bạn: nhà bạn có mấy người, tên họ là gì, và bạn thích làm gì cùng họ.',
+          yeuCau: { soTuToiThieu: 25, soTuToiDa: 50, tuBatBuoc: ['my', 'like'], moTaTuBatBuoc: 'Bài phải có từ “my” và từ “like”.' },
+          checklist: [
+            'Mình đã nói nhà mình có mấy người chưa?',
+            'Mình đã nêu tên ít nhất một người chưa?',
+            'Mình đã nói một việc mình thích làm cùng họ chưa?',
+            'Câu nào cũng bắt đầu bằng chữ hoa và kết thúc bằng dấu chấm chứ?',
+          ],
+          modelAnswer: 'There are four people in my family. My father is Hung and my mother is Hoa. I have one sister. Her name is Mai and she is seven. I like cooking with my mother on Sunday. We are happy.',
+          ghiChuBaiMau: 'Bài mẫu chỉ dùng câu rất ngắn và thì hiện tại đơn — đúng mức A1, không cố viết dài. Chú ý “There are four people”, “Her name is Mai”: A1 chỉ cần nói đúng, chưa cần nói hay. Đây là MỘT cách viết, không phải cách duy nhất.',
+        },
+      },
+      {
+        key: 'speaking',
+        nhan: 'Nói',
+        chamDuoc: false,
+        lyDoKhongCham: 'Trình duyệt chỉ trả về VĂN BẢN nó nghe được, không đánh giá phát âm. App này cố ý không dùng dịch vụ chấm phát âm trả phí.',
+        de: {
+          id: 'ex-s-a1',
+          deBai: 'Nói khoảng 30 giây để giới thiệu bản thân: tên, tuổi, bạn sống ở đâu, và một thứ bạn thích.',
+          giay: 30,
+          soTuToiThieu: 20,
+          tuMucTieu: ['name', 'live', 'like', 'years'],
+          soTuPhaiDung: 3,
+          kieu: 'gioi_thieu',
+        },
+      },
+    ],
+  },
+
   // ══════════════════════════════════════════════════════════════════ A2
   {
     id: 'exam-a2',
@@ -267,6 +347,96 @@ export const bandExams = [
           giay: 90,
           soTuToiThieu: 90,
           tuMucTieu: ['however', 'personally', 'depends', 'research', 'connect'],
+          soTuPhaiDung: 3,
+          kieu: 'lap_luan',
+        },
+      },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════ NỀN C1
+  // ĐỀ NÀY KHÔNG CẤP NHÃN "C1". Cam kết của sản phẩm là "B2 vững + NỀN C1", và
+  // bậc C1 trong lộ trình là NHÁNH DỰ BỊ (`BAC_DU_BI`), không phải một khoá C1
+  // đầy đủ. Nên đề này gắn `nhanCongBo: 'Nền C1'` — cái in ra giấy là "Nền C1",
+  // không phải "C1". Nếu ai đó đổi dòng đó thành 'C1' thì tờ chứng nhận bắt đầu
+  // nói quá đúng bằng cái mà cả chuỗi này dựng lên để chặn; `c1_branch.test.js`
+  // và `band_exam.test.js` cùng ghim lại.
+  //
+  // Vì sao vẫn cần một đề ở đây: không có nó thì câu "nền C1" trong lời hứa
+  // KHÔNG CÓ CỬA ĐO NÀO. Người học đi hết nhánh dự bị xong không có cách gì
+  // biết mình có thật sự đọc/nghe được ở mức trên B2 hay không.
+  {
+    id: 'exam-c1',
+    cefr: 'C1',
+    nhanCongBo: 'Nền C1',
+    ghiChuBac: 'Đạt đề này nghĩa là phần NGHE và ĐỌC của bạn đã làm được ở mức trên B2 — đủ nền để đi tiếp lên C1. Nó KHÔNG có nghĩa bạn đã đạt C1: một bậc C1 đầy đủ còn cần cả phần nói và viết được người có chuyên môn chấm, mà ứng dụng này không làm được.',
+    name: 'Kiểm tra nền C1',
+    moTa: 'Hiểu ý ngầm, thái độ và hàm ý của lời nói và văn bản dài, phức tạp.',
+    phut: 45,
+    sections: [
+      {
+        key: 'listening',
+        nhan: 'Nghe',
+        chamDuoc: true,
+        nguon: 'passage',
+        passageId: 'voa-7937763',
+        huongDan: 'Nghe cả bài (khoảng 4 phút 50 giây, giọng người thật) rồi trả lời. Câu hỏi ở đây hỏi LÝ LẼ và SẮC THÁI, không hỏi chi tiết dễ nhặt. Bản chép lời chỉ hiện sau khi nộp.',
+        items: [
+          { id: 'ec1-l1', prompt: 'Bài mở đầu bằng cách đối lập hai loại quyết định nào?', options: ['Loại được nghĩ kỹ — có tìm hiểu, xem xét, có thời gian nghĩ — với loại quyết rất nhanh, gần như một phản ứng cơ thể', 'Loại đúng với loại sai', 'Loại của người lớn với loại của trẻ con', 'Loại quan trọng với loại không quan trọng'], answer: 0, explanation: '“Some of our decisions are well thought out. They involve research, examination, and time for thought. And other decisions… we make them quickly, without thinking, almost like a pure physical reaction.”' },
+          { id: 'ec1-l2', prompt: 'Vì sao “knee jerk” còn dùng để mô tả hành vi ĐOÁN TRƯỚC ĐƯỢC?', options: ['Vì đập vào đầu gối thì chân bật lên MỖI LẦN — phản ứng lặp lại y hệt nên đoán trước được', 'Vì bác sĩ báo trước cho bệnh nhân', 'Vì phản ứng đó luôn xảy ra chậm', 'Vì người ta học thuộc phản ứng đó'], answer: 0, explanation: '“Again, hit the knee, the leg will kick every time. So ‘knee jerk’ describes someone who always reacts quickly and without enough thought.” — tính đoán trước được đến từ chỗ nó lặp lại y hệt.' },
+          { id: 'ec1-l3', prompt: 'Trong ví dụ về người đồng đội, cái gì bị gọi là phản ứng “knee-jerk”?', options: ['Việc người đó luôn đổ lỗi cho đồng đội khác — một câu trả lời có sẵn, bật ra như phản xạ', 'Việc người đó làm rơi bóng', 'Việc huấn luyện viên phê bình người đó', 'Việc cả đội thua trận'], answer: 0, explanation: '“the player always blames the dropped ball on other teammates… They have a go-to response. It’s like a reflex they can’t control.” — cái bị gọi là knee-jerk là CÂU TRẢ LỜI CÓ SẴN, không phải cú làm rơi bóng.' },
+          { id: 'ec1-l4', prompt: 'Bài nói gì về SẮC THÁI của cụm “knee jerk” khi đem ra dùng?', options: ['Thường mang ý chê — dùng để phê phán', 'Thường mang ý khen', 'Hoàn toàn trung lập', 'Chỉ dùng trong ngành y'], answer: 0, explanation: '“We often use knee-jerk in a criticizing or negative way.” — người học nắm nghĩa mà không nắm sắc thái sẽ dùng nhầm chỗ.' },
+          { id: 'ec1-l5', prompt: 'Về mặt CÁCH DÙNG, “gut reaction” khác “knee jerk” ở chỗ nào?', options: ['Ta thường nói về gut reaction CỦA CHÍNH MÌNH, còn knee jerk thường nói về người khác', 'Gut reaction chỉ dùng trong văn viết', 'Gut reaction luôn đi kèm một con số', 'Hai cụm dùng thay nhau được ở mọi chỗ'], answer: 0, explanation: '“We usually talk about our OWN gut reactions or impulses, not others.” — đây là khác biệt về ai làm chủ ngữ, không phải khác biệt về nghĩa.' },
+          { id: 'ec1-l6', prompt: 'Người kể nói rõ “I can’t explain why” khi kể chuyện leo núi. Chi tiết đó phục vụ điều gì trong lập luận của bài?', options: ['Nó cho thấy bản năng lên tiếng TRƯỚC khi có lý do — đúng với định nghĩa “xảy ra mà không cần nghĩ”', 'Nó cho thấy người kể quên mất chuyện đã xảy ra', 'Nó cho thấy người kể không tin vào bản năng', 'Nó cho thấy con gấu đã được báo trước'], answer: 0, explanation: 'Bài định nghĩa gut reaction là thứ “happens without thinking”. Câu “I can’t explain why, but my gut instinct was to turn around” là ví dụ sống của chính định nghĩa đó — không giải thích được mà vẫn đúng.' },
+        ],
+      },
+      {
+        key: 'reading',
+        nhan: 'Đọc',
+        chamDuoc: true,
+        huongDan: 'Đọc rồi chọn ý đúng. Ở mức này câu trả lời hầu như KHÔNG nằm nguyên văn trong đoạn — phải đọc ra hàm ý, thái độ và cấu trúc lập luận.',
+        items: [
+          { id: 'ec1-r1', doan: 'Far from settling the question, the new data has merely relocated it: we now know where the disagreement is, not who is right.', prompt: 'Bộ dữ liệu mới đã làm được gì?', options: ['Nó chỉ dời chỗ tranh cãi — cho biết bất đồng nằm ở đâu, chứ không cho biết ai đúng', 'Nó đã giải quyết dứt điểm tranh cãi', 'Nó chứng minh một bên đã sai', 'Nó không đem lại thông tin nào'], answer: 0, explanation: '“Far from settling…, has MERELY RELOCATED it” — cấu trúc “far from X” phủ nhận X. Vế sau nói thẳng: biết chỗ bất đồng, không biết ai đúng.' },
+          { id: 'ec1-r2', doan: 'The committee’s response was not entirely without merit, though one struggles to name a single recommendation that survived contact with the budget.', prompt: 'Thái độ của người viết với bản phản hồi của hội đồng là gì?', options: ['Chê — khen lấy lệ rồi chỉ ra rằng chẳng đề xuất nào sống sót qua khâu ngân sách', 'Khen ngợi chân thành', 'Trung lập, chỉ thuật lại', 'Tức giận và đòi giải tán hội đồng'], answer: 0, explanation: '“not entirely without merit” là lối nói giảm để khen nhỏ giọt; “one struggles to name a SINGLE recommendation that survived” là đòn chính. Khen trước, phủ nhận sau.' },
+          { id: 'ec1-r3', doan: 'It has been suggested, though not by anyone with access to the raw figures, that the decline is cyclical.', prompt: 'Mệnh đề chen giữa hai dấu phẩy ngụ ý điều gì?', options: ['Những người thật sự có số liệu gốc KHÔNG nói rằng đó là chu kỳ', 'Số liệu gốc đã bị mất', 'Ai cũng đồng ý rằng đó là chu kỳ', 'Người viết chính là người đưa ra ý kiến đó'], answer: 0, explanation: '“though not by anyone with access to the raw figures” dựng một đối lập ngầm: người nói thì không có số, người có số thì không nói. Đó là cách hạ uy tín một nhận định mà không cần bác bỏ nó.' },
+          { id: 'ec1-r4', doan: 'Were the effect as large as the authors claim, it would have shown up in routine hospital data long before the trial began.', prompt: 'Người viết đang ngụ ý gì?', options: ['Người viết nghi ngờ tác dụng đó không lớn như nhóm tác giả nói', 'Người viết tin tác dụng đó rất lớn', 'Người viết cho rằng thử nghiệm bắt đầu quá muộn', 'Người viết cho rằng dữ liệu bệnh viện không đáng tin'], answer: 0, explanation: 'Đảo ngữ “Were the effect…” là câu điều kiện KHÔNG có thật. Ý ngầm: nó đã KHÔNG hiện ra trong dữ liệu thường quy, nên tác dụng khó mà lớn như vậy.' },
+          { id: 'ec1-r5', doan: 'The rule applies to all staff who joined after March — not, as several managers appear to have assumed, to all staff.', prompt: 'Quy định áp dụng cho ai?', options: ['Chỉ những người vào làm sau tháng Ba', 'Toàn bộ nhân viên', 'Chỉ các quản lý', 'Những người vào làm trước tháng Ba'], answer: 0, explanation: 'Phần sau dấu gạch ngang sửa lại một cách hiểu sai: “not… to ALL staff”. Mấy người quản lý đã hiểu nhầm, và câu này viết ra để chặn đúng cách hiểu nhầm đó.' },
+          { id: 'ec1-r6', doan: 'Critics warned that the reform would slow hiring. If anything, hiring accelerated in the following quarter.', prompt: 'Cụm “if anything” ở đây báo hiệu điều gì?', options: ['Thực tế đi NGƯỢC lời cảnh báo — chẳng những không chậm mà còn nhanh lên', 'Thực tế đúng như lời cảnh báo', 'Chưa có dữ liệu để kết luận', 'Việc tuyển dụng dừng hẳn'], answer: 0, explanation: '“If anything” dùng để nói: nếu có lệch khỏi điều vừa nêu thì lệch theo chiều NGƯỢC LẠI. Ở đây là ngược hẳn lời cảnh báo.' },
+          { id: 'ec1-r7', doan: 'The paper’s contribution lies less in its findings than in its demonstration that the standard method cannot distinguish the two hypotheses at all.', prompt: 'Đóng góp thật sự của bài báo là gì?', options: ['Chỉ ra rằng phương pháp chuẩn hoàn toàn không phân biệt được hai giả thuyết', 'Tìm ra kết quả mới về hai giả thuyết', 'Chứng minh một trong hai giả thuyết là đúng', 'Đề xuất một phương pháp mới'], answer: 0, explanation: 'Cấu trúc “less in X than in Y” đặt trọng lượng vào Y. X là findings, Y là việc VẠCH RA rằng phương pháp chuẩn bất lực.' },
+          { id: 'ec1-r8', doan: 'Naturally, the report was published at five o’clock on the Friday before a public holiday.', prompt: 'Chữ “Naturally” ở đầu câu có tác dụng gì?', options: ['Mỉa mai — ngụ ý người ta cố tình chọn giờ ít ai để ý để công bố', 'Cho biết đây là quy trình bắt buộc', 'Cho biết người viết thấy chuyện đó bất ngờ', 'Cho biết báo cáo được công bố đúng hạn'], answer: 0, explanation: '“Naturally” đứng trước một chi tiết đáng ngờ là dấu hiệu mỉa mai: giờ tan tầm, thứ Sáu, trước kỳ nghỉ — đúng khung giờ để chôn tin xấu. Người viết không nói ra chữ “cố tình” nào.' },
+        ],
+      },
+      {
+        key: 'writing',
+        nhan: 'Viết',
+        chamDuoc: false,
+        lyDoKhongCham: 'App không chấm ngữ pháp và không cho điểm bài viết. Máy chỉ đối chiếu được số từ và các cụm bắt buộc; phần còn lại bạn tự soi theo bảng tiêu chí. Ở mức này khoảng cách giữa "máy đối chiếu được" và "bài viết thật sự tốt" là xa nhất.',
+        de: {
+          id: 'ex-w-c1',
+          deBai: 'Viết 220–300 từ: nhiều nơi đang bỏ bài thi đầu vào và tuyển người dựa trên hồ sơ năng lực. Hãy phân tích MẶT ĐƯỢC và MẶT MẤT của cách làm đó, rồi nêu lập trường có điều kiện — nói rõ nó hợp với hoàn cảnh nào và không hợp với hoàn cảnh nào.',
+          yeuCau: { soTuToiThieu: 220, soTuToiDa: 300, tuBatBuoc: ['nevertheless', 'whereas'], moTaTuBatBuoc: 'Bài phải có “nevertheless” và “whereas” — hai từ nối của lập luận có nhượng bộ và có so sánh đối lập.' },
+          checklist: [
+            'Lập trường của mình có ĐIỀU KIỆN không, hay chỉ là một câu ủng hộ/phản đối chung chung?',
+            'Mình có nêu ít nhất một mặt MẤT thật sự, chứ không phải một mặt mất giả để dễ bác bỏ không?',
+            'Mình có phân biệt được "hoàn cảnh nào hợp" với "hoàn cảnh nào không hợp" bằng một tiêu chí rõ ràng không?',
+            'Các từ nối trong bài có đang làm đúng việc của chúng, hay chỉ được rắc vào cho có?',
+            'Có đoạn nào chỉ nhắc lại đoạn trước bằng từ khác không?',
+          ],
+          modelAnswer: 'Dropping entrance examinations in favour of portfolio assessment is usually defended on grounds of fairness, and up to a point the defence holds. A single test measures a candidate on one morning, under conditions that reward the well-coached as much as the able. A portfolio, by contrast, accumulates evidence over months, and it captures qualities an examination cannot reach at all: persistence, the ability to revise, the willingness to attempt something difficult and fail publicly. Whereas an examination asks what a candidate can produce alone in three hours, a portfolio asks what they have actually built. Nevertheless, the case is weaker than its advocates usually admit, and the reason is not pedagogical but economic. Portfolios are expensive to assess honestly. They require trained readers, calibration between those readers, and time that admissions offices rarely have. Where that investment is absent, the assessment quietly collapses into an assessment of presentation, and presentation is precisely the thing that money buys. A candidate whose parents can pay for editing, photography and advice will submit a better-looking portfolio than an equally capable candidate who cannot, and no rubric written after the fact will undo that advantage. My position, therefore, is conditional rather than general. Portfolio assessment is the better instrument wherever the assessing institution can fund real reading and is admitting small numbers. It is the worse instrument wherever volume forces reviewers to skim, because skimming rewards polish. The relevant question is never which method is fairer in principle. It is whether the institution can afford the method it has chosen, and institutions are seldom asked that question before they announce the change.',
+          ghiChuBaiMau: 'Bài mẫu làm ba việc mà mức trên B2 đòi và mức B2 thường bỏ. Một, nó NHƯỢNG BỘ thật: cả đoạn đầu đứng về phía hồ sơ năng lực trước khi phản bác. Hai, lập trường có ĐIỀU KIỆN và điều kiện đó đo được ("có tiền chấm tử tế hay không", "số lượng lớn hay nhỏ") chứ không phải "tuỳ trường hợp". Ba, câu kết dời câu hỏi sang một chỗ khác thay vì nhắc lại lập trường. Chú ý “Whereas” dùng để so hai bên, “Nevertheless” dùng để quay đầu lập luận — không rắc vào cho có. Đây là MỘT cách viết, không phải cách duy nhất.',
+        },
+      },
+      {
+        key: 'speaking',
+        nhan: 'Nói',
+        chamDuoc: false,
+        lyDoKhongCham: 'Trình duyệt chỉ trả về VĂN BẢN nó nghe được, không đánh giá phát âm. App này cố ý không dùng dịch vụ chấm phát âm trả phí.',
+        de: {
+          id: 'ex-s-c1',
+          deBai: 'Nói khoảng 2 phút: có ý kiến cho rằng “người ta nên học điều mình thích, không nên học điều thị trường cần”. Hãy nói rõ ý kiến đó đúng ở đâu, hỏng ở đâu, rồi đưa lập trường của bạn kèm ĐIỀU KIỆN áp dụng.',
+          giay: 120,
+          soTuToiThieu: 110,
+          tuMucTieu: ['nevertheless', 'arguably', 'distinction', 'depends on', 'in practice'],
           soTuPhaiDung: 3,
           kieu: 'lap_luan',
         },

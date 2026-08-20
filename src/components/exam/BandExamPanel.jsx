@@ -21,8 +21,11 @@ import { tronThuTu } from '../../utils/tronPhuongAn';
 
 const clipUrl = (id) => `/audio/${audioManifest.find((c) => c.id === id)?.file || ''}`;
 
-export default function BandExamPanel({ onClose }) {
-  const [examId, setExamId] = useState(null);
+// `examIdBanDau` để cửa ải cuối bậc trên lộ trình mở THẲNG vào đúng đề của
+// bậc đó. Bắt người vừa học xong bậc A1 phải tự tìm lại đề A1 trong danh sách
+// năm đề là chỗ dễ bỏ cuộc nhất của cả đường đi.
+export default function BandExamPanel({ onClose, examIdBanDau = null }) {
+  const [examId, setExamId] = useState(examIdBanDau);
   const exam = examId ? bandExams.find((e) => e.id === examId) : null;
   if (!exam) return <DanhSach onChon={setExamId} onClose={onClose} />;
   return <LamBai key={exam.id} exam={exam} onBack={() => setExamId(null)} onClose={onClose} />;
@@ -190,10 +193,13 @@ function LamBai({ exam, onBack, onClose }) {
 
     {ketQua && <>
       <div className={`mt-4 rounded-2xl border-4 p-5 text-center ${ketQua.dat ? 'border-emerald-600 bg-emerald-50 dark:bg-emerald-950/30' : 'border-slate-400 bg-slate-50 dark:bg-slate-800'}`}>
-        <p className="text-3xl font-black">{ketQua.dat ? `Đạt bậc ${ketQua.cefr}` : 'Chưa đạt'}</p>
+        <p className="text-3xl font-black">{ketQua.dat ? `Đạt ${ketQua.nhanIn || ketQua.cefr}` : 'Chưa đạt'}</p>
         <p className="mt-2 text-xs font-bold text-slate-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed">
           {ketQua.moTaCanCu} Phần <b>{ketQua.phanKhongTinh.map((p) => p.nhan).join(' và ')}</b> bạn đã làm nhưng <b>không tính vào kết quả này</b>.
         </p>
+        {/* Đề nào có nhãn công bố KHÁC mã bậc (hiện là đề nền C1) thì phải
+            nói rõ nhãn đó nghĩa là gì NGAY tại chỗ, không để người học tự suy. */}
+        {ketQua.dat && ketQua.ghiChuBac && <p className="mt-2 text-xs font-bold text-amber-700 dark:text-amber-400 max-w-lg mx-auto leading-relaxed">{ketQua.ghiChuBac}</p>}
         <p className="mt-2 text-[11px] font-bold text-slate-500">Đây không phải chứng chỉ CEFR.</p>
       </div>
 

@@ -155,7 +155,7 @@ const KHO_NGOAI_LO_TRINH = [
   { file: 'listeningPassages.js', xuat: 'listeningPassages', ten: 'bài nghe theo đoạn (2.2)', soMuc: 60, denDuocToiThieu: 60 },
   { file: 'readingTexts.js', xuat: 'readingTexts', ten: 'bài đọc dài 600–1.000 từ (5.3)', soMuc: 30, denDuocToiThieu: 30 },
   { file: 'audioManifest.js', xuat: 'audioManifest', ten: 'bản thu chép chính tả (2.1/2.3)', soMuc: 239, denDuocToiThieu: 0, lyDo: 'kho dùng chung, tới bằng 3 chặng dictation' },
-  { file: 'bandExamBank.js', xuat: 'bandExams', ten: 'đề thi cuối bậc (4.2)', soMuc: 3, denDuocToiThieu: 0, lyDo: 'cửa ải cuối bậc, N8 không đòi nằm trong đường đi' },
+  { file: 'bandExamBank.js', xuat: 'bandExams', ten: 'đề thi cuối bậc (4.2)', soMuc: 5, denDuocToiThieu: 0, lyDo: 'cửa ải cuối bậc, N8 không đòi nằm trong đường đi' },
 ];
 
 test('mọi bài nghe và bài đọc dài đều có chặng dẫn tới (chữa lỗi 1.3 tái diễn)', async () => {

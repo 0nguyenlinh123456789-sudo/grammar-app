@@ -75,6 +75,13 @@ export function chamBaiThi(exam, traLoi = {}) {
     // bốn kỹ năng.
     phanKhongTinh: phanKhongChamDuoc(exam).map((s) => ({ key: s.key, nhan: s.nhan, lyDo: s.lyDoKhongCham })),
     nhanBac: dat ? exam?.cefr || '' : null,
+    // NHÃN IN RA GIẤY KHÔNG NHẤT THIẾT BẰNG MÃ BẬC.
+    // Đề `exam-c1` mang `cefr: 'C1'` vì nó đo ở mức đó, nhưng cam kết của sản
+    // phẩm là "B2 vững + NỀN C1" — in chữ "C1" to tướng lên tờ giấy đi ra
+    // ngoài là nói quá đúng một bậc. Đề nào tự khai `nhanCongBo` thì tờ giấy
+    // in cái đó; đề không khai thì hai thứ trùng nhau và không có gì đổi.
+    nhanIn: dat ? (exam?.nhanCongBo || exam?.cefr || '') : null,
+    ghiChuBac: exam?.ghiChuBac || null,
     moTaCanCu: `Kết quả này chỉ dựa trên phần ${phanChamDuoc(exam).map((s) => s.nhan).join(' và ')} — hai phần app chấm được.`,
     lucLam: new Date().toISOString(),
   };
@@ -117,6 +124,10 @@ function chuanHoa(k) {
     phanKhongTinh: Array.isArray(k.phanKhongTinh) ? k.phanKhongTinh : [],
     moTaCanCu: k.moTaCanCu || 'Bản ghi cũ không lưu lại căn cứ chấm của lượt thi này.',
     lucLam: k.lucLam || null,
+    // Bản ghi lưu TRƯỚC khi có `nhanIn` thì nhãn in bằng chính mã bậc — đúng
+    // như lúc đó nó vẫn in.
+    nhanIn: k.nhanIn || k.cefr || '',
+    ghiChuBac: k.ghiChuBac || null,
   };
 }
 
@@ -145,7 +156,7 @@ export function luotDatGanNhat(cefr) {
 
 /** Bậc cao nhất người học đã ĐẠT bằng bài thi cuối bậc, hoặc null. */
 export function bacDaDat() {
-  const THU_TU = ['A2', 'B1', 'B2'];
+  const THU_TU = ['A1', 'A2', 'B1', 'B2', 'C1'];
   let cao = null;
   for (const k of load()) {
     if (!k.dat || !laLuotTinDuoc(k)) continue;

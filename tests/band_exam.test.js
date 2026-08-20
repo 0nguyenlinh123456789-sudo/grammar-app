@@ -20,16 +20,66 @@ import { placementBank } from '../src/data/placementBank.js';
 import { audioManifest } from '../src/data/audioManifest.js';
 import { listeningPassages } from '../src/data/listeningPassages.js';
 
-const BAC = ['A2', 'B1', 'B2'];
+const BAC = ['A1', 'A2', 'B1', 'B2', 'C1'];
 const PHAN = ['listening', 'reading', 'writing', 'speaking'];
 
 // Bánh cóc: số câu chấm được chỉ được đi lên. Soạn tay nên con số này là công
 // thật, không phải con số sinh ra được.
-const CAU_CHAM_DUOC_TOI_THIEU = 42;
+const CAU_CHAM_DUOC_TOI_THIEU = 70;
 
-test('có đủ ba đề A2 / B1 / B2, mỗi bậc đúng một đề', () => {
+test('có đủ năm đề A1 / A2 / B1 / B2 / nền C1, mỗi bậc đúng một đề', () => {
   assert.deepEqual(bandExams.map((e) => e.cefr), BAC);
-  assert.equal(new Set(bandExams.map((e) => e.id)).size, 3);
+  assert.equal(new Set(bandExams.map((e) => e.id)).size, BAC.length);
+});
+
+// ══ NHÃN CÔNG BỐ ══════════════════════════════════════════════════════════
+// Cam kết của sản phẩm là "B2 vững + NỀN C1" — KHÔNG phải một khoá C1 đầy đủ.
+// Đề `exam-c1` đo ở mức trên B2, nhưng cái IN RA GIẤY phải là "Nền C1". Đổi
+// một chữ ở đó thành 'C1' là tờ chứng nhận bắt đầu nói quá đúng một bậc, và
+// nó sẽ đi ra ngoài cho người khác đọc. Ghim cả ba chiều: nhãn không được là
+// mã bậc trần, nhãn phải kèm lời giải nghĩa, và lời giải nghĩa phải nói thẳng
+// rằng đây CHƯA phải đạt C1.
+test('đề nền C1 KHÔNG công bố nhãn “C1” trần, và phải tự giải nghĩa nhãn của mình', () => {
+  const e = bandExams.find((x) => x.cefr === 'C1');
+  assert.ok(e, 'mất đề nền C1 — cam kết có nhắc “nền C1” mà không còn cửa đo nào');
+  assert.equal(e.nhanCongBo, 'Nền C1', 'nhãn công bố của đề này phải là “Nền C1”, không phải mã bậc');
+  assert.ok(e.ghiChuBac && e.ghiChuBac.length > 80, 'nhãn khác mã bậc thì phải giải nghĩa ngay, không để người học tự suy');
+  assert.ok(/KHÔNG có nghĩa|không có nghĩa/.test(e.ghiChuBac), 'lời giải nghĩa phải nói thẳng nhãn này KHÔNG phải “đã đạt C1”');
+
+  const traLoi = {};
+  for (const s of phanChamDuoc(e)) for (const it of s.items) traLoi[it.id] = it.answer;
+  const kq = chamBaiThi(e, traLoi);
+  assert.equal(kq.nhanIn, 'Nền C1', 'kết quả chấm phải mang theo nhãn công bố, vì đó là thứ giao diện in ra');
+  assert.ok(kq.ghiChuBac, 'kết quả chấm phải mang theo lời giải nghĩa tới tận tờ giấy');
+});
+
+test('đề nào KHÔNG khai nhãn riêng thì nhãn in ra đúng bằng mã bậc', () => {
+  for (const e of bandExams.filter((x) => !x.nhanCongBo)) {
+    const traLoi = {};
+    for (const s of phanChamDuoc(e)) for (const it of s.items) traLoi[it.id] = it.answer;
+    assert.equal(chamBaiThi(e, traLoi).nhanIn, e.cefr, `${e.id}: nhãn in lệch khỏi mã bậc mà đề không khai nhãn riêng`);
+  }
+});
+
+// Nhãn công bố mà không có lời giải nghĩa là cách âm thầm nhất để một đề mới
+// gắn cho mình một chữ đẹp hơn thứ nó đo được.
+test('bất kỳ đề nào khai nhãn riêng đều phải kèm lời giải nghĩa', () => {
+  for (const e of bandExams) {
+    if (!e.nhanCongBo) continue;
+    assert.notEqual(e.nhanCongBo, e.cefr, `${e.id}: khai nhãn riêng mà lại trùng mã bậc — thừa`);
+    assert.ok(e.ghiChuBac && e.ghiChuBac.length > 80, `${e.id}: nhãn riêng phải kèm lời giải nghĩa`);
+  }
+});
+
+// Giao diện in nhãn nào là chuyện của giao diện — nên ghim ở chính giao diện.
+test('màn hình thi và tờ chứng nhận in NHÃN CÔNG BỐ, không in mã bậc trần', async () => {
+  const fs = await import('node:fs');
+  const panel = fs.readFileSync('src/components/exam/BandExamPanel.jsx', 'utf8');
+  assert.ok(/ketQua\.nhanIn/.test(panel), 'BandExamPanel phải in ketQua.nhanIn — in ketQua.cefr là in "C1" cho đề nền C1');
+  assert.ok(/ketQua\.ghiChuBac/.test(panel), 'màn hình thi phải hiện lời giải nghĩa nhãn ngay tại chỗ');
+  const rp = fs.readFileSync('src/components/progress/LearningReport.jsx', 'utf8');
+  assert.ok(/luotThi\.nhanIn/.test(rp), 'tờ chứng nhận phải in luotThi.nhanIn');
+  assert.ok(/luotThi\.ghiChuBac/.test(rp), 'tờ chứng nhận phải in kèm lời giải nghĩa nhãn');
 });
 
 test('mỗi đề có đủ BỐN phần Nghe · Đọc · Viết · Nói', () => {
@@ -245,15 +295,28 @@ test('bản ghi kết quả THIẾU TRƯỜNG vẫn đọc ra được hình d�
 // placementBank" so MÃ, nên nó không bắt được một câu hỏi bị viết lại bằng lời
 // khác. Đây là chỗ đã dính thật — hai câu B2 lúc đầu chính là câu hỏi của bài
 // nghe luyện tập viết lại. Test này so NỘI DUNG với đúng bài nghe được dùng.
-test('câu hỏi Nghe B2 không trùng nội dung với câu hỏi của chính bài nghe luyện tập', () => {
-  const e = bandExams.find((x) => x.cefr === 'B2');
-  const nghe = e.sections.find((s) => s.key === 'listening');
-  const bai = listeningPassages.find((b) => b.id === nghe.passageId);
+test('câu hỏi Nghe theo bài không trùng nội dung với câu hỏi của chính bài nghe luyện tập', () => {
   const chuan = (t) => String(t).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-  const cu = (bai.questions || []).map((q) => chuan(q.q));
-  const trung = nghe.items.filter((it) => cu.includes(chuan(it.prompt)));
-  assert.deepEqual(trung.map((t) => t.id), [],
+  const trung = [];
+  let soDeSoi = 0;
+  for (const e of bandExams) {
+    const nghe = e.sections.find((s) => s.key === 'listening');
+    if (!nghe.passageId) continue;
+    soDeSoi += 1;
+    const bai = listeningPassages.find((b) => b.id === nghe.passageId);
+    const cu = (bai.questions || []).map((q) => chuan(q.q));
+    for (const it of nghe.items) if (cu.includes(chuan(it.prompt))) trung.push(it.id);
+  }
+  assert.ok(soDeSoi >= 2, 'phải soi được cả hai đề nghe theo bài (B2 và nền C1) — soi được ít hơn nghĩa là thước hỏng');
+  assert.deepEqual(trung, [],
     'câu thi trùng nguyên văn câu hỏi luyện tập — người đã luyện bài đó biết sẵn đáp án');
+});
+
+// Hai đề nghe theo bài mà trỏ vào CÙNG một bài thì người thi đề trước đã nghe
+// hết nội dung của đề sau — thi lần hai không còn đo gì.
+test('hai đề nghe theo bài không dùng chung một bài nghe', () => {
+  const ds = bandExams.map((e) => e.sections.find((s) => s.key === 'listening').passageId).filter(Boolean);
+  assert.equal(new Set(ds).size, ds.length, `hai đề dùng chung bài nghe: ${ds.join(', ')}`);
 });
 
 // ══ LƯỢT THI TRƯỚC 19/08 KHÔNG CÒN LÀ CĂN CỨ TUYÊN BỐ ══════════════════════
@@ -288,4 +351,50 @@ test('lượt thi trước mốc trộn phương án không còn gắn được 
   ]));
   assert.equal(bacDaDat(), 'B2');
   assert.equal(luotDatGanNhat('B2').lucLam, '2026-08-25T00:00:00.000Z');
+});
+
+// ══ CỬA ẢI CUỐI BẬC ═══════════════════════════════════════════════════════
+// Có năm đề mà lộ trình không dẫn tới đề nào thì "lộ trình có cửa đo" là câu
+// đúng trên giấy và sai trong tay người dùng: họ đi hết 73 chặng bậc A1 rồi
+// đứng đó, không có gì bảo họ đi thi. Ghim cả hai đầu — bảng tra phải khớp kho,
+// và trang lộ trình phải THẬT SỰ dựng cửa ải từ bảng tra đó.
+test('bảng tra bandExamIndex khớp từng chữ với kho đề thật', async () => {
+  const { BAND_EXAM_INDEX } = await import('../src/data/bandExamIndex.js');
+  const { CEFR_OF_BAND, ROADMAP_BANDS } = await import('../src/data/roadmapData.js');
+
+  for (const band of ROADMAP_BANDS) {
+    const cefr = CEFR_OF_BAND[band];
+    const e = bandExams.find((x) => x.cefr === cefr);
+    const v = BAND_EXAM_INDEX[band];
+    if (!e) {
+      assert.ok(!v, `bậc ${band} không có đề trong kho mà bảng tra vẫn khai một đề`);
+      continue;
+    }
+    assert.ok(v, `bậc ${band} có đề ${e.id} trong kho mà bảng tra bỏ sót — chạy lại scripts/build_band_exam_index.mjs`);
+    assert.equal(v.id, e.id, `${band}: mã đề lệch`);
+    assert.equal(v.ten, e.name, `${band}: tên đề lệch`);
+    assert.equal(v.phut, e.phut, `${band}: thời lượng lệch`);
+    assert.equal(v.nhan, e.nhanCongBo || e.cefr, `${band}: NHÃN CÔNG BỐ lệch — đây là chữ đi ra ngoài`);
+    const soCau = phanChamDuoc(e).reduce((s, x) => s + x.items.length, 0);
+    assert.equal(v.soCauChamDuoc, soCau, `${band}: số câu chấm được lệch (kho ${soCau}, bảng ${v.soCauChamDuoc})`);
+  }
+
+  // Bậc A0 cố ý KHÔNG có đề: CEFR không có bậc nào dưới A1. Ghim để không ai
+  // "bổ sung cho đủ" bằng cách bịa ra một bậc không tồn tại.
+  assert.equal(BAND_EXAM_INDEX.foundation, undefined, 'bậc A0 không được có đề thi — CEFR không có bậc dưới A1');
+});
+
+test('lộ trình DỰNG THẬT cửa ải cuối bậc, và mở thẳng vào đúng đề', async () => {
+  const fs = await import('node:fs');
+  const src = fs.readFileSync('src/pages/WelcomePage.jsx', 'utf8');
+  assert.ok(new RegExp('<CuaAiCuoiBac\\b').test(src), 'trang lộ trình không dựng cửa ải cuối bậc nào');
+  assert.ok(new RegExp('function CuaAiCuoiBac\\(').test(src), 'thiếu chính thân của cửa ải cuối bậc');
+  assert.ok(/deThiCuaBac/.test(src), 'cửa ải phải tra đề từ bandExamIndex, không viết cứng danh sách bậc');
+  // Kéo cả kho đề vào chunk trang chủ là đúng cái đã tách ra cho kho bài nghe.
+  assert.ok(!/from '[^']*bandExamBank'/.test(src),
+    'WelcomePage import cả kho đề thi — dùng bandExamIndex.js, đó là lý do file đó tồn tại');
+
+  const panel = fs.readFileSync('src/components/exam/BandExamPanel.jsx', 'utf8');
+  assert.ok(/examIdBanDau/.test(panel),
+    'màn hình thi không nhận mã đề mở sẵn — cửa ải sẽ đổ người học vào danh sách năm đề và bắt họ tự tìm lại');
 });

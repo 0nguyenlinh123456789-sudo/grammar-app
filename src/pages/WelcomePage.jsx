@@ -1,5 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { roadmapData, BAND_TAB_LABEL, bandMinutes, minutesThroughBand, roadmapTotalMinutes } from '../data/roadmapData';
+import { deThiCuaBac } from '../data/bandExamIndex';
+import { luotDatGanNhat } from '../utils/bandExam';
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
@@ -127,6 +129,8 @@ const WelcomePage = ({
   const [changNghe, setChangNghe] = useState(null);
   const [changDoc, setChangDoc] = useState(null);
   const [changChinhTa, setChangChinhTa] = useState(null);
+  // `false` = đóng · `true` = mở danh sách · chuỗi = mở thẳng đề đó (cửa ải
+  // cuối bậc trên lộ trình truyền mã đề vào).
   const [showBandExam, setShowBandExam] = useState(false);
   const lastMock = loadMockHistory()[0] || null;
   const dueErrors = getDueErrorCount();
@@ -418,7 +422,7 @@ const WelcomePage = ({
           onFinish={({ correct, total }) => xongChangCoDiem(changChinhTa, correct, total, [])}
         />
       </Suspense>}
-      {showBandExam && <Suspense fallback={<DangMo />}><BandExamPanel onClose={() => setShowBandExam(false)} /></Suspense>}
+      {showBandExam && <Suspense fallback={<DangMo />}><BandExamPanel examIdBanDau={typeof showBandExam === 'string' ? showBandExam : null} onClose={() => setShowBandExam(false)} /></Suspense>}
       {loTrinhTang && (
         <RoadmapGrowthNotice
           cu={loTrinhTang.cu}
@@ -786,7 +790,7 @@ const WelcomePage = ({
             {
               id: 'bandexam', icon: <span className="text-xl" aria-hidden="true">🎓</span>,
               mauChip: 'bg-emerald-100 dark:bg-emerald-900/40', mauNut: 'bg-emerald-400 text-white hover:bg-emerald-500',
-              nhan: 'A2 · B1 · B2', tieuDe: 'Thi cuối bậc',
+              nhan: 'A1 → nền C1', tieuDe: 'Thi cuối bậc',
               moTa: <>Đủ bốn phần Nghe · Đọc · Viết · Nói, nghe bằng <b>giọng người thật</b>. Đạt/chưa đạt chỉ do <b>Nghe và Đọc</b> quyết định — hai phần app chấm được.</>,
               nhanNut: 'THI', onClick: () => setShowBandExam(true),
             },
@@ -1156,6 +1160,21 @@ const WelcomePage = ({
                     ↑ THU GỌN, CHỈ HIỆN QUANH CHẶNG ĐANG HỌC
                   </button>
                 )}
+
+                {/* ══ CỬA ẢI CUỐI BẬC ══════════════════════════════════════
+                    Năm đề thi cuối bậc từng chỉ nằm ở một thẻ trên trang chủ.
+                    Người đi hết 73 chặng bậc A1 không có gì nói cho họ biết
+                    "xong bậc rồi, giờ thi đi" — nên câu "lộ trình có cửa đo"
+                    mới chỉ đúng trên giấy. Cửa ải này đứng ở CUỐI ĐƯỜNG của
+                    bậc, đúng chỗ người học đi tới.
+                    KHÔNG KHOÁ: bấm thi lúc nào cũng được, đúng chủ trương khoá
+                    mềm (1.6). Nhưng nó NÓI RA còn bao nhiêu chặng chưa đi. */}
+                <CuaAiCuoiBac
+                  band={level.level}
+                  tongChang={list.length}
+                  daXong={list.filter((x) => completedMilestones.includes(x.targetId)).length}
+                  onThi={(id) => setShowBandExam(id)}
+                />
               </div>
                 );
               })()}
@@ -1212,4 +1231,67 @@ const WelcomePage = ({
   );
 };
  
+// ══ CỬA ẢI CUỐI BẬC ═════════════════════════════════════════════════════════
+// Đứng ở cuối đường của từng bậc trên lộ trình, nói ba điều và không nói gì hơn:
+//
+//   1. bậc này kết thúc bằng đề nào, dài bao lâu, chấm được bao nhiêu câu;
+//   2. bạn đã đi được bao nhiêu chặng của bậc — và CÒN BAO NHIÊU chưa đi;
+//   3. bạn đã ĐẠT chưa, đạt ngày nào.
+//
+// KHÔNG KHOÁ. Chủ trương khoá mềm (1.6) là cảnh báo chứ không chặn, và cửa ải
+// này giữ đúng chủ trương đó: nút THI luôn bấm được, kể cả khi chưa đi chặng
+// nào. Cái nó thêm vào là LỜI NHẮC, thứ mà trước đây không có ở đâu cả.
+//
+// Bậc A0 (foundation) cố ý không có đề: CEFR không có bậc nào dưới A1 để thi,
+// và dựng một đề "A0" ra là tự đặt ra một bậc không tồn tại. Thẻ này im lặng ở
+// đó thay vì hiện một ô trống.
+function CuaAiCuoiBac({ band, tongChang, daXong, onThi }) {
+  const de = deThiCuaBac(band);
+  if (!de) return null;
+  const luot = luotDatGanNhat(de.cefr);
+  const conLai = Math.max(0, tongChang - daXong);
+  const daDat = !!luot;
+
+  return (
+    <div className={`relative z-10 flex gap-6 items-center ${daDat ? '' : 'mt-2'}`}>
+      <div className="relative shrink-0">
+        <div className={`border-4 border-slate-800 dark:border-slate-700 w-10 h-10 md:w-14 md:h-14 rounded-2xl flex items-center justify-center shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#020617] ${daDat ? 'bg-emerald-400 text-slate-900' : 'bg-slate-900 text-yellow-300'}`}>
+          <GraduationCap size={22} className="md:size-7" />
+        </div>
+      </div>
+      <div className={`flex-1 border-4 rounded-3xl p-5 shadow-[5px_5px_0_0_#1e293b] dark:shadow-[5px_5px_0_0_#020617] ${daDat ? 'border-emerald-600 bg-emerald-50 dark:bg-emerald-950/25' : 'border-slate-800 dark:border-slate-700 bg-yellow-50 dark:bg-slate-900'}`}>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">Cửa ải cuối bậc</span>
+            <h4 className="text-lg md:text-xl font-black text-slate-900 dark:text-slate-100 leading-tight">{de.ten}</h4>
+            <p className="text-xs font-bold text-slate-500 dark:text-slate-400 leading-relaxed">
+              {de.soCauChamDuoc} câu chấm được · ~{de.phut} phút · đủ bốn phần, nhưng <b>đạt hay chưa chỉ do Nghe và Đọc quyết định</b> — hai phần app chấm được.
+            </p>
+            {daDat ? (
+              <p className="text-xs font-black text-emerald-700 dark:text-emerald-400">
+                ✓ Đã đạt <b>{luot.nhanIn || luot.cefr}</b> ngày {new Intl.DateTimeFormat('vi-VN').format(new Date(luot.lucLam))}.
+              </p>
+            ) : conLai > 0 ? (
+              <p className="text-xs font-black text-amber-700 dark:text-amber-400">
+                Đã đi {daXong}/{tongChang} chặng của bậc này — còn {conLai} chặng chưa đi qua. Vẫn thi được ngay bây giờ, chỉ là sẽ khó hơn.
+              </p>
+            ) : (
+              <p className="text-xs font-black text-emerald-700 dark:text-emerald-400">
+                Đã đi hết {tongChang}/{tongChang} chặng của bậc này. Thi để lấy ghi nhận.
+              </p>
+            )}
+          </div>
+          <Btn3D
+            onClick={() => onThi(de.id)}
+            color={daDat ? 'bg-white text-slate-900' : 'bg-yellow-300 text-slate-900'}
+            className="text-xs px-4 py-2 shrink-0 shadow-[2px_2px_0_0_rgba(0,0,0,1)]"
+          >
+            {daDat ? 'THI LẠI' : 'VÀO THI'}
+          </Btn3D>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default WelcomePage;

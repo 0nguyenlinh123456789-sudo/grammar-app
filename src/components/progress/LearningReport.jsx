@@ -75,7 +75,7 @@ export default function LearningReport({ placementResult, weeklyLessons, weeklyX
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5"><ReportStat label="Bậc đầu vào" value={placementResult.cefr || placementResult.levelLabel} hint={placementResult.total ? `${placementResult.correct}/${placementResult.total} câu đúng` : null} /><ReportStat label="Chặng tuần này" value={weeklyLessons} /><ReportStat label="XP tuần này" value={`+${weeklyXp}`} /><ReportStat label="Hoàn thành" value={`${completionPercentage}%`} /></div>
       <SkillProfile placementResult={placementResult} onRetake={onRetakePlacement} />
       {luotThi && <p className="mt-5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
-        Đã đạt <b>bài thi cuối bậc {luotThi.cefr}</b> ngày {new Intl.DateTimeFormat('vi-VN').format(new Date(luotThi.lucLam))}. {luotThi.moTaCanCu}
+        Đã đạt <b>bài thi cuối bậc {luotThi.nhanIn || luotThi.cefr}</b> ngày {new Intl.DateTimeFormat('vi-VN').format(new Date(luotThi.lucLam))}. {luotThi.moTaCanCu}
       </p>}
       {awaitingVerification
         ? <p className="mt-5 text-xs font-bold text-amber-700 dark:text-amber-400">Bạn đã đi hết lộ trình. Chứng nhận cần {totalMilestonesCount - verifiedCount} chặng nữa được xác minh (đã xác minh {verifiedCount}/{totalMilestonesCount}) — dùng nút “Xác minh nhanh (5 câu)” ngay trên từng chặng.</p>
@@ -106,12 +106,15 @@ function CertificateModal({ placementResult, completedCount, totalMilestonesCoun
       {luotThi ? <>
         <h2 className="text-3xl md:text-4xl font-black mt-3">Ghi nhận kết quả thi cuối bậc</h2>
         <p className="mt-5 font-bold text-slate-600">Đã đạt bài thi cuối bậc</p>
-        <p className="text-5xl font-black text-emerald-700 mt-3">{luotThi.cefr}</p>
+        <p className="text-5xl font-black text-emerald-700 mt-3">{luotThi.nhanIn || luotThi.cefr}</p>
         <p className="mt-3 text-sm font-bold">Ngày thi: {ngay(luotThi.lucLam)}</p>
         <div className="mt-5 text-left text-xs font-bold text-slate-600 bg-white/70 border-2 border-yellow-600/40 rounded-lg p-4 leading-relaxed">
           <p><b>Kết quả này dựa trên phần nào:</b> {luotThi.phan.map((p) => `${p.nhan} ${p.dung}/${p.tong}`).join(' · ')}.</p>
           <p className="mt-1.5"><b>Phần đã làm nhưng KHÔNG tính vào kết quả:</b> {luotThi.phanKhongTinh.map((p) => p.nhan).join(', ')} — app không chấm ngữ pháp bài viết và không chấm phát âm.</p>
           <p className="mt-1.5">Phần Nghe dùng bản thu giọng người thật có giấy phép (Tatoeba CC BY, VOA Learning English).</p>
+          {/* Nhãn "Nền C1" đi ra ngoài mà không kèm câu này thì người đọc tờ
+              giấy vẫn hiểu thành "đạt C1". Ghi ngay dưới con chữ to nhất. */}
+          {luotThi.ghiChuBac && <p className="mt-1.5 text-amber-800"><b>Nhãn này nghĩa là gì:</b> {luotThi.ghiChuBac}</p>}
           <p className="mt-1.5 text-rose-800"><b>Đây KHÔNG phải chứng chỉ CEFR</b> và không có giá trị đối chiếu với chứng chỉ của các tổ chức khảo thí. Đây là ghi nhận kết quả của một bài thi trong ứng dụng này.</p>
         </div>
         {totalMilestonesCount > 0 && <p className="mt-4 text-xs font-bold text-slate-500">Đã hoàn thành và xác minh {completedCount}/{totalMilestonesCount} chặng học.</p>}
@@ -122,7 +125,7 @@ function CertificateModal({ placementResult, completedCount, totalMilestonesCoun
         <p className="mt-4 text-sm font-bold">Ngày cấp: {ngay(new Date().toISOString())}</p>
         <div className="mt-5 text-left text-xs font-bold text-slate-600 bg-white/70 border-2 border-yellow-600/40 rounded-lg p-4 leading-relaxed">
           <p>Đây là <b>chứng nhận chuyên cần</b>: nó ghi nhận số chặng đã học và đã xác minh, <b>không phải một bậc năng lực</b>.</p>
-          <p className="mt-1.5">Muốn có ghi nhận bậc, hãy làm và đạt <b>bài thi cuối bậc</b> (A2 · B1 · B2) trong mục Thi cuối bậc.</p>
+          <p className="mt-1.5">Muốn có ghi nhận bậc, hãy làm và đạt <b>bài thi cuối bậc</b> (A1 · A2 · B1 · B2 · nền C1) trong mục Thi cuối bậc.</p>
         </div>
       </>}
 
