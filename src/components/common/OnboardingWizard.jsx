@@ -6,13 +6,29 @@ import { useState } from 'react';
 import { ArrowRight, Sparkles, Target, Rocket } from 'lucide-react';
 import { DAILY_GOAL_OPTIONS } from '../../utils/dailyGoal';
 import { markOnboardingDone } from '../../utils/onboarding';
+import { mucTieuChonDuoc } from '../../utils/mucTieuHoc';
+import { SHOW_IELTS_FOUNDATION } from '../../utils/localOnly';
 
-const GOALS = [
-  { id: 'beginner', label: '🌱 Lấy lại gốc', desc: 'Bắt đầu từ điều cơ bản nhất' },
-  { id: 'communication', label: '🗣️ Giao tiếp', desc: 'Nói chuyện tự tin hằng ngày' },
-  { id: 'vstep', label: '📚 Thi VSTEP', desc: 'Chuẩn bị cho kỳ thi B1–B2' },
-  { id: 'ielts', label: '🎯 Thi IELTS', desc: 'Chinh phục band điểm mơ ước' },
-];
+// DANH SÁCH MỤC TIÊU DẪN XUẤT TỪ DỮ LIỆU, KHÔNG VIẾT CỨNG Ở ĐÂY.
+//
+// Bản viết cứng có một lỗ thật: nó mời chọn "🎯 Thi IELTS" ở màn hình ĐẦU
+// TIÊN người mua nhìn thấy, trong khi cụm IELTS Nền Tảng **bị ẩn trên bản
+// khách** (`utils/localOnly.js` — kho media ~8 GB chỉ có trên máy chủ dự án).
+// Khách chọn xong thì không có cụm IELTS nào để vào, và lộ trình cũng không
+// đổi gì. Nay mục tiêu đó chỉ hiện ở đúng nơi cụm đó hiện.
+const EMOJI = { beginner: '🌱', communication: '🗣️', vstep: '📚', ielts: '🎯' };
+const MO_TA = {
+  beginner: 'Bắt đầu từ điều cơ bản nhất',
+  communication: 'Nói chuyện tự tin hằng ngày',
+  vstep: 'Chuẩn bị cho kỳ thi B1–B2',
+  ielts: 'Chinh phục band điểm mơ ước',
+};
+const GOALS = mucTieuChonDuoc(SHOW_IELTS_FOUNDATION).map((m) => ({
+  id: m.id,
+  label: `${EMOJI[m.id] || '•'} ${m.nhan}`,
+  desc: MO_TA[m.id] || m.nhan,
+  viSao: m.viSao,
+}));
 
 const OnboardingWizard = ({ dailyGoal = 1, setDailyGoal, onFinish }) => {
   const [step, setStep] = useState(0);
@@ -69,6 +85,15 @@ const OnboardingWizard = ({ dailyGoal = 1, setDailyGoal, onFinish }) => {
                 </button>
               ))}
             </div>
+
+            {/* Mục tiêu này sẽ làm gì — nói ngay lúc chọn, không để người học
+                đoán. Và nói luôn cái nó KHÔNG làm: không bỏ chặng nào. */}
+            {goal && (
+              <p className="mt-4 text-[11px] font-bold text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl p-3 leading-relaxed">
+                {GOALS.find((g) => g.id === goal)?.viSao}{' '}
+                <b>Lộ trình vẫn giữ nguyên thứ tự và không bỏ chặng nào</b> — mục tiêu chỉ giúp lọc ra phần quan trọng nhất với cậu, và tắt được bất cứ lúc nào.
+              </p>
+            )}
 
             <p className="text-xs font-black uppercase tracking-wide text-slate-500 dark:text-slate-400 mt-6 mb-2">Mỗi ngày cậu muốn học mấy chặng?</p>
             <div className="grid grid-cols-4 gap-2">

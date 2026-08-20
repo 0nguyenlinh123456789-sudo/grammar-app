@@ -2,6 +2,8 @@ import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { roadmapData, BAND_TAB_LABEL, bandMinutes, minutesThroughBand, roadmapTotalMinutes } from '../data/roadmapData';
 import { deThiCuaBac } from '../data/bandExamIndex';
 import { luotDatGanNhat } from '../utils/bandExam';
+import { docMucTieu, luuMucTieu, MUC_TIEU, demTheoMucTieu, phucVuMucTieu, mucTieuChonDuoc } from '../utils/mucTieuHoc';
+import { SHOW_IELTS_FOUNDATION } from '../utils/localOnly';
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
@@ -267,6 +269,12 @@ const WelcomePage = ({
   // học, có nút mở rộng — không giấu chặng nào, chỉ không vẽ hết cùng lúc.
   const WINDOW_SIZE = 24;
   const [expandedLevels, setExpandedLevels] = useState({});
+  // MỤC TIÊU HỌC — câu trả lời ở màn hình đầu tiên, nay có chỗ đọc nó.
+  // `locMucTieu` mặc định TẮT: một lộ trình tự giấu bớt chặng ngay lần đầu mở
+  // ra là lộ trình nói dối về độ dài của chính nó. Người học phải thấy toàn
+  // bộ đường đi trước, rồi mới chọn nhìn hẹp lại.
+  const [mucTieu, setMucTieu] = useState(docMucTieu);
+  const [locMucTieu, setLocMucTieu] = useState(false);
 
   // Danh hiệu theo SỐ CHẶNG ĐÃ HỌC — đo sự chuyên cần, KHÔNG phải trình độ.
   // (#0-A1) Trước đây gắn nhãn CEFR ("C2 Master", "B1 Explorer"…) theo số
@@ -907,6 +915,15 @@ const WelcomePage = ({
         </div>
       </div>
 
+      {/* --- BĂNG MỤC TIÊU HỌC --- */}
+      <BangMucTieu
+        mucTieu={mucTieu}
+        doiMucTieu={(g) => { setMucTieu(g); luuMucTieu(g); if (!g) setLocMucTieu(false); }}
+        dangLoc={locMucTieu}
+        batLoc={setLocMucTieu}
+        soLieu={demTheoMucTieu(allMilestones, mucTieu)}
+      />
+
       {/* --- LEVEL TABS --- */}
       <div className="flex gap-2 mb-8 overflow-x-auto pb-2 scrollbar-hide shrink-0">
         {/* Dàn tab DẪN XUẤT từ dữ liệu, không viết cứng: thêm bậc mới vào
@@ -989,7 +1006,12 @@ const WelcomePage = ({
               {/* Milestones in Level — chỉ vẽ một CỬA SỔ quanh chặng đang học.
                   Không chặng nào bị giấu: có nút mở hết ngay dưới. */}
               {(() => {
-                const list = level.milestones;
+                // LỌC LÀ MỘT CÁCH NHÌN, KHÔNG PHẢI MỘT LỘ TRÌNH KHÁC.
+                // Thứ tự giữ nguyên, không chặng nào bị xoá, và cửa ải cuối bậc
+                // bên dưới vẫn đếm trên TOÀN BỘ bậc — nếu nó đếm trên danh sách
+                // đã lọc thì người bật lọc sẽ thấy "đã đi hết bậc" trong khi còn
+                // hàng chục chặng chưa đụng tới.
+                const list = locMucTieu ? level.milestones.filter((m) => phucVuMucTieu(m, mucTieu)) : level.milestones;
                 const expanded = !!expandedLevels[level.level];
                 const activeIdx = list.findIndex((x) => nextMilestone && x.id === nextMilestone.id);
                 const anchor = activeIdx >= 0 ? activeIdx : list.findIndex((x) => !completedMilestones.includes(x.targetId));
@@ -1171,8 +1193,8 @@ const WelcomePage = ({
                     mềm (1.6). Nhưng nó NÓI RA còn bao nhiêu chặng chưa đi. */}
                 <CuaAiCuoiBac
                   band={level.level}
-                  tongChang={list.length}
-                  daXong={list.filter((x) => completedMilestones.includes(x.targetId)).length}
+                  tongChang={level.milestones.length}
+                  daXong={level.milestones.filter((x) => completedMilestones.includes(x.targetId)).length}
                   onThi={(id) => setShowBandExam(id)}
                 />
               </div>
@@ -1245,6 +1267,100 @@ const WelcomePage = ({
 // Bậc A0 (foundation) cố ý không có đề: CEFR không có bậc nào dưới A1 để thi,
 // và dựng một đề "A0" ra là tự đặt ra một bậc không tồn tại. Thẻ này im lặng ở
 // đó thay vì hiện một ô trống.
+// ══ BĂNG MỤC TIÊU HỌC ═══════════════════════════════════════════════════════
+// Trình hướng dẫn hỏi "cậu học tiếng Anh để làm gì?" từ ngày đầu, lưu câu trả
+// lời, rồi KHÔNG AI ĐỌC NÓ NỮA — `getLearningGoal()` có 0 nơi gọi. Hỏi rồi vứt
+// còn tệ hơn không hỏi: người học tin họ vừa cá nhân hoá được thứ gì đó.
+//
+// Băng này là chỗ câu trả lời đó có hậu quả. Ba việc, và không việc nào hơn:
+//   · nói mục tiêu đang chọn là gì, và VÌ SAO những loại chặng kia phục vụ nó;
+//   · đếm THẬT: mục tiêu này phủ bao nhiêu chặng, bỏ ra bao nhiêu;
+//   · cho ĐỔI mục tiêu — trình hướng dẫn chỉ chạy một lần, không có đường đổi
+//     thì câu trả lời ở phút đầu tiên khoá người học lại vĩnh viễn.
+//
+// Cái nó CỐ Ý KHÔNG làm: không xếp lại thứ tự, không bỏ chặng nào. Bộ lọc mặc
+// định TẮT và nói thẳng ra điều đó — một lộ trình tự giấu bớt chặng ngay lần
+// đầu mở ra là lộ trình nói dối về độ dài của chính nó.
+function BangMucTieu({ mucTieu, doiMucTieu, dangLoc, batLoc, soLieu }) {
+  const [moChon, setMoChon] = useState(false);
+  const dsChon = mucTieuChonDuoc(SHOW_IELTS_FOUNDATION);
+  const m = MUC_TIEU[mucTieu];
+
+  return (
+    <div className="mb-6 rounded-3xl border-4 border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 md:p-5 shadow-[5px_5px_0_0_#1e293b] dark:shadow-[5px_5px_0_0_#020617]">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 justify-between">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <Target size={20} className="text-blue-500 shrink-0" />
+          <div className="min-w-0">
+            <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">Mục tiêu học của bạn</p>
+            <p className="text-base md:text-lg font-black text-slate-900 dark:text-slate-100 leading-tight">
+              {m ? m.nhan : 'Chưa chọn — đang hiện toàn bộ lộ trình'}
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          {/* Nút lọc chỉ có nghĩa khi nó ẩn được thứ gì đó. Làn nào trùng gần
+              hết lộ trình thì đây là một cái nút không làm gì. */}
+          {m && soLieu.bo > 0 && (
+            <button
+              onClick={() => batLoc(!dangLoc)}
+              aria-pressed={dangLoc}
+              className={`text-[11px] font-black px-3 py-2 rounded-xl border-2 cursor-pointer whitespace-nowrap ${
+                dangLoc
+                  ? 'bg-blue-500 text-white border-slate-800'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600'
+              }`}
+            >
+              {dangLoc ? '✓ ĐANG LỌC THEO MỤC TIÊU' : 'CHỈ HIỆN CHẶNG PHỤC VỤ MỤC TIÊU'}
+            </button>
+          )}
+          <button
+            onClick={() => setMoChon((v) => !v)}
+            className="text-[11px] font-black px-3 py-2 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer whitespace-nowrap"
+          >
+            {m ? 'ĐỔI MỤC TIÊU' : 'CHỌN MỤC TIÊU'}
+          </button>
+        </div>
+      </div>
+
+      {m && (
+        <p className="mt-3 text-[11px] md:text-xs font-bold text-slate-600 dark:text-slate-300 leading-relaxed">
+          {m.viSao}{' '}
+          <span className="text-slate-500 dark:text-slate-400">
+            Có <b>{soLieu.hop}</b>/{soLieu.tong} chặng phục vụ trực tiếp mục tiêu này
+            {soLieu.bo > 0 ? ` — bật lọc sẽ TẠM ẨN ${soLieu.bo} chặng còn lại, không xoá chặng nào và tắt lại được bất cứ lúc nào.` : '.'}
+          </span>
+        </p>
+      )}
+
+      {moChon && (
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {dsChon.map((g) => (
+            <button
+              key={g.id}
+              onClick={() => { doiMucTieu(g.id); setMoChon(false); }}
+              className={`p-3 rounded-2xl border-2 text-left cursor-pointer transition-all ${
+                mucTieu === g.id
+                  ? 'bg-yellow-200 dark:bg-yellow-500/20 border-yellow-500'
+                  : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-600 hover:border-yellow-400'
+              }`}
+            >
+              <p className="font-black text-xs text-slate-900 dark:text-white">{g.nhan}</p>
+            </button>
+          ))}
+          {mucTieu && (
+            <button
+              onClick={() => { doiMucTieu(''); setMoChon(false); }}
+              className="p-3 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 text-left cursor-pointer text-slate-500 dark:text-slate-400"
+            >
+              <p className="font-black text-xs">Bỏ mục tiêu</p>
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
 function CuaAiCuoiBac({ band, tongChang, daXong, onThi }) {
   const de = deThiCuaBac(band);
   if (!de) return null;

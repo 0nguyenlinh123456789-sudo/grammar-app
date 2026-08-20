@@ -421,6 +421,79 @@ try {
     return 'có lời báo về key (không lái được máy ảnh nên chỉ đo được phần này)';
   });
 
+  // ── MỤC TIÊU HỌC ─────────────────────────────────────────────────────────
+  // `getLearningGoal()` từng có ĐÚNG 0 nơi gọi: hỏi ở màn hình đầu tiên rồi vứt.
+  // Test tĩnh chứng minh được hàm có người gọi; nó KHÔNG chứng minh bấm vào
+  // thì số chặng trên màn hình đổi thật. Đây là chỗ đo cái đó.
+  await khuVuc('MỤC TIÊU HỌC: chọn mục tiêu rồi bật lọc thì SỐ CHẶNG trên màn hình đổi thật', async () => {
+    await veTrangChu(); await cho(900);
+
+    // Vào MỘT bậc và MỞ HẾT chặng của nó. Trên tab "tất cả", lộ trình chỉ vẽ
+    // một cửa sổ nhỏ quanh chặng đang học ở mỗi bậc, và cửa sổ đó rơi đúng vào
+    // đoạn đầu bậc — nơi chưa có chặng Oxford nào. Đo ở đó thì không có gì để
+    // đo. Bậc A2 có 60 chặng Oxford, mở hết ra là thấy.
+    if (!await t.danhGia(BAM_THEO_CHU('A2 Sơ Cấp'))) throw new Error('không thấy tab bậc A2');
+    await cho(800);
+    await t.danhGia(BAM_THEO_CHU('BẤM ĐỂ XEM HẾT'));
+    await cho(1200);
+
+    // ĐẾM THẺ LÀ THƯỚC SAI. Lộ trình vẽ theo CỬA SỔ cố định quanh chặng đang
+    // học, nên lọc bớt danh sách không làm số thẻ trên màn hình giảm đi — cửa
+    // sổ chỉ kéo thêm chặng từ phía dưới lên cho đủ. Bản đầu của bước này đo
+    // đúng như vậy và báo "132 → 132, mục tiêu vẫn bị vứt đi" trong khi bộ lọc
+    // chạy hoàn toàn bình thường. Cùng họ với vụ đếm <div> ở bước cửa ải.
+    //
+    // Thước đúng: đếm nhãn LOẠI CHẶNG. Làn "Lấy lại gốc" tạm ẩn bộ Oxford, nên
+    // sau khi bật lọc trên màn hình phải KHÔNG CÒN nhãn "Oxford Vocab" nào,
+    // trong khi nhãn "Ngữ Pháp"/"Từ Vựng" vẫn còn.
+    const demNhan = (chu) => `[...document.querySelectorAll('span')]
+      .filter((e) => (e.innerText || '').trim().toUpperCase() === ${JSON.stringify(chu)}.toUpperCase()).length`;
+
+    const oxfordTruoc = await t.danhGia(demNhan('Oxford Vocab'));
+    if (!oxfordTruoc) throw new Error('trước khi lọc đã không thấy nhãn "Oxford Vocab" nào — không đo được gì');
+
+    // Chọn một mục tiêu qua chính băng mục tiêu (không thọc localStorage).
+    if (!await t.danhGia(BAM_THEO_CHU('CHỌN MỤC TIÊU')) && !await t.danhGia(BAM_THEO_CHU('ĐỔI MỤC TIÊU'))) {
+      throw new Error('không thấy nút chọn/đổi mục tiêu trên lộ trình');
+    }
+    await cho(500);
+    if (!await t.danhGia(BAM_DUNG_NHAN('Lấy lại gốc'))) throw new Error('không chọn được mục tiêu “Lấy lại gốc”');
+    await cho(700);
+
+    // Băng phải NÓI RA con số, không chỉ đổi thầm.
+    const bang = await t.danhGia("document.body.innerText");
+    if (!/chặng phục vụ trực tiếp mục tiêu này/.test(bang)) {
+      throw new Error('băng mục tiêu không nói ra bao nhiêu chặng phục vụ mục tiêu');
+    }
+
+    if (!await t.danhGia(BAM_THEO_CHU('CHỈ HIỆN CHẶNG PHỤC VỤ MỤC TIÊU'))) {
+      throw new Error('không thấy nút bật lọc theo mục tiêu');
+    }
+    await cho(900);
+    await t.danhGia(BAM_THEO_CHU('BẤM ĐỂ XEM HẾT'));
+    await cho(900);
+    const oxfordSau = await t.danhGia(demNhan('Oxford Vocab'));
+    const nguPhapSau = await t.danhGia(demNhan('Ngữ Pháp'));
+    const tuVungSau = await t.danhGia(demNhan('Từ Vựng'));
+    if (oxfordSau !== 0) {
+      throw new Error(`bật lọc "Lấy lại gốc" mà vẫn còn ${oxfordSau} chặng Oxford trên màn hình — bộ lọc không chạy`);
+    }
+    if (nguPhapSau + tuVungSau === 0) {
+      throw new Error('bật lọc xong màn hình không còn chặng nào — bộ lọc đang cắt cả thứ nó phải giữ');
+    }
+
+    // Tắt lọc phải trả lại đúng như cũ: lọc là CÁCH NHÌN, không phải cắt bớt.
+    if (!await t.danhGia(BAM_THEO_CHU('ĐANG LỌC THEO MỤC TIÊU'))) throw new Error('không tắt lại được bộ lọc');
+    await cho(900);
+    await t.danhGia(BAM_THEO_CHU('BẤM ĐỂ XEM HẾT'));
+    await cho(900);
+    const oxfordTraLai = await t.danhGia(demNhan('Oxford Vocab'));
+    if (oxfordTraLai !== oxfordTruoc) {
+      throw new Error(`tắt lọc không trả lại đủ chặng Oxford (${oxfordTruoc} → 0 → ${oxfordTraLai})`);
+    }
+
+    return `Oxford ${oxfordTruoc} → bật lọc còn 0 (Ngữ Pháp ${nguPhapSau} + Từ Vựng ${tuVungSau} vẫn còn) → tắt lọc về lại ${oxfordTraLai}`;
+  });
   // ── CỬA ẢI CUỐI BẬC ──────────────────────────────────────────────────────
   // Test tĩnh chỉ chứng minh chuỗi `<CuaAiCuoiBac` NẰM TRONG mã nguồn. Nó
   // không chứng minh thẻ đó vẽ ra được, không bị lớp nào che, và bấm vào có
