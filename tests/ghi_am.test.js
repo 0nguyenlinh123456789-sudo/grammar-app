@@ -171,3 +171,38 @@ test('không chỗ nào hứa CHẤM PHÁT ÂM từ bản ghi âm', () => {
     assert.equal(cam.test(than), false, `màn luyện nói có chuỗi hứa quá: ${cam}`);
   }
 });
+
+// ══ BẤM HAI LẦN ═══════════════════════════════════════════════════════════
+// `batDau` trong panel là async và await `batDauGhiAm()`. Cờ `dangNghe` chỉ bật
+// trong `r.onstart`, tức là SAU await đó — nên trong khoảng chờ, nút vẫn đọc
+// "Bắt đầu nói" và vẫn bấm được. Khoảng đó rộng bằng cả lúc trình duyệt hiện
+// hộp xin quyền micro: vài GIÂY, không phải vài mili giây.
+//
+// Bấm lần hai mà không chặn: mở luồng micro thứ hai, `mayThuRef` bị ghi đè, và
+// luồng thứ nhất KHÔNG AI TẮT — đèn micro sáng tới lúc tải lại trang.
+test('mở hai máy thu chồng nhau thì cả hai micro đều phải được trả lại', async () => {
+  const { daTat } = dungTrinhDuyet({ micro: 'ok' });
+  const m = await nap();
+
+  // Hai lượt mở KHÔNG chờ nhau — đúng hình dạng hai cú bấm liền.
+  const [mot, hai] = await Promise.all([m.batDauGhiAm(), m.batDauGhiAm()]);
+  assert.equal(mot.ok, true);
+  assert.equal(hai.ok, true);
+
+  // Panel giữ máy thứ hai và bỏ máy thứ nhất. Máy bị bỏ PHẢI trả lại micro.
+  mot.boGiuaChung();
+  await new Promise((r) => setTimeout(r, 5));
+  await hai.dung();
+  assert.deepEqual(daTat, ['audio', 'audio'],
+    `mở 2 luồng micro mà chỉ trả lại ${daTat.length} — luồng còn lại giữ micro tới lúc tải lại trang`);
+  donDep();
+});
+
+test('panel CHẶN cú bấm thứ hai khi lượt mở micro đầu chưa xong', () => {
+  const src = readFileSync('src/components/speaking/SpeakingPromptPanel.jsx', 'utf8');
+  assert.ok(/dangMoMicRef/.test(src),
+    'không có chốt nào chặn cú bấm thứ hai trong lúc đang chờ quyền micro');
+  assert.ok(/if \(dangMoMicRef\.current\) return;/.test(src), 'chốt có mà không chặn');
+  assert.ok(/mayThuRef\.current\?\.boGiuaChung\(\);[\s\S]{0,120}mayThuRef\.current = null;[\s\S]{0,120}batDauGhiAm/.test(src),
+    'mở máy thu mới mà không trả micro của máy cũ trước');
+});

@@ -1,4 +1,14 @@
 import { LEARNING_STORAGE_KEYS } from './backup.js';
+import { datHoacGop } from './gopKhoDongBo.js';
+
+// ĐỒNG BỘ Ở ĐÂY LÀ **ĐÈ NGUYÊN KHỐI, AI GHI SAU THẮNG**, chặn bằng đúng MỘT
+// mốc `updatedAt` ở cấp trên cùng (xem `src/server/routes/progress.js`). Với
+// dữ liệu là ẢNH CHỤP trạng thái — XP, chuỗi ngày, chặng đã xong — thì đúng.
+//
+// Nhưng có hai kho là NHẬT KÝ CHỈ THÊM, đè lên là xoá lịch sử: sổ thi cuối bậc
+// (căn cứ duy nhất của tờ chứng nhận) và đồng hồ học. Hai kho đó đi qua
+// `datHoacGop` để GỘP thay vì đè — xem `utils/gopKhoDongBo.js` để biết vì sao
+// hai phép gộp đó an toàn và vì sao KHÔNG gộp cho mọi khoá.
 
 const SYNC_TIMESTAMP_KEY = 'learningSyncUpdatedAtV1';
 
@@ -18,7 +28,7 @@ export async function syncLearningProgress(storage = localStorage) {
   const remote = await read.json();
   if (remote.data && Number(remote.updatedAt) > localUpdatedAt) {
     for (const [key, value] of Object.entries(remote.data)) {
-      if (LEARNING_STORAGE_KEYS.includes(key) && typeof value === 'string') storage.setItem(key, value);
+      if (LEARNING_STORAGE_KEYS.includes(key) && typeof value === 'string') datHoacGop(storage, key, value);
     }
     storage.setItem(SYNC_TIMESTAMP_KEY, String(remote.updatedAt));
     return { status: 'restored', updatedAt: remote.updatedAt };
@@ -32,7 +42,7 @@ export async function syncLearningProgress(storage = localStorage) {
   const result = await saved.json();
   if (result.data && result.accepted === false) {
     for (const [key, value] of Object.entries(result.data)) {
-      if (LEARNING_STORAGE_KEYS.includes(key) && typeof value === 'string') storage.setItem(key, value);
+      if (LEARNING_STORAGE_KEYS.includes(key) && typeof value === 'string') datHoacGop(storage, key, value);
     }
   }
   storage.setItem(SYNC_TIMESTAMP_KEY, String(result.updatedAt || updatedAt));

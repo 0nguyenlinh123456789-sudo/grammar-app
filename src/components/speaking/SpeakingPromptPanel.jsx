@@ -99,6 +99,7 @@ function LamBai({ de, onBack, onClose }) {
   const [loiThu, setLoiThu] = useState('');
   const mayThuRef = useRef(null);
   const huyThuRef = useRef(null);
+  const dangMoMicRef = useRef(false);
   const nhanDangRef = useRef(null);
   const coKey = hasGeminiKey();
 
@@ -123,10 +124,29 @@ function LamBai({ de, onBack, onClose }) {
   // micro; Chrome máy tính cho chạy song song nhưng không trình duyệt nào hứa
   // điều đó. Nên ghi âm được bọc riêng, hỏng thì báo một dòng rồi đi tiếp.
   const batDau = async () => {
-    huyThuRef.current?.(); huyThuRef.current = null; setUrlThu(''); setLoiThu('');
-    const thu = await batDauGhiAm();
-    if (thu.ok) mayThuRef.current = thu;
-    else { mayThuRef.current = null; setLoiThu(loiGhiAmThanhChu(thu.loi)); }
+    // ⚠️ CỬA SỔ BẤM HAI LẦN.
+    // `setDangNghe(true)` chỉ chạy trong `r.onstart`, tức là SAU khi await
+    // `batDauGhiAm()` xong. Trong khoảng đó nút vẫn đọc "Bắt đầu nói" và vẫn
+    // bấm được — mà khoảng đó rộng bằng cả lúc trình duyệt hiện hộp xin quyền
+    // micro, tức là vài giây chứ không phải vài mili giây.
+    //
+    // Bấm lần hai: `mayThuRef` bị ghi đè bằng máy thu mới, luồng micro của lần
+    // một KHÔNG AI TẮT, và đèn micro sáng tới lúc tải lại trang. Đúng loại lỗi
+    // vừa vá ở bốn đường hỏng của `ghiAm.js`, chỉ khác là nó nằm ở đây.
+    if (dangMoMicRef.current) return;
+    dangMoMicRef.current = true;
+    try {
+      huyThuRef.current?.(); huyThuRef.current = null; setUrlThu(''); setLoiThu('');
+      // Còn máy thu cũ đang chạy (bấm lại mà chưa qua nút Dừng) thì trả micro
+      // của nó trước, đừng chồng thêm một luồng nữa.
+      try { mayThuRef.current?.boGiuaChung(); } catch { /* ignore */ }
+      mayThuRef.current = null;
+      const thu = await batDauGhiAm();
+      if (thu.ok) mayThuRef.current = thu;
+      else setLoiThu(loiGhiAmThanhChu(thu.loi));
+    } finally {
+      dangMoMicRef.current = false;
+    }
 
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SR) {

@@ -574,6 +574,13 @@ try {
 //
 // Con số dưới là công thật, chỉ được đi LÊN. Bớt bước có chủ ý thì sửa nó và
 // ghi vì sao — nhưng phải là một quyết định có chữ, không phải một dòng lọt qua.
+  // ⚠️ CON SỐ NÀY ĐẾM CẢ MỘT BƯỚC CÓ ĐIỀU KIỆN.
+  // Bước "nói: lời báo chỉ luôn đường làm tiếp" CHỈ chạy khi app báo lỗi micro,
+  // tức là khi Chrome TỪ CHỐI micro — mặc định của headless trên máy này. Trên
+  // máy có sẵn thiết bị âm thanh, hoặc máy cấp quyền sẵn, bước đó không chạy và
+  // chốt này sẽ đỏ vì lý do MÔI TRƯỜNG chứ không phải vì mã hỏng.
+  // Gặp đỏ ở đây thì soi môi trường trước, đừng sửa mã. Đỏ oan vẫn tốt hơn mất
+  // phép kiểm trong im lặng.
   const SO_BUOC_TOI_THIEU = 35;
   console.log(`\nbước đạt: ${ket.filter((x) => x.ok).length}/${ket.length}`);
   if (ket.length < SO_BUOC_TOI_THIEU) {
