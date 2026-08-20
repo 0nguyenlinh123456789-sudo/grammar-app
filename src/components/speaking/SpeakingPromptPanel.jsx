@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AlertTriangle, CheckCircle2, Mic, Sparkles, Square, X, XCircle } from 'lucide-react';
 import { deNoiSinh, deNoiTuChang, deNoiChoChang } from '../../utils/speakingBank';
 import { kiemTraLuotNoi, nhanXetLuotNoiBangAI, GHI_CHU_CHECKLIST_NOI, NHAN_KIEU_NOI, loiMicThanhChu } from '../../utils/speakingCheck';
+import { batDauGhiAm, loiGhiAmThanhChu } from '../../utils/ghiAm';
 import { luuBaiLam } from '../../utils/selfReportLog';
 import { hasGeminiKey } from '../../utils/aiKey';
 
@@ -90,18 +91,43 @@ function LamBai({ de, onBack, onClose }) {
   const [aiText, setAiText] = useState('');
   const [aiLoi, setAiLoi] = useState('');
   const [aiDangChay, setAiDangChay] = useState(false);
+  // GHI ÂM ĐỂ NGHE LẠI. Vòng luyện nói trước đây hở đúng một nửa: người học
+  // nói, nhận về bản chữ, và không bao giờ nghe lại được chính mình — trong khi
+  // tự nghe lại là cách luyện phát âm rẻ nhất khi không có thầy.
+  // Bản thu nằm trong bộ nhớ phiên, KHÔNG lưu xuống đĩa. Xem utils/ghiAm.js.
+  const [urlThu, setUrlThu] = useState('');
+  const [loiThu, setLoiThu] = useState('');
+  const mayThuRef = useRef(null);
+  const huyThuRef = useRef(null);
   const nhanDangRef = useRef(null);
   const coKey = hasGeminiKey();
 
   useEffect(() => {
     setBanChu(''); setDangNghe(false); setLoiMic(''); setDaNop(false);
+    // Đổi đề thì bỏ bản thu cũ: nghe lại giọng mình của đề khác là một kiểu
+    // thay thế âm thầm nhỏ nhưng vẫn là thay thế âm thầm.
+    huyThuRef.current?.(); huyThuRef.current = null; setUrlThu(''); setLoiThu('');
     setTick(de.checklist.map(() => false)); setDaLuu(false); setAiText(''); setAiLoi('');
   }, [de.id, de.checklist]);
 
   // Dừng nhận dạng khi rời màn hình — không thì micro còn bật sau khi đóng.
-  useEffect(() => () => { try { nhanDangRef.current?.stop(); } catch { /* ignore */ } }, []);
+  useEffect(() => () => {
+    try { nhanDangRef.current?.stop(); } catch { /* ignore */ }
+    // Rời màn hình giữa lúc đang thu: phải TRẢ LẠI micro, nếu không đèn micro
+    // của người dùng sáng mãi sau khi họ đã đóng panel.
+    try { mayThuRef.current?.boGiuaChung(); } catch { /* ignore */ }
+    huyThuRef.current?.();
+  }, []);
 
-  const batDau = () => {
+  // LUẬT: **ghi âm hỏng thì nhận dạng vẫn phải chạy.** Hai thứ dùng chung một
+  // micro; Chrome máy tính cho chạy song song nhưng không trình duyệt nào hứa
+  // điều đó. Nên ghi âm được bọc riêng, hỏng thì báo một dòng rồi đi tiếp.
+  const batDau = async () => {
+    huyThuRef.current?.(); huyThuRef.current = null; setUrlThu(''); setLoiThu('');
+    const thu = await batDauGhiAm();
+    if (thu.ok) mayThuRef.current = thu;
+    else { mayThuRef.current = null; setLoiThu(loiGhiAmThanhChu(thu.loi)); }
+
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SR) {
       // THIẾU THÌ BÁO, KHÔNG THAY THẾ ÂM THẦM: vẫn còn ô gõ tay bên dưới để
@@ -109,6 +135,15 @@ function LamBai({ de, onBack, onClose }) {
       // utils/speakingCheck.js — xem ở đó vì sao chúng là dữ liệu chứ không phải
       // chuỗi rải trong JSX.
       setLoiMic(loiMicThanhChu('khong-ho-tro'));
+      // ⚠️ THOÁT SỚM Ở ĐÂY TỪNG BỎ QUÊN MICRO ĐANG BẬT.
+      // Máy thu đã chạy ở mấy dòng trên. Trả về thẳng thì `dangNghe` không bao
+      // giờ thành true → nút "Dừng lại" không hiện ra → không có đường nào gọi
+      // `dung()` → đèn micro của người dùng sáng cho tới lúc họ đóng panel.
+      //
+      // Và ghi âm KHÔNG cần nhận dạng mới chạy được: trình duyệt không hỗ trợ
+      // Web Speech thì người học vẫn thu và nghe lại giọng mình được, chỉ là gõ
+      // bản chữ bằng tay. Nên bật cờ để có nút dừng, thay vì bỏ luôn cả hai.
+      if (mayThuRef.current) setDangNghe(true);
       return;
     }
     const r = new SR();
@@ -132,7 +167,16 @@ function LamBai({ de, onBack, onClose }) {
     r.start();
   };
 
-  const dung = () => { try { nhanDangRef.current?.stop(); } catch { /* ignore */ } setDangNghe(false); };
+  const dung = async () => {
+    try { nhanDangRef.current?.stop(); } catch { /* ignore */ }
+    setDangNghe(false);
+    const may = mayThuRef.current;
+    mayThuRef.current = null;
+    if (!may) return;
+    const kq = await may.dung();
+    if (kq.url) { setUrlThu(kq.url); huyThuRef.current = kq.huy; }
+    else setLoiThu(loiGhiAmThanhChu(kq.loi));
+  };
 
   const xinAi = async () => {
     setAiDangChay(true); setAiLoi(''); setAiText('');
@@ -173,6 +217,24 @@ function LamBai({ de, onBack, onClose }) {
     </div>
 
     {loiMic && <p className="mt-3 text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-800 rounded-2xl p-3">{loiMic}</p>}
+    {loiThu && <p className="mt-3 text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-2xl p-3">{loiThu}</p>}
+
+    {/* NGHE LẠI GIỌNG MÌNH — không phải chấm điểm.
+        Một cái nút micro là thứ dễ khiến người ta tưởng đang được đo nhất, nên
+        chỗ này phải nói thẳng cả hai điều: máy KHÔNG chấm bản thu, và bản thu
+        KHÔNG được lưu lại. */}
+    {urlThu && (
+      <div className="mt-4 rounded-2xl border-3 border-purple-300 dark:border-purple-800 bg-purple-50 dark:bg-purple-950/30 p-4">
+        <p className="text-xs font-black uppercase tracking-wide text-purple-800 dark:text-purple-300">Nghe lại giọng mình</p>
+        <audio controls src={urlThu} className="mt-2 w-full" />
+        <p className="mt-2 text-[11px] font-bold text-purple-800/80 dark:text-purple-300/80 leading-relaxed">
+          Máy <b>không chấm</b> bản thu này — nó chỉ để bạn tự nghe. So với bản chữ ở dưới: chỗ nào trình duyệt nghe ra khác điều bạn định nói thì đó là chỗ đáng luyện lại.
+        </p>
+        <p className="mt-1 text-[11px] font-bold text-slate-500 dark:text-slate-400">
+          Bản thu chỉ nằm trong phiên này. Đóng màn hình là mất, và nó <b>không được lưu vào máy</b> hay gửi đi đâu.
+        </p>
+      </div>
+    )}
 
     <p className="mt-4 text-xs font-black uppercase tracking-wide text-slate-400">Trình duyệt nghe được</p>
     <textarea

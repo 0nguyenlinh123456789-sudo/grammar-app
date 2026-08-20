@@ -925,6 +925,8 @@ const WelcomePage = ({
         dangLoc={locMucTieu}
         batLoc={setLocMucTieu}
         soLieu={demTheoMucTieu(allMilestones, mucTieu)}
+        changTiepNgoaiLan={!!(locMucTieu && nextMilestone && !phucVuMucTieu(nextMilestone, mucTieu))}
+        tenChangTiep={nextMilestone?.title || ''}
       />
 
       {/* --- LEVEL TABS --- */}
@@ -1284,7 +1286,7 @@ const WelcomePage = ({
 // Cái nó CỐ Ý KHÔNG làm: không xếp lại thứ tự, không bỏ chặng nào. Bộ lọc mặc
 // định TẮT và nói thẳng ra điều đó — một lộ trình tự giấu bớt chặng ngay lần
 // đầu mở ra là lộ trình nói dối về độ dài của chính nó.
-function BangMucTieu({ mucTieu, doiMucTieu, dangLoc, batLoc, soLieu }) {
+function BangMucTieu({ mucTieu, doiMucTieu, dangLoc, batLoc, soLieu, changTiepNgoaiLan = false, tenChangTiep = '' }) {
   const [moChon, setMoChon] = useState(false);
   const dsChon = mucTieuChonDuoc(SHOW_IELTS_FOUNDATION);
   const m = MUC_TIEU[mucTieu];
@@ -1333,6 +1335,20 @@ function BangMucTieu({ mucTieu, doiMucTieu, dangLoc, batLoc, soLieu }) {
             Có <b>{soLieu.hop}</b>/{soLieu.tong} chặng phục vụ trực tiếp mục tiêu này
             {soLieu.bo > 0 ? ` — bật lọc sẽ TẠM ẨN ${soLieu.bo} chặng còn lại, không xoá chặng nào và tắt lại được bất cứ lúc nào.` : '.'}
           </span>
+        </p>
+      )}
+
+      {/* MẮC NỐI GIỮA HAI THỨ ĐÚNG RIÊNG LẺ.
+          Bộ lọc chỉ đổi CÁCH NHÌN, nên `nextMilestone` vẫn trỏ đúng chặng kế
+          tiếp theo thứ tự sư phạm — kể cả khi chặng đó nằm ngoài làn và không
+          hiện ở dưới. Cả hai vế đều đúng; ghép lại thì thẻ "Học Tiếp" ở trên
+          gọi tên một chặng người học tìm mãi không thấy.
+          Cách chữa KHÔNG phải là đổi chặng học tiếp — làm thế là để mục tiêu
+          xếp lại thứ tự học, đúng điều đã hứa không làm. Cách chữa là NÓI RA. */}
+      {changTiepNgoaiLan && (
+        <p className="mt-3 text-[11px] md:text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-300 dark:border-amber-800 rounded-xl p-3 leading-relaxed">
+          Chặng học tiếp của bạn — <b>{tenChangTiep}</b> — nằm <b>ngoài làn này</b> nên không hiện trong danh sách bên dưới.
+          Lộ trình không đổi thứ tự vì mục tiêu: nút <b>HỌC NGAY</b> ở trên vẫn vào đúng chặng đó.
         </p>
       )}
 

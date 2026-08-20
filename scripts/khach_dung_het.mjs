@@ -482,6 +482,28 @@ try {
       throw new Error('bật lọc xong màn hình không còn chặng nào — bộ lọc đang cắt cả thứ nó phải giữ');
     }
 
+    // MẮC NỐI: bộ lọc chỉ đổi CÁCH NHÌN, nên chặng "Học Tiếp" vẫn có thể nằm
+    // ngoài làn và không hiện trong danh sách bên dưới. Hai vế đều đúng riêng
+    // lẻ; ghép lại thì người học đọc tên một chặng rồi tìm mãi không thấy.
+    // Cách chữa không phải đổi chặng học tiếp — mà là NÓI RA. Đo đúng chỗ đó.
+    const chuSauLoc = await t.danhGia('document.body.innerText');
+    const loaiOxford = /Oxford Vocab/i.test(chuSauLoc);
+    if (loaiOxford) {
+      throw new Error('bật lọc “Lấy lại gốc” xong vẫn còn nhãn Oxford trên trang — bộ lọc không chạy');
+    }
+    // Làn "Lấy lại gốc" ẩn bộ Oxford. Nếu chặng học tiếp là một chặng Oxford thì
+    // băng mục tiêu BẮT BUỘC phải có dòng cảnh báo; nếu không thì không cần.
+    const changTiepLaOxford = await t.danhGia(`(() => {
+      const the = [...document.querySelectorAll('div')]
+        .filter((e) => /HỌC TIẾP|Học Tiếp/.test(e.innerText || ''));
+      if (!the.length) return false;
+      return /Oxford/i.test(the[the.length - 1].innerText || '');
+    })()`);
+    const coCanhBao = /nằm .{0,12}ngoài làn này/.test(chuSauLoc);
+    if (changTiepLaOxford && !coCanhBao) {
+      throw new Error('chặng Học Tiếp bị bộ lọc ẩn khỏi danh sách mà màn hình không nói gì — người học sẽ tìm mãi không thấy');
+    }
+
     // Tắt lọc phải trả lại đúng như cũ: lọc là CÁCH NHÌN, không phải cắt bớt.
     if (!await t.danhGia(BAM_THEO_CHU('ĐANG LỌC THEO MỤC TIÊU'))) throw new Error('không tắt lại được bộ lọc');
     await cho(900);

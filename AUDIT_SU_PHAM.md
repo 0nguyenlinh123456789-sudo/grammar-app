@@ -283,7 +283,7 @@ Toàn bộ rác truy về được các nhánh fallback trong `generate_preint_d
 | 11 | Nhãn nói quá: "AI NGHE THẤY", "Phát âm chuẩn!" | Cả hai **đã bỏ**; chỉ còn chú thích lịch sử. Panel nói thẳng máy **không chấm được phát âm** | `GamesPage.jsx:428` |
 | 12 | Lộ trình **44 chặng**, phủ 9% từ vựng / 24% ngữ pháp / **0/260** unit Oxford | **710 chặng**; tiêu chí **N1 xanh** — *mọi* nội dung đã soạn đều có đúng một chặng dẫn tới | `roadmap_coverage.test.js` |
 
-### 10.2 Những gì VẪN CÒN THIẾU (đo được, 20/08)
+### 10.2 Những gì VẪN CÒN THIẾU (đo được, 20/08) — ⚠️ ĐÃ LỖI THỜI, XEM MỤC 11
 
 | # | Thiếu sót | Đo được | Ảnh hưởng tới cam kết | Việc cần làm |
 |---|---|---|---|---|
@@ -313,3 +313,50 @@ Audit 12/08 trả lời **"CHƯA, trần là A2"**. Đo lại 20/08: **ĐẠT v�
 **RÕ hơn hẳn, còn thiếu ba mắt xích.** Có 710 chặng phủ trọn kho, có đo đầu vào dẫn đúng bậc, có cổng độ chính xác 0,8/0,85, có thi cuối bậc làm căn cứ cấp chứng nhận. **Thiếu**: bài thi cuối bậc cho **A1** và **C1** (mục 10.2 #1), lộ trình **không đổi theo mục tiêu** người học đã chọn (#2), và app **không đo thời gian thật** (#3).
 
 *Phụ lục mục 10 lập 2026-08-20 trên commit `2c7aa4b`. Mọi con số đo bằng script có chốt tự kiểm; chỗ nào không đo được đã ghi rõ là không đo được.*
+
+---
+
+## 11. ĐÓNG CÁC MỤC CỦA 10.2 — 2026-08-20 (cùng ngày, sau khi lập audit)
+
+> ⚠️ **Mục 10.2 nay chỉ còn giá trị lịch sử.** Bảng dưới là trạng thái hiện tại.
+> Một dòng của 10.2 (**#9**) là **SAI ngay lúc viết** — đã sửa và ghi rõ ở dưới.
+
+### 11.1 Đã đóng
+
+| # của 10.2 | Việc | Đã làm gì | Đo lại |
+|---|---|---|---|
+| **1** | Không có bài thi cuối bậc A1 và C1 | Soạn tay `exam-a1` (6 Nghe · 8 Đọc · 1 viết · 1 nói) và `exam-c1` (6 Nghe trên bài VOA *knee-jerk* · 8 Đọc **đòi HÀM Ý**: *far from*, nói giảm, đảo ngữ, *if anything*, mỉa mai) | **5/5 bậc có cửa đo**; câu chấm được **42 → 70** |
+| **1b** | *(lỗ phát hiện thêm)* Lộ trình **không dẫn tới đề nào** — 5 đề chỉ nằm ở một thẻ trên trang chủ | Thêm **cửa ải cuối bậc** ở CUỐI ĐƯỜNG mỗi bậc: nói bậc này kết thúc bằng đề nào, còn bao nhiêu chặng chưa đi, đã đạt chưa; bấm mở **thẳng** đúng đề | `khach:het`: **5 cửa ải**, mở thẳng đúng đề |
+| **2** | `getLearningGoal()` — 0 nơi gọi | `utils/mucTieuHoc.js` + băng mục tiêu trên lộ trình: lọc theo làn, đếm thật, **đổi được** mục tiêu | Lái thật: **Oxford 60 → 0 → 60**, ngữ pháp/từ vựng vẫn còn |
+| **2b** | *(lỗ phát hiện thêm)* Onboarding mời chọn **"Thi IELTS"** trong khi cụm IELTS **bị ẩn** trên bản khách | Mục tiêu đó chỉ hiện ở nơi cụm đó hiện | `mucTieuChonDuoc(false)` không còn `ielts` |
+| **3** | App không đo thời gian học | `utils/thoiGianHoc.js` + `utils/dongHoHoc.js`. Chỉ đếm khi tab **hiện** và có tương tác trong 90s; trần 10h/ngày và trần 4× một nhịp | Báo cáo hiện **"Đã mở app có tương tác"** và **đối chiếu** với ước lượng của phần đã đi |
+| **4** | Không ghi âm được giọng mình | `utils/ghiAm.js` + khối **"Nghe lại giọng mình"** trong màn luyện nói. Bản thu **chỉ trong phiên**, không lưu, không gửi đi đâu | 8 test, gồm cả 4 đường hỏng đều **trả lại micro** |
+| **9** | *(ghi sai — xem 11.3)* | — | — |
+
+### 11.2 Cố ý giữ nguyên — và vì sao
+
+| # | Mục | Vì sao không sửa |
+|---|---|---|
+| **5** | Không chấm phát âm | Cần **API chấm phát âm trả phí**. Ràng buộc của dự án là không dùng dịch vụ tốn phí. Đã công bố thẳng trong app; nay có thêm ghi âm để người học **tự nghe lại** — đó là thứ thay thế được nhiều nhất mà không nói dối. |
+| **6** | Chấm nói/viết cần key Gemini của người học | 100% BYOK là **quyết định của chủ dự án**, không phải thiếu sót. Đã cân nhắc dựng bộ "chấm ngữ pháp ngoại tuyến" bằng luật — **bỏ**: một bộ chấm sai là đúng loại nói quá mà cả kho này đã gỡ hai lần. Trần trung thực khi không có key là **checklist + đối chiếu số từ và cụm bắt buộc**, và nó đã có. |
+| **8** | Không khoá chặng | Chủ trương **khoá mềm** đã ghi rõ từ (1.6): cảnh báo "⚠ Vượt cấp", không chặn. |
+
+### 11.3 ĐÍNH CHÍNH mục 10.2 #9 — tôi đã ghi sai
+
+Mục 10.2 #9 viết: bài nghe phụ thuộc VOA và **"không có bản dự phòng"**, nên phải tải 60 tệp về.
+
+**Vế đầu đúng, vế sau sai.** Đã chặn thẳng tên miền `voa-audio.voanews.eu` ở tầng mạng rồi vào học thật. Kết quả: màn hình **có băng báo** "Không tải được bản thu từ VOA", **nói rõ** bản thu nằm trên máy chủ VOA chứ không nằm trong ứng dụng, có **link về trang gốc**, và **hiện bản chép lời** để người học vẫn làm được câu hỏi. Tức là app đang làm **đúng** luật "thiếu dữ liệu thì ẨN hoặc BÁO, tuyệt đối không thay thế âm thầm" — thứ tôi bảo là thiếu thì đã có sẵn.
+
+Cỡ tải về, **đo bằng `content-length`, 60/60 bài**: **116,9 MB** (trung bình 1,95 MB/bài). Tiền lệ Tatoeba **không áp được**: mỗi tệp Tatoeba 13–33 KB.
+
+⇒ Đây là **quyết định hạ tầng của chủ dự án** (116,9 MB vào lịch sử git và vào mọi lần triển khai, trên gói miễn phí đã chật), **không phải một lỗi cần sửa**. Cùng nhóm với việc mua bộ giáo trình B2.
+
+### 11.4 Việc CHỦ DỰ ÁN phải quyết — không phải việc của mã
+
+| Việc | Số đo | Vì sao mã không làm thay được |
+|---|---|---|
+| **Bậc B2 mỏng** — bậc ĐÍCH của cam kết | B2 **93 giờ** vs B1 151, C1 149. Chênh lệch **đúng bằng** một tập giáo trình Oxford mà kho không có bản cho B2 | Là chuyện **mua/xin phép**, không phải soạn thêm. Soạn 60 giờ nội dung để lấp một lỗ hổng giấy phép là làm sai việc |
+| **Tải 60 bài nghe về** | **116,9 MB** | Vào lịch sử git và mọi lần triển khai. Hôm nay link chết đã **báo và vẫn học được** (11.3), nên đây là chọn giữa rủi ro vận hành và dung lượng — chọn của người trả tiền máy chủ |
+| Số tài khoản + ảnh QR, một kênh giao mã, nơi đặt web | — | Chủ dự án đã hẹn đưa sau cùng |
+
+*Mục 11 lập 2026-08-20. Mọi con số đo bằng script hoặc bằng bộ lái trình duyệt thật; chỗ nào không đo được đã ghi rõ là không đo được.*
