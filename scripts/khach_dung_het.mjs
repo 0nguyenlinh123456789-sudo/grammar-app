@@ -472,6 +472,68 @@ try {
     await t.danhGia(DONG_PANEL); await cho(400);
     return 'thu được, nghe lại được, và có đủ hai lời: máy không chấm + bản thu không lưu';
   });
+  // ── NGƯỜI MẤT GỐC: BẬC ĐẦU TIÊN CÓ DẠY ĐẶT CÂU KHÔNG ─────────────────────
+  // Đây là bước đo đúng cam kết của sản phẩm. Trước đợt audit sư phạm, bậc A1
+  // có ĐÚNG 2 chặng ngữ pháp trên 73 chặng — 71 chặng còn lại là danh sách từ
+  // vựng, và trong cả kho KHÔNG có bài nào dạy động từ TO BE. Người mất gốc đi
+  // hết 134 giờ của bậc đầu vẫn không đặt nổi câu "I am a student".
+  //
+  // Test tĩnh ghim dữ liệu. Bước này ghim thứ dữ liệu không nói được: bài đó có
+  // MỞ RA ĐƯỢC trên màn hình và có NỘI DUNG THẬT hay không.
+  await khuVuc('MẤT GỐC: bậc A1 dạy TO BE, và bài đó mở ra có nội dung thật', async () => {
+    await veTrangChu(); await cho(900);
+    if (!await t.danhGia(BAM_THEO_CHU('A1 Khởi Đầu'))) throw new Error('không thấy tab bậc A1');
+    await cho(900);
+    await t.danhGia(BAM_THEO_CHU('BẤM ĐỂ XEM HẾT'));
+    await cho(1200);
+
+    // Đọc TÊN các chặng ngữ pháp của bậc A1 theo đúng thứ tự trên màn hình.
+    const tenChang = await t.danhGia(`(() => {
+      return [...document.querySelectorAll('h4')].map((e) => (e.innerText || '').trim()).filter(Boolean);
+    })()`);
+    const co = (chu) => tenChang.some((x) => x.toLowerCase().includes(chu.toLowerCase()));
+
+    const PHAI_CO = ['TO BE', 'Số Nhiều', 'This / That', 'Đại từ', 'Mạo Từ', 'Câu Hỏi', 'There is'];
+    const thieu = PHAI_CO.filter((x) => !co(x));
+    if (thieu.length) throw new Error(`bậc A1 trên màn hình thiếu: ${thieu.join(", ")} (thấy ${tenChang.length} chặng)`);
+
+    // TO BE phải đứng TRƯỚC Hiện Tại Tiếp Diễn — thứ tự trên màn hình, không
+    // phải thứ tự trong dữ liệu.
+    const iBe = tenChang.findIndex((x) => /TO BE/i.test(x));
+    const iCont = tenChang.findIndex((x) => /Tiếp Diễn/i.test(x));
+    if (iBe < 0) throw new Error('không thấy chặng TO BE');
+    if (iCont >= 0 && iBe > iCont) {
+      throw new Error(`TO BE đứng ở vị trí ${iBe + 1} còn Hiện Tại Tiếp Diễn ở ${iCont + 1} — người học gặp "I am watching TV" trước khi biết "am" là gì`);
+    }
+
+    // Mở bài TO BE và soi nội dung thật.
+    // Thẻ chặng là một <div onClick>, KHÔNG phải <button> — BAM_THEO_CHU chỉ dò
+    // <button> nên nó trượt. Bấm thẳng vào thẻ chứa tiêu đề.
+    const daMo = await t.danhGia(`(() => {
+      const h = [...document.querySelectorAll('h4')].find((e) => /TO BE/i.test(e.innerText || ''));
+      if (!h) return false;
+      const the = h.closest('div[class*=rounded-3xl]') || h.parentElement;
+      the.scrollIntoView({ block: 'center' }); the.click(); return true;
+    })()`);
+    if (!daMo) throw new Error('không bấm được vào chặng TO BE');
+    await cho(1800);
+    const chu = await t.danhGia('document.body.innerText');
+    if (!/am\b/.test(chu) || !/is\b/.test(chu) || !/are\b/.test(chu)) {
+      throw new Error('mở bài TO BE mà không thấy am/is/are trên màn hình');
+    }
+    if (chu.length < 800) throw new Error(`bài TO BE mở ra chỉ có ${chu.length} ký tự — gần như rỗng`);
+
+    // Bậc A1 cũng phải có buổi nghe: đề thi A1 có 6 câu nghe.
+    await veTrangChu(); await cho(700);
+    if (!await t.danhGia(BAM_THEO_CHU('A1 Khởi Đầu'))) throw new Error('không quay lại được tab A1');
+    await cho(700);
+    await t.danhGia(BAM_THEO_CHU('BẤM ĐỂ XEM HẾT'));
+    await cho(1200);
+    const coNghe = await t.danhGia("/chép chính tả/i.test(document.body.innerText)");
+    if (!coNghe) throw new Error('bậc A1 không có chặng nghe nào, trong khi đề thi A1 có 6 câu nghe');
+
+    return `A1 có ${tenChang.length} chặng · TO BE ở vị trí ${iBe + 1}${iCont >= 0 ? `, trước Tiếp Diễn (${iCont + 1})` : ''} · có buổi chép chính tả`;
+  });
   // ── MỤC TIÊU HỌC ─────────────────────────────────────────────────────────
   // `getLearningGoal()` từng có ĐÚNG 0 nơi gọi: hỏi ở màn hình đầu tiên rồi vứt.
   // Test tĩnh chứng minh được hàm có người gọi; nó KHÔNG chứng minh bấm vào
@@ -739,7 +801,7 @@ try {
 //
 // Con số dưới là công thật, chỉ được đi LÊN. Bớt bước có chủ ý thì sửa nó và
 // ghi vì sao — nhưng phải là một quyết định có chữ, không phải một dòng lọt qua.
-const SO_BUOC_TOI_THIEU = 21;
+const SO_BUOC_TOI_THIEU = 22;
 const dat = ket.filter((k) => k.ok).length;
 console.log(`\nbước đạt: ${dat}/${ket.length}`);
 if (ket.length < SO_BUOC_TOI_THIEU) {

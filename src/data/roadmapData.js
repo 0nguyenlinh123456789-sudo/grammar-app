@@ -128,6 +128,44 @@ function xepLaiNguPhap(ds) {
 
 const curatedByBand = new Map(roadmapCurated.map((l) => [l.level, l]));
 
+// ══ SỐ CHẶNG CỦA MỘT BẬC, TÁCH THEO LOẠI ══════════════════════════════════
+//
+// Một lộ trình in ra "~138 giờ" mà không nói ra phần lớn trong đó là học từ
+// thì người đọc hiểu thành "138 giờ học tiếng Anh toàn diện". Ứng dụng này đã
+// gỡ chữ "4 kỹ năng" ở khắp nơi vì đúng lý do đó; đây là bước tiếp.
+//
+// ⚠️ VÌ SAO ĐẾM CHẶNG CHỨ KHÔNG CHIA GIỜ.
+// Bản đầu của phép này chia SỐ GIỜ theo kỹ năng và ra "A1: nghe 0h". Sai, và
+// sai theo hướng nói xấu chính kho của mình: mỗi chủ đề từ vựng có BẢY chế độ
+// học, trong đó có "Nghe – Chọn Nghĩa" và "Luyện Nói". Chia giờ theo LOẠI
+// CHẶNG thì toàn bộ phần nghe và nói nằm trong 71 chủ đề từ vựng của bậc A1 bị
+// đếm thành 0.
+//
+// Mà chia cho đúng thì cũng không làm được: ước lượng giờ giả định người học đi
+// 4 trong 7 chế độ (`MODES_PER_WORD = 4`), và KHÔNG AI BIẾT là 4 chế độ nào.
+// Một tỉ lệ bịa ra còn tệ hơn không có tỉ lệ.
+//
+// Nên ở đây đếm thứ ĐẾM ĐƯỢC — số chặng theo loại — và giao diện nói thêm một
+// câu về bảy chế độ. Cả hai đều kiểm lại được.
+const NHOM_KY_NANG = {
+  grammar: 'nguPhap',
+  vstep: 'tuVung',
+  oxford: 'tuVung',
+  listening: 'nghe',
+  dictation: 'nghe',
+  reading: 'doc',
+};
+
+export function bandChangTheoLoai(band) {
+  const ds = [
+    ...(roadmapCurated.find((l) => l.level === band)?.milestones || []),
+    ...(roadmapGenerated[band] || []),
+  ];
+  const ra = { nguPhap: 0, tuVung: 0, nghe: 0, doc: 0, khac: 0 };
+  for (const m of ds) ra[NHOM_KY_NANG[m.type] || 'khac'] += 1;
+  return ra;
+}
+
 export const roadmapData = ROADMAP_BANDS.map((band) => {
   const curated = curatedByBand.get(band);
   const meta = curated

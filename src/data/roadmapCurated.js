@@ -110,7 +110,7 @@ export const roadmapCurated = [
     badgeColor: 'bg-cyan-500 text-white',
     shadowColor: 'shadow-cyan-300',
     targetAudience: ['🧒 Học sinh tiểu học', '👩 Người đi làm cơ bản'],
-    skills: ['Kể chuyện quá khứ', 'Hỏi và trả lời', 'Viết đoạn văn ngắn', 'Hiểu hội thoại đơn giản'],
+    skills: ['Kể lại một việc đã xảy ra bằng thì quá khứ', 'Hỏi và trả lời về thói quen, kế hoạch, sở thích', 'Viết đoạn 40–70 từ về người hoặc nơi quen thuộc', 'Nghe ra ý chính của câu nói chậm, rõ'],
     milestones: [
       {
         id: 'm_e1',
@@ -184,7 +184,7 @@ export const roadmapCurated = [
     badgeColor: 'bg-emerald-500 text-white',
     shadowColor: 'shadow-emerald-300',
     targetAudience: ['👨‍🎓 Học sinh THPT', '👩‍💼 Nhân viên văn phòng'],
-    skills: ['Giao tiếp tự nhiên', 'Viết email đơn giản', 'Đọc hiểu văn bản', 'Đủ sức thi VSTEP B1'],
+    skills: ['Kể một câu chuyện có nhiều tầng thời gian (đã, đang, trước đó)', 'Viết email 90–140 từ nêu yêu cầu hoặc phàn nàn', 'Đọc hiểu bài 600–1.000 từ về việc quen thuộc', 'Nghe hiểu bài nói 3–5 phút giọng người thật'],
     milestones: [
       {
         id: 'm_i1',
@@ -366,7 +366,7 @@ export const roadmapCurated = [
     badgeColor: 'bg-rose-500 text-white',
     shadowColor: 'shadow-rose-300',
     targetAudience: ['🧑‍💼 Người đã vững B2', '📚 Người thi học thuật', '✈️ Người sống/làm việc ở nước ngoài'],
-    skills: ['Viết academic essay', 'Thuyết trình chuyên nghiệp', 'Nền từ vựng & ngữ pháp bậc C1'],
+    skills: ['Đọc ra HÀM Ý và thái độ người viết, không chỉ nghĩa đen', 'Viết bài 220–300 từ có nhượng bộ và phản bác', 'Nói 2 phút có lập trường kèm điều kiện áp dụng', 'Nền từ vựng & ngữ pháp để đi tiếp lên C1'],
     milestones: [
       {
         id: 'm_a1',

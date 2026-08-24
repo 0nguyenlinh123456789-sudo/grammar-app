@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { roadmapData, BAND_TAB_LABEL, bandMinutes, minutesThroughBand, roadmapTotalMinutes } from '../data/roadmapData';
+import { roadmapData, BAND_TAB_LABEL, bandMinutes, bandChangTheoLoai, minutesThroughBand, roadmapTotalMinutes } from '../data/roadmapData';
 import { deThiCuaBac } from '../data/bandExamIndex';
 import { luotDatGanNhat } from '../utils/bandExam';
 import { docMucTieu, luuMucTieu, MUC_TIEU, demTheoMucTieu, phucVuMucTieu, mucTieuChonDuoc } from '../utils/mucTieuHoc';
@@ -997,11 +997,44 @@ const WelcomePage = ({
                     <p className="text-[11px] font-black text-slate-400 mt-1">
                       {level.milestones.length} chặng · ~{formatDuration(bandMinutes(level.level))} · cộng dồn từ đầu lộ trình: ~{Math.round(minutesThroughBand(level.level) / 60)} giờ
                     </p>
+                    {/* BẬC NÀY GỒM NHỮNG GÌ — đếm chặng, không chia giờ.
+                        Xem `bandChangTheoLoai` trong roadmapData.js để biết vì sao
+                        chia giờ theo kỹ năng là một phép đo nói dối ở đây. */}
+                    <p className="text-[10px] font-bold text-slate-400 mt-0.5">
+                      {(() => {
+                        const c = bandChangTheoLoai(level.level);
+                        const phan = [
+                          ['chủ đề từ vựng', c.tuVung], ['bài ngữ pháp', c.nguPhap], ['buổi nghe', c.nghe], ['bài đọc dài', c.doc],
+                        ].filter(([, v]) => v > 0);
+                        if (!phan.length) return null;
+                        return <>gồm: {phan.map(([ten, v]) => `${v} ${ten}`).join(' · ')}{c.tuVung > 0 ? ' — mỗi chủ đề từ vựng có 7 bước, trong đó có Nghe và Luyện Nói' : ''}</>;
+                      })()}
+                    </p>
                     {level.targetAudience && (
                       <div className="flex flex-wrap gap-1 mt-2">
                         {level.targetAudience.map((aud, i) => (
                           <span key={i} className="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-600 px-2 py-0.5 rounded-full font-bold">{aud}</span>
                         ))}
+                      </div>
+                    )}
+                    {/* ══ SAU BẬC NÀY BẠN LÀM ĐƯỢC GÌ ══
+                        `level.skills` có từ đầu — bốn câu outcome cho mỗi bậc — và
+                        KHÔNG MÀN HÌNH NÀO VẼ NÓ RA. Người học đi 86 chặng của bậc A1
+                        mà không có một câu nào nói cho họ biết đi hết thì làm được gì.
+                        Chỉ 5% số chặng có câu "Sau bài: …" trong mô tả, và 95% còn lại
+                        là chặng máy sinh — bịa outcome cho chúng bằng khuôn mẫu đúng là
+                        loại nội dung cả kho này đã xoá. Nên outcome ở MỨC BẬC, viết tay,
+                        và hiện ra. */}
+                    {level.skills?.length > 0 && (
+                      <div className="mt-3 rounded-2xl border-2 border-emerald-300 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-950/25 px-3 py-2.5">
+                        <p className="text-[10px] font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Đi hết bậc này bạn làm được</p>
+                        <ul className="mt-1 grid sm:grid-cols-2 gap-x-4 gap-y-0.5">
+                          {level.skills.map((s, i) => (
+                            <li key={i} className="text-[11px] font-bold text-slate-700 dark:text-slate-300 leading-snug flex gap-1.5">
+                              <span className="text-emerald-600 shrink-0">✓</span>{s}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     )}
                   </div>
