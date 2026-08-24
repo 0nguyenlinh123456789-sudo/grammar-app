@@ -370,3 +370,78 @@ Cỡ tải về, **đo bằng `content-length`, 60/60 bài**: **116,9 MB** (trun
 Ba lỗ này đều **không nằm trong bảng 10.2**. Chúng lộ ra vì đi sửa những mục có trong bảng — không phải vì bảng đó soi trúng.
 
 *Mục 11 lập 2026-08-20. Mọi con số đo bằng script hoặc bằng bộ lái trình duyệt thật; chỗ nào không đo được đã ghi rõ là không đo được.*
+
+---
+
+## 12. AUDIT SƯ PHẨM 2026-08-20 — ĐO NỘI DUNG, KHÔNG ĐO CẤU TRÚC
+
+> Mười một mục trước đo **cấu trúc**: chặng có tồn tại không, con số có khớp không,
+> chuỗi có hứa quá không. Mục này đo thứ chưa ai đo: **nội dung của một bậc có đủ
+> để lên bậc sau không.**
+
+### 12.1 Phát hiện lớn nhất
+
+> **Bậc A1 có ĐÚNG 2 chặng ngữ pháp trên tổng 73 chặng. 71 chặng còn lại là danh
+> sách từ vựng. Và trong toàn bộ 90 chuyên đề ngữ pháp của kho, KHÔNG CÓ bài nào
+> dạy động từ TO BE.**
+
+Người mất gốc đi hết **134 giờ** của bậc đầu tiên vẫn không đặt nổi câu
+*"I am a student."* — vì họ chưa được học đại từ, mạo từ, số nhiều hay câu hỏi.
+
+Lúc đó kho có **482 test xanh, lint sạch, build xanh**. Không test nào đỏ, vì mọi
+test đều đo cấu trúc.
+
+**Nguyên nhân gốc:** bậc của một chuyên đề ngữ pháp quyết định bằng **VỊ TRÍ CỦA
+NÓ TRONG MẢNG** — `i < 14 ? 'elementary' : 'intermediate'`. "There is/There are"
+nằm ở B1 vì nó là mục thứ **17** trong file, không vì nó khó. Cùng thế với "Đại từ
+& Sở hữu" (20), "Câu Hỏi" (23), "Have got" (21), "Mệnh lệnh" (19).
+
+Đo theo mô tả CEFR: **12/13 mục ngữ pháp A1 không được dạy ở bậc A0/A1.**
+
+### 12.2 Đã sửa trong đợt này
+
+| # | Lỗ | Đo trước | Đo sau |
+|---|---|---|---|
+| 1 | Bậc quyết định bằng chỉ số mảng | `i < 14 ? A2 : B1` | Bảng `BAC_CUA_CHUYEN_DE` soạn tay theo CEFR; chuyên đề lạ làm bộ sinh **dừng**, không rơi vào bậc mặc định |
+| 2 | Ngữ pháp bậc A1 | **2** chặng | **12** chặng |
+| 3 | Ngữ pháp CEFR A1 được dạy ở A0/A1 | **1/13** | **11/12** |
+| 4 | Kho không có TO BE / số nhiều / this-that | 0 bài | **3 bài soạn tay** (lý thuyết + 6 loại bài tập mỗi bài) |
+| 5 | Thứ tự: TO BE đứng sau Hiện Tại Tiếp Diễn | TO BE ở chặng **12**, Tiếp Diễn ở chặng **3** | TO BE là chặng **2** của cả lộ trình |
+| 6 | Bậc A1/A2 có 0 chặng nghe, mà đề thi mỗi bậc có **6 câu nghe** | 0 | **3 buổi chép chính tả** mỗi bậc (câu Tatoeba 4–6 từ, kho đã có 97 câu ngắn) |
+| 7 | Đề A1/A2 có phần **Nói** mà lộ trình cố ý không có đề nói | im lặng | đề **khai ra** chỗ luyện (12 bài phát âm A0 · bước "Luyện Nói" của mỗi chủ đề từ vựng) |
+| 8 | Nhãn kỳ thi **IELTS/TOEIC** trên lộ trình, trong khi bản khách không có đề nào | **46** nhãn + 2 mô tả bậc + 2 mục kỹ năng | **0** — nhãn VSTEP giữ nguyên vì đề VSTEP có thật |
+| 9 | `level.skills` — 4 câu outcome mỗi bậc | **không màn hình nào vẽ ra** | hiện ngay đầu mỗi bậc: "Đi hết bậc này bạn làm được" |
+| 10 | Ngữ pháp B1 thật (bị động, tường thuật, mệnh đề quan hệ, điều kiện) nằm ở B2 | B1 có **14** chặng ngữ pháp toàn nội dung A2 | B1 có **11** chặng đúng bậc |
+| 11 | `bandFromLevelString` có giá trị mặc định âm thầm | chuỗi bậc lạ → lặng lẽ rơi vào B1 | **ném lỗi** kèm tên chủ đề (267/267 chủ đề đọc được, không cái nào rơi) |
+| 12 | A1 định vị "Trẻ em 5-8 tuổi" trên sản phẩm bán cho người lớn mất gốc | — | "Người lớn mất gốc" đặt trước |
+
+### 12.3 Một phép đo của chính đợt này suýt nói dối
+
+Tôi định in **số giờ tách theo kỹ năng** lên mỗi bậc. Nó ra:
+
+```
+A1: từ vựng 133h · ngữ pháp 5h · NGHE 0h · đọc 0h
+```
+
+**Sai, và sai theo hướng nói xấu chính kho của mình.** Mỗi chủ đề từ vựng có **7
+chế độ học**, trong đó có *"Nghe – Chọn Nghĩa"* và *"Luyện Nói"*. Chia giờ theo
+**loại chặng** thì toàn bộ phần nghe và nói nằm trong 71 chủ đề từ vựng của A1 bị
+đếm thành 0.
+
+Mà chia cho đúng thì cũng không làm được: ước lượng giờ giả định người học đi **4
+trong 7** chế độ (`MODES_PER_WORD = 4`), và không ai biết là 4 chế độ nào. Một tỉ lệ
+bịa ra còn tệ hơn không có tỉ lệ.
+
+⇒ Đổi sang đếm thứ **đếm được**: số chặng theo loại, kèm một câu về bảy chế độ.
+
+### 12.4 CÒN LẠI — không sửa được bằng mã
+
+| Việc | Số đo | Vì sao |
+|---|---|---|
+| **Bậc B2 mỏng nhất trên A0** | B2 **90 giờ** vs B1 150, C1 149 | Kho không có tập giáo trình Oxford cho B2 (A2 có 60 unit, B1 có 100, C1 có 100, **B2 có 0**). Là chuyện **mua/xin phép**, không phải soạn thêm. Đây là **bậc đích** của cam kết |
+| Bậc A1 phủ rộng hơn A1 thuần | 37 chủ đề khai "A1" + **33 khai "A1-A2"** | Hệ quả thẳng của luật "xếp vào cận dưới của khoảng" — một quyết định, nay đã ghi ra. A1 = ~138h so với mốc CEFR ~90–100h cho riêng A1 |
+| Từ vựng chiếm phần lớn số chặng | A1: 71/86 · A2: 134/153 | Không sửa bằng mã. Nay **in ra** thay vì im lặng |
+| "CAN" dạy ở A2 chứ không A1 | 1/12 mục A1 còn lệch | Chuyên đề gộp Can + Could + Be able to; hai cái sau là A2/B1. Xếp ở A2 là đúng cho cả gói |
+
+*Mục 12 lập 2026-08-20. Mọi con số đo bằng script có chốt tự kiểm hoặc bằng bộ lái
+trình duyệt thật.*
