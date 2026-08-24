@@ -218,3 +218,39 @@ test('nhãn cấp độ gộp hiện ra là "C1+", và nói rõ là chưa tách 
   assert.equal(nhanCapDo(null), '');
   assert.ok(LA_NHAN_GOP('C1/C2') && !LA_NHAN_GOP('B1'));
 });
+
+// ══ NHÃN KỲ THI TRÊN THẺ CHẶNG ════════════════════════════════════════════
+// Khác với các mẫu CẤM ở trên (chúng chặn lời hứa VƯỢT BẬC), test này chặn một
+// loại nói quá khác: hứa LUYỆN THI cho kỳ thi mà app không có đề nào.
+//
+// Đo được 20/08: `roadmapCurated.js` gắn 36 nhãn IELTS (Band 3 → Band 7+) và
+// 14 nhãn TOEIC (500+ → 750+) lên các chặng lộ trình. Nhãn đó hiện ra trên thẻ
+// chặng qua `getExamBadge`. Nhưng bản khách KHÔNG có một đề IELTS hay TOEIC
+// nào: cụm IELTS Nền Tảng bị ẩn (`utils/localOnly.js`) và `mockTestData.js` là
+// đề VSTEP. Gắn "IELTS Band 7" lên một bài ngữ pháp là nói rằng bài đó luyện
+// cho kỳ thi đó tới mức đó.
+//
+// Nhãn VSTEP thì GIỮ — app có đề thi thử VSTEP và bộ từ vựng VSTEP thật.
+test('không chặng lộ trình nào gắn nhãn kỳ thi mà app không có đề', async () => {
+  const { roadmapCurated } = await import('../src/data/roadmapCurated.js');
+  const xau = [];
+  for (const b of roadmapCurated) {
+    for (const m of b.milestones || []) {
+      for (const e of m.exam || []) {
+        if (/IELTS|TOEIC/i.test(e)) xau.push(`${b.level}/${m.targetId}: "${e}"`);
+      }
+    }
+  }
+  assert.deepEqual(xau.slice(0, 10), [],
+    `${xau.length} chặng gắn nhãn IELTS/TOEIC, trong khi bản khách không có đề nào của hai kỳ thi đó:\n  ` + xau.slice(0, 10).join('\n  '));
+});
+
+test('mô tả bậc không đặt mục tiêu theo kỳ thi mà app không có đề', async () => {
+  const { roadmapData } = await import('../src/data/roadmapData.js');
+  const xau = [];
+  for (const b of roadmapData) {
+    const chu = `${b.levelTitle || ''} ${b.levelDesc || ''} ${(b.targetAudience || []).join(' ')} ${(b.skills || []).join(' ')}`;
+    if (/IELTS|TOEIC/i.test(chu)) xau.push(`${b.level}: ${chu.slice(0, 120)}`);
+  }
+  assert.deepEqual(xau, [], 'mô tả bậc hứa luyện thi IELTS/TOEIC:\n  ' + xau.join('\n  '));
+});

@@ -70,6 +70,62 @@ const FOUNDATION_META = {
 // phút học, chặn trong khoảng 10–60 để không có chặng nào thưởng quá đà.
 const xpFromMinutes = (minutes) => Math.max(10, Math.min(60, Math.round((minutes || 0) / 6) * 5));
 
+// ══ TRÌNH TỰ SƯ PHẠM CỦA CÁC CHẶNG NGỮ PHÁP ═══════════════════════════════
+//
+// Chặng soạn tay LUÔN đứng trước chặng máy sinh (`[...curatedMs, ...generatedMs]`)
+// — đúng cho mọi loại chặng khác, nhưng SAI cho ngữ pháp, vì ngữ pháp có thứ
+// tự bắt buộc. Hậu quả đo được ở bậc A1: "Hiện Tại Đơn" và "Hiện Tại Tiếp
+// Diễn" (soạn tay) đứng ở chặng 2–3, còn "Động Từ TO BE" đứng ở chặng 12 —
+// tức là người học gặp "I am watching TV" trước khi biết "am" là gì.
+//
+// Bảng dưới xếp lại ĐÚNG NHỮNG CHẶNG NGỮ PHÁP với nhau. Nó KHÔNG đụng vào
+// vị trí của chúng trong danh sách: bộ xen kẽ (`build_roadmap.mjs`) đã rải
+// ngữ pháp đều giữa các chặng từ vựng, và phép này chỉ đổi CÁI GÌ đứng ở mỗi
+// chỗ đã rải, không đổi CHỖ. Chặng không có tên trong bảng giữ nguyên thứ tự
+// tương đối như cũ.
+const THU_TU_NGU_PHAP = [
+  // ── A1: đi từ chỗ đặt được câu đầu tiên ─────────────────────────────────
+  'a1_be',    // TO BE — trước tất cả, vì mọi bài sau đều dùng nó
+  'b1_20',    // Đại từ & Sở hữu — có chủ ngữ mới có câu
+  'a1_this',  // this / that
+  'a1_plural',// số nhiều — cần trước mạo từ và There are
+  'b1_08',    // Mạo từ a/an/the
+  'b1_01',    // Hiện Tại Đơn
+  'b1_17',    // There is / There are
+  'b1_12',    // Giới từ nơi chốn
+  'b1_23',    // Câu hỏi Wh-
+  'b1_21',    // Have got
+  'b1_02',    // Hiện Tại Tiếp Diễn
+  'b1_19',    // Mệnh lệnh & cảm thán
+  // ── A2 ──────────────────────────────────────────────────────────────────
+  'b1_03', 'b1_04', 'b1_05', 'b1_07', 'b1_09', 'b1_10', 'b1_11',
+  'b1_13', 'b1_14', 'b1_15', 'b1_16', 'b1_18', 'b1_22', 'b1_24', 'b1_25', 'b1_26',
+  // ── B1 ──────────────────────────────────────────────────────────────────
+  'b1_06', 'b2_01', 'b2_02', 'b1_27', 'b1_28',
+  'b2_03', 'b2_04', 'b2_05', 'b2_06', 'b2_08', 'b2_09',
+];
+const HANG_NGU_PHAP = new Map(THU_TU_NGU_PHAP.map((id, i) => [id, i]));
+
+/**
+ * Xếp lại các chặng NGỮ PHÁP theo trình tự sư phạm, giữ nguyên vị trí của
+ * chúng trong danh sách. Mọi loại chặng khác không bị đụng tới.
+ */
+function xepLaiNguPhap(ds) {
+  const viTri = [];
+  const chang = [];
+  ds.forEach((m, i) => { if (m.type === "grammar") { viTri.push(i); chang.push(m); } });
+  if (chang.length < 2) return ds;
+  const hang = (m) => (HANG_NGU_PHAP.has(String(m.targetId)) ? HANG_NGU_PHAP.get(String(m.targetId)) : Number.MAX_SAFE_INTEGER);
+  // Sắp xếp ỔN ĐỊNH: chặng không có tên trong bảng giữ nguyên thứ tự cũ với nhau.
+  const daXep = chang
+    .map((m, i) => ({ m, i }))
+    .sort((a, b) => hang(a.m) - hang(b.m) || a.i - b.i)
+    .map((x) => x.m);
+  const ra = [...ds];
+  viTri.forEach((v, i) => { ra[v] = daXep[i]; });
+  return ra;
+}
+
 const curatedByBand = new Map(roadmapCurated.map((l) => [l.level, l]));
 
 export const roadmapData = ROADMAP_BANDS.map((band) => {
@@ -97,7 +153,7 @@ export const roadmapData = ROADMAP_BANDS.map((band) => {
     curated: false,
   }));
 
-  return { ...meta, milestones: [...curatedMs, ...generatedMs] };
+  return { ...meta, milestones: xepLaiNguPhap([...curatedMs, ...generatedMs]) };
 });
 
 // ---- Số giờ: tính từ dữ liệu, không phải chữ viết tay ------------------------

@@ -82,7 +82,17 @@ test('bộ kiểm không trả về bất kỳ trường nào có hình dạng �
 // Bánh cóc số đề nói — trước 17/08 mục này CHỈ có test độ phủ, không có mốc đếm.
 // Độ phủ xanh không thay được mốc đếm: nếu ai đó xoá đề nói ĐỒNG THỜI với việc
 // xoá chặng tương ứng thì độ phủ vẫn 100%, kho vẫn teo lại mà không ai biết.
-const DE_NOI_TOI_THIEU = 476;
+// NỚI 476 → 465 (20/08, đợt audit sư phạm). Một lần đi xuống, có lý do:
+//
+// 11 chặng ngữ pháp được chuyển XUỐNG bậc A1/A2 vì chúng là ngữ pháp A1/A2
+// (There is/are, Đại từ, Câu hỏi, Have got, Mệnh lệnh, Mạo từ, Giới từ nơi
+// chốn, Can/Could, Must/Should, Liên từ, Too & Enough…). Đề nói theo chủ đề
+// CỐ Ý chỉ có từ B1 trở lên, nên 11 chặng đó không còn đề nói.
+//
+// Đây không phải mất nội dung: 11 đề đó vẫn nằm trong kho và vẫn mở được từ
+// mục "Luyện nói theo chủ đề". Chỉ là chúng thôi gắn vào những chặng mà người
+// học ở đúng bậc đó chưa nói thành bài được.
+const DE_NOI_TOI_THIEU = 465;
 
 test('bánh cóc: số đề nói chỉ được tăng', () => {
   assert.ok(speakingGenerated.length >= DE_NOI_TOI_THIEU,

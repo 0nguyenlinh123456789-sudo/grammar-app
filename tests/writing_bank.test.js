@@ -28,7 +28,21 @@ const BAND_A2_TRO_LEN = ['elementary', 'intermediate', 'upper_intermediate', 'ad
 // con số 621 hiện trên trang chủ với con số 531 ghi trong KE_HOACH_B2.md.
 // Bài học: mở rộng lộ trình thì mọi mốc ĐẾM THEO CHẶNG phải siết theo, không thì
 // bánh cóc lặng lẽ nhả ra đúng bằng phần vừa thêm.
-const DE_TOI_THIEU = 621;
+// NỚI 621 → 614 (20/08, đợt audit sư phạm). ĐÂY LÀ MỘT LẦN ĐI XUỐNG, nên nó
+// phải có lý do đứng được:
+//
+// 7 chặng ngữ pháp (There is/are, Đại từ, Câu hỏi, Have got, Mệnh lệnh, Mạo
+// từ, Giới từ nơi chốn) được chuyển từ bậc B1 XUỐNG bậc A1, vì chúng là ngữ
+// pháp A1 và trước đó người mất gốc không có gì để học ở bậc đầu tiên. Bậc A1
+// CỐ Ý không có đề viết (COD_DE_VIET mở từ A2), nên 7 chặng đó mất đề viết.
+//
+// Cái mất: 7 đề viết ở mức B1 gắn với 7 chủ đề ngữ pháp A1 — tức là những đề
+// mà người học ở đúng bậc đó lẽ ra không viết nổi.
+// Cái được: bậc A1 đi từ 2 lên 12 chặng ngữ pháp.
+//
+// Nới bánh cóc mà không ghi lý do là cách một kho nội dung teo dần trong im
+// lặng. Dòng này là lý do.
+const DE_TOI_THIEU = 614;
 
 test('bánh cóc: số đề theo chặng chỉ được tăng', () => {
   assert.ok(writingGenerated.length >= DE_TOI_THIEU,
@@ -45,6 +59,12 @@ const KHONG_CO_DE = {
   'dictation:-:dictation-intermediate': 'buổi chép chính tả không có chủ đề — 5 câu rời bốc lúc chạy',
   'dictation:-:dictation-upper_intermediate': 'buổi chép chính tả không có chủ đề — 5 câu rời bốc lúc chạy',
   'dictation:-:dictation-advanced': 'buổi chép chính tả không có chủ đề — 5 câu rời bốc lúc chạy',
+  // A1/A2 nay cũng có buổi chép chính tả (xem SO_BUOI_CHINH_TA trong
+  // build_roadmap.mjs). A1 không nằm trong diện đòi đề viết; A2 thì có, nên
+  // ba buổi của A2 phải kê đích danh ở đây.
+  'dictation:-:dictation-elementary': 'buổi chép chính tả không có chủ đề — 5 câu rời bốc lúc chạy',
+  'dictation:-:dictation-elementary-2': 'buổi chép chính tả không có chủ đề — 5 câu rời bốc lúc chạy',
+  'dictation:-:dictation-elementary-3': 'buổi chép chính tả không có chủ đề — 5 câu rời bốc lúc chạy',
 };
 
 test('mọi chặng A2+ đều có đề viết gắn với nội dung chặng — trừ những chặng kê đích danh', () => {

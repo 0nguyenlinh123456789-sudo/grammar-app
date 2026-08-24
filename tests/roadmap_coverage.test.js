@@ -253,19 +253,29 @@ test('chặng nghe/đọc/chép chính tả đi qua cổng có điểm (N3), kh�
   }
 });
 
-test('ba mẫu số 710 / 479 / 122 không được lệch nhau ở đâu nữa', async () => {
+// ══ ĐỢT AUDIT SƯ PHẠM (20/08) — VÌ SAO BA CON SỐ NÀY ĐỔI ══════════════════
+// Audit đo được ba lỗ curriculum và sửa cả ba bằng DỮ LIỆU, không bằng nội dung mới:
+//   1. bậc của mỗi chuyên đề ngữ pháp trước đây quyết định bằng VỊ TRÍ TRONG
+//      MẢNG (`i < 14 ? A2 : B1`). Hậu quả: A1 có đúng 2 chặng ngữ pháp, còn
+//      "There is/are", "Đại từ", "Câu hỏi" nằm ở B1. Nay xếp theo bảng CEFR
+//      soạn tay → A1: 2 → 12 chặng ngữ pháp;
+//   2. thêm 3 bài A1 kho chưa từng có: TO BE, danh từ số nhiều, this/that;
+//   3. A1/A2 có 0 chặng nghe trong khi đề thi hai bậc đó mỗi đề 6 câu nghe →
+//      mở buổi chép chính tả (câu Tatoeba 4–6 từ, kho đã có) cho hai bậc.
+test('ba mẫu số 719 / 468 / 122 không được lệch nhau ở đâu nữa', async () => {
   const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
   const milestones = roadmapData.flatMap((l) => l.milestones);
 
   // MẪU SỐ PHẢI GỌI RÕ LÀ MẪU SỐ NÀO — tài liệu này đã hai lần dính chuyện "ba
   // con số trong một tài liệu". Ba mẫu số đang dùng:
-  //   710 — toàn bộ lộ trình (mẫu số của thanh tiến độ trên trang chủ)
-  //   479 — mọi loại chặng bậc ≥B1 (N4 và việc 3.5). Trước N4 (b′) là 386.
+  //   719 — toàn bộ lộ trình (mẫu số của thanh tiến độ trên trang chủ)
+  //   468 — mọi loại chặng bậc ≥B1 (N4 và việc 3.5). Trước N4 (b′) là 386;
+  //         479 trước đợt audit sư phạm — 11 chặng ngữ pháp A1/A2 đã rời khỏi B1.
   //   122 — chỉ chặng `vstep` bậc ≥B1 (N5 / việc 3.1). KHÔNG đổi, vì đợt này
   //         không thêm chủ đề từ vựng nào.
-  assert.equal(milestones.length, 710, 'tổng số chặng đổi — mọi con số trong KE_HOACH_B2.md phải sửa theo');
+  assert.equal(milestones.length, 719, 'tổng số chặng đổi — mọi con số trong KE_HOACH_B2.md phải sửa theo');
   const tuB1 = milestones.filter((m) => ['B1', 'B2', 'C1'].includes(m.cefr));
-  assert.equal(tuB1.length, 479, 'số chặng ≥B1 đổi — mọi mẫu số N4/3.5 phải sửa theo');
+  assert.equal(tuB1.length, 468, 'số chặng ≥B1 đổi — mọi mẫu số N4/3.5 phải sửa theo');
   assert.equal(tuB1.filter((m) => m.type === 'vstep').length, 122,
     'mẫu số của N5 (chặng từ vựng ≥B1) đổi — sửa cả dòng 3.1 trong KE_HOACH_B2.md');
 });

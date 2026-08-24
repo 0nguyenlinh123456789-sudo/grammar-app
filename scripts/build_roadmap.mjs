@@ -59,12 +59,101 @@ function bandFromLevelString(s) {
   return 'intermediate';
 }
 
-// Ngữ pháp: file tự khai B1/B2/C1C2 theo bộ giáo trình Destination. Nhưng 14
-// chương ĐẦU của quyển B1 là nội dung A2 thật (hiện tại đơn, quá khứ đơn, mạo
-// từ, giới từ cơ bản) — xếp cả quyển vào B1 thì người mất gốc không có chặng
-// ngữ pháp nào để bắt đầu. Đây là PHÁN ĐOÁN của bộ sinh, ghi rõ ở đây để chủ
-// dự án sửa được: đổi con số 14 là đổi ranh giới.
-const B1_A2_CUTOFF = 14;
+// ══ BẬC CỦA TỪNG CHUYÊN ĐỀ NGỮ PHÁP — SOẠN TAY THEO CEFR ══════════════════
+//
+// ĐÂY LÀ CHỖ ĐÃ HỎNG NẶNG NHẤT, VÀ NÓ HỎNG THEO KIỂU KHÔNG TEST NÀO BẮT ĐƯỢC.
+//
+// Luật cũ: `i < 14 ? A2 : B1` — bậc của một chuyên đề quyết định bằng VỊ TRÍ
+// CỦA NÓ TRONG MẢNG, không phải bằng trình độ của chính nó. Hậu quả đo được:
+//
+//   · bậc A1 có ĐÚNG 2 chặng ngữ pháp (hiện tại đơn, hiện tại tiếp diễn) trên
+//     tổng 73 chặng — 71 chặng còn lại đều là danh sách từ vựng;
+//   · "There is/There are", "Đại từ & Sở hữu", "Câu Hỏi", "Have got", "Mệnh
+//     lệnh" — toàn bộ là ngữ pháp A1 — bị đẩy xuống bậc B1, chỉ vì chúng đứng
+//     ở vị trí 17, 20, 23, 21, 19 trong file;
+//   · người mất gốc đi hết 134 GIỜ của bậc A1 vẫn không đặt nổi câu
+//     "I am a student." — vì họ chưa được học đại từ, mạo từ, hay câu hỏi.
+//
+// Đó là lỗi trúng thẳng cam kết "từ mất gốc". Nên bậc nay lấy từ BẢNG DƯỚI:
+// mỗi chuyên đề một dòng, xếp theo mô tả CEFR (Cambridge English Profile),
+// không theo vị trí trong file. Ai không đồng ý thì sửa đúng dòng của nó và
+// chạy lại — đó là lý do bảng này viết tay chứ không sinh ra.
+//
+// Chuyên đề KHÔNG có tên trong bảng sẽ ném lỗi chứ không rơi vào một bậc mặc
+// định: một chuyên đề mới lặng lẽ rơi vào B1 chính là cách lỗi trên sinh ra.
+const BAC_CUA_CHUYEN_DE = {
+  // ── A1: đủ để ĐẶT ĐƯỢC CÂU ĐẦU TIÊN ─────────────────────────────────────
+  a1_be: 'starter',        // TO BE — không có cái này thì không có câu nào
+  a1_plural: 'starter',    // danh từ số nhiều
+  a1_this: 'starter',      // this / that / these / those
+  b1_01: 'starter',        // Hiện Tại Đơn
+  b1_02: 'starter',        // Hiện Tại Tiếp Diễn
+  b1_08: 'starter',        // Mạo Từ a/an/the — A1 theo English Profile
+  b1_12: 'starter',        // Giới từ Nơi chốn in/on/at
+  b1_17: 'starter',        // There is / There are
+  b1_19: 'starter',        // Câu Mệnh Lệnh & Cảm Thán
+  b1_20: 'starter',        // Đại từ & Sở hữu
+  b1_21: 'starter',        // Have got / Have
+  b1_23: 'starter',        // Câu Hỏi & Từ để hỏi
+
+  // ── A2 ──────────────────────────────────────────────────────────────────
+  b1_03: 'elementary',     // Hiện Tại Đơn vs Tiếp Diễn
+  b1_04: 'elementary',     // Quá Khứ Đơn
+  b1_05: 'elementary',     // Quá Khứ Tiếp Diễn
+  b1_07: 'elementary',     // Will vs Going to
+  b1_09: 'elementary',     // Đếm được & Không đếm được
+  b1_10: 'elementary',     // Some/Any/Much/Many
+  b1_11: 'elementary',     // Giới từ Thời gian
+  b1_13: 'elementary',     // Tính từ & Trạng từ
+  b1_14: 'elementary',     // So sánh Hơn & Nhất
+  b1_15: 'elementary',     // Can/Could/Be able to
+  b1_16: 'elementary',     // Must/Have to/Should
+  b1_18: 'elementary',     // Liên từ Cơ bản
+  b1_22: 'elementary',     // Too & Enough
+  b1_24: 'elementary',     // Used to
+  b1_25: 'elementary',     // Trật tự Từ trong Câu
+  b1_26: 'elementary',     // Phrasal Verbs Cơ Bản
+
+  // ── B1 ──────────────────────────────────────────────────────────────────
+  // Bị động, tường thuật, mệnh đề quan hệ, điều kiện 0/1/2, gerund-infinitive
+  // đều là NGỮ PHÁP B1 theo mô tả CEFR, dù chúng nằm trong file tên "B2".
+  // Tên file là chuyện của bộ giáo trình gốc, không phải của thang CEFR.
+  b1_06: 'intermediate',   // Hiện Tại Hoàn Thành
+  b1_27: 'intermediate',   // Câu Hỏi Gián Tiếp
+  b1_28: 'intermediate',   // Both/Either/Neither
+  b2_01: 'intermediate',   // Hiện Tại Hoàn Thành Tiếp Diễn
+  b2_02: 'intermediate',   // Quá Khứ Hoàn Thành
+  b2_03: 'intermediate',   // Câu Bị Động
+  b2_04: 'intermediate',   // Câu Tường Thuật
+  b2_05: 'intermediate',   // Mệnh Đề Quan Hệ
+  b2_06: 'intermediate',   // Câu Điều Kiện 0/1/2/3
+  b2_08: 'intermediate',   // Gerund vs Infinitive
+  b2_09: 'intermediate',   // Phrasal Verbs Thông Dụng
+
+  // ── B2 ──────────────────────────────────────────────────────────────────
+  b2_07: 'upper_intermediate',   // Wish / If only
+  b2_10: 'upper_intermediate',   // Modal Verbs Nâng Cao
+  b2_11: 'upper_intermediate',   // Mạo từ (ôn nâng cao)
+  b2_12: 'upper_intermediate',   // Giới từ Nâng cao
+  b2_13: 'upper_intermediate',   // Liên từ Nâng cao
+  b2_14: 'upper_intermediate',   // Câu Hỏi Đuôi
+  b2_15: 'upper_intermediate',   // Đảo Ngữ
+  b2_16: 'upper_intermediate',   // Causative
+  b2_17: 'upper_intermediate',   // Câu Chẻ
+  b2_18: 'upper_intermediate',   // Phân từ
+  b2_19: 'upper_intermediate',   // Hoà hợp Chủ-Vị
+  b2_20: 'upper_intermediate',   // Câu Giả Định
+  b2_21: 'upper_intermediate',   // Từ Tạo Từ
+  b2_22: 'upper_intermediate',   // Collocations Quan Trọng
+  b2_23: 'upper_intermediate',   // Đại từ Quan hệ Nâng cao
+  b2_24: 'upper_intermediate',   // So sánh Nâng cao
+  b2_25: 'upper_intermediate',   // Tổng ôn Thì & Chia Động từ
+};
+
+// 25 chuyên đề C1+ giữ nguyên ở nhánh dự bị — không cần liệt kê từng dòng vì
+// cả bộ đi cùng một chỗ, và đó là một quyết định chứ không phải một giá trị
+// mặc định lặng lẽ.
+const BAC_C1 = 'advanced';
 
 async function loadAgg(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
@@ -78,6 +167,7 @@ const cf = await import(pathToFileURL(path.join(ROOT, 'src/utils/contentFilter.j
 const { locBaiHong } = await import(pathToFileURL(path.join(ROOT, 'src/utils/grammarClean.js')).href);
 const topics = cf.sanitizeVocabTopics(await loadAgg('vocabVstepData.js', (m) => m.default));
 const { foundationData } = await import(pathToFileURL(path.join(DATA, 'foundationData.js')).href);
+const { grammarDataA1 } = await import(pathToFileURL(path.join(DATA, 'grammarDataA1.js')).href);
 const { grammarDataB1 } = await import(pathToFileURL(path.join(DATA, 'grammarDataB1.js')).href);
 const { grammarDataB2 } = await import(pathToFileURL(path.join(DATA, 'grammarDataB2.js')).href);
 const { grammarDataC1C2 } = await import(pathToFileURL(path.join(DATA, 'grammarDataC1C2.js')).href);
@@ -142,11 +232,25 @@ for (const t of foundationData) {
 }
 
 // (1.2a) Ngữ pháp
+const thieuBac = [];
+const bacCua = (t) => {
+  const b = BAC_CUA_CHUYEN_DE[t.id];
+  if (!b) { thieuBac.push(`${t.id} (${t.title})`); return null; }
+  return b;
+};
 const grammarGroups = [
-  ...grammarDataB1.map((t, i) => ({ t, band: i < B1_A2_CUTOFF ? 'elementary' : 'intermediate' })),
-  ...grammarDataB2.map((t) => ({ t, band: 'upper_intermediate' })),
-  ...grammarDataC1C2.map((t) => ({ t, band: 'advanced' })),
+  ...grammarDataA1.map((t) => ({ t, band: bacCua(t) })),
+  ...grammarDataB1.map((t) => ({ t, band: bacCua(t) })),
+  ...grammarDataB2.map((t) => ({ t, band: bacCua(t) })),
+  ...grammarDataC1C2.map((t) => ({ t, band: BAC_C1 })),
 ];
+if (thieuBac.length) {
+  console.error(`\n❌ ${thieuBac.length} chuyên đề ngữ pháp KHÔNG có tên trong BAC_CUA_CHUYEN_DE:`);
+  for (const x of thieuBac) console.error(`   · ${x}`);
+  console.error('\nXếp bậc cho chúng rồi chạy lại. KHÔNG có bậc mặc định: rơi lặng lẽ vào');
+  console.error('một bậc là đúng cách lỗi “A1 chỉ có 2 chặng ngữ pháp” đã sinh ra.');
+  process.exit(1);
+}
 for (const { t, band } of grammarGroups) {
   if (curatedTargets.has(t.id)) { bỏQua++; continue; }
   out[band].push({ type: 'grammar', targetId: t.id, title: t.title, desc: `Ngữ pháp · ${(t.exercises || []).length} câu bài tập.`, minutes: grammarMinutes(t), cefr: CEFR_OF[band] });
@@ -235,16 +339,43 @@ const SO_CAU_MOI_BUOI = 5;
 // đây là một số trần trong `SO_CAU_MOI_BUOI * 3` không có tên — đặt tên vì công
 // thức giờ đã hiện ra cho người học, và một số không tên thì không giải thích được.
 const LUOT_MOI_CAU_CHINH_TA = 3;
-for (const band of BAC_TU_B1) {
-  // Khai `bandId` TƯỜNG MINH thay vì để màn hình suy từ `cefr`. `nhomChoBac()`
-  // nhận id bậc lộ trình ('intermediate'), không nhận nhãn CEFR ('B1') — truyền
-  // sai kiểu thì nó KHÔNG báo lỗi, nó trả về 'vua' mặc định và buổi học lặng lẽ
-  // chạy sai nhóm độ dài. Khai thẳng ra là biết, suy ra là đoán.
-  out[band].push({
-    type: 'dictation', targetId: `dictation-${band}`, bandId: band, title: 'Buổi nghe chép chính tả',
-    desc: `Nghe giọng người thật, chép lại ${SO_CAU_MOI_BUOI} câu. Kho dùng chung, chia theo độ dài câu.`,
-    minutes: minutesFromItems(SO_CAU_MOI_BUOI * LUOT_MOI_CAU_CHINH_TA), cefr: CEFR_OF[band],
-  });
+// ══ BẬC NÀO CÓ MẤY BUỔI CHÉP CHÍNH TẢ ═════════════════════════════════════
+//
+// LỖ ĐÃ ĐO ĐƯỢC: bậc A1 và A2 có ĐÚNG 0 chặng nghe. Cả 60 bài nghe theo đoạn
+// là VOA Learning English — nội dung B1 trở lên, xếp cho ba bậc trên là đúng.
+// Nhưng buổi chép chính tả thì dùng câu Tatoeba 4–6 TỪ, và `listeningPlan.js`
+// đã có sẵn ánh xạ starter/elementary → nhóm 'ngan'/'vua'. Nó bị chặn ở bậc B1
+// chỉ vì dùng chung đúng một biến `BAC_TU_B1` với bài nghe theo đoạn.
+//
+// Hậu quả: `exam-a1` và `exam-a2` mỗi đề có 6 CÂU NGHE, trong khi lộ trình hai
+// bậc đó không dạy nghe một phút nào. Đó là thi thứ không dạy.
+//
+// A1/A2 nhận NHIỀU buổi hơn ba bậc trên, và đó không phải bất đối xứng tuỳ
+// tiện: ba bậc trên đã có thêm 20 chặng nghe theo đoạn mỗi bậc, còn ở A1/A2
+// thì chép chính tả là TOÀN BỘ phần nghe. Kho có 97 câu ngắn và 98 câu vừa,
+// nên 3 buổi × 5 câu mỗi bậc vẫn lấy từ kho thật, không lặp lại câu.
+//
+// A0 cố ý KHÔNG có: bậc đó đang học đọc bảng chữ cái và phiên âm, chưa viết
+// nổi một câu để mà chép.
+const SO_BUOI_CHINH_TA = { starter: 3, elementary: 3, intermediate: 1, upper_intermediate: 1, advanced: 1 };
+for (const [band, soBuoi] of Object.entries(SO_BUOI_CHINH_TA)) {
+  for (let i = 1; i <= soBuoi; i += 1) {
+    // Khai `bandId` TƯỜNG MINH thay vì để màn hình suy từ `cefr`. `nhomChoBac()`
+    // nhận id bậc lộ trình ('intermediate'), không nhận nhãn CEFR ('B1') — truyền
+    // sai kiểu thì nó KHÔNG báo lỗi, nó trả về 'vua' mặc định và buổi học lặng lẽ
+    // chạy sai nhóm độ dài. Khai thẳng ra là biết, suy ra là đoán.
+    //
+    // `targetId` của buổi ĐẦU giữ nguyên dạng cũ `dictation-<band>` để không ai
+    // mất tiến độ đã có; buổi thứ hai trở đi mới thêm số.
+    out[band].push({
+      type: 'dictation',
+      targetId: i === 1 ? `dictation-${band}` : `dictation-${band}-${i}`,
+      bandId: band,
+      title: soBuoi > 1 ? `Buổi nghe chép chính tả ${i}/${soBuoi}` : 'Buổi nghe chép chính tả',
+      desc: `Nghe giọng người thật, chép lại ${SO_CAU_MOI_BUOI} câu. Kho dùng chung, chia theo độ dài câu.`,
+      minutes: minutesFromItems(SO_CAU_MOI_BUOI * LUOT_MOI_CAU_CHINH_TA), cefr: CEFR_OF[band],
+    });
+  }
 }
 
 // ---- (5.2) XEN KẼ LOẠI CHẶNG TRONG MỖI BẬC -----------------------------------
@@ -281,7 +412,7 @@ for (const band of BANDS) out[band] = xenKe(out[band]);
 // không ai kiểm. Đo lại từ chính nội dung để tổng giờ lộ trình là số thật
 // (việc 1.5), nhưng KHÔNG sửa chữ trong mô tả của người soạn.
 const topicById = new Map(topics.map((t) => [t.id, t]));
-const grammarById = new Map([...foundationData, ...grammarDataB1, ...grammarDataB2, ...grammarDataC1C2].map((t) => [t.id, t]));
+const grammarById = new Map([...foundationData, ...grammarDataA1, ...grammarDataB1, ...grammarDataB2, ...grammarDataC1C2].map((t) => [t.id, t]));
 const unitById = new Map();
 for (const { parts } of OXFORD) {
   let units = [];
@@ -398,4 +529,4 @@ for (const b of BANDS) {
   console.log(`   ${b.padEnd(20)} ${String(out[b].length).padStart(3)} chặng · ${String(Math.round(mins / 60)).padStart(3)} giờ · ${JSON.stringify(kinds)}`);
 }
 console.log(`   (bỏ qua ${bỏQua} targetId vì đã có chặng soạn tay; Oxford thêm mới ${oxfordCount})`);
-console.log(`   (N4 b′: ${ngheCount} chặng nghe theo đoạn · ${docCount} chặng đọc dài · ${BAC_TU_B1.length} buổi chép chính tả — chỉ ở ba bậc ≥B1)`);
+console.log(`   (N4 b′: ${ngheCount} chặng nghe theo đoạn · ${docCount} chặng đọc dài · ${Object.values(SO_BUOI_CHINH_TA).reduce((s, n) => s + n, 0)} buổi chép chính tả (A1/A2 nhiều hơn vì đó là toàn bộ phần nghe của hai bậc đó))`);
