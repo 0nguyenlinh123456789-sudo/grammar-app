@@ -49,14 +49,36 @@ const CEFR_OF = { foundation: 'A0', starter: 'A1', elementary: 'A2', intermediat
 
 // Cấp độ chủ đề từ vựng là chuỗi kiểu "A2-B1", "B2-C1". Lấy bậc THẤP NHẤT được
 // nhắc tới — chủ đề "B2-C1" thì người B2 đã học được, xếp vào B2.
-function bandFromLevelString(s) {
+// ══ CHỦ ĐỀ TỪ VỰNG → BẬC: LUẬT "CẬN DƯỚI CỦA KHOẢNG" ══════════════════════
+//
+// Chủ đề từ vựng tự khai bậc bằng một chuỗi, và phần lớn là một KHOẢNG:
+// "A1-A2", "A2-B1", "B1-B2", "B2-C1", "C1-C2". Thứ tự if bên dưới khớp cái
+// thấp nhất trước, nên "A1-A2" vào A1 — tức là xếp vào CẬN DƯỚI.
+//
+// Đó là một quyết định, không phải một tai nạn: chủ đề trải hai bậc thì cho
+// người học gặp NGAY KHI HỌ ĐỦ SỨC BẮT ĐẦU, còn phần khó hơn của chính chủ đề
+// đó họ gặp lại lúc ôn. Ghi ra đây vì đọc trần dãy if thì không thấy luật.
+//
+// Đo được 20/08: bậc A1 có 37 chủ đề khai "A1" và 33 chủ đề khai "A1-A2".
+// Nghĩa là A1 phủ rộng hơn A1 thuần, và số giờ của bậc (~138h) lớn hơn mốc
+// tham chiếu CEFR cho riêng A1 (~90–100h). Đó là hệ quả THẲNG của luật cận
+// dưới, không phải một lỗi xếp nhầm.
+//
+// ⚠️ BỎ GIÁ TRỊ MẶC ĐỊNH `return "intermediate"`.
+// Chuỗi bậc không đọc được sẽ lặng lẽ rơi vào B1 — đúng cơ chế đã đẩy "There
+// is/There are" xuống B1 và không ai biết suốt nhiều đợt. Nay nó NÉM.
+function bandFromLevelString(s, tenChuDe = "?") {
   const t = String(s || '').toUpperCase();
   if (/A1/.test(t)) return 'starter';
   if (/A2/.test(t)) return 'elementary';
   if (/B1/.test(t)) return 'intermediate';
   if (/B2/.test(t)) return 'upper_intermediate';
   if (/C1|C2/.test(t)) return 'advanced';
-  return 'intermediate';
+  throw new Error(
+    `Chủ đề "${tenChuDe}" khai bậc là "${s}" — không đọc ra bậc nào.\n`
+    + 'Sửa trường `level` của chủ đề đó, đừng để nó rơi vào một bậc mặc định: '
+    + 'rơi lặng lẽ vào một bậc chính là cách lỗi “A1 chỉ có 2 chặng ngữ pháp” đã sinh ra.',
+  );
 }
 
 // ══ BẬC CỦA TỪNG CHUYÊN ĐỀ NGỮ PHÁP — SOẠN TAY THEO CEFR ══════════════════
@@ -259,7 +281,7 @@ for (const { t, band } of grammarGroups) {
 // (1.2b) Từ vựng
 for (const t of topics) {
   if (curatedTargets.has(t.id)) { bỏQua++; continue; }
-  const band = bandFromLevelString(t.level);
+  const band = bandFromLevelString(t.level, t.title || t.id);
   out[band].push({ type: 'vstep', targetId: t.id, title: t.title, desc: t.description || `${(t.words || []).length} từ vựng.`, minutes: vocabMinutes(t), cefr: CEFR_OF[band] });
 }
 

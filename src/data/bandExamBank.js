@@ -108,6 +108,7 @@ export const bandExams = [
         lyDoKhongCham: 'Trình duyệt chỉ trả về VĂN BẢN nó nghe được, không đánh giá phát âm. App này cố ý không dùng dịch vụ chấm phát âm trả phí.',
         de: {
           id: 'ex-s-a1',
+          chuanBiODau: "Luyện trước ở đâu: 12 bài phát âm bậc A0 (bảng chữ cái → nối âm), bước “Luyện Nói” trong mỗi chủ đề từ vựng, và mục Luyện Phát Âm đọc to từng từ. Đề nói THEO CHỦ ĐỀ chỉ mở từ bậc B1 — ở mức này bạn nói câu rời, chưa nói thành bài.",
           deBai: 'Nói khoảng 30 giây để giới thiệu bản thân: tên, tuổi, bạn sống ở đâu, và một thứ bạn thích.',
           giay: 30,
           soTuToiThieu: 20,
@@ -184,6 +185,7 @@ export const bandExams = [
         lyDoKhongCham: 'Trình duyệt chỉ trả về VĂN BẢN nó nghe được, không đánh giá phát âm. App này cố ý không dùng dịch vụ chấm phát âm trả phí.',
         de: {
           id: 'ex-s-a2',
+          chuanBiODau: "Luyện trước ở đâu: bước “Luyện Nói” trong mỗi chủ đề từ vựng và mục Luyện Phát Âm. Đề nói THEO CHỦ ĐỀ chỉ mở từ bậc B1 — ở mức này bạn nói câu rời và đoạn ngắn, chưa nói thành bài có lập luận.",
           deBai: 'Nói khoảng 45 giây về một ngày bình thường của bạn: bạn dậy lúc mấy giờ, làm gì buổi sáng, buổi chiều và buổi tối.',
           giay: 45,
           soTuToiThieu: 35,

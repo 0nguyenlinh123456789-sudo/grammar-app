@@ -156,3 +156,30 @@ test('bộ sinh lộ trình xếp bậc bằng BẢNG SOẠN TAY, không bằng 
   assert.ok(/thieuBac/.test(src),
     'chuyên đề mới không có tên trong bảng phải làm bộ sinh DỪNG, không được rơi vào một bậc mặc định');
 });
+
+// Vế thứ hai của "đề thi phải đo thứ lộ trình có dạy". Vế NGHE đã đóng bằng
+// cách mở buổi chép chính tả cho A1/A2. Vế NÓI thì KHÔNG đóng bằng cách bịa đề
+// nói cho A1: `COD_DE_NOI` cố ý mở từ B1 vì nói THÀNH BÀI là việc của B1+.
+// Nên bậc nào có phần Nói trong đề mà lộ trình không có đề nói theo chủ đề thì
+// đề PHẢI chỉ ra người học luyện phần đó ở đâu.
+test('đề thi bậc nào không có đề nói theo chủ đề thì phải chỉ ra chỗ luyện', async () => {
+  const { bandExams } = await import('../src/data/bandExamBank.js');
+  const { COD_DE_NOI } = await import('../src/utils/bandCoDe.js');
+  const thieu = [];
+  for (const e of bandExams) {
+    const b = roadmapData.find((x) => CEFR_OF_BAND[x.level] === e.cefr);
+    if (!b || COD_DE_NOI.has(b.level)) continue;   // bậc có đề nói rồi thì không cần
+    const de = e.sections.find((s) => s.key === 'speaking')?.de;
+    if (!de?.chuanBiODau || de.chuanBiODau.length < 60) {
+      thieu.push(`${e.cefr}: đề có phần Nói nhưng lộ trình bậc đó không có đề nói, và đề không nói luyện ở đâu`);
+    }
+  }
+  assert.deepEqual(thieu, [], thieu.join('\n  '));
+});
+
+test('màn hình thi HIỆN lời chỉ chỗ luyện, không chỉ cất trong dữ liệu', async () => {
+  const fs = await import('node:fs');
+  const src = fs.readFileSync('src/components/exam/BandExamPanel.jsx', 'utf8');
+  assert.ok(/chuanBiODau/.test(src),
+    'màn hình thi không hiện lời chỉ chỗ luyện — nó sẽ nằm im trong dữ liệu như `level.skills` đã từng');
+});

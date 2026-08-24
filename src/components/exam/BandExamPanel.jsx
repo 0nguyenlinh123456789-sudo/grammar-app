@@ -171,6 +171,16 @@ function LamBai({ exam, onBack, onClose }) {
 
       {/* ── NÓI ── */}
       <PhanTieuDe nhan={`4. ${phanNoi.nhan}`} lyDo={phanNoi.lyDoKhongCham} />
+      {/* ĐỀ THI KHÔNG ĐƯỢC ĐÒI THỨ LỘ TRÌNH KHÔNG DẠY MÀ KHÔNG NÓI GÌ.
+          Đề nói THEO CHỦ ĐỀ cố ý chỉ mở từ bậc B1 (`bandCoDe.js`), nên phần Nói
+          của đề A1/A2 đòi một việc mà bậc đó không có đề luyện riêng. Cách chữa
+          không phải bịa đề nói cho A1 — mà là chỉ ra người học luyện phần đó ở
+          đâu. Đề nào không cần thì không khai, và ở đây không hiện gì. */}
+      {phanNoi.de?.chuanBiODau && (
+        <p className="mt-2 text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-300 dark:border-amber-800 rounded-2xl p-3 leading-relaxed">
+          {phanNoi.de.chuanBiODau}
+        </p>
+      )}
       <p className="text-sm font-bold leading-relaxed">{phanNoi.de.deBai}</p>
       <div className="mt-2 flex flex-wrap items-center gap-3">
         {!dangNghe
