@@ -19,6 +19,8 @@
     "kiem:camket": "node scripts/kiem_cam_ket.mjs",
     "kiem:banduoc": "node scripts/kiem_banduoc.mjs",
     "kiem:banlive": "node scripts/kiem_ban_live.mjs",
+    "di:dong": "node scripts/di_dong_kiem.mjs",
+    "bam:dup": "node scripts/bam_dup.mjs",
     "bai:moi": "node scripts/mo_bai_moi.mjs",
     "bay:cauhoi": "node scripts/bay_cau_hoi.mjs",
     "khach:het": "node scripts/khach_dung_het.mjs",

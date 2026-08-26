@@ -2,7 +2,7 @@
 // Thi thử VSTEP / IELTS (đề mini 20 câu): chọn đề → làm bài có đếm giờ →
 // kết quả quy đổi band + phân tích từng phần + xem lại câu sai.
 // Câu sai tự vào "Học từ lỗi sai" (utils/errorBank).
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, CheckCircle2, Clock, GraduationCap, Volume2, X } from 'lucide-react';
 import { MOCK_TESTS, SECTION_LABELS } from '../../data/mockTestData';
 import { scoreMockTest, saveMockAttempt, previousAttempt, weakestSection } from '../../utils/mockTest';
@@ -22,7 +22,14 @@ export default function MockTest({ onClose }) {
   const question = test?.questions[index];
   const answered = question && answers[question.id] !== undefined;
 
+  // Cùng lỗ với BandExamPanel: `finish` chấm đồng bộ và tự nó không khoá được
+  // gì trước lần vẽ lại kế tiếp. Bấm đúp ở câu cuối, hoặc bấm đúng lúc đồng hồ
+  // vừa hết giờ, gọi được `finish()` hai lần trong cùng một tick — ra hai bản
+  // ghi giống hệt trong lịch sử thi thử và câu sai bị ghi trùng vào sổ lỗi.
+  const daNopRef = useRef(false);
   const finish = useCallback(() => {
+    if (daNopRef.current) return;
+    daNopRef.current = true;
     const scored = scoreMockTest(test, answers);
     setPrevAttempt(previousAttempt(test.id)); // đọc TRƯỚC khi lưu lượt mới
     saveMockAttempt(scored);

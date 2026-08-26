@@ -89,7 +89,16 @@ function LamBai({ exam, onBack, onClose }) {
 
   const chon = (itemId, i) => setTraLoi((t) => ({ ...t, [itemId]: i }));
 
+  // Chặn nộp hai lần. `nop` chấm bài đồng bộ và không tự khoá nút — nút chỉ
+  // ẩn đi ở LẦN VẼ SAU (khi `ketQua` khác null). Bấm đúp thật (phổ biến trên
+  // cảm ứng) rơi vào cùng một tick JS, TRƯỚC khi React vẽ lại, nên lần bấm thứ
+  // hai vẫn gọi `nop()` — kết quả không sai (cùng `traLoi` chấm ra cùng điểm)
+  // nhưng LƯU HAI LẦN: hai bản ghi giống hệt trong lịch sử thi, và mỗi câu sai
+  // bị ghi trùng vào sổ lỗi. Cờ này chặn đúng lần gọi thứ hai đó.
+  const daNopRef = useRef(false);
   const nop = () => {
+    if (daNopRef.current) return;
+    daNopRef.current = true;
     const kq = chamBaiThi(exam, traLoi);
     luuKetQua(kq);
     // Câu sai vào sổ lỗi — đúng đường đã có của đề thi thử. Chỉ câu CHẤM ĐƯỢC
