@@ -445,3 +445,84 @@ bịa ra còn tệ hơn không có tỉ lệ.
 
 *Mục 12 lập 2026-08-20. Mọi con số đo bằng script có chốt tự kiểm hoặc bằng bộ lái
 trình duyệt thật.*
+
+---
+
+## 13. VÒNG KIỂM ĐỘC LẬP 2026-08-26 — KIỂM LẠI CHÍNH KẾT LUẬN CỦA MỤC 12
+
+> Mục 12 sửa lộ trình. Mục này KHÔNG tin mục 12: nó đo lại từ đầu, và việc
+> đầu tiên nó làm là **bác bỏ kết luận lớn nhất của chính bản báo cáo trước.**
+
+### 13.1 Kết luận bị bác bỏ: "B2 là bậc mỏng nhất"
+
+Bản báo cáo trước ghi **BLOCKER 1 — B2 mỏng nhất, 90h so với B1 150h và C1
+149h**, và đề nghị mua bộ Oxford B2.
+
+Sai đơn vị. Con số 150 và 149 kia **gồm cả bộ giáo trình Oxford** — thứ kho
+tình cờ có tập cho A2/B1/C1 và không có tập cho B2. Tách ra:
+
+```
+giờ TỰ SOẠN (bỏ Oxford):   B1 92h  ·  B2 90h  ·  C1 99h
+```
+
+**Ba bậc ngang nhau.** Không có thiếu hụt nội dung nào để đi soạn bù. Và điều
+đáng nói: `tests/roadmap_hours.test.js` đã ghi đúng chuyện này bằng chữ từ một
+đợt TRƯỚC, ngay trong phần ghi chú của test — tôi báo lại kết luận đã bị chính
+kho bác bỏ vì đọc cột TỔNG thay vì đọc ghi chú.
+
+⇒ Hai kết luận dẫn tới hai việc khác hẳn nhau: một là hàng tuần soạn nội dung,
+một là một quyết định mua tài liệu. Chọn nhầm là đi nhầm hướng cả tháng.
+
+### 13.2 Lỗ MỚI tìm được ở vòng này
+
+| # | Lỗ | Đo trước | Đo sau |
+|---|---|---|---|
+| 1 | **68 lời hứa IELTS/TOEIC** vẫn nằm ở `title`/`desc` của chặng — chỗ người học ĐỌC | 22 trong `roadmapCurated` + 46 trong `roadmapGenerated` | **0** |
+| 2 | Đề C1 hỏi **hàm ý · nói giảm · mỉa mai · rào đón** ở 5/8 câu phần Đọc; kho C1 có **0 lần** nhắc tới bốn khái niệm đó | 0 bài dạy | **2 bài soạn tay**, đặt ở ĐẦU cụm C1 |
+| 3 | Làn "Thi VSTEP" và "Thi IELTS" ẩn sạch 9 buổi chép chính tả — tức **toàn bộ phần nghe của A1 và A2** | ẩn âm thầm | giữ lại; và ghim luật "ẩn hẳn loại nào thì phải nói ra" |
+| 4 | Chặng `b2_03` ghi "Câu Bị Động **Nâng Cao**" ở bậc B1, trong khi bài phía sau là bị động **cơ bản** | nhãn sai | tên khớp bài thật |
+| 5 | Ba bài có **Phần 2** ở bậc sau nhưng thẻ bỏ mất chữ "Phần 1" → nhìn tưởng dạy trùng | ẩn tiến trình | thẻ ghi rõ "Phần 1 / Cơ Bản" |
+| 6 | **12/12 chặng A0** dùng chung MỘT dòng mô tả; 3 chặng ngữ pháp A1 cũng vậy | 1 mô tả cho 12 thẻ | 12 mô tả riêng; mô tả chặng ngữ pháp lấy từ đầu đề lý thuyết |
+| 7 | `AiAssistant` lọc `s => s.text` nên 3 bài dùng khuôn `{ en, vi }` mất sạch câu mẫu — **tắt lặng lẽ**, không lỗi, không test nào đỏ | 3 bài hỏng | một phép chuẩn hoá dùng chung |
+| 8 | Mốc "B2 ≥ 80% B1" đọc như một tiêu chuẩn CEFR | — | đổi tên thành **CHUÔNG BÁO LÙI**, kèm cảnh báo không dùng làm bằng chứng giáo dục |
+
+### 13.3 Thứ đo được là ĐÚNG — không sửa gì
+
+| Câu hỏi | Số đo |
+|---|---|
+| Có chặng ngữ pháp nào mồ côi không? | **0/95** — mọi bài trong kho đều có chặng dẫn tới |
+| Dạy trùng hay xoắn ốc? | 14 cặp "trông như trùng", **13 cặp chung 0 câu ví dụ** → xoắn ốc thật |
+| Từ vựng có phải chỉ "từ → nghĩa"? | **22.008 mục từ · 100% có IPA · 97,5% có câu ví dụ song ngữ** · 0 mục chỉ có nghĩa |
+| A1/A2 có bị hổng phần ĐỌC không (đề có 8 câu đọc, bậc có 0 chặng đọc)? | **71/71 và 74/74** chủ đề từ vựng có truyện + câu hỏi mức văn bản |
+| Độ khó có nhảy chỗ nào không? | câu ví dụ **7,3 → 8,3 → 8,9 → 9,1 → 10,4 từ**; bài đọc **639 → 716 → 901 từ**; bài nghe **3,7 → 4,5 → 4,6 phút** — lên đều |
+| B1 có 180 chặng mà chỉ 150 giờ — ước lượng sai? | Không: B1 có **100 unit Oxford ×35 phút**, còn A2 có **74 chủ đề từ vựng ×116 phút**. Chặng B1 nhỏ hơn thật |
+| Chất lượng bài ngữ pháp có tụt ở bậc nào? | **~4 mục lý thuyết · 9–10 câu ví dụ · 29–38 câu bài tập** ở MỌI bậc |
+| Mục tiêu học có phá tiên quyết không? | không làn nào đảo thứ tự, không làn nào xoá sạch một bậc; Oxford 60 → 0 → 60 lái thật trên trình duyệt |
+
+### 13.4 Bảy câu hỏi của người học — đo trên màn hình thật
+
+Bộ rà mới `npm run bay:cauhoi`. Một câu chỉ tính là ĐẠT khi bộ rà **trích được
+đúng đoạn chữ** nó tìm thấy — "có chỗ nói về tiến độ" mà không trích được chữ
+thì không phân biệt được với "tôi đoán là có".
+
+```
+ĐẠT 1. Tôi đang ở đâu        :: "TẤT CẢ LỘ TRÌNH 721 · ⬜ A0 Mất Gốc 12 · 🌱 A1 Khởi Đầu 86…"
+ĐẠT 2. Tôi vừa hoàn thành gì :: "TIẾN ĐỘ & XP 0/721 · CHUỖI HỌC TẬP 0 Ngày"
+ĐẠT 3. Tôi làm gì tiếp       :: "CHẶNG TIẾP THEO CỦA BẠN 1. Bảng Chữ Cái…" + nút HỌC TIẾP NGAY
+ĐẠT 4. Vì sao học cái này    :: 41/41 thẻ trên màn hình có mô tả RIÊNG
+ĐẠT 5. Đạt điều kiện gì      :: "Thi cuối bậc A1 · Đã đi 0/86 chặng của bậc này — còn 86"
+ĐẠT 6. Quay lại được không   :: có lối về LỘ TRÌNH trong khu học
+ĐẠT 7. Có dead-end không     :: 4/4 khu chính còn ≥3 lối đi thấy được
+```
+
+### 13.5 CÒN LẠI — không sửa được bằng mã
+
+| Việc | Số đo | Loại |
+|---|---|---|
+| Bộ giáo trình Oxford cho B2 | A2 có 60 unit, B1 100, C1 100, **B2 có 0** | **CONTENT ACQUISITION** — và nay là việc *thêm chiều sâu*, KHÔNG phải vá lỗ: nội dung tự soạn của B2 đã ngang B1 và C1 |
+| 60 bài nghe VOA vẫn trỏ máy chủ VOA | 116,9 MB nếu tải về | **OPERATIONAL** — link chết đã có băng báo và vẫn học được bằng bản chép lời (đã lái thử: chặn tên miền VOA) |
+| Số tài khoản · ảnh QR · một kênh giao mã · nơi đặt web | phần mã của `kiem:banduoc` 5/5 xanh | **HUMAN/BUSINESS** |
+
+*Mục 13 lập 2026-08-26. Mọi con số đo bằng script có chốt tự kiểm hoặc bằng bộ
+lái trình duyệt thật. 500/500 test · lint sạch · build xanh · bay:cauhoi 7/7 ·
+khach:het 22/22 · hoc:that 35/35 · ra:khach 21/21 · ra:reset 12/12.*
