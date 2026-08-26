@@ -109,7 +109,17 @@ test('mốc cũ trong file hiện tại vẫn còn chuyện để báo', () => {
 // phải mua hoặc xin phép. Hai kết luận đó dẫn tới hai việc hoàn toàn khác nhau
 // (một là hàng tuần soạn nội dung, một là một quyết định mua tài liệu), nên
 // con số phải được ghim để đừng ai đọc lại cột TỔNG rồi kết luận như cũ.
-test('nội dung TỰ SOẠN ở bậc đích không mỏng hơn hai bậc bên cạnh', async () => {
+//
+// ══ MỐC 80% NÀY LÀ CHUÔNG BÁO LÙI, KHÔNG PHẢI TIÊU CHUẨN CEFR ══
+// Không có khung trình độ nào nói "bậc sau phải có ≥80% số giờ của bậc trước".
+// CEFR mô tả NGƯỜI HỌC LÀM ĐƯỢC GÌ, nó không đếm giờ, và số giờ tham khảo cho
+// một bậc thì trải rất rộng tuỳ người. Mốc 80% ở đây chỉ làm đúng một việc:
+// nếu có ai đó xoá bớt nội dung B2 hoặc dời nó sang bậc khác, test này đỏ.
+//
+// ⚠️ ĐỪNG DÙNG NÓ LÀM BẰNG CHỨNG GIÁO DỤC. "B2 qua mốc 80%" KHÔNG chứng minh
+// B2 đủ để đạt B2; câu hỏi đó phải trả lời bằng cách đối chiếu nội dung B2 với
+// mô tả CEFR B2 và với đề `exam-b2` — xem `tests/curriculum_bac_thang.test.js`.
+test('CHUÔNG BÁO LÙI: nội dung TỰ SOẠN ở bậc đích không mỏng hơn hai bậc bên cạnh', async () => {
   const { roadmapData, BAC_CAM_KET, BAC_DU_BI } = await import(new URL('../src/data/roadmapData.js', import.meta.url).href);
   const bands = Array.isArray(roadmapData) ? roadmapData : Object.values(roadmapData);
   const gioTuSoan = (level) => (bands.find((b) => b.level === level)?.milestones || [])
@@ -120,8 +130,10 @@ test('nội dung TỰ SOẠN ở bậc đích không mỏng hơn hai bậc bên 
   const b2 = gioTuSoan(BAC_CAM_KET);
   const c1 = gioTuSoan(BAC_DU_BI);
 
-  assert.ok(b2 >= b1 * 0.8,
-    `nội dung tự soạn ở B2 (${b2.toFixed(0)}h) tụt dưới 80% của B1 (${b1.toFixed(0)}h) — đây MỚI là thiếu hụt soạn bù được`);
-  assert.ok(b2 >= c1 * 0.8,
-    `nội dung tự soạn ở B2 (${b2.toFixed(0)}h) tụt dưới 80% của C1 (${c1.toFixed(0)}h), mà C1 chỉ là nhánh dự bị`);
+  const LOI = (ten, gio) => `CHUÔNG BÁO LÙI (không phải tiêu chuẩn CEFR): nội dung tự soạn ở B2 `
+    + `(${b2.toFixed(0)}h) tụt dưới 80% của ${ten} (${gio.toFixed(0)}h). `
+    + `Nghĩa là có nội dung B2 vừa bị xoá hoặc bị dời sang bậc khác — đi tìm xem cái gì đã đổi, `
+    + `chứ đừng nới mốc này.`;
+  assert.ok(b2 >= b1 * 0.8, LOI('B1', b1));
+  assert.ok(b2 >= c1 * 0.8, LOI('C1 (nhánh dự bị)', c1));
 });

@@ -4,9 +4,12 @@ import { Edit3, Mic, Volume2, Shuffle } from 'lucide-react';
 import AiKeyBanner from '../common/AiKeyBanner';
 import Btn3D from '../common/Btn3D';
 import { scoreWriting, scoreWritingWithAI } from '../../utils/writingScorer';
+import { chuanHoaCauMau } from '../../utils/cauMau';
 
 const AiAssistant = ({ topic, sentences }) => {
-  const safeSentences = Array.isArray(sentences) ? sentences.filter(s => s && s.text) : [];
+  // Trước đây dòng này tự lọc theo trường `text`, nên ba bài dùng khuôn
+  // { en, vi } rơi hết và mục đọc câu mẫu tắt lặng lẽ. Xem `utils/cauMau.js`.
+  const safeSentences = chuanHoaCauMau(sentences);
   const [userText, setUserText] = useState("");
   const [feedback, setFeedback] = useState("");
   const [offlineResult, setOfflineResult] = useState(null);

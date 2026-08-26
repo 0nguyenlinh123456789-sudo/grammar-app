@@ -5,6 +5,7 @@ import Btn3D from '../common/Btn3D';
 import MasteryVerdict from '../common/MasteryVerdict';
 import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 import KhongCoCau from './KhongCoCau';
+import { chuanHoaCauMau } from '../../utils/cauMau';
 
 const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -19,20 +20,9 @@ const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplet
   // Kết quả phiên đưa vào state để màn kết quả không phải đọc ref lúc render.
   const [verdict, setVerdict] = useState(null);
 
-  // Normalize sentences to support both formats:
-  // Format A: { id, text, trans } (b1_01 to b1_25)
-  // Format B: { en, vi, words } (b1_26 to b1_28)
-  const sentences = (rawSentences || []).map((s, idx) => {
-    if (s.text && s.trans) return s; // Already Format A
-    if (s.en) {
-      return {
-        id: s.id || idx + 1,
-        text: s.en.replace(/[?.!,]$/g, '').trim(), // Remove trailing punctuation for word matching
-        trans: s.vi || '',
-      };
-    }
-    return s; // fallback
-  });
+  // Kho có hai khuôn câu ví dụ; phép chuẩn hoá nằm ở `utils/cauMau.js` để màn
+  // hình này và `AiAssistant` đọc CÙNG một cách (xem ghi chú trong file đó).
+  const sentences = chuanHoaCauMau(rawSentences);
 
   const sentencesLen = sentences.length;
   const curr = sentencesLen > 0 ? sentences[qIdx] : null;

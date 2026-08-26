@@ -183,3 +183,169 @@ test('màn hình thi HIỆN lời chỉ chỗ luyện, không chỉ cất trong 
   assert.ok(/chuanBiODau/.test(src),
     'màn hình thi không hiện lời chỉ chỗ luyện — nó sẽ nằm im trong dữ liệu như `level.skills` đã từng');
 });
+
+// ══════════════════════════════════════════════════════════════════════════
+// VÒNG KIỂM 2026-08-26 — BỐN GHIM MỚI, MỖI CÁI ỨNG VỚI MỘT LỖ ĐÃ ĐO ĐƯỢC.
+// ══════════════════════════════════════════════════════════════════════════
+
+// ĐÃ DÍNH THẬT, VÀ DÍNH HAI LẦN. Đợt trước gỡ nhãn IELTS/TOEIC khỏi `m.exam`
+// và khỏi mục `skills` của bậc, rồi tuyên bố "0 nhãn còn lại". Đo lại vòng này:
+// còn **68 lời hứa** nằm ở `m.title` và `m.desc` — tức là ngay giữa thẻ chặng,
+// chỗ người học ĐỌC, trong khi bản khách không có một đề IELTS/TOEIC nào (cụm
+// IELTS Nền Tảng bị ẩn, `mockTestData.js` là đề VSTEP).
+//
+// Bài học không phải "quét sót một trường". Bài học là: phép kiểm cũ đo NƠI
+// TÔI ĐÃ SỬA chứ không đo NƠI NGƯỜI HỌC NHÌN. Ghim này quét mọi chuỗi hiện ra
+// trên thẻ chặng.
+test('không thẻ chặng nào hứa luyện IELTS/TOEIC — bản khách không có đề nào của hai kỳ thi đó', async () => {
+  const xau = [];
+  for (const b of roadmapData) {
+    for (const m of b.milestones) {
+      for (const [truong, gt] of [['title', m.title], ['desc', m.desc]]) {
+        if (/IELTS|TOEIC/i.test(String(gt || ''))) {
+          xau.push(`${CEFR_OF_BAND[b.level]} ${m.targetId}.${truong}: "${String(gt).slice(0, 100)}"`);
+        }
+      }
+    }
+  }
+  assert.deepEqual(xau, [],
+    `${xau.length} thẻ chặng hứa IELTS/TOEIC:\n  ` + xau.slice(0, 12).join('\n  '));
+});
+
+// ĐỀ THI KHÔNG ĐƯỢC ĐO THỨ LỘ TRÌNH KHÔNG DẠY — VẾ THỨ BA.
+//
+// Vế NGHE đã đóng (mở chép chính tả cho A1/A2). Vế NÓI đã đóng (đề khai chỗ
+// luyện). Vế thứ ba đo được ở vòng này: phần ĐỌC của `exam-c1` tự khai là hỏi
+// "hàm ý, thái độ và cấu trúc lập luận", và 5/8 câu đúng như vậy — nói giảm,
+// mỉa mai, hàm ý trong phần chen, "if anything". Đo kho C1 thì `grammarDataC1C2`
+// có 0 lần nhắc tới bốn khái niệm đó; 30 bài đọc VOA là tin tức đưa tin thẳng.
+//
+// Cách chữa KHÔNG phải bỏ câu hỏi: đọc ra hàm ý CHÍNH LÀ thứ phân biệt B2 với
+// C1. Cách chữa là dạy nó — `grammarDataC1Nghia.js`.
+test('bậc C1 DẠY thứ đề C1 hỏi: hàm ý, nói giảm, mỉa mai, rào đón', async () => {
+  const { grammarDataC1Nghia } = await import('../src/data/grammarDataC1Nghia.js');
+  const chuC1 = grammarDataC1Nghia
+    .flatMap((t) => (t.theory || []).map((x) => `${x.h} ${x.c}`))
+    .join(' ')
+    .toLowerCase();
+
+  const PHAI_DAY = [
+    ['hàm ý', /hàm ý/],
+    ['nói giảm', /nói giảm/],
+    ['mỉa mai', /mỉa mai/],
+    ['rào đón (hedging)', /rào đón/],
+    ['mức trang trọng (register)', /trang trọng/],
+    ['nhượng bộ trong lập luận', /nhượng bộ/],
+  ];
+  const thieu = PHAI_DAY.filter(([, mau]) => !mau.test(chuC1)).map(([ten]) => ten);
+  assert.deepEqual(thieu, [], `bậc C1 không dạy: ${thieu.join(', ')} — mà đề exam-c1 vẫn hỏi`);
+
+  // Và hai bài đó phải THẬT SỰ NẰM TRÊN lộ trình C1, không chỉ nằm trong kho.
+  const c1 = roadmapData.find((b) => b.level === 'advanced');
+  const tren = new Set(c1.milestones.map((m) => String(m.targetId)));
+  for (const t of grammarDataC1Nghia) {
+    assert.ok(tren.has(t.id), `bài "${t.title}" có trong kho nhưng KHÔNG có chặng nào dẫn tới — người học không bao giờ gặp`);
+  }
+
+  // Đủ bộ dạy như mọi bài khác, không phải bài rỗng đặt vào cho đủ danh sách.
+  for (const t of grammarDataC1Nghia) {
+    assert.ok((t.theory || []).length >= 4, `${t.id}: dưới 4 mục lý thuyết`);
+    assert.ok((t.sentenceGame || []).length >= 6, `${t.id}: dưới 6 câu ví dụ`);
+    const soCau = (t.exercises || []).length + (t.fillBlanks || []).length
+      + (t.errorCorrection || []).length + (t.transformation || []).length
+      + (t.matching || []).length + (t.trueFalse || []).length;
+    assert.ok(soCau >= 25, `${t.id}: chỉ ${soCau} câu bài tập, các bài C1 khác trung bình 29`);
+  }
+});
+
+// TÊN TRÊN THẺ CHẶNG KHÔNG ĐƯỢC NÓI SAI VỀ BÀI PHÍA SAU.
+//
+// Hai kiểu đã dính:
+//   1. `b2_03` — thẻ ghi "Câu Bị Động NÂNG CAO" và nằm ở B1, trong khi bài
+//      phía sau là bài bị động CƠ BẢN. Người học gặp bài bị động đầu tiên của
+//      đời mình dưới nhãn "nâng cao" thì hoặc là sợ, hoặc là bỏ qua.
+//   2. Ba bài có PHẦN 2 ở bậc sau (Cụm động từ · Collocations · Thành ngữ)
+//      nhưng thẻ bỏ mất chữ "Phần 1" — nhìn vào lộ trình tưởng dạy trùng.
+test('thẻ chặng không gắn nhãn "nâng cao" cho bài cơ bản, và không giấu mất phần', async () => {
+  const chang = new Map();
+  for (const b of roadmapData) for (const m of b.milestones) if (m.type === 'grammar') chang.set(String(m.targetId), m);
+
+  const m03 = chang.get('b2_03');
+  assert.ok(m03, 'không còn chặng b2_03');
+  assert.ok(!/nâng cao/i.test(m03.title),
+    `chặng bị động đầu tiên của lộ trình vẫn mang nhãn "nâng cao": "${m03.title}"`);
+
+  // Bài nào có bản "Part 2"/"Phần 2" ở bậc sau thì thẻ của bản đầu phải nói ra.
+  const CO_PHAN_SAU = { b1_26: 'Cụm động từ', c1c2_20: 'Collocations', c1c2_22: 'Thành ngữ' };
+  for (const [id, ten] of Object.entries(CO_PHAN_SAU)) {
+    const m = chang.get(id);
+    assert.ok(m, `không còn chặng ${id}`);
+    assert.ok(/phần 1|cơ bản/i.test(m.title),
+      `"${ten}" còn có phần sau ở bậc trên, nhưng thẻ "${m.title}" không nói đây là phần đầu — nhìn vào lộ trình sẽ tưởng dạy trùng`);
+  }
+});
+
+// MỖI THẺ PHẢI TỰ NÓI NÓ DẠY GÌ. Cả 12 chặng A0 từng dùng CHUNG một dòng mô
+// tả, và ba chặng ngữ pháp A1 dùng chung dòng "Ngữ pháp · 8 câu bài tập."
+// Người mất gốc mở bậc đầu tiên, thấy các thẻ giống hệt nhau, và không trả lời
+// được câu "vì sao tôi học cái này" ở bất kỳ thẻ nào.
+//
+// PHẠM VI: chỉ chặng NGỮ PHÁP và TỪ VỰNG. Với chặng nghe/đọc/chép chính tả,
+// tên chặng CHÍNH LÀ tên bài, còn mô tả chỉ báo các con số đo được (loạt bài ·
+// số phút · số câu hỏi) — hai bài cùng loạt, cùng độ dài, cùng số câu thì trùng
+// mô tả là đúng, và người học vẫn phân biệt được bằng tên. Ép chúng khác nhau
+// là ép bịa ra một khác biệt không có thật.
+test('không bậc nào có nhiều chặng NGỮ PHÁP / TỪ VỰNG dùng chung một mô tả', async () => {
+  const xau = [];
+  for (const b of roadmapData) {
+    const dem = new Map();
+    for (const m of b.milestones) {
+      if (m.type !== 'grammar' && m.type !== 'vstep' && m.type !== 'oxford') continue;
+      const d = String(m.desc || '').trim();
+      if (!d) { xau.push(`${CEFR_OF_BAND[b.level]} ${m.targetId}: không có mô tả`); continue; }
+      if (!dem.has(d)) dem.set(d, []);
+      dem.get(d).push(String(m.targetId));
+    }
+    for (const [d, ds] of dem) {
+      if (ds.length > 1) xau.push(`${CEFR_OF_BAND[b.level]}: ${ds.length} chặng (${ds.join(', ')}) dùng chung mô tả "${d.slice(0, 70)}…"`);
+    }
+  }
+  assert.deepEqual(xau, [], xau.join('\n  '));
+});
+
+// MỘT KHUÔN CÂU VÍ DỤ, ĐỌC Ở MỘT CHỖ.
+//
+// Kho có hai khuôn `sentenceGame`: 75 bài dùng { text, trans }, 3 bài dùng
+// { en, vi }. `SentenceBuilder` chuẩn hoá được cả hai; `AiAssistant` thì lọc
+// `s => s.text` nên với ba bài kia mục đọc câu mẫu TẮT LẶNG LẼ — không lỗi,
+// không cảnh báo, không test nào đỏ. Nay cả hai màn hình gọi cùng một hàm.
+test('mọi bài ngữ pháp đều đưa được câu ví dụ vào cả hai màn hình, dù khuôn nào', async () => {
+  const fs = await import('node:fs');
+  const { chuanHoaCauMau } = await import('../src/utils/cauMau.js');
+  // KHÔNG nạp `grammarData.js`: nó import không đuôi (`./foundationData`), Vite
+  // giải được còn node thì không. Nạp thẳng bốn kho bài.
+  const kho = [];
+  for (const f of ['grammarDataA1.js', 'grammarDataB1.js', 'grammarDataB2.js', 'grammarDataC1C2.js', 'grammarDataC1Nghia.js']) {
+    const m = await import(`../src/data/${f}`);
+    kho.push(...Object.values(m).filter(Array.isArray).flat());
+  }
+
+  // Bản đầu của phép kiểm này chỉ tìm chuỗi `chuanHoaCauMau` trong file — và
+  // dòng `import` đã đủ làm nó xanh, kể cả khi thân hàm quay về lọc `s.text`.
+  // Nên phải soi ĐÚNG chỗ gán, và soi cả cái khuôn cũ đã gây lỗi.
+  for (const f of ['src/components/grammar/AiAssistant.jsx', 'src/components/grammar/SentenceBuilder.jsx']) {
+    const src = fs.readFileSync(f, 'utf8');
+    assert.ok(/=\s*chuanHoaCauMau\(/.test(src),
+      `${f} tự đoán khuôn câu ví dụ thay vì gọi phép chuẩn hoá chung`);
+    assert.ok(!/filter\(\s*\(?\s*s\s*\)?\s*=>[^)]*s\.text/.test(src),
+      `${f} lọc thẳng theo \`s.text\` — đúng dòng đã làm ba bài khuôn { en, vi } biến mất`);
+  }
+
+  const rong = [];
+  for (const t of kho) {
+    if (!(t.sentenceGame || []).length) continue;   // A0 cố ý không có câu xếp
+    if (!chuanHoaCauMau(t.sentenceGame).length) rong.push(`${t.id} (${t.title})`);
+  }
+  assert.deepEqual(rong, [],
+    `${rong.length} bài CÓ câu ví dụ trong kho nhưng phép chuẩn hoá trả về rỗng:\n  ` + rong.join('\n  '));
+});
