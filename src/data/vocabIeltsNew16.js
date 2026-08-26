@@ -3,7 +3,7 @@ export const vocabIeltsNew16 = [
   {
     id: "environment-energy-ielts", category: "ielts",
     title: "🌍 Environment & Energy (B2-C1)",
-    description: "82 từ vựng trình độ cao về các vấn đề môi trường, biến đổi khí hậu và năng lượng tái tạo — dùng cho ôn thi IELTS.",
+    description: "82 từ vựng trình độ cao về các vấn đề môi trường, biến đổi khí hậu và năng lượng tái tạo.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"environment",vi:"môi trường",type:"(n)",ipa:"/ɪnˈvaɪ.rən.mənt/",example:"We must protect the natural environment for future generations.",viExample:"Chúng ta phải bảo vệ môi trường tự nhiên cho các thế hệ tương lai."},
@@ -95,7 +95,7 @@ export const vocabIeltsNew16 = [
   {
     id: "government-politics-ielts", category: "ielts",
     title: "🏛️ Government & Politics (B2-C1)",
-    description: "80 từ vựng trình độ cao về thể chế chính trị, quản trị nhà nước, lập pháp và nghĩa vụ công dân — dùng cho ôn thi IELTS.",
+    description: "80 từ vựng trình độ cao về thể chế chính trị, quản trị nhà nước, lập pháp và nghĩa vụ công dân.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"government",vi:"chính phủ",type:"(n)",ipa:"/ˈɡʌv.ən.mənt/",example:"The government has introduced new tax reforms.",viExample:"Chính phủ đã giới thiệu những cuộc cải cách thuế mới."},

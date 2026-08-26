@@ -3,7 +3,7 @@ export const vocabIeltsNew11 = [
   {
     id: "travel-tourism-ielts", category: "ielts",
     title: "✈️ Du Lịch & Khám Phá (C1+)",
-    description: "99 từ vựng IELTS chuyên sâu về ngành du lịch, lữ hành, tác động văn hóa và du lịch sinh thái.",
+    description: "99 từ vựng học thuật chuyên sâu về ngành du lịch, lữ hành, tác động văn hóa và du lịch sinh thái.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"tourism",vi:"ngành du lịch",type:"(n)",ipa:"/ˈtʊə.rɪ.zəm/",example:"Tourism is a major source of income for the island.",viExample:"Ngành du lịch là một nguồn thu nhập chính của hòn đảo."},
@@ -112,7 +112,7 @@ export const vocabIeltsNew11 = [
   {
     id: "food-agriculture-ielts", category: "ielts",
     title: "🌾 Thực Phẩm & Nông Nghiệp (C1+)",
-    description: "100 từ vựng IELTS về canh tác, sản xuất lương thực, an ninh lương thực và thói quen ăn uống.",
+    description: "100 từ vựng học thuật về canh tác, sản xuất lương thực, an ninh lương thực và thói quen ăn uống.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"agriculture",vi:"nông nghiệp",type:"(n)",ipa:"/ˈæɡ.rɪ.kʌl.tʃər/",example:"The country's economy relies heavily on agriculture.",viExample:"Nền kinh tế của đất nước phụ thuộc nặng nề vào nông nghiệp."},

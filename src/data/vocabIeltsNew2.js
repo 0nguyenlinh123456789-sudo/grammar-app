@@ -3,7 +3,7 @@ export const vocabIeltsNew2 = [
   {
     id: "globalisation-ielts", category: "ielts",
     title: "🌍 Toàn Cầu Hóa (B2-C1)",
-    description: "100 từ vựng IELTS chủ đề toàn cầu hóa, kinh tế quốc tế, trao đổi văn hóa.",
+    description: "100 từ vựng học thuật chủ đề toàn cầu hóa, kinh tế quốc tế, trao đổi văn hóa.",
     level: "B2-C1", examTags: ["IELTS Band 6-7"],
     words: [
       {en:"globalisation",vi:"toàn cầu hóa",type:"(n)",ipa:"/ˌɡləʊ.bəl.aɪˈzeɪ.ʃən/",example:"Globalisation has interconnected the world economy.",viExample:"Toàn cầu hóa đã kết nối nền kinh tế thế giới."},
@@ -113,7 +113,7 @@ export const vocabIeltsNew2 = [
   {
     id: "education-advanced-ielts", category: "ielts",
     title: "🎓 Giáo Dục Nâng Cao (B2-C1)",
-    description: "100 từ vựng IELTS về phương pháp giáo dục, đại học, nghiên cứu, chính sách.",
+    description: "100 từ vựng học thuật về phương pháp giáo dục, đại học, nghiên cứu, chính sách.",
     level: "B2-C1", examTags: ["IELTS Band 6-7", "VSTEP C1"],
     words: [
       {en:"education",vi:"giáo dục",type:"(n)",ipa:"/ˌed.jʊˈkeɪ.ʃən/",example:"Education is the key to success.",viExample:"Giáo dục là chìa khóa thành công."},

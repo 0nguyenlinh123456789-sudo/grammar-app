@@ -3,7 +3,7 @@ export const vocabIeltsNew3 = [
   {
     id: "crime-law-advanced-ielts", category: "ielts",
     title: "⚖️ Tội Phạm & Pháp Luật Nâng Cao (B2-C1)",
-    description: "100 từ vựng IELTS chuyên sâu về hệ thống pháp luật, tội phạm học và hình phạt.",
+    description: "100 từ vựng học thuật chuyên sâu về hệ thống pháp luật, tội phạm học và hình phạt.",
     level: "B2-C1", examTags: ["IELTS Band 6-8", "VSTEP C1"],
     words: [
       {en:"crime",vi:"tội phạm/tội ác",type:"(n)",ipa:"/kraɪm/",example:"The city has a high crime rate.",viExample:"Thành phố có tỷ lệ tội phạm cao."},
@@ -113,7 +113,7 @@ export const vocabIeltsNew3 = [
   {
     id: "media-communication-ielts", category: "ielts",
     title: "📰 Truyền Thông & Giao Tiếp (B2-C1)",
-    description: "100 từ vựng IELTS về báo chí, truyền thông đại chúng, tin tức và quảng cáo.",
+    description: "100 từ vựng học thuật về báo chí, truyền thông đại chúng, tin tức và quảng cáo.",
     level: "B2-C1", examTags: ["IELTS Band 6-7", "VSTEP C1"],
     words: [
       {en:"media",vi:"phương tiện truyền thông",type:"(n)",ipa:"/ˈmiː.di.ə/",example:"The mass media influences public opinion.",viExample:"Truyền thông đại chúng ảnh hưởng dư luận."},

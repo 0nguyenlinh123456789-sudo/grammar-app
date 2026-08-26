@@ -4,7 +4,7 @@ const vocabMoreData = [
     "id": "environment-nature",
     "category": "vstep",
     "title": "🌿 Môi Trường & Thiên Nhiên",
-    "description": "Từ vựng môi trường thiết yếu — chủ đề số 1 trong IELTS Writing Task 2. Từ cơ bản đến học thuật, đủ viết luận 7.0+.",
+    "description": "Từ vựng môi trường thiết yếu — chủ đề hay ra nhất ở phần Viết. Từ cơ bản đến học thuật, đủ viết luận 7.0+.",
     "level": "B1-C1",
     "examTags": [
       "IELTS",
@@ -844,7 +844,7 @@ const vocabMoreData = [
     "id": "education-academic",
     "category": "ielts",
     "title": "🎓 Giáo Dục & Học Thuật",
-    "description": "Từ vựng giáo dục từ cơ bản đến học thuật — thiết yếu cho IELTS Writing Task 2 và VSTEP. Đủ để thảo luận về hệ thống giáo dục, học tập và nghiên cứu.",
+    "description": "Từ vựng giáo dục từ cơ bản đến học thuật — Thiết yếu cho phần Viết của đề VSTEP. Đủ để thảo luận về hệ thống giáo dục, học tập và nghiên cứu.",
     "level": "B1-C1",
     "examTags": [
       "IELTS",
@@ -1694,7 +1694,7 @@ const vocabMoreData = [
     "id": "home-daily-life",
     "category": "daily",
     "title": "🏠 Nhà Ở & Cuộc Sống Hàng Ngày",
-    "description": "Từ vựng nhà ở từ đơn giản nhất đến mô tả chi tiết. Thiết yếu cho IELTS Speaking Part 1-2 và giao tiếp hàng ngày.",
+    "description": "Từ vựng nhà ở từ đơn giản nhất đến mô tả chi tiết. Thiết yếu cho giao tiếp hằng ngày và cho phần Nói của đề VSTEP.",
     "level": "A2-B1",
     "examTags": [
       "IELTS Speaking",
@@ -2540,7 +2540,7 @@ const vocabMoreData = [
     "id": "arts-entertainment",
     "category": "daily",
     "title": "🎨 Nghệ Thuật & Giải Trí",
-    "description": "Từ vựng nghệ thuật, âm nhạc, điện ảnh, văn học — hay gặp trong IELTS Reading và Speaking. Đủ để thảo luận về văn hóa và giải trí.",
+    "description": "Từ vựng nghệ thuật, âm nhạc, điện ảnh, văn học — hay gặp trong bài đọc báo chí và trong phần Nói của đề VSTEP. Đủ để thảo luận về văn hóa và giải trí.",
     "level": "B1-C1",
     "examTags": [
       "IELTS",
@@ -3398,7 +3398,7 @@ const vocabMoreData = [
     "id": "food-nutrition",
     "category": "daily",
     "title": "🍎 Thực Phẩm & Dinh Dưỡng",
-    "description": "Từ vựng thức ăn từ cơ bản đến chuyên sâu. Bao gồm: nấu ăn, nhà hàng, chế độ ăn, dinh dưỡng học. Từ dùng khi đi ăn đến viết IELTS về healthy eating.",
+    "description": "Từ vựng thức ăn từ cơ bản đến chuyên sâu. Bao gồm: nấu ăn, nhà hàng, chế độ ăn, dinh dưỡng học. Từ dùng khi đi ăn đến viết bài về ăn uống lành mạnh.",
     "level": "A2-B2",
     "examTags": [
       "IELTS",
@@ -4246,7 +4246,7 @@ const vocabMoreData = [
     "id": "society-law-rights",
     "category": "vstep",
     "title": "⚖️ Xã Hội, Pháp Luật & Quyền Con Người",
-    "description": "Từ vựng cốt lõi về xã hội và pháp luật — chủ đề quan trọng nhất trong IELTS Writing Task 2. Đủ để viết luận Band 7+ về crime, justice, equality.",
+    "description": "Từ vựng cốt lõi về xã hội và pháp luật — chủ đề hay ra nhất ở phần Viết. Đủ để viết luận Band 7+ về crime, justice, equality.",
     "level": "B2-C1",
     "examTags": [
       "IELTS Band 7+",
@@ -5100,7 +5100,7 @@ const vocabMoreData = [
     "id": "globalization-culture",
     "category": "vstep",
     "title": "🌍 Toàn Cầu Hóa & Văn Hóa",
-    "description": "Từ vựng về toàn cầu hóa, giao thoa văn hóa và quan hệ quốc tế — chủ đề hot nhất trong IELTS Writing Task 2. Đủ để viết Band 7 về culture và globalization.",
+    "description": "Từ vựng về toàn cầu hóa, giao thoa văn hóa và quan hệ quốc tế — chủ đề hay ra nhất ở phần Viết. Đủ để viết một bài luận về văn hoá và toàn cầu hoá.",
     "level": "B2-C1",
     "examTags": [
       "IELTS Band 7+",

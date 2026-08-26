@@ -3,7 +3,7 @@ export const vocabIeltsNew19 = [
   {
     id: "energy-environment-ielts", category: "ielts",
     title: "⚡ Năng Lượng & Môi Trường (B2-C1)",
-    description: "100 từ vựng nâng cao chủ đề Năng lượng, sự phát triển bền vững và bảo vệ môi trường, thường gặp trong IELTS Writing Task 2.",
+    description: "100 từ vựng nâng cao chủ đề Năng lượng, sự phát triển bền vững và bảo vệ môi trường, thường gặp trong bài luận học thuật.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"energy",vi:"năng lượng",type:"(n)",ipa:"/ˈen.ə.dʒi/",example:"We need to find alternative sources of energy.",viExample:"Chúng ta cần tìm ra những nguồn năng lượng thay thế.",synonyms:"power, force",antonyms:""},
@@ -113,7 +113,7 @@ export const vocabIeltsNew19 = [
   {
     id: "politics-society-ielts", category: "ielts",
     title: "🏛️ Chính Trị & Xã Hội (B2-C1)",
-    description: "94 từ vựng nâng cao về hệ thống chính trị, luật pháp, tội phạm và các vấn đề xã hội thường gặp trong IELTS.",
+    description: "94 từ vựng nâng cao về hệ thống chính trị, luật pháp, tội phạm và các vấn đề xã hội thường gặp trong văn bản học thuật.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"politics",vi:"chính trị",type:"(n)",ipa:"/ˈpɒl.ə.tɪks/",example:"He decided to enter politics after finishing law school.",viExample:"Anh ấy đã quyết định bước vào giới chính trị sau khi hoàn thành trường luật.",synonyms:"government, public affairs",antonyms:""},

@@ -4,7 +4,7 @@ const vocabFinalData = [
     "id": "sports-fitness",
     "category": "daily",
     "title": "⚽ Thể Thao & Sức Khỏe Thể Chất",
-    "description": "Từ vựng thể thao từ A đến Z — từ môn thể thao phổ biến đến chuyên ngành. Thiết yếu cho IELTS Speaking Part 1 và đàm thoại hàng ngày.",
+    "description": "Từ vựng thể thao từ A đến Z — từ môn thể thao phổ biến đến chuyên ngành. Thiết yếu cho đàm thoại hằng ngày và cho phần Nói của đề VSTEP.",
     "level": "A2-B2",
     "examTags": [
       "IELTS Speaking",
@@ -866,7 +866,7 @@ const vocabFinalData = [
     "id": "career-workplace",
     "category": "ielts",
     "title": "💼 Nghề Nghiệp & Sự Nghiệp",
-    "description": "Từ vựng phỏng vấn xin việc, văn phòng, thăng tiến và sự nghiệp — thiết yếu cho TOEIC 700+, IELTS Speaking và môi trường công việc quốc tế.",
+    "description": "Từ vựng phỏng vấn xin việc, văn phòng, thăng tiến và sự nghiệp — thiết yếu cho môi trường công việc quốc tế.",
     "level": "B1-B2",
     "examTags": [
       "TOEIC",
@@ -1724,7 +1724,7 @@ const vocabFinalData = [
     "id": "science-tech-advanced",
     "category": "ielts",
     "title": "🧪 Khoa Học & Công Nghệ 2.0",
-    "description": "Từ vựng khoa học và công nghệ từ A đến Z — AI, robot, sinh học, vũ trụ. Thiết yếu cho IELTS Academic Reading & Writing Task 2.",
+    "description": "Từ vựng khoa học và công nghệ từ A đến Z — AI, robot, sinh học, vũ trụ. Thiết yếu cho đọc bài khoa học và viết bài luận học thuật.",
     "level": "B2-C1",
     "examTags": [
       "IELTS Band 7+",
@@ -2558,7 +2558,7 @@ const vocabFinalData = [
     "id": "shopping-finance",
     "category": "daily",
     "title": "🛒 Mua Sắm & Tài Chính Cá Nhân",
-    "description": "Từ vựng mua sắm và quản lý tiền bạc — từ đơn giản đến tài chính cá nhân chuyên sâu. Dùng ngay trong cuộc sống, IELTS và TOEIC.",
+    "description": "Từ vựng mua sắm và quản lý tiền bạc — từ đơn giản đến tài chính cá nhân chuyên sâu. Dùng ngay trong cuộc sống và trong đề VSTEP.",
     "level": "A2-B1",
     "examTags": [
       "IELTS",
@@ -3408,7 +3408,7 @@ const vocabFinalData = [
     "id": "psychology-emotions",
     "category": "ielts",
     "title": "🧠 Tâm Lý & Cảm Xúc",
-    "description": "Từ vựng tâm lý học và cảm xúc — từ cảm xúc cơ bản đến tâm lý học sâu. Rất hay gặp trong IELTS Topic về happiness, mental health và human behavior.",
+    "description": "Từ vựng tâm lý học và cảm xúc — từ cảm xúc cơ bản đến tâm lý học sâu. Rất hay gặp khi bàn về hạnh phúc, sức khoẻ tinh thần và hành vi con người.",
     "level": "B1-C1",
     "examTags": [
       "IELTS Band 6+",
@@ -5124,7 +5124,7 @@ const vocabFinalData = [
     "id": "media-journalism",
     "category": "ielts",
     "title": "📰 Truyền Thông & Báo Chí",
-    "description": "Từ vựng về truyền thông, mạng xã hội, báo chí và công nghệ thông tin — chủ đề cực phổ biến trong IELTS Reading Task và Writing Task 2.",
+    "description": "Từ vựng về truyền thông, mạng xã hội, báo chí và công nghệ thông tin — chủ đề cực phổ biến trong bài đọc báo chí và bài luận.",
     "level": "B1-C1",
     "examTags": [
       "IELTS",
@@ -5972,7 +5972,7 @@ const vocabFinalData = [
     "id": "ielts-academic-vocab",
     "category": "ielts",
     "title": "🏛️ Từ Vựng Học Thuật IELTS 7.0+",
-    "description": "Danh sách 101 từ học thuật cao cấp nhất — AWL (Academic Word List) — dùng nhiều nhất trong IELTS Writing Task 2 Band 7. Mỗi từ kèm cách dùng trong câu học thuật.",
+    "description": "Danh sách 101 từ học thuật cao cấp nhất — AWL (Academic Word List) — lớp từ dùng nhiều nhất trong bài luận học thuật. Mỗi từ kèm cách dùng trong câu học thuật.",
     "level": "C1",
     "examTags": [
       "IELTS Band 7+",

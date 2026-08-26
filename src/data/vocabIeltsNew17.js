@@ -3,7 +3,7 @@ export const vocabIeltsNew17 = [
   {
     id: "crime-law-ielts", category: "ielts",
     title: "⚖️ Crime & Law (B2-C1)",
-    description: "100 từ vựng trình độ cao về hệ thống pháp luật, tội phạm, công lý và thực thi pháp luật — dùng cho ôn thi IELTS.",
+    description: "100 từ vựng trình độ cao về hệ thống pháp luật, tội phạm, công lý và thực thi pháp luật.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"crime",vi:"tội ác/tội phạm",type:"(n)",ipa:"/kraɪm/",example:"The city has seen an increase in violent crime.",viExample:"Thành phố đã chứng kiến một sự gia tăng trong tội phạm bạo lực."},
@@ -113,7 +113,7 @@ export const vocabIeltsNew17 = [
   {
     id: "space-exploration-ielts-p2", category: "ielts",
     title: "🚀 Space & Exploration (B2-C1) – Phần 2",
-    description: "100 từ vựng trình độ cao về thiên văn học, vũ trụ, du hành không gian và khám phá khoa học — dùng cho ôn thi IELTS.",
+    description: "100 từ vựng trình độ cao về thiên văn học, vũ trụ, du hành không gian và khám phá khoa học.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"space",vi:"vũ trụ/không gian",type:"(n)",ipa:"/speɪs/",example:"The satellite was launched into space.",viExample:"Vệ tinh đã được phóng vào vũ trụ."},

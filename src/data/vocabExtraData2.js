@@ -6,7 +6,7 @@ export const vocabExtraData2 = [
     id: "success-mindset-100",
     category: "ielts",
     title: "🌟 Thành Công & Phát Triển Bản Thân (B1-C1)",
-    description: "Bộ 101 từ vựng đỉnh cao về phát triển bản thân, tư duy lãnh đạo. Đầy đủ từ đồng nghĩa, trái nghĩa, siêu hay cho IELTS & TOEIC!",
+    description: "Bộ 101 từ vựng đỉnh cao về phát triển bản thân, tư duy lãnh đạo. Đầy đủ từ đồng nghĩa, trái nghĩa, rất hợp cho văn viết trang trọng!",
     level: "B1-C1",
     examTags: ["IELTS Band 6+", "TOEIC 700+", "Life"],
     words: [

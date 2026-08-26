@@ -3,7 +3,7 @@ export const vocabIeltsNew5 = [
   {
     id: "media-advertising-ielts", category: "ielts",
     title: "📺 Truyền Thông & Quảng Cáo (B2-C1)",
-    description: "89 từ vựng IELTS chuyên sâu về báo chí, truyền hình, mạng xã hội và chiến lược quảng cáo.",
+    description: "89 từ vựng học thuật chuyên sâu về báo chí, truyền hình, mạng xã hội và chiến lược quảng cáo.",
     level: "B2-C1", examTags: ["IELTS Band 6-8", "VSTEP C1"],
     words: [
       {en:"media",vi:"phương tiện truyền thông",type:"(n)",ipa:"/ˈmiː.di.ə/",example:"The mass media has a strong influence on society.",viExample:"Các phương tiện truyền thông đại chúng có ảnh hưởng mạnh mẽ đến xã hội."},
@@ -102,7 +102,7 @@ export const vocabIeltsNew5 = [
   {
     id: "cities-urbanization-ielts", category: "ielts",
     title: "🏙️ Thành Phố & Đô Thị Hóa (B2-C1)",
-    description: "90 từ vựng IELTS về quá trình phát triển đô thị, cơ sở hạ tầng, và các vấn đề thành phố.",
+    description: "90 từ vựng học thuật về quá trình phát triển đô thị, cơ sở hạ tầng, và các vấn đề thành phố.",
     level: "B2-C1", examTags: ["IELTS Band 6-8", "VSTEP C1"],
     words: [
       {en:"urban",vi:"thuộc về đô thị",type:"(adj)",ipa:"/ˈɜː.bən/",example:"Urban areas suffer from high pollution levels.",viExample:"Các khu vực đô thị phải chịu mức độ ô nhiễm cao."},

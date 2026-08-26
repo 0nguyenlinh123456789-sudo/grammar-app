@@ -3,7 +3,7 @@ export const vocabIeltsNew10 = [
   {
     id: "art-design-ielts", category: "ielts",
     title: "🎨 Nghệ Thuật & Thiết Kế (C1+)",
-    description: "100 từ vựng IELTS chuyên sâu về hội họa, điêu khắc, mỹ thuật, thẩm mỹ và thiết kế sáng tạo.",
+    description: "100 từ vựng học thuật chuyên sâu về hội họa, điêu khắc, mỹ thuật, thẩm mỹ và thiết kế sáng tạo.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"art",vi:"nghệ thuật/mỹ thuật",type:"(n)",ipa:"/ɑːt/",example:"She is studying fine art at university.",viExample:"Cô ấy đang học mỹ thuật tại trường đại học."},
@@ -113,7 +113,7 @@ export const vocabIeltsNew10 = [
   {
     id: "literature-poetry-ielts", category: "ielts",
     title: "📚 Văn Học & Thi Ca (C1+)",
-    description: "90 từ vựng IELTS về các thể loại văn học, thơ ca, các biện pháp tu từ và phân tích văn bản.",
+    description: "90 từ vựng học thuật về các thể loại văn học, thơ ca, các biện pháp tu từ và phân tích văn bản.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"literature",vi:"văn học",type:"(n)",ipa:"/ˈlɪt.rə.tʃər/",example:"He has a degree in English literature.",viExample:"Anh ấy có một tấm bằng về văn học Anh."},

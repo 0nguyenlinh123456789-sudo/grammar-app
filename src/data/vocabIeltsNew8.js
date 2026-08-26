@@ -3,7 +3,7 @@ export const vocabIeltsNew8 = [
   {
     id: "politics-government-ielts", category: "ielts",
     title: "🏛 Chính Trị & Chính Phủ (C1+)",
-    description: "90 từ vựng IELTS chuyên sâu về hệ thống chính trị, bầu cử, chính sách và đối ngoại.",
+    description: "90 từ vựng học thuật chuyên sâu về hệ thống chính trị, bầu cử, chính sách và đối ngoại.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"politics",vi:"chính trị",type:"(n)",ipa:"/ˈpɒl.ə.tɪks/",example:"He is very interested in local politics.",viExample:"Ông ấy rất quan tâm đến chính trị địa phương."},
@@ -103,7 +103,7 @@ export const vocabIeltsNew8 = [
   {
     id: "law-justice-ielts", category: "ielts",
     title: "⚖️ Luật Pháp & Công Lý (C1+)",
-    description: "81 từ vựng IELTS về hệ thống tư pháp, tội phạm dân sự/hình sự, quyền sở hữu và kiện tụng.",
+    description: "81 từ vựng học thuật về hệ thống tư pháp, tội phạm dân sự/hình sự, quyền sở hữu và kiện tụng.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"jurisdiction",vi:"thẩm quyền tài phán",type:"(n)",ipa:"/ˌdʒʊə.rɪsˈdɪk.ʃən/",example:"The court has no jurisdiction in this case.",viExample:"Tòa án không có thẩm quyền tài phán trong vụ án này."},

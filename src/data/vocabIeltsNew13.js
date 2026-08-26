@@ -3,7 +3,7 @@ export const vocabIeltsNew13 = [
   {
     id: "history-culture-ielts", category: "ielts",
     title: "🏛️ Lịch Sử & Văn Hóa (C1+)",
-    description: "99 từ vựng IELTS chuyên sâu về di sản văn hóa, khảo cổ học, lịch sử và sự đa dạng văn hóa.",
+    description: "99 từ vựng học thuật chuyên sâu về di sản văn hóa, khảo cổ học, lịch sử và sự đa dạng văn hóa.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"heritage",vi:"di sản",type:"(n)",ipa:"/ˈher.ɪ.tɪdʒ/",example:"We must protect our national heritage.",viExample:"Chúng ta phải bảo vệ di sản quốc gia của mình."},
@@ -112,7 +112,7 @@ export const vocabIeltsNew13 = [
   {
     id: "transportation-traffic-ielts", category: "ielts",
     title: "🚆 Giao Thông & Vận Tải (C1+)",
-    description: "99 từ vựng IELTS chuyên sâu về hệ thống giao thông công cộng, cơ sở hạ tầng, vấn đề kẹt xe và các giải pháp vận tải.",
+    description: "99 từ vựng học thuật chuyên sâu về hệ thống giao thông công cộng, cơ sở hạ tầng, vấn đề kẹt xe và các giải pháp vận tải.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"transportation",vi:"hệ thống giao thông/vận tải",type:"(n)",ipa:"/ˌtræn.spɔːˈteɪ.ʃən/",example:"The city needs to improve its public transportation.",viExample:"Thành phố cần cải thiện hệ thống giao thông công cộng của nó."},

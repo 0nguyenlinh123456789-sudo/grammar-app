@@ -3,7 +3,7 @@ export const vocabIeltsNew15 = [
   {
     id: "media-advertising-ielts-p2", category: "ielts",
     title: "📺 Media & Advertising (B2-C1) – Phần 2",
-    description: "100 từ vựng trình độ cao về truyền thông đại chúng, chiến lược quảng cáo, chủ nghĩa tiêu dùng và báo chí — dùng cho ôn thi IELTS.",
+    description: "100 từ vựng trình độ cao về truyền thông đại chúng, chiến lược quảng cáo, chủ nghĩa tiêu dùng và báo chí.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"mass media",vi:"phương tiện truyền thông đại chúng",type:"(n)",ipa:"/ˌmæs ˈmiː.di.ə/",example:"Mass media has a profound influence on public opinion.",viExample:"Phương tiện truyền thông đại chúng có ảnh hưởng sâu sắc đến dư luận."},
@@ -113,7 +113,7 @@ export const vocabIeltsNew15 = [
   {
     id: "technology-internet-ielts", category: "ielts",
     title: "💻 Technology & Internet (B2-C1)",
-    description: "90 từ vựng trình độ cao về tiến bộ công nghệ số, internet, trí tuệ nhân tạo và an ninh mạng — dùng cho ôn thi IELTS.",
+    description: "90 từ vựng trình độ cao về tiến bộ công nghệ số, internet, trí tuệ nhân tạo và an ninh mạng.",
     level: "B2-C1", examTags: ["IELTS", "B2", "C1"],
     words: [
       {en:"technology",vi:"công nghệ",type:"(n)",ipa:"/tekˈnɒl.ə.dʒi/",example:"Advances in medical technology have saved many lives.",viExample:"Những tiến bộ trong công nghệ y tế đã cứu sống nhiều mạng người."},

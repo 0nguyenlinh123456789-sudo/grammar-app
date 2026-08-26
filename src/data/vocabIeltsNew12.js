@@ -3,7 +3,7 @@ export const vocabIeltsNew12 = [
   {
     id: "business-finance-ielts", category: "ielts",
     title: "💼 Kinh Doanh & Tài Chính (C1+)",
-    description: "100 từ vựng IELTS chuyên sâu về kinh tế học, tài chính doanh nghiệp, đầu tư và thị trường toàn cầu.",
+    description: "100 từ vựng học thuật chuyên sâu về kinh tế học, tài chính doanh nghiệp, đầu tư và thị trường toàn cầu.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"economy",vi:"nền kinh tế",type:"(n)",ipa:"/iˈkɒn.ə.mi/",example:"The global economy is facing a recession.",viExample:"Nền kinh tế toàn cầu đang đối mặt với một cuộc suy thoái."},
@@ -113,7 +113,7 @@ export const vocabIeltsNew12 = [
   {
     id: "law-crime-ielts", category: "ielts",
     title: "⚖️ Luật Pháp & Tội Phạm (C1+)",
-    description: "100 từ vựng IELTS chuyên sâu về hệ thống tư pháp, các loại tội phạm, phiên tòa và hình phạt.",
+    description: "100 từ vựng học thuật chuyên sâu về hệ thống tư pháp, các loại tội phạm, phiên tòa và hình phạt.",
     level: "C1-C2", examTags: ["IELTS Band 7-8", "VSTEP C1"],
     words: [
       {en:"law",vi:"luật pháp",type:"(n)",ipa:"/lɔː/",example:"Everyone must obey the law.",viExample:"Mọi người đều phải tuân theo luật pháp."},
