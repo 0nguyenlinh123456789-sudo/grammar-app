@@ -103,6 +103,11 @@ const THU_TU_NGU_PHAP = [
   // ── B1 ──────────────────────────────────────────────────────────────────
   'b1_06', 'b2_01', 'b2_02', 'b1_27', 'b1_28',
   'b2_03', 'b2_04', 'b2_05', 'b2_06', 'b2_08', 'b2_09',
+  // ── Nền C1 ──────────────────────────────────────────────────────────────
+  // Hai bài NGHĨA đặt lên đầu cụm C1, trước 20 bài ngữ pháp cấu trúc: chúng
+  // dạy cách ĐỌC RA hàm ý và thái độ, mà bậc C1 có 10 bài đọc dài và 20 bài
+  // nghe — người học cần cái kính đó trước khi đọc, không phải sau.
+  'c1_hamy', 'c1_raodon',
 ];
 const HANG_NGU_PHAP = new Map(THU_TU_NGU_PHAP.map((id, i) => [id, i]));
 

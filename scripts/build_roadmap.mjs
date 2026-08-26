@@ -175,6 +175,33 @@ const BAC_CUA_CHUYEN_DE = {
 // 25 chuyên đề C1+ giữ nguyên ở nhánh dự bị — không cần liệt kê từng dòng vì
 // cả bộ đi cùng một chỗ, và đó là một quyết định chứ không phải một giá trị
 // mặc định lặng lẽ.
+// Mô tả riêng cho từng chặng A0 — xem ghi chú ở chỗ dùng.
+const MO_TA_A0 = {
+  a0_01: '26 chữ cái, và vì sao TÊN chữ khác ÂM chữ. Học xong: đánh vần được tên mình và đọc được một từ lạ theo từng chữ.',
+  a0_02: 'Ký hiệu phiên âm IPA — thứ nằm cạnh MỌI mục từ trong app này. Không đọc được nó thì 22.000 mục từ phía trước chỉ còn là chữ viết.',
+  a0_03: 'Năm nguyên âm ngắn /ɪ e æ ʌ ʊ/. Học xong: phân biệt được ship với sheep, cat với cut.',
+  a0_04: 'Nguyên âm dài và nguyên âm đôi. Đây là chỗ người Việt hay đọc cụt: "go" thành "gô", "day" thành "đê".',
+  a0_05: 'Hai âm TH — /θ/ trong think và /ð/ trong this. Tiếng Việt không có hai âm này, nên phải tập riêng.',
+  a0_06: 'Âm cuối. Người Việt quen nuốt âm cuối, và đó là lý do số một khiến người nghe không hiểu: "like" thành "lai", "cats" thành "cát".',
+  a0_07: 'Đuôi -s/-es đọc thành ba kiểu khác nhau (/s/ /z/ /ɪz/). Cần trước khi học danh từ số nhiều và hiện tại đơn.',
+  a0_08: 'Đuôi -ed đọc thành ba kiểu (/t/ /d/ /ɪd/). Cần trước khi học thì quá khứ.',
+  a0_09: 'Trọng âm từ. Đặt sai trọng âm thì người nghe hiểu ra một từ khác, dù đọc đúng từng âm.',
+  a0_10: 'Nhịp câu và ngữ điệu — vì sao tiếng Anh nghe "trôi" chứ không rời từng chữ như tiếng Việt.',
+  a0_11: 'Nối âm. Đây là lý do một câu bạn đọc hiểu dễ dàng lại nghe không ra: "an apple" phát ra thành "a-napple".',
+  a0_12: 'Số đếm, ngày tháng, giờ giấc và cách đọc chúng — dùng ngay từ chặng từ vựng đầu tiên.',
+};
+
+/** Mô tả một chặng ngữ pháp bằng chính đầu đề mục lý thuyết đầu tiên. */
+function moTaNguPhap(t) {
+  const dau = ((t.theory || [])[0] || {}).h || '';
+  const y = String(dau).replace(/^[IVX]+\.\s*/, '').trim();
+  const soCau = (t.exercises || []).length + (t.fillBlanks || []).length
+    + (t.errorCorrection || []).length + (t.transformation || []).length
+    + (t.matching || []).length + (t.trueFalse || []).length;
+  return y ? `${y} — và ${(t.theory || []).length} mục lý thuyết, ${soCau} câu bài tập.`
+           : `Ngữ pháp · ${soCau} câu bài tập.`;
+}
+
 const BAC_C1 = 'advanced';
 
 async function loadAgg(file, pick) {
@@ -193,6 +220,7 @@ const { grammarDataA1 } = await import(pathToFileURL(path.join(DATA, 'grammarDat
 const { grammarDataB1 } = await import(pathToFileURL(path.join(DATA, 'grammarDataB1.js')).href);
 const { grammarDataB2 } = await import(pathToFileURL(path.join(DATA, 'grammarDataB2.js')).href);
 const { grammarDataC1C2 } = await import(pathToFileURL(path.join(DATA, 'grammarDataC1C2.js')).href);
+const { grammarDataC1Nghia } = await import(pathToFileURL(path.join(DATA, 'grammarDataC1Nghia.js')).href);
 const { roadmapCurated } = await import(pathToFileURL(path.join(DATA, 'roadmapCurated.js')).href);
 
 const OXFORD = [
@@ -250,7 +278,11 @@ let bỏQua = 0;
 // (1.1) Nền tảng A0 — mọi bài đều vào lộ trình, đứng trước tất cả
 for (const t of foundationData) {
   if (curatedTargets.has(t.id)) { bỏQua++; continue; }
-  out.foundation.push({ type: 'grammar', targetId: t.id, title: t.title, desc: 'Bài nền tảng — học trước khi gặp bất kỳ mục từ nào.', minutes: grammarMinutes(t), cefr: 'A0' });
+  // MỖI CHẶNG A0 PHẢI TỰ NÓI NÓ DẠY GÌ. Trước vòng kiểm 26/08 cả 12 chặng dùng
+  // CHUNG một dòng "Bài nền tảng — học trước khi gặp bất kỳ mục từ nào." Người
+  // mất gốc mở bậc đầu tiên và thấy 12 thẻ mô tả y hệt nhau thì không trả lời
+  // được câu "vì sao tôi học cái này" ở bất kỳ thẻ nào.
+  out.foundation.push({ type: 'grammar', targetId: t.id, title: t.title, desc: MO_TA_A0[t.id] || 'Bài nền tảng — học trước khi gặp bất kỳ mục từ nào.', minutes: grammarMinutes(t), cefr: 'A0' });
 }
 
 // (1.2a) Ngữ pháp
@@ -265,6 +297,9 @@ const grammarGroups = [
   ...grammarDataB1.map((t) => ({ t, band: bacCua(t) })),
   ...grammarDataB2.map((t) => ({ t, band: bacCua(t) })),
   ...grammarDataC1C2.map((t) => ({ t, band: BAC_C1 })),
+  // Hai bài "nghĩa không nằm trong chữ" — đề C1 hỏi, kho chưa dạy. Bậc C1
+  // KHÔNG lấy từ bảng: cả file này chỉ có bài C1, xếp thẳng như grammarDataC1C2.
+  ...grammarDataC1Nghia.map((t) => ({ t, band: BAC_C1 })),
 ];
 if (thieuBac.length) {
   console.error(`\n❌ ${thieuBac.length} chuyên đề ngữ pháp KHÔNG có tên trong BAC_CUA_CHUYEN_DE:`);
@@ -275,7 +310,10 @@ if (thieuBac.length) {
 }
 for (const { t, band } of grammarGroups) {
   if (curatedTargets.has(t.id)) { bỏQua++; continue; }
-  out[band].push({ type: 'grammar', targetId: t.id, title: t.title, desc: `Ngữ pháp · ${(t.exercises || []).length} câu bài tập.`, minutes: grammarMinutes(t), cefr: CEFR_OF[band] });
+  // Mô tả cũ là `Ngữ pháp · N câu bài tập.` — đếm bài tập chứ không nói bài
+  // DẠY GÌ, và ba chặng A1 có cùng 8 câu thì ra ba thẻ y hệt nhau. Lấy đầu đề
+  // mục lý thuyết I làm câu mô tả: đó là chính người soạn nói bài này về gì.
+  out[band].push({ type: 'grammar', targetId: t.id, title: t.title, desc: moTaNguPhap(t), minutes: grammarMinutes(t), cefr: CEFR_OF[band] });
 }
 
 // (1.2b) Từ vựng
@@ -434,7 +472,7 @@ for (const band of BANDS) out[band] = xenKe(out[band]);
 // không ai kiểm. Đo lại từ chính nội dung để tổng giờ lộ trình là số thật
 // (việc 1.5), nhưng KHÔNG sửa chữ trong mô tả của người soạn.
 const topicById = new Map(topics.map((t) => [t.id, t]));
-const grammarById = new Map([...foundationData, ...grammarDataA1, ...grammarDataB1, ...grammarDataB2, ...grammarDataC1C2].map((t) => [t.id, t]));
+const grammarById = new Map([...foundationData, ...grammarDataA1, ...grammarDataB1, ...grammarDataB2, ...grammarDataC1C2, ...grammarDataC1Nghia].map((t) => [t.id, t]));
 const unitById = new Map();
 for (const { parts } of OXFORD) {
   let units = [];
