@@ -1104,7 +1104,7 @@ export const grammarDataB2 = [
           },
           {
                 "sentence": "The report will finished tomorrow.",
-                "errorWord": "(thiếu 'be')",
+                "errorWord": "finished",
                 "correction": "will be finished",
                 "explanation": "Bị động tương lai: will be + V3.",
                 "trans": "Sẽ được hoàn thành."

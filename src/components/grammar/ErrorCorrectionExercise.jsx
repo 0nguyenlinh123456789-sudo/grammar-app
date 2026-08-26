@@ -5,6 +5,7 @@ import Btn3D from '../common/Btn3D';
 import MasteryVerdict from '../common/MasteryVerdict';
 import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 import KhongCoCau from './KhongCoCau';
+import { viTriTuSai } from '../../utils/tuSaiTrongCau';
 
 const ErrorCorrectionExercise = ({ exercises, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -34,12 +35,13 @@ const ErrorCorrectionExercise = ({ exercises, setGlobalProgress, onComplete }) =
 
   const check = () => {
     if (selectedWordIdx === null) return;
-    const words = curr.sentence.split(' ');
-    const selectedWord = words[selectedWordIdx];
-    
+
     // Check if the selected word matches the error word
-    const isCorrect = selectedWord.toLowerCase().replace(/[.,!?;:]/g, '') === 
-                      curr.errorWord.toLowerCase().replace(/[.,!?;:]/g, '');
+    // 51/57 mục trong kho khai `errorWord` là một CỤM ("more taller", "enough
+    // old", "am going"). So một từ với một cụm thì bấm gì cũng sai và không từ
+    // nào được tô đỏ — xem `utils/tuSaiTrongCau.js`. Nay bấm trúng BẤT KỲ từ
+    // nào của cụm là đúng.
+    const isCorrect = viTriTuSai(curr.sentence, curr.errorWord).has(selectedWordIdx);
     
     if (isCorrect) {
       setStatus('correct');
@@ -125,7 +127,7 @@ const ErrorCorrectionExercise = ({ exercises, setGlobalProgress, onComplete }) =
           
           if (status !== 'idle') {
             // After checking
-            const isError = word.toLowerCase().replace(/[.,!?;:]/g, '') === curr.errorWord.toLowerCase().replace(/[.,!?;:]/g, '');
+            const isError = viTriTuSai(curr.sentence, curr.errorWord).has(idx);
             if (isError) {
               wordStyle = 'bg-rose-100 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300 line-through';
             } else if (selectedWordIdx === idx && status === 'wrong') {

@@ -2363,7 +2363,7 @@ export const grammarDataB1 = [
           },
           {
                 "sentence": "Sun rises in the east.",
-                "errorWord": "(thiếu)",
+                "errorWord": "Sun",
                 "correction": "The sun",
                 "explanation": "Mặt trời là duy nhất → phải dùng 'The sun'.",
                 "trans": "Mặt trời mọc ở phía đông."
@@ -5345,7 +5345,7 @@ export const grammarDataB1 = [
           },
           {
                 "sentence": "He wasn't able swim.",
-                "errorWord": "(thiếu 'to')",
+                "errorWord": "swim",
                 "correction": "able to swim",
                 "explanation": "'Be able to' + V nguyên thể.",
                 "trans": "Anh ấy không bơi được."
@@ -6605,7 +6605,7 @@ export const grammarDataB1 = [
           },
           {
                 "sentence": "She was tired so she went to bed early.",
-                "errorWord": "(missing comma)",
+                "errorWord": "so",
                 "correction": "tired, so",
                 "explanation": "Trước 'so' nối hai mệnh đề cần dấu phẩy.",
                 "trans": "Cô ấy mệt nên đi ngủ sớm."
@@ -7028,7 +7028,7 @@ export const grammarDataB1 = [
           },
           {
                 "sentence": "What beautiful day!",
-                "errorWord": "(thiếu 'a')",
+                "errorWord": "beautiful",
                 "correction": "What a beautiful day!",
                 "explanation": "Cấu trúc: What + a/an + adj + noun!",
                 "trans": "Ngày đẹp quá!"
@@ -8716,7 +8716,7 @@ export const grammarDataB1 = [
     "errorCorrection": [
           {
                 "sentence": "Where you live?",
-                "errorWord": "(thiếu 'do')",
+                "errorWord": "you",
                 "correction": "Where do you live?",
                 "explanation": "Câu hỏi cần trợ động từ 'do'.",
                 "trans": "Bạn sống ở đâu?"
