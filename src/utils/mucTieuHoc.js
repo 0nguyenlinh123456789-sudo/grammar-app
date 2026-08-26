@@ -51,7 +51,12 @@ export const MUC_TIEU = {
   },
   vstep: {
     nhan: 'Thi VSTEP',
-    loai: ['grammar', 'vstep', 'reading', 'listening'],
+    // ĐÃ DÍNH LẦN THỨ BA, cùng một kiểu. Bản trước bỏ quên 'dictation' — và đó
+    // KHÔNG phải mất 9 chặng lẻ: chép chính tả là TOÀN BỘ phần nghe của bậc A1
+    // và A2 (hai bậc đó có `listening: 0`). Người mất gốc chọn "Thi VSTEP" —
+    // một lựa chọn rất hợp lý — là bật lọc lên mất sạch phần nghe của hai bậc
+    // đầu, trong khi đề `exam-a1` và `exam-a2` mỗi đề có 6 câu nghe.
+    loai: ['grammar', 'vstep', 'reading', 'listening', 'dictation'],
     viSao: 'VSTEP thi đủ bốn kỹ năng với trọng số đều nhau, nên gần như cả lộ trình đều phục vụ mục tiêu này — trừ bộ giáo trình Oxford, vốn nặng về từ vựng học thuật hơn là dạng đề.',
   },
   ielts: {
@@ -60,7 +65,9 @@ export const MUC_TIEU = {
     // IELTS. Lỗi giống hệt làn "Lấy lại gốc" bỏ quên bài nghe, và cả hai đều
     // đến từ việc chọn loại chặng theo cảm giác "cái gì hợp mục tiêu này" thay
     // vì hỏi "bỏ cái này đi thì người học mất gì".
-    loai: ['oxford', 'reading', 'listening', 'grammar', 'vstep'],
+    // Bỏ quên 'dictation' ở đây cũng là bỏ mất toàn bộ phần nghe của A1/A2 —
+    // xem ghi chú ở làn VSTEP ngay trên.
+    loai: ['oxford', 'reading', 'listening', 'grammar', 'vstep', 'dictation'],
     viSao: 'IELTS đòi vốn từ học thuật và sức đọc bài dài, nên bộ Oxford và bài đọc 600–1.000 từ là phần nặng ký nhất. Với kho hiện có thì GẦN NHƯ TOÀN BỘ lộ trình phục vụ mục tiêu này, nên bật lọc gần như không ẩn gì — nói thẳng ra thay vì nặn một khác biệt giả.',
     chiKhiCoIelts: true,
   },

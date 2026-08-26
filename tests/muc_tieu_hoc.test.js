@@ -68,6 +68,11 @@ test('không làn nào ẩn mất một KỸ NĂNG khỏi lộ trình', () => {
     grammar: 'ngữ pháp',
     vstep: 'từ vựng',
     listening: 'nghe',
+    // DÍNH LẦN THỨ BA (26/08). Hai làn "Thi VSTEP" và "Thi IELTS" bỏ quên
+    // `dictation`. Đó KHÔNG phải 9 chặng lẻ: chép chính tả là TOÀN BỘ phần nghe
+    // của bậc A1 và A2 — hai bậc đó có `listening: 0`, phần nghe của chúng nằm
+    // hết ở đây. Bảng này thiếu nó nên phép kiểm xanh trong khi lỗ vẫn mở.
+    dictation: 'chép chính tả (toàn bộ phần nghe của A1/A2)',
   };
   for (const [goal, m] of Object.entries(MUC_TIEU)) {
     for (const [loai, ten] of Object.entries(PHAI_CON)) {
@@ -75,6 +80,34 @@ test('không làn nào ẩn mất một KỸ NĂNG khỏi lộ trình', () => {
         `làn "${m.nhan}" (${goal}) ẩn mất toàn bộ phần ${ten} — không mục tiêu học tiếng Anh nào bỏ được phần đó`);
     }
   }
+});
+
+// Bảng PHAI_CON ở trên chỉ chặn việc ẩn mất một kỹ năng ĐÃ KÊ TÊN. Nó không
+// bắt được loại chặng mới thêm sau này. Phép kiểm này chặn cả lớp: làn nào ẩn
+// HẲN một loại chặng thì lời giải thích phải GỌI TÊN loại đó ra, để người học
+// biết mình đang không thấy gì. Ẩn có nói ra là một cách nhìn; ẩn im lặng là
+// một lộ trình khác được tráo vào.
+test('làn nào ẩn hẳn một loại chặng thì phải nói ra loại đó', () => {
+  const TU_CUA_LOAI = {
+    oxford: /oxford/i,
+    reading: /đọc/i,
+    listening: /nghe/i,
+    dictation: /chính tả/i,
+    vstep: /từ vựng/i,
+    grammar: /ngữ pháp/i,
+  };
+  const xau = [];
+  for (const [goal, m] of Object.entries(MUC_TIEU)) {
+    const con = new Set(CHANG.filter((x) => phucVuMucTieu(x, goal)).map((x) => x.type));
+    const moiLoai = new Set(CHANG.map((x) => x.type));
+    for (const loai of moiLoai) {
+      if (con.has(loai)) continue;
+      const tu = TU_CUA_LOAI[loai];
+      assert.ok(tu, `loại chặng "${loai}" chưa có trong bảng từ khoá — thêm vào rồi chạy lại`);
+      if (!tu.test(m.viSao)) xau.push(`làn "${m.nhan}" ẩn hẳn loại "${loai}" mà lời giải thích không nhắc tới`);
+    }
+  }
+  assert.deepEqual(xau, [], xau.join(' | '));
 });
 
 test('mỗi làn giữ lại ít nhất một nửa lộ trình — lọc không được biến thành cắt', () => {
