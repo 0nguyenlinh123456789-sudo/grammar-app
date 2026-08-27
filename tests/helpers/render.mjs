@@ -58,6 +58,9 @@ const pluginMoiTruong = {
   },
 };
 
+/** Đếm số lượt nạp trong CÙNG tiến trình, để tên file tạm không trùng nhau. */
+let soLuotNap = 0;
+
 /**
  * Gói một file .jsx thành module rồi import về. Trả về đúng module đó.
  * @param {string} duong  đường dẫn tính từ gốc repo, ví dụ 'src/pages/GrammarPage.jsx'
@@ -85,7 +88,19 @@ export async function napComponent(duong) {
   if (phu > 1) throw new Error(`${duong}: gói ra ${phu} chunk, file tạm sẽ không tìm được chunk phụ`);
   // Ghi vào thư mục tạm CẠNH repo (không phải /tmp) để đường dẫn tương đối trong
   // chunk vẫn giải được, và xoá ngay sau khi import.
-  const tam = path.resolve('tests/helpers', `__tmp_render_${path.basename(duong)}_${chunk.code.length}.mjs`);
+  //
+  // ⚠️ TÊN PHẢI DUY NHẤT THEO TỪNG LƯỢT GỌI, không được đặt theo ĐỘ DÀI MÃ.
+  // Bản trước dùng `chunk.code.length` làm phần phân biệt, mà `node --test` chạy
+  // mỗi FILE test trong một tiến trình RIÊNG và song song. Hai file cùng gói một
+  // component (ví dụ `render_sweep` quét cả thư mục, gặp đúng component mà
+  // `chuyen_khoan` cũng đang vẽ) thì ra CÙNG độ dài → CÙNG tên file: tiến trình
+  // A ghi, B ghi đè, A import xong xoá, rồi B import vào chỗ trống và ngã
+  // `ENOENT ... __tmp_render_ChuyenKhoan.jsx_15965.mjs`.
+  //
+  // Đúng loại lỗi tệ nhất để bỏ qua: nó hỏng theo NHỊP MÁY chứ không theo mã,
+  // nên chạy lại là xanh, và rất dễ bị coi là "máy dở" rồi cho qua. Đã gặp thật
+  // 27/08. `pid` tách hai tiến trình, bộ đếm tách hai lượt trong cùng tiến trình.
+  const tam = path.resolve('tests/helpers', `__tmp_render_${path.basename(duong)}_${process.pid}_${soLuotNap += 1}.mjs`);
   fs.writeFileSync(tam, chunk.code, 'utf8');
   try {
     return await import(pathToFileURL(tam).href);

@@ -307,7 +307,7 @@ function PricingModal({ onClose }) {
 
       {daChon && <section className="mt-7 border-3 border-slate-900 dark:border-slate-600 rounded-2xl p-4 bg-amber-50 dark:bg-slate-800">
         <p className="text-sm font-black">Đơn của bạn: gói {daChon} — {tienVN(giaGoi(daChon, import.meta.env))}</p>
-        {kenh.length > 0 && <ChuyenKhoan maDon={maDon} soTien={tienVN(giaGoi(daChon, import.meta.env))} env={import.meta.env} />}
+        {kenh.length > 0 && <ChuyenKhoan maDon={maDon} soTien={tienVN(giaGoi(daChon, import.meta.env))} />}
         {kenh.length > 0 ? <>
           <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-3">Bước 2 — sau khi đã chuyển khoản, gửi mã đơn cho người bán qua một trong các kênh sau để nhận mã truy cập:</p>
           <div className="flex flex-wrap gap-2 mt-3">{kenh.map((k) => (

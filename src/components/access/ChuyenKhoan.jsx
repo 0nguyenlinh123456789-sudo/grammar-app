@@ -19,9 +19,19 @@
 // Nên MÃ ĐƠN được đặt to, trên cùng, có nút sao chép riêng, và được nhắc lại ở
 // đúng dòng "Nội dung chuyển khoản". Không phải trang trí — đó là sợi dây duy
 // nhất nối một khoản tiền với một người mua.
-import { useState } from 'react';
+//
+// ══ 27/08 — SỐ TÀI KHOẢN KHÔNG CÒN NẰM TRONG BUNDLE ══
+// Trước đây khối này đọc `VITE_BANK_*` từ `import.meta.env`, mà Vite nhúng thẳng
+// mọi biến `VITE_*` vào JavaScript công khai — số tài khoản nằm sẵn trong tệp
+// tĩnh cho mọi người, kể cả người chưa bấm mua. Nay nó HỎI MÁY CHỦ khi khối được
+// gắn vào màn hình, tức đúng lúc khách đã chọn gói.
+//
+// Tách làm hai: `KhoiChuyenKhoan` vẽ thuần (có gì vẽ nấy, không biết mạng là gì)
+// và `ChuyenKhoan` lo việc hỏi. Nhờ thế phép kiểm vẽ được khối bằng dữ liệu có
+// sẵn — không phải giả lập mạng để kiểm một cái khung.
+import { useEffect, useState } from 'react';
 import { AlertTriangle, Copy, Landmark } from 'lucide-react';
-import { CHUA_CO_CHUYEN_KHOAN, saoChepLoiNhan, thongTinChuyenKhoan } from '../../utils/banHang';
+import { CHUA_CO_CHUYEN_KHOAN, DANG_LAY_NGAN_HANG, layThongTinNganHang, saoChepLoiNhan } from '../../utils/banHang';
 
 /** Một dòng thông tin, có nút sao chép khi đáng sao chép. */
 function Dong({ nhan, giaTri, dam = false, chepDuoc = false, onChep }) {
@@ -47,15 +57,17 @@ function Dong({ nhan, giaTri, dam = false, chepDuoc = false, onChep }) {
 }
 
 /**
+ * Phần VẼ THUẦN: đưa gì vẽ nấy, không tự đi hỏi ai.
+ *
  * @param {object} props
  * @param {string} props.maDon    mã đơn đã sinh sẵn ở màn cha — sinh ở đây thì
  *                                mỗi lần React vẽ lại sẽ ra một mã khác, và
  *                                khách đang chép dở sẽ chép nhầm mã.
  * @param {string} props.soTien   giá gói, hoặc rỗng khi chủ dự án chưa đặt giá.
- * @param {object} props.env      import.meta.env, tách ra để test gọi được.
+ * @param {object|null} props.nh  thông tin ngân hàng đã lấy được, hoặc null.
+ * @param {string} props.loi      câu phải báo khi chưa/không lấy được.
  */
-export default function ChuyenKhoan({ maDon, soTien, env }) {
-  const nh = thongTinChuyenKhoan(env);
+export function KhoiChuyenKhoan({ maDon, soTien, nh, loi = CHUA_CO_CHUYEN_KHOAN }) {
   const [bao, setBao] = useState('');
   // Ảnh QR tải hỏng (gõ sai đường dẫn, quên bỏ file vào public/) thì trình duyệt
   // để lại một ô vỡ và KHÔNG nói gì. Khách đứng trước một hình vỡ ở đúng bước trả
@@ -68,7 +80,7 @@ export default function ChuyenKhoan({ maDon, soTien, env }) {
     return (
       <p className="mt-3 text-xs font-bold text-rose-700 dark:text-rose-300 flex items-start gap-2">
         <AlertTriangle size={15} className="shrink-0 mt-0.5" />
-        {CHUA_CO_CHUYEN_KHOAN}
+        {loi}
       </p>
     );
   }
@@ -142,4 +154,31 @@ export default function ChuyenKhoan({ maDon, soTien, env }) {
       {bao && <p role="status" className="mt-3 text-xs font-bold text-slate-600 dark:text-slate-300">{bao}</p>}
     </div>
   );
+}
+
+/**
+ * Phần LO VIỆC HỎI: gắn vào màn hình là đi xin máy chủ thông tin chuyển khoản.
+ *
+ * Ba trạng thái, và **không trạng thái nào được vẽ một khung rỗng**: đang hỏi
+ * thì nói đang hỏi, hỏng thì nói hỏng kèm đường đi tiếp, xong thì vẽ đủ. Một ô
+ * trống ở đúng bước trả tiền là thứ khách đọc thành "trang này hỏng rồi".
+ */
+export default function ChuyenKhoan({ maDon, soTien }) {
+  const [nh, setNh] = useState(null);
+  const [loi, setLoi] = useState(DANG_LAY_NGAN_HANG);
+
+  useEffect(() => {
+    // `huy` chặn việc đặt trạng thái sau khi khối đã bị gỡ (khách đóng bảng giá
+    // giữa chừng) — React cảnh báo, và tệ hơn là nó ghi đè lên trạng thái của
+    // lần mở sau.
+    let huy = false;
+    setLoi(DANG_LAY_NGAN_HANG);
+    layThongTinNganHang(maDon).then((kq) => {
+      if (huy) return;
+      if (kq.ok) { setNh(kq.nganHang); setLoi(''); } else { setNh(null); setLoi(kq.chu); }
+    });
+    return () => { huy = true; };
+  }, [maDon]);
+
+  return <KhoiChuyenKhoan maDon={maDon} soTien={soTien} nh={nh} loi={loi} />;
 }

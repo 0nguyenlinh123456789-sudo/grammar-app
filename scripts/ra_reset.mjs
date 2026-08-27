@@ -148,6 +148,29 @@ try {
     const sot = conSot(ngay);
     ghi('bấm XÁC NHẬN thì tiến độ về 0 ngay lập tức', sot.length === 0,
       sot.length ? `còn sót: ${sot.join(' · ')}` : 'xp, chặng, chuỗi, điểm đều sạch');
+
+    // ⚠️⚠️ CHỖ CẢ BỘ RÀ NÀY TỪNG MÙ, VÀ NÓ MÙ SUỐT 12/12 LƯỢT CHẤM ĐẠT.
+    //
+    // Mọi phép kiểm phía trên đọc `localStorage`. `resetRoadmap` XOÁ THẬT
+    // `placementResultV1` khỏi localStorage — nên chúng đều đạt, một cách
+    // trung thực. Nhưng `placementResult` còn là một STATE của App, và reset
+    // KHÔNG gọi `setPlacementResult(null)`; không có tải lại trang sau khi bấm,
+    // nên React vẫn cầm cấp độ cũ. Kết quả: kho sạch mà MÀN HÌNH thì không —
+    // tab lộ trình vẫn mở đúng cấp cũ và nút vẫn đề "LÀM LẠI TEST".
+    //
+    // Chủ dự án báo đúng nguyên văn chuyện này 27/08: "reset chưa reset hẳn
+    // thông số và bài kiểm tra đầu vào còn giữ nguyên". Bộ rà cãi lại được là
+    // vì nó đo nhầm thứ. Nên từ đây nó đo THỨ NGƯỜI DÙNG NHÌN THẤY.
+    const nhanNut = await t.danhGia(`(() => {
+      const b = [...document.querySelectorAll('button')]
+        .find((x) => /LÀM LẠI TEST|LÀM TEST XẾP BẬC/.test(x.innerText || ''));
+      return b ? b.innerText.trim() : '(không thấy nút test xếp bậc)';
+    })()`);
+    ghi('MÀN HÌNH cũng quên bài test đầu vào, không chỉ localStorage',
+      /LÀM TEST XẾP BẬC/.test(nhanNut),
+      /LÀM TEST XẾP BẬC/.test(nhanNut)
+        ? 'nút đã về "LÀM TEST XẾP BẬC" — app coi như chưa từng đo cấp độ'
+        : `nút vẫn đề "${nhanNut}" — state placementResult chưa được đặt lại, lộ trình vẫn mở ở cấp cũ`);
   }
 
   // 4. TẢI LẠI TRANG — chỗ nghi ngờ chính. Đồng bộ có kéo bản cũ về không.

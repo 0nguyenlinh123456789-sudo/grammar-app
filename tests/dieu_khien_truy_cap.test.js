@@ -156,3 +156,77 @@ test('đăng xuất trả về cờ xoá cookie đúng tên, đúng Max-Age=0', 
     assert.match(out.headers['Set-Cookie'], /Max-Age=0/);
   } finally { khoiPhuc(); }
 });
+
+// ── 6. THÔNG TIN CHUYỂN KHOẢN Ở PHÍA MÁY CHỦ (phương án C, 27/08) ───────────
+// Đây là cửa MỚI mở ra trên chính tuyến đang giữ quyền truy cập, nên nó phải
+// được thử kỹ như bốn cửa trên: một nhánh hớ ở đây không làm lộ bài học, nó làm
+// lộ số tài khoản hoặc chặn mất đường trả tiền.
+test('xin thông tin chuyển khoản: phải có mã đơn đúng hình, và KHÔNG đòi phiên đã đăng nhập', async () => {
+  const khoiPhuc = dungRedisGia();
+  try {
+    process.env.BANK_NAME = 'MB Bank';
+    process.env.BANK_ACCOUNT = '0000000000';
+    process.env.BANK_HOLDER = 'NGUYEN VAN A';
+
+    // ⚠️ PHÉP KIỂM QUAN TRỌNG NHẤT FILE NÀY.
+    // "Chỉ cấp cho phiên đã xác thực" nghe rất chặt, nhưng hiểu theo đúng chữ
+    // thì nó khoá đúng người cần: khách SẮP MUA chưa có mã truy cập nào cả —
+    // mã là thứ họ đang trả tiền để lấy. Nếu ai đó về sau thêm `requireLearner`
+    // vào nhánh này, web sẽ chỉ bán được cho người đã là khách, tức không bán
+    // được cho ai. Phép kiểm này gọi mà KHÔNG kèm cookie nào.
+    const khachLa = await goi(accessHandler, { method: 'POST', body: { action: 'bank', maDon: 'BE-A7K3MN' } });
+    assert.equal(khachLa.statusCode, 200, 'khách chưa có mã truy cập KHÔNG xin được số tài khoản — không ai mua được nữa');
+    assert.equal(khachLa.payload.nganHang.ten, 'MB Bank');
+    assert.equal(khachLa.payload.nganHang.so, '0000000000');
+
+    // Không có mã đơn / mã đơn sai hình thì từ chối: đó là cửa buộc bên gọi phải
+    // đi qua bước chọn gói, và giữ cho máy quét tệp tĩnh không gom được.
+    for (const xau of [undefined, '', 'linh tinh', 'BE-000', 'BE-A7K3M']) {
+      const r = await goi(accessHandler, { method: 'POST', body: { action: 'bank', maDon: xau } });
+      assert.equal(r.statusCode, 400, `mã đơn "${xau}" phải bị từ chối`);
+      assert.equal(r.payload.nganHang, undefined, 'từ chối mà vẫn kèm số tài khoản');
+    }
+  } finally {
+    delete process.env.BANK_NAME; delete process.env.BANK_ACCOUNT; delete process.env.BANK_HOLDER;
+    khoiPhuc();
+  }
+});
+
+test('chưa đặt BANK_NAME/BANK_ACCOUNT thì BÁO chưa cấu hình, không trả một nửa', async () => {
+  const khoiPhuc = dungRedisGia();
+  try {
+    delete process.env.BANK_NAME; delete process.env.BANK_ACCOUNT;
+    const r = await goi(accessHandler, { method: 'POST', body: { action: 'bank', maDon: 'BE-A7K3MN' } });
+    assert.equal(r.statusCode, 404);
+    assert.equal(r.payload.code, 'bank-not-configured');
+    assert.equal(r.payload.nganHang, undefined);
+
+    // Chỉ có tên ngân hàng mà thiếu số tài khoản cũng là "chưa đủ để trả tiền".
+    process.env.BANK_NAME = 'MB Bank';
+    const nua = await goi(accessHandler, { method: 'POST', body: { action: 'bank', maDon: 'BE-A7K3MN' } });
+    assert.equal(nua.statusCode, 404, 'có tên NH mà không có số TK vẫn trả về như đã cấu hình');
+  } finally { delete process.env.BANK_NAME; khoiPhuc(); }
+});
+
+test('thùng đếm tốc độ của "bank" TÁCH RIÊNG khỏi "activate"', async () => {
+  // Nếu dùng chung thùng: khách mở bảng giá vài lần rồi mua xong, tới lúc nhập
+  // mã truy cập thì bị 429 — hỏng đúng ở bước sau khi đã trả tiền, tức chỗ tệ
+  // nhất để hỏng. Phép kiểm này xin thông tin ngân hàng cho tới quá hạn mức của
+  // 'activate' (10) rồi vẫn phải kích hoạt được mã.
+  const khoiPhuc = dungRedisGia();
+  try {
+    process.env.BANK_NAME = 'MB Bank';
+    process.env.BANK_ACCOUNT = '0000000000';
+    const adminCookie = await dangNhapAdmin();
+    const { code } = await taoMa(adminCookie);
+
+    for (let i = 0; i < 12; i += 1) {
+      await goi(accessHandler, { method: 'POST', body: { action: 'bank', maDon: 'BE-A7K3MN' } });
+    }
+    const kichHoat = await goi(accessHandler, { method: 'POST', body: { action: 'activate', code, deviceId: 'thiet-bi-sau-khi-xem-gia' } });
+    assert.equal(kichHoat.statusCode, 200, 'xem bảng giá nhiều lần làm khách không kích hoạt được mã vừa mua');
+  } finally {
+    delete process.env.BANK_NAME; delete process.env.BANK_ACCOUNT;
+    khoiPhuc();
+  }
+});

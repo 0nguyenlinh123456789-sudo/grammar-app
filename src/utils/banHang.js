@@ -90,12 +90,30 @@ export { GOI, giaGoi, moiThang, tienVN, tietKiem, timGoi, timGoiTheoTen } from '
 //
 // KHÔNG dùng dịch vụ sinh QR động ngoài (vietqr.io…): làm thế là gửi số tài
 // khoản của chủ dự án sang máy chủ bên thứ ba ở mỗi lượt xem bảng giá.
-
+//
+// ══════════════════════════════════════════════════════════════════════════
+// 27/08 — BỎ TIỀN TỐ `VITE_`, CHUYỂN HẲN SANG PHÍA MÁY CHỦ.
+//
+// Bản trước đọc `VITE_BANK_*` từ `import.meta.env`. Vite **nhúng thẳng mọi biến
+// `VITE_*` vào file JavaScript công khai lúc dựng** — nên số tài khoản nằm sẵn
+// trong bundle, ai mở DevTools cũng đọc được, kể cả người chưa bấm mua. Việc
+// `ChuyenKhoan` chỉ hiện sau khi khách chọn gói chỉ giấu ở LỚP GIAO DIỆN, không
+// giấu ở LỚP DỮ LIỆU. Chủ dự án chọn phương án C ngày 27/08: **máy chủ giữ,
+// client phải hỏi mới có**.
+//
+// Vì thế bốn khoá dưới đây KHÔNG còn tiền tố `VITE_`. Đặt trên Vercel như biến
+// máy chủ bình thường; chúng không bao giờ vào bundle và không bao giờ vào Git.
+//
+// ⚠️ TRẦN CỦA CÁCH NÀY, nói thẳng để không ai tưởng nhầm là đã bí mật: bất kỳ ai
+// đọc mã client đều gọi được một lệnh POST tới `/api/access` để lấy. Cái đạt
+// được là: KHÔNG nằm trong bundle, KHÔNG nằm trong Git, KHÔNG bị máy quét gom
+// hàng loạt từ tệp tĩnh, và có giới hạn tốc độ. Cái KHÔNG đạt được là bí mật
+// thật sự — muốn thế thì chỉ có cách không đưa lên web, gửi tay qua Zalo.
 export const KHOA_NGAN_HANG = {
-  ten: 'VITE_BANK_NAME',
-  so: 'VITE_BANK_ACCOUNT',
-  chu: 'VITE_BANK_HOLDER',
-  qr: 'VITE_BANK_QR',
+  ten: 'BANK_NAME',
+  so: 'BANK_ACCOUNT',
+  chu: 'BANK_HOLDER',
+  qr: 'BANK_QR',
 };
 
 /**
@@ -116,6 +134,42 @@ export function thongTinChuyenKhoan(env = {}) {
 }
 
 export const CHUA_CO_CHUYEN_KHOAN = 'Chưa có thông tin chuyển khoản. Hãy liên hệ người bán để lấy số tài khoản trước khi trả tiền.';
+
+/** Đang hỏi máy chủ. Phải nói ra, vì ô trống ở bước trả tiền trông như hỏng. */
+export const DANG_LAY_NGAN_HANG = 'Đang lấy thông tin chuyển khoản…';
+
+/**
+ * Hỏi máy chủ xin thông tin chuyển khoản.
+ *
+ * Trả `{ ok: true, nganHang }` hoặc `{ ok: false, chu }` — **không bao giờ trả
+ * một nửa**. Mọi nhánh hỏng đều kèm câu chỉ đường đi tiếp, đúng luật đã áp cho
+ * `saoChepLoiNhan` và lời báo micro: không nhánh nào được bỏ người dùng đứng đó,
+ * và không nhánh nào được khai một việc chưa xảy ra.
+ *
+ * `maDon` gửi kèm để máy chủ buộc bên gọi phải đi qua đúng bước "đã bấm mua",
+ * và để nhật ký của người bán tra được ai đã hỏi. Không phải lớp bảo mật —
+ * xem chú thích trần của phương án C ở `KHOA_NGAN_HANG`.
+ */
+export async function layThongTinNganHang(maDon, fetchFn = globalThis.fetch) {
+  if (typeof fetchFn !== 'function') {
+    return { ok: false, chu: 'Trình duyệt này không gọi được máy chủ. Hãy liên hệ người bán để lấy số tài khoản.' };
+  }
+  try {
+    const r = await fetchFn('/api/access', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'bank', maDon: String(maDon || '') }),
+    });
+    const du = await r.json().catch(() => ({}));
+    if (r.ok && du?.nganHang?.ten && du?.nganHang?.so) return { ok: true, nganHang: du.nganHang };
+    if (r.status === 429) return { ok: false, chu: 'Bạn hỏi hơi nhiều lần trong thời gian ngắn. Chờ ít phút rồi mở lại, hoặc nhắn thẳng cho người bán.' };
+    // Máy chủ nói rõ chưa cấu hình → đó KHÔNG phải lỗi mạng, và khách cần biết
+    // là người bán còn thiếu chứ không phải máy họ hỏng.
+    return { ok: false, chu: CHUA_CO_CHUYEN_KHOAN };
+  } catch {
+    return { ok: false, chu: 'Không lấy được thông tin chuyển khoản (mất mạng?). Hãy thử lại hoặc nhắn cho người bán.' };
+  }
+}
 
 // Bỏ hẳn 0/O, 1/I/L, 5/S, 2/Z: mã này người mua phải GÕ TAY vào ô nội dung
 // chuyển khoản trên app ngân hàng, nên một cặp ký tự nhìn giống nhau là đủ để

@@ -45,6 +45,17 @@ function walk(dir, out = []) {
       if (name === 'node_modules' || name === 'dist' || name === '.git') continue;
       walk(p, out);
     } else if (/\.(js|jsx|mjs|cjs|ts|tsx|json)$/.test(name)) {
+      // ⚠️ BỎ HẲN file tạm `__tmp_*`, đừng chỉ né lúc stat.
+      // Lần vá trước chỉ đóng khoảng `readdir → stat`; còn khoảng `readdir →
+      // readFileSync` vẫn hở, vì tên được gom ở đây rồi mãi sau mới đọc. Giữa
+      // hai lúc đó tiến trình test khác đã xoá xong file tạm của nó → ENOENT,
+      // và test đỏ vì lý do không liên quan gì tới nội dung nó đang canh
+      // (gặp thật 27/08: `__tmp_render_ChuyenKhoan.jsx_19296_3.mjs`).
+      //
+      // Bỏ hẳn còn ĐÚNG HƠN về mặt nội dung: file tạm là bản gói của một
+      // component, nhét nó vào đống chữ đi dò có thể làm một file dữ liệu mồ
+      // côi trông như đang được dùng.
+      if (name.startsWith('__tmp_')) continue;
       out.push(p);
     }
   }
@@ -66,7 +77,12 @@ test('mọi file trong src/data đều có người dùng — không để lại
   // PHẢI giữ cả src/data trong tập dò: file tổng hợp `vocabVstepData.js` —
   // nơi chứa toàn bộ lệnh import của kho — cũng nằm trong src/data. Loại nó ra
   // thì mọi file dữ liệu đều thành mồ côi.
-  const texts = new Map(sources.map((f) => [f, readFileSync(f, 'utf8')]));
+  // Đai an toàn thứ hai: một file có thể biến mất giữa lúc gom tên và lúc đọc
+  // (test chạy song song). Bỏ qua file đã mất thì kết quả chỉ thiếu đi một
+  // nguồn dò — còn để nó ném thì cả phép kiểm đỏ vì chuyện không liên quan.
+  const texts = new Map(sources.map((f) => {
+    try { return [f, readFileSync(f, 'utf8')]; } catch { return [f, '']; }
+  }));
   const haystack = [...texts.values()].join('\n');
 
   // Bắt mọi kiểu tham chiếu: import './x', '../data/x', './x.js', và cả dạng

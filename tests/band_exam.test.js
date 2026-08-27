@@ -449,3 +449,92 @@ test('bảng tra NHÃN và GHI CHÚ luôn đi cùng nhau, và khớp kho đề',
     }
   }
 });
+
+// ══════════════════════════════════════════════════════════════════════════
+// MỐC "RESET LỘ TRÌNH" (27/08) — GIỮ SỔ THI, THÔI DÙNG LÀM CĂN CỨ TUYÊN BỐ.
+//
+// Chủ dự án báo "reset chưa reset hẳn thông số". Đúng: reset cố ý GIỮ
+// `bandExamHistoryV1` vì đó là nhật ký người học thật sự đã làm, nhưng
+// `certificateReady` trong LearningReport bật lên chỉ cần sổ có một lượt đạt.
+// Người vừa xin học lại từ đầu, tiến độ 0%, vẫn được app nói "đã đạt bậc B1"
+// và vẫn in được giấy — trong khi hộp xác nhận hứa "lộ trình quay hẳn về chặng
+// đầu tiên".
+//
+// Cách chữa dùng lại đúng cơ chế của mốc trộn phương án 19/08: giữ BẢN GHI,
+// chặn TUYÊN BỐ. Bốn phép kiểm dưới đây canh cả hai vế — vế "thôi tuyên bố" và
+// vế "không được xoá mất lịch sử".
+test('mốc reset: lượt thi TRƯỚC lần reset không còn được dùng để gắn nhãn bậc', async () => {
+  const kho = new Map();
+  const gia = {
+    getItem: (k) => (kho.has(k) ? kho.get(k) : null),
+    setItem: (k, v) => kho.set(k, String(v)),
+    removeItem: (k) => kho.delete(k),
+  };
+  const cu = globalThis.localStorage;
+  Object.defineProperty(globalThis, 'localStorage', { value: gia, configurable: true });
+  try {
+    const { bacDaDat, luotDatGanNhat, ghiMocReset, BAND_EXAM_KEY } = await import('../src/utils/bandExam.js');
+
+    // Một lượt ĐẠT B1 hợp lệ, làm SAU mốc trộn phương án.
+    const luotB1 = { cefr: 'B1', dat: true, lucLam: '2026-08-20T10:00:00.000Z', phan: {} };
+    gia.setItem(BAND_EXAM_KEY, JSON.stringify([luotB1]));
+
+    assert.equal(bacDaDat(), 'B1', 'chưa reset thì lượt đạt phải được tính — nếu không, phép kiểm dưới vô nghĩa');
+    assert.ok(luotDatGanNhat('B1'), 'chưa reset thì phải tra ra lượt đạt');
+
+    // Người học bấm RESET LỘ TRÌNH vào ngày hôm sau.
+    ghiMocReset('2026-08-21T00:00:00.000Z');
+
+    assert.equal(bacDaDat(), null,
+      'reset xong mà app vẫn nói "đã đạt bậc B1" — tuyên bố năng lực không có bằng chứng trong lượt học này');
+    assert.equal(luotDatGanNhat('B1'), null, 'reset xong vẫn tra ra lượt đạt cũ để in giấy chứng nhận');
+
+    // ⚠️ VẾ THỨ HAI, QUAN TRỌNG NGANG VẾ ĐẦU: sổ thi KHÔNG được xoá.
+    // Chữa bằng cách xoá sổ là xoá lịch sử người học đã thật sự làm, và hộp xác
+    // nhận cũng không hứa xoá nó.
+    const soThi = JSON.parse(gia.getItem(BAND_EXAM_KEY));
+    assert.equal(soThi.length, 1, 'sổ thi bị xoá mất — đó là nhật ký, không phải tiến độ');
+    assert.equal(soThi[0].cefr, 'B1');
+
+    // Thi lại SAU khi reset thì tuyên bố phải sống lại — kiếm lại được, không
+    // phải mất vĩnh viễn.
+    gia.setItem(BAND_EXAM_KEY, JSON.stringify([
+      luotB1,
+      { cefr: 'B1', dat: true, lucLam: '2026-08-25T09:00:00.000Z', phan: {} },
+    ]));
+    assert.equal(bacDaDat(), 'B1', 'thi lại sau khi reset mà vẫn không được công nhận — mốc chặn quá tay');
+  } finally {
+    Object.defineProperty(globalThis, 'localStorage', { value: cu, configurable: true });
+  }
+});
+
+test('mốc reset nằm trong danh sách sao lưu/đồng bộ', async () => {
+  // Thiếu nó thì đổi máy hoặc khôi phục sao lưu là mọi tuyên bố cũ sống lại,
+  // dù người học vừa xin học lại từ đầu — lỗi cũ quay về bằng cửa khác.
+  const { LEARNING_STORAGE_KEYS } = await import('../src/utils/backup.js');
+  const { MOC_RESET_KEY } = await import('../src/utils/bandExam.js');
+  assert.ok(LEARNING_STORAGE_KEYS.includes(MOC_RESET_KEY),
+    `${MOC_RESET_KEY} thiếu trong LEARNING_STORAGE_KEYS — đổi máy là "đã đạt B1" sống lại`);
+});
+
+test('resetRoadmap thật sự GỌI ghiMocReset, không chỉ có hàm nằm đó', async () => {
+  // Hàm đúng mà không ai gọi thì lỗi vẫn nguyên. Đây đúng là hình dạng của lỗi
+  // 27/08: `removeItem('placementResultV1')` chạy đàng hoàng, nhưng
+  // `setPlacementResult(null)` thì không hề có, nên màn hình không đổi.
+  const fs = await import('node:fs');
+  // ⚠️ PHẢI BỎ DÒNG CHÚ THÍCH TRƯỚC KHI DÒ.
+  // Bản đầu của phép kiểm này dò thẳng cả file, và khi thử-đỏ bằng cách biến
+  // lời gọi thành `// ghiMocReset();` thì nó VẪN XANH — regex khớp đúng dòng
+  // chú thích vừa tạo ra. Một phép kiểm không phân biệt được "mã đang chạy" với
+  // "mã đã bị tắt" thì nó không canh gì cả, mà lại trông như đang canh.
+  const dangChay = fs.readFileSync('src/App.jsx', 'utf8')
+    .split(/\r?\n/)
+    .filter((d) => {
+      const x = d.trim();
+      return !x.startsWith('//') && !x.startsWith('*') && !x.startsWith('/*');
+    })
+    .join(' | ');
+  assert.match(dangChay, /ghiMocReset\(\)/, 'resetRoadmap không gọi ghiMocReset — sổ thi cũ vẫn gắn nhãn bậc sau khi reset');
+  assert.match(dangChay, /setPlacementResult\(null\)/,
+    'resetRoadmap không đặt lại state placementResult — màn hình vẫn giữ bài test đầu vào cũ');
+});

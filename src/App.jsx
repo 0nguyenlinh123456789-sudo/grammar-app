@@ -93,6 +93,7 @@ import { needsOnboarding } from './utils/onboarding';
 import { batDongHoHoc } from './utils/dongHoHoc';
 import { isPassing, saveScore, loadScores, isVerified, MASTERY_STORAGE_KEY } from './utils/mastery';
 import { goMotLan, canBao, daBaoRoi } from './utils/tinCayXacMinh';
+import { ghiMocReset } from './utils/bandExam';
 import { roadmapData } from './data/roadmapData';
 import XacMinhGoNotice from './components/progress/XacMinhGoNotice';
 
@@ -511,6 +512,39 @@ export default function App() {
       'onboardingDoneV1',     // cho chạy lại hướng dẫn — nó mời làm test đầu vào,
       'learningGoalV1',       //   đúng thứ cần ngay sau khi xoá cấp độ cũ
     ]) localStorage.removeItem(khoa);
+
+    // ══ ĐO 27/08: XOÁ KHỎI KHO LÀ CHƯA ĐỦ — PHẢI ĐẶT LẠI CẢ STATE ══
+    // `placementResult` sống ở HAI nơi: `localStorage` và một `useState` của
+    // App. Vòng lặp trên xoá đúng nơi thứ nhất, và dừng ở đó. Nhưng bấm
+    // "XÁC NHẬN RESET" KHÔNG tải lại trang (xem WelcomePage: nó chỉ đóng hộp),
+    // nên React vẫn cầm cấp độ cũ trong bộ nhớ. Hậu quả người dùng nhìn thấy:
+    // tab lộ trình vẫn mở đúng cấp cũ, và nút vẫn đề "LÀM LẠI TEST" thay vì
+    // "LÀM TEST XẾP BẬC" — tức bài kiểm tra đầu vào y như chưa hề bị xoá.
+    //
+    // Chủ dự án báo đúng nguyên văn chuyện này 27/08. Đáng chú ý hơn cả lỗi:
+    // bộ rà `ra:reset` chấm ĐẠT 12/12 suốt thời gian đó, một cách trung thực —
+    // vì MỌI phép kiểm của nó đọc `localStorage`, không phép nào đọc MÀN HÌNH.
+    // Kho sạch thật, chỉ có điều đó không phải thứ người học nhìn. Cùng hình
+    // dạng với các bẫy trước trong dự án này: mỗi nửa đúng, cặp thì sai.
+    // `ra:reset` nay có thêm một phép kiểm đọc nhãn nút thật.
+    //
+    // Đặt lại state cũng khiến `useEffect [placementResult]` chạy và gọi
+    // `removeItem` lần nữa — thừa nhưng vô hại, và thà thừa còn hơn phụ thuộc
+    // vào thứ tự chạy của effect.
+    setPlacementResult(null);
+
+    // ══ SỔ THI CUỐI BẬC: GIỮ BẢN GHI, THÔI DÙNG LÀM CĂN CỨ TUYÊN BỐ ══
+    // `bandExamHistoryV1` cố ý KHÔNG bị xoá (xem danh sách "cố ý giữ" bên dưới):
+    // nó là nhật ký những lượt thi người học thật sự đã làm. Nhưng để nguyên thì
+    // `certificateReady` trong LearningReport vẫn bật chỉ nhờ một lượt đạt CŨ —
+    // người vừa xin học lại từ đầu, tiến độ 0%, vẫn được app nói "đã đạt bậc B1"
+    // và vẫn in được giấy chứng nhận. Hộp xác nhận thì hứa "lộ trình quay hẳn về
+    // chặng đầu tiên", nên hai thứ đá nhau.
+    //
+    // Ghi một MỐC thời gian thay vì xoá sổ: từ đây `bacDaDat`/`luotDatGanNhat`
+    // chỉ tính lượt thi làm SAU lần reset này. Lịch sử còn nguyên, tuyên bố thì
+    // phải kiếm lại. Cùng cách đã dùng cho mốc trộn phương án 19/08.
+    ghiMocReset();
 
     // ══ CỐ Ý GIỮ, và đây là ranh giới của nút này ══
     // · bestStreak — kỷ lục đời người.

@@ -130,8 +130,12 @@ const them = (ai, ten, dat, chiTiet) => MUC.push({ ai, ten, dat, chiTiet });
 {
   const { thongTinChuyenKhoan } = await nap('src/utils/banHang.js');
   const tt = thongTinChuyenKhoan(env);
+  // ⚠️ Hai tên trường ở dòng báo cáo cũ (`tt.nganHang`, `tt.soTaiKhoan`) KHÔNG
+  // tồn tại — `thongTinChuyenKhoan` trả `{ten, so, chu, qr}`. Khi đã cấu hình,
+  // dòng này in ra "undefined · undefined" mà vẫn chấm ĐẠT, nên không ai thấy.
+  // Đúng loại lỗi chỉ lộ ra ở nhánh mà chưa ai chạy tới bao giờ.
   them('chủ', 'Thông tin chuyển khoản đủ để khách trả tiền',
-    !!tt, tt ? `${tt.nganHang} · ${String(tt.soTaiKhoan).replace(/.(?=.{3})/g, '•')}` : 'chưa đặt VITE_BANK_NAME + VITE_BANK_ACCOUNT');
+    !!tt, tt ? `${tt.ten} · ${String(tt.so).replace(/.(?=.{3})/g, '•')}` : 'chưa đặt BANK_NAME + BANK_ACCOUNT (biến MÁY CHỦ, không có VITE_)');
 }
 
 // 8. Bí mật máy chủ. Không có thì hệ mã truy cập không chạy — khách trả tiền

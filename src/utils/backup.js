@@ -26,6 +26,12 @@ export const LEARNING_STORAGE_KEYS = [
   // đổi máy mà mất thì con số "đã mở app 40 giờ" về 0 trong khi 40 giờ đó
   // có thật.
   'thoiGianHocV1',
+  // MỐC "RESET LỘ TRÌNH" GẦN NHẤT (27/08). Sổ thi cuối bậc được giữ qua reset,
+  // nên thứ phân biệt "lượt thi còn dùng làm căn cứ" với "lượt thi trước lần
+  // học lại" CHỈ nằm ở mốc này. Thiếu nó trong sao lưu/đồng bộ thì đổi máy hoặc
+  // khôi phục là mọi tuyên bố "đã đạt bậc B1" sống lại, dù người học vừa xin
+  // học lại từ đầu — tức lỗi cũ quay về bằng cửa khác.
+  'resetMocV1',
 ];
 
 export function createLearningBackup(storage = localStorage) {

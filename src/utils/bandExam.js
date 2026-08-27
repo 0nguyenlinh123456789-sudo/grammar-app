@@ -151,7 +151,40 @@ function chuanHoa(k) {
 //
 // Bản ghi không ghi ngày cũng bị loại: không chứng minh được nó có sau bản vá thì
 // không dùng để nói người học đã đạt bậc nào.
-const laLuotTinDuoc = (k) => !!k?.lucLam && String(k.lucLam) >= MOC_TRON_PHUONG_AN;
+// ══ MỐC THỨ HAI: LẦN "RESET LỘ TRÌNH" GẦN NHẤT (27/08) ══
+// Reset xoá sạch XP, chặng, điểm xác minh và kết quả test đầu vào, và hộp xác
+// nhận hứa "lộ trình quay hẳn về chặng đầu tiên". Nhưng sổ thi cuối bậc được
+// CỐ Ý giữ lại (nó là nhật ký của người học), và `certificateReady` trong
+// `LearningReport` bật lên chỉ cần có MỘT lượt đạt trong sổ. Hậu quả: người vừa
+// xin học lại từ đầu, tiến độ 0%, vẫn được app nói "đã đạt bậc B1" và vẫn sẵn
+// sàng in giấy chứng nhận — đúng thứ chủ dự án gọi là "reset chưa reset hẳn
+// thông số" ngày 27/08.
+//
+// Cách chữa giống hệt cách đã dùng cho mốc trộn phương án, vì cùng một bài
+// toán: **giữ BẢN GHI, thôi dùng nó để TUYÊN BỐ**. Xoá sổ thi là xoá lịch sử
+// người học đã thật sự làm, và hộp xác nhận cũng không hứa xoá nó.
+const KHOA_MOC_RESET = 'resetMocV1';
+
+function mocReset(kho = globalThis.localStorage) {
+  try { return String(kho?.getItem(KHOA_MOC_RESET) || ''); } catch { return ''; }
+}
+
+/** Ghi mốc reset. Gọi từ `resetRoadmap`. */
+export function ghiMocReset(lucNao = new Date().toISOString(), kho = globalThis.localStorage) {
+  try { kho?.setItem(KHOA_MOC_RESET, String(lucNao)); } catch { /* không ghi được thì thôi */ }
+}
+
+export const MOC_RESET_KEY = KHOA_MOC_RESET;
+
+const laLuotTinDuoc = (k) => {
+  if (!k?.lucLam) return false;
+  const luc = String(k.lucLam);
+  if (luc < MOC_TRON_PHUONG_AN) return false;
+  const moc = mocReset();
+  // So sánh chuỗi ISO — cùng cách với mốc trên, và đúng vì ISO xếp theo chữ
+  // cũng là xếp theo thời gian.
+  return !moc || luc >= moc;
+};
 
 /** Lượt ĐẠT gần nhất của một bậc — căn cứ duy nhất để gắn nhãn bậc. */
 export function luotDatGanNhat(cefr) {

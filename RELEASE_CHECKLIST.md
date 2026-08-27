@@ -10,76 +10,58 @@ treo. Mọi mục dưới đây là việc chỉ chủ dự án tự làm đư�
 
 ---
 
-## 1. Số tài khoản + mã QR chuyển khoản
+## 1. Số tài khoản + mã QR chuyển khoản — ĐÃ DỰNG XONG PHƯƠNG ÁN C
 
-Cơ chế đã có sẵn trong mã (`src/utils/banHang.js`,
-`src/components/access/ChuyenKhoan.jsx`), đọc từ 4 biến môi trường —
-**KHÔNG cần sửa code**:
+Chủ dự án chọn **phương án C ngày 27/08**: máy chủ giữ, client phải hỏi mới có.
+Đã dựng xong, **không cần sửa code nữa** — chỉ còn đặt biến.
+
+### Đặt bốn biến này trên Vercel
+
+**Settings → Environment Variables → Production**, rồi **Redeploy**:
 
 | Biến | Bắt buộc? | Nội dung |
 |---|---|---|
-| `VITE_BANK_NAME` | Có | tên ngân hàng |
-| `VITE_BANK_ACCOUNT` | Có | số tài khoản |
-| `VITE_BANK_HOLDER` | Không | tên chủ tài khoản |
-| `VITE_BANK_QR` | Không | đường dẫn ảnh QR, hoặc chuỗi `data:image/png;base64,…` |
+| `BANK_NAME` | Có | tên ngân hàng |
+| `BANK_ACCOUNT` | Có | số tài khoản |
+| `BANK_HOLDER` | Không | tên chủ tài khoản |
+| `BANK_QR` | Không | chuỗi `data:image/png;base64,…` |
 
-Đặt ở: **Vercel Dashboard → Project → Settings → Environment Variables →
-Production**, rồi redeploy. `.env` và `.env.*` đã nằm trong `.gitignore` (trừ
-`.env.example`), nên các giá trị này không bao giờ vào Git.
+⚠️ **BỐN BIẾN NÀY CỐ Ý KHÔNG CÓ TIỀN TỐ `VITE_` — đừng thêm vào.** Thêm `VITE_`
+là hỏng đúng thứ vừa sửa: Vite nhúng thẳng mọi biến `VITE_*` vào JavaScript
+công khai. Trên Vercel, **không tick ô "expose to browser"** nếu có.
 
-### ⛔ ĐỌC KỸ TRƯỚC KHI ĐẶT — yêu cầu bảo mật của bạn CHƯA đạt được bằng cấu hình
+Ảnh QR: **đừng để file vào `public/`** (thư mục đó vào Git và ai cũng tải
+được). Đổi sang Base64 rồi dán làm giá trị `BANK_QR`:
 
-Bạn yêu cầu: *"chỉ khi khách hàng mua gói mở web mới thấy QR"* và *"tuyệt đối
-không chia sẻ lên GitHub, Vercel"*. Cần nói thẳng một sự thật kỹ thuật:
+```powershell
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("duong-dan-qr.png"))
+```
 
-**Mọi biến có tiền tố `VITE_` đều được NHÚNG THẲNG vào file JavaScript công
-khai lúc build.** Đây là quy tắc của Vite, không phải lỗ hổng mới của dự án.
-Nghĩa là sau khi đặt `VITE_BANK_ACCOUNT`, bất kỳ ai mở trang web rồi bấm
-DevTools đều đọc được số tài khoản — **kể cả người chưa mua gói, chưa bấm
-chọn gói, chưa trả một đồng nào**.
+Rồi ghép thành `data:image/png;base64,<chuỗi vừa ra>`. Không đặt cũng được —
+khối chuyển khoản vẫn chạy đủ bằng số tài khoản gõ tay.
 
-Việc `ChuyenKhoan` chỉ hiện sau khi khách bấm chọn gói (`daChon`) chỉ giấu
-được ở lớp GIAO DIỆN, không giấu được ở lớp DỮ LIỆU.
+### Phương án C đạt được gì, và KHÔNG đạt được gì
 
-Ba lựa chọn, bạn phải chọn một:
+**Đạt:** số tài khoản không còn trong bundle JS công khai, không vào Git,
+không bị máy quét gom hàng loạt từ tệp tĩnh, và lệnh hỏi có giới hạn tốc độ
+(30 lần / 10 phút mỗi IP, thùng đếm riêng).
 
-| | Cách làm | Ai đọc được số TK | Có vào Git? | Cần sửa code? |
-|---|---|---|---|---|
-| **A** | Đặt `VITE_BANK_*` trên Vercel | bất kỳ ai xem trang | Không | Không |
-| **B** | Bỏ hẳn khối chuyển khoản, chỉ gửi số TK qua kênh riêng (Zalo/email) sau khi khách nhắn | chỉ người đã liên hệ | Không | Không |
-| **C** | Máy chủ chỉ trả thông tin ngân hàng cho phiên đã xác thực | chỉ khách đã có mã | Không | **Có** — thêm tính năng mới |
+**KHÔNG đạt — nói thẳng để không tưởng nhầm:** đây **không phải bí mật thật
+sự**. Ai đọc mã client cũng gọi được một lệnh POST tới `/api/access` để lấy.
+Muốn kín tuyệt đối thì chỉ có cách không đưa lên web (phương án B: gửi tay qua
+Zalo sau khi khách nhắn).
 
-- **A** là cách nhanh nhất và là cách dự án đang dựng sẵn. Đánh đổi: số tài
-  khoản ngân hàng bị lộ công khai. Cần cân nhắc rằng số tài khoản vốn dĩ phải
-  đưa cho bất kỳ ai muốn trả tiền bạn — nó không cùng hạng bí mật với API
-  key, nhưng lộ công khai vẫn mở đường cho lừa đảo mạo danh.
-- **B** đạt đúng yêu cầu bảo mật của bạn mà không cần sửa một dòng code nào:
-  chỉ cần **không** đặt `VITE_BANK_*`, và đặt kênh liên hệ ở mục 2. Khách bấm
-  mua → thấy lời nhắn + kênh Zalo/email → bạn tự gửi số TK và QR riêng cho
-  từng người. Chậm hơn nhưng kín.
-- **C** đạt yêu cầu bảo mật ở mức cao nhất nhưng **nằm ngoài phạm vi đợt đóng
-  băng này** (bạn đã yêu cầu không thêm feature). Nếu muốn làm, đây là việc
-  của một đợt riêng sau khi phát hành.
+### Một điều chỉnh so với chữ "chỉ cấp cho phiên đã xác thực"
 
-**Chưa chọn xong mục này thì chưa mở bán được.** Đây là quyết định kinh
-doanh, không phải lỗi kỹ thuật.
+Hiểu theo đúng chữ thì yêu cầu đó **tự mâu thuẫn**: khách sắp mua **chưa có mã
+truy cập** — mã chính là thứ họ đang trả tiền để lấy. Đòi phiên đăng nhập ở
+đây nghĩa là chỉ khách CŨ xem được số tài khoản, khách MỚI không bao giờ trả
+tiền được, tức không bán được cho ai.
 
-### Ảnh QR
-
-Nếu chọn phương án **A** và muốn hiện QR:
-- **Không** lưu ảnh vào `public/` — thư mục đó vào Git và lên GitHub.
-- Đổi ảnh sang chuỗi Base64 rồi dán làm giá trị `VITE_BANK_QR` trên Vercel
-  Dashboard (`[Convert]::ToBase64String([IO.File]::ReadAllBytes("duong-dan-anh.png"))`
-  trong PowerShell). Ảnh vẫn nằm trong bundle công khai — cùng đánh đổi như
-  số tài khoản ở trên.
-
-Nếu chọn phương án **B**: bỏ qua hoàn toàn, gửi ảnh QR trực tiếp cho khách
-qua Zalo.
-
-Không đặt `VITE_BANK_QR` thì khối chuyển khoản vẫn chạy đủ bằng số tài khoản
-gõ tay — QR chỉ là tiện lợi thêm.
-
----
+Nên cửa đặt đúng chỗ chủ dự án mô tả lúc đầu — *"khách bấm mua gói thì mới
+thấy"*: phải qua bước chọn gói và có **mã đơn hợp lệ** (`BE-XXXXXX`) thì máy
+chủ mới trả. Có phép kiểm ghim riêng điều này lại, để về sau không ai vô tình
+thêm `requireLearner` vào rồi khoá mất đường bán hàng.
 
 ## 2. Kênh giao mã truy cập — CÒN THIẾU, và nó đang chặn cả mục 1
 
@@ -124,8 +106,13 @@ vận hành và băng thông khi số học viên tăng.
 Nguồn tham khảo bạn cung cấp:
 https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The_Oxford_5000_by_CEFR_level.pdf
 
-Đây là danh sách từ vựng **có bản quyền của Oxford University Press**. Dùng
-để bạn tự đối chiếu/biên soạn thủ công, hoặc xin phép sử dụng. Không dùng làm
-căn cứ để tự sinh nội dung bài học B2 mới — đúng luật "thiếu dữ liệu thì ẨN
-hoặc BÁO, tuyệt đối không thay thế âm thầm" đã áp dụng xuyên suốt các vòng
-kiểm trước.
+Đây là danh sách từ vựng **có bản quyền của Oxford University Press**.
+
+**Đã đo xong độ phủ ngày 27/08** — xem `BAO_CAO_PHU_TU_B2.md`. Tóm tắt: trong
+700 từ dải B2, app **dạy hẳn 378 (54,0%)**, **262 từ (37,4%) chỉ xuất hiện
+trong câu ví dụ mà không được dạy**, và **60 từ (8,6%) vắng hẳn**. Báo cáo có
+đủ 60 từ vắng hẳn làm danh sách việc.
+
+Việc còn lại là **soạn tay**, không sinh tự động: sinh hàng loạt sẽ ra đúng
+thứ nội dung khuôn mẫu mà luật GIỮ/XÓA của dự án bảo phải xóa. Danh sách
+Oxford **không** được chép vào repo — chỉ dùng làm bảng đối chiếu ngoài repo.

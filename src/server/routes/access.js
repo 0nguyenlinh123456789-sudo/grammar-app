@@ -10,6 +10,11 @@
 import {
   ACCESS_COOKIE, AccessConfigError, clearCookie, clientIdentifier, enforceRateLimit, hashValue, isSecureRequest, jsonResponse, layBody, normalizeAccessCode, publicRecord, readAccessRecord, requireLearner, sessionCookie, signToken, validateRecord, writeAccessRecord,
 } from '../accessCore.js';
+// MỘT nguồn duy nhất cho tên bốn khoá ngân hàng và cho luật "thiếu tên NH hoặc
+// thiếu số TK thì trả null chứ không hiện một nửa". Đã có phép kiểm canh rằng
+// `KHOA_NGAN_HANG` không mọc thêm khoá xin số điện thoại/email/địa chỉ — chép
+// lại tên khoá ở đây là tự cho mình một chỗ để lệch khỏi phép kiểm đó.
+import { CHUA_CO_CHUYEN_KHOAN, MAU_MA_DON, thongTinChuyenKhoan } from '../../utils/banHang.js';
 
 const SESSION_SECONDS = 30 * 24 * 60 * 60;
 
@@ -28,6 +33,43 @@ export async function xuLyAccess(request, env, response = null) {
     if (body.action === 'logout') {
       return jsonResponse(response, 200, { ok: true }, { 'Set-Cookie': clearCookie(ACCESS_COOKIE, secure) });
     }
+    // ── THÔNG TIN CHUYỂN KHOẢN ────────────────────────────────────────────
+    // ⚠️ NHÁNH NÀY PHẢI ĐỨNG TRƯỚC CỬA CHẶN `!== 'activate'` bên dưới, không thì
+    // nó bị trả 400 vĩnh viễn.
+    //
+    // ══ VÌ SAO KHÔNG ĐÒI PHIÊN ĐÃ XÁC THỰC ══
+    // Chủ dự án chọn "phương án C: máy chủ chỉ cấp cho phiên đã xác thực". Hiểu
+    // theo đúng chữ thì nó TỰ MÂU THUẪN: người sắp mua CHƯA CÓ mã truy cập —
+    // mã chính là thứ họ đang trả tiền để lấy. Gọi `requireLearner` ở đây nghĩa
+    // là chỉ khách CŨ xem được số tài khoản, còn khách MỚI thì không bao giờ trả
+    // tiền được. Nên cửa đặt đúng chỗ chủ dự án mô tả lúc đầu — *"khách bấm mua
+    // gói thì mới thấy"* — tức phải qua bước chọn gói và có mã đơn hợp lệ.
+    //
+    // ══ GIỚI HẠN TỐC ĐỘ LÀ TỐT-NHẤT-CÓ-THỂ, CỐ Ý ══
+    // `enforceRateLimit` cần Redis và ném `AccessConfigError` khi thiếu. Nếu để
+    // lỗi đó rơi xuống khối catch thì Redis chết = khách KHÔNG TRẢ TIỀN ĐƯỢC.
+    // Số tài khoản ngân hàng không phải bí mật đáng để mất một đơn hàng, nên ở
+    // RIÊNG nhánh này giới hạn tốc độ được bỏ qua khi kho đếm không dùng được.
+    // Các nhánh khác (`activate`) thì KHÔNG được nới như vậy.
+    if (body.action === 'bank') {
+      // Thùng đếm RIÊNG, không dùng chung với 'activate': khách mở bảng giá vài
+      // lần mà bị khoá luôn đường kích hoạt mã vừa mua thì hỏng đúng chỗ tệ nhất.
+      try {
+        const con = await enforceRateLimit(env, 'bank', clientIdentifier(request), 30, 600);
+        if (!con) return jsonResponse(response, 429, { code: 'rate-limited', message: 'Bạn đã xem quá nhiều lần. Vui lòng chờ ít phút.' });
+      } catch { /* kho đếm không dùng được thì vẫn phục vụ — xem lý do ở trên */ }
+
+      // Mã đơn hợp lệ = bằng chứng đã đi qua bước chọn gói trên giao diện. Không
+      // phải lớp bảo mật (ai đọc mã client cũng tự sinh được một mã đúng hình),
+      // mà là để máy quét tệp tĩnh không gom được, và để nhật ký tra ra đơn.
+      if (!MAU_MA_DON.test(String(body.maDon || '').trim())) {
+        return jsonResponse(response, 400, { code: 'bad-order', message: 'Thiếu mã đơn hợp lệ.' });
+      }
+      const nganHang = thongTinChuyenKhoan(env);
+      if (!nganHang) return jsonResponse(response, 404, { code: 'bank-not-configured', message: CHUA_CO_CHUYEN_KHOAN });
+      return jsonResponse(response, 200, { nganHang });
+    }
+
     if (body.action !== 'activate') return jsonResponse(response, 400, { code: 'bad-request', message: 'Yêu cầu không hợp lệ.' });
 
     const allowed = await enforceRateLimit(env, 'activate', clientIdentifier(request), 10, 600);
