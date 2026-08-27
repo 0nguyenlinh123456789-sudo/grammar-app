@@ -262,7 +262,7 @@ test('chặng nghe/đọc/chép chính tả đi qua cổng có điểm (N3), kh�
 //   2. thêm 3 bài A1 kho chưa từng có: TO BE, danh từ số nhiều, this/that;
 //   3. A1/A2 có 0 chặng nghe trong khi đề thi hai bậc đó mỗi đề 6 câu nghe →
 //      mở buổi chép chính tả (câu Tatoeba 4–6 từ, kho đã có) cho hai bậc.
-test('ba mẫu số 721 / 470 / 122 không được lệch nhau ở đâu nữa', async () => {
+test('ba mẫu số 724 / 473 / 125 không được lệch nhau ở đâu nữa', async () => {
   const { roadmapData } = await import(pathToFileURL(path.join(DATA, 'roadmapData.js')).href);
   const milestones = roadmapData.flatMap((l) => l.milestones);
 
@@ -276,10 +276,10 @@ test('ba mẫu số 721 / 470 / 122 không được lệch nhau ở đâu nữa'
   //         468 trước khi thêm hai bài C1 nói trên.
   //   122 — chỉ chặng `vstep` bậc ≥B1 (N5 / việc 3.1). KHÔNG đổi, vì đợt này
   //         không thêm chủ đề từ vựng nào.
-  assert.equal(milestones.length, 721, 'tổng số chặng đổi — mọi con số trong KE_HOACH_B2.md phải sửa theo');
+  assert.equal(milestones.length, 724, 'tổng số chặng đổi — mọi con số trong KE_HOACH_B2.md phải sửa theo');
   const tuB1 = milestones.filter((m) => ['B1', 'B2', 'C1'].includes(m.cefr));
-  assert.equal(tuB1.length, 470, 'số chặng ≥B1 đổi — mọi mẫu số N4/3.5 phải sửa theo');
-  assert.equal(tuB1.filter((m) => m.type === 'vstep').length, 122,
+  assert.equal(tuB1.length, 473, 'số chặng ≥B1 đổi — mọi mẫu số N4/3.5 phải sửa theo');
+  assert.equal(tuB1.filter((m) => m.type === 'vstep').length, 125,
     'mẫu số của N5 (chặng từ vựng ≥B1) đổi — sửa cả dòng 3.1 trong KE_HOACH_B2.md');
 });
 

@@ -93,26 +93,36 @@ thật. Ghi chú từ vòng kiểm trước nói Vercel Hobby hạn chế việc
 
 ---
 
-## 4. Phương án lưu trữ audio VOA (~116.9 MB)
+## 4. Phương án lưu trữ audio — ĐÃ ĐO LẠI, RỦI RO NHỎ HƠN NHIỀU
 
-Con số đo ở vòng kiểm trước, **không đo lại trong phiên này**. Cần chọn: giữ
-nguyên trong repo, hay chuyển sang lưu trữ đối tượng/CDN riêng để giảm rủi ro
-vận hành và băng thông khi số học viên tăng.
+**Con số cũ "~116,9 MB" trong bản đầu là SAI ở phạm vi đếm.** Đo lại ngày
+27/08 trên chính `public/`, loại hai thư mục IELTS (đã gitignore, không đi
+theo bản dựng): **239 tệp thu người thật · 6,2 MB tổng cộng**.
+
+6,2 MB không phải là một bài toán vận hành — không cần CDN riêng, không cần
+lưu trữ đối tượng. Giữ nguyên trong repo là đúng.
+
+⚠️ Nếu về sau bỏ hai thư mục IELTS khỏi `.gitignore` thì con số này phải đo
+lại từ đầu, chứ không phải cộng thêm.
 
 ---
 
-## 5. Nội dung Oxford B2 — CẦN THU THẬP, KHÔNG ĐƯỢC BỊA
+## 5. Nội dung Oxford B2 — ĐÃ ĐÓNG, KHÔNG CÒN LÀ VIỆC OPS
 
 Nguồn tham khảo bạn cung cấp:
 https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The_Oxford_5000_by_CEFR_level.pdf
 
 Đây là danh sách từ vựng **có bản quyền của Oxford University Press**.
 
-**Đã đo xong độ phủ ngày 27/08** — xem `BAO_CAO_PHU_TU_B2.md`. Tóm tắt: trong
-700 từ dải B2, app **dạy hẳn 378 (54,0%)**, **262 từ (37,4%) chỉ xuất hiện
-trong câu ví dụ mà không được dạy**, và **60 từ (8,6%) vắng hẳn**. Báo cáo có
-đủ 60 từ vắng hẳn làm danh sách việc.
+**Mục này ban đầu ghi "nếu tôi mua/xin quyền". Không cần nữa.** Khoảng trống
+được đóng bằng nội dung SOẠN MỚI, không phải bằng giấy phép: danh sách OUP chỉ
+đóng vai bảng đối chiếu ngoài repo, còn mọi nghĩa tiếng Việt, câu ví dụ và bài
+đọc đi vào web đều viết tay.
 
-Việc còn lại là **soạn tay**, không sinh tự động: sinh hàng loạt sẽ ra đúng
-thứ nội dung khuôn mẫu mà luật GIỮ/XÓA của dự án bảo phải xóa. Danh sách
-Oxford **không** được chép vào repo — chỉ dùng làm bảng đối chiếu ngoài repo.
+Trạng thái ngày 27/08 — xem `BAO_CAO_PHU_TU_B2.md`: trong 700 từ dải B2,
+**611 từ có mục từ riêng**, **86 từ được dạy trong unit giáo trình Oxford**
+(cơ chế khác, cố ý không soạn lại thành mục từ), **3 từ bỏ có chủ ý**
+(`gay`, `punk`, `sexy`). Tức **697/700 đều được dạy**.
+
+Đã soạn 233 mục từ qua ba chặng B2 mới, kèm ba bài đọc và 15 câu hỏi đọc hiểu
+mức văn bản. Danh sách Oxford **không** được chép vào repo.

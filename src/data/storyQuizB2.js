@@ -1743,6 +1743,195 @@ export const STORY_QUIZ_B2 = {
       dan: 'Ultimately, successful urban planning creates a harmonious environment where both a landlord and a tenant can thrive in a well-designed, modern society.',
     },
   ],
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // CHẶNG BÙ LỖ HỔNG VỐN TỪ B2 — ĐỢT 1 (27/08). Xem src/data/vocabB2Bosung1.js.
+  // Mọi `dan` chép NGUYÊN VĂN từ `storyEn` của chính chặng này; vị trí đáp án
+  // đúng được xáo, không nằm lì ở ô đầu.
+  // ══════════════════════════════════════════════════════════════════════════
+  'b2-nhan-dinh-su-viec': [
+    {
+      q: 'Trường thuê chuyên gia tư vấn để tìm hiểu điều gì?',
+      options: [
+        'Vì sao điểm thi môn thể dục của học sinh ngày càng thấp',
+        'Vì sao rất ít học sinh tham gia câu lạc bộ thể thao',
+        'Vì sao chi phí bảo trì sân bãi tăng nhanh mỗi năm',
+        'Vì sao giáo viên thể thao xin chuyển sang trường khác',
+      ],
+      answer: 1,
+      dan: 'Last spring our school hired a consultant to find out why so few students joined the sports club.',
+    },
+    {
+      q: 'Vì sao chuyên gia cho rằng chỉ riêng số liệu khảo sát là chưa đủ?',
+      options: [
+        'Vì học sinh điền bảng câu hỏi quá vội nên số liệu bị sai',
+        'Vì nhà trường yêu cầu phải có thêm ý kiến của phụ huynh',
+        'Vì bảng câu hỏi bị thất lạc mất một phần trước khi thu về',
+        'Vì cô cho rằng chỉ con số thôi thì không thuyết phục',
+      ],
+      answer: 3,
+      dan: 'The questions were simple, and the answers were adequate for a first look, but she reckoned that numbers alone would not be convincing.',
+    },
+    {
+      q: 'Vấn đề thật sự khiến học sinh không tham gia là gì?',
+      options: [
+        'Phòng thay đồ hỏng móc, không gương và có mùi khó chịu',
+        'Lịch tập của câu lạc bộ trùng với giờ học chính khoá',
+        'Học sinh không thích môn thể thao mà câu lạc bộ chọn',
+        'Phí tham gia câu lạc bộ cao hơn khả năng của nhiều bạn',
+      ],
+      answer: 0,
+      dan: 'The real problem was the changing room: it had one broken hook, no mirror, and a nasty smell that nobody dared to mention.',
+    },
+    {
+      q: 'Nhà trường đã làm gì sau khi đọc báo cáo?',
+      // ⚠️ BỐN PHƯƠNG ÁN PHẢI XẤP XỈ BẰNG NHAU VỀ ĐỘ DÀI.
+      // Bản đầu để đáp án đúng dài 69 ký tự trong khi ba phương án nhiễu chỉ
+      // 47–57, và `story_quiz.test.js` bắt được ngay: chọn phương án dài nhất
+      // là đúng mà không cần đọc bài. Cùng họ với lỗi "đáp án nằm lì ở ô đầu".
+      options: [
+        'Tuyển thêm một giáo viên thể thao phụ trách câu lạc bộ',
+        'Giảm số buổi sinh hoạt để tiết kiệm chi phí vận hành',
+        'Tạm ngừng chi thiết bị mới, dồn tiền sửa phòng thay đồ',
+        'Chuyển câu lạc bộ sang sinh hoạt tại một địa điểm thuê',
+      ],
+      answer: 2,
+      dan: 'The school suspended all spending on new equipment for one term and spent the money on the changing room instead.',
+    },
+    {
+      q: 'Theo lời chuyên gia, vì sao một giải pháp ngắn hạn dễ thất bại?',
+      options: [
+        'Vì nó luôn tốn kém hơn hẳn một giải pháp lâu dài',
+        'Vì người thực hiện thường bỏ dở nó ngay giữa chừng',
+        'Vì nó cần nhiều người hơn mức trường có thể huy động',
+        'Vì người ta chưa hiểu câu hỏi thật đằng sau vấn đề',
+      ],
+      answer: 3,
+      dan: 'A short-term fix, she told us, is bound to fail if you have not understood the real question.',
+    },
+  ],
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // CHẶNG BÙ LỖ HỔNG VỐN TỪ B2 — ĐỢT 2 (27/08). Xem src/data/vocabB2Bosung2.js.
+  // Bốn phương án mỗi câu để XẤP XỈ BẰNG NHAU về độ dài: đợt 1 đã dính lỗi đáp
+  // án đúng dài hơn hẳn, chọn phương án dài nhất là đúng mà không cần đọc bài.
+  // ══════════════════════════════════════════════════════════════════════════
+  'b2-doi-song-cong-viec': [
+    {
+      q: 'Công việc chính của Minh ở công ty là gì?',
+      options: [
+        'Lắp đặt máy y tế mới cho các bệnh viện trong vùng',
+        'Phân biệt một lỗi thật với một báo động giả của máy',
+        'Đào tạo nhân viên mới cách vận hành máy an toàn',
+        'Ghi lại số giờ chạy của từng cỗ máy trong xưởng',
+      ],
+      answer: 1,
+      dan: 'His job is to distinguish a real fault from a false alarm, and the two are not always distinct.',
+    },
+    {
+      q: 'Vì sao Minh khó đọc các con số trong đêm đó?',
+      options: [
+        'Vì màn hình của cỗ máy đã bị hỏng từ trước',
+        'Vì anh quên mang theo kính lúc đi làm ca đêm',
+        'Vì anh hầu như không đọc nổi trong bóng tối',
+        'Vì các con số hiện lên rồi tắt đi quá nhanh',
+      ],
+      answer: 2,
+      dan: 'Minh could barely read the numbers in the darkness.',
+    },
+    {
+      q: 'Nguyên nhân thật sự của sự cố đêm hôm đó là gì?',
+      options: [
+        'Lỗi cơ khí — cỗ máy đã chạy quá thời gian an toàn',
+        'Lỗi điện xảy ra ở mạch chính của toàn bộ toà nhà',
+        'Một báo động giả do đèn cảnh báo bị chập chờn',
+        'Phần mềm điều khiển của máy cần được cập nhật',
+      ],
+      answer: 0,
+      dan: 'The fault was mechanical, not electrical, and the machine had simply exceeded its safe running time.',
+    },
+    {
+      q: 'Theo Minh, tốc độ sửa chữa có thể gây ra vấn đề gì?',
+      options: [
+        'Nó khiến chi phí sửa chữa bị đội lên rất nhiều',
+        'Nó làm các đồng nghiệp khác khó theo kịp tiến độ',
+        'Nó buộc anh phải bỏ qua bước kiểm tra bắt buộc',
+        'Nó làm phân tâm khỏi câu hỏi thật cần trả lời',
+      ],
+      answer: 3,
+      dan: 'Opinions differ about how fast a repair should be, and speed can distract you from the real question.',
+    },
+    {
+      q: 'Quản lý của Minh nói cỗ máy có đặc điểm gì?',
+      options: [
+        'Nó luôn báo lỗi sớm hơn thời điểm hỏng thật sự',
+        'Nó trung thực, không giấu thông tin để tự bảo vệ',
+        'Nó cần được kiểm tra định kỳ đúng hai lần mỗi năm',
+        'Nó chỉ hỏng khi có người vận hành sai quy trình',
+      ],
+      answer: 1,
+      dan: 'Fundamentally, she said, the machine is honest: it will not exclude information to protect itself.',
+    },
+  ],
+
+  // Đợt 3 — 78 từ khép lại nhóm "chỉ lướt qua". Vị trí đáp án: 2, 0, 3, 1, 2.
+  'b2-thoi-gian-muc-do-xa-hoi': [
+    {
+      q: 'Dì của người kể đến buổi họp đầu tiên với tư cách gì?',
+      options: [
+        'Chủ tịch quỹ thiện nguyện, người đứng ra kêu gọi góp tiền',
+        'Kỹ sư khảo sát, người chịu trách nhiệm đánh giá công trình',
+        'Quan sát viên, sau khi vừa học xong một khoá điều dưỡng',
+        'Đại diện nhà xuất bản, bên trả tiền cho đợt sửa đầu tiên',
+      ],
+      answer: 2,
+      dan: 'A voluntary trust was formed to rebuild it, and my aunt, who had just finished a nursing course, came to the first meeting only as an observer.',
+    },
+    {
+      q: 'Cuộc khảo sát toà tháp cho ra kết quả thế nào?',
+      options: [
+        'Tường còn chắc, nhưng cầu thang hỏng và mái không qua nổi một mùa đông',
+        'Tường đã nứt hết, chỉ còn cầu thang và mái là dùng tạm được vài năm',
+        'Cả tường, cầu thang lẫn mái đều còn tốt, chỉ cần sơn lại bên ngoài',
+        'Mái vừa được thay mới, nhưng tường và cầu thang thì phải phá bỏ hết',
+      ],
+      answer: 0,
+      dan: 'The survey was thorough: the walls were sound, the stairs were not, and the roof would not last one winter.',
+    },
+    {
+      q: 'Khoản tiền không ai ngờ tới đến từ đâu?',
+      options: [
+        'Từ một nhà xuất bản nhỏ ở ngay trong vùng, gửi tới sau buổi họp',
+        'Từ trường làng, nơi học sinh quyên góp trong các ngày thứ Bảy',
+        'Từ một trường đại học muốn được xuất bản cuốn nhật ký hải trình',
+        'Từ một công ty buôn bán ở nước ngoài, dưới dạng một tấm séc',
+      ],
+      answer: 3,
+      dan: 'A partnership with a small publishing house paid for the first repairs, and a trading company overseas sent a cheque nobody had expected.',
+    },
+    {
+      q: 'Người anh họ nói gì về kỳ thực tập ở hải đăng?',
+      options: [
+        'Rằng công việc quá nặng nên anh sẽ quay lại làm văn phòng',
+        'Rằng sự hài lòng nhận được còn đáng giá hơn cả tiền lương',
+        'Rằng anh chỉ nhận thực tập vì không tìm được việc nào khác',
+        'Rằng anh đã học được nghề điều dưỡng trong sáu tuần ở đó',
+      ],
+      answer: 1,
+      dan: 'My cousin took a work placement there instead of an office job and said the satisfaction was worth more than the pay.',
+    },
+    {
+      q: 'Quỹ đặt điều kiện gì khi đồng ý cho xuất bản cuốn nhật ký?',
+      options: [
+        'Trường đại học phải trả một khoản phí cho việc sửa chữa tháp',
+        'Tên người gác đèn cuối cùng phải được in trên trang bìa sách',
+        'Bản gốc phải ở lại trên bờ biển, nơi mà nó vốn thuộc về',
+        'Cuốn sách chỉ được phát hành sau khi hải đăng mở cửa lại',
+      ],
+      answer: 2,
+      dan: 'A university asked to publish it; the trust agreed on one condition — the original must stay on the shore where it belonged.',
+    },
+  ],
 };
 
 export default STORY_QUIZ_B2;

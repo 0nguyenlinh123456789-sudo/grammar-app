@@ -25,8 +25,8 @@ const DATA = path.join(ROOT, 'src', 'data');
 
 // Bánh cóc: chỉ được tăng. Số ĐO ĐƯỢC khi soạn xong cả ba bậc B1, B2 và C1 —
 // 121/122 chặng ≥B1 (một chặng loại có lý do, xem đầu src/data/storyQuiz.js).
-const CHU_DE_TOI_THIEU = 266;
-const CAU_HOI_TOI_THIEU = 1064;
+const CHU_DE_TOI_THIEU = 269;
+const CAU_HOI_TOI_THIEU = 1079;
 
 async function napGop(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
@@ -75,7 +75,7 @@ test('N5 — độ phủ: mọi chặng ≥B1 đều có câu hỏi mức văn b
       thieu.push(`${m.cefr} · ${m.targetId}`);
     }
   }
-  assert.equal(tong, 122, `số chặng ≥B1 đổi thành ${tong} — đo lại phạm vi N5`);
+  assert.equal(tong, 125, `số chặng ≥B1 đổi thành ${tong} — đo lại phạm vi N5`);
   assert.deepEqual(thieu, [], `${thieu.length} chặng ≥B1 chưa có câu hỏi mức văn bản:\n  ${thieu.join('\n  ')}`);
 
   // Và mục loại trừ phải còn sống: chặng biến mất thì gỡ khỏi danh sách.
