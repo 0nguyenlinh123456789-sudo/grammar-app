@@ -49,7 +49,7 @@ const GrammarPage = ({ topic: topicGoc, setXp, completeMilestone }) => {
   const tabs = [
     { id: 'theory', label: 'Lý Thuyết', icon: BookOpen, color: 'bg-cyan-500' },
     { id: 'sentence', label: 'Xếp Câu', icon: Puzzle, color: 'bg-amber-500', data: topic.sentenceGame },
-    { id: 'exercise', label: 'Trắc Nghiệm', icon: PenTool, color: 'bg-emerald-500' },
+    { id: 'exercise', label: 'Trắc Nghiệm', icon: PenTool, color: 'bg-emerald-500', data: topic.exercises },
     { id: 'fillblanks', label: 'Điền Từ', icon: PenLine, color: 'bg-blue-500', data: topic.fillBlanks },
     { id: 'errorcorrection', label: 'Sửa Lỗi', icon: AlertTriangle, color: 'bg-orange-500', data: topic.errorCorrection },
     { id: 'transformation', label: 'Viết Lại', icon: Repeat, color: 'bg-purple-500', data: topic.transformation },
