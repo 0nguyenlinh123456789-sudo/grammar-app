@@ -301,7 +301,7 @@ function PricingModal({ onClose, onMaTuDong }) {
       </div>
 
       <div className="grid md:grid-cols-3 gap-4 mt-7">{plans.map((plan) => (
-        <article key={plan.ma} className={`relative ${plan.color} text-slate-900 border-3 border-slate-900 rounded-3xl p-5 shadow-[4px_4px_0_0_#1e293b]`}>
+        <article key={plan.ma} className={`relative ${plan.color} text-slate-900 border-3 border-slate-900 rounded-3xl p-5 shadow-[4px_4px_0_0_#1e293b] flex flex-col`}>
           {plan.popular && <span className="absolute -top-3 right-4 px-3 py-1 rounded-full bg-rose-500 text-white border-2 border-slate-900 text-[10px] font-black">ĐƯỢC CHỌN NHIỀU</span>}
           <h3 className="text-2xl font-black">{plan.name}</h3>
           <p className="text-xs font-black uppercase mt-1 opacity-70">{plan.caption}</p>
@@ -312,7 +312,7 @@ function PricingModal({ onClose, onMaTuDong }) {
           <ul className="mt-5 space-y-2.5">{plan.features.map((feature) => (
             <li key={feature} className="text-sm font-bold flex gap-2"><CheckCircle2 size={17} className="shrink-0 text-emerald-700" />{feature}</li>
           ))}</ul>
-          <button onClick={() => requestPlan(plan)} className="w-full mt-6 px-3 py-3 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm">{plan.action}</button>
+          <button onClick={() => requestPlan(plan)} className="w-full mt-auto pt-6 px-3 py-3 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm">{plan.action}</button>
         </article>
       ))}</div>
 
