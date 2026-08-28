@@ -8,13 +8,17 @@
 // nen than tuyen nay khong can biet no dang chay o dau. Xem chu thich cua
 // jsonResponse trong src/server/accessCore.js.
 import {
-  ACCESS_COOKIE, AccessConfigError, clearCookie, clientIdentifier, enforceRateLimit, hashValue, isSecureRequest, jsonResponse, layBody, normalizeAccessCode, publicRecord, readAccessRecord, requireLearner, sessionCookie, signToken, validateRecord, writeAccessRecord,
+  ACCESS_COOKIE, AccessConfigError, clearCookie, clientIdentifier, enforceRateLimit, hashValue, isSecureRequest, jsonResponse, layBody, normalizeAccessCode, publicRecord, randomToken, readAccessRecord, readOrder, requireLearner, safeSecretEqual, sessionCookie, signToken, validateRecord, writeAccessRecord, writeOrder,
 } from '../accessCore.js';
 // MỘT nguồn duy nhất cho tên bốn khoá ngân hàng và cho luật "thiếu tên NH hoặc
 // thiếu số TK thì trả null chứ không hiện một nửa". Đã có phép kiểm canh rằng
 // `KHOA_NGAN_HANG` không mọc thêm khoá xin số điện thoại/email/địa chỉ — chép
 // lại tên khoá ở đây là tự cho mình một chỗ để lệch khỏi phép kiểm đó.
 import { CHUA_CO_CHUYEN_KHOAN, MAU_MA_DON, thongTinChuyenKhoan } from '../../utils/banHang.js';
+// Đơn hàng phải khoá vào GÓI CÓ THẬT — cùng danh sách bảng giá đọc, cùng cách
+// tính giá máy chủ (`giaGoi` đọc biến môi trường CỦA MÁY CHỦ, không tin số
+// tiền do client gửi lên).
+import { giaGoi, timGoi } from '../../utils/goi.js';
 
 const SESSION_SECONDS = 30 * 24 * 60 * 60;
 
@@ -68,6 +72,100 @@ export async function xuLyAccess(request, env, response = null) {
       const nganHang = thongTinChuyenKhoan(env);
       if (!nganHang) return jsonResponse(response, 404, { code: 'bank-not-configured', message: CHUA_CO_CHUYEN_KHOAN });
       return jsonResponse(response, 200, { nganHang });
+    }
+
+    // ── ĐĂNG KÝ ĐƠN — bước bắt buộc trước khi webhook có thể tự cấp mã ─────
+    //
+    // Gọi ngay khi khách bấm "MUA GÓI X" trên giao diện, TRƯỚC khi họ mở app
+    // ngân hàng. Máy chủ chốt lại NGAY LÚC NÀY: đơn này ứng với gói nào, giá
+    // bao nhiêu (đọc từ `giaGoi` — giá CỦA MÁY CHỦ tại thời điểm đặt, không tin
+    // số client gửi lên). Chốt sớm để nếu chủ dự án đổi giá giữa lúc khách đặt
+    // và lúc khách trả tiền, đơn vẫn tính đúng giá khách ĐÃ THẤY lúc bấm mua.
+    if (body.action === 'order') {
+      try {
+        const con = await enforceRateLimit(env, 'order', clientIdentifier(request), 20, 600);
+        if (!con) return jsonResponse(response, 429, { code: 'rate-limited', message: 'Bạn thao tác quá nhiều lần trong thời gian ngắn. Vui lòng chờ ít phút.' });
+      } catch { /* kho đếm không dùng được thì vẫn cho đăng ký đơn — cùng lý do với nhánh 'bank' */ }
+
+      const maDon = String(body.maDon || '').trim();
+      if (!MAU_MA_DON.test(maDon)) {
+        return jsonResponse(response, 400, { code: 'bad-order', message: 'Thiếu mã đơn hợp lệ.' });
+      }
+      const goi = timGoi(body.goi);
+      if (!goi) return jsonResponse(response, 400, { code: 'bad-plan', message: 'Gói không hợp lệ.' });
+
+      const token = randomToken();
+      const now = Date.now();
+      const cu = await readOrder(env, maDon);
+      // Đơn ĐÃ CẤP MÃ thì KHÔNG BAO GIỜ bị đăng ký lại đè về 'cho' — KỂ CẢ khi
+      // lượt đăng ký này mang một gói KHÁC. Bảng giá gọi lại 'order' ở MỌI lần
+      // bấm "MUA GÓI X" (PricingModal, AccessGate.jsx); nếu coi gói khác là một
+      // đơn MỚI thì khách đã trả tiền, đã thấy mã, rồi bấm xem thử gói khác cho
+      // biết sẽ xoá sạch mã đang chờ họ dùng — mà webhook thì KHÔNG BAO GIỜ gọi
+      // lại được nữa (giao dịch ngân hàng đó đã đánh dấu xử lý xong, xem
+      // `daXuLy` trong paymentWebhook.js). Mã trở nên mồ côi, chỉ tìm lại được
+      // qua nhãn `Đơn ${maDon}` trên bảng quản trị.
+      //
+      // Giữ NGUYÊN toàn bộ bản ghi cũ, không chỉ mấy trường trạng thái — gói/giá
+      // trong bản ghi CŨ mới đúng với LẦN TRẢ TIỀN THẬT, còn `goi`/`body.goi` ở
+      // yêu cầu này chỉ là gói khách đang XEM, chưa chắc đã trả. Cấp mã MỚI chỉ
+      // xảy ra ở paymentWebhook.js khi có TIỀN MỚI thật sự vào tài khoản — bước
+      // đăng ký này không bao giờ tự ý đổi hay xoá gì của một đơn đã xong.
+      const daTraTien = cu?.trangThai === 'da_thanh_toan';
+
+      const record = daTraTien
+        ? { ...cu, tokenHash: hashValue(token), capNhatLuc: new Date(now).toISOString() }
+        : {
+          maDon,
+          goi: goi.ma,
+          gia: giaGoi(goi.ma, env),
+          tokenHash: hashValue(token),
+          trangThai: 'cho',
+          maTruyCap: null,
+          soTienNhanDuoc: null,
+          taoLuc: new Date(now).toISOString(),
+          capNhatLuc: new Date(now).toISOString(),
+        };
+      await writeOrder(env, maDon, record);
+      return jsonResponse(response, 200, {
+        ok: true, token, trangThai: record.trangThai,
+        ...(record.trangThai === 'da_thanh_toan' ? { maTruyCap: record.maTruyCap } : {}),
+      });
+    }
+
+    // ── HỎI TRẠNG THÁI ĐƠN — client gọi lặp lại trong lúc chờ webhook ──────
+    //
+    // Đòi ĐÚNG cặp (mã đơn, token) do chính bước 'order' vừa trả — token KHÔNG
+    // đi kèm mã đơn ở bất kỳ nơi nào khác (không vào nội dung chuyển khoản,
+    // không vào lời nhắn gửi qua Zalo/email). Thiếu vé này thì bất kỳ ai nhìn
+    // thấy mã đơn — nó hiện công khai trên màn hình, được sao chép, được gõ
+    // vào ô nội dung chuyển khoản, được dán vào lời nhắn gửi người bán — cũng
+    // lấy được mã truy cập của người khác trước khi họ kịp thấy.
+    if (body.action === 'trangThaiDon') {
+      try {
+        // Bấm hỏi mỗi vài giây trong lúc chờ nên hạn mức phải RỘNG hơn hẳn
+        // 'bank' — không phải vì kém nhạy cảm hơn (được canh bằng token), mà
+        // vì tần suất gọi tự nhiên đã cao hơn nhiều lần.
+        const con = await enforceRateLimit(env, 'trangthaidon', clientIdentifier(request), 150, 600);
+        if (!con) return jsonResponse(response, 429, { code: 'rate-limited', message: 'Bạn hỏi quá nhiều lần trong thời gian ngắn. Vui lòng chờ ít phút.' });
+      } catch { /* không phải bí mật đáng để mất một đơn hàng — vẫn phục vụ */ }
+
+      const maDon = String(body.maDon || '').trim();
+      const token = String(body.token || '');
+      if (!MAU_MA_DON.test(maDon) || !token) {
+        return jsonResponse(response, 400, { code: 'bad-request', message: 'Thiếu mã đơn hoặc mã phiên hợp lệ.' });
+      }
+      const order = await readOrder(env, maDon);
+      // KHÔNG phân biệt "không có đơn này" với "token sai" trong câu trả lời —
+      // hai lời báo khác nhau là một cách để dò xem một mã đơn có tồn tại hay
+      // không mà không cần biết token.
+      if (!order || !safeSecretEqual(hashValue(token), order.tokenHash)) {
+        return jsonResponse(response, 200, { trangThai: 'khong_thay' });
+      }
+      if (order.trangThai === 'da_thanh_toan') {
+        return jsonResponse(response, 200, { trangThai: 'da_thanh_toan', maTruyCap: order.maTruyCap, goi: order.goi });
+      }
+      return jsonResponse(response, 200, { trangThai: order.trangThai || 'cho' });
     }
 
     if (body.action !== 'activate') return jsonResponse(response, 400, { code: 'bad-request', message: 'Yêu cầu không hợp lệ.' });

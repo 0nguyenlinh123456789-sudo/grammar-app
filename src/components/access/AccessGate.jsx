@@ -153,7 +153,15 @@ function ProtectedApp({ children }) {
       </form>
     </section>
     <LandingSections onPricing={() => setShowPricing(true)} />
-    {showPricing && <PricingModal onClose={() => setShowPricing(false)} />}
+    {showPricing && (
+      <PricingModal
+        onClose={() => setShowPricing(false)}
+        // Webhook thanh toán tự động cấp mã xong thì ĐIỀN SẴN vào ô kích hoạt
+        // và đóng bảng giá — khách chỉ còn một bước bấm "MỞ KHOÁ", không phải
+        // tự chép/dán qua lại giữa hai màn hình.
+        onMaTuDong={(ma) => { setCode(ma); setShowPricing(false); }}
+      />
+    )}
     {showPolicy && <PolicyDialog onClose={() => setShowPolicy(false)} />}
   </main>;
 }
@@ -218,12 +226,13 @@ function LandingSections({ onPricing }) {
   </>;
 }
 
-function PricingModal({ onClose }) {
+function PricingModal({ onClose, onMaTuDong }) {
   // ⚠️ ĐÃ ĐO TRÊN BẢN LIVE: không kênh nào được cấu hình, nên nhánh "chưa có
   // kênh" KHÔNG phải trường hợp hiếm — nó là trường hợp đang chạy. Xem
   // src/utils/banHang.js để biết ba chuyện từng sai cùng lúc ở đây.
   const kenh = kenhDatMua(import.meta.env);
-  const [daChon, setDaChon] = useState(null);      // gói khách vừa bấm
+  const [daChon, setDaChon] = useState(null);      // TÊN gói khách vừa bấm (hiện cho khách)
+  const [goiMaChon, setGoiMaChon] = useState('');  // MÃ MÁY của gói đó (đăng ký đơn — access.js đọc GOI theo mã, không theo tên)
   const [baoSaoChep, setBaoSaoChep] = useState('');
   // MỘT mã đơn cho cả lượt mở bảng giá, KHÔNG sinh lại mỗi lần bấm gói: khách
   // bấm gói này, chép mã, rồi bấm nhầm gói kia là đủ để mã đổi và thứ họ vừa
@@ -231,7 +240,9 @@ function PricingModal({ onClose }) {
   const [maDon, setMaDon] = useState('');
   const loiNhan = daChon ? loiNhanDatMua(daChon, import.meta.env, maDon) : '';
 
-  const requestPlan = async (ten) => {
+  const requestPlan = async (plan) => {
+    const ten = plan.name;
+    setGoiMaChon(plan.ma);
     setDaChon(ten);
     const ma = maDon || maDonGiuLai();
     if (!maDon) setMaDon(ma);
@@ -301,13 +312,13 @@ function PricingModal({ onClose }) {
           <ul className="mt-5 space-y-2.5">{plan.features.map((feature) => (
             <li key={feature} className="text-sm font-bold flex gap-2"><CheckCircle2 size={17} className="shrink-0 text-emerald-700" />{feature}</li>
           ))}</ul>
-          <button onClick={() => requestPlan(plan.name)} className="w-full mt-6 px-3 py-3 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm">{plan.action}</button>
+          <button onClick={() => requestPlan(plan)} className="w-full mt-6 px-3 py-3 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-sm">{plan.action}</button>
         </article>
       ))}</div>
 
       {daChon && <section className="mt-7 border-3 border-slate-900 dark:border-slate-600 rounded-2xl p-4 bg-amber-50 dark:bg-slate-800">
         <p className="text-sm font-black">Đơn của bạn: gói {daChon} — {tienVN(giaGoi(daChon, import.meta.env))}</p>
-        {kenh.length > 0 && <ChuyenKhoan maDon={maDon} soTien={tienVN(giaGoi(daChon, import.meta.env))} />}
+        {kenh.length > 0 && <ChuyenKhoan maDon={maDon} soTien={tienVN(giaGoi(daChon, import.meta.env))} goiMa={goiMaChon} onMaTuDong={onMaTuDong} />}
         {kenh.length > 0 ? <>
           <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-3">Bước 2 — sau khi đã chuyển khoản, gửi mã đơn cho người bán qua một trong các kênh sau để nhận mã truy cập:</p>
           <div className="flex flex-wrap gap-2 mt-3">{kenh.map((k) => (
@@ -320,7 +331,12 @@ function PricingModal({ onClose }) {
 
       <div className="mt-7 grid md:grid-cols-3 gap-3 text-xs font-bold text-slate-600 dark:text-slate-300">
         <p>🧪 Có thể bắt đầu bằng placement test.</p>
-        <p>🔒 Mã không lưu dạng plaintext.</p>
+        {/* Thu hẹp lại đúng phạm vi đúng — 28/08: kho đơn hàng (`grammar:order:*`
+            trong accessCore.js) có giữ mã DẠNG THÔ trong tối đa 3 ngày sau khi
+            cấp tự động, để khách hỏi lại thấy được mã của chính mình. Câu cũ
+            "mã không lưu dạng plaintext" đọc như một câu tuyệt đối, trong khi
+            điều đúng chỉ là KHO MÃ TRUY CẬP (accessKey) không giữ mã thô. */}
+        <p>🔒 Kho mã truy cập không lưu mã dạng thô.</p>
         <p>💬 Mã truy cập được cấp sau khi xác nhận thanh toán.</p>
       </div>
     </div>

@@ -8,7 +8,7 @@
 // nen than tuyen nay khong can biet no dang chay o dau. Xem chu thich cua
 // jsonResponse trong src/server/accessCore.js.
 import {
-  ACCESS_AUDIT_KEY, ACCESS_INDEX_KEY, AccessConfigError, accessKey, ADMIN_COOKIE, clearCookie, clientIdentifier, createAccessRecord, enforceRateLimit, generateAccessCode, hashValue, isSecureRequest, jsonResponse, layBody, normalizeAccessCode, publicRecord, readAccessRecord, redisCommand, redisPipeline, requireAdmin, safeSecretEqual, sessionCookie, signToken, writeAccessRecord,
+  ACCESS_AUDIT_KEY, ACCESS_INDEX_KEY, AccessConfigError, accessKey, ADMIN_COOKIE, clearCookie, clientIdentifier, enforceRateLimit, hashValue, isSecureRequest, issueAccessCode, jsonResponse, layBody, publicRecord, readAccessRecord, redisCommand, redisPipeline, requireAdmin, safeSecretEqual, sessionCookie, signToken, writeAccessRecord,
 } from '../accessCore.js';
 
 const ADMIN_SESSION_SECONDS = 8 * 60 * 60;
@@ -40,17 +40,7 @@ async function listAudit(env) {
 }
 
 async function createCode(env, body) {
-  let code;
-  let codeHash;
-  do {
-    code = generateAccessCode();
-    codeHash = hashValue(normalizeAccessCode(code));
-  } while (await readAccessRecord(env, codeHash));
-  const record = createAccessRecord({ ...body, codePreview: `••••-${code.slice(-4)}` });
-  await redisPipeline(env, [
-    ['SET', accessKey(codeHash), JSON.stringify(record)],
-    ['SADD', ACCESS_INDEX_KEY, codeHash],
-  ]);
+  const { code, codeHash, record } = await issueAccessCode(env, body);
   await writeAudit(env, 'create', record, { codePreview: record.codePreview });
   return { code, record: { ...publicRecord(record), codeHash } };
 }

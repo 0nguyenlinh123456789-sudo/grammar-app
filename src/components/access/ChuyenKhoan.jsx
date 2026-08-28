@@ -30,8 +30,10 @@
 // và `ChuyenKhoan` lo việc hỏi. Nhờ thế phép kiểm vẽ được khối bằng dữ liệu có
 // sẵn — không phải giả lập mạng để kiểm một cái khung.
 import { useEffect, useState } from 'react';
-import { AlertTriangle, Copy, Landmark } from 'lucide-react';
-import { CHUA_CO_CHUYEN_KHOAN, DANG_LAY_NGAN_HANG, layThongTinNganHang, saoChepLoiNhan } from '../../utils/banHang';
+import { AlertTriangle, CheckCircle2, Copy, Landmark, Loader2 } from 'lucide-react';
+import {
+  CHUA_CO_CHUYEN_KHOAN, DANG_LAY_NGAN_HANG, dangKyDonHang, layThongTinNganHang, saoChepLoiNhan, trangThaiDonHang,
+} from '../../utils/banHang';
 
 /** Một dòng thông tin, có nút sao chép khi đáng sao chép. */
 function Dong({ nhan, giaTri, dam = false, chepDuoc = false, onChep }) {
@@ -157,15 +159,97 @@ export function KhoiChuyenKhoan({ maDon, soTien, nh, loi = CHUA_CO_CHUYEN_KHOAN 
 }
 
 /**
- * Phần LO VIỆC HỎI: gắn vào màn hình là đi xin máy chủ thông tin chuyển khoản.
+ * Phần VẼ THUẦN cho trạng thái cấp mã tự động — cùng triết lý tách vẽ/hỏi như
+ * `KhoiChuyenKhoan` phía trên: dữ liệu có sẵn thì vẽ ngay, không cần giả lập
+ * mạng để kiểm.
  *
- * Ba trạng thái, và **không trạng thái nào được vẽ một khung rỗng**: đang hỏi
- * thì nói đang hỏi, hỏng thì nói hỏng kèm đường đi tiếp, xong thì vẽ đủ. Một ô
- * trống ở đúng bước trả tiền là thứ khách đọc thành "trang này hỏng rồi".
+ * @param {'cho'|'thieu_tien'|'da_thanh_toan'|null} props.trangThai  `null` =
+ *        chưa đăng ký được đơn (mạng lỗi lúc đăng ký, hoặc webhook chưa được
+ *        cấu hình phía máy chủ) — KHÔNG vẽ gì, để khối chuyển khoản và kênh thủ
+ *        công bên dưới tự đủ, đúng luật "cộng thêm, không thay thế" ở đầu file
+ *        utils/banHang.js.
+ * @param {boolean} props.hetHanCho  đã hỏi quá lâu mà chưa thấy — chỉ đường
+ *        sang kênh thủ công thay vì để khách nhìn vòng xoay mãi.
  */
-export default function ChuyenKhoan({ maDon, soTien }) {
+export function KhoiTuDongCapMa({ trangThai, maTruyCap, hetHanCho = false, onDung }) {
+  const [bao, setBao] = useState('');
+  const chep = async (chu) => setBao((await saoChepLoiNhan(chu)).chu);
+
+  if (!trangThai) return null;
+
+  if (trangThai === 'da_thanh_toan') {
+    return (
+      <div className="mt-4 rounded-2xl border-3 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 p-4">
+        <p className="text-xs font-black uppercase tracking-wide text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
+          <CheckCircle2 size={16} /> Đã nhận được chuyển khoản — mã đã cấp tự động!
+        </p>
+        <div className="flex items-center justify-between gap-3 mt-2">
+          <span className="text-xl font-black font-mono tracking-wider">{maTruyCap}</span>
+          <button
+            type="button"
+            onClick={() => chep(maTruyCap)}
+            className="shrink-0 px-3 py-2 rounded-xl bg-slate-900 text-white border-2 border-slate-900 font-black text-xs flex items-center gap-1.5"
+          >
+            <Copy size={13} /> SAO CHÉP
+          </button>
+        </div>
+        {onDung && (
+          <button
+            type="button"
+            onClick={() => onDung(maTruyCap)}
+            className="w-full mt-3 px-3 py-2.5 rounded-xl bg-emerald-600 text-white border-2 border-emerald-800 font-black text-xs"
+          >
+            DÙNG MÃ NÀY NGAY →
+          </button>
+        )}
+        {bao && <p role="status" className="mt-2 text-[11px] font-bold text-emerald-800 dark:text-emerald-200">{bao}</p>}
+      </div>
+    );
+  }
+
+  if (trangThai === 'thieu_tien') {
+    return (
+      <p className="mt-3 text-xs font-bold text-amber-700 dark:text-amber-300 flex items-start gap-2">
+        <AlertTriangle size={15} className="shrink-0 mt-0.5" />
+        Máy chủ đã nhận một khoản chuyển khoản mang đúng mã đơn này, nhưng CHƯA ĐỦ so với giá gói.
+        Hãy chuyển thêm phần còn thiếu (ghi cùng mã đơn), hoặc liên hệ người bán qua kênh bên dưới.
+      </p>
+    );
+  }
+
+  // trangThai === 'cho'
+  return (
+    <p role="status" className="mt-3 text-xs font-bold text-slate-500 dark:text-slate-400 flex items-start gap-2">
+      <Loader2 size={14} className="animate-spin shrink-0 mt-0.5" />
+      {hetHanCho
+        ? 'Chưa tự động thấy chuyển khoản sau một lúc chờ — ngân hàng có thể xử lý chậm. Bạn vẫn có thể gửi mã đơn qua kênh bên dưới để được cấp mã tay.'
+        : 'Đang tự động đối chiếu chuyển khoản của bạn… thường xong trong 1–2 phút sau khi chuyển. Không bắt buộc chờ — bạn vẫn gửi được mã đơn qua kênh bên dưới để nhận mã tay.'}
+    </p>
+  );
+}
+
+/**
+ * Phần LO VIỆC HỎI: gắn vào màn hình là đi xin máy chủ thông tin chuyển khoản,
+ * ĐĂNG KÝ đơn hàng, và hỏi lặp lại trong lúc chờ webhook báo có tiền.
+ *
+ * Ba trạng thái của khối ngân hàng, và **không trạng thái nào được vẽ một
+ * khung rỗng**: đang hỏi thì nói đang hỏi, hỏng thì nói hỏng kèm đường đi
+ * tiếp, xong thì vẽ đủ. Một ô trống ở đúng bước trả tiền là thứ khách đọc
+ * thành "trang này hỏng rồi".
+ *
+ * @param {string} props.goiMa       mã máy của gói (vd 'thang1') — để đăng ký
+ *                                    đơn đúng gói. Không truyền thì bỏ qua cả
+ *                                    khối cấp mã tự động, chỉ vẽ khối ngân hàng
+ *                                    (giữ được cách gọi cũ nếu chỗ nào chưa cần).
+ * @param {(maTruyCap: string) => void} [props.onMaTuDong]  gọi khi khách bấm
+ *                                    "DÙNG MÃ NÀY NGAY" — màn cha điền mã vào ô
+ *                                    kích hoạt và đóng bảng giá.
+ */
+export default function ChuyenKhoan({ maDon, soTien, goiMa, onMaTuDong }) {
   const [nh, setNh] = useState(null);
   const [loi, setLoi] = useState(DANG_LAY_NGAN_HANG);
+  const [donHang, setDonHang] = useState(null); // { token, trangThai, maTruyCap }
+  const [hetHanCho, setHetHanCho] = useState(false);
 
   useEffect(() => {
     // `huy` chặn việc đặt trạng thái sau khi khối đã bị gỡ (khách đóng bảng giá
@@ -180,5 +264,45 @@ export default function ChuyenKhoan({ maDon, soTien }) {
     return () => { huy = true; };
   }, [maDon]);
 
-  return <KhoiChuyenKhoan maDon={maDon} soTien={soTien} nh={nh} loi={loi} />;
+  // Đăng ký đơn NGAY khi có mã đơn + gói — độc lập với việc tải thông tin ngân
+  // hàng ở trên, nên không đợi nó xong. Đăng ký hỏng thì `donHang` cứ ở lại
+  // `null`: `KhoiTuDongCapMa` không vẽ gì, khối ngân hàng + kênh thủ công bên
+  // dưới tự đủ để mua — đây là lớp CỘNG THÊM, không phải điều kiện bắt buộc.
+  useEffect(() => {
+    if (!maDon || !goiMa) return undefined;
+    let huy = false;
+    setHetHanCho(false);
+    dangKyDonHang(maDon, goiMa).then((kq) => {
+      if (huy || !kq.ok) return;
+      setDonHang({ token: kq.token, trangThai: kq.trangThai, maTruyCap: kq.maTruyCap });
+    });
+    return () => { huy = true; };
+  }, [maDon, goiMa]);
+
+  // Hỏi lặp lại trong lúc chờ. DỪNG hẳn khi đã thanh toán — không hỏi thêm gì
+  // nữa. Tự dừng sau khoảng 15 phút (150 lượt × 6 giây) để không hỏi vô thời
+  // hạn nếu khách bỏ tab mở đó cả buổi; 15 phút đủ rộng so với "thường xong
+  // trong 1–2 phút" đã nói ở trên.
+  useEffect(() => {
+    if (!donHang?.token || donHang.trangThai === 'da_thanh_toan') return undefined;
+    let huy = false;
+    let laiLuot = 0;
+    const HOI_TOI_DA = 150;
+    const nhip = setInterval(() => {
+      laiLuot += 1;
+      if (laiLuot > HOI_TOI_DA) { clearInterval(nhip); if (!huy) setHetHanCho(true); return; }
+      trangThaiDonHang(maDon, donHang.token).then((kq) => {
+        if (huy || !kq.ok) return;
+        setDonHang((cu) => (cu ? { ...cu, trangThai: kq.trangThai, maTruyCap: kq.maTruyCap ?? cu.maTruyCap } : cu));
+      });
+    }, 6000);
+    return () => { huy = true; clearInterval(nhip); };
+  }, [maDon, donHang?.token, donHang?.trangThai]);
+
+  return (
+    <>
+      <KhoiChuyenKhoan maDon={maDon} soTien={soTien} nh={nh} loi={loi} />
+      <KhoiTuDongCapMa trangThai={donHang?.trangThai} maTruyCap={donHang?.maTruyCap} hetHanCho={hetHanCho} onDung={onMaTuDong} />
+    </>
+  );
 }

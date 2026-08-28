@@ -104,8 +104,21 @@ export async function moTrinhDuyet({ cong = 9333, microGia = false } = {}) {
  *   index.html, `read.json()` ném, App.jsx nuốt lỗi, và đồng bộ IM LẶNG không
  *   chạy. Nghĩa là mọi bộ rà trước nay đều đo một app KHÔNG hề đồng bộ — đúng
  *   nửa nguy hiểm nhất của chức năng reset lại nằm ngoài tầm với.
+ * @param {{ten:string, so:string, chu?:string, qr?:string}} [tuyChon.banHangGia]
+ *   Thông tin chuyển khoản giả cho action `'bank'`. KHÔNG truyền thì `/api/access`
+ *   rơi xuống nhánh mặc định phía dưới (coi như đã kích hoạt) — với action
+ *   `'bank'` thì hình dạng trả về không khớp, `ChuyenKhoan` sẽ hiện "chưa có
+ *   thông tin chuyển khoản". Truyền vào khi bộ rà cần THẤY khối ngân hàng thật.
+ * @param {{don: Map<string, {token:string, trangThai:string, maTruyCap:string|null}>}} [tuyChon.donHangGia]
+ *   Kho đơn hàng giả cho action `'order'`/`'trangThaiDon'` — cùng triết lý với
+ *   `khoTienDo`: script gọi truyền một `{don: new Map()}` rồi TỰ SỬA trạng thái
+ *   một đơn (`donHangGia.don.get(maDon).trangThai = 'da_thanh_toan'`) để mô
+ *   phỏng đúng lúc webhook thanh toán báo có tiền — logic khớp giao dịch/số
+ *   tiền/idempotent đã có bộ kiểm riêng ở tests/payment_webhook.test.js, bộ rà
+ *   này chỉ cần xác nhận REACT có thật sự đăng ký đơn, hỏi lặp lại, và vẽ đúng
+ *   khi trạng thái đổi — đúng lớp mà `node --test` không nhìn thấy được.
  */
-export async function moTab(cong, { chanApi = true, khoTienDo = null } = {}) {
+export async function moTab(cong, { chanApi = true, khoTienDo = null, banHangGia = null, donHangGia = null } = {}) {
   const tab = await (await fetch(`http://127.0.0.1:${cong}/json/new?about:blank`, { method: 'PUT' })).json();
   const ws = new WebSocket(tab.webSocketDebuggerUrl);
   await new Promise((r, j) => { ws.onopen = r; ws.onerror = () => j(new Error('không nối được tab')); });
@@ -152,15 +165,50 @@ export async function moTab(cong, { chanApi = true, khoTienDo = null } = {}) {
         return;
       }
       if (String(p.request.url).includes('/api/access')) {
-        const body = JSON.stringify({
-          authenticated: true,
-          access: { plan: 'premium', expiresAt: '2099-01-01T00:00:00.000Z', deviceCount: 1, maxDevices: 3 },
-        });
-        await goi('Fetch.fulfillRequest', {
-          requestId: p.requestId, responseCode: 200,
-          responseHeaders: [{ name: 'Content-Type', value: 'application/json' }],
-          body: Buffer.from(body).toString('base64'),
-        });
+        const than = (() => { try { return JSON.parse(p.request.postData || '{}'); } catch { return {}; } })();
+
+        if (than.action === 'bank' && banHangGia) {
+          await traJson(p.requestId, { nganHang: banHangGia });
+          return;
+        }
+        if (than.action === 'order' && donHangGia) {
+          let rec = donHangGia.don.get(than.maDon);
+          if (!rec) { rec = { token: `token-gia-${than.maDon}`, trangThai: 'cho', maTruyCap: null }; donHangGia.don.set(than.maDon, rec); }
+          await traJson(p.requestId, {
+            ok: true, token: rec.token, trangThai: rec.trangThai,
+            ...(rec.trangThai === 'da_thanh_toan' ? { maTruyCap: rec.maTruyCap } : {}),
+          });
+          return;
+        }
+        if (than.action === 'trangThaiDon' && donHangGia) {
+          const rec = donHangGia.don.get(than.maDon);
+          if (!rec || rec.token !== than.token) { await traJson(p.requestId, { trangThai: 'khong_thay' }); return; }
+          await traJson(p.requestId, rec.trangThai === 'da_thanh_toan'
+            ? { trangThai: 'da_thanh_toan', maTruyCap: rec.maTruyCap }
+            : { trangThai: rec.trangThai });
+          return;
+        }
+
+        // Bộ rà xin `banHangGia`/`donHangGia` gần như chắc chắn CẦN thấy cổng
+        // kích hoạt thật (khách CHƯA mua) để mở được bảng giá — không phải cần
+        // "đã đăng nhập sẵn". Nên chỉ áp lối tắt "coi như đã kích hoạt" khi
+        // KHÔNG có cả hai; có một trong hai mà request không khớp action nào đã
+        // biết (GET kiểm phiên, action:'activate'…) thì để nó ĐI TIẾP tới máy
+        // chủ thật — bản dựng tĩnh không có route đó nên sẽ hỏng ĐÚNG như một
+        // khách chưa mua thật sự gặp, và cổng kích hoạt hiện ra bình thường.
+        if (!banHangGia && !donHangGia) {
+          const body = JSON.stringify({
+            authenticated: true,
+            access: { plan: 'premium', expiresAt: '2099-01-01T00:00:00.000Z', deviceCount: 1, maxDevices: 3 },
+          });
+          await goi('Fetch.fulfillRequest', {
+            requestId: p.requestId, responseCode: 200,
+            responseHeaders: [{ name: 'Content-Type', value: 'application/json' }],
+            body: Buffer.from(body).toString('base64'),
+          });
+          return;
+        }
+        await goi('Fetch.continueRequest', { requestId: p.requestId });
         return;
       }
       await goi('Fetch.continueRequest', { requestId: p.requestId });

@@ -262,3 +262,51 @@ export async function saoChepLoiNhan(loiNhan, dieuHuong = globalThis.navigator) 
  */
 export const CHUA_CO_KENH = 'Chưa có kênh đặt mua nào được cấu hình. '
   + 'Hãy sao chép lời nhắn bên dưới và liên hệ người bán qua kênh bạn đã biết.';
+
+// ══════════════════════════════════════════════════════════════════════════
+// CẤP MÃ TỰ ĐỘNG SAU KHI CHUYỂN KHOẢN — quyết định của chủ dự án ngày 28/08.
+//
+// Đây là lớp CỘNG THÊM lên trên kênh thủ công ở trên, KHÔNG THAY THẾ. Nếu dịch
+// vụ webhook (Casso/SePay/…) chưa được chủ dự án cấu hình xong, hoặc đang lỗi,
+// khối chuyển khoản vẫn hoạt động y hệt trước đây — khách gửi mã đơn qua kênh
+// thủ công, người bán tự cấp mã trên bảng quản trị. Vì thế màn hình mua hàng
+// KHÔNG được đổi điều kiện hiện khối chuyển khoản (`kenh.length > 0` ở
+// AccessGate.jsx) theo tính năng này: một kênh thủ công luôn phải còn đó làm
+// lưới đỡ, phòng khi webhook im lặng vì bất kỳ lý do gì.
+//
+// Luồng: đăng ký đơn (`dangKyDonHang`) ngay khi khách bấm MUA → nhận `token` →
+// hỏi lặp lại (`trangThaiDonHang`) trong lúc chờ webhook báo có tiền.
+
+/** Đăng ký một đơn hàng ở máy chủ. Trả `{ok, token, trangThai, maTruyCap?}` hoặc `{ok:false, chu}`. */
+export async function dangKyDonHang(maDon, goiMa, fetchFn = globalThis.fetch) {
+  if (typeof fetchFn !== 'function') return { ok: false, chu: 'Trình duyệt này không gọi được máy chủ.' };
+  try {
+    const r = await fetchFn('/api/access', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'order', maDon: String(maDon || ''), goi: String(goiMa || '') }),
+    });
+    const du = await r.json().catch(() => ({}));
+    if (r.ok && du?.token) return { ok: true, ...du };
+    return { ok: false, chu: '' }; // im lặng: đăng ký đơn hỏng thì rơi về kênh thủ công, không phải lỗi phải báo to
+  } catch {
+    return { ok: false, chu: '' };
+  }
+}
+
+/** Hỏi trạng thái một đơn đã đăng ký. Trả `{ok, trangThai, maTruyCap?}` hoặc `{ok:false}`. */
+export async function trangThaiDonHang(maDon, token, fetchFn = globalThis.fetch) {
+  if (typeof fetchFn !== 'function' || !token) return { ok: false };
+  try {
+    const r = await fetchFn('/api/access', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'trangThaiDon', maDon: String(maDon || ''), token: String(token) }),
+    });
+    const du = await r.json().catch(() => ({}));
+    if (!r.ok) return { ok: false };
+    return { ok: true, trangThai: du.trangThai, maTruyCap: du.maTruyCap };
+  } catch {
+    return { ok: false };
+  }
+}

@@ -23,8 +23,14 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import accessHandler from '../api/access.js';
 import accessAdminHandler from '../api/access-admin.js';
+import { xuLyPaymentWebhook } from '../src/server/routes/paymentWebhook.js';
 import { accessKey, hashValue, writeAccessRecord } from '../src/server/accessCore.js';
 import { dungRedisGia, goi } from './helpers/redisGia.mjs';
+
+// Vỏ mỏng cho khớp hình dạng handler 2 tham số mà `goi()` cần —
+// `xuLyPaymentWebhook` nhận `(request, env, response)`, không phải
+// `(request, response)` như hai tuyến kia.
+const webhookHandler = (request, response) => xuLyPaymentWebhook(request, process.env, response);
 
 async function taoMa(adminCookie, tuyChon = {}) {
   const r = await goi(accessAdminHandler, {
@@ -229,4 +235,91 @@ test('thùng đếm tốc độ của "bank" TÁCH RIÊNG khỏi "activate"', as
     delete process.env.BANK_NAME; delete process.env.BANK_ACCOUNT;
     khoiPhuc();
   }
+});
+
+// ── 7. ĐĂNG KÝ ĐƠN + TRA TRẠNG THÁI (cấp mã tự động, 28/08) ─────────────────
+// Đây là bước máy chủ NHỚ TRƯỚC "đơn này ứng với gói nào" — trước khi có bước
+// này, `webhook thanh toán` (tests/payment_webhook.test.js) không có gì để
+// đối chiếu khi tiền vào. Rủi ro riêng của HAI action này: mã đơn hiện CÔNG
+// KHAI trên màn hình (được chép, được gõ vào nội dung chuyển khoản, được dán
+// vào lời nhắn gửi Zalo/email) — nên `token` phải là thứ DUY NHẤT không đi
+// theo những đường đó, và tra trạng thái phải đòi đúng cặp (mã đơn, token).
+test('đăng ký đơn: chốt đúng giá của gói, và mã đơn/gói sai hình đều bị từ chối', async () => {
+  const khoiPhuc = dungRedisGia();
+  try {
+    const dk = await goi(accessHandler, { method: 'POST', body: { action: 'order', maDon: 'BE-A7K3MN', goi: 'thang6' } });
+    assert.equal(dk.statusCode, 200);
+    assert.equal(dk.payload.trangThai, 'cho');
+    assert.ok(dk.payload.token, 'không nhận được token để tra trạng thái sau này');
+    assert.equal(dk.payload.maTruyCap, undefined, 'đơn vừa đăng ký chưa trả tiền mà đã có mã truy cập');
+
+    for (const xau of [undefined, '', 'BE-000', 'khong-dung-hinh']) {
+      const r = await goi(accessHandler, { method: 'POST', body: { action: 'order', maDon: xau, goi: 'thang6' } });
+      assert.equal(r.statusCode, 400, `mã đơn "${xau}" phải bị từ chối`);
+    }
+    const saiGoi = await goi(accessHandler, { method: 'POST', body: { action: 'order', maDon: 'BE-A7K3MN', goi: 'goi-khong-co-that' } });
+    assert.equal(saiGoi.statusCode, 400);
+    assert.equal(saiGoi.payload.code, 'bad-plan');
+  } finally { khoiPhuc(); }
+});
+
+test('tra trạng thái đơn: đúng token thì thấy, sai/thiếu token thì KHÔNG lộ đơn có tồn tại hay không', async () => {
+  const khoiPhuc = dungRedisGia();
+  try {
+    const dk = await goi(accessHandler, { method: 'POST', body: { action: 'order', maDon: 'BE-A7K3MN', goi: 'thang1' } });
+    const { token } = dk.payload;
+
+    const dung = await goi(accessHandler, { method: 'POST', body: { action: 'trangThaiDon', maDon: 'BE-A7K3MN', token } });
+    assert.equal(dung.statusCode, 200);
+    assert.equal(dung.payload.trangThai, 'cho');
+
+    // Token sai và "không có đơn nào cả" phải trả VỀ MỘT CÂU GIỐNG NHAU — khác
+    // nhau là một cách để dò xem một mã đơn có tồn tại hay không mà không cần
+    // biết token của nó.
+    const saiToken = await goi(accessHandler, { method: 'POST', body: { action: 'trangThaiDon', maDon: 'BE-A7K3MN', token: 'token-bay-dat' } });
+    // 'BE-MNPQRT' đúng HÌNH mã đơn (chỉ dùng ký tự trong CHU_MA của banHang.js)
+    // nhưng chưa từng được đăng ký — khác 'BE-A7K3MN' đã đăng ký ở trên.
+    const khongCoDon = await goi(accessHandler, { method: 'POST', body: { action: 'trangThaiDon', maDon: 'BE-MNPQRT', token: 'token-bay-dat' } });
+    assert.equal(saiToken.payload.trangThai, 'khong_thay');
+    assert.equal(khongCoDon.payload.trangThai, 'khong_thay');
+    assert.deepEqual(saiToken.payload, khongCoDon.payload, 'hai trường hợp khác nhau lại trả về hai câu khác nhau — dò được đơn có tồn tại');
+
+    const thieuToken = await goi(accessHandler, { method: 'POST', body: { action: 'trangThaiDon', maDon: 'BE-A7K3MN' } });
+    assert.equal(thieuToken.statusCode, 400, 'thiếu token mà vẫn được xử lý như một câu hỏi hợp lệ');
+  } finally { khoiPhuc(); }
+});
+
+test('đăng ký lại đơn ĐÃ trả tiền, kể cả với gói KHÁC: giữ nguyên mã đã cấp, không phát sinh mã mới', async () => {
+  const khoiPhuc = dungRedisGia();
+  try {
+    process.env.PAYMENT_WEBHOOK_SECRET = 'khoa-webhook-du-dai-de-qua-cua-16-ky-tu';
+
+    await goi(accessHandler, { method: 'POST', body: { action: 'order', maDon: 'BE-A7K3MN', goi: 'thang1' } });
+    await goi(webhookHandler, {
+      method: 'POST',
+      headers: { authorization: `Apikey ${process.env.PAYMENT_WEBHOOK_SECRET}` },
+      body: { data: [{ tid: 'tx-goc', amount: 99000, description: 'noi dung BE-A7K3MN' }] },
+    });
+
+    // Khách tải lại trang, bấm lại đúng gói đó — KHÔNG được đăng ký thành một
+    // đơn 'cho' mới, vì mã đã cấp rồi và khách có thể đang định vào lấy lại nó.
+    const dk2 = await goi(accessHandler, { method: 'POST', body: { action: 'order', maDon: 'BE-A7K3MN', goi: 'thang1' } });
+    assert.equal(dk2.statusCode, 200);
+    assert.equal(dk2.payload.trangThai, 'da_thanh_toan', 'đăng ký lại đã xoá mất kết quả đã trả tiền');
+    assert.ok(dk2.payload.maTruyCap, 'đăng ký lại không còn trả về mã truy cập đã cấp');
+
+    // Đăng ký thêm một lần nữa — mã phải NGUYÊN VẸN, không phát sinh mã mới.
+    const dk3 = await goi(accessHandler, { method: 'POST', body: { action: 'order', maDon: 'BE-A7K3MN', goi: 'thang1' } });
+    assert.equal(dk3.payload.maTruyCap, dk2.payload.maTruyCap, 'đăng ký lại đơn đã trả tiền lại phát sinh MÃ KHÁC — khách sẽ thấy hai mã khác nhau cho cùng một lần trả tiền');
+
+    // ⚠️ ĐÂY LÀ ĐƯỜNG PHÁ HOẠI ADVISOR TÌM RA: khách vừa được cấp mã, tò mò bấm
+    // xem thử một gói KHÁC trên cùng bảng giá (PricingModal gọi 'order' ở MỌI
+    // lần bấm nút, xem AccessGate.jsx). Nếu đăng ký đơn đè trạng thái theo gói
+    // mới thì mã vừa cấp — khách đang cầm/đang chờ dùng — biến mất, còn webhook
+    // thì KHÔNG BAO GIỜ gọi lại được nữa (giao dịch ngân hàng đã đánh dấu xử lý
+    // xong). Mã trở thành mồ côi trong kho, chỉ tìm lại được bằng tay.
+    const bamGoiKhac = await goi(accessHandler, { method: 'POST', body: { action: 'order', maDon: 'BE-A7K3MN', goi: 'thang12' } });
+    assert.equal(bamGoiKhac.payload.trangThai, 'da_thanh_toan', 'bấm xem một gói KHÁC sau khi đã trả tiền lại xoá mất mã đã cấp — mã trở thành mồ côi');
+    assert.equal(bamGoiKhac.payload.maTruyCap, dk2.payload.maTruyCap, 'bấm xem gói khác làm đổi mã đã cấp cho lần trả tiền thật');
+  } finally { delete process.env.PAYMENT_WEBHOOK_SECRET; khoiPhuc(); }
 });

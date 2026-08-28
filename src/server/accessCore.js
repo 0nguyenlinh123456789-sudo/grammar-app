@@ -30,6 +30,15 @@ export function generateAccessCode() {
   return `GRAM-${body.slice(0, 4)}-${body.slice(4, 8)}-${body.slice(8, 12)}`;
 }
 
+/**
+ * Mã phiên ngẫu nhiên, dùng làm "vé hỏi lại trạng thái đơn" — KHÔNG lưu dạng
+ * thô, chỉ lưu `hashValue(token)` (xem writeOrder). Trả thô đúng MỘT lần lúc
+ * đăng ký đơn, giống cách mã truy cập chỉ trả thô lúc cấp.
+ */
+export function randomToken(bytes = 24) {
+  return randomBytes(bytes).toString('hex');
+}
+
 export function accessKey(codeHash) {
   return `grammar:access:code:${codeHash}`;
 }
@@ -253,6 +262,84 @@ export async function readAccessRecord(env, codeHash) {
 
 export async function writeAccessRecord(env, codeHash, record) {
   await redisCommand(env, 'SET', accessKey(codeHash), JSON.stringify(record));
+}
+
+/**
+ * Sinh mã, tránh đụng mã đã có, ghi bản ghi mới — CÙNG MỘT vòng lặp mà trước
+ * đây chỉ `accessAdmin.js` có (người bán bấm "Cấp mã" trên bảng quản trị).
+ *
+ * Tách ra đây để `paymentWebhook.js` dùng LẠI đúng vòng lặp đó khi tự động cấp
+ * mã sau một giao dịch khớp — không chép lại lần hai. `accessAdmin.js` viết
+ * audit của riêng nó sau khi gọi hàm này; hàm này không viết audit vì hai nơi
+ * gọi cần hai bộ trường audit khác nhau (người quản trị nhập tay vs. giao dịch
+ * ngân hàng tự động khớp).
+ */
+export async function issueAccessCode(env, input = {}) {
+  let code;
+  let codeHash;
+  do {
+    code = generateAccessCode();
+    codeHash = hashValue(normalizeAccessCode(code));
+  } while (await readAccessRecord(env, codeHash));
+  const record = createAccessRecord({ ...input, codePreview: `••••-${code.slice(-4)}` });
+  await redisPipeline(env, [
+    ['SET', accessKey(codeHash), JSON.stringify(record)],
+    ['SADD', ACCESS_INDEX_KEY, codeHash],
+  ]);
+  return { code, codeHash, record };
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// ĐƠN HÀNG — cầu nối giữa "khách bấm MUA" và "tiền đã vào, cấp mã tự động".
+//
+// Trước bản này, `maDon` (định nghĩa ở src/utils/banHang.js) chỉ là một NHÃN
+// hiển thị — không có bản ghi nào ở máy chủ, người bán tự đọc mã đơn trong nội
+// dung chuyển khoản rồi cấp mã TAY qua bảng quản trị. Để cấp mã TỰ ĐỘNG khi
+// webhook ngân hàng báo có tiền, máy chủ phải nhớ trước: đơn này ứng với GÓI
+// nào và GIÁ bao nhiêu — nhớ ở đây, lúc khách bấm mua, chứ không phải đoán lúc
+// tiền vừa vào.
+export const ORDER_KEY_PREFIX = 'grammar:order:';
+export const ORDER_TX_KEY_PREFIX = 'grammar:order:tx:';
+export const PAYMENT_AUDIT_KEY = 'grammar:payment:audit:v1';
+
+// Đơn CHƯA trả tiền không cần sống mãi — 3 ngày là đủ rộng cho một khách lưỡng
+// lự rồi quay lại chuyển khoản, và dọn được rác của những lượt mở bảng giá rồi
+// bỏ đi không bao giờ trả.
+export const ORDER_TTL_SECONDS = 3 * 24 * 60 * 60;
+// Mã giao dịch ngân hàng thì giữ lâu hơn HẲN — đây là hàng rào chống xử lý hai
+// lần khi dịch vụ webhook gọi lại (mất mạng, họ tự retry…). 30 ngày sống lâu
+// hơn bất kỳ cơn bão gọi lại nào có thể gặp.
+export const ORDER_TX_TTL_SECONDS = 30 * 24 * 60 * 60;
+
+export function orderKey(maDon) {
+  return `${ORDER_KEY_PREFIX}${maDon}`;
+}
+
+export function orderTxKey(maGiaoDich) {
+  return `${ORDER_TX_KEY_PREFIX}${maGiaoDich}`;
+}
+
+export async function readOrder(env, maDon) {
+  const raw = await redisCommand(env, 'GET', orderKey(maDon));
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch { return null; }
+}
+
+/**
+ * Ghi đơn, và LUÔN đặt lại hạn dùng.
+ *
+ * ⚠️ `SET` không có `KEEPTTL` sẽ XOÁ hạn cũ trong Redis thật (Upstash cũng
+ * vậy) — Redis giả trong test không mô phỏng chuyện này (`EXPIRE` giả luôn trả
+ * `1` mà không thật sự dọn gì), nên bug này sẽ KHÔNG lộ ra khi chạy test, chỉ
+ * lộ trên Redis thật sau vài tuần khi thấy đơn cũ không bao giờ biến mất. Nên
+ * mọi lần ghi — kể cả ghi ĐÈ lên đơn đã có — đều phải kèm `EXPIRE` lại từ đầu,
+ * không được tách `writeOrder` thành "tạo" và "cập nhật" hai hàm khác nhau.
+ */
+export async function writeOrder(env, maDon, record, ttlSeconds = ORDER_TTL_SECONDS) {
+  await redisPipeline(env, [
+    ['SET', orderKey(maDon), JSON.stringify(record)],
+    ['EXPIRE', orderKey(maDon), ttlSeconds],
+  ]);
 }
 
 export function clientIdentifier(request) {

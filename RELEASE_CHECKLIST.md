@@ -126,3 +126,53 @@ Trạng thái ngày 27/08 — xem `BAO_CAO_PHU_TU_B2.md`: trong 700 từ dải B
 
 Đã soạn 233 mục từ qua ba chặng B2 mới, kèm ba bài đọc và 15 câu hỏi đọc hiểu
 mức văn bản. Danh sách Oxford **không** được chép vào repo.
+
+---
+
+## 6. Cấp mã tự động sau chuyển khoản (28/08) — TÙY CHỌN, KHÔNG chặn bán hàng
+
+Trước đây khách chuyển khoản xong phải tự gửi mã đơn qua kênh thủ công (mục 2)
+rồi chờ chủ dự án cấp mã tay trên bảng quản trị. Nay có thêm một lớp **cộng
+thêm**: khi có dịch vụ báo giao dịch ngân hàng (webhook), máy chủ tự đối chiếu
+mã đơn trong nội dung chuyển khoản và tự cấp mã ngay trên màn hình khách đang
+chờ — khách không cần làm gì thêm.
+
+**Đây là lớp CỘNG THÊM, không phải THAY THẾ.** Chưa cấu hình xong bước này thì
+web vẫn bán được bình thường qua kênh thủ công ở mục 2 — `npm run kiem:banduoc`
+không tính thiếu bước này là lỗi chặn bán.
+
+### Việc bạn tự làm (không qua chat, không đưa mật khẩu ngân hàng cho ai)
+
+1. Đăng ký tài khoản ở một dịch vụ báo giao dịch ngân hàng hỗ trợ MB Bank cá
+   nhân (ví dụ SePay hoặc Casso — tự so giá và điều kiện hiện tại của họ).
+2. **Liên kết tài khoản MB Bank ngay trên trang của dịch vụ đó** — đăng nhập
+   ngân hàng thật của bạn, không qua web Bunny English.
+3. Trong phần cấu hình Webhook của dịch vụ, đặt URL trỏ về:
+   `https://<tên miền của bạn>/api/payment-webhook`
+   và lấy một **khoá bí mật webhook** (họ tự sinh, hoặc bạn tự đặt tuỳ dịch vụ).
+
+### Đặt biến này trên Vercel
+
+| Biến | Bắt buộc? | Nội dung |
+|---|---|---|
+| `PAYMENT_WEBHOOK_SECRET` | Chỉ khi dùng tính năng này | khoá bí mật webhook, ≥16 ký tự |
+
+⚠️ **Biến này CỐ Ý KHÔNG có tiền tố `VITE_` — đừng thêm vào.** Cùng lý do với
+bốn biến ngân hàng ở mục 1: đây là khoá dùng để XÁC THỰC một yêu cầu cấp mã
+tự động, không phải thứ được phép nằm trong bundle JS công khai. Thiếu biến
+này thì `/api/payment-webhook` **từ chối mọi yêu cầu** (thất bại đóng, xem chú
+thích đầu `src/server/routes/paymentWebhook.js`) — không âm thầm cấp mã cho ai
+gọi đúng địa chỉ.
+
+### Trước khi tin webhook thật đã đúng — MỘT bước không được bỏ qua
+
+Tên trường trong payload (`chuanHoaGiaoDich` ở `paymentWebhook.js`) là **đoán
+theo quy ước hay gặp**, chưa đối chiếu tài liệu thật của dịch vụ đã chọn. Gửi
+một giao dịch thử từ bảng điều khiển của họ, xem log Vercel để biết payload
+thật trông ra sao, rồi sửa lại tên trường cho khớp nếu cần — đừng bật thẳng vào
+sản xuất mà chưa thử.
+
+### Nếu không muốn dùng tính năng này
+
+Không làm gì cả. Không đặt `PAYMENT_WEBHOOK_SECRET` thì webhook luôn từ chối,
+khối chuyển khoản vẫn hoạt động y hệt trước đây qua kênh thủ công.

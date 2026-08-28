@@ -187,6 +187,15 @@ console.log('  nên đặt trên bảng điều khiển mà chưa deploy lại t
 console.log('  Muốn biết bản LIVE có gì thật: npm run kiem:banlive — nó tải gói về và');
 console.log('  đối chiếu, nên bắt được đúng lỗi "đã đặt biến mà quên deploy lại".');
 
+// ── Cấp mã tự động sau chuyển khoản — TÙY CHỌN, KHÔNG tính vào kết luận trên ──
+// Kênh thủ công (mục "Có ít nhất MỘT kênh…") vẫn là điều kiện bắt buộc để bán;
+// cái này chỉ là lớp CỘNG THÊM lên trên, xem đầu src/utils/banHang.js. Thiếu
+// biến này KHÔNG chặn bán hàng, nên không đưa vào `MUC`/mã thoát — chỉ báo tin.
+{
+  const dat = !!String(env.PAYMENT_WEBHOOK_SECRET || '').trim();
+  console.log(`\n  ${dat ? 'ℹ️' : '·'} Cấp mã tự động sau chuyển khoản (tùy chọn): ${dat ? 'đã đặt PAYMENT_WEBHOOK_SECRET' : 'CHƯA đặt — bán vẫn chạy bình thường qua kênh thủ công ở mục 6'}.`);
+}
+
 // Mã thoát để dùng được trong quy trình tự động: 0 = bán được, 1 = mã còn lỗi,
 // 2 = mã xong nhưng còn chờ chủ dự án. Ba trạng thái, không gộp — gộp là mất
 // đúng thông tin người đọc cần.

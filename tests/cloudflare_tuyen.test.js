@@ -28,12 +28,14 @@ import assert from 'node:assert/strict';
 import { onRequest as tuyenAccess } from '../functions/api/access.js';
 import { onRequest as tuyenAdmin } from '../functions/api/access-admin.js';
 import { onRequest as tuyenProgress } from '../functions/api/progress.js';
+import { onRequest as tuyenWebhook } from '../functions/api/payment-webhook.js';
 
 const ENV = {
   UPSTASH_REDIS_REST_URL: 'https://redis.test',
   UPSTASH_REDIS_REST_TOKEN: 'redis-token',
   ACCESS_SESSION_SECRET: 'session-secret-with-at-least-thirty-two-characters',
   ACCESS_ADMIN_SECRET: 'admin-secret-with-24-characters',
+  PAYMENT_WEBHOOK_SECRET: 'payment-webhook-secret-hinh-dang-cloudflare',
 };
 
 /** Redis giả, đủ các lệnh mà ba tuyến dùng. */
@@ -259,5 +261,40 @@ test('thiếu khoá ký phiên thì báo CHƯA CẤU HÌNH, không giả dạng 
     const t = await res.json();
     assert.match(t.message, /chưa được cấu hình/i,
       'lời báo không nói là máy chủ chưa cấu hình — khách sẽ tưởng mã của mình hỏng');
+  } finally { khoiPhuc(); }
+});
+
+// Webhook thanh toán tự động chạy trên hình dạng Web thật: `Headers` thật cho
+// khoá bí mật (Authorization: Apikey …), và thân là ReadableStream thật cho
+// payload nhà cung cấp gửi lên. Đây là chỗ dễ tái phạm nhất bẫy "đọc thân hai
+// lần" — verify khoá rồi đọc payload là đúng hai bước tưởng chừng cần đọc hai
+// lần, nhưng `xuLyPaymentWebhook` chỉ gọi `layBody` đúng một lần.
+test('webhook thanh toán chạy được trên hình dạng Cloudflare: đăng ký đơn rồi khớp giao dịch', async () => {
+  const khoiPhuc = dungRedisGia();
+  try {
+    const dangKy = await tuyenAccess({
+      request: yeuCau('/api/access', { method: 'POST', body: { action: 'order', maDon: 'BE-CFXHAP', goi: 'thang1' } }),
+      env: ENV,
+    });
+    assert.equal(dangKy.status, 200);
+    const { token } = await dangKy.json();
+    assert.ok(token, 'không nhận được token đăng ký đơn');
+
+    const req = new Request('https://bunny.test/api/payment-webhook', {
+      method: 'POST',
+      headers: new Headers({ 'content-type': 'application/json', authorization: `Apikey ${ENV.PAYMENT_WEBHOOK_SECRET}` }),
+      body: JSON.stringify({ data: [{ tid: 'cf-tx-1', amount: 99000, description: 'CT tu KHACH ND BE-CFXHAP' }] }),
+    });
+    assert.equal(typeof req.body?.getReader, 'function', 'Request.body không còn là ReadableStream — bài kiểm mất tiền đề');
+    const res = await tuyenWebhook({ request: req, env: ENV });
+    assert.equal(res.status, 200, 'webhook hình dạng Cloudflare bị từ chối');
+
+    const trang = await tuyenAccess({
+      request: yeuCau('/api/access', { method: 'POST', body: { action: 'trangThaiDon', maDon: 'BE-CFXHAP', token } }),
+      env: ENV,
+    });
+    const kq = await trang.json();
+    assert.equal(kq.trangThai, 'da_thanh_toan', 'đơn không chuyển sang đã thanh toán sau khi webhook khớp giao dịch');
+    assert.ok(kq.maTruyCap, 'không có mã truy cập trong kết quả tra trạng thái đơn');
   } finally { khoiPhuc(); }
 });
