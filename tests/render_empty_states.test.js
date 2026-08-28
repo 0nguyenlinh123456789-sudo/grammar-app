@@ -57,12 +57,18 @@ test('GrammarPage: bài CÓ đủ dạng bài thì các tab đó phải hiện',
   // đúng loại lỗi đã dính khi một bộ đo chỉ kiểm một chiều.
   const { default: GrammarPage } = await napComponent('src/pages/GrammarPage.jsx');
   const { grammarDataB1 } = await import(goc('src/data/grammarDataB1.js'));
-  const bai = grammarDataB1.find((t) => (t.sentenceGame || []).length && (t.fillBlanks || []).length);
-  assert.ok(bai, 'không tìm thấy bài ngữ pháp nào có cả sentenceGame và fillBlanks');
+  const bai = grammarDataB1.find((t) => (t.sentenceGame || []).length && (t.fillBlanks || []).length && (t.exercises || []).length);
+  assert.ok(bai, 'không tìm thấy bài ngữ pháp nào có cả sentenceGame, fillBlanks và exercises');
 
   const html = veRa(h(GrammarPage, { topic: bai, setXp() {}, completeMilestone() {} }));
   assert.match(html, /Xếp Câu/, `bài "${bai.id}" CÓ sentenceGame mà tab bị ẩn — bộ lọc ẩn quá tay`);
   assert.match(html, /Điền Từ/, `bài "${bai.id}" CÓ fillBlanks mà tab bị ẩn`);
+  // Tab 'exercise' (Trắc Nghiệm) từng thiếu hẳn khoá `data` trong định nghĩa
+  // tabs[] — bộ lọc availableTabs đọc Array.isArray(undefined) luôn ra false,
+  // nên tab này ẩn TRÊN TOÀN BỘ APP dù 81 chủ đề có sẵn topic.exercises. Đúng
+  // họ lỗi với "Xếp Câu" ở trên, chỉ khác một dòng không ai soi tới vì test này
+  // trước đây chưa từng hỏi về tab "Trắc Nghiệm".
+  assert.match(html, /Trắc Nghiệm/, `bài "${bai.id}" CÓ exercises mà tab "Trắc Nghiệm" bị ẩn`);
 });
 
 test('VocabVstepPage: không tìm thấy chủ đề thì nói KHÔNG TÌM THẤY, không nói "đang tải"', async () => {
