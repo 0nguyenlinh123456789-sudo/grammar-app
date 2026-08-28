@@ -29,7 +29,7 @@ import {
   AI_KEY_HEADER, MISSING_KEY_RESPONSE, buildRequest, describeProviderFailure,
   geminiEndpoint, getRequestError, readGeminiKey,
 } from '../../../functions/api/ai.js';
-import { AccessConfigError, jsonResponse, layBody, layHeader, requireLearner } from '../accessCore.js';
+import { AccessConfigError, enforceRateLimit, jsonResponse, layBody, layHeader, requireLearner } from '../accessCore.js';
 
 /** Trần thân yêu cầu, khớp với giới hạn ảnh 4 MB đã đo ở functions/api/ai.js. */
 const TRAN_BYTE = 6 * 1024 * 1024;
@@ -48,6 +48,15 @@ export async function xuLyAi(request, env, response = null) {
     }
     // Không kiểm gói: mọi lượt gọi AI đều tính vào key Gemini của CHÍNH người
     // học, nên khách gói thấp mang key riêng vẫn dùng được.
+
+    // Khoá theo MÃ TRUY CẬP, không theo IP, cùng lý do với progress.js. Mỗi
+    // lượt giữ một kết nối tới Google tới 25 giây (TRAN_GIAY) — giới hạn tốc
+    // độ ở đây bảo vệ TÀI NGUYÊN MÁY CHỦ (số kết nối treo cùng lúc), không
+    // phải quota Google của người học (đó là việc của chính họ).
+    try {
+      const con = await enforceRateLimit(env, 'ai', session.payload.codeHash, 30, 600);
+      if (!con) return jsonResponse(response, 429, { code: 'rate-limited', message: 'Bạn gọi AI quá nhiều lần trong thời gian ngắn. Vui lòng chờ ít phút.' });
+    } catch { /* kho đếm không dùng được thì vẫn cho gọi AI — không phải bí mật đáng để chặn */ }
   } catch (error) {
     if (error instanceof AccessConfigError) {
       return jsonResponse(response, 503, { code: 'access-not-configured', message: 'Hệ thống mã truy cập chưa được cấu hình.' });

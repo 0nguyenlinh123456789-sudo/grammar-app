@@ -8,7 +8,7 @@
 // nen than tuyen nay khong can biet no dang chay o dau. Xem chu thich cua
 // jsonResponse trong src/server/accessCore.js.
 import {
-  AccessConfigError, jsonResponse, layBody, redisCommand, requireLearner,
+  AccessConfigError, enforceRateLimit, jsonResponse, layBody, redisCommand, requireLearner,
 } from '../accessCore.js';
 
 const PROGRESS_KEY = (codeHash) => `grammar:progress:${codeHash}`;
@@ -18,6 +18,15 @@ export async function xuLyProgress(request, env, response = null) {
   try {
     const session = await requireLearner(request, env);
     if (!session) return jsonResponse(response, 401, { code: 'access-required', message: 'Phiên truy cập đã hết hạn.' });
+
+    // Khoá theo MÃ TRUY CẬP, không theo IP: nhiều người học có thể cùng NAT
+    // (trường, cơ quan), khoá theo IP sẽ chặn nhầm người vô can. Nhịp bình
+    // thường ~1 lượt/60 giây (App.jsx); 40/600s cho dư dả gấp 4 lần nhịp đó.
+    try {
+      const con = await enforceRateLimit(env, 'progress', session.payload.codeHash, 40, 600);
+      if (!con) return jsonResponse(response, 429, { code: 'rate-limited', message: 'Đồng bộ quá nhiều lần trong thời gian ngắn. Vui lòng chờ ít phút.' });
+    } catch { /* kho đếm không dùng được thì vẫn cho đồng bộ — không phải bí mật đáng để chặn */ }
+
     const key = PROGRESS_KEY(session.payload.codeHash);
     if (request.method === 'GET') {
       const raw = await redisCommand(env, 'GET', key);
