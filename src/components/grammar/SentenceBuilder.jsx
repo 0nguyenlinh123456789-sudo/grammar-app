@@ -90,18 +90,18 @@ const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplet
   if (!curr) return <KhongCoCau ten="câu để xếp" />;
 
   return (
-    <div className="bg-white rounded-[3rem] border-[4px] border-slate-800 p-8 md:p-10 shadow-[8px_8px_0px_0px_#1e293b]">
-      <div className="flex justify-between items-center font-black mb-6 text-xl border-b-4 border-slate-100 pb-4 border-dashed">
+    <div className="bg-white dark:bg-slate-900 rounded-[3rem] border-[4px] border-slate-800 dark:border-slate-700 p-8 md:p-10 shadow-[8px_8px_0px_0px_#1e293b] dark:shadow-[8px_8px_0px_0px_#020617]">
+      <div className="flex justify-between items-center font-black mb-6 text-xl border-b-4 border-slate-100 dark:border-slate-800 pb-4 border-dashed text-slate-900 dark:text-slate-100">
          <span className="flex items-center gap-2"><Target className="text-rose-500"/> Xếp Câu Phản Xạ</span>
-         <span className="bg-white border-2 border-slate-800 px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_#1e293b]">{qIdx+1}/{sentencesLen}</span>
+         <span className="bg-white dark:bg-slate-800 border-2 border-slate-800 dark:border-slate-700 px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617]">{qIdx+1}/{sentencesLen}</span>
       </div>
-      <div className="bg-cyan-100 p-8 rounded-3xl border-[4px] border-slate-800 mb-8 font-black text-2xl md:text-3xl text-center shadow-[4px_4px_0px_0px_#1e293b]">"{curr.trans}"</div>
-      
-      <div className="min-h-[120px] bg-slate-50 border-[4px] border-dashed border-slate-300 rounded-3xl p-6 flex flex-wrap gap-3 mb-8">
+      <div className="bg-cyan-100 dark:bg-cyan-950/40 p-8 rounded-3xl border-[4px] border-slate-800 dark:border-slate-700 mb-8 font-black text-2xl md:text-3xl text-center shadow-[4px_4px_0px_0px_#1e293b] dark:shadow-[4px_4px_0px_0px_#020617] text-slate-900 dark:text-slate-100">"{curr.trans}"</div>
+
+      <div className="min-h-[120px] bg-slate-50 dark:bg-slate-800 border-[4px] border-dashed border-slate-300 dark:border-slate-600 rounded-3xl p-6 flex flex-wrap gap-3 mb-8">
         {sel.map(w => <Btn3D key={w.id} onClick={()=>toggle(w,true)} color="bg-white" className="text-xl md:text-2xl px-5 py-3 shadow-[2px_2px_0px_0px_#1e293b]">{w.w}</Btn3D>)}
       </div>
-      
-      <div className="bg-indigo-50 border-[4px] border-slate-800 rounded-3xl p-8 flex flex-wrap justify-center gap-4 mb-10 shadow-[4px_4px_0px_0px_#1e293b]">
+
+      <div className="bg-indigo-50 dark:bg-indigo-950/30 border-[4px] border-slate-800 dark:border-slate-700 rounded-3xl p-8 flex flex-wrap justify-center gap-4 mb-10 shadow-[4px_4px_0px_0px_#1e293b] dark:shadow-[4px_4px_0px_0px_#020617]">
         {avail.map(w => <Btn3D key={w.id} onClick={()=>toggle(w,false)} color="bg-indigo-200" className="text-xl md:text-2xl px-5 py-3 shadow-[2px_2px_0px_0px_#1e293b]">{w.w}</Btn3D>)}
       </div>
 
