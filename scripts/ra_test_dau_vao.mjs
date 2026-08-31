@@ -158,6 +158,6 @@ try {
   console.log(`\nbước đạt: ${dat}/${ket.length}`);
   t.dong();
   tienTrinh.kill();
-  may.dung?.();
+  may.dong();
   process.exit(dat === ket.length ? 0 : 1);
 }

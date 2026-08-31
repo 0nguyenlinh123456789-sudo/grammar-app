@@ -148,8 +148,8 @@ await cho(800);
 // Một bộ rà bảy câu mà chỉ chạy năm câu rồi báo "toàn ĐẠT" là kiểu hỏng tệ nhất.
 const SO_CAU = 7;
 await t.dong();
-await tienTrinh.dong?.();
-await may.dong?.();
+tienTrinh.kill();
+may.dong();
 
 if (ket.length !== SO_CAU) {
   console.log(`\n❌ MẤT CÂU: chỉ chạy ${ket.length}/${SO_CAU}.`);
@@ -163,3 +163,4 @@ if (hong.length) {
   process.exit(1);
 }
 console.log(`\ntrả lời được: ${SO_CAU}/${SO_CAU} câu`);
+process.exit(0);

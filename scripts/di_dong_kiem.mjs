@@ -82,9 +82,12 @@ ghi('không có lỗi console trong toàn bộ đợt đổi bề rộng', loi.l
   loi.slice(0, 3).map((x) => `${x.loai}: ${String(x.text).slice(0, 90)}`).join(' ; ') || 'sạch');
 
 const SO_BUOC = BE_RONG.length + 1 + (dangODe ? 3 : 0) + 1;
-await t.dong();
-await tienTrinh.dong?.();
-await may.dong?.();
+// Bản cũ gọi `tienTrinh.dong?.()` — hàm đó KHÔNG TỒN TẠI, `?.` nuốt lỗi nên Chrome và
+// máy chủ xem trước sống tiếp, và vì lối thoát duy nhất nằm trong nhánh HỎNG,
+// bộ rà treo vĩnh viễn đúng lúc mọi bước đều ĐẠT.
+t.dong();
+tienTrinh.kill();
+may.dong();
 
 if (ket.length !== SO_BUOC) { console.log(`\n❌ MẤT BƯỚC: ${ket.length}/${SO_BUOC}.`); process.exit(1); }
 const hong = ket.filter((k) => !k.ok);
@@ -94,3 +97,6 @@ if (hong.length) {
   process.exit(1);
 }
 console.log(`\nbước đạt: ${SO_BUOC}/${SO_BUOC}`);
+// Thoát tường minh: nhánh HỎNG có `process.exit(1)`, nhánh ĐẠT thì trước đây
+// không có gì cả — nên bộ rà chỉ treo khi mọi thứ đều ổn.
+process.exit(0);

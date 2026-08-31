@@ -122,8 +122,8 @@ ghi('không có lỗi console trong cả lượt rà', loi.length === 0,
   loi.slice(0, 3).map((x) => `${x.loai}: ${String(x.text).slice(0, 110)}`).join(' ; ') || 'sạch');
 
 await t.dong();
-await tienTrinh.dong?.();
-await may.dong?.();
+tienTrinh.kill();
+may.dong();
 
 const hong = ket.filter((k) => !k.ok);
 if (hong.length) {

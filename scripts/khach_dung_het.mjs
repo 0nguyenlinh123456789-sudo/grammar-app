@@ -790,7 +790,7 @@ try {
   if (canh.length) console.log(`\ncảnh báo (KHÔNG tính vào kết quả): ${canh.length}`);
   t.dong();
   tienTrinh.kill();
-  await may.dong?.();
+  may.dong();
 }
 
 // ══ BÁNH CÓC SỐ BƯỚC ═══════════════════════════════════════════════════════

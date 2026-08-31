@@ -117,11 +117,18 @@ try {
   ghi('không có lỗi console / ngoại lệ trên toàn bộ đường cấp mã tự động', loiThat().length === 0,
     loiThat().slice(0, 3).map((x) => `${x.loai}: ${String(x.text).slice(0, 110)}`).join(' ; '));
 } finally {
-  await t.dong();
-  await tienTrinh.dong?.();
-  await may.dong?.();
+  // ⚠️ Bản cũ gọi `tienTrinh.dong?.()` và `may.dong?.()` — HAI HÀM ĐÓ KHÔNG TỒN
+  // TẠI. Dấu `?.` nuốt luôn, nên Chrome và máy chủ xem trước không bao giờ bị
+  // tắt và tiến trình Node treo vĩnh viễn... nhưng CHỈ KHI ĐẠT: nhánh hỏng có
+  // `process.exit(1)` nên vẫn thoát được. Tức là bộ rà treo đúng lúc mọi thứ ổn,
+  // và một chuỗi kiểm chạy tuần tự sẽ đứng lại ở đây mãi mãi.
+  // Tên đúng theo helper: `tienTrinh.kill()` (tiến trình con Chrome) và
+  // `may.dong()` — moMayChuXemTruoc khai `dong`, KHÔNG khai `dung`.
+  t.dong();
+  tienTrinh.kill();
+  may.dong();
 }
 
 const soHong = ket.filter((k) => !k).length;
 console.log(`\nbước đạt: ${ket.length - soHong}/${ket.length}`);
-if (soHong > 0) process.exit(1);
+process.exit(soHong > 0 ? 1 : 0);

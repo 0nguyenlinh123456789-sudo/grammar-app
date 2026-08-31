@@ -100,8 +100,8 @@ ghi('không có lỗi console trên đường mở hai bài mới', loi.length =
 // ══ CHỐT TỰ KIỂM ══════════════════════════════════════════════════════════
 const SO_BUOC = BAI.length * 2 + 1;
 await t.dong();
-await tienTrinh.dong?.();
-await may.dong?.();
+tienTrinh.kill();
+may.dong();
 
 if (ket.length !== SO_BUOC) {
   console.log(`\n❌ MẤT BƯỚC: chỉ chạy ${ket.length}/${SO_BUOC}.`);

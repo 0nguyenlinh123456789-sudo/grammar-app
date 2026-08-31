@@ -133,6 +133,6 @@ try {
   const dat = ket.filter((k) => k.ok).length;
   console.log(`\nbước đạt: ${dat}/${ket.length}`);
   tienTrinh.kill();
-  may.dung?.();
+  may.dong();
   process.exit(dat === ket.length ? 0 : 1);
 }

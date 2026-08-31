@@ -94,8 +94,8 @@ ghi('không có lỗi console', loi.length === 0, loi.slice(0, 3).map((x) => `${
 
 const SO_BUOC = daBamDup ? 5 : 4;
 await t.dong();
-await tienTrinh.dong?.();
-await may.dong?.();
+tienTrinh.kill();
+may.dong();
 
 if (ket.length !== SO_BUOC) { console.log(`\n❌ MẤT BƯỚC: ${ket.length}/${SO_BUOC}.`); process.exit(1); }
 const hong = ket.filter((k) => !k.ok);
@@ -105,3 +105,4 @@ if (hong.length) {
   process.exit(1);
 }
 console.log(`\nbước đạt: ${SO_BUOC}/${SO_BUOC}`);
+process.exit(0);
