@@ -55,8 +55,14 @@ test('câu sửa lỗi trong nhánh C1 vẫn được giữ lại đủ', () => 
   const con = c1.flatMap((t) => (locBaiHong(t).errorCorrection || []));
   assert.equal(con.length, 125, `còn ${con.length} câu sửa lỗi làm được (sau khi vá phải đủ 125, bằng B2)`);
   // Một câu cụ thể ĐÃ ĐỌC, phải còn: có lỗi thật, sửa thật.
-  const mau = con.find((e) => e.errorWord === 'do' && e.correction === 'did');
-  assert.ok(mau, 'mất câu "Not until he left do I realize the truth." → did');
+  //
+  // Câu mẫu cũ là "Not until he left do I realize the truth." → did. Nó đã bị
+  // THAY 31/08 vì một lý do khác: máy sinh nhét đúng câu đó (và "The proposal
+  // have been rejected.") vào 20/25 bài, kể cả bài Danh từ, Thành ngữ và Dấu
+  // câu — đúng ngữ pháp nhưng lạc đề, và lặp tới mức không còn là bài tập của
+  // bài nào. Nay mỗi bài có câu sửa lỗi của riêng chủ đề mình.
+  const mau = con.find((e) => e.errorWord === 'have' && e.correction === 'had');
+  assert.ok(mau, 'mất câu sửa lỗi thì quá khứ hoàn thành trong nhánh C1');
 });
 
 test('sau khi vá dữ liệu, KHÔNG còn câu nào bị ẩn ở nhánh C1', () => {

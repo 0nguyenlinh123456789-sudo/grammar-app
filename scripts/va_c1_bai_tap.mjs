@@ -32,37 +32,55 @@ for (const ten of readdirSync('scripts/data').filter((f) => /^c1_bai_tap.*\.json
   const phan = JSON.parse(readFileSync(`scripts/data/${ten}`, 'utf8'));
   for (const [id, muc] of Object.entries(phan)) {
     if (id.startsWith('_')) continue;
-    if (soan[id]) throw new Error(`${id} bị soạn hai lần (${ten})`);
-    soan[id] = muc;
+    // Gộp mảng thay vì báo lỗi: một bài có thể được bù qua nhiều đợt.
+    soan[id] = soan[id] || {};
+    for (const [khoa, ds] of Object.entries(muc)) {
+      soan[id][khoa] = [...(soan[id][khoa] || []), ...ds];
+    }
   }
 }
 
 const chuan = (v) => String(v ?? '').trim().toLowerCase().replace(/\s+/g, ' ');
 const boDauCau = (v) => chuan(v).replace(/[.,!?;:"'’“”]/g, '');
-const hongEc = (e) => chuan(e.errorWord) === chuan(e.correction)
+const hongEcCoBan = (e) => chuan(e.errorWord) === chuan(e.correction)
   || !boDauCau(e.sentence).includes(boDauCau(e.errorWord));
 const hongTf = (e) => boDauCau(e.original) === boDauCau(e.a)
   || !chuan(e.keyword)
   || /^viết lại câu giữ nguyên nghĩa\.?$/i.test(String(e.instruction || '').trim());
 const hongFb = (f) => /this is a .{0,20}level practice/i.test(String(f.q || ''));
 
+// Câu sửa lỗi DÙNG LẠI ở nhiều bài là câu độn của máy sinh, không phải bài tập
+// của bài đó: "Not until he left do I realize the truth." nằm y hệt ở 20 bài,
+// trong đó có cả bài về Danh từ, Thành ngữ và Dấu câu — lạc đề hoàn toàn.
+const demCau = new Map();
+for (const b of grammarDataC1C2) {
+  for (const e of b.errorCorrection || []) {
+    demCau.set(chuan(e.sentence), (demCau.get(chuan(e.sentence)) || 0) + 1);
+  }
+}
+const laCauDon = (e) => (demCau.get(chuan(e.sentence)) || 0) >= 3;
+
 let doi = 0;
 let thieu = 0;
 const moi = grammarDataC1C2.map((bai) => {
   const nguon = soan[bai.id];
   const ra = { ...bai };
-  for (const [khoa, hong] of [['errorCorrection', hongEc], ['transformation', hongTf], ['fillBlanks', hongFb]]) {
+  for (const [khoa, hong] of [['errorCorrection', (e) => hongEcCoBan(e) || laCauDon(e)], ['transformation', hongTf], ['fillBlanks', hongFb]]) {
     const cu = bai[khoa] || [];
     const giu = cu.filter((x) => !hong(x));
     const canBu = cu.length - giu.length;
     if (canBu === 0) continue;
     const co = (nguon && nguon[khoa]) || [];
-    if (co.length < canBu) {
-      thieu += canBu - co.length;
-      console.log(`  THIẾU  ${bai.id} · ${khoa}: cần ${canBu}, mới soạn ${co.length}`);
+    // Bỏ qua câu đã nằm sẵn trong bài: script phải chạy lại được nhiều lần mà
+    // không tự nhân đôi nội dung của đợt trước.
+    const daCo = new Set(giu.map((x) => chuan(x.sentence ?? x.original ?? x.q)));
+    const chua = co.filter((x) => !daCo.has(chuan(x.sentence ?? x.original ?? x.q)));
+    if (chua.length < canBu) {
+      thieu += canBu - chua.length;
+      console.log(`  THIẾU  ${bai.id} · ${khoa}: cần ${canBu}, còn chưa dùng ${chua.length}`);
     }
-    ra[khoa] = [...giu, ...co.slice(0, canBu)];
-    doi += Math.min(co.length, canBu);
+    ra[khoa] = [...giu, ...chua.slice(0, canBu)];
+    doi += Math.min(chua.length, canBu);
   }
   return ra;
 });

@@ -1934,20 +1934,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "If I would have known, I would have come earlier.",
         "errorWord": "would have known",
         "correction": "had known",
@@ -1967,6 +1953,20 @@ export const grammarDataC1C2 = [
         "correction": "need",
         "explanation": "Đảo ngữ 'Should' đi với động từ nguyên thể, không chia quá khứ.",
         "trans": "Nếu bạn cần giúp đỡ, hãy gọi tôi."
+      },
+      {
+        "sentence": "If I were you, I would have accepted the offer yesterday.",
+        "errorWord": "were",
+        "correction": "had been",
+        "explanation": "Kết quả nằm ở QUÁ KHỨ ('yesterday') nên vế if phải dùng quá khứ hoàn thành.",
+        "trans": "Nếu là bạn, tôi đã nhận lời đề nghị hôm qua."
+      },
+      {
+        "sentence": "Had it not be for the traffic, we would have arrived on time.",
+        "errorWord": "be",
+        "correction": "been",
+        "explanation": "Đảo ngữ điều kiện loại 3 giữ nguyên 'had ... been'.",
+        "trans": "Nếu không vì kẹt xe, chúng tôi đã đến đúng giờ."
       }
     ],
     "transformation": [
@@ -2276,20 +2276,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "The meeting was over, everyone went home.",
         "errorWord": "was",
         "correction": "being",
@@ -2309,6 +2295,20 @@ export const grammarDataC1C2 = [
         "correction": "permitting",
         "explanation": "Cấu trúc tuyệt đối chủ động dùng V-ing.",
         "trans": "Nếu thời tiết cho phép, trận đấu sẽ diễn ra."
+      },
+      {
+        "sentence": "His work having finished, he went out for a walk.",
+        "errorWord": "having finished",
+        "correction": "having been finished",
+        "explanation": "Công việc ĐƯỢC hoàn thành — nghĩa bị động nên dùng 'having been + V3'.",
+        "trans": "Công việc xong xuôi, anh ấy ra ngoài đi dạo."
+      },
+      {
+        "sentence": "The children asleep, the house was very quiet.",
+        "errorWord": "asleep",
+        "correction": "being asleep",
+        "explanation": "Cấu trúc tuyệt đối cần phân từ nối chủ ngữ với phần bổ nghĩa.",
+        "trans": "Lũ trẻ đã ngủ, ngôi nhà rất yên tĩnh."
       }
     ],
     "transformation": [
@@ -2618,20 +2618,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "The letters sending yesterday have arrived.",
         "errorWord": "sending",
         "correction": "sent",
@@ -2651,6 +2637,20 @@ export const grammarDataC1C2 = [
         "correction": "whose",
         "explanation": "Chỉ quan hệ sở hữu thì dùng 'whose', không dùng 'which'.",
         "trans": "Quyển sách bị rách bìa là của tôi."
+      },
+      {
+        "sentence": "The road connected the two cities was built in 1990.",
+        "errorWord": "connected",
+        "correction": "connecting",
+        "explanation": "Con đường NỐI hai thành phố — nghĩa chủ động, dùng V-ing.",
+        "trans": "Con đường nối hai thành phố được xây năm 1990."
+      },
+      {
+        "sentence": "There were many people waited outside the hall.",
+        "errorWord": "waited",
+        "correction": "waiting",
+        "explanation": "Rút gọn mệnh đề quan hệ chủ động dùng V-ing.",
+        "trans": "Có nhiều người đang đợi bên ngoài hội trường."
       }
     ],
     "transformation": [
@@ -2960,20 +2960,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "The police is investigating the case.",
         "errorWord": "is",
         "correction": "are",
@@ -2993,6 +2979,20 @@ export const grammarDataC1C2 = [
         "correction": "was",
         "explanation": "'Each of' đi với động từ số ít.",
         "trans": "Từng câu trả lời đều đúng."
+      },
+      {
+        "sentence": "He gave me many informations about the course.",
+        "errorWord": "many informations",
+        "correction": "much information",
+        "explanation": "'Information' không đếm được — không có số nhiều, đi với 'much'.",
+        "trans": "Anh ấy cho tôi nhiều thông tin về khoá học."
+      },
+      {
+        "sentence": "Neither of the two proposals were accepted.",
+        "errorWord": "were",
+        "correction": "was",
+        "explanation": "'Neither of' đi với động từ số ít.",
+        "trans": "Không đề xuất nào trong hai được chấp nhận."
       }
     ],
     "transformation": [
@@ -3302,20 +3302,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "I like coffee and so I like tea.",
         "errorWord": "so I like",
         "correction": "so do I",
@@ -3335,6 +3321,20 @@ export const grammarDataC1C2 = [
         "correction": "want to",
         "explanation": "Lược bỏ sau 'to' thì bỏ hẳn tân ngữ lặp lại.",
         "trans": "Bạn có thể mượn bút của tôi nếu muốn."
+      },
+      {
+        "sentence": "He said he would come, but I don't think it.",
+        "errorWord": "it",
+        "correction": "so",
+        "explanation": "Thay cả mệnh đề đã nói thì dùng 'so', không dùng 'it'.",
+        "trans": "Anh ấy nói sẽ đến, nhưng tôi không nghĩ vậy."
+      },
+      {
+        "sentence": "She works harder than I do it.",
+        "errorWord": "do it",
+        "correction": "do",
+        "explanation": "Trợ động từ 'do' đã thay cả cụm động từ — không thêm tân ngữ nữa.",
+        "trans": "Cô ấy làm việc chăm hơn tôi."
       }
     ],
     "transformation": [
@@ -3644,20 +3644,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "He is the most tallest boy in the class.",
         "errorWord": "most tallest",
         "correction": "tallest",
@@ -3677,6 +3663,20 @@ export const grammarDataC1C2 = [
         "correction": "surprisingly",
         "explanation": "Bổ nghĩa cho tính từ phải dùng trạng từ.",
         "trans": "Kỳ thi năm nay dễ một cách đáng ngạc nhiên."
+      },
+      {
+        "sentence": "She sings very good for a beginner.",
+        "errorWord": "good",
+        "correction": "well",
+        "explanation": "Bổ nghĩa cho động từ phải dùng trạng từ 'well'.",
+        "trans": "Cô ấy hát rất hay so với người mới học."
+      },
+      {
+        "sentence": "It is a interesting old wooden Chinese box.",
+        "errorWord": "a interesting",
+        "correction": "an interesting",
+        "explanation": "Trước nguyên âm dùng 'an'; trật tự tính từ trong câu đã đúng.",
+        "trans": "Đó là một chiếc hộp gỗ Trung Quốc cổ thú vị."
       }
     ],
     "transformation": [
@@ -3986,20 +3986,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "He is far more taller than his brother.",
         "errorWord": "more taller",
         "correction": "taller",
@@ -4019,6 +4005,20 @@ export const grammarDataC1C2 = [
         "correction": "clear",
         "explanation": "'As … as' đi với tính từ nguyên dạng.",
         "trans": "Lời giải thích của cô ấy rõ ràng như của anh ta."
+      },
+      {
+        "sentence": "This is by far the better solution of all.",
+        "errorWord": "better",
+        "correction": "best",
+        "explanation": "'Of all' chỉ so sánh nhất, không dùng so sánh hơn.",
+        "trans": "Đây là giải pháp tốt nhất trong tất cả."
+      },
+      {
+        "sentence": "He earns twice more than his colleague.",
+        "errorWord": "twice more than",
+        "correction": "twice as much as",
+        "explanation": "So sánh gấp bội dùng 'twice as ... as'.",
+        "trans": "Anh ấy kiếm gấp đôi đồng nghiệp."
       }
     ],
     "transformation": [
@@ -4328,20 +4328,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "Despite of the traffic, we arrived on time.",
         "errorWord": "Despite of",
         "correction": "Despite",
@@ -4361,6 +4347,20 @@ export const grammarDataC1C2 = [
         "correction": "with",
         "explanation": "Cụm cố định là 'in accordance with'.",
         "trans": "Báo cáo được viết theo đúng quy định mới."
+      },
+      {
+        "sentence": "She is capable to handle the situation.",
+        "errorWord": "to handle",
+        "correction": "of handling",
+        "explanation": "'Capable' đi với 'of + V-ing'.",
+        "trans": "Cô ấy đủ khả năng xử lý tình huống."
+      },
+      {
+        "sentence": "On behalf for the team, I would like to thank you.",
+        "errorWord": "for",
+        "correction": "of",
+        "explanation": "Cụm cố định là 'on behalf of'.",
+        "trans": "Thay mặt cả nhóm, tôi xin cảm ơn."
       }
     ],
     "transformation": [
@@ -4670,20 +4670,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "I look forward to hear from you soon.",
         "errorWord": "hear",
         "correction": "hearing",
@@ -4703,6 +4689,20 @@ export const grammarDataC1C2 = [
         "correction": "having seen",
         "explanation": "Sau 'deny' dùng V-ing, không dùng động từ nguyên thể.",
         "trans": "Anh ta phủ nhận đã gặp cô ấy tối đó."
+      },
+      {
+        "sentence": "He is used to work night shifts now.",
+        "errorWord": "work",
+        "correction": "working",
+        "explanation": "'Be used to' — 'to' là giới từ, theo sau là V-ing.",
+        "trans": "Giờ anh ấy đã quen làm ca đêm."
+      },
+      {
+        "sentence": "I can't help to laugh when he tells that story.",
+        "errorWord": "to laugh",
+        "correction": "laughing",
+        "explanation": "'Can't help' đi với V-ing.",
+        "trans": "Tôi không nhịn được cười khi anh ấy kể chuyện đó."
       }
     ],
     "transformation": [
@@ -5012,20 +5012,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "The house is being built since last year.",
         "errorWord": "is being built",
         "correction": "has been built",
@@ -5045,6 +5031,20 @@ export const grammarDataC1C2 = [
         "correction": "to be",
         "explanation": "Cấu trúc 'be said' đi với động từ nguyên thể có 'to'.",
         "trans": "Người ta nói anh ấy rất giàu."
+      },
+      {
+        "sentence": "I had cut my hair yesterday at the new salon.",
+        "errorWord": "had cut",
+        "correction": "had my hair cut",
+        "explanation": "Nhờ người khác làm thì dùng 'have something done'.",
+        "trans": "Hôm qua tôi đi cắt tóc ở tiệm mới."
+      },
+      {
+        "sentence": "The new rules will be came into force in May.",
+        "errorWord": "be came",
+        "correction": "come",
+        "explanation": "'Come into force' là nội động từ — không có dạng bị động.",
+        "trans": "Quy định mới sẽ có hiệu lực vào tháng Năm."
       }
     ],
     "transformation": [
@@ -5350,20 +5350,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "She said me that she was tired.",
         "errorWord": "said me",
         "correction": "told me",
@@ -5383,6 +5369,20 @@ export const grammarDataC1C2 = [
         "correction": "that I take",
         "explanation": "'Suggest' không đi với 'somebody to do'; dùng mệnh đề 'that' hoặc V-ing.",
         "trans": "Cô ấy đề nghị tôi nghỉ một lát."
+      },
+      {
+        "sentence": "She told that she would be late.",
+        "errorWord": "told",
+        "correction": "said",
+        "explanation": "'Tell' cần tân ngữ chỉ người; không có thì dùng 'say'.",
+        "trans": "Cô ấy nói rằng cô ấy sẽ tới muộn."
+      },
+      {
+        "sentence": "He asked me if would I join them.",
+        "errorWord": "would I",
+        "correction": "I would",
+        "explanation": "Câu hỏi tường thuật giữ trật tự câu kể.",
+        "trans": "Anh ấy hỏi tôi có tham gia cùng họ không."
       }
     ],
     "transformation": [
@@ -5692,20 +5692,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "Although he was tired, but he kept working.",
         "errorWord": "but",
         "correction": "yet",
@@ -5725,6 +5711,20 @@ export const grammarDataC1C2 = [
         "correction": "Moreover",
         "explanation": "'Moreover' là trạng từ nối, đứng một mình rồi tới dấu phẩy.",
         "trans": "Hơn nữa, chi phí quá cao."
+      },
+      {
+        "sentence": "In addition of the cost, there is the time to consider.",
+        "errorWord": "of",
+        "correction": "to",
+        "explanation": "Cụm cố định là 'in addition to'.",
+        "trans": "Ngoài chi phí, còn phải tính tới thời gian."
+      },
+      {
+        "sentence": "Whereas the first plan failed, but the second succeeded.",
+        "errorWord": "but",
+        "correction": "whereas",
+        "explanation": "Chỉ được dùng MỘT liên từ. Bỏ 'whereas' đầu câu và giữ liên từ ở giữa: 'The first plan failed, whereas the second succeeded.'",
+        "trans": "Kế hoạch đầu thất bại, trong khi kế hoạch thứ hai thành công."
       }
     ],
     "transformation": [
@@ -6034,20 +6034,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "Please turn on it before you leave.",
         "errorWord": "turn on it",
         "correction": "turn it on",
@@ -6067,6 +6053,20 @@ export const grammarDataC1C2 = [
         "correction": "ran out of",
         "explanation": "Cụm đầy đủ là 'run out of' — hết thứ gì.",
         "trans": "Chúng tôi hết xăng trên đường cao tốc."
+      },
+      {
+        "sentence": "She called off it because of the weather.",
+        "errorWord": "called off it",
+        "correction": "called it off",
+        "explanation": "Cụm động từ tách được thì đại từ nằm giữa.",
+        "trans": "Cô ấy huỷ nó vì thời tiết."
+      },
+      {
+        "sentence": "The company laid down fifty workers last month.",
+        "errorWord": "laid down",
+        "correction": "laid off",
+        "explanation": "Sa thải là 'lay off'; 'lay down' là đặt xuống hoặc đặt ra quy định.",
+        "trans": "Công ty sa thải năm mươi công nhân tháng trước."
       }
     ],
     "transformation": [
@@ -6376,20 +6376,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "He came across with an old photograph in the attic.",
         "errorWord": "across with",
         "correction": "across",
@@ -6409,6 +6395,20 @@ export const grammarDataC1C2 = [
         "correction": "took off",
         "explanation": "Máy bay cất cánh là 'take off'.",
         "trans": "Máy bay cất cánh trễ một tiếng."
+      },
+      {
+        "sentence": "He looks forward the holiday every year.",
+        "errorWord": "looks forward",
+        "correction": "looks forward to",
+        "explanation": "Cụm đầy đủ là 'look forward to something'.",
+        "trans": "Năm nào anh ấy cũng mong tới kỳ nghỉ."
+      },
+      {
+        "sentence": "We need to go on with the details of the contract.",
+        "errorWord": "go on",
+        "correction": "go over",
+        "explanation": "Xem lại kỹ điều gì là 'go over'; 'go on' là tiếp tục.",
+        "trans": "Chúng ta cần rà lại các chi tiết của hợp đồng."
       }
     ],
     "transformation": [
@@ -6718,20 +6718,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "He made a big mistake by doing a decision too quickly.",
         "errorWord": "doing a decision",
         "correction": "making a decision",
@@ -6751,6 +6737,20 @@ export const grammarDataC1C2 = [
         "correction": "to",
         "explanation": "Collocation đúng là 'pay attention to'.",
         "trans": "Cô ấy rất chú ý tới chi tiết."
+      },
+      {
+        "sentence": "The findings do a strong case for reform.",
+        "errorWord": "do",
+        "correction": "make",
+        "explanation": "Collocation đúng là 'make a case for'.",
+        "trans": "Các phát hiện tạo cơ sở vững chắc cho cải cách."
+      },
+      {
+        "sentence": "He took a promise to finish by Friday.",
+        "errorWord": "took",
+        "correction": "made",
+        "explanation": "'Promise' đi với 'make', không đi với 'take'.",
+        "trans": "Anh ấy hứa sẽ xong trước thứ Sáu."
       }
     ],
     "transformation": [
@@ -7060,20 +7060,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "The government should take measures against of pollution.",
         "errorWord": "against of",
         "correction": "against",
@@ -7093,6 +7079,20 @@ export const grammarDataC1C2 = [
         "correction": "barrage",
         "explanation": "Với 'criticism', collocation tự nhiên là 'a barrage of criticism'.",
         "trans": "Cô ấy đưa ra hàng loạt lời phê bình trong cuộc họp."
+      },
+      {
+        "sentence": "The scheme has bear fruit after two years.",
+        "errorWord": "bear",
+        "correction": "borne",
+        "explanation": "Sau 'has' dùng phân từ ba: 'borne fruit'.",
+        "trans": "Kế hoạch đã đơm hoa kết trái sau hai năm."
+      },
+      {
+        "sentence": "They put a great emphasis to teamwork.",
+        "errorWord": "to",
+        "correction": "on",
+        "explanation": "Collocation đúng là 'place/put emphasis on'.",
+        "trans": "Họ rất coi trọng làm việc nhóm."
       }
     ],
     "transformation": [
@@ -7402,20 +7402,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "It's raining cats and dog outside.",
         "errorWord": "dog",
         "correction": "dogs",
@@ -7435,6 +7421,20 @@ export const grammarDataC1C2 = [
         "correction": "a piece of cake",
         "explanation": "Thành ngữ đúng là 'a piece of cake'.",
         "trans": "Việc đó quá dễ với người như cô ấy."
+      },
+      {
+        "sentence": "Once in a blue sky, he visits his hometown.",
+        "errorWord": "sky",
+        "correction": "moon",
+        "explanation": "Thành ngữ cố định là 'once in a blue moon'.",
+        "trans": "Thi thoảng lắm anh ấy mới về quê."
+      },
+      {
+        "sentence": "That report costs an arm and leg to produce.",
+        "errorWord": "an arm and leg",
+        "correction": "an arm and a leg",
+        "explanation": "Thành ngữ đủ là 'cost an arm and a leg'.",
+        "trans": "Bản báo cáo đó tốn kém khủng khiếp."
       }
     ],
     "transformation": [
@@ -7744,20 +7744,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "He is in the same boat like us.",
         "errorWord": "like",
         "correction": "as",
@@ -7777,6 +7763,20 @@ export const grammarDataC1C2 = [
         "correction": "in",
         "explanation": "Thành ngữ đúng là 'a walk in the park'.",
         "trans": "Kỳ thi dễ như trở bàn tay."
+      },
+      {
+        "sentence": "He was over the sky about his new job.",
+        "errorWord": "sky",
+        "correction": "moon",
+        "explanation": "Thành ngữ cố định là 'over the moon' — mừng khôn xiết.",
+        "trans": "Anh ấy mừng phát điên vì công việc mới."
+      },
+      {
+        "sentence": "Don't count your chicken before they hatch.",
+        "errorWord": "chicken",
+        "correction": "chickens",
+        "explanation": "Thành ngữ cố định dùng số nhiều 'chickens'.",
+        "trans": "Đừng đếm cua trong lỗ."
       }
     ],
     "transformation": [
@@ -8086,20 +8086,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "The company announced it's new policy yesterday.",
         "errorWord": "it's",
         "correction": "its",
@@ -8119,6 +8105,20 @@ export const grammarDataC1C2 = [
         "correction": "work; however,",
         "explanation": "'However' nối hai mệnh đề độc lập thì trước nó là dấu chấm phẩy, sau nó là dấu phẩy.",
         "trans": "Anh ấy nói kế hoạch sẽ thành công, nhưng nó thất bại."
+      },
+      {
+        "sentence": "Whose coming to the meeting tomorrow?",
+        "errorWord": "Whose",
+        "correction": "Who's",
+        "explanation": "\"Who's\" là viết tắt của 'who is'; 'whose' chỉ sở hữu.",
+        "trans": "Ai sẽ đến họp ngày mai?"
+      },
+      {
+        "sentence": "The team celebrated it's victory loudly.",
+        "errorWord": "it's",
+        "correction": "its",
+        "explanation": "Sở hữu của 'it' là 'its', không có dấu lược.",
+        "trans": "Cả đội ăn mừng chiến thắng rầm rộ."
       }
     ],
     "transformation": [
@@ -8483,20 +8483,6 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "Not until he left do I realize the truth.",
-        "errorWord": "do",
-        "correction": "did",
-        "explanation": "Trong ngữ cảnh này phải dùng 'did'.",
-        "trans": "Mãi đến khi anh ấy đi tôi mới nhận ra sự thật."
-      },
-      {
-        "sentence": "The proposal have been rejected.",
-        "errorWord": "have",
-        "correction": "has",
-        "explanation": "Trong ngữ cảnh này phải dùng 'has'.",
-        "trans": "Đề xuất đã bị từ chối."
-      },
-      {
         "sentence": "Not only she sings well, but she also plays the piano.",
         "errorWord": "she sings",
         "correction": "does she sing",
@@ -8516,6 +8502,20 @@ export const grammarDataC1C2 = [
         "correction": "started",
         "explanation": "'It's time' đi với quá khứ giả định.",
         "trans": "Đã đến lúc chúng ta nghĩ về tương lai."
+      },
+      {
+        "sentence": "Rarely we see such dedication in a young employee.",
+        "errorWord": "we see",
+        "correction": "do we see",
+        "explanation": "'Rarely' đứng đầu câu bắt buộc đảo ngữ.",
+        "trans": "Hiếm khi thấy sự tận tuỵ như vậy ở một nhân viên trẻ."
+      },
+      {
+        "sentence": "I wish I would have studied harder for that exam.",
+        "errorWord": "would have studied",
+        "correction": "had studied",
+        "explanation": "Sau 'wish' nói về quá khứ dùng quá khứ hoàn thành, không dùng 'would have'.",
+        "trans": "Ước gì tôi đã học chăm hơn cho kỳ thi đó."
       }
     ],
     "transformation": [
