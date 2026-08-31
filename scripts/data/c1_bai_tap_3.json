@@ -1,0 +1,163 @@
+{
+  "_doc": "Đợt 3 — bài 16 đến 25. Xem khuôn và nguyên tắc ở c1_bai_tap.json.",
+
+  "c1c2_16": {
+    "transformation": [
+      { "original": "\"I will call you tomorrow,\" he said to me.", "instruction": "Đổi sang câu tường thuật.", "keyword": "told me that he would", "a": "He told me that he would call me the next day." },
+      { "original": "\"Don't touch the wet paint,\" she warned us.", "instruction": "Tường thuật bằng 'warn somebody not to'.", "keyword": "warned us not to", "a": "She warned us not to touch the wet paint." },
+      { "original": "\"Why did you leave so early?\" he asked her.", "instruction": "Tường thuật câu hỏi có từ để hỏi.", "keyword": "asked her why", "a": "He asked her why she had left so early." }
+    ],
+    "errorCorrection": [
+      { "sentence": "She said me that she was tired.", "errorWord": "said me", "correction": "told me", "explanation": "'Say' không đi trực tiếp với tân ngữ chỉ người; dùng 'tell somebody'.", "trans": "Cô ấy nói với tôi rằng cô ấy mệt." },
+      { "sentence": "He asked me where did I live.", "errorWord": "did I live", "correction": "I lived", "explanation": "Câu hỏi tường thuật giữ trật tự câu kể, không đảo trợ động từ.", "trans": "Anh ấy hỏi tôi sống ở đâu." },
+      { "sentence": "She suggested me to take a break.", "errorWord": "me to take", "correction": "that I take", "explanation": "'Suggest' không đi với 'somebody to do'; dùng mệnh đề 'that' hoặc V-ing.", "trans": "Cô ấy đề nghị tôi nghỉ một lát." }
+    ],
+    "fillBlanks": [
+      { "q": "He admitted that he _____ the vase the day before.", "a": "had broken", "trans": "Anh ấy thừa nhận đã làm vỡ chiếc bình hôm trước." }
+    ]
+  },
+
+  "c1c2_17": {
+    "transformation": [
+      { "original": "The plan is expensive. However, it is necessary.", "instruction": "Nối hai câu bằng 'although'.", "keyword": "Although", "a": "Although the plan is expensive, it is necessary." },
+      { "original": "He was tired. Nevertheless, he kept working.", "instruction": "Nối bằng 'in spite of' + V-ing.", "keyword": "In spite of being", "a": "In spite of being tired, he kept working." },
+      { "original": "The data is incomplete. Therefore, the conclusion is unreliable.", "instruction": "Nối bằng 'since' ở đầu câu.", "keyword": "Since", "a": "Since the data is incomplete, the conclusion is unreliable." }
+    ],
+    "errorCorrection": [
+      { "sentence": "Although he was tired, but he kept working.", "errorWord": "but", "correction": "yet", "explanation": "Không dùng 'although' cùng 'but'. Nếu muốn giữ liên từ ở vế sau thì phải bỏ 'although'; ở đây thay bằng 'yet' để câu đọc được: 'He was tired, yet he kept working.'", "trans": "Dù mệt, anh ấy vẫn tiếp tục làm việc." },
+      { "sentence": "Despite the fact of the rain, the match went on.", "errorWord": "of", "correction": "that", "explanation": "Cụm cố định là 'despite the fact that + mệnh đề'.", "trans": "Dù trời mưa, trận đấu vẫn tiếp tục." },
+      { "sentence": "Moreover of that, the cost is too high.", "errorWord": "Moreover of that", "correction": "Moreover", "explanation": "'Moreover' là trạng từ nối, đứng một mình rồi tới dấu phẩy.", "trans": "Hơn nữa, chi phí quá cao." }
+    ],
+    "fillBlanks": [
+      { "q": "The results were poor; _____, the project was cancelled.", "a": "consequently", "trans": "Kết quả kém; do đó dự án bị huỷ." }
+    ]
+  },
+
+  "c1c2_18": {
+    "transformation": [
+      { "original": "The meeting was cancelled at the last minute.", "instruction": "Dùng cụm động từ 'call off'.", "keyword": "called off", "a": "The meeting was called off at the last minute." },
+      { "original": "I need to find the meaning of this word in a dictionary.", "instruction": "Dùng cụm động từ 'look up'.", "keyword": "look up", "a": "I need to look this word up in a dictionary." },
+      { "original": "The company is investigating the complaint.", "instruction": "Dùng cụm động từ 'look into'.", "keyword": "looking into", "a": "The company is looking into the complaint." }
+    ],
+    "errorCorrection": [
+      { "sentence": "Please turn on it before you leave.", "errorWord": "turn on it", "correction": "turn it on", "explanation": "Cụm động từ tách được thì đại từ phải nằm giữa.", "trans": "Hãy bật nó lên trước khi bạn đi." },
+      { "sentence": "She takes up her mother in appearance.", "errorWord": "takes up", "correction": "takes after", "explanation": "'Take after' mới là giống ai đó; 'take up' là bắt đầu một sở thích.", "trans": "Cô ấy giống mẹ ở ngoại hình." },
+      { "sentence": "We ran of petrol on the motorway.", "errorWord": "ran of", "correction": "ran out of", "explanation": "Cụm đầy đủ là 'run out of' — hết thứ gì.", "trans": "Chúng tôi hết xăng trên đường cao tốc." }
+    ],
+    "fillBlanks": [
+      { "q": "The negotiations broke _____ after three hours.", "a": "down", "trans": "Cuộc đàm phán đổ vỡ sau ba tiếng." }
+    ]
+  },
+
+  "c1c2_19": {
+    "transformation": [
+      { "original": "I finally understood what he really meant.", "instruction": "Dùng cụm động từ 'get at'.", "keyword": "getting at", "a": "I finally understood what he was getting at." },
+      { "original": "She continued studying despite the difficulties.", "instruction": "Dùng cụm động từ 'carry on'.", "keyword": "carried on", "a": "She carried on studying despite the difficulties." },
+      { "original": "They postponed the decision until next month.", "instruction": "Dùng cụm động từ 'put off'.", "keyword": "put off", "a": "They put off the decision until next month." }
+    ],
+    "errorCorrection": [
+      { "sentence": "He came across with an old photograph in the attic.", "errorWord": "across with", "correction": "across", "explanation": "'Come across something' không có giới từ 'with'.", "trans": "Anh ấy tình cờ thấy một tấm ảnh cũ trên gác mái." },
+      { "sentence": "I can't put up her constant complaining.", "errorWord": "put up", "correction": "put up with", "explanation": "Chịu đựng ai/điều gì là 'put up with'.", "trans": "Tôi không chịu nổi việc cô ta than phiền liên tục." },
+      { "sentence": "The plane took up an hour late.", "errorWord": "took up", "correction": "took off", "explanation": "Máy bay cất cánh là 'take off'.", "trans": "Máy bay cất cánh trễ một tiếng." }
+    ],
+    "fillBlanks": [
+      { "q": "It took her months to get _____ the shock.", "a": "over", "trans": "Cô ấy mất nhiều tháng mới nguôi ngoai cú sốc." }
+    ]
+  },
+
+  "c1c2_20": {
+    "transformation": [
+      { "original": "He seriously considered leaving the company.", "instruction": "Dùng collocation 'give serious thought to'.", "keyword": "gave serious thought to", "a": "He gave serious thought to leaving the company." },
+      { "original": "The new policy strongly affected small businesses.", "instruction": "Dùng collocation 'have a strong impact on'.", "keyword": "had a strong impact on", "a": "The new policy had a strong impact on small businesses." },
+      { "original": "She decided quickly and without hesitation.", "instruction": "Dùng collocation 'make a snap decision'.", "keyword": "made a snap decision", "a": "She made a snap decision." }
+    ],
+    "errorCorrection": [
+      { "sentence": "He made a big mistake by doing a decision too quickly.", "errorWord": "doing a decision", "correction": "making a decision", "explanation": "Collocation đúng là 'make a decision', không phải 'do'.", "trans": "Anh ấy sai lầm lớn khi quyết định quá vội." },
+      { "sentence": "The company did great progress last quarter.", "errorWord": "did", "correction": "made", "explanation": "'Progress' đi với 'make', không đi với 'do'.", "trans": "Công ty tiến bộ nhiều trong quý vừa rồi." },
+      { "sentence": "She paid a lot of attention on the details.", "errorWord": "on", "correction": "to", "explanation": "Collocation đúng là 'pay attention to'.", "trans": "Cô ấy rất chú ý tới chi tiết." }
+    ],
+    "fillBlanks": [
+      { "q": "The report _____ serious doubts about the plan.", "a": "raised", "trans": "Bản báo cáo làm dấy lên nghi ngờ nghiêm trọng về kế hoạch." }
+    ]
+  },
+
+  "c1c2_21": {
+    "transformation": [
+      { "original": "The evidence supports his claim very strongly.", "instruction": "Dùng collocation 'lend strong support to'.", "keyword": "lends strong support to", "a": "The evidence lends strong support to his claim." },
+      { "original": "They finally reached an agreement after long talks.", "instruction": "Dùng collocation 'come to an agreement'.", "keyword": "came to an agreement", "a": "They finally came to an agreement after long talks." },
+      { "original": "The company took a big risk with that investment.", "instruction": "Dùng collocation 'run a risk'.", "keyword": "ran a considerable risk", "a": "The company ran a considerable risk with that investment." }
+    ],
+    "errorCorrection": [
+      { "sentence": "The government should take measures against of pollution.", "errorWord": "against of", "correction": "against", "explanation": "'Take measures against something' — không có 'of'.", "trans": "Chính phủ nên có biện pháp chống ô nhiễm." },
+      { "sentence": "He took a strong interest on classical music.", "errorWord": "on", "correction": "in", "explanation": "Collocation đúng là 'take an interest in'.", "trans": "Anh ấy rất quan tâm tới nhạc cổ điển." },
+      { "sentence": "She gave a heavy rain of criticism at the meeting.", "errorWord": "heavy rain", "correction": "barrage", "explanation": "Với 'criticism', collocation tự nhiên là 'a barrage of criticism'.", "trans": "Cô ấy đưa ra hàng loạt lời phê bình trong cuộc họp." }
+    ],
+    "fillBlanks": [
+      { "q": "The new law _____ into force next January.", "a": "comes", "trans": "Luật mới có hiệu lực từ tháng Một tới." }
+    ]
+  },
+
+  "c1c2_22": {
+    "transformation": [
+      { "original": "You are asking about exactly the right thing.", "instruction": "Dùng thành ngữ 'hit the nail on the head'.", "keyword": "hit the nail on the head", "a": "You have hit the nail on the head." },
+      { "original": "The task turned out to be very easy.", "instruction": "Dùng thành ngữ 'a piece of cake'.", "keyword": "a piece of cake", "a": "The task turned out to be a piece of cake." },
+      { "original": "He revealed the secret by accident.", "instruction": "Dùng thành ngữ 'let the cat out of the bag'.", "keyword": "let the cat out of the bag", "a": "He let the cat out of the bag by accident." }
+    ],
+    "errorCorrection": [
+      { "sentence": "It's raining cats and dog outside.", "errorWord": "dog", "correction": "dogs", "explanation": "Thành ngữ cố định là 'raining cats and dogs' — không đổi số của từ.", "trans": "Ngoài trời đang mưa như trút nước." },
+      { "sentence": "Don't beat around a bush, just tell me.", "errorWord": "a bush", "correction": "the bush", "explanation": "Thành ngữ cố định dùng 'the bush'.", "trans": "Đừng vòng vo nữa, nói thẳng đi." },
+      { "sentence": "That job is a bit of cake for someone like her.", "errorWord": "a bit of cake", "correction": "a piece of cake", "explanation": "Thành ngữ đúng là 'a piece of cake'.", "trans": "Việc đó quá dễ với người như cô ấy." }
+    ],
+    "fillBlanks": [
+      { "q": "Learning the whole script by heart was no _____ of cake.", "a": "piece", "trans": "Học thuộc lòng cả kịch bản chẳng dễ chút nào." }
+    ]
+  },
+
+  "c1c2_23": {
+    "transformation": [
+      { "original": "They agreed to forget their past disagreement.", "instruction": "Dùng thành ngữ 'bury the hatchet'.", "keyword": "bury the hatchet", "a": "They agreed to bury the hatchet." },
+      { "original": "She spends money very carelessly.", "instruction": "Dùng thành ngữ 'spend money like water'.", "keyword": "like water", "a": "She spends money like water." },
+      { "original": "The two problems are completely different in nature.", "instruction": "Dùng thành ngữ 'a different kettle of fish'.", "keyword": "a different kettle of fish", "a": "The second problem is a different kettle of fish." }
+    ],
+    "errorCorrection": [
+      { "sentence": "He is in the same boat like us.", "errorWord": "like", "correction": "as", "explanation": "Thành ngữ đúng là 'in the same boat as somebody'.", "trans": "Anh ấy cùng cảnh ngộ với chúng ta." },
+      { "sentence": "Let's play it by the ear and decide later.", "errorWord": "by the ear", "correction": "by ear", "explanation": "Thành ngữ cố định là 'play it by ear', không có mạo từ.", "trans": "Cứ tuỳ tình hình rồi quyết sau." },
+      { "sentence": "The exam was a walk on the park.", "errorWord": "on", "correction": "in", "explanation": "Thành ngữ đúng là 'a walk in the park'.", "trans": "Kỳ thi dễ như trở bàn tay." }
+    ],
+    "fillBlanks": [
+      { "q": "After the argument they decided to bury the _____.", "a": "hatchet", "trans": "Sau cuộc cãi vã, họ quyết định làm hoà." }
+    ]
+  },
+
+  "c1c2_24": {
+    "transformation": [
+      { "original": "My brother who lives in Hue is a teacher. (I have only one brother.)", "instruction": "Thêm dấu phẩy cho mệnh đề quan hệ không xác định.", "keyword": ", who lives in Hue,", "a": "My brother, who lives in Hue, is a teacher." },
+      { "original": "We visited three cities Hanoi Hue and Da Nang.", "instruction": "Thêm dấu hai chấm và dấu phẩy cho danh sách.", "keyword": "cities:", "a": "We visited three cities: Hanoi, Hue and Da Nang." },
+      { "original": "The results were poor the project was cancelled.", "instruction": "Nối hai mệnh đề độc lập bằng dấu chấm phẩy.", "keyword": ";", "a": "The results were poor; the project was cancelled." }
+    ],
+    "errorCorrection": [
+      { "sentence": "The company announced it's new policy yesterday.", "errorWord": "it's", "correction": "its", "explanation": "'Its' là sở hữu; \"it's\" là viết tắt của 'it is'.", "trans": "Công ty công bố chính sách mới hôm qua." },
+      { "sentence": "There are two student's in the room.", "errorWord": "student's", "correction": "students", "explanation": "Số nhiều không dùng dấu lược.", "trans": "Có hai học sinh trong phòng." },
+      { "sentence": "He said that the plan would work, however it failed.", "errorWord": "work, however", "correction": "work; however,", "explanation": "'However' nối hai mệnh đề độc lập thì trước nó là dấu chấm phẩy, sau nó là dấu phẩy.", "trans": "Anh ấy nói kế hoạch sẽ thành công, nhưng nó thất bại." }
+    ],
+    "fillBlanks": [
+      { "q": "The dog wagged _____ tail happily.", "a": "its", "trans": "Con chó vẫy đuôi vui vẻ." }
+    ]
+  },
+
+  "c1c2_25": {
+    "transformation": [
+      { "original": "I have never heard such a ridiculous excuse.", "instruction": "Đảo ngữ, bắt đầu bằng 'Never'.", "keyword": "Never have I", "a": "Never have I heard such a ridiculous excuse." },
+      { "original": "People think that the company is in trouble.", "instruction": "Đổi sang bị động với chủ ngữ là 'The company'.", "keyword": "is thought to be", "a": "The company is thought to be in trouble." },
+      { "original": "He didn't apply for the job, so he isn't working there now.", "instruction": "Đổi sang điều kiện hỗn hợp.", "keyword": "had applied", "a": "If he had applied for the job, he would be working there now." }
+    ],
+    "errorCorrection": [
+      { "sentence": "Not only she sings well, but she also plays the piano.", "errorWord": "she sings", "correction": "does she sing", "explanation": "'Not only' đứng đầu câu bắt buộc đảo ngữ.", "trans": "Cô ấy không chỉ hát hay mà còn chơi được piano." },
+      { "sentence": "The documents are said to be lost last year.", "errorWord": "to be lost", "correction": "to have been lost", "explanation": "Việc xảy ra trong quá khứ thì dùng nguyên thể hoàn thành bị động.", "trans": "Người ta nói các tài liệu đã bị thất lạc năm ngoái." },
+      { "sentence": "It's time we start thinking about the future.", "errorWord": "start", "correction": "started", "explanation": "'It's time' đi với quá khứ giả định.", "trans": "Đã đến lúc chúng ta nghĩ về tương lai." }
+    ],
+    "fillBlanks": [
+      { "q": "Hardly _____ the room when everyone stood up.", "a": "had she entered", "trans": "Cô ấy vừa bước vào phòng thì mọi người đứng dậy." }
+    ]
+  }
+}

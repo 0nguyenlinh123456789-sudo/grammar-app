@@ -44,27 +44,33 @@ test('bộ lọc KHÔNG đụng B1 và B2 — hai bộ này đo được 0% hỏ
   }
 });
 
-test('câu sửa lỗi THẬT trong nhánh C1 vẫn được giữ lại', () => {
+// ⚠️ 31/08: 168 câu hỏng của nhánh C1 ĐÃ ĐƯỢC THAY bằng nội dung soạn tay
+// (scripts/data/c1_bai_tap*.json). Nên các con số dưới đây đổi từ "52 sống sót /
+// 73 bị ẩn" thành "125 sống sót / 0 bị ẩn". Đây KHÔNG phải nới lỏng phép đo cho
+// xanh: phép đo mới nghiêm hơn hẳn — tests/bai_tap_lam_duoc.test.js bắt đỏ ngay
+// khi có MỘT câu không làm được ở BẤT KỲ bậc nào, còn bộ này trước chỉ ghim đúng
+// một con số hỏng đã biết.
+test('câu sửa lỗi trong nhánh C1 vẫn được giữ lại đủ', () => {
   const c1 = BO.find(([t]) => t === 'C1+')[1];
   const con = c1.flatMap((t) => (locBaiHong(t).errorCorrection || []));
-  assert.equal(con.length, 52, `còn ${con.length} câu sửa lỗi làm được (đo được 52 lúc làm việc 5.2)`);
+  assert.equal(con.length, 125, `còn ${con.length} câu sửa lỗi làm được (sau khi vá phải đủ 125, bằng B2)`);
   // Một câu cụ thể ĐÃ ĐỌC, phải còn: có lỗi thật, sửa thật.
   const mau = con.find((e) => e.errorWord === 'do' && e.correction === 'did');
   assert.ok(mau, 'mất câu "Not until he left do I realize the truth." → did');
 });
 
-test('số câu bị ẩn đúng bằng số đo được, không phải con số hứa suông', () => {
+test('sau khi vá dữ liệu, KHÔNG còn câu nào bị ẩn ở nhánh C1', () => {
   const c1 = BO.find(([t]) => t === 'C1+')[1];
   const r = doBo(c1);
   assert.deepEqual(
     { suaLoi: r.suaLoiHong, vietLai: r.vietLaiHong, dienVao: r.dienVaoHong },
-    { suaLoi: 73, vietLai: 75, dienVao: 20 }
+    { suaLoi: 0, vietLai: 0, dienVao: 0 }
   );
   const tong = c1.reduce((s, t) => {
     const d = demBiAn(t);
     return { suaLoi: s.suaLoi + d.suaLoi, vietLai: s.vietLai + d.vietLai, dienVao: s.dienVao + d.dienVao };
   }, { suaLoi: 0, vietLai: 0, dienVao: 0 });
-  assert.deepEqual(tong, { suaLoi: 73, vietLai: 75, dienVao: 20 }, 'demBiAn() lệch với bộ đo');
+  assert.deepEqual(tong, { suaLoi: 0, vietLai: 0, dienVao: 0 }, 'demBiAn() lệch với bộ đo');
 });
 
 // Bộ lọc chỉ có tác dụng nếu màn hình THẬT SỰ đi qua nó. Chặn kiểu hồi quy đã

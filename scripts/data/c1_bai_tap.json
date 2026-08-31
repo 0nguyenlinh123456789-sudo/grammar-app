@@ -1,0 +1,66 @@
+{
+  "_doc": "Bài tập C1+ soạn tay, thay cho câu giữ chỗ do máy sinh. Khuôn theo grammarDataB2.js: transformation {original, instruction, keyword, a} · errorCorrection {sentence, errorWord, correction, explanation, trans} · fillBlanks {q, a, trans}. Đề bài 'instruction' phải nói RÕ đổi sang cấu trúc nào — không dùng 'Viết lại câu giữ nguyên nghĩa.'",
+
+  "c1c2_1": {
+    "transformation": [
+      { "original": "I last saw her in 2019.", "instruction": "Đổi sang hiện tại hoàn thành với 'since'.", "keyword": "haven't seen", "a": "I haven't seen her since 2019." },
+      { "original": "She began working here eight years ago.", "instruction": "Đổi sang hiện tại hoàn thành tiếp diễn với 'for'.", "keyword": "has been working", "a": "She has been working here for eight years." },
+      { "original": "He finished the report, then he went home.", "instruction": "Đổi mệnh đề đầu sang quá khứ hoàn thành với 'After'.", "keyword": "had finished", "a": "After he had finished the report, he went home." }
+    ],
+    "errorCorrection": [
+      { "sentence": "I am knowing the answer to that question.", "errorWord": "am knowing", "correction": "know", "explanation": "'Know' là động từ trạng thái, không dùng ở thì tiếp diễn.", "trans": "Tôi biết câu trả lời cho câu hỏi đó." },
+      { "sentence": "She has finished her degree in 2020.", "errorWord": "has finished", "correction": "finished", "explanation": "Có mốc thời gian đã đóng ('in 2020') thì dùng quá khứ đơn, không dùng hiện tại hoàn thành.", "trans": "Cô ấy tốt nghiệp năm 2020." }
+    ]
+  },
+
+  "c1c2_2": {
+    "transformation": [
+      { "original": "The train leaves at six tomorrow morning.", "instruction": "Đổi sang tương lai tiếp diễn.", "keyword": "will be leaving", "a": "The train will be leaving at six tomorrow morning." },
+      { "original": "She will finish the project before Friday.", "instruction": "Đổi sang tương lai hoàn thành với 'by Friday'.", "keyword": "will have finished", "a": "She will have finished the project by Friday." },
+      { "original": "In June he reaches ten years at this company.", "instruction": "Đổi sang tương lai hoàn thành tiếp diễn.", "keyword": "will have been working", "a": "By June he will have been working at this company for ten years." }
+    ],
+    "errorCorrection": [
+      { "sentence": "I will call you as soon as I will arrive.", "errorWord": "will arrive", "correction": "arrive", "explanation": "Sau 'as soon as' dùng thì hiện tại để chỉ tương lai, không dùng 'will'.", "trans": "Tôi sẽ gọi cho bạn ngay khi tôi đến." },
+      { "sentence": "Look at those clouds — it will rain.", "errorWord": "will rain", "correction": "is going to rain", "explanation": "Có dấu hiệu nhìn thấy được ở hiện tại thì dùng 'be going to', không dùng 'will'.", "trans": "Nhìn mây kìa — trời sắp mưa." },
+      { "sentence": "This time tomorrow I will fly to Tokyo.", "errorWord": "will fly", "correction": "will be flying", "explanation": "'This time tomorrow' chỉ một việc đang diễn ra tại một thời điểm tương lai — dùng tương lai tiếp diễn.", "trans": "Giờ này ngày mai tôi đang bay tới Tokyo." }
+    ]
+  },
+
+  "c1c2_3": {
+    "transformation": [
+      { "original": "I had never seen such a mess before.", "instruction": "Đảo ngữ, bắt đầu bằng 'Never'.", "keyword": "Never had", "a": "Never had I seen such a mess before." },
+      { "original": "He had hardly sat down when the phone rang.", "instruction": "Đảo ngữ, bắt đầu bằng 'Hardly'.", "keyword": "Hardly had", "a": "Hardly had he sat down when the phone rang." },
+      { "original": "If I had known, I would have told you.", "instruction": "Đảo ngữ câu điều kiện loại 3, bỏ 'if'.", "keyword": "Had I known", "a": "Had I known, I would have told you." }
+    ],
+    "errorCorrection": [
+      { "sentence": "No sooner he had arrived than the meeting began.", "errorWord": "he had", "correction": "had he", "explanation": "Sau 'No sooner' phải đảo trợ động từ lên trước chủ ngữ.", "trans": "Anh ấy vừa đến thì cuộc họp bắt đầu." },
+      { "sentence": "Under no circumstances you should open this door.", "errorWord": "you should", "correction": "should you", "explanation": "Cụm phủ định đứng đầu câu bắt buộc đảo ngữ.", "trans": "Không được mở cửa này trong bất kỳ trường hợp nào." },
+      { "sentence": "Only after the storm passed we could leave.", "errorWord": "we could", "correction": "could we", "explanation": "'Only + trạng ngữ' đứng đầu câu thì mệnh đề chính phải đảo ngữ.", "trans": "Chỉ sau khi bão tan chúng tôi mới đi được." }
+    ]
+  },
+
+  "c1c2_4": {
+    "transformation": [
+      { "original": "I'm sure she forgot the appointment.", "instruction": "Dùng modal chỉ suy đoán chắc chắn về quá khứ.", "keyword": "must have forgotten", "a": "She must have forgotten the appointment." },
+      { "original": "It was a mistake that you didn't tell her.", "instruction": "Dùng modal chỉ sự trách móc về quá khứ.", "keyword": "should have told", "a": "You should have told her." },
+      { "original": "It was not necessary for him to pay, but he did.", "instruction": "Dùng modal chỉ việc đã làm nhưng không cần thiết.", "keyword": "needn't have paid", "a": "He needn't have paid." }
+    ],
+    "errorCorrection": [
+      { "sentence": "You must to submit the form before Friday.", "errorWord": "must to", "correction": "must", "explanation": "Sau động từ khuyết thiếu là động từ nguyên thể không 'to'.", "trans": "Bạn phải nộp đơn trước thứ Sáu." },
+      { "sentence": "He can't have been at home, I saw him at the office.", "errorWord": "can't have been", "correction": "couldn't have been", "explanation": "Với bằng chứng trực tiếp trong quá khứ, 'couldn't have + V3' tự nhiên hơn.", "trans": "Anh ấy không thể ở nhà được, tôi thấy anh ấy ở văn phòng." },
+      { "sentence": "She didn't need to have brought her passport, but she did.", "errorWord": "didn't need to have brought", "correction": "needn't have brought", "explanation": "Việc ĐÃ làm nhưng không cần thì dùng 'needn't have + V3'.", "trans": "Cô ấy không cần mang hộ chiếu, nhưng vẫn mang." }
+    ]
+  },
+
+  "c1c2_5": {
+    "transformation": [
+      { "original": "I regret not studying harder at school.", "instruction": "Dùng 'wish' với quá khứ hoàn thành.", "keyword": "wish I had studied", "a": "I wish I had studied harder at school." },
+      { "original": "The manager insisted on him leaving immediately.", "instruction": "Đổi sang thức giả định với 'that'.", "keyword": "insisted that he leave", "a": "The manager insisted that he leave immediately." },
+      { "original": "I would rather you didn't smoke in here.", "instruction": "Đổi sang 'It's time' với quá khứ giả định.", "keyword": "It's time you stopped", "a": "It's time you stopped smoking in here." }
+    ],
+    "errorCorrection": [
+      { "sentence": "I wish I can speak French fluently.", "errorWord": "can", "correction": "could", "explanation": "Sau 'wish' nói về hiện tại không có thật thì lùi thì: 'could', không dùng 'can'.", "trans": "Ước gì tôi nói được tiếng Pháp trôi chảy." },
+      { "sentence": "It's high time we leave for the airport.", "errorWord": "leave", "correction": "left", "explanation": "'It's high time' đi với quá khứ giả định.", "trans": "Đã đến lúc chúng ta phải đi ra sân bay." }
+    ]
+  }
+}

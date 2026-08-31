@@ -1,22 +1,32 @@
 // File: src/utils/grammarClean.js
 // ẨN BÀI TẬP NGỮ PHÁP KHÔNG LÀM ĐƯỢC (phát hiện khi làm việc 5.2).
 //
-// ══ ĐO ĐƯỢC ══ (node scripts/audit_grammar_exercises.mjs)
+// ══ ĐÃ VÁ 31/08 — HÀM NÀY NAY LÀ CHỐT DỰ PHÒNG, KHÔNG CÒN LỌC GÌ ══
+// Số đo lúc phát hiện (việc 5.2) và số đo sau khi vá:
+//
 //   bộ bài      | sửa lỗi "lỗi"≡"sửa" | viết lại đáp án ≡ đề | câu giữ chỗ
 //   B1 (28 bài) |        0/165        |        0/119         |     0
 //   B2 (25 bài) |        0/125        |        0/75          |     0
-//   C1+(25 bài) |     **73/125**      |     **75/75**        |  **60**
+//   C1+ TRƯỚC   |       73/125        |       75/75          |    60
+//   C1+ SAU     |        0/125        |        0/75          |     0
 //
-// Hỏng NẰM GỌN trong nhánh C1. Không người học nào trên đường B2 — tức là đích
-// cam kết của sản phẩm — chạm phải.
+// Hỏng nằm gọn trong nhánh C1 — không người học nào trên đường B2, tức đích cam
+// kết của sản phẩm, chạm phải. Nhưng nó làm bậc C1+ mỏng đi một cách lặng lẽ:
+// lọc xong thì cả 25/25 bài MẤT HẲN tab "Viết Lại", và bài sửa lỗi chỉ còn 42%.
+// 168 câu thay thế đã được SOẠN TAY (scripts/data/c1_bai_tap*.json, áp bằng
+// scripts/va_c1_bai_tap.mjs), nên nay C1+ đủ 125/75/150 như B1 và B2.
 //
-// Hỏng thế nào:
+// Hỏng thế nào (giữ lại để nhận mặt nếu đợt sinh nội dung sau tái phạm):
 //   • Viết lại  : `original` và `a` GIỐNG HỆT nhau từng ký tự. Đề bảo "viết lại
-//                 câu giữ nguyên nghĩa", đáp án là chính câu đó. 75/75 câu.
+//                 câu giữ nguyên nghĩa", đáp án là chính câu đó.
 //   • Sửa lỗi   : `errorWord` và `correction` GIỐNG HỆT nhau — không có lỗi nào
 //                 để sửa. Lời giải thích thì rỗng: "Trong ngữ cảnh này phải
-//                 dùng 'should'." 73/125 câu.
+//                 dùng 'should'."
 //   • Câu giữ chỗ: "This is a C1/C2 level practice sentence." lọt ra bản chạy.
+//
+// GIỮ HÀM NÀY dù nay nó không lọc gì: nó là lưới an toàn nếu dữ liệu lại hỏng.
+// Thứ CANH cho việc đó không tái diễn là tests/bai_tap_lam_duoc.test.js — chạy
+// trong `npm test`, đỏ ngay khi có câu không làm được ở bất kỳ bậc nào.
 //
 // ══ ẨN, KHÔNG XOÁ ══
 // Luật của dự án: "Thiếu dữ liệu thì ẨN hoặc BÁO, tuyệt đối không thay thế âm
