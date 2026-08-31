@@ -4,10 +4,14 @@ import { requestAi } from '../utils/aiClient';
 import { hasGeminiKey, openAiKeySettings, subscribeGeminiKey } from '../utils/aiKey';
 import { parseImageVocabulary } from '../utils/imageVocabulary';
 import { addWord, hasWord } from '../utils/srs';
+import { chuDungLuong, nenAnh } from '../utils/nenAnh';
 
 const KEY_ERROR_CODES = new Set(['missing-key', 'invalid-key']);
 
-const SUPPORTED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif']);
+// ⚠️ KHÔNG dựng lại danh sách MIME ở đây. Bản cũ chặn theo `file.type` nên ảnh
+// HEIC của iPhone bị loại trước khi thử giải mã, và ảnh > 4 MB bị TỪ CHỐI thay
+// vì được nén — tức là ảnh chụp bằng điện thoại gần như luôn hỏng. Cách quyết
+// định đúng là "trình duyệt có giải mã nổi không", xem src/utils/nenAnh.js.
 
 const ImageScanner = () => {
   // State quản lý Ảnh và Kết quả
@@ -18,42 +22,34 @@ const ImageScanner = () => {
   const [errorCode, setErrorCode] = useState('');
   const [keyReady, setKeyReady] = useState(hasGeminiKey);
   const [savedToSrs, setSavedToSrs] = useState(false);
+  const [dangNen, setDangNen] = useState(false);
 
   useEffect(() => subscribeGeminiKey(() => setKeyReady(hasGeminiKey())), []);
 
-  // Xử lý tải ảnh lên
-  const handleImageUpload = (e) => {
+  // Xử lý tải ảnh lên: nén ngay tại đây, KHÔNG từ chối vì nặng.
+  const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     setError('');
     if (!file) return;
+    e.target.value = ''; // cho phép chọn lại đúng tệp đó sau khi lỗi
 
-    const maxImageBytes = 4 * 1024 * 1024;
-    if (!SUPPORTED_IMAGE_TYPES.has(file.type.toLowerCase())) {
-      setError('Chỉ hỗ trợ ảnh JPG, PNG, WebP hoặc GIF.');
-      e.target.value = '';
-      return;
+    setDangNen(true);
+    setImage(null);
+    setResult(null);
+    try {
+      // Thứ lưu vào state phải là ẢNH ĐÃ NÉN, không phải tệp gốc. Nếu để
+      // `analyzeImage` tự đọc lại `file` thì hoá ra nén cho phần xem trước còn
+      // vẫn gửi tệp gốc lên máy chủ — lỗi cũ y nguyên mà nhìn thì tưởng đã sửa.
+      const anh = await nenAnh(file);
+      setImage(anh);
+    } catch (err) {
+      setError(err?.message === 'van-qua-nang'
+        ? 'Ảnh này quá nặng ngay cả sau khi nén. Hãy thử chụp lại hoặc cắt bớt phần thừa.'
+        : 'Không đọc được tệp ảnh này. Hãy thử ảnh JPG, PNG hoặc WebP.');
+    } finally {
+      setDangNen(false);
     }
-    if (file.size > maxImageBytes) {
-      setError('Ảnh quá lớn. Vui lòng chọn ảnh nhỏ hơn 4 MB.');
-      e.target.value = '';
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setImage({ dataUrl: reader.result, file });
-      setResult(null); // Reset kết quả cũ nếu chọn ảnh mới
-    };
-    reader.onerror = () => setError('Không thể đọc tệp ảnh. Vui lòng thử lại.');
-    reader.readAsDataURL(file);
   };
-
-  const fileToBase64 = (file) => new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result.split(',')[1]);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-  });
 
   // 6. Gửi dữ liệu cho AI xử lý
   const analyzeImage = async () => {
@@ -63,10 +59,9 @@ const ImageScanner = () => {
     setErrorCode('');
 
     try {
-      const imageData = await fileToBase64(image.file);
       const { text } = await requestAi('image-vocabulary', {
-        imageData,
-        mimeType: image.file.type,
+        imageData: image.base64,
+        mimeType: image.mimeType,
       });
       
       const parsed = parseImageVocabulary(text);
@@ -108,14 +103,26 @@ const ImageScanner = () => {
 
       <div className="flex flex-col items-center gap-4">
           <label className="cursor-pointer bg-[#60a5fa] dark:bg-blue-600 border-[3px] border-black dark:border-slate-700 px-8 py-3 rounded-xl font-bold text-lg text-white hover:bg-[#3b82f6] dark:hover:bg-blue-500 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] active:shadow-none active:translate-y-1 active:translate-x-1 flex items-center gap-2">
-            <ImagePlus size={20} /> Chọn Ảnh Cần Quét
-            <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" className="hidden" onChange={handleImageUpload} />
+            {dangNen ? <><Loader2 size={20} className="animate-spin" /> Đang xử lý ảnh...</> : <><ImagePlus size={20} /> Chọn Ảnh Cần Quét</>}
+            {/* `accept="image/*"` chứ không phải danh sách MIME: máy ảnh của điện
+                thoại và ảnh HEIC của iPhone đều chỉ lọt qua cửa rộng này. */}
+            <input type="file" accept="image/*" className="hidden" disabled={dangNen} onChange={handleImageUpload} />
           </label>
+
+          <p className="text-xs text-slate-500 dark:text-slate-400 text-center max-w-sm">
+            Ảnh nặng bao nhiêu cũng được — app tự thu nhỏ trên máy bạn trước khi gửi đi.
+          </p>
 
           {image && (
             <div className="mt-4 border-[4px] border-black dark:border-slate-700 rounded-xl overflow-hidden max-w-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#020617] bg-gray-100 dark:bg-slate-800">
               <img src={image.dataUrl} alt="Preview" className="w-full h-auto object-contain max-h-[300px]" />
             </div>
+          )}
+
+          {image && image.byteTruoc > image.byteSau && (
+            <p className="text-xs font-bold text-green-700 dark:text-green-400">
+              Đã nén {chuDungLuong(image.byteTruoc)} → {chuDungLuong(image.byteSau)} ({image.rong}×{image.cao})
+            </p>
           )}
 
           {image && (
