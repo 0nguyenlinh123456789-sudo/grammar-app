@@ -335,7 +335,14 @@ test('mọi bài ngữ pháp đều đưa được câu ví dụ vào cả hai m
   // Nên phải soi ĐÚNG chỗ gán, và soi cả cái khuôn cũ đã gây lỗi.
   for (const f of ['src/components/grammar/AiAssistant.jsx', 'src/components/grammar/SentenceBuilder.jsx']) {
     const src = fs.readFileSync(f, 'utf8');
-    assert.ok(/=\s*chuanHoaCauMau\(/.test(src),
+    // Bỏ dòng `import` TRƯỚC khi tìm chỗ gọi — đó là cả lý do phép kiểm này tồn
+    // tại. Bản trước dò `=\s*chuanHoaCauMau\(`, tức là ghim luôn CÁCH VIẾT chứ
+    // không phải việc có gọi hay không: khi `SentenceBuilder` phải bọc lời gọi
+    // trong `useMemo` để vá lỗi vòng lặp vẽ (xem chú thích trong file đó), chuỗi
+    // thành `=> chuanHoaCauMau(` và phép kiểm đỏ dù component vẫn gọi đúng hàm.
+    // Một phép kiểm bắt lỗi ở BẢN VÁ ĐÚNG là phép kiểm đặt sai câu hỏi.
+    const thanFile = src.split('\n').filter((d) => !/^\s*import\b/.test(d)).join('\n');
+    assert.ok(/chuanHoaCauMau\(/.test(thanFile),
       `${f} tự đoán khuôn câu ví dụ thay vì gọi phép chuẩn hoá chung`);
     assert.ok(!/filter\(\s*\(?\s*s\s*\)?\s*=>[^)]*s\.text/.test(src),
       `${f} lọc thẳng theo \`s.text\` — đúng dòng đã làm ba bài khuôn { en, vi } biến mất`);
