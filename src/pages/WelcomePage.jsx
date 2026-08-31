@@ -566,8 +566,18 @@ const WelcomePage = ({
             onClick={() => launchMilestone(nextMilestone)}
             className="mt-6 w-full py-4 px-5 bg-yellow-300 dark:bg-yellow-450 text-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl font-black text-base md:text-lg shadow-[5px_5px_0_0_#1e293b] dark:shadow-[5px_5px_0_0_#020617] hover:bg-yellow-400 hover:translate-y-0.5 hover:shadow-[3px_3px_0_0_#1e293b] transition-all cursor-pointer flex items-center justify-center gap-2.5"
           >
+            {/* ⚠️ MỘT DÒNG + `truncate` LÀ CHE MẤT ĐÚNG THỨ ĐÁNG ĐỌC NHẤT.
+                Đo trên máy ảo 360×640: dòng này cần 511px mà chỗ trống chỉ có
+                162px — **68% bị cắt**, và phần bị cắt luôn là TÊN CHẶNG, tức là
+                thứ duy nhất trả lời "bấm vào đây thì học gì". Nhãn cố định
+                "HỌC 15 PHÚT HÔM NAY" thì luôn hiện đủ vì nó đứng trước.
+                Nay tách hai dòng: nhãn nhỏ ở trên, TÊN CHẶNG ở dưới và ĐƯỢC
+                XUỐNG DÒNG (không truncate, không line-clamp). */}
             <Zap size={22} className="fill-slate-900 shrink-0" />
-            <span className="truncate">HỌC 15 PHÚT HÔM NAY — {nextMilestone.title}</span>
+            <span className="min-w-0 flex-1 text-left">
+              <span className="block text-[11px] md:text-xs font-black tracking-wider opacity-75">HỌC 15 PHÚT HÔM NAY</span>
+              <span className="block text-sm md:text-lg leading-snug">{nextMilestone.title}</span>
+            </span>
             <ArrowRight size={20} className="shrink-0" />
           </button>
         )}

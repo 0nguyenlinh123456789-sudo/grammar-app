@@ -27,7 +27,8 @@
     "kiem:voa": "node scripts/check_voa_links.mjs",
     "ra:tudongcapma": "node scripts/ra_tu_dong_cap_ma.mjs",
     "ra:xepcau": "node scripts/ra_xep_cau.mjs",
-    "ra:testdauvao": "node scripts/ra_test_dau_vao.mjs"
+    "ra:testdauvao": "node scripts/ra_test_dau_vao.mjs",
+    "ra:dienthoai": "node scripts/ra_dien_thoai.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",

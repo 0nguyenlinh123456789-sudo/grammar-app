@@ -122,7 +122,15 @@ const MainLayout = ({
       )}
 
       {/* --- SIDEBAR (drawer on mobile/tablet, docked from lg up) --- */}
-      <aside id="main-navigation" aria-label="Điều hướng chính" className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:sticky top-0 left-0 h-screen w-72 sm:w-80 lg:w-80 xl:w-96 bg-[#fdfbf7] dark:bg-slate-900 border-r-[4px] border-slate-800 dark:border-slate-700 z-40 transition-transform flex flex-col shadow-[4px_0_0_0_#1e293b] dark:shadow-[4px_0_0_0_#090d16]`}>
+      {/* ⚠️ `h-screen` là `100vh`, và trên trình duyệt điện thoại `100vh` là
+          chiều cao KHI ĐÃ ẨN thanh địa chỉ — tức lớn hơn phần thật sự nhìn
+          thấy khoảng 56px trên Android Chrome. Ngăn kéo vì thế bị thanh địa
+          chỉ che mất phần đáy, mà phần đáy là chỗ đặt "KHÓA AI (API KEY)" và
+          "Điều khoản · Bảo mật · Hoàn tiền". Đo trên máy ảo 360×640: mục cuối
+          chỉ còn thừa 11px — chưa tính thanh địa chỉ. `100dvh` là chiều cao
+          THẬT SỰ ĐANG THẤY. Giữ `h-screen` làm nền cho trình duyệt cũ, và chỉ
+          đè bằng dvh khi trình duyệt có hỗ trợ. */}
+      <aside id="main-navigation" aria-label="Điều hướng chính" className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:sticky top-0 left-0 h-screen supports-[height:100dvh]:h-[100dvh] w-72 sm:w-80 lg:w-80 xl:w-96 bg-[#fdfbf7] dark:bg-slate-900 border-r-[4px] border-slate-800 dark:border-slate-700 z-40 transition-transform flex flex-col shadow-[4px_0_0_0_#1e293b] dark:shadow-[4px_0_0_0_#090d16]`}>
          
          {/* Brand header: desktop only — on phone/tablet the top bar already
              carries the bunny + name, a second one in the drawer is redundant */}
@@ -137,7 +145,14 @@ const MainLayout = ({
          
 
          {/* --- NAVIGATION TOGGLES --- */}
-          <div className="flex flex-col gap-2 p-4 border-b-[4px] border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0">
+          {/* `shrink-0` + KHÔNG cuộn được = mục nào tràn khỏi màn hình là mất
+              hẳn, không có cách nào với tới. Đo được: khối này cao 629px và
+              KHÔNG đổi theo bề rộng máy; trên màn 640px nó chỉ thừa 11px, và
+              chỉ cần thêm MỘT mục (bản localhost có thêm dòng IELTS: 693px) là
+              hai mục cuối rơi xuống dưới đáy với `overflow` của cha bằng null —
+              không cuộn tới được. Nay: cho phép co lại VÀ tự cuộn, nên màn hình
+              thấp bao nhiêu cũng vẫn với tới được mọi mục. */}
+          <div className="flex flex-col gap-2 p-4 border-b-[4px] border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 min-h-0 overflow-y-auto">
             <button onClick={() => setIsGlobalSearchOpen((value) => !value)} aria-expanded={isGlobalSearchOpen} className="p-3 font-black border-3 border-blue-500 rounded-xl bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 flex items-center justify-center gap-2 cursor-pointer"><Search size={19} /> TÌM TRONG KHÓA HỌC</button>
             {isGlobalSearchOpen && <div className="relative">
               <Search size={17} className="absolute left-3 top-3.5 text-slate-400" />
@@ -300,7 +315,13 @@ const MainLayout = ({
                     }} 
                     className={`w-full text-left font-bold p-4 border-[4px] border-slate-800 dark:border-slate-700 rounded-2xl truncate text-lg transition-all mb-2 cursor-pointer ${topicId === t.id ? 'bg-yellow-200 dark:bg-yellow-450 dark:text-slate-950 translate-x-2 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617]' : 'bg-white dark:bg-slate-850 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750 shadow-[2px_2px_0_0_#1e293b] dark:shadow-[2px_2px_0_0_#020617]'}`}
                   >
-                    <span className="text-sm">{t.title}</span>
+                    {/* `truncate` nằm ở NÚT (cha) nên nó chỉ đặt `overflow:hidden`
+                        cho cha; chữ lại nằm trong span con, mà span con không có
+                        `text-overflow` nên bị CẮT GIỮA TỪ, không có dấu "…". Đo
+                        được 15/28 mục bị cắt ở ngăn kéo rộng 288px, nặng nhất là
+                        "2. Hiện Tại Tiếp Diễn (Present Continuous)" thiếu 65px.
+                        Đặt `truncate` lên đúng phần tử mang chữ thì mới có "…". */}
+                    <span className="block truncate text-sm">{t.title}</span>
                   </button>
                 ))}
               </>
@@ -451,7 +472,7 @@ const MainLayout = ({
                         aria-disabled="true"
                         className="w-full text-left font-bold p-4 border-[4px] border-dashed border-slate-300 dark:border-slate-700 rounded-2xl truncate text-lg flex flex-col gap-1 bg-slate-50 dark:bg-slate-900 opacity-70 cursor-not-allowed"
                       >
-                        <span className="text-sm md:text-base leading-tight font-black text-slate-400 dark:text-slate-500">{unit.title}</span>
+                        <span className="block truncate text-sm md:text-base leading-tight font-black text-slate-400 dark:text-slate-500">{unit.title}</span>
                         <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">🚧 Đang cập nhật nội dung</span>
                       </div>
                     ) : (
@@ -467,7 +488,7 @@ const MainLayout = ({
                           : 'bg-white dark:bg-slate-850 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-750 shadow-[2px_2px_0px_0px_#1e293b] dark:shadow-[2px_2px_0px_0px_#020617]'
                       }`}
                     >
-                      <span className="text-sm md:text-base leading-tight font-black">{unit.title}</span>
+                      <span className="block truncate text-sm md:text-base leading-tight font-black">{unit.title}</span>
                       <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                         {unit.theory ? `${Array.isArray(unit.theory) ? unit.theory.length : Object.keys(unit.theory).length} phần lý thuyết` : ''}
                       </span>
@@ -500,7 +521,14 @@ const MainLayout = ({
         }}
         onMenu={() => setMenuOpen(true)}
       />
-      <BunnyChat />
+      {/* Nút thỏ nổi ở `z-[110]`, ngăn kéo ở `z-40` — nên khi ngăn kéo MỞ trên
+          màn hẹp, nút thỏ nằm đè lên mục "KHÓA AI (API KEY)" (đo được ở
+          360×640: `elementFromPoint` giữa nút trả về chính nút thỏ). Ẩn nút khi
+          ngăn kéo đang mở thay vì nâng z-index của ngăn kéo: ngăn kéo không
+          phải lớp phủ toàn màn, nâng nó lên ≥120 là phá luật xếp lớp mà dự án
+          đã ghim bằng `tests/overlay_zindex.test.js`. Từ `lg` trở lên thanh bên
+          luôn hiện và không có `menuOpen`, nên máy tính bàn không đổi gì. */}
+      <div className={menuOpen ? 'hidden lg:block' : ''}><BunnyChat /></div>
 
       {/* --- BRING-YOUR-OWN GEMINI KEY --- */}
       {isAiKeyOpen && <AiKeyDialog onClose={() => setIsAiKeyOpen(false)} />}
