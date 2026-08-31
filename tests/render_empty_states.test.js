@@ -103,3 +103,21 @@ test('KhongCoCau: nói đúng tên dạng bài đang thiếu', async () => {
   assert.match(html, /lý thuyết vẫn học được/, 'không chỉ ra việc người học vẫn làm được');
   assert.ok(!/[Đđ]ang tải/.test(html), 'còn sót lời "đang tải"');
 });
+
+// Chốt cả HỌ lỗi thay vì từng tab một. Tab "Trắc Nghiệm" từng chết trên toàn app
+// chỉ vì định nghĩa của nó thiếu khoá `data` — `availableTabs` lọc theo
+// `Array.isArray(t.data) && t.data.length > 0`, nên thiếu khoá là tab biến mất
+// vĩnh viễn, không lỗi, không cảnh báo. Sáu tab còn lại cùng một dòng cấu trúc:
+// bài kiểm này hỏi CẢ BẢY cùng lúc, trên một bài CÓ ĐỦ bảy loại dữ liệu.
+test('GrammarPage: bài có ĐỦ 7 dạng bài thì phải hiện ĐỦ 7 tab', async () => {
+  const { default: GrammarPage } = await napComponent('src/pages/GrammarPage.jsx');
+  const { grammarDataB1 } = await import(goc('src/data/grammarDataB1.js'));
+  const KHOA = ['sentenceGame', 'exercises', 'fillBlanks', 'errorCorrection', 'transformation', 'matching', 'trueFalse'];
+  const NHAN = ['Xếp Câu', 'Trắc Nghiệm', 'Điền Từ', 'Sửa Lỗi', 'Viết Lại', 'Nối Câu', 'Đúng/Sai'];
+  const bai = grammarDataB1.find((t) => KHOA.every((k) => (t[k] || []).length > 0));
+  assert.ok(bai, 'không tìm được bài nào có đủ 7 dạng bài để kiểm');
+  const html = veRa(h(GrammarPage, { topic: bai, setXp() {}, completeMilestone() {} }));
+  for (const nhan of NHAN) {
+    assert.ok(html.includes(nhan), `bài "${bai.id}" có đủ dữ liệu mà tab "${nhan}" không hiện`);
+  }
+});
