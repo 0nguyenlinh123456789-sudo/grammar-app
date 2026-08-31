@@ -71,6 +71,21 @@ test('GrammarPage: bài CÓ đủ dạng bài thì các tab đó phải hiện',
   assert.match(html, /Trắc Nghiệm/, `bài "${bai.id}" CÓ exercises mà tab "Trắc Nghiệm" bị ẩn`);
 });
 
+// Bậc C1+ từng MẤT HẲN tab "Viết Lại" ở cả 25/25 bài: máy sinh nội dung để đáp
+// án trùng câu đề, `locBaiHong()` lọc sạch, mảng rỗng nên `availableTabs` giấu
+// tab — không lỗi, không cảnh báo, chỉ là bậc cao nhất thiếu một loại bài tập.
+// Dữ liệu đã được soạn tay bù lại 31/08; đây là phép ghim ở MÀN HÌNH, bổ sung
+// cho tests/bai_tap_lam_duoc.test.js vốn chỉ ghim ở tầng dữ liệu.
+test('GrammarPage: bài C1+ phải hiện tab "Viết Lại" — từng mất ở cả 25 bài', async () => {
+  const { default: GrammarPage } = await napComponent('src/pages/GrammarPage.jsx');
+  const { grammarDataC1C2 } = await import(goc('src/data/grammarDataC1C2.js'));
+  for (const bai of grammarDataC1C2) {
+    const html = veRa(h(GrammarPage, { topic: bai, setXp() {}, completeMilestone() {} }));
+    assert.match(html, /Viết Lại/, `bài C1 "${bai.id}" không hiện tab "Viết Lại"`);
+    assert.match(html, /Sửa Lỗi/, `bài C1 "${bai.id}" không hiện tab "Sửa Lỗi"`);
+  }
+});
+
 test('VocabVstepPage: không tìm thấy chủ đề thì nói KHÔNG TÌM THẤY, không nói "đang tải"', async () => {
   const { default: VocabVstepPage } = await napComponent('src/pages/VocabVstepPage.jsx');
   const html = veRa(h(VocabVstepPage, {
