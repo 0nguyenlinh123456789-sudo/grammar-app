@@ -79,6 +79,27 @@ test('bản thu quá dài bị chặn Ở MÁY CHỦ, không chỉ ở giao di�
   assert.match(loi, /2 phút|quá dài/i, 'lời báo phải nói người học cần làm gì, không chỉ "lỗi"');
 });
 
+// HAI TRẦN, HAI TẦNG — VÀ THỨ TỰ GIỮA CHÚNG MỚI LÀ ĐIỀU QUAN TRỌNG.
+// `buildRequest` chặn theo dung lượng ÂM THANH (3 MB) và trả lời bằng tiếng
+// Việt nói rõ phải làm gì. `src/server/routes/ai.js` chặn theo `content-length`
+// (TRAN_BYTE 6 MB) và chỉ trả 413 "Dữ liệu gửi lên quá lớn". Nếu base64 của
+// trần âm thanh mà VƯỢT TRAN_BYTE thì người học thu đủ hai phút sẽ đụng cái
+// trần thứ hai trước — nhận một câu báo cụt lủn thay vì lời hướng dẫn.
+test('trần âm thanh phải nằm GỌN trong trần thân yêu cầu của tuyến /api/ai', () => {
+  const nguon = doc('functions/api/ai.js');
+  const route = doc('src/server/routes/ai.js');
+  const mAudio = nguon.match(/MAX_AUDIO_BYTES\s*=\s*(\d+)\s*\*\s*1024\s*\*\s*1024/);
+  const mTran = route.match(/TRAN_BYTE\s*=\s*(\d+)\s*\*\s*1024\s*\*\s*1024/);
+  assert.ok(mAudio && mTran, 'không đọc được hai trần từ mã nguồn');
+  const audio = Number(mAudio[1]) * 1024 * 1024;
+  const tran = Number(mTran[1]) * 1024 * 1024;
+  const base64 = 4 * Math.ceil(audio / 3);
+  assert.ok(base64 < tran,
+    `base64 của ${audio / 1048576} MB âm thanh là ${(base64 / 1048576).toFixed(2)} MB, vượt TRAN_BYTE ${tran / 1048576} MB — người học sẽ nhận 413 cụt thay vì lời báo "bản thu quá dài"`);
+  // Và phải còn chỗ cho vỏ JSON (mode, mimeType, target, topicTitle).
+  assert.ok(tran - base64 >= 1024 * 1024, 'chưa chừa nổi 1 MB cho phần còn lại của thân yêu cầu');
+});
+
 test('mọi định dạng trình duyệt thật sự tạo ra đều được nhận', () => {
   for (const mime of ['audio/webm', 'audio/webm;codecs=opus', 'audio/ogg', 'audio/mp4', 'audio/mpeg', 'audio/wav']) {
     assert.doesNotThrow(() => buildRequest('pronunciation', { audioData: amThanhGia(256), mimeType: mime }), `${mime} bị chặn oan`);
