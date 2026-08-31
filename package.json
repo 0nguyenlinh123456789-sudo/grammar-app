@@ -25,7 +25,8 @@
     "bay:cauhoi": "node scripts/bay_cau_hoi.mjs",
     "khach:het": "node scripts/khach_dung_het.mjs",
     "kiem:voa": "node scripts/check_voa_links.mjs",
-    "ra:tudongcapma": "node scripts/ra_tu_dong_cap_ma.mjs"
+    "ra:tudongcapma": "node scripts/ra_tu_dong_cap_ma.mjs",
+    "ra:xepcau": "node scripts/ra_xep_cau.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",

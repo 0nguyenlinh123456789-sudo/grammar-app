@@ -1,5 +1,5 @@
 // File: src/components/grammar/AiAssistant.jsx
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Edit3, Mic, Volume2, Shuffle } from 'lucide-react';
 import AiKeyBanner from '../common/AiKeyBanner';
 import Btn3D from '../common/Btn3D';
@@ -9,7 +9,10 @@ import { chuanHoaCauMau } from '../../utils/cauMau';
 const AiAssistant = ({ topic, sentences }) => {
   // Trước đây dòng này tự lọc theo trường `text`, nên ba bài dùng khuôn
   // { en, vi } rơi hết và mục đọc câu mẫu tắt lặng lẽ. Xem `utils/cauMau.js`.
-  const safeSentences = chuanHoaCauMau(sentences);
+  // Neo lại vì `chuanHoaCauMau` dựng object mới mỗi lần gọi — ở đây chưa nổ (màn
+  // này không có effect nào phụ thuộc vào nó) nhưng cùng một mầm đã giết tab
+  // "Xếp Câu"; xem chú thích trong SentenceBuilder.jsx.
+  const safeSentences = useMemo(() => chuanHoaCauMau(sentences), [sentences]);
   const [userText, setUserText] = useState("");
   const [feedback, setFeedback] = useState("");
   const [offlineResult, setOfflineResult] = useState(null);

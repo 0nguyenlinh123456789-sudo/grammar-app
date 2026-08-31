@@ -1,5 +1,5 @@
 // File: src/components/grammar/SentenceBuilder.jsx
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { Target, ChevronRight } from 'lucide-react';
 import Btn3D from '../common/Btn3D';
 import MasteryVerdict from '../common/MasteryVerdict';
@@ -22,7 +22,20 @@ const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplet
 
   // Kho có hai khuôn câu ví dụ; phép chuẩn hoá nằm ở `utils/cauMau.js` để màn
   // hình này và `AiAssistant` đọc CÙNG một cách (xem ghi chú trong file đó).
-  const sentences = chuanHoaCauMau(rawSentences);
+  //
+  // ⚠️ `useMemo` Ở ĐÂY KHÔNG PHẢI ĐỂ CHẠY NHANH HƠN — THIẾU NÓ LÀ TRÒ CHƠI CHẾT.
+  // `chuanHoaCauMau` dựng object MỚI cho mọi câu, nên gọi thẳng trong thân
+  // component thì mỗi lần vẽ lại `curr` là một tham chiếu mới → `useEffect` bên
+  // dưới (có `curr` trong mảng phụ thuộc) chạy lại → nó `setSel([])` và xáo lại
+  // `avail` → lần vẽ tiếp lại sinh `curr` mới → lặp vô tận. Người học bấm một
+  // chữ thì đúng cái effect đó xoá ngay chữ vừa bấm: ô thả VĨNH VIỄN TRỐNG, thẻ
+  // từ tự xáo lại, và KHÔNG một lỗi console nào — hỏng hoàn toàn im lặng ở cả 78
+  // bài. Đo được bằng `npm run ra:xepcau` (3/7 trước khi vá).
+  //
+  // Bản trước commit bdb161c không dính vì nó trả về CHÍNH object của props cho
+  // khuôn A. Gom phép chuẩn hoá về một chỗ là đúng; chỗ hỏng là quên rằng hàm
+  // thuần trả về object mới thì phải neo lại.
+  const sentences = useMemo(() => chuanHoaCauMau(rawSentences), [rawSentences]);
 
   const sentencesLen = sentences.length;
   const curr = sentencesLen > 0 ? sentences[qIdx] : null;
@@ -36,13 +49,16 @@ const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplet
     }
   }, [qIdx, onComplete, sentencesLen]);
 
+  // Neo theo NỘI DUNG CÂU, không theo tham chiếu object. `useMemo` ở trên đã đủ
+  // cho đường đi hiện tại; neo thêm theo giá trị để mai kia có ai truyền vào một
+  // mảng dựng mới mỗi lần vẽ thì trò chơi vẫn sống, thay vì chết im lặng lần nữa.
+  const cauHienTai = curr?.text || '';
   useEffect(() => {
-    if (curr && curr.text) { 
-      setAvail(curr.text.split(' ').sort(() => Math.random() - 0.5).map((w, i) => ({ id: i, w }))); 
-      setSel([]); 
-      setCorrect(null); 
-    }
-  }, [qIdx, curr]);
+    if (!cauHienTai) return;
+    setAvail(cauHienTai.split(' ').sort(() => Math.random() - 0.5).map((w, i) => ({ id: i, w })));
+    setSel([]);
+    setCorrect(null);
+  }, [qIdx, cauHienTai]);
 
   const toggle = (w, isSel) => {
     if (isSel) { 
