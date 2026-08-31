@@ -101,6 +101,8 @@ test('mọi nơi đọc errorCorrection/transformation/fillBlanks đều qua loc
     // cả câu hỏng — đi qua bộ lọc thì không còn gì để sửa. Không phải đường
     // render, không có màn hình nào đọc nó.
     'scripts/sua_c1_soan_sai.mjs',
+    // Cùng lý do: công cụ BÙ nội dung, phải đọc đúng thứ đang nằm trong file.
+    'scripts/bu_diem_b2_con_thieu.mjs',
   ];
   const thieu = [];
   const quet = (dir) => {
