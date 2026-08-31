@@ -1,163 +1,523 @@
 {
   "_doc": "Đợt 2 — bài 6 đến 15. Xem khuôn và nguyên tắc ở c1_bai_tap.json.",
-
   "c1c2_6": {
     "transformation": [
-      { "original": "I didn't take the job, so I'm not living in Hanoi now.", "instruction": "Đổi sang điều kiện hỗn hợp (quá khứ → hiện tại).", "keyword": "had taken", "a": "If I had taken the job, I would be living in Hanoi now." },
-      { "original": "She isn't careful, so she made that mistake yesterday.", "instruction": "Đổi sang điều kiện hỗn hợp (hiện tại → quá khứ).", "keyword": "were more careful", "a": "If she were more careful, she wouldn't have made that mistake yesterday." },
-      { "original": "Without your help, I would have failed.", "instruction": "Đổi sang câu điều kiện đầy đủ với 'if it hadn't been for'.", "keyword": "hadn't been for", "a": "If it hadn't been for your help, I would have failed." }
+      {
+        "original": "I didn't take the job, so I'm not living in Hanoi now.",
+        "instruction": "Đổi sang điều kiện hỗn hợp (quá khứ → hiện tại).",
+        "keyword": "had taken",
+        "a": "If I had taken the job, I would be living in Hanoi now."
+      },
+      {
+        "original": "She isn't careful, so she made that mistake yesterday.",
+        "instruction": "Đổi sang điều kiện hỗn hợp (hiện tại → quá khứ).",
+        "keyword": "were more careful",
+        "a": "If she were more careful, she wouldn't have made that mistake yesterday."
+      },
+      {
+        "original": "Without your help, I would have failed.",
+        "instruction": "Đổi sang câu điều kiện đầy đủ với 'if it hadn't been for'.",
+        "keyword": "hadn't been for",
+        "a": "If it hadn't been for your help, I would have failed."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "If I would have known, I would have come earlier.", "errorWord": "would have known", "correction": "had known", "explanation": "Mệnh đề 'if' không dùng 'would' — điều kiện loại 3 dùng quá khứ hoàn thành.", "trans": "Nếu tôi biết, tôi đã đến sớm hơn." },
-      { "sentence": "If she had studied medicine, she would have been a doctor now.", "errorWord": "would have been", "correction": "would be", "explanation": "Kết quả thuộc HIỆN TẠI ('now') nên vế chính dùng 'would + V', đây là điều kiện hỗn hợp.", "trans": "Nếu cô ấy đã học y, giờ cô ấy đã là bác sĩ." },
-      { "sentence": "Should you needed any help, please call me.", "errorWord": "needed", "correction": "need", "explanation": "Đảo ngữ 'Should' đi với động từ nguyên thể, không chia quá khứ.", "trans": "Nếu bạn cần giúp đỡ, hãy gọi tôi." }
+      {
+        "sentence": "If I would have known, I would have come earlier.",
+        "errorWord": "would have known",
+        "correction": "had known",
+        "explanation": "Mệnh đề 'if' không dùng 'would' — điều kiện loại 3 dùng quá khứ hoàn thành.",
+        "trans": "Nếu tôi biết, tôi đã đến sớm hơn."
+      },
+      {
+        "sentence": "If she had studied medicine, she would have been a doctor now.",
+        "errorWord": "would have been",
+        "correction": "would be",
+        "explanation": "Kết quả thuộc HIỆN TẠI ('now') nên vế chính dùng 'would + V', đây là điều kiện hỗn hợp.",
+        "trans": "Nếu cô ấy đã học y, giờ cô ấy đã là bác sĩ."
+      },
+      {
+        "sentence": "Should you needed any help, please call me.",
+        "errorWord": "needed",
+        "correction": "need",
+        "explanation": "Đảo ngữ 'Should' đi với động từ nguyên thể, không chia quá khứ.",
+        "trans": "Nếu bạn cần giúp đỡ, hãy gọi tôi."
+      }
     ],
     "fillBlanks": [
-      { "q": "If he _____ the earlier train, he would be here by now.", "a": "had taken", "trans": "Nếu anh ấy đi chuyến tàu sớm hơn thì giờ đã có mặt ở đây." }
+      {
+        "q": "If he _____ the earlier train, he would be here by now.",
+        "a": "had taken",
+        "trans": "Nếu anh ấy đi chuyến tàu sớm hơn thì giờ đã có mặt ở đây."
+      }
     ]
   },
-
   "c1c2_7": {
     "transformation": [
-      { "original": "The weather was fine, so we set off early.", "instruction": "Đổi vế đầu thành cấu trúc tuyệt đối (absolute).", "keyword": "The weather being fine", "a": "The weather being fine, we set off early." },
-      { "original": "When all the work had been finished, they went home.", "instruction": "Đổi sang cấu trúc tuyệt đối bị động.", "keyword": "All the work finished", "a": "All the work finished, they went home." },
-      { "original": "She sat by the window and her eyes were closed.", "instruction": "Đổi vế sau thành cấu trúc tuyệt đối với 'with'.", "keyword": "with her eyes closed", "a": "She sat by the window with her eyes closed." }
+      {
+        "original": "The weather was fine, so we set off early.",
+        "instruction": "Đổi vế đầu thành cấu trúc tuyệt đối (absolute).",
+        "keyword": "The weather being fine",
+        "a": "The weather being fine, we set off early."
+      },
+      {
+        "original": "When all the work had been finished, they went home.",
+        "instruction": "Đổi sang cấu trúc tuyệt đối bị động.",
+        "keyword": "All the work finished",
+        "a": "All the work finished, they went home."
+      },
+      {
+        "original": "She sat by the window and her eyes were closed.",
+        "instruction": "Đổi vế sau thành cấu trúc tuyệt đối với 'with'.",
+        "keyword": "with her eyes closed",
+        "a": "She sat by the window with her eyes closed."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "The meeting was over, everyone went home.", "errorWord": "was", "correction": "being", "explanation": "Cấu trúc tuyệt đối dùng phân từ, không dùng động từ chia.", "trans": "Cuộc họp kết thúc, mọi người ra về." },
-      { "sentence": "With the door was locked, we couldn't get in.", "errorWord": "was locked", "correction": "locked", "explanation": "Sau 'with' trong cấu trúc tuyệt đối là phân từ, không có động từ 'to be' chia.", "trans": "Cửa khoá rồi nên chúng tôi không vào được." },
-      { "sentence": "Weather permit, the match will go ahead.", "errorWord": "permit", "correction": "permitting", "explanation": "Cấu trúc tuyệt đối chủ động dùng V-ing.", "trans": "Nếu thời tiết cho phép, trận đấu sẽ diễn ra." }
+      {
+        "sentence": "The meeting was over, everyone went home.",
+        "errorWord": "was",
+        "correction": "being",
+        "explanation": "Cấu trúc tuyệt đối dùng phân từ, không dùng động từ chia.",
+        "trans": "Cuộc họp kết thúc, mọi người ra về."
+      },
+      {
+        "sentence": "With the door was locked, we couldn't get in.",
+        "errorWord": "was locked",
+        "correction": "locked",
+        "explanation": "Sau 'with' trong cấu trúc tuyệt đối là phân từ, không có động từ 'to be' chia.",
+        "trans": "Cửa khoá rồi nên chúng tôi không vào được."
+      },
+      {
+        "sentence": "Weather permit, the match will go ahead.",
+        "errorWord": "permit",
+        "correction": "permitting",
+        "explanation": "Cấu trúc tuyệt đối chủ động dùng V-ing.",
+        "trans": "Nếu thời tiết cho phép, trận đấu sẽ diễn ra."
+      }
     ],
     "fillBlanks": [
-      { "q": "The last guest _____, we finally locked the door.", "a": "having left", "trans": "Vị khách cuối cùng đã về, chúng tôi mới khoá cửa." }
+      {
+        "q": "The last guest _____, we finally locked the door.",
+        "a": "having left",
+        "trans": "Vị khách cuối cùng đã về, chúng tôi mới khoá cửa."
+      }
     ]
   },
-
   "c1c2_8": {
     "transformation": [
-      { "original": "The man who is standing at the door is my uncle.", "instruction": "Rút gọn mệnh đề quan hệ chủ động.", "keyword": "standing", "a": "The man standing at the door is my uncle." },
-      { "original": "The report which was written last week has been approved.", "instruction": "Rút gọn mệnh đề quan hệ bị động.", "keyword": "written", "a": "The report written last week has been approved." },
-      { "original": "She was the first person who arrived at the scene.", "instruction": "Rút gọn bằng động từ nguyên thể.", "keyword": "to arrive", "a": "She was the first person to arrive at the scene." }
+      {
+        "original": "The man who is standing at the door is my uncle.",
+        "instruction": "Rút gọn mệnh đề quan hệ chủ động.",
+        "keyword": "standing",
+        "a": "The man standing at the door is my uncle."
+      },
+      {
+        "original": "The report which was written last week has been approved.",
+        "instruction": "Rút gọn mệnh đề quan hệ bị động.",
+        "keyword": "written",
+        "a": "The report written last week has been approved."
+      },
+      {
+        "original": "She was the first person who arrived at the scene.",
+        "instruction": "Rút gọn bằng động từ nguyên thể.",
+        "keyword": "to arrive",
+        "a": "She was the first person to arrive at the scene."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "The letters sending yesterday have arrived.", "errorWord": "sending", "correction": "sent", "explanation": "Nghĩa bị động thì rút gọn bằng V3, không dùng V-ing.", "trans": "Những lá thư gửi hôm qua đã đến nơi." },
-      { "sentence": "Anyone wanted to join should sign up today.", "errorWord": "wanted", "correction": "wanting", "explanation": "Nghĩa chủ động thì rút gọn bằng V-ing.", "trans": "Ai muốn tham gia thì đăng ký hôm nay." },
-      { "sentence": "The book which cover is torn belongs to me.", "errorWord": "which", "correction": "whose", "explanation": "Chỉ quan hệ sở hữu thì dùng 'whose', không dùng 'which'.", "trans": "Quyển sách bị rách bìa là của tôi." }
+      {
+        "sentence": "The letters sending yesterday have arrived.",
+        "errorWord": "sending",
+        "correction": "sent",
+        "explanation": "Nghĩa bị động thì rút gọn bằng V3, không dùng V-ing.",
+        "trans": "Những lá thư gửi hôm qua đã đến nơi."
+      },
+      {
+        "sentence": "Anyone wanted to join should sign up today.",
+        "errorWord": "wanted",
+        "correction": "wanting",
+        "explanation": "Nghĩa chủ động thì rút gọn bằng V-ing.",
+        "trans": "Ai muốn tham gia thì đăng ký hôm nay."
+      },
+      {
+        "sentence": "The book which cover is torn belongs to me.",
+        "errorWord": "which",
+        "correction": "whose",
+        "explanation": "Chỉ quan hệ sở hữu thì dùng 'whose', không dùng 'which'.",
+        "trans": "Quyển sách bị rách bìa là của tôi."
+      }
     ],
     "fillBlanks": [
-      { "q": "The candidates _____ for the position must submit a portfolio.", "a": "applying", "trans": "Các ứng viên nộp đơn cho vị trí này phải gửi kèm hồ sơ năng lực." }
+      {
+        "q": "The candidates _____ for the position must submit a portfolio.",
+        "a": "applying",
+        "trans": "Các ứng viên nộp đơn cho vị trí này phải gửi kèm hồ sơ năng lực."
+      }
     ]
   },
-
   "c1c2_9": {
     "transformation": [
-      { "original": "He gave me some advice, and it was very useful.", "instruction": "Đổi 'advice' sang dạng đếm được bằng 'a piece of'.", "keyword": "a piece of advice", "a": "He gave me a piece of advice, and it was very useful." },
-      { "original": "Every student in the class passed.", "instruction": "Đổi sang 'all' + danh từ số nhiều.", "keyword": "All the students", "a": "All the students in the class passed." },
-      { "original": "There is little hope of finding survivors.", "instruction": "Đổi sang 'hardly any'.", "keyword": "hardly any", "a": "There is hardly any hope of finding survivors." }
+      {
+        "original": "He gave me some advice, and it was very useful.",
+        "instruction": "Đổi 'advice' sang dạng đếm được bằng 'a piece of'.",
+        "keyword": "a piece of advice",
+        "a": "He gave me a piece of advice, and it was very useful."
+      },
+      {
+        "original": "Every student in the class passed.",
+        "instruction": "Đổi sang 'all' + danh từ số nhiều.",
+        "keyword": "All the students",
+        "a": "All the students in the class passed."
+      },
+      {
+        "original": "There is little hope of finding survivors.",
+        "instruction": "Đổi sang 'hardly any'.",
+        "keyword": "hardly any",
+        "a": "There is hardly any hope of finding survivors."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "The police is investigating the case.", "errorWord": "is", "correction": "are", "explanation": "'Police' là danh từ tập hợp số nhiều trong tiếng Anh.", "trans": "Cảnh sát đang điều tra vụ án." },
-      { "sentence": "She has made a good progress this term.", "errorWord": "a good progress", "correction": "good progress", "explanation": "'Progress' không đếm được, không đi với mạo từ 'a'.", "trans": "Cô ấy tiến bộ nhiều trong học kỳ này." },
-      { "sentence": "Each of the answers were correct.", "errorWord": "were", "correction": "was", "explanation": "'Each of' đi với động từ số ít.", "trans": "Từng câu trả lời đều đúng." }
+      {
+        "sentence": "The police is investigating the case.",
+        "errorWord": "is",
+        "correction": "are",
+        "explanation": "'Police' là danh từ tập hợp số nhiều trong tiếng Anh.",
+        "trans": "Cảnh sát đang điều tra vụ án."
+      },
+      {
+        "sentence": "She has made a good progress this term.",
+        "errorWord": "a good progress",
+        "correction": "good progress",
+        "explanation": "'Progress' không đếm được, không đi với mạo từ 'a'.",
+        "trans": "Cô ấy tiến bộ nhiều trong học kỳ này."
+      },
+      {
+        "sentence": "Each of the answers were correct.",
+        "errorWord": "were",
+        "correction": "was",
+        "explanation": "'Each of' đi với động từ số ít.",
+        "trans": "Từng câu trả lời đều đúng."
+      }
     ],
     "fillBlanks": [
-      { "q": "He offered me two useful _____ of information.", "a": "pieces", "trans": "Anh ấy cho tôi hai thông tin hữu ích." }
+      {
+        "q": "He offered me two useful _____ of information.",
+        "a": "pieces",
+        "trans": "Anh ấy cho tôi hai thông tin hữu ích."
+      }
     ]
   },
-
   "c1c2_10": {
     "transformation": [
-      { "original": "I think that he will come, but I am not sure that he will come.", "instruction": "Dùng 'so' để tránh lặp mệnh đề.", "keyword": "I think so", "a": "I think so, but I am not sure." },
-      { "original": "She can swim and I can swim too.", "instruction": "Dùng 'so' đảo ngữ để tránh lặp.", "keyword": "so can I", "a": "She can swim and so can I." },
-      { "original": "He didn't want to go and she didn't want to go either.", "instruction": "Dùng 'neither' đảo ngữ.", "keyword": "neither did she", "a": "He didn't want to go and neither did she." }
+      {
+        "original": "I think that he will come, but I am not sure that he will come.",
+        "instruction": "Dùng 'so' để tránh lặp mệnh đề.",
+        "keyword": "I think so",
+        "a": "I think so, but I am not sure."
+      },
+      {
+        "original": "She can swim and I can swim too.",
+        "instruction": "Dùng 'so' đảo ngữ để tránh lặp.",
+        "keyword": "so can I",
+        "a": "She can swim and so can I."
+      },
+      {
+        "original": "He didn't want to go and she didn't want to go either.",
+        "instruction": "Dùng 'neither' đảo ngữ.",
+        "keyword": "neither did she",
+        "a": "He didn't want to go and neither did she."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "I like coffee and so I like tea.", "errorWord": "so I like", "correction": "so do I", "explanation": "Cấu trúc 'so' thay thế cần đảo trợ động từ lên trước chủ ngữ.", "trans": "Tôi thích cà phê và tôi cũng thích trà." },
-      { "sentence": "She hasn't finished and neither I have.", "errorWord": "neither I have", "correction": "neither have I", "explanation": "Sau 'neither' phải đảo ngữ.", "trans": "Cô ấy chưa xong và tôi cũng vậy." },
-      { "sentence": "You may borrow my pen if you want it to.", "errorWord": "want it to", "correction": "want to", "explanation": "Lược bỏ sau 'to' thì bỏ hẳn tân ngữ lặp lại.", "trans": "Bạn có thể mượn bút của tôi nếu muốn." }
+      {
+        "sentence": "I like coffee and so I like tea.",
+        "errorWord": "so I like",
+        "correction": "so do I",
+        "explanation": "Cấu trúc 'so' thay thế cần đảo trợ động từ lên trước chủ ngữ.",
+        "trans": "Tôi thích cà phê và tôi cũng thích trà."
+      },
+      {
+        "sentence": "She hasn't finished and neither I have.",
+        "errorWord": "neither I have",
+        "correction": "neither have I",
+        "explanation": "Sau 'neither' phải đảo ngữ.",
+        "trans": "Cô ấy chưa xong và tôi cũng vậy."
+      },
+      {
+        "sentence": "You may borrow my pen if you want it to.",
+        "errorWord": "want it to",
+        "correction": "want to",
+        "explanation": "Lược bỏ sau 'to' thì bỏ hẳn tân ngữ lặp lại.",
+        "trans": "Bạn có thể mượn bút của tôi nếu muốn."
+      }
     ],
     "fillBlanks": [
-      { "q": "\"I haven't seen that film.\" \"_____ have I.\"", "a": "Neither", "trans": "\"Tôi chưa xem phim đó.\" \"Tôi cũng chưa.\"" }
+      {
+        "q": "\"I haven't seen that film.\" \"_____ have I.\"",
+        "a": "Neither",
+        "trans": "\"Tôi chưa xem phim đó.\" \"Tôi cũng chưa.\""
+      }
     ]
   },
-
   "c1c2_11": {
     "transformation": [
-      { "original": "The film was so boring that we left early.", "instruction": "Đổi sang 'such a ... that'.", "keyword": "such a boring film", "a": "It was such a boring film that we left early." },
-      { "original": "He drove very carelessly and that scared me.", "instruction": "Đưa trạng từ lên đầu để nhấn mạnh.", "keyword": "So carelessly", "a": "So carelessly did he drive that it scared me." },
-      { "original": "She speaks English better than anyone else in the class.", "instruction": "Đổi sang so sánh nhất với trạng từ.", "keyword": "the best", "a": "She speaks English the best in the class." }
+      {
+        "original": "The film was so boring that we left early.",
+        "instruction": "Đổi sang 'such a ... that'.",
+        "keyword": "such a boring film",
+        "a": "It was such a boring film that we left early."
+      },
+      {
+        "original": "He drove very carelessly and that scared me.",
+        "instruction": "Đưa trạng từ lên đầu để nhấn mạnh.",
+        "keyword": "So carelessly",
+        "a": "So carelessly did he drive that it scared me."
+      },
+      {
+        "original": "She speaks English better than anyone else in the class.",
+        "instruction": "Đổi sang so sánh nhất với trạng từ.",
+        "keyword": "the best",
+        "a": "She speaks English the best in the class."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "He is the most tallest boy in the class.", "errorWord": "most tallest", "correction": "tallest", "explanation": "Không dùng 'most' kèm đuôi '-est'.", "trans": "Cậu ấy là cậu bé cao nhất lớp." },
-      { "sentence": "She was a beautiful old Italian silk dress.", "errorWord": "was", "correction": "was wearing", "explanation": "Thiếu động từ chính — chủ ngữ 'she' không thể là chiếc váy.", "trans": "Cô ấy mặc một chiếc váy lụa Ý cũ rất đẹp." },
-      { "sentence": "The exam was surprising easy this year.", "errorWord": "surprising", "correction": "surprisingly", "explanation": "Bổ nghĩa cho tính từ phải dùng trạng từ.", "trans": "Kỳ thi năm nay dễ một cách đáng ngạc nhiên." }
+      {
+        "sentence": "He is the most tallest boy in the class.",
+        "errorWord": "most tallest",
+        "correction": "tallest",
+        "explanation": "Không dùng 'most' kèm đuôi '-est'.",
+        "trans": "Cậu ấy là cậu bé cao nhất lớp."
+      },
+      {
+        "sentence": "She wore a silk Italian beautiful old dress.",
+        "errorWord": "silk Italian beautiful old",
+        "correction": "beautiful old Italian silk",
+        "explanation": "Trật tự tính từ: ý kiến (beautiful) → tuổi (old) → xuất xứ (Italian) → chất liệu (silk).",
+        "trans": "Cô ấy mặc một chiếc váy lụa Ý cũ rất đẹp."
+      },
+      {
+        "sentence": "The exam was surprising easy this year.",
+        "errorWord": "surprising",
+        "correction": "surprisingly",
+        "explanation": "Bổ nghĩa cho tính từ phải dùng trạng từ.",
+        "trans": "Kỳ thi năm nay dễ một cách đáng ngạc nhiên."
+      }
     ],
     "fillBlanks": [
-      { "q": "It was _____ a difficult question that nobody could answer it.", "a": "such", "trans": "Đó là một câu hỏi khó tới mức không ai trả lời được." }
+      {
+        "q": "It was _____ a difficult question that nobody could answer it.",
+        "a": "such",
+        "trans": "Đó là một câu hỏi khó tới mức không ai trả lời được."
+      }
     ]
   },
-
   "c1c2_12": {
     "transformation": [
-      { "original": "The more he practises, the better he becomes.", "instruction": "Đổi sang câu thường với 'as'.", "keyword": "As he practises more", "a": "As he practises more, he becomes better." },
-      { "original": "This year's results are not as good as last year's.", "instruction": "Đổi sang so sánh hơn với 'worse'.", "keyword": "worse than", "a": "This year's results are worse than last year's." },
-      { "original": "Nobody in the team works harder than she does.", "instruction": "Đổi sang so sánh nhất.", "keyword": "the hardest", "a": "She works the hardest in the team." }
+      {
+        "original": "The more he practises, the better he becomes.",
+        "instruction": "Đổi sang câu thường với 'as'.",
+        "keyword": "As he practises more",
+        "a": "As he practises more, he becomes better."
+      },
+      {
+        "original": "This year's results are not as good as last year's.",
+        "instruction": "Đổi sang so sánh hơn với 'worse'.",
+        "keyword": "worse than",
+        "a": "This year's results are worse than last year's."
+      },
+      {
+        "original": "Nobody in the team works harder than she does.",
+        "instruction": "Đổi sang so sánh nhất.",
+        "keyword": "the hardest",
+        "a": "She works the hardest in the team."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "He is far more taller than his brother.", "errorWord": "more taller", "correction": "taller", "explanation": "Không dùng 'more' kèm đuôi '-er'.", "trans": "Anh ấy cao hơn em trai nhiều." },
-      { "sentence": "The most he earns, the more he spends.", "errorWord": "The most", "correction": "The more", "explanation": "Cấu trúc 'càng… càng…' dùng so sánh hơn ở cả hai vế.", "trans": "Anh ta càng kiếm nhiều thì càng tiêu nhiều." },
-      { "sentence": "Her explanation was as clearer as his.", "errorWord": "clearer", "correction": "clear", "explanation": "'As … as' đi với tính từ nguyên dạng.", "trans": "Lời giải thích của cô ấy rõ ràng như của anh ta." }
+      {
+        "sentence": "He is far more taller than his brother.",
+        "errorWord": "more taller",
+        "correction": "taller",
+        "explanation": "Không dùng 'more' kèm đuôi '-er'.",
+        "trans": "Anh ấy cao hơn em trai nhiều."
+      },
+      {
+        "sentence": "The most he earns, the more he spends.",
+        "errorWord": "The most",
+        "correction": "The more",
+        "explanation": "Cấu trúc 'càng… càng…' dùng so sánh hơn ở cả hai vế.",
+        "trans": "Anh ta càng kiếm nhiều thì càng tiêu nhiều."
+      },
+      {
+        "sentence": "Her explanation was as clearer as his.",
+        "errorWord": "clearer",
+        "correction": "clear",
+        "explanation": "'As … as' đi với tính từ nguyên dạng.",
+        "trans": "Lời giải thích của cô ấy rõ ràng như của anh ta."
+      }
     ],
     "fillBlanks": [
-      { "q": "The sooner we leave, _____ we will arrive.", "a": "the sooner", "trans": "Chúng ta đi càng sớm thì đến càng sớm." }
+      {
+        "q": "The sooner we leave, _____ we will arrive.",
+        "a": "the sooner",
+        "trans": "Chúng ta đi càng sớm thì đến càng sớm."
+      }
     ]
   },
-
   "c1c2_13": {
     "transformation": [
-      { "original": "Although it rained heavily, the match continued.", "instruction": "Đổi sang cụm giới từ 'in spite of'.", "keyword": "In spite of", "a": "In spite of the heavy rain, the match continued." },
-      { "original": "Because the flight was delayed, we missed the connection.", "instruction": "Đổi sang cụm giới từ 'due to'.", "keyword": "Due to", "a": "Due to the delay of the flight, we missed the connection." },
-      { "original": "She succeeded because she worked very hard.", "instruction": "Đổi sang 'thanks to' + danh từ.", "keyword": "Thanks to", "a": "Thanks to her hard work, she succeeded." }
+      {
+        "original": "Although it rained heavily, the match continued.",
+        "instruction": "Đổi sang cụm giới từ 'in spite of'.",
+        "keyword": "In spite of",
+        "a": "In spite of the heavy rain, the match continued."
+      },
+      {
+        "original": "Because the flight was delayed, we missed the connection.",
+        "instruction": "Đổi sang cụm giới từ 'due to'.",
+        "keyword": "Due to",
+        "a": "Due to the delay of the flight, we missed the connection."
+      },
+      {
+        "original": "She succeeded because she worked very hard.",
+        "instruction": "Đổi sang 'thanks to' + danh từ.",
+        "keyword": "Thanks to",
+        "a": "Thanks to her hard work, she succeeded."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "Despite of the traffic, we arrived on time.", "errorWord": "Despite of", "correction": "Despite", "explanation": "'Despite' không đi kèm 'of'.", "trans": "Dù kẹt xe, chúng tôi vẫn đến đúng giờ." },
-      { "sentence": "He is responsible of the whole department.", "errorWord": "of", "correction": "for", "explanation": "'Responsible' đi với giới từ 'for'.", "trans": "Anh ấy phụ trách toàn bộ phòng ban." },
-      { "sentence": "The report was written in accordance to the new rules.", "errorWord": "to", "correction": "with", "explanation": "Cụm cố định là 'in accordance with'.", "trans": "Báo cáo được viết theo đúng quy định mới." }
+      {
+        "sentence": "Despite of the traffic, we arrived on time.",
+        "errorWord": "Despite of",
+        "correction": "Despite",
+        "explanation": "'Despite' không đi kèm 'of'.",
+        "trans": "Dù kẹt xe, chúng tôi vẫn đến đúng giờ."
+      },
+      {
+        "sentence": "He is responsible of the whole department.",
+        "errorWord": "of",
+        "correction": "for",
+        "explanation": "'Responsible' đi với giới từ 'for'.",
+        "trans": "Anh ấy phụ trách toàn bộ phòng ban."
+      },
+      {
+        "sentence": "The report was written in accordance to the new rules.",
+        "errorWord": "to",
+        "correction": "with",
+        "explanation": "Cụm cố định là 'in accordance with'.",
+        "trans": "Báo cáo được viết theo đúng quy định mới."
+      }
     ],
     "fillBlanks": [
-      { "q": "The project failed _____ a lack of funding.", "a": "due to", "trans": "Dự án thất bại vì thiếu kinh phí." }
+      {
+        "q": "The project failed _____ a lack of funding.",
+        "a": "due to",
+        "trans": "Dự án thất bại vì thiếu kinh phí."
+      }
     ]
   },
-
   "c1c2_14": {
     "transformation": [
-      { "original": "I remember that I locked the door.", "instruction": "Đổi sang 'remember + V-ing'.", "keyword": "remember locking", "a": "I remember locking the door." },
-      { "original": "He stopped so that he could buy a coffee.", "instruction": "Đổi sang 'stop + to V'.", "keyword": "stopped to buy", "a": "He stopped to buy a coffee." },
-      { "original": "It is no use asking him for money.", "instruction": "Đổi sang 'There is no point in'.", "keyword": "no point in", "a": "There is no point in asking him for money." }
+      {
+        "original": "I remember that I locked the door.",
+        "instruction": "Đổi sang 'remember + V-ing'.",
+        "keyword": "remember locking",
+        "a": "I remember locking the door."
+      },
+      {
+        "original": "He stopped so that he could buy a coffee.",
+        "instruction": "Đổi sang 'stop + to V'.",
+        "keyword": "stopped to buy",
+        "a": "He stopped to buy a coffee."
+      },
+      {
+        "original": "It is no use asking him for money.",
+        "instruction": "Đổi sang 'There is no point in'.",
+        "keyword": "no point in",
+        "a": "There is no point in asking him for money."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "I look forward to hear from you soon.", "errorWord": "hear", "correction": "hearing", "explanation": "'Look forward to' — 'to' ở đây là giới từ, theo sau là V-ing.", "trans": "Tôi mong sớm nhận được hồi âm của bạn." },
-      { "sentence": "She admitted to steal the money.", "errorWord": "steal", "correction": "stealing", "explanation": "Sau 'admit to' dùng V-ing.", "trans": "Cô ta thừa nhận đã lấy tiền." },
-      { "sentence": "He denied to have seen her that night.", "errorWord": "to have seen", "correction": "having seen", "explanation": "Sau 'deny' dùng V-ing, không dùng động từ nguyên thể.", "trans": "Anh ta phủ nhận đã gặp cô ấy tối đó." }
+      {
+        "sentence": "I look forward to hear from you soon.",
+        "errorWord": "hear",
+        "correction": "hearing",
+        "explanation": "'Look forward to' — 'to' ở đây là giới từ, theo sau là V-ing.",
+        "trans": "Tôi mong sớm nhận được hồi âm của bạn."
+      },
+      {
+        "sentence": "She admitted to steal the money.",
+        "errorWord": "steal",
+        "correction": "stealing",
+        "explanation": "Sau 'admit to' dùng V-ing.",
+        "trans": "Cô ta thừa nhận đã lấy tiền."
+      },
+      {
+        "sentence": "He denied to have seen her that night.",
+        "errorWord": "to have seen",
+        "correction": "having seen",
+        "explanation": "Sau 'deny' dùng V-ing, không dùng động từ nguyên thể.",
+        "trans": "Anh ta phủ nhận đã gặp cô ấy tối đó."
+      }
     ],
     "fillBlanks": [
-      { "q": "I regret _____ you that your application was unsuccessful.", "a": "to inform", "trans": "Tôi rất tiếc phải báo rằng đơn của bạn không được chấp nhận." }
+      {
+        "q": "I regret _____ you that your application was unsuccessful.",
+        "a": "to inform",
+        "trans": "Tôi rất tiếc phải báo rằng đơn của bạn không được chấp nhận."
+      }
     ]
   },
-
   "c1c2_15": {
     "transformation": [
-      { "original": "People believe that he stole the documents.", "instruction": "Đổi sang bị động với chủ ngữ giả 'It'.", "keyword": "It is believed", "a": "It is believed that he stole the documents." },
-      { "original": "People say that she lives abroad.", "instruction": "Đổi sang bị động với chủ ngữ là 'She'.", "keyword": "is said to live", "a": "She is said to live abroad." },
-      { "original": "They are repairing my car at the moment.", "instruction": "Đổi sang bị động dùng cấu trúc 'have something done'.", "keyword": "having my car repaired", "a": "I am having my car repaired at the moment." }
+      {
+        "original": "People believe that he stole the documents.",
+        "instruction": "Đổi sang bị động với chủ ngữ giả 'It'.",
+        "keyword": "It is believed",
+        "a": "It is believed that he stole the documents."
+      },
+      {
+        "original": "People say that she lives abroad.",
+        "instruction": "Đổi sang bị động với chủ ngữ là 'She'.",
+        "keyword": "is said to live",
+        "a": "She is said to live abroad."
+      },
+      {
+        "original": "They are repairing my car at the moment.",
+        "instruction": "Đổi sang bị động dùng cấu trúc 'have something done'.",
+        "keyword": "having my car repaired",
+        "a": "I am having my car repaired at the moment."
+      }
     ],
     "errorCorrection": [
-      { "sentence": "The house is being built since last year.", "errorWord": "is being built", "correction": "has been built", "explanation": "Có 'since' thì phải dùng hiện tại hoàn thành bị động.", "trans": "Ngôi nhà được xây từ năm ngoái." },
-      { "sentence": "A prize was given for her.", "errorWord": "for", "correction": "to", "explanation": "Trao vật cho người thì dùng 'give something TO somebody'.", "trans": "Một giải thưởng đã được trao cho cô ấy." },
-      { "sentence": "He is said being very rich.", "errorWord": "being", "correction": "to be", "explanation": "Cấu trúc 'be said' đi với động từ nguyên thể có 'to'.", "trans": "Người ta nói anh ấy rất giàu." }
+      {
+        "sentence": "The house is being under construction since last year.",
+        "errorWord": "is being",
+        "correction": "has been",
+        "explanation": "\"Since last year\" đòi thì hoàn thành: \"has been under construction\".",
+        "trans": "Ngôi nhà đang được xây từ năm ngoái."
+      },
+      {
+        "sentence": "A prize was given for her.",
+        "errorWord": "for",
+        "correction": "to",
+        "explanation": "Trao vật cho người thì dùng 'give something TO somebody'.",
+        "trans": "Một giải thưởng đã được trao cho cô ấy."
+      },
+      {
+        "sentence": "He is said being very rich.",
+        "errorWord": "being",
+        "correction": "to be",
+        "explanation": "Cấu trúc 'be said' đi với động từ nguyên thể có 'to'.",
+        "trans": "Người ta nói anh ấy rất giàu."
+      }
     ],
     "fillBlanks": [
-      { "q": "The bridge _____ to have been built in 1890.", "a": "is thought", "trans": "Cây cầu được cho là xây từ năm 1890." }
+      {
+        "q": "The bridge _____ to have been built in 1890.",
+        "a": "is thought",
+        "trans": "Cây cầu được cho là xây từ năm 1890."
+      }
     ]
   }
 }

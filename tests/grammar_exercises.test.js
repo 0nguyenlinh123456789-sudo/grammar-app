@@ -97,6 +97,10 @@ test('mọi nơi đọc errorCorrection/transformation/fillBlanks đều qua loc
     'src/utils/grammarClean.js',       // chính bộ lọc
     'scripts/audit_grammar_exercises.mjs', // bộ đo, phải thấy cả câu hỏng
     'tests/grammar_exercises.test.js',
+    // Công cụ SỬA dữ liệu: nó phải nhìn thấy đúng thứ đang nằm trong file, kể
+    // cả câu hỏng — đi qua bộ lọc thì không còn gì để sửa. Không phải đường
+    // render, không có màn hình nào đọc nó.
+    'scripts/sua_c1_soan_sai.mjs',
   ];
   const thieu = [];
   const quet = (dir) => {

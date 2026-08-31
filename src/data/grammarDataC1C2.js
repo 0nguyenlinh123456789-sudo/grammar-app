@@ -1271,11 +1271,11 @@ export const grammarDataC1C2 = [
         "trans": "Bạn phải nộp đơn trước thứ Sáu."
       },
       {
-        "sentence": "He can't have been at home, I saw him at the office.",
-        "errorWord": "can't have been",
-        "correction": "couldn't have been",
-        "explanation": "Với bằng chứng trực tiếp trong quá khứ, 'couldn't have + V3' tự nhiên hơn.",
-        "trans": "Anh ấy không thể ở nhà được, tôi thấy anh ấy ở văn phòng."
+        "sentence": "He must have been at home, but I saw him at the office an hour ago.",
+        "errorWord": "must have been",
+        "correction": "can't have been",
+        "explanation": "Có bằng chứng ngược lại thì dùng suy đoán PHỦ ĐỊNH chắc chắn \"can't have + V3\", không dùng \"must have\".",
+        "trans": "Anh ấy không thể ở nhà được, tôi vừa thấy anh ấy ở văn phòng một tiếng trước."
       },
       {
         "sentence": "She didn't need to have brought her passport, but she did.",
@@ -2304,10 +2304,10 @@ export const grammarDataC1C2 = [
         "trans": "Công việc xong xuôi, anh ấy ra ngoài đi dạo."
       },
       {
-        "sentence": "The children asleep, the house was very quiet.",
-        "errorWord": "asleep",
-        "correction": "being asleep",
-        "explanation": "Cấu trúc tuyệt đối cần phân từ nối chủ ngữ với phần bổ nghĩa.",
+        "sentence": "The children were asleep, the house was very quiet.",
+        "errorWord": "were",
+        "correction": "being",
+        "explanation": "Hai mệnh đề nối bằng dấu phẩy thì mệnh đề đầu phải chuyển thành cấu trúc tuyệt đối: \"The children being asleep, …\".",
         "trans": "Lũ trẻ đã ngủ, ngôi nhà rất yên tĩnh."
       }
     ],
@@ -3651,10 +3651,10 @@ export const grammarDataC1C2 = [
         "trans": "Cậu ấy là cậu bé cao nhất lớp."
       },
       {
-        "sentence": "She was a beautiful old Italian silk dress.",
-        "errorWord": "was",
-        "correction": "was wearing",
-        "explanation": "Thiếu động từ chính — chủ ngữ 'she' không thể là chiếc váy.",
+        "sentence": "She wore a silk Italian beautiful old dress.",
+        "errorWord": "silk Italian beautiful old",
+        "correction": "beautiful old Italian silk",
+        "explanation": "Trật tự tính từ: ý kiến (beautiful) → tuổi (old) → xuất xứ (Italian) → chất liệu (silk).",
         "trans": "Cô ấy mặc một chiếc váy lụa Ý cũ rất đẹp."
       },
       {
@@ -3672,10 +3672,10 @@ export const grammarDataC1C2 = [
         "trans": "Cô ấy hát rất hay so với người mới học."
       },
       {
-        "sentence": "It is a interesting old wooden Chinese box.",
-        "errorWord": "a interesting",
-        "correction": "an interesting",
-        "explanation": "Trước nguyên âm dùng 'an'; trật tự tính từ trong câu đã đúng.",
+        "sentence": "It is an interesting old wooden Chinese box.",
+        "errorWord": "wooden Chinese",
+        "correction": "Chinese wooden",
+        "explanation": "Trật tự tính từ: ý kiến → tuổi → XUẤT XỨ → chất liệu. \"Chinese\" đứng trước \"wooden\".",
         "trans": "Đó là một chiếc hộp gỗ Trung Quốc cổ thú vị."
       }
     ],
@@ -5012,11 +5012,11 @@ export const grammarDataC1C2 = [
     ],
     "errorCorrection": [
       {
-        "sentence": "The house is being built since last year.",
-        "errorWord": "is being built",
-        "correction": "has been built",
-        "explanation": "Có 'since' thì phải dùng hiện tại hoàn thành bị động.",
-        "trans": "Ngôi nhà được xây từ năm ngoái."
+        "sentence": "The house is being under construction since last year.",
+        "errorWord": "is being",
+        "correction": "has been",
+        "explanation": "\"Since last year\" đòi thì hoàn thành: \"has been under construction\".",
+        "trans": "Ngôi nhà đang được xây từ năm ngoái."
       },
       {
         "sentence": "A prize was given for her.",
@@ -5720,11 +5720,11 @@ export const grammarDataC1C2 = [
         "trans": "Ngoài chi phí, còn phải tính tới thời gian."
       },
       {
-        "sentence": "Whereas the first plan failed, but the second succeeded.",
+        "sentence": "Although the first plan failed, but the second succeeded.",
         "errorWord": "but",
-        "correction": "whereas",
-        "explanation": "Chỉ được dùng MỘT liên từ. Bỏ 'whereas' đầu câu và giữ liên từ ở giữa: 'The first plan failed, whereas the second succeeded.'",
-        "trans": "Kế hoạch đầu thất bại, trong khi kế hoạch thứ hai thành công."
+        "correction": "yet",
+        "explanation": "Không dùng \"although\" cùng \"but\". Bỏ \"although\" rồi nối bằng \"yet\": \"The first plan failed, yet the second succeeded.\"",
+        "trans": "Kế hoạch đầu thất bại, nhưng kế hoạch thứ hai thành công."
       }
     ],
     "transformation": [
@@ -7074,10 +7074,10 @@ export const grammarDataC1C2 = [
         "trans": "Anh ấy rất quan tâm tới nhạc cổ điển."
       },
       {
-        "sentence": "She gave a heavy rain of criticism at the meeting.",
-        "errorWord": "heavy rain",
-        "correction": "barrage",
-        "explanation": "Với 'criticism', collocation tự nhiên là 'a barrage of criticism'.",
+        "sentence": "She gave a barrage of criticism at the meeting.",
+        "errorWord": "gave",
+        "correction": "levelled",
+        "explanation": "Với \"a barrage of criticism\", động từ đi kèm là \"level\" (levelled), không phải \"give\".",
         "trans": "Cô ấy đưa ra hàng loạt lời phê bình trong cuộc họp."
       },
       {

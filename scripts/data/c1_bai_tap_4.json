@@ -1,103 +1,363 @@
 {
   "_doc": "Đợt 4 — thay 40 câu ĐỘN. Hai câu 'Not until he left do I realize the truth.' và 'The proposal have been rejected.' bị máy sinh nhét y hệt vào 20 bài (6→25), kể cả bài về Danh từ, Thành ngữ và Dấu câu — đúng ngữ pháp nhưng lạc đề. Mỗi bài nhận 2 câu sửa lỗi đúng chủ đề của chính nó.",
-
-  "c1c2_6": { "errorCorrection": [
-    { "sentence": "If I were you, I would have accepted the offer yesterday.", "errorWord": "were", "correction": "had been", "explanation": "Kết quả nằm ở QUÁ KHỨ ('yesterday') nên vế if phải dùng quá khứ hoàn thành.", "trans": "Nếu là bạn, tôi đã nhận lời đề nghị hôm qua." },
-    { "sentence": "Had it not be for the traffic, we would have arrived on time.", "errorWord": "be", "correction": "been", "explanation": "Đảo ngữ điều kiện loại 3 giữ nguyên 'had ... been'.", "trans": "Nếu không vì kẹt xe, chúng tôi đã đến đúng giờ." }
-  ] },
-
-  "c1c2_7": { "errorCorrection": [
-    { "sentence": "His work having finished, he went out for a walk.", "errorWord": "having finished", "correction": "having been finished", "explanation": "Công việc ĐƯỢC hoàn thành — nghĩa bị động nên dùng 'having been + V3'.", "trans": "Công việc xong xuôi, anh ấy ra ngoài đi dạo." },
-    { "sentence": "The children asleep, the house was very quiet.", "errorWord": "asleep", "correction": "being asleep", "explanation": "Cấu trúc tuyệt đối cần phân từ nối chủ ngữ với phần bổ nghĩa.", "trans": "Lũ trẻ đã ngủ, ngôi nhà rất yên tĩnh." }
-  ] },
-
-  "c1c2_8": { "errorCorrection": [
-    { "sentence": "The road connected the two cities was built in 1990.", "errorWord": "connected", "correction": "connecting", "explanation": "Con đường NỐI hai thành phố — nghĩa chủ động, dùng V-ing.", "trans": "Con đường nối hai thành phố được xây năm 1990." },
-    { "sentence": "There were many people waited outside the hall.", "errorWord": "waited", "correction": "waiting", "explanation": "Rút gọn mệnh đề quan hệ chủ động dùng V-ing.", "trans": "Có nhiều người đang đợi bên ngoài hội trường." }
-  ] },
-
-  "c1c2_9": { "errorCorrection": [
-    { "sentence": "He gave me many informations about the course.", "errorWord": "many informations", "correction": "much information", "explanation": "'Information' không đếm được — không có số nhiều, đi với 'much'.", "trans": "Anh ấy cho tôi nhiều thông tin về khoá học." },
-    { "sentence": "Neither of the two proposals were accepted.", "errorWord": "were", "correction": "was", "explanation": "'Neither of' đi với động từ số ít.", "trans": "Không đề xuất nào trong hai được chấp nhận." }
-  ] },
-
-  "c1c2_10": { "errorCorrection": [
-    { "sentence": "He said he would come, but I don't think it.", "errorWord": "it", "correction": "so", "explanation": "Thay cả mệnh đề đã nói thì dùng 'so', không dùng 'it'.", "trans": "Anh ấy nói sẽ đến, nhưng tôi không nghĩ vậy." },
-    { "sentence": "She works harder than I do it.", "errorWord": "do it", "correction": "do", "explanation": "Trợ động từ 'do' đã thay cả cụm động từ — không thêm tân ngữ nữa.", "trans": "Cô ấy làm việc chăm hơn tôi." }
-  ] },
-
-  "c1c2_11": { "errorCorrection": [
-    { "sentence": "She sings very good for a beginner.", "errorWord": "good", "correction": "well", "explanation": "Bổ nghĩa cho động từ phải dùng trạng từ 'well'.", "trans": "Cô ấy hát rất hay so với người mới học." },
-    { "sentence": "It is a interesting old wooden Chinese box.", "errorWord": "a interesting", "correction": "an interesting", "explanation": "Trước nguyên âm dùng 'an'; trật tự tính từ trong câu đã đúng.", "trans": "Đó là một chiếc hộp gỗ Trung Quốc cổ thú vị." }
-  ] },
-
-  "c1c2_12": { "errorCorrection": [
-    { "sentence": "This is by far the better solution of all.", "errorWord": "better", "correction": "best", "explanation": "'Of all' chỉ so sánh nhất, không dùng so sánh hơn.", "trans": "Đây là giải pháp tốt nhất trong tất cả." },
-    { "sentence": "He earns twice more than his colleague.", "errorWord": "twice more than", "correction": "twice as much as", "explanation": "So sánh gấp bội dùng 'twice as ... as'.", "trans": "Anh ấy kiếm gấp đôi đồng nghiệp." }
-  ] },
-
-  "c1c2_13": { "errorCorrection": [
-    { "sentence": "She is capable to handle the situation.", "errorWord": "to handle", "correction": "of handling", "explanation": "'Capable' đi với 'of + V-ing'.", "trans": "Cô ấy đủ khả năng xử lý tình huống." },
-    { "sentence": "On behalf for the team, I would like to thank you.", "errorWord": "for", "correction": "of", "explanation": "Cụm cố định là 'on behalf of'.", "trans": "Thay mặt cả nhóm, tôi xin cảm ơn." }
-  ] },
-
-  "c1c2_14": { "errorCorrection": [
-    { "sentence": "He is used to work night shifts now.", "errorWord": "work", "correction": "working", "explanation": "'Be used to' — 'to' là giới từ, theo sau là V-ing.", "trans": "Giờ anh ấy đã quen làm ca đêm." },
-    { "sentence": "I can't help to laugh when he tells that story.", "errorWord": "to laugh", "correction": "laughing", "explanation": "'Can't help' đi với V-ing.", "trans": "Tôi không nhịn được cười khi anh ấy kể chuyện đó." }
-  ] },
-
-  "c1c2_15": { "errorCorrection": [
-    { "sentence": "I had cut my hair yesterday at the new salon.", "errorWord": "had cut", "correction": "had my hair cut", "explanation": "Nhờ người khác làm thì dùng 'have something done'.", "trans": "Hôm qua tôi đi cắt tóc ở tiệm mới." },
-    { "sentence": "The new rules will be came into force in May.", "errorWord": "be came", "correction": "come", "explanation": "'Come into force' là nội động từ — không có dạng bị động.", "trans": "Quy định mới sẽ có hiệu lực vào tháng Năm." }
-  ] },
-
-  "c1c2_16": { "errorCorrection": [
-    { "sentence": "She told that she would be late.", "errorWord": "told", "correction": "said", "explanation": "'Tell' cần tân ngữ chỉ người; không có thì dùng 'say'.", "trans": "Cô ấy nói rằng cô ấy sẽ tới muộn." },
-    { "sentence": "He asked me if would I join them.", "errorWord": "would I", "correction": "I would", "explanation": "Câu hỏi tường thuật giữ trật tự câu kể.", "trans": "Anh ấy hỏi tôi có tham gia cùng họ không." }
-  ] },
-
-  "c1c2_17": { "errorCorrection": [
-    { "sentence": "In addition of the cost, there is the time to consider.", "errorWord": "of", "correction": "to", "explanation": "Cụm cố định là 'in addition to'.", "trans": "Ngoài chi phí, còn phải tính tới thời gian." },
-    { "sentence": "Whereas the first plan failed, but the second succeeded.", "errorWord": "but", "correction": "whereas", "explanation": "Chỉ được dùng MỘT liên từ. Bỏ 'whereas' đầu câu và giữ liên từ ở giữa: 'The first plan failed, whereas the second succeeded.'", "trans": "Kế hoạch đầu thất bại, trong khi kế hoạch thứ hai thành công." }
-  ] },
-
-  "c1c2_18": { "errorCorrection": [
-    { "sentence": "She called off it because of the weather.", "errorWord": "called off it", "correction": "called it off", "explanation": "Cụm động từ tách được thì đại từ nằm giữa.", "trans": "Cô ấy huỷ nó vì thời tiết." },
-    { "sentence": "The company laid down fifty workers last month.", "errorWord": "laid down", "correction": "laid off", "explanation": "Sa thải là 'lay off'; 'lay down' là đặt xuống hoặc đặt ra quy định.", "trans": "Công ty sa thải năm mươi công nhân tháng trước." }
-  ] },
-
-  "c1c2_19": { "errorCorrection": [
-    { "sentence": "He looks forward the holiday every year.", "errorWord": "looks forward", "correction": "looks forward to", "explanation": "Cụm đầy đủ là 'look forward to something'.", "trans": "Năm nào anh ấy cũng mong tới kỳ nghỉ." },
-    { "sentence": "We need to go on with the details of the contract.", "errorWord": "go on", "correction": "go over", "explanation": "Xem lại kỹ điều gì là 'go over'; 'go on' là tiếp tục.", "trans": "Chúng ta cần rà lại các chi tiết của hợp đồng." }
-  ] },
-
-  "c1c2_20": { "errorCorrection": [
-    { "sentence": "The findings do a strong case for reform.", "errorWord": "do", "correction": "make", "explanation": "Collocation đúng là 'make a case for'.", "trans": "Các phát hiện tạo cơ sở vững chắc cho cải cách." },
-    { "sentence": "He took a promise to finish by Friday.", "errorWord": "took", "correction": "made", "explanation": "'Promise' đi với 'make', không đi với 'take'.", "trans": "Anh ấy hứa sẽ xong trước thứ Sáu." }
-  ] },
-
-  "c1c2_21": { "errorCorrection": [
-    { "sentence": "The scheme has bear fruit after two years.", "errorWord": "bear", "correction": "borne", "explanation": "Sau 'has' dùng phân từ ba: 'borne fruit'.", "trans": "Kế hoạch đã đơm hoa kết trái sau hai năm." },
-    { "sentence": "They put a great emphasis to teamwork.", "errorWord": "to", "correction": "on", "explanation": "Collocation đúng là 'place/put emphasis on'.", "trans": "Họ rất coi trọng làm việc nhóm." }
-  ] },
-
-  "c1c2_22": { "errorCorrection": [
-    { "sentence": "Once in a blue sky, he visits his hometown.", "errorWord": "sky", "correction": "moon", "explanation": "Thành ngữ cố định là 'once in a blue moon'.", "trans": "Thi thoảng lắm anh ấy mới về quê." },
-    { "sentence": "That report costs an arm and leg to produce.", "errorWord": "an arm and leg", "correction": "an arm and a leg", "explanation": "Thành ngữ đủ là 'cost an arm and a leg'.", "trans": "Bản báo cáo đó tốn kém khủng khiếp." }
-  ] },
-
-  "c1c2_23": { "errorCorrection": [
-    { "sentence": "He was over the sky about his new job.", "errorWord": "sky", "correction": "moon", "explanation": "Thành ngữ cố định là 'over the moon' — mừng khôn xiết.", "trans": "Anh ấy mừng phát điên vì công việc mới." },
-    { "sentence": "Don't count your chicken before they hatch.", "errorWord": "chicken", "correction": "chickens", "explanation": "Thành ngữ cố định dùng số nhiều 'chickens'.", "trans": "Đừng đếm cua trong lỗ." }
-  ] },
-
-  "c1c2_24": { "errorCorrection": [
-    { "sentence": "Whose coming to the meeting tomorrow?", "errorWord": "Whose", "correction": "Who's", "explanation": "\"Who's\" là viết tắt của 'who is'; 'whose' chỉ sở hữu.", "trans": "Ai sẽ đến họp ngày mai?" },
-    { "sentence": "The team celebrated it's victory loudly.", "errorWord": "it's", "correction": "its", "explanation": "Sở hữu của 'it' là 'its', không có dấu lược.", "trans": "Cả đội ăn mừng chiến thắng rầm rộ." }
-  ] },
-
-  "c1c2_25": { "errorCorrection": [
-    { "sentence": "Rarely we see such dedication in a young employee.", "errorWord": "we see", "correction": "do we see", "explanation": "'Rarely' đứng đầu câu bắt buộc đảo ngữ.", "trans": "Hiếm khi thấy sự tận tuỵ như vậy ở một nhân viên trẻ." },
-    { "sentence": "I wish I would have studied harder for that exam.", "errorWord": "would have studied", "correction": "had studied", "explanation": "Sau 'wish' nói về quá khứ dùng quá khứ hoàn thành, không dùng 'would have'.", "trans": "Ước gì tôi đã học chăm hơn cho kỳ thi đó." }
-  ] }
+  "c1c2_6": {
+    "errorCorrection": [
+      {
+        "sentence": "If I were you, I would have accepted the offer yesterday.",
+        "errorWord": "were",
+        "correction": "had been",
+        "explanation": "Kết quả nằm ở QUÁ KHỨ ('yesterday') nên vế if phải dùng quá khứ hoàn thành.",
+        "trans": "Nếu là bạn, tôi đã nhận lời đề nghị hôm qua."
+      },
+      {
+        "sentence": "Had it not be for the traffic, we would have arrived on time.",
+        "errorWord": "be",
+        "correction": "been",
+        "explanation": "Đảo ngữ điều kiện loại 3 giữ nguyên 'had ... been'.",
+        "trans": "Nếu không vì kẹt xe, chúng tôi đã đến đúng giờ."
+      }
+    ]
+  },
+  "c1c2_7": {
+    "errorCorrection": [
+      {
+        "sentence": "His work having finished, he went out for a walk.",
+        "errorWord": "having finished",
+        "correction": "having been finished",
+        "explanation": "Công việc ĐƯỢC hoàn thành — nghĩa bị động nên dùng 'having been + V3'.",
+        "trans": "Công việc xong xuôi, anh ấy ra ngoài đi dạo."
+      },
+      {
+        "sentence": "The children were asleep, the house was very quiet.",
+        "errorWord": "were",
+        "correction": "being",
+        "explanation": "Hai mệnh đề nối bằng dấu phẩy thì mệnh đề đầu phải chuyển thành cấu trúc tuyệt đối: \"The children being asleep, …\".",
+        "trans": "Lũ trẻ đã ngủ, ngôi nhà rất yên tĩnh."
+      }
+    ]
+  },
+  "c1c2_8": {
+    "errorCorrection": [
+      {
+        "sentence": "The road connected the two cities was built in 1990.",
+        "errorWord": "connected",
+        "correction": "connecting",
+        "explanation": "Con đường NỐI hai thành phố — nghĩa chủ động, dùng V-ing.",
+        "trans": "Con đường nối hai thành phố được xây năm 1990."
+      },
+      {
+        "sentence": "There were many people waited outside the hall.",
+        "errorWord": "waited",
+        "correction": "waiting",
+        "explanation": "Rút gọn mệnh đề quan hệ chủ động dùng V-ing.",
+        "trans": "Có nhiều người đang đợi bên ngoài hội trường."
+      }
+    ]
+  },
+  "c1c2_9": {
+    "errorCorrection": [
+      {
+        "sentence": "He gave me many informations about the course.",
+        "errorWord": "many informations",
+        "correction": "much information",
+        "explanation": "'Information' không đếm được — không có số nhiều, đi với 'much'.",
+        "trans": "Anh ấy cho tôi nhiều thông tin về khoá học."
+      },
+      {
+        "sentence": "Neither of the two proposals were accepted.",
+        "errorWord": "were",
+        "correction": "was",
+        "explanation": "'Neither of' đi với động từ số ít.",
+        "trans": "Không đề xuất nào trong hai được chấp nhận."
+      }
+    ]
+  },
+  "c1c2_10": {
+    "errorCorrection": [
+      {
+        "sentence": "He said he would come, but I don't think it.",
+        "errorWord": "it",
+        "correction": "so",
+        "explanation": "Thay cả mệnh đề đã nói thì dùng 'so', không dùng 'it'.",
+        "trans": "Anh ấy nói sẽ đến, nhưng tôi không nghĩ vậy."
+      },
+      {
+        "sentence": "She works harder than I do it.",
+        "errorWord": "do it",
+        "correction": "do",
+        "explanation": "Trợ động từ 'do' đã thay cả cụm động từ — không thêm tân ngữ nữa.",
+        "trans": "Cô ấy làm việc chăm hơn tôi."
+      }
+    ]
+  },
+  "c1c2_11": {
+    "errorCorrection": [
+      {
+        "sentence": "She sings very good for a beginner.",
+        "errorWord": "good",
+        "correction": "well",
+        "explanation": "Bổ nghĩa cho động từ phải dùng trạng từ 'well'.",
+        "trans": "Cô ấy hát rất hay so với người mới học."
+      },
+      {
+        "sentence": "It is an interesting old wooden Chinese box.",
+        "errorWord": "wooden Chinese",
+        "correction": "Chinese wooden",
+        "explanation": "Trật tự tính từ: ý kiến → tuổi → XUẤT XỨ → chất liệu. \"Chinese\" đứng trước \"wooden\".",
+        "trans": "Đó là một chiếc hộp gỗ Trung Quốc cổ thú vị."
+      }
+    ]
+  },
+  "c1c2_12": {
+    "errorCorrection": [
+      {
+        "sentence": "This is by far the better solution of all.",
+        "errorWord": "better",
+        "correction": "best",
+        "explanation": "'Of all' chỉ so sánh nhất, không dùng so sánh hơn.",
+        "trans": "Đây là giải pháp tốt nhất trong tất cả."
+      },
+      {
+        "sentence": "He earns twice more than his colleague.",
+        "errorWord": "twice more than",
+        "correction": "twice as much as",
+        "explanation": "So sánh gấp bội dùng 'twice as ... as'.",
+        "trans": "Anh ấy kiếm gấp đôi đồng nghiệp."
+      }
+    ]
+  },
+  "c1c2_13": {
+    "errorCorrection": [
+      {
+        "sentence": "She is capable to handle the situation.",
+        "errorWord": "to handle",
+        "correction": "of handling",
+        "explanation": "'Capable' đi với 'of + V-ing'.",
+        "trans": "Cô ấy đủ khả năng xử lý tình huống."
+      },
+      {
+        "sentence": "On behalf for the team, I would like to thank you.",
+        "errorWord": "for",
+        "correction": "of",
+        "explanation": "Cụm cố định là 'on behalf of'.",
+        "trans": "Thay mặt cả nhóm, tôi xin cảm ơn."
+      }
+    ]
+  },
+  "c1c2_14": {
+    "errorCorrection": [
+      {
+        "sentence": "He is used to work night shifts now.",
+        "errorWord": "work",
+        "correction": "working",
+        "explanation": "'Be used to' — 'to' là giới từ, theo sau là V-ing.",
+        "trans": "Giờ anh ấy đã quen làm ca đêm."
+      },
+      {
+        "sentence": "I can't help to laugh when he tells that story.",
+        "errorWord": "to laugh",
+        "correction": "laughing",
+        "explanation": "'Can't help' đi với V-ing.",
+        "trans": "Tôi không nhịn được cười khi anh ấy kể chuyện đó."
+      }
+    ]
+  },
+  "c1c2_15": {
+    "errorCorrection": [
+      {
+        "sentence": "I had cut my hair yesterday at the new salon.",
+        "errorWord": "had cut",
+        "correction": "had my hair cut",
+        "explanation": "Nhờ người khác làm thì dùng 'have something done'.",
+        "trans": "Hôm qua tôi đi cắt tóc ở tiệm mới."
+      },
+      {
+        "sentence": "The new rules will be came into force in May.",
+        "errorWord": "be came",
+        "correction": "come",
+        "explanation": "'Come into force' là nội động từ — không có dạng bị động.",
+        "trans": "Quy định mới sẽ có hiệu lực vào tháng Năm."
+      }
+    ]
+  },
+  "c1c2_16": {
+    "errorCorrection": [
+      {
+        "sentence": "She told that she would be late.",
+        "errorWord": "told",
+        "correction": "said",
+        "explanation": "'Tell' cần tân ngữ chỉ người; không có thì dùng 'say'.",
+        "trans": "Cô ấy nói rằng cô ấy sẽ tới muộn."
+      },
+      {
+        "sentence": "He asked me if would I join them.",
+        "errorWord": "would I",
+        "correction": "I would",
+        "explanation": "Câu hỏi tường thuật giữ trật tự câu kể.",
+        "trans": "Anh ấy hỏi tôi có tham gia cùng họ không."
+      }
+    ]
+  },
+  "c1c2_17": {
+    "errorCorrection": [
+      {
+        "sentence": "In addition of the cost, there is the time to consider.",
+        "errorWord": "of",
+        "correction": "to",
+        "explanation": "Cụm cố định là 'in addition to'.",
+        "trans": "Ngoài chi phí, còn phải tính tới thời gian."
+      },
+      {
+        "sentence": "Although the first plan failed, but the second succeeded.",
+        "errorWord": "but",
+        "correction": "yet",
+        "explanation": "Không dùng \"although\" cùng \"but\". Bỏ \"although\" rồi nối bằng \"yet\": \"The first plan failed, yet the second succeeded.\"",
+        "trans": "Kế hoạch đầu thất bại, nhưng kế hoạch thứ hai thành công."
+      }
+    ]
+  },
+  "c1c2_18": {
+    "errorCorrection": [
+      {
+        "sentence": "She called off it because of the weather.",
+        "errorWord": "called off it",
+        "correction": "called it off",
+        "explanation": "Cụm động từ tách được thì đại từ nằm giữa.",
+        "trans": "Cô ấy huỷ nó vì thời tiết."
+      },
+      {
+        "sentence": "The company laid down fifty workers last month.",
+        "errorWord": "laid down",
+        "correction": "laid off",
+        "explanation": "Sa thải là 'lay off'; 'lay down' là đặt xuống hoặc đặt ra quy định.",
+        "trans": "Công ty sa thải năm mươi công nhân tháng trước."
+      }
+    ]
+  },
+  "c1c2_19": {
+    "errorCorrection": [
+      {
+        "sentence": "He looks forward the holiday every year.",
+        "errorWord": "looks forward",
+        "correction": "looks forward to",
+        "explanation": "Cụm đầy đủ là 'look forward to something'.",
+        "trans": "Năm nào anh ấy cũng mong tới kỳ nghỉ."
+      },
+      {
+        "sentence": "We need to go on with the details of the contract.",
+        "errorWord": "go on",
+        "correction": "go over",
+        "explanation": "Xem lại kỹ điều gì là 'go over'; 'go on' là tiếp tục.",
+        "trans": "Chúng ta cần rà lại các chi tiết của hợp đồng."
+      }
+    ]
+  },
+  "c1c2_20": {
+    "errorCorrection": [
+      {
+        "sentence": "The findings do a strong case for reform.",
+        "errorWord": "do",
+        "correction": "make",
+        "explanation": "Collocation đúng là 'make a case for'.",
+        "trans": "Các phát hiện tạo cơ sở vững chắc cho cải cách."
+      },
+      {
+        "sentence": "He took a promise to finish by Friday.",
+        "errorWord": "took",
+        "correction": "made",
+        "explanation": "'Promise' đi với 'make', không đi với 'take'.",
+        "trans": "Anh ấy hứa sẽ xong trước thứ Sáu."
+      }
+    ]
+  },
+  "c1c2_21": {
+    "errorCorrection": [
+      {
+        "sentence": "The scheme has bear fruit after two years.",
+        "errorWord": "bear",
+        "correction": "borne",
+        "explanation": "Sau 'has' dùng phân từ ba: 'borne fruit'.",
+        "trans": "Kế hoạch đã đơm hoa kết trái sau hai năm."
+      },
+      {
+        "sentence": "They put a great emphasis to teamwork.",
+        "errorWord": "to",
+        "correction": "on",
+        "explanation": "Collocation đúng là 'place/put emphasis on'.",
+        "trans": "Họ rất coi trọng làm việc nhóm."
+      }
+    ]
+  },
+  "c1c2_22": {
+    "errorCorrection": [
+      {
+        "sentence": "Once in a blue sky, he visits his hometown.",
+        "errorWord": "sky",
+        "correction": "moon",
+        "explanation": "Thành ngữ cố định là 'once in a blue moon'.",
+        "trans": "Thi thoảng lắm anh ấy mới về quê."
+      },
+      {
+        "sentence": "That report costs an arm and leg to produce.",
+        "errorWord": "an arm and leg",
+        "correction": "an arm and a leg",
+        "explanation": "Thành ngữ đủ là 'cost an arm and a leg'.",
+        "trans": "Bản báo cáo đó tốn kém khủng khiếp."
+      }
+    ]
+  },
+  "c1c2_23": {
+    "errorCorrection": [
+      {
+        "sentence": "He was over the sky about his new job.",
+        "errorWord": "sky",
+        "correction": "moon",
+        "explanation": "Thành ngữ cố định là 'over the moon' — mừng khôn xiết.",
+        "trans": "Anh ấy mừng phát điên vì công việc mới."
+      },
+      {
+        "sentence": "Don't count your chicken before they hatch.",
+        "errorWord": "chicken",
+        "correction": "chickens",
+        "explanation": "Thành ngữ cố định dùng số nhiều 'chickens'.",
+        "trans": "Đừng đếm cua trong lỗ."
+      }
+    ]
+  },
+  "c1c2_24": {
+    "errorCorrection": [
+      {
+        "sentence": "Whose coming to the meeting tomorrow?",
+        "errorWord": "Whose",
+        "correction": "Who's",
+        "explanation": "\"Who's\" là viết tắt của 'who is'; 'whose' chỉ sở hữu.",
+        "trans": "Ai sẽ đến họp ngày mai?"
+      },
+      {
+        "sentence": "The team celebrated it's victory loudly.",
+        "errorWord": "it's",
+        "correction": "its",
+        "explanation": "Sở hữu của 'it' là 'its', không có dấu lược.",
+        "trans": "Cả đội ăn mừng chiến thắng rầm rộ."
+      }
+    ]
+  },
+  "c1c2_25": {
+    "errorCorrection": [
+      {
+        "sentence": "Rarely we see such dedication in a young employee.",
+        "errorWord": "we see",
+        "correction": "do we see",
+        "explanation": "'Rarely' đứng đầu câu bắt buộc đảo ngữ.",
+        "trans": "Hiếm khi thấy sự tận tuỵ như vậy ở một nhân viên trẻ."
+      },
+      {
+        "sentence": "I wish I would have studied harder for that exam.",
+        "errorWord": "would have studied",
+        "correction": "had studied",
+        "explanation": "Sau 'wish' nói về quá khứ dùng quá khứ hoàn thành, không dùng 'would have'.",
+        "trans": "Ước gì tôi đã học chăm hơn cho kỳ thi đó."
+      }
+    ]
+  }
 }
