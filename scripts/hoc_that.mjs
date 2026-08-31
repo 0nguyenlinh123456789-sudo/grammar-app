@@ -583,11 +583,18 @@ try {
   // phép kiểm trong im lặng.
   const SO_BUOC_TOI_THIEU = 35;
   console.log(`\nbước đạt: ${ket.filter((x) => x.ok).length}/${ket.length}`);
-  if (ket.length < SO_BUOC_TOI_THIEU) {
+  // ⚠️ CHỐT NÀY TỪNG KHÔNG LÀM GÌ CẢ.
+  // Bản cũ đặt `process.exitCode = 1` trong nhánh mất bước, rồi NGAY DÒNG SAU
+  // gán đè `process.exitCode = ket.every(...)`. Mọi bước chạy đều xanh thì mã
+  // thoát về 0 — chốt in ra một dòng ❌ rồi bị chính nó xoá. Đúng họ lỗi mà cả
+  // đợt rà này đang gỡ: một lưới an toàn im lặng không bắt gì.
+  const matBuoc = ket.length < SO_BUOC_TOI_THIEU;
+  if (matBuoc) {
     console.log(`\n❌ MẤT BƯỚC: chỉ chạy ${ket.length}/${SO_BUOC_TOI_THIEU} bước. Bộ rà đang soi ít hơn trước mà không ai bảo nó bớt.`);
-    process.exitCode = 1;
+    console.log('   Nhớ: bước "nói: lời báo chỉ luôn đường làm tiếp" CHỈ chạy khi Chrome TỪ CHỐI micro.');
+    console.log('   Máy có sẵn thiết bị âm thanh thì bước đó không chạy — soi môi trường trước, đừng sửa mã.');
   }
-  process.exitCode = ket.every((x) => x.ok) ? 0 : 1;
+  process.exitCode = (!matBuoc && ket.every((x) => x.ok)) ? 0 : 1;
 } catch (e) {
   console.log('\nRÀ DỪNG GIỮA CHỪNG:', e.message);
   try { console.log('hộp thoại đang mở lúc đó:', await t.danhGia(TEN_PANEL_DANG_MO) || '(không có)'); } catch { /* tab đã chết */ }
