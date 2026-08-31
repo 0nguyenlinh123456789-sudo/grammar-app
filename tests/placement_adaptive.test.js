@@ -59,11 +59,17 @@ test('mỗi vòng bốc đủ câu, đúng bậc, đủ cả ba kỹ năng', () 
 });
 
 test('số vòng công bố với người học phải là số ĐẠT ĐƯỢC, không phải số bậc trên thang', () => {
-  // Xuất phát từ A2, không bao giờ hỏi lại một bậc → đường dài nhất là
-  // A2→B1→B2→C1 = 4 vòng. Vòng thứ 5 KHÔNG TỒN TẠI, nên không được in ra.
-  assert.equal(MAX_ROUNDS, 4);
-  assert.equal(MIN_ROUNDS, 2);
-  assert.ok(MAX_ROUNDS < CEFR_LADDER.length, 'MAX_ROUNDS đang bằng số bậc — đó là mẫu số không với tới được');
+  // Xuất phát từ A2, không bao giờ hỏi lại một bậc → đường LEO THANG dài nhất
+  // là A2→B1→B2→C1 = 4 vòng. Cộng VÒNG XÁC NHẬN ở bậc chốt = 5 vòng in ra.
+  assert.deepEqual(roundBounds(START_CEFR), { min: 2, max: 4 }, 'phần leo thang phải vẫn là 4 vòng');
+  assert.equal(MAX_ROUNDS, roundBounds(START_CEFR).max + 1, 'MAX_ROUNDS = số vòng leo thang + 1 vòng xác nhận');
+  assert.equal(MAX_ROUNDS, 5);
+  assert.equal(MIN_ROUNDS, 2, 'không qua nổi bậc nào thì KHÔNG có vòng xác nhận — bài ngắn nhất vẫn 2 vòng');
+  // Cái bẫy phép kiểm này sinh ra để chặn là "đặt trần bằng SỐ BẬC vì nhìn thấy
+  // 5 bậc". Nay trần đúng là 5, nên không chặn bằng cách so với 5 được nữa —
+  // chặn ở CHỖ ĐẺ RA nó: phần leo thang phải là 4, và 5 phải bằng 4+1. Trùng số
+  // không có nghĩa là trùng lý do.
+  assert.ok(roundBounds(START_CEFR).max < CEFR_LADDER.length, 'số vòng leo thang đang bằng số bậc — đó là mẫu số không với tới được');
   // Đổi điểm xuất phát thì trần đổi theo: từ đáy/đỉnh thang là 5 vòng.
   assert.deepEqual(roundBounds('A1'), { min: 1, max: 5 });
   assert.deepEqual(roundBounds('C1'), { min: 1, max: 5 });
@@ -133,10 +139,15 @@ test('ĐÂY LÀ CÁI BẪY CŨ: điểm phần trăm thấp vẫn có thể là 
   const { result } = runSession((q) => q.cefr !== failFrom);
   assert.equal(result.cefr, 'B2');
   assert.equal(result.level, 'upper-intermediate');
-  // Phần trăm đúng tụt xuống vì 6 câu C1 sai hết. Bản cũ (score >= 75 mới là
+  // Phần trăm đúng tụt xuống vì 9 câu C1 sai hết. Bản cũ (score >= 75 mới là
   // upper-intermediate) sẽ xếp người này thấp hơn hẳn.
-  assert.ok(result.score < 80, `mong đợi phần trăm bị kéo xuống, đang là ${result.score}%`);
-  assert.equal(result.total, 24);
+  //
+  // Mốc này từng là `< 80` khi mỗi vòng 6 câu. Nay vòng 9 câu VÀ có thêm VÒNG
+  // XÁC NHẬN ở B2 (9 câu, người này làm đúng hết) nên tỉ lệ đúng là 36/45 = 80%.
+  // Nới mốc KHÔNG phải để cho test xanh: thứ đang được ghim là "bậc lấy từ NẤC
+  // THANG chứ không từ phần trăm", và nó vẫn nguyên — 80% mà vẫn ra B2.
+  assert.ok(result.score < 100, `mong đợi phần trăm bị kéo xuống dưới 100, đang là ${result.score}%`);
+  assert.equal(result.total, ROUND_SIZE * 5, 'A2 + B1 + B2 + C1 + vòng xác nhận B2 = 5 vòng');
 });
 
 test('qua bậc dưới rồi trượt bậc trên thì dừng ngay, không đi lòng vòng', () => {
@@ -146,7 +157,9 @@ test('qua bậc dưới rồi trượt bậc trên thì dừng ngay, không đi 
   assert.equal(result.level, 'starter');
   assert.equal(result.preA1, false);
   assert.deepEqual(session.visited, ['A2', 'A1']);
-  assert.equal(result.total, ROUND_SIZE * 2);
+  // 3 vòng chứ không phải 2: trượt A2 → qua A1 → kẹp xong → thêm VÒNG XÁC NHẬN
+  // ở chính A1 bằng những câu chưa dùng. Bậc chốt vì thế chấm trên 18 câu.
+  assert.equal(result.total, ROUND_SIZE * 3);
 });
 
 test('hồ sơ kỹ năng: không có phép chia cho 0, không có NaN lọt ra ngoài', () => {
@@ -180,8 +193,11 @@ test('thanh tiến độ không bịa ra mẫu số: chỉ đếm trong vòng hi
   assert.equal(p.cefr, START_CEFR);
   // Con số giao diện in ra phải đến TỪ ĐÂY, và phải là con số đạt được.
   assert.equal(p.maxRounds, MAX_ROUNDS);
-  assert.equal(p.minQuestions, 12);
-  assert.equal(p.maxQuestions, 24);
+  // 18–45 câu (9 câu/vòng · ngắn nhất 2 vòng · dài nhất 5 vòng kể cả vòng xác
+  // nhận). Đây là con số giao diện IN RA, nên ghim bằng số thật chứ không bằng
+  // công thức — công thức thì sửa hằng số là nó im lặng đi theo.
+  assert.equal(p.minQuestions, 18);
+  assert.equal(p.maxQuestions, 45);
 
   const s2 = answerCurrent(s, currentQuestion(s).answer);
   assert.equal(progressOf(s2).inRound, 1);

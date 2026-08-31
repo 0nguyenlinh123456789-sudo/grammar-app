@@ -20,10 +20,30 @@ export const CEFR_LADDER = ['A1', 'A2', 'B1', 'B2', 'C1'];
 export const START_CEFR = 'A2';
 export const SKILLS = ['grammar', 'vocabulary', 'reading'];
 
-// Mỗi vòng: 2 câu × 3 kỹ năng = 6 câu, qua vòng khi đúng ≥ 2/3 (tức 4/6).
-export const PER_SKILL_PER_ROUND = 2;
+// Mỗi vòng: 3 câu × 3 kỹ năng = 9 câu, qua vòng khi đúng ≥ 2/3 (tức 6/9).
+//
+// TRƯỚC ĐÂY LÀ 2 CÂU/KỸ NĂNG (6 câu/vòng) VÀ ĐÓ LÀ QUÁ MỎNG ĐỂ XẾP BẬC.
+// Với 6 câu và mốc 4/6, đúng MỘT câu lỡ tay là lật cả một bậc — mà `level` chạy
+// thẳng vào `pickNextMilestone()` của 710 chặng. Chính file này đã ghi "chỉ 2
+// câu/bậc/kỹ năng nên con số này là SƠ BỘ"; nay ngân hàng có 6 câu/kỹ năng/bậc
+// nên hỏi 3 câu được, và bậc quyết định còn được hỏi thêm một VÒNG XÁC NHẬN
+// bằng 3 câu chưa dùng (xem `daXacNhan` bên dưới).
+export const PER_SKILL_PER_ROUND = 3;
 export const ROUND_SIZE = SKILLS.length * PER_SKILL_PER_ROUND;
 export const PASS_RATIO = 2 / 3;
+
+// GIỚI HẠN THỜI GIAN MỖI CÂU (giây).
+//
+// Không phải để tạo áp lực, mà để con số đo được có nghĩa: bài đầu vào KHÔNG
+// giới hạn thời gian thì người học tra từ điển/hỏi máy được, và bậc đo ra là bậc
+// của cái từ điển chứ không phải của người học — rồi họ bị thả vào chặng quá sức
+// và bỏ học. Đọc hiểu được nhiều thời gian hơn vì phải đọc cả đoạn.
+//
+// Hết giờ = KHÔNG trả lời, và không trả lời thì tính SAI (xem `answerCurrent`).
+export const GIAY_MOI_CAU = { grammar: 45, vocabulary: 45, reading: 75 };
+export function gioiHanGiay(question) {
+  return GIAY_MOI_CAU[question?.skill] ?? 60;
+}
 
 // SỐ VÒNG THẬT SỰ ĐẠT ĐƯỢC, không phải số bậc trên thang.
 //
@@ -47,7 +67,12 @@ export function roundBounds(start = START_CEFR) {
   };
 }
 
-export const MAX_ROUNDS = roundBounds(START_CEFR).max;
+// +1 vì bài nào CHỐT được một bậc cũng chạy thêm VÒNG XÁC NHẬN ở bậc đó.
+// Cận dưới KHÔNG +1: người không qua nổi bậc nào thì không có bậc để xác nhận,
+// và đó chính là bài ngắn nhất (2 vòng). Một con số duy nhất ở đây, giao diện
+// và bài kiểm đều đọc từ đây — dự án này đã ba lần trả giá cho "ba con số trong
+// một tài liệu".
+export const MAX_ROUNDS = roundBounds(START_CEFR).max + 1;
 export const MIN_ROUNDS = roundBounds(START_CEFR).min;
 
 // Ngưỡng qua vòng tính theo SỐ CÂU THẬT SỰ ĐƯỢC HỎI, không phải theo ROUND_SIZE.
@@ -68,13 +93,42 @@ export function shuffle(list, rand = Math.random) {
 
 // Bốc câu cho một vòng: lấy đều mỗi kỹ năng, xáo trộn trong từng nhóm để hai
 // người cùng bậc không gặp y hệt một đề.
-export function pickRound(bank, cefr, rand = Math.random) {
+//
+// `boQuaId` để VÒNG XÁC NHẬN không hỏi lại đúng câu vừa hỏi — hỏi lại thì nó
+// không xác nhận thêm gì, chỉ đo trí nhớ ngắn hạn.
+export function pickRound(bank, cefr, rand = Math.random, boQuaId = []) {
+  const daHoi = new Set(boQuaId);
   const out = [];
   for (const skill of SKILLS) {
-    const pool = (bank || []).filter((q) => q.cefr === cefr && q.skill === skill);
+    const pool = (bank || []).filter((q) => q.cefr === cefr && q.skill === skill && !daHoi.has(q.id));
     out.push(...shuffle(pool, rand).slice(0, PER_SKILL_PER_ROUND));
   }
   return shuffle(out, rand);
+}
+
+/**
+ * Bậc nào đã VƯỢT QUA, tính trên TOÀN BỘ câu đã hỏi ở bậc đó.
+ *
+ * Suy ra từ `rounds` chứ không cộng dồn dần vào một mảng: một bậc có thể được
+ * hỏi HAI vòng (vòng thường + vòng xác nhận), và khi đó câu trả lời đúng phải là
+ * "đúng bao nhiêu trên TỔNG số câu của bậc ấy", không phải "vòng nào cũng phải
+ * qua" (khắt khe quá) hay "qua một vòng là xong" (dễ quá). Gộp lại thì bậc quyết
+ * định được chấm trên 18 câu thay vì 9.
+ */
+export function bacDaQua(rounds) {
+  const gop = new Map();
+  for (const r of rounds || []) {
+    const o = gop.get(r.cefr) || { asked: 0, correct: 0 };
+    o.asked += r.asked;
+    o.correct += r.correct;
+    gop.set(r.cefr, o);
+  }
+  const out = [];
+  for (const cefr of CEFR_LADDER) {
+    const o = gop.get(cefr);
+    if (o && o.correct >= passMark(o.asked)) out.push(cefr);
+  }
+  return out;
 }
 
 export function createSession(bank = placementBank, { rand = Math.random, start = START_CEFR } = {}) {
@@ -89,8 +143,10 @@ export function createSession(bank = placementBank, { rand = Math.random, start 
     asked: [],          // { id, cefr, skill, chosen, correct }
     visited: [cefr],
     cleared: [],        // các bậc đã VƯỢT QUA
-    rounds: [],         // { cefr, asked, correct, cleared }
+    rounds: [],         // { cefr, asked, correct, cleared, xacNhan }
     roundStart: 0,
+    daXacNhan: false,   // đã dùng vòng xác nhận chưa (mỗi bài đúng MỘT lần)
+    dangXacNhan: false, // vòng đang chạy có phải vòng xác nhận không
     done: false,
   };
 }
@@ -114,9 +170,13 @@ export function progressOf(session) {
     roundSize: inRound + session.queue.length,
     cefr: session.cefr,
     // Số vòng/số câu ĐẠT ĐƯỢC THẬT — giao diện chỉ được lấy con số từ đây.
-    maxRounds: bounds.max,
+    // +1 vòng vì bài nào chốt được một bậc cũng có VÒNG XÁC NHẬN; đây là con số
+    // người học nhìn thấy nên nó phải kể cả vòng đó, không thì bài dài hơn lời
+    // hứa in trên màn hình.
+    maxRounds: bounds.max + 1,
     minQuestions: ROUND_SIZE * bounds.min,
-    maxQuestions: ROUND_SIZE * bounds.max,
+    maxQuestions: ROUND_SIZE * (bounds.max + 1),
+    dangXacNhan: !!session.dangXacNhan,
   };
 }
 
@@ -124,12 +184,18 @@ export function answerCurrent(session, choiceIndex) {
   const question = currentQuestion(session);
   if (!question) return session;
 
+  // HẾT GIỜ = KHÔNG CHỌN GÌ = SAI. Phải kiểm null/undefined TRƯỚC khi ép kiểu:
+  // `Number(null)` là **0**, nên nếu chỉ viết `Number(choiceIndex) === answer`
+  // thì mọi câu bỏ trống có đáp án ở ô đầu sẽ được chấm ĐÚNG — và 38% ngân hàng
+  // có đáp án ở ô 0. Người hết giờ toàn bộ bài vẫn có thể được xếp một bậc.
+  const coChon = choiceIndex !== null && choiceIndex !== undefined && choiceIndex !== '';
   const asked = [...session.asked, {
     id: question.id,
     cefr: question.cefr,
     skill: question.skill,
-    chosen: choiceIndex,
-    correct: Number(choiceIndex) === question.answer,
+    chosen: coChon ? Number(choiceIndex) : null,
+    hetGio: !coChon,
+    correct: coChon && Number(choiceIndex) === question.answer,
   }];
   const queue = session.queue.slice(1);
   if (queue.length > 0) return { ...session, asked, queue };
@@ -138,17 +204,46 @@ export function answerCurrent(session, choiceIndex) {
   const items = asked.slice(session.roundStart);
   const correct = items.filter((a) => a.correct).length;
   const cleared = correct >= passMark(items.length);
-  const rounds = [...session.rounds, { cefr: session.cefr, asked: items.length, correct, cleared }];
-  const clearedLevels = cleared ? [...session.cleared, session.cefr] : session.cleared;
+  const rounds = [...session.rounds, { cefr: session.cefr, asked: items.length, correct, cleared, xacNhan: !!session.dangXacNhan }];
+  const clearedLevels = bacDaQua(rounds);
 
   const step = cleared ? 1 : -1;
   const nextCefr = CEFR_LADDER[CEFR_LADDER.indexOf(session.cefr) + step];
 
   // Dừng khi: hết thang (đã lên đỉnh hoặc xuống đáy), HOẶC bậc kế tiếp đã hỏi
   // rồi (qua bậc dưới rồi trượt bậc trên = đã kẹp đúng chỗ), HOẶC hết số vòng.
-  const stop = !nextCefr || session.visited.includes(nextCefr) || rounds.length >= (session.bounds?.max ?? MAX_ROUNDS);
+  // Mốc ở đây là số vòng LEO THANG (không kể vòng xác nhận) — `session.bounds`
+  // do `roundBounds` sinh ra, còn `MAX_ROUNDS` đã cộng thêm vòng xác nhận nên
+  // KHÔNG được dùng làm giá trị dự phòng ở chỗ này.
+  const tranVongLeo = session.bounds?.max ?? roundBounds(START_CEFR).max;
+  const stop = !nextCefr || session.visited.includes(nextCefr) || rounds.length >= tranVongLeo;
+
   if (stop) {
-    return { ...session, asked, queue: [], rounds, cleared: clearedLevels, done: true };
+    // ── VÒNG XÁC NHẬN ─────────────────────────────────────────────────────
+    // Đúng chỗ bài test sắp CHỐT một bậc thì hỏi thêm một vòng nữa ở chính bậc
+    // đó, bằng những câu CHƯA dùng. Lý do: chỗ dừng của bài thích ứng luôn là
+    // chỗ ranh giới, mà ranh giới lại đúng là chỗ 9 câu nói ít nhất — qua 6/9
+    // và trượt 5/9 chỉ cách nhau một câu. Sau vòng này bậc quyết định được chấm
+    // trên 18 câu (xem `bacDaQua` gộp theo bậc), không phải 9.
+    const bacChot = highestCleared(clearedLevels);
+    if (bacChot && !session.daXacNhan) {
+      const themCau = pickRound(session.bank, bacChot, session.rand, asked.map((a) => a.id));
+      if (themCau.length > 0) {
+        return {
+          ...session,
+          asked,
+          rounds,
+          cleared: clearedLevels,
+          cefr: bacChot,
+          visited: session.visited.includes(bacChot) ? session.visited : [...session.visited, bacChot],
+          queue: themCau,
+          roundStart: asked.length,
+          daXacNhan: true,
+          dangXacNhan: true,
+        };
+      }
+    }
+    return { ...session, asked, queue: [], rounds, cleared: clearedLevels, dangXacNhan: false, done: true };
   }
   return {
     ...session,
@@ -157,8 +252,9 @@ export function answerCurrent(session, choiceIndex) {
     cleared: clearedLevels,
     cefr: nextCefr,
     visited: [...session.visited, nextCefr],
-    queue: pickRound(session.bank, nextCefr, session.rand),
+    queue: pickRound(session.bank, nextCefr, session.rand, asked.map((a) => a.id)),
     roundStart: asked.length,
+    dangXacNhan: false,
   };
 }
 
@@ -202,7 +298,9 @@ function skillBreakdown(asked) {
 export function placementResultFrom(session, now = new Date()) {
   const asked = session?.asked || [];
   const correct = asked.filter((a) => a.correct).length;
-  const cefr = highestCleared(session?.cleared);
+  // Suy từ `rounds` chứ không đọc `session.cleared`: bậc được hỏi hai vòng phải
+  // được chấm trên TỔNG số câu của bậc đó — xem `bacDaQua`.
+  const cefr = highestCleared(bacDaQua(session?.rounds));
   const { skillStats, skillCefr } = skillBreakdown(asked);
   const levelId = placementLevelFor(cefr);
   const meta = levelMeta(levelId);
@@ -234,6 +332,9 @@ export function placementResultFrom(session, now = new Date()) {
     // ra bậc. Giao diện phải gắn nhãn đúng như vậy.
     score: asked.length ? Math.round((correct / asked.length) * 100) : 0,
     rounds: session?.rounds || [],
+    // Số câu HẾT GIỜ — báo ra để người học biết bậc thấp có thể là do chậm chứ
+    // không hẳn do không biết. Giấu con số này đi là để họ tự trách nhầm chỗ.
+    hetGio: asked.filter((a) => a.hetGio).length,
     skillStats,
     skillCefr,
     measuredSkills: [...SKILLS],

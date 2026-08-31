@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { AlertTriangle, ArrowRight, CheckCircle2, GraduationCap, Mic, Square, X, XCircle } from 'lucide-react';
+import { AlertTriangle, ArrowRight, CheckCircle2, Clock, GraduationCap, Mic, Square, X, XCircle } from 'lucide-react';
 import { bandExams } from '../../data/bandExamBank';
 import { chamBaiThi, luuKetQua, NGUONG_DAT, phanChamDuoc } from '../../utils/bandExam';
 import { kiemTraDeViet } from '../../utils/writingScorer';
@@ -140,7 +140,8 @@ function LamBai({ exam, onBack, onClose }) {
   const soCauChamDuoc = phanChamDuoc(exam).reduce((n, s) => n + s.items.length, 0);
   const daTraLoi = Object.keys(traLoi).length;
 
-  return <Khung onClose={onClose} onBack={onBack} tieuDe={exam.name} phu={`Bậc ${exam.cefr}`}>
+  return <Khung onClose={onClose} onBack={onBack} tieuDe={exam.name} phu={`Bậc ${exam.cefr}`}
+    dongHo={!ketQua && <DongHoThi phut={exam.phut} onHetGio={nop} />}>
     {!ketQua && <>
       <p className="mt-3 text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-800 rounded-2xl p-3">
         {/* Nói ĐÚNG SỐ CÂU phải đúng, không chỉ phần trăm: 70% của 6 câu làm
@@ -304,7 +305,45 @@ function CauHoi({ so, it, chon, onChon, truoc }) {
   </div>;
 }
 
-function Khung({ children, onClose, onBack, tieuDe, phu }) {
+/**
+ * ĐỒNG HỒ CỦA CẢ BÀI THI (không phải từng câu).
+ *
+ * `exam.phut` đã có sẵn trong `bandExamBank.js` từ trước (20/25/30/40/45 phút
+ * theo bậc) nhưng CHỈ ĐƯỢC IN RA NHƯ MỘT ƯỚC LƯỢNG — không có gì đếm cả. Một
+ * bài thi cuối bậc dùng để nói "bạn đã qua bậc B1" mà không giới hạn thời gian
+ * thì con số đo được không so được với bất kỳ kỳ thi thật nào.
+ *
+ * Hết giờ thì TỰ NỘP đúng những gì đang có, không huỷ bài: người học mất công
+ * làm 30 phút mà bị xoá trắng vì chậm vài giây là hình phạt không ai ra.
+ * `nop()` đã chống gọi hai lần bằng `daNopRef` nên tự nộp trùng lúc người học
+ * bấm Nộp cũng không ghi hai bản.
+ */
+function DongHoThi({ phut, onHetGio }) {
+  const [conLai, setConLai] = useState(Math.max(1, Math.round(Number(phut) || 0)) * 60);
+
+  // ⚠️ HÀM `onHetGio` LÀ MỘT HÀM MỚI Ở MỖI LẦN VẼ (nó được tạo trong thân
+  // `LamBai`). Để nó trong mảng phụ thuộc thì mỗi lần người học bấm một đáp án,
+  // effect chạy lại → `clearTimeout` cái đang đếm dở → đặt lại từ đầu. Ai bấm
+  // nhanh hơn một giây một lần thì ĐỒNG HỒ KHÔNG BAO GIỜ CHẠY, mà không lỗi nào
+  // bắn ra. Cùng họ lỗi với vòng lặp vẽ đã giết tab "Xếp Câu".
+  const hetGioRef = useRef(onHetGio);
+  useEffect(() => { hetGioRef.current = onHetGio; }, [onHetGio]);
+
+  useEffect(() => {
+    if (conLai <= 0) { hetGioRef.current?.(); return undefined; }
+    const t = setTimeout(() => setConLai((s) => s - 1), 1000);
+    return () => clearTimeout(t);
+  }, [conLai]);
+
+  const p = Math.floor(conLai / 60);
+  const g = conLai % 60;
+  const gap = conLai <= 120;
+  return <span className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border-2 font-black tabular-nums text-sm ${gap ? 'bg-rose-100 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300 animate-pulse' : 'bg-slate-100 dark:bg-slate-800 border-slate-400 text-slate-700 dark:text-slate-300'}`}>
+    <Clock size={14} /> {p}:{String(g).padStart(2, '0')}
+  </span>;
+}
+
+function Khung({ children, onClose, onBack, tieuDe, phu, dongHo }) {
   return <div className="fixed inset-0 z-[120] bg-slate-950/70 backdrop-blur-sm p-4 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="exam-title">
     <section className="w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-white dark:bg-slate-900 border-4 border-slate-900 dark:border-slate-700 rounded-[2rem] shadow-[9px_9px_0_0_#020617] p-6 md:p-8">
       <header className="flex items-start justify-between gap-4">
@@ -315,7 +354,8 @@ function Khung({ children, onClose, onBack, tieuDe, phu }) {
             <h2 id="exam-title" className="text-xl md:text-2xl font-black leading-tight">{tieuDe}</h2>
           </div>
         </div>
-        <div className="flex gap-2 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
+          {dongHo}
           {onBack && <button onClick={onBack} aria-label="Quay lại" className="h-10 px-3 rounded-xl border-3 border-slate-800 font-black text-xs">← Danh sách</button>}
           <button onClick={onClose} aria-label="Đóng" className="w-10 h-10 rounded-xl border-3 border-slate-800 flex items-center justify-center"><X size={18} /></button>
         </div>

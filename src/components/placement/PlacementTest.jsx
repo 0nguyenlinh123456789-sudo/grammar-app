@@ -1,11 +1,12 @@
-import { useMemo, useState } from 'react';
-import { ArrowRight, CheckCircle2, Compass, Info, Lock, X } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { ArrowRight, CheckCircle2, Clock, Compass, Info, Lock, ShieldCheck, X } from 'lucide-react';
 import { placementBank } from '../../data/placementBank';
 import {
-  createSession, currentQuestion, answerCurrent, placementResultFrom, progressOf,
+  createSession, currentQuestion, answerCurrent, placementResultFrom, progressOf, gioiHanGiay,
 } from '../../utils/placementAdaptive';
 import { CEFR_LABEL } from '../../utils/placement';
 import { buildSkillProfile } from '../../utils/skillProfile';
+import { tronThuTu } from '../../utils/tronPhuongAn';
 
 const SKILL_VI = { grammar: 'Ngữ pháp', vocabulary: 'Từ vựng', reading: 'Đọc hiểu' };
 
@@ -27,11 +28,64 @@ export default function PlacementTest({ onComplete, onClose }) {
   const progress = progressOf(session);
   const result = useMemo(() => (session.done ? placementResultFrom(session) : null), [session]);
 
-  const submit = () => {
-    if (chosen === null) return;
-    setSession((s) => answerCurrent(s, chosen));
+  // TRỘN THỨ TỰ PHƯƠNG ÁN — ngân hàng này để 76% đáp án đúng ở hai ô đầu và
+  // KHÔNG câu nào ở ô cuối, nên "cứ bấm hai ô trên" trúng ~50% thay vì 25%.
+  // Bản vá 19/08 (`utils/tronPhuongAn.js`) đã dọn bốn kho khác nhưng BỎ SÓT kho
+  // này, vì phép đo hồi đó chỉ đếm "đáp án ở ô ĐẦU" (48% — trông bình thường)
+  // mà không nhìn phân bố đủ bốn ô. Đây là kho tai hại nhất để lọt: bậc đo sai
+  // ở đây đẩy người học vào sai chỗ trong 710 chặng.
+  //
+  // Trộn CỐ ĐỊNH THEO ID CÂU: cùng một câu luôn ra cùng thứ tự, nên phương án
+  // không nhảy chỗ giữa lúc đang đọc, mà mẹo "bấm ô đầu" thì chết hẳn.
+  const thuTu = useMemo(
+    () => (question ? tronThuTu(`placement:${question.id}`, question.options.length) : []),
+    [question],
+  );
+
+  const submit = (chiSoGoc) => {
+    // `null` = HẾT GIỜ. Bộ máy tính nó là sai (xem `answerCurrent`), và phải
+    // truyền null chứ không phải 0 — `Number(null)` là 0 nên nhầm chỗ này là
+    // chấm ĐÚNG cho mọi câu bỏ trống có đáp án ở ô đầu.
+    const dap = chiSoGoc === undefined ? chosen : chiSoGoc;
+    if (dap === undefined) return;
+    setSession((s) => answerCurrent(s, dap));
     setChosen(null);
   };
+
+  return <PlacementView
+    session={session} question={question} progress={progress} result={result}
+    chosen={chosen} setChosen={setChosen} thuTu={thuTu} submit={submit}
+    onComplete={onComplete} onClose={onClose}
+  />;
+}
+
+/** Đồng hồ đếm ngược của MỘT câu. Hết giờ thì tự nộp câu bỏ trống. */
+function DongHo({ khoa, giay, onHetGio }) {
+  const [conLai, setConLai] = useState(giay);
+
+  // Đặt lại khi sang câu khác. `khoa` là id câu — đổi câu thì đồng hồ về đầu.
+  useEffect(() => { setConLai(giay); }, [khoa, giay]);
+
+  // ⚠️ `onHetGio` là hàm mới ở MỖI lần vẽ. Để nó trong mảng phụ thuộc thì mỗi
+  // lần người học bấm chọn một phương án, effect chạy lại và `clearTimeout` cái
+  // đang đếm dở → ai đổi ý vài lần trong một câu là đồng hồ đứng im mãi, không
+  // lỗi nào bắn ra. Cùng họ lỗi với vòng lặp vẽ đã giết tab "Xếp Câu".
+  const hetGioRef = useRef(onHetGio);
+  useEffect(() => { hetGioRef.current = onHetGio; }, [onHetGio]);
+
+  useEffect(() => {
+    if (conLai <= 0) { hetGioRef.current?.(); return undefined; }
+    const t = setTimeout(() => setConLai((s) => s - 1), 1000);
+    return () => clearTimeout(t);
+  }, [conLai]);
+
+  const gap = conLai <= 10;
+  return <span className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border-2 font-black tabular-nums ${gap ? 'bg-rose-100 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300' : 'bg-slate-100 dark:bg-slate-800 border-slate-400 text-slate-600 dark:text-slate-300'}`}>
+    <Clock size={13} /> {conLai}s
+  </span>;
+}
+
+function PlacementView({ session, question, progress, result, chosen, setChosen, thuTu, submit, onComplete, onClose }) {
 
   return <div className="fixed inset-0 z-[120] bg-slate-950/70 backdrop-blur-sm p-4 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="placement-title">
     <section className="w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-white dark:bg-slate-900 border-4 border-slate-900 dark:border-slate-700 rounded-[2rem] shadow-[9px_9px_0_0_#020617] p-6 md:p-8">
@@ -49,34 +103,46 @@ export default function PlacementTest({ onComplete, onClose }) {
       {session.done && result
         ? <ResultView result={result} onComplete={onComplete} />
         : question && <>
-          <div className="mt-6 flex items-center justify-between text-xs font-black text-slate-500">
+          <div className="mt-6 flex items-center justify-between gap-3 text-xs font-black text-slate-500">
             <span>Vòng {progress.round}/{progress.maxRounds} · đang thử bậc {progress.cefr}</span>
-            <span>Đã trả lời {progress.answered} câu</span>
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="hidden sm:inline">Đã trả lời {progress.answered} câu</span>
+              <DongHo khoa={question.id} giay={gioiHanGiay(question)} onHetGio={() => submit(null)} />
+            </div>
           </div>
+          {progress.dangXacNhan && <p className="mt-2 text-[11px] font-black text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
+            <ShieldCheck size={13} className="shrink-0" /> Vòng xác nhận — hỏi thêm ở bậc {progress.cefr} bằng những câu chưa dùng, để bậc chốt không phụ thuộc vào một câu may rủi.
+          </p>}
           <div className="h-3 rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-slate-700 mt-2 overflow-hidden">
             <div className="h-full bg-blue-500 transition-all" style={{ width: `${Math.round((progress.inRound / Math.max(1, progress.roundSize)) * 100)}%` }} />
           </div>
           {/* Nói trước độ dài để không ai tưởng bài này dài vô tận. */}
           <p className="mt-2 text-[11px] font-bold text-slate-400">
             Bài tự điều chỉnh độ khó: trả lời đúng thì lên bậc cao hơn, sai thì xuống bậc thấp hơn. Tổng cộng {progress.minQuestions}–{progress.maxQuestions} câu.
+            Mỗi câu có giới hạn thời gian ({gioiHanGiay(question)} giây cho câu này) — hết giờ tính là chưa trả lời, để bậc đo ra là bậc của bạn chứ không phải của cuốn từ điển.
           </p>
 
           <p className="text-xs font-black uppercase text-slate-400 mt-8">{SKILL_VI[question.skill] || question.skill} · bậc {question.cefr}</p>
           <h3 className="text-xl md:text-2xl font-black mt-2 leading-snug">{question.prompt}</h3>
 
+          {/* `thuTu` là THỨ TỰ CHỈ SỐ GỐC đã trộn. Nhãn A/B/C/D đi theo vị trí
+              trên màn hình (`viTri`), còn thứ báo về bộ máy là chỉ số GỐC
+              (`goc`) — nhờ vậy phần chấm điểm không phải biết gì về việc trộn. */}
           <div className="grid gap-3 mt-6">
-            {question.options.map((option, optionIndex) => <button
-              key={option}
-              onClick={() => setChosen(optionIndex)}
-              className={`text-left p-4 rounded-2xl border-3 font-bold transition-all ${chosen === optionIndex ? 'bg-blue-100 dark:bg-blue-950/50 border-blue-600 shadow-[3px_3px_0_0_#2563eb]' : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-600 hover:border-blue-400'}`}
+            {thuTu.map((goc, viTri) => <button
+              key={question.options[goc]}
+              onClick={() => setChosen(goc)}
+              className={`text-left p-4 rounded-2xl border-3 font-bold transition-all ${chosen === goc ? 'bg-blue-100 dark:bg-blue-950/50 border-blue-600 shadow-[3px_3px_0_0_#2563eb]' : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-600 hover:border-blue-400'}`}
             >
-              <span className="inline-flex w-7 h-7 rounded-lg bg-white dark:bg-slate-900 border-2 border-slate-400 items-center justify-center mr-2 text-xs font-black">{String.fromCharCode(65 + optionIndex)}</span>{option}
+              <span className="inline-flex w-7 h-7 rounded-lg bg-white dark:bg-slate-900 border-2 border-slate-400 items-center justify-center mr-2 text-xs font-black">{String.fromCharCode(65 + viTri)}</span>{question.options[goc]}
             </button>)}
           </div>
 
           <footer className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-8">
             <p className="text-[11px] font-bold text-slate-400 flex items-center gap-1.5"><Lock size={13} className="shrink-0" /> Đã trả lời thì không quay lại được — câu sau chọn theo câu trước.</p>
-            <button disabled={chosen === null} onClick={submit} className="px-5 py-3 rounded-xl bg-yellow-300 border-3 border-slate-900 font-black shadow-[3px_3px_0_0_#1e293b] disabled:opacity-40 flex items-center justify-center gap-2 shrink-0">
+            {/* `onClick={submit}` sẽ truyền SỰ KIỆN CLICK vào tham số đầu — mà
+                tham số đó nay là "chỉ số phương án". Phải bọc lại. */}
+            <button disabled={chosen === null} onClick={() => submit()} className="px-5 py-3 rounded-xl bg-yellow-300 border-3 border-slate-900 font-black shadow-[3px_3px_0_0_#1e293b] disabled:opacity-40 flex items-center justify-center gap-2 shrink-0">
               Xác nhận <ArrowRight size={17} />
             </button>
           </footer>
@@ -94,6 +160,9 @@ function ResultView({ result, onComplete }) {
       {/* Phần trăm KHÔNG phải căn cứ xếp bậc — bài thích ứng luôn kéo mọi người
           về quanh 50–60% đúng. Nên nó đứng ở đây với đúng cái tên của nó. */}
       <p className="text-xs font-bold text-slate-500 mt-2">Đúng {result.correct}/{result.total} câu ({result.score}% — chỉ là tỉ lệ đúng, không phải căn cứ xếp bậc)</p>
+      {result.hetGio > 0 && <p className="text-xs font-bold text-amber-700 dark:text-amber-400 mt-1">
+        Trong đó {result.hetGio} câu hết giờ trước khi bạn chọn — những câu đó tính là chưa trả lời. Nếu bậc thấp hơn bạn nghĩ, đây có thể là lý do.
+      </p>}
     </div>
 
     {result.preA1 && <p className="mt-4 text-sm font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-400 rounded-2xl p-4">
