@@ -30,7 +30,8 @@
     "ra:testdauvao": "node scripts/ra_test_dau_vao.mjs",
     "ra:dienthoai": "node scripts/ra_dien_thoai.mjs",
     "ra:quetanh": "node scripts/ra_quet_anh.mjs",
-    "ra:nentoi": "node scripts/ra_nen_toi.mjs"
+    "ra:nentoi": "node scripts/ra_nen_toi.mjs",
+    "ra:phatam": "node scripts/ra_phat_am.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",

@@ -4,7 +4,8 @@ import { deNoiSinh, deNoiTuChang, deNoiChoChang } from '../../utils/speakingBank
 import { kiemTraLuotNoi, nhanXetLuotNoiBangAI, GHI_CHU_CHECKLIST_NOI, NHAN_KIEU_NOI, loiMicThanhChu } from '../../utils/speakingCheck';
 import { batDauGhiAm, loiGhiAmThanhChu } from '../../utils/ghiAm';
 import { luuBaiLam } from '../../utils/selfReportLog';
-import { hasGeminiKey } from '../../utils/aiKey';
+import { hasGeminiKey, openAiKeySettings } from '../../utils/aiKey';
+import { chamPhatAm, mucDeNghe } from '../../utils/chamPhatAm';
 
 // NÓI THEO CHỦ ĐỀ (việc 3.5) — mở rộng từ "đọc to một từ" sang "nói thành bài".
 //
@@ -52,7 +53,7 @@ function DanhSach({ onChon, onClose }) {
     </p>
     <p className="text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-800 rounded-2xl p-3 mb-4 flex gap-2">
       <AlertTriangle size={16} className="shrink-0 mt-0.5" />
-      <span>Phần này <b>không chấm phát âm</b> và không cho điểm. Trình duyệt chỉ ghi lại <b>văn bản nó nghe được</b> — từ văn bản thì không biết được bạn phát âm thế nào.</span>
+      <span>Phần này <b>không cho điểm</b>. Trình duyệt chỉ ghi lại <b>văn bản nó nghe được</b> — từ văn bản thì không biết bạn phát âm thế nào. Muốn có nhận xét phát âm thì thu âm rồi dùng khối <b>“Chấm phát âm”</b> ở cuối trang: ở đó AI nghe bản thu thật, nhưng đó là nhận xét của một mô hình, không phải điểm thi.</span>
     </p>
     <div className="flex flex-wrap gap-2 mb-4">
       {[null, ...Object.keys(NHAN_KIEU_NOI)].map((k) => <button
@@ -97,6 +98,12 @@ function LamBai({ de, onBack, onClose }) {
   // Bản thu nằm trong bộ nhớ phiên, KHÔNG lưu xuống đĩa. Xem utils/ghiAm.js.
   const [urlThu, setUrlThu] = useState('');
   const [loiThu, setLoiThu] = useState('');
+  // Bản thu dạng Blob phải giữ RIÊNG: từ blob URL không lấy lại được byte để
+  // gửi đi chấm, nhất là sau khi URL đã bị `huy()`.
+  const [blobThu, setBlobThu] = useState(null);
+  const [pa, setPa] = useState(null);
+  const [paLoi, setPaLoi] = useState('');
+  const [paDangChay, setPaDangChay] = useState(false);
   const mayThuRef = useRef(null);
   const huyThuRef = useRef(null);
   const dangMoMicRef = useRef(false);
@@ -107,7 +114,8 @@ function LamBai({ de, onBack, onClose }) {
     setBanChu(''); setDangNghe(false); setLoiMic(''); setDaNop(false);
     // Đổi đề thì bỏ bản thu cũ: nghe lại giọng mình của đề khác là một kiểu
     // thay thế âm thầm nhỏ nhưng vẫn là thay thế âm thầm.
-    huyThuRef.current?.(); huyThuRef.current = null; setUrlThu(''); setLoiThu('');
+    huyThuRef.current?.(); huyThuRef.current = null; setUrlThu(''); setLoiThu(''); setBlobThu(null);
+    setPa(null); setPaLoi(''); 
     setTick(de.checklist.map(() => false)); setDaLuu(false); setAiText(''); setAiLoi('');
   }, [de.id, de.checklist]);
 
@@ -194,7 +202,7 @@ function LamBai({ de, onBack, onClose }) {
     mayThuRef.current = null;
     if (!may) return;
     const kq = await may.dung();
-    if (kq.url) { setUrlThu(kq.url); huyThuRef.current = kq.huy; }
+    if (kq.url) { setUrlThu(kq.url); setBlobThu(kq.blob); huyThuRef.current = kq.huy; }
     else setLoiThu(loiGhiAmThanhChu(kq.loi));
   };
 
@@ -206,6 +214,17 @@ function LamBai({ de, onBack, onClose }) {
       setAiLoi(e?.message || 'không rõ lý do');
     } finally {
       setAiDangChay(false);
+    }
+  };
+
+  const xinChamPhatAm = async () => {
+    setPaDangChay(true); setPaLoi(''); setPa(null);
+    try {
+      setPa(await chamPhatAm(blobThu, { topicTitle: de.title }));
+    } catch (e) {
+      setPaLoi(e?.message || 'không rõ lý do');
+    } finally {
+      setPaDangChay(false);
     }
   };
 
@@ -248,13 +267,62 @@ function LamBai({ de, onBack, onClose }) {
         <p className="text-xs font-black uppercase tracking-wide text-purple-800 dark:text-purple-300">Nghe lại giọng mình</p>
         <audio controls src={urlThu} className="mt-2 w-full" />
         <p className="mt-2 text-[11px] font-bold text-purple-800/80 dark:text-purple-300/80 leading-relaxed">
-          Máy <b>không chấm</b> bản thu này — nó chỉ để bạn tự nghe. So với bản chữ ở dưới: chỗ nào trình duyệt nghe ra khác điều bạn định nói thì đó là chỗ đáng luyện lại.
+          Bản thu này để bạn <b>tự nghe lại</b>. So với bản chữ ở dưới: chỗ nào trình duyệt nghe ra khác điều bạn định nói thì đó là chỗ đáng luyện lại.
         </p>
         <p className="mt-1 text-[11px] font-bold text-slate-500 dark:text-slate-400">
-          Bản thu chỉ nằm trong phiên này. Đóng màn hình là mất, và nó <b>không được lưu vào máy</b> hay gửi đi đâu.
+          Bản thu chỉ nằm trong phiên này — đóng màn hình là mất, và nó <b>không được lưu vào máy</b>. Nó chỉ rời khỏi máy bạn khi chính bạn bấm <b>“Nghe và nhận xét phát âm”</b> ngay bên dưới: lúc đó nó được gửi tới Google bằng API key của bạn.
         </p>
       </div>
     )}
+
+    {/* ══ CHẤM PHÁT ÂM ══ Khối DUY NHẤT trong app mà mô hình thật sự NGHE
+        được tiếng người học. Chỉ bày nút khi ĐÃ CÓ bản thu — mời người ta bấm
+        vào một chỗ chưa dùng được cũng là một kiểu nói dối nhỏ. */}
+    <div className="mt-5 rounded-2xl border-[3px] border-slate-800 dark:border-slate-600 p-4 bg-indigo-50 dark:bg-indigo-950/30">
+      <p className="text-sm font-black flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
+        <Mic size={16} /> Chấm phát âm — AI NGHE bản thu của bạn
+      </p>
+      {!blobThu
+        ? <p className="mt-2 text-xs font-bold text-slate-500 dark:text-slate-400">Hãy bấm “Bắt đầu nói” rồi “Dừng lại” để có bản thu trước đã.</p>
+        : !coKey
+          ? <p className="mt-2 text-xs font-bold text-slate-600 dark:text-slate-300">
+              Cần API key Gemini của riêng bạn (miễn phí) — bản thu được gửi thẳng tới Google bằng key đó.
+              <button onClick={openAiKeySettings} className="ml-2 underline font-black cursor-pointer">Thêm key</button>
+            </p>
+          : <button onClick={xinChamPhatAm} disabled={paDangChay}
+              className="mt-3 w-full px-5 py-3 rounded-xl bg-indigo-500 text-white border-[3px] border-slate-800 dark:border-slate-600 font-black inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50">
+              <Sparkles size={17} /> {paDangChay ? 'AI đang nghe…' : 'Nghe và nhận xét phát âm'}
+            </button>}
+
+      {paLoi && <p className="mt-3 text-xs font-bold text-rose-600 dark:text-rose-400">Không chấm được: {paLoi}</p>}
+
+      {pa && !pa.ngheDuoc && <p className="mt-3 text-sm font-bold text-amber-800 dark:text-amber-300">
+        AI <b>không nghe rõ</b> bản thu này nên không nhận xét. {pa.nhac}
+      </p>}
+
+      {pa && pa.ngheDuoc && <div className="mt-3 space-y-3">
+        <div className="flex items-baseline gap-2 flex-wrap">
+          <span className="text-3xl font-black">{pa.deNghe}<span className="text-base">/100</span></span>
+          <span className={`text-sm font-black ${mucDeNghe(pa.deNghe).mau}`}>{mucDeNghe(pa.deNghe).nhan}</span>
+        </div>
+        {pa.nghe && <p className="text-xs font-bold text-slate-500 dark:text-slate-400">AI nghe thành: “{pa.nghe}”</p>}
+        {pa.tot.length > 0 && <ul className="text-sm font-bold text-emerald-700 dark:text-emerald-400 space-y-1">
+          {pa.tot.map((x, i) => <li key={i}>✓ {x}</li>)}
+        </ul>}
+        {pa.can.length > 0 && <div className="space-y-2">
+          {pa.can.map((x, i) => <div key={i} className="rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-3">
+            <p className="font-black text-sm">{x.tu}</p>
+            {x.van && <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">{x.van}</p>}
+            {x.sua && <p className="text-xs font-bold text-indigo-700 dark:text-indigo-300 mt-1">→ {x.sua}</p>}
+          </div>)}
+        </div>}
+        {pa.nhac && <p className="text-xs font-bold text-slate-600 dark:text-slate-300">{pa.nhac}</p>}
+      </div>}
+
+      <p className="mt-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 leading-relaxed">
+        Đây là <b>nhận xét của một mô hình</b>, không phải điểm thi: con số trên đo “người bản ngữ nghe có trôi không”, không quy đổi sang IELTS hay VSTEP, và <b>không</b> được ghi vào Báo cáo tiến bộ.
+      </p>
+    </div>
 
     <p className="mt-4 text-xs font-black uppercase tracking-wide text-slate-400">Trình duyệt nghe được</p>
     <textarea
@@ -314,7 +382,7 @@ function LamBai({ de, onBack, onClose }) {
               Muốn nhận xét chi tiết về <b>nội dung và ngữ pháp</b> thì cần key Gemini của bạn (mục Cài đặt). Không có key thì mọi bước ở trên vẫn dùng được đầy đủ.
             </p>}
         <p className="mt-2 text-[11px] font-bold text-slate-400">
-          AI cũng chỉ đọc được <b>bản chữ</b>, không nghe được tiếng bạn — nên nó không nhận xét phát âm.
+          Nút trên chỉ gửi <b>bản chữ</b> — nó nhận xét nội dung và ngữ pháp, không nghe tiếng bạn. Muốn nhận xét <b>phát âm</b> thì dùng khối bên dưới.
         </p>
         {aiLoi && <p className="mt-2 text-xs font-bold text-rose-600">Không lấy được nhận xét: {aiLoi}</p>}
         {aiText && <div className="mt-3">
@@ -322,6 +390,7 @@ function LamBai({ de, onBack, onClose }) {
           <div className="rounded-2xl border-2 border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-800 whitespace-pre-line text-sm font-medium leading-relaxed">{aiText}</div>
         </div>}
       </div>
+
 
       <div className="mt-6">
         <p className="text-xs font-black uppercase tracking-wide text-slate-400 mb-2">Bạn tự soi lượt nói của mình</p>
@@ -333,7 +402,7 @@ function LamBai({ de, onBack, onClose }) {
           </label>)}
         </div>
         <p className="mt-3 text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-800 rounded-2xl p-3">
-          Đây là <b>bạn tự chấm</b>, không phải điểm đo được — nên Báo cáo tiến bộ vẫn ghi kỹ năng Nói là “chưa đo được”. Chấm phát âm đạt chuẩn thi cử cần dịch vụ nhận diện giọng nói trả phí, app này cố ý không dùng.
+          Đây là <b>bạn tự chấm</b>, không phải điểm đo được — nên Báo cáo tiến bộ vẫn ghi kỹ năng Nói là “chưa đo được”. Khối “Chấm phát âm” ở trên có AI <b>nghe thật</b>, nhưng đó vẫn là nhận xét của một mô hình chứ không phải điểm chuẩn thi cử — nên nó cũng không vào Báo cáo tiến bộ.
         </p>
         {!daLuu
           ? <button onClick={luu} className="mt-4 w-full px-5 py-3 rounded-xl bg-yellow-300 border-3 border-slate-900 font-black shadow-[3px_3px_0_0_#1e293b] inline-flex items-center justify-center gap-2 cursor-pointer">

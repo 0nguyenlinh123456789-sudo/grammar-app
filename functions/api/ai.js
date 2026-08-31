@@ -79,6 +79,16 @@ export function describeProviderFailure(upstreamStatus) {
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 const MAX_IMAGE_BASE64_LENGTH = 4 * Math.ceil(MAX_IMAGE_BYTES / 3);
 
+// ÂM THANH cho chế độ chấm phát âm. 3 MB: bản thu webm/opus của trình duyệt
+// khoảng 16–24 kB/s, nên 3 MB đủ cho hơn hai phút nói — dài hơn mọi đề nói
+// trong app. Trần thấp hơn ảnh vì thân yêu cầu còn phải nằm dưới TRAN_BYTE
+// (6 MB) ở src/server/routes/ai.js sau khi base64 phình thêm 33%.
+const MAX_AUDIO_BYTES = 3 * 1024 * 1024;
+const MAX_AUDIO_BASE64_LENGTH = 4 * Math.ceil(MAX_AUDIO_BYTES / 3);
+// Định dạng trình duyệt thật sự tạo ra: Chrome/Firefox cho webm hoặc ogg,
+// Safari cho mp4. Khai đúng những thứ đó, không khai bừa cả họ audio/*.
+const MIME_AM_THANH = /^audio\/(webm|ogg|mp4|mpeg|wav)(;.*)?$/i;
+
 // Helper `json` cu da bo: moi phan hoi nay di qua `jsonResponse` trong
 // src/server/accessCore.js, mot ham phuc vu ca hai nen chay. Giu lai ban thu
 // hai o day la dung lai cai bay hai-ban ma ca dot nay dang go.
@@ -87,6 +97,8 @@ const requestErrors = {
   'empty-input': ['empty-input', 'Hãy nhập nội dung trước khi chấm.'],
   'invalid-image': ['invalid-image', 'Ảnh không hợp lệ hoặc không được hỗ trợ.'],
   'image-too-large': ['image-too-large', 'Ảnh phải nhỏ hơn 4 MB.'],
+  'invalid-audio': ['invalid-audio', 'Bản thu không hợp lệ hoặc định dạng không được hỗ trợ.'],
+  'audio-too-large': ['audio-too-large', 'Bản thu quá dài. Hãy nói ngắn hơn (dưới khoảng 2 phút).'],
   'unsupported-mode': ['unsupported-mode', 'Yêu cầu AI không được hỗ trợ.'],
 };
 
@@ -140,6 +152,47 @@ Phản hồi ngắn gọn bằng tiếng Việt gồm: (1) nội dung đã trả
     return [
       { text: `Bạn là giáo viên tiếng Anh. Nhận diện đối tượng hoặc hành động chính trong ảnh. Chỉ trả về JSON hợp lệ, không dùng markdown, theo cấu trúc: {"word":"English word","ipa":"/IPA/","meaning":"Nghĩa tiếng Việt","phrases":["Cụm từ — nghĩa"],"sentences":[{"en":"Example","vi":"Bản dịch"}]}. Tạo 2 cụm từ và 2 câu ví dụ.` },
       { inlineData: { data: imageData, mimeType } },
+    ];
+  }
+
+  // ══ CHẤM PHÁT ÂM (31/08) ══
+  //
+  // Đây là chế độ ĐẦU TIÊN mô hình THẬT SỰ NGHE được tiếng người học. Mọi chế
+  // độ trước chỉ có chữ, nên chú thích ở `speaking` phía trên cấm nhận xét phát
+  // âm — lệnh cấm đó vẫn đúng CHO CHẾ ĐỘ ĐÓ và không được gỡ.
+  //
+  // Ba ràng buộc trung thực viết thẳng vào lời nhắc, vì nếu chỉ viết ở giao
+  // diện thì lần sửa giao diện sau là mất:
+  //   1. Nếu bản thu không nghe rõ thì phải NÓI LÀ KHÔNG NGHE RÕ, không đoán.
+  //   2. Điểm là "mức độ DỄ NGHE với người bản ngữ", KHÔNG phải điểm thi.
+  //   3. Chỉ nhận xét thứ NGHE ĐƯỢC; không bịa lỗi trọng âm không có thật.
+  if (mode === 'pronunciation') {
+    const audioData = String(payload.audioData || '').trim();
+    const mimeType = cleanText(payload.mimeType, 80);
+    if (!audioData || !MIME_AM_THANH.test(mimeType)) throw new Error('invalid-audio');
+    if (audioData.length > MAX_AUDIO_BASE64_LENGTH) throw new Error('audio-too-large');
+    if (audioData.length % 4 !== 0 || !/^[A-Za-z0-9+/]+={0,2}$/.test(audioData)) throw new Error('invalid-audio');
+    const padding = audioData.endsWith('==') ? 2 : audioData.endsWith('=') ? 1 : 0;
+    if ((audioData.length * 3) / 4 - padding > MAX_AUDIO_BYTES) throw new Error('audio-too-large');
+
+    const target = cleanText(payload.target, 600);
+    const topic = cleanText(payload.topicTitle, 200);
+    const phanDe = target
+      ? `Người học được yêu cầu đọc to đúng câu này: "${target}". Hãy đối chiếu bản thu với câu đó.`
+      : `Người học nói tự do${topic ? ` về chủ đề "${topic}"` : ''}; không có câu mẫu để đối chiếu.`;
+
+    return [
+      { text: `Bạn là giáo viên luyện phát âm tiếng Anh. Bạn ĐANG NGHE một bản thu giọng của người học Việt Nam. ${phanDe}
+
+Chỉ trả về JSON hợp lệ, KHÔNG dùng markdown, theo đúng cấu trúc:
+{"ngheDuoc":true,"deNghe":75,"nghe":"chuỗi bạn nghe được","tot":["điểm làm tốt"],"can":[{"tu":"từ tiếng Anh","van":"vấn đề nghe thấy","sua":"cách sửa cho người Việt"}],"nhac":"một câu nhắc luyện tập"}
+
+Quy tắc bắt buộc:
+- Nếu bản thu im lặng, quá nhiễu, hoặc không phải tiếng Anh: đặt "ngheDuoc": false, để "can" rỗng, và giải thích trong "nhac". TUYỆT ĐỐI không đoán nội dung.
+- "deNghe" là số 0–100 ước lượng mức độ DỄ NGHE với người bản ngữ. Đây KHÔNG phải điểm thi và không được trình bày như điểm thi.
+- Chỉ nêu lỗi bạn THẬT SỰ NGHE THẤY. Không suy ra lỗi từ việc người nói là người Việt.
+- Tối đa 4 mục trong "can". Mọi lời giải thích viết bằng tiếng Việt; giữ nguyên từ tiếng Anh ở trường "tu".` },
+      { inlineData: { data: audioData, mimeType } },
     ];
   }
 

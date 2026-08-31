@@ -46,10 +46,21 @@ test('không file nào của mục nói hứa chấm/điểm phát âm', () => {
   assert.deepEqual(loi, [], `có chỗ hứa chấm phát âm:\n  ${loi.join('\n  ')}`);
 });
 
-test('giao diện nói thẳng rằng đây là chữ máy nghe, không phải đánh giá phát âm', () => {
+// ⚠️ ĐỔI 31/08. Bản cũ đòi màn hình phải chứa câu "không chấm phát âm". Từ khi
+// có khối "Chấm phát âm" (AI nghe bản thu thật, key của người học), câu đó thành
+// SAI SỰ THẬT — nên nó bị GỠ khỏi giao diện, và phép canh này chuyển sang canh
+// ranh giới mới. Ranh giới mới CHẶT HƠN chứ không lỏng hơn: nó bắt màn hình
+// phải phân biệt rõ hai thứ khác nhau (bản chữ ≠ nghe tiếng), và bắt kết quả
+// chấm phải kèm câu "không phải điểm thi".
+test('giao diện phân biệt rõ BẢN CHỮ với NGHE TIẾNG, và không nhận là điểm thi', () => {
   const s = fs.readFileSync('src/components/speaking/SpeakingPromptPanel.jsx', 'utf8');
-  assert.ok(s.includes('không chấm phát âm'), 'thiếu câu cảnh báo "không chấm phát âm"');
   assert.ok(/văn bản nó nghe được/i.test(s), 'thiếu lời giải thích trình duyệt chỉ trả về văn bản');
+  assert.ok(/không nghe tiếng bạn/i.test(s),
+    'phải nói rõ nút nhận xét NỘI DUNG chỉ đọc chữ — nếu không, hai tính năng bị hiểu lẫn làm một');
+  assert.ok(/không phải điểm thi/i.test(s),
+    'khối chấm phát âm phải kèm câu nói rõ đây không phải điểm thi');
+  assert.ok(/không.{0,40}Báo cáo tiến bộ/i.test(s),
+    'phải nói rõ kết quả chấm phát âm KHÔNG vào Báo cáo tiến bộ');
   assert.ok(s.includes('chưa có bài nói mẫu'), 'phải nói thẳng là chưa có bài mẫu, không lặng lẽ bỏ bước');
 });
 

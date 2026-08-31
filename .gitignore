@@ -37,3 +37,8 @@ public/ielts-prep/
 ung_vien_audio.tsv
 ung_vien_dot2.tsv
 ung_vien_all.tsv
+
+# Sach giao trinh co ban quyen — KHONG duoc dua len GitHub.
+# MM Publications © 2012, "All rights reserved". Repo nay se len GitHub cong khai;
+# day sach len la vua vi pham ban quyen vua phinh repo them 36 MB vinh vien.
+*.pdf

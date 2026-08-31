@@ -224,8 +224,12 @@ in2('  đề nói gắn theo chặng', `${SO_DE_NOI_THEO_CHANG}`);
 in2('  có màn luyện nói', noi ? 'CÓ' : 'KHÔNG');
 in2('  cách nhận đầu vào', /SpeechRecognition|webkitSpeech/.test(noi)
   ? 'nhận dạng giọng nói của TRÌNH DUYỆT → ra BẢN CHỮ' : 'không rõ');
-in2('  chấm PHÁT ÂM', /pronunciation|phát âm/i.test(aiCore) && !/KHÔNG.*phát âm/i.test(aiCore)
-  ? 'có' : 'KHÔNG — mô hình chỉ đọc chữ, không nghe được âm thanh');
+// Phép đo cũ hỏi "aiCore có nhắc tới phát âm không" — quá lỏng, một dòng chú
+// thích cũng làm nó bật xanh. Nay hỏi đúng thứ quyết định: có chế độ gửi ÂM
+// THANH lên mô hình không (`mode === 'pronunciation'` + `inlineData` audio).
+in2('  chấm PHÁT ÂM', /mode === 'pronunciation'/.test(aiCore) && /MIME_AM_THANH/.test(aiCore)
+  ? 'CÓ — gửi BẢN THU cho mô hình nghe (key của người học); là nhận xét mô hình, KHÔNG phải điểm thi'
+  : 'KHÔNG — mô hình chỉ đọc chữ, không nghe được âm thanh');
 in2('  chấm nội dung/ngữ pháp lượt nói', /mode === 'speaking'/.test(aiCore) ? 'CÓ (qua AI, key của người học)' : 'không');
 
 console.log('\n  VIẾT');
@@ -238,7 +242,9 @@ console.log('\n═══ 3. ĐIỀU KIỆN NGẦM — chỗ lời hứa dễ v�
 in2('nói & viết CHẤM được bằng gì', 'API key Gemini của CHÍNH người học');
 in2('không có key thì sao', 'vẫn có ĐỀ và checklist, nhưng KHÔNG có phản hồi chấm');
 in2('=> "chấm 4 kỹ năng" đúng với ai', 'chỉ đúng với người học ĐÃ tự lấy key Google');
-in2('phát âm', 'KHÔNG chấm được ở mức nào — đã nói thẳng trong giao diện');
+in2('phát âm', /mode === 'pronunciation'/.test(aiCore)
+  ? 'CÓ nhận xét (AI nghe bản thu, cần key) — KHÔNG quy đổi sang IELTS/VSTEP, không vào Báo cáo tiến bộ'
+  : 'KHÔNG chấm được ở mức nào — đã nói thẳng trong giao diện');
 
 console.log('\n═══ ĐỌC KẾT QUẢ NÀY THẾ NÀO ═══');
 console.log('  Số chặng KHÔNG trả lời được câu "tốt 4 kỹ năng chưa", và số chặng cũng');
@@ -246,4 +252,6 @@ console.log('  KHÔNG trả lời được câu "đủ tới B2 chưa" — cả 
 console.log('  câu trên đo bằng ĐỘ PHỦ ĐỀ cộng với CÓ CHẤM ĐƯỢC KHÔNG, câu dưới đo');
 console.log('  bằng GIỜ CỘNG DỒN. Đọc và nghe là NHẬN VÀO — chấm bằng trắc nghiệm là');
 console.log('  đủ. Nói và viết là SẢN XUẤT — đề phủ gần trọn, nhưng phần CHẤM dựa vào');
-console.log('  key AI của chính người học, và phát âm thì không chấm được.');
+console.log('  key AI của chính người học. Phát âm nay CÓ nhận xét (mô hình nghe bản');
+console.log('  thu thật), nhưng đó là nhận xét của một mô hình — không phải điểm chuẩn');
+console.log('  thi cử, nên Báo cáo tiến bộ vẫn ghi kỹ năng Nói là "chưa đo được".');

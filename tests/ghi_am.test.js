@@ -149,14 +149,25 @@ test('bỏ giữa chừng (rời màn hình khi đang thu) cũng trả lại mic
 });
 
 // ══ GIAO DIỆN KHÔNG ĐƯỢC HỨA THỨ KHÔNG CÓ ═════════════════════════════════
-test('màn luyện nói nói THẲNG: máy không chấm bản thu, và bản thu không được lưu', () => {
+test('màn luyện nói nói THẲNG bản thu đi đâu, và không phải điểm thi', () => {
   const src = readFileSync('src/components/speaking/SpeakingPromptPanel.jsx', 'utf8');
   assert.ok(/batDauGhiAm/.test(src), 'màn luyện nói chưa gắn ghi âm — vòng luyện nói vẫn hở một nửa');
   assert.ok(/Nghe lại giọng mình/.test(src), 'không có chỗ nào cho người học nghe lại');
-  assert.ok(/không chấm<\/b> bản thu/.test(src),
-    'có nút ghi âm mà không nói rõ máy KHÔNG chấm — cái micro sẽ tự nó hứa hộ');
+  // ⚠️ ĐỔI 31/08 — SỰ THẬT ĐÃ ĐỔI, NÊN PHÉP CANH PHẢI CANH SỰ THẬT MỚI.
+  // Trước đây bản thu KHÔNG bao giờ rời khỏi máy, nên phép canh đòi câu "máy
+  // không chấm bản thu". Nay có nút "Nghe và nhận xét phát âm" gửi bản thu cho
+  // Gemini bằng key của chính người học, nên câu cũ thành SAI. Giữ câu cũ là
+  // bắt sản phẩm nói dối theo chiều ngược lại.
+  //
+  // Điều PHẢI canh nay là ba câu khác, và chúng nghiêm hơn câu cũ:
   assert.ok(/không được lưu vào máy/.test(src),
     'phải nói rõ bản thu không lưu lại: đó là giọng của người học');
+  assert.ok(/chỉ rời khỏi máy bạn khi chính bạn bấm/.test(src),
+    'phải nói rõ bản thu CHỈ được gửi đi khi người học tự bấm — im lặng gửi giọng người ta đi là chuyện khác hẳn');
+  assert.ok(/gửi tới Google bằng API key của bạn/.test(src),
+    'phải nói rõ gửi ĐI ĐÂU và bằng key của ai');
+  assert.ok(/không phải điểm thi/.test(src),
+    'kết quả chấm phát âm phải kèm câu nói rõ nó không phải điểm thi');
 
   // Thoát sớm khi trình duyệt không có Web Speech từng bỏ quên micro đang bật.
   assert.ok(/if \(mayThuRef\.current\) setDangNghe\(true\);/.test(src),

@@ -290,11 +290,11 @@
         "trans": "Cậu ấy là cậu bé cao nhất lớp."
       },
       {
-        "sentence": "She wore a silk Italian beautiful old dress.",
-        "errorWord": "silk Italian beautiful old",
-        "correction": "beautiful old Italian silk",
-        "explanation": "Trật tự tính từ: ý kiến (beautiful) → tuổi (old) → xuất xứ (Italian) → chất liệu (silk).",
-        "trans": "Cô ấy mặc một chiếc váy lụa Ý cũ rất đẹp."
+        "sentence": "She wore a silk beautiful dress.",
+        "errorWord": "silk beautiful",
+        "correction": "beautiful silk",
+        "explanation": "Trật tự tính từ: Ý KIẾN (beautiful) đứng trước CHẤT LIỆU (silk).",
+        "trans": "Cô ấy mặc một chiếc váy lụa rất đẹp."
       },
       {
         "sentence": "The exam was surprising easy this year.",

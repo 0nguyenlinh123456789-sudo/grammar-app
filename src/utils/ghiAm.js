@@ -83,12 +83,15 @@ export async function batDauGhiAm() {
       await xong;
       traLaiMicro();
 
-      if (!manh.length) return { url: null, loi: 'rong', huy: () => {} };
+      if (!manh.length) return { url: null, blob: null, loi: 'rong', huy: () => {} };
       const blob = new Blob(manh, { type: may.mimeType || 'audio/webm' });
       const url = URL.createObjectURL(blob);
+      // Trả về CẢ `blob`, không chỉ `url`: từ 31/08 bản thu còn được gửi cho
+      // Gemini chấm phát âm, mà từ một blob URL thì không lấy lại được byte
+      // (phải fetch chính nó — vòng vo và hỏng khi URL đã bị `huy()`).
       // Nơi gọi PHẢI gọi `huy()` khi thay bản thu khác hoặc khi rời màn hình.
       // Blob URL không tự biến mất; quên là rò bộ nhớ cho tới lúc tải lại trang.
-      return { url, loi: null, huy: () => { try { URL.revokeObjectURL(url); } catch { /* ignore */ } } };
+      return { url, blob, loi: null, huy: () => { try { URL.revokeObjectURL(url); } catch { /* ignore */ } } };
     },
     // Bỏ giữa chừng (rời màn hình khi đang thu): trả micro, không dựng blob.
     boGiuaChung() {
