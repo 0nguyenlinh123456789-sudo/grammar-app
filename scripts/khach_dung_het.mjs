@@ -430,7 +430,7 @@ try {
   // Nó chứng minh logic đúng; nó không chứng minh `getUserMedia` +
   // `MediaRecorder` thật ghép được với nút bấm thật. Chỗ này lái trên Chrome
   // thật với micro giả — đúng cái ranh giới giữa hai loại kiểm.
-  await khuVuc('GHI ÂM: nói xong phải NGHE LẠI được, và nói rõ máy KHÔNG chấm', async () => {
+  await khuVuc('GHI ÂM: nói xong phải NGHE LẠI được, và nói rõ bản thu ĐI ĐÂU', async () => {
     await veTrangChu(); await cho(800);
     if (!await t.danhGia(BAM_DUNG_NHAN('NÓI'))) throw new Error('không thấy nút NÓI trên trang chủ');
     await cho(1000);
@@ -465,12 +465,27 @@ try {
       return 'micro giả không đẻ ra bản thu, nhưng app CÓ báo ra (không im lặng)';
     }
 
-    // Có bản thu thì phải kèm đủ hai lời: không chấm, và không lưu.
-    if (!/không chấm/.test(chu)) throw new Error('có bản ghi âm mà không nói rõ máy KHÔNG chấm nó');
+    // ⚠️ ĐỔI 31/08 — SỰ THẬT ĐÃ ĐỔI.
+    // Trước đây bản thu KHÔNG bao giờ rời khỏi máy, nên chỗ này đòi câu "máy
+    // không chấm". Nay có nút "Nghe và nhận xét phát âm" gửi bản thu cho Gemini
+    // bằng key của chính người học, nên câu cũ thành SAI — giữ nó là bắt sản
+    // phẩm nói dối theo chiều ngược lại.
+    //
+    // Ba điều phải nói nay NHIỀU hơn hai điều cũ, vì rủi ro cũng lớn hơn: đây
+    // là giọng của người học rời khỏi máy họ.
     if (!/không được lưu vào máy/.test(chu)) throw new Error('không nói rõ bản thu không được lưu lại');
+    if (!/chỉ rời khỏi máy bạn khi chính bạn bấm/.test(chu)) {
+      throw new Error('không nói rõ bản thu CHỈ được gửi đi khi người học tự bấm');
+    }
+    if (!/gửi tới Google bằng API key của bạn/.test(chu)) {
+      throw new Error('không nói rõ bản thu được gửi ĐI ĐÂU và bằng key của ai');
+    }
+    if (!/không phải điểm thi/.test(chu)) {
+      throw new Error('khối chấm phát âm thiếu câu nói rõ đây không phải điểm thi');
+    }
 
     await t.danhGia(DONG_PANEL); await cho(400);
-    return 'thu được, nghe lại được, và có đủ hai lời: máy không chấm + bản thu không lưu';
+    return 'thu được, nghe lại được, và nói đủ: không lưu vào máy · chỉ gửi khi tự bấm · gửi tới Google bằng key của mình · không phải điểm thi';
   });
   // ── NGƯỜI MẤT GỐC: BẬC ĐẦU TIÊN CÓ DẠY ĐẶT CÂU KHÔNG ─────────────────────
   // Đây là bước đo đúng cam kết của sản phẩm. Trước đợt audit sư phạm, bậc A1
