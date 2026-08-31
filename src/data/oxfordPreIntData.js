@@ -452,46 +452,10 @@ export const courseData = [
         ],
         "a": "word class"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"vocabulary notebook\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"revise\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"active learning\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"make progress\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Nghĩa của \"vocabulary notebook\" trong bài này là gì?","options":["sổ tay ghi chép từ vựng hằng ngày","đọc to thành tiếng để nhớ phát âm","từ loại (danh từ, động từ, tính từ)","mắc sai lầm khi nói hoặc viết"],"a":"sổ tay ghi chép từ vựng hằng ngày"},
+      {"q":"Nghĩa của \"revise\" trong bài này là gì?","options":["ôn tập lại kiến thức định kỳ","phương pháp học tập chủ động","mắc sai lầm khi nói hoặc viết","trò chuyện tán gẫu thân mật"],"a":"ôn tập lại kiến thức định kỳ"},
+      {"q":"Nghĩa của \"active learning\" trong bài này là gì?","options":["phương pháp học tập chủ động","ôn tập lại kiến thức định kỳ","mắc sai lầm khi nói hoặc viết","trò chuyện tán gẫu thân mật"],"a":"phương pháp học tập chủ động"},
+      {"q":"Nghĩa của \"make progress\" trong bài này là gì?","options":["tiến bộ, cải thiện rõ rệt","trò chuyện tán gẫu thân mật","ôn tập lại kiến thức định kỳ","phương pháp học tập chủ động"],"a":"tiến bộ, cải thiện rõ rệt"}
     ],
     "typingGame": [
       {
@@ -1164,46 +1128,10 @@ export const courseData = [
         ],
         "a": "phrasal verb"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"translation\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"definition\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"context\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"collocation\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"'Wake up' and 'run out of' are _____s.\"","options":["phrasal verb","translation","collocation","definition"],"a":"phrasal verb"},
+      {"q":"Nghĩa của \"translation\" trong bài này là gì?","options":["bản dịch nghĩa sang tiếng mẹ đẻ","thành ngữ mang ý nghĩa đặc biệt","ngữ cảnh cụ thể đi kèm của từ","từ đồng nghĩa có cùng ý nghĩa"],"a":"bản dịch nghĩa sang tiếng mẹ đẻ"},
+      {"q":"Nghĩa của \"definition\" trong bài này là gì?","options":["định nghĩa giải thích ý nghĩa bằng Anh-Anh","bản dịch nghĩa sang tiếng mẹ đẻ","thành ngữ mang ý nghĩa đặc biệt","ngữ cảnh cụ thể đi kèm của từ"],"a":"định nghĩa giải thích ý nghĩa bằng Anh-Anh"},
+      {"q":"Nghĩa của \"context\" trong bài này là gì?","options":["ngữ cảnh cụ thể đi kèm của từ","từ đồng nghĩa có cùng ý nghĩa","bản dịch nghĩa sang tiếng mẹ đẻ","thành ngữ mang ý nghĩa đặc biệt"],"a":"ngữ cảnh cụ thể đi kèm của từ"}
     ],
     "typingGame": [
       {
@@ -1849,46 +1777,10 @@ export const courseData = [
         ],
         "a": "part of speech"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"bilingual dictionary\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"monolingual dictionary\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"dictionary entry\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"guide word\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"_____s help you find entries much faster.\"","options":["guide word","stress mark","syllable","part of speech"],"a":"guide word"},
+      {"q":"Điền từ thích hợp vào chỗ trống: \"_____s show you how to say the word.\"","options":["phonetic symbol","dictionary entry","part of speech","stress mark"],"a":"phonetic symbol"},
+      {"q":"Nghĩa của \"bilingual dictionary\" trong bài này là gì?","options":["từ điển song ngữ dịch hai ngôn ngữ","mục từ được tra cứu và định nghĩa","từ dẫn đường ở đầu trang từ điển","từ loại của từ (danh từ, động từ...)"],"a":"từ điển song ngữ dịch hai ngôn ngữ"},
+      {"q":"Nghĩa của \"monolingual dictionary\" trong bài này là gì?","options":["từ điển đơn ngữ giải nghĩa bằng một tiếng","từ loại của từ (danh từ, động từ...)","từ điển song ngữ dịch hai ngôn ngữ","mục từ được tra cứu và định nghĩa"],"a":"từ điển đơn ngữ giải nghĩa bằng một tiếng"}
     ],
     "typingGame": [
       {
@@ -2534,46 +2426,10 @@ export const courseData = [
         ],
         "a": "suffix"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"countable noun\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"uncountable noun\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"singular\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"plural\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"'Apple' and 'car' are _____s.\"","options":["countable noun","uncountable noun","preposition","conjunction"],"a":"countable noun"},
+      {"q":"Điền từ thích hợp vào chỗ trống: \"'Water' and 'money' are _____s.\"","options":["uncountable noun","countable noun","preposition","conjunction"],"a":"uncountable noun"},
+      {"q":"Nghĩa của \"countable noun\" trong bài này là gì?","options":["danh từ đếm được","danh từ không đếm được","dạng số ít của danh từ","dạng số nhiều của danh từ"],"a":"danh từ đếm được"},
+      {"q":"Nghĩa của \"uncountable noun\" trong bài này là gì?","options":["danh từ không đếm được","dạng số ít của danh từ","dạng số nhiều của danh từ","danh từ đếm được"],"a":"danh từ không đếm được"}
     ],
     "typingGame": [
       {
@@ -3223,46 +3079,10 @@ export const courseData = [
         ],
         "a": "phonetics"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"silent letter\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"homophone\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"mispronounce\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"syllable stress\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"'Write' and 'right' are _____s.\"","options":["homophone","phonetics","intonation","vowel sound"],"a":"homophone"},
+      {"q":"Điền từ thích hợp vào chỗ trống: \"English has five vowel letters but many _____s.\"","options":["vowel sound","mispronounce","intonation","silent letter"],"a":"vowel sound"},
+      {"q":"Nghĩa của \"silent letter\" trong bài này là gì?","options":["chữ cái câm không phát âm khi đọc","ngữ điệu lên xuống của giọng nói","trọng âm nhấn vào âm tiết chính","nguyên âm phát ra từ thanh quản"],"a":"chữ cái câm không phát âm khi đọc"},
+      {"q":"Nghĩa của \"homophone\" trong bài này là gì?","options":["từ đồng âm nhưng khác nghĩa và cách viết","ngữ âm học nghiên cứu âm thanh lời nói","phụ âm bị cản trở bởi môi/răng/lưỡi","chữ cái câm không phát âm khi đọc"],"a":"từ đồng âm nhưng khác nghĩa và cách viết"}
     ],
     "typingGame": [
       {
@@ -3908,46 +3728,10 @@ export const courseData = [
         ],
         "a": "do exercises"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"rub out\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"wipe the board\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"hand in\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"distribute sheets\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      }
+      {"q":"Nghĩa của \"rub out\" trong bài này là gì?","options":["tẩy xóa đi vết phấn hoặc bút chì","phát phiếu học tập, phát đề thi","đổi chỗ ngồi cho nhau trong lớp","chung sách, đọc chung sách với bạn"],"a":"tẩy xóa đi vết phấn hoặc bút chì"},
+      {"q":"Nghĩa của \"wipe the board\" trong bài này là gì?","options":["lau sạch bảng phấn viết bài","ghi chép tóm tắt bài giảng","làm bài tập luyện tập củng cố","phát phiếu học tập, phát đề thi"],"a":"lau sạch bảng phấn viết bài"},
+      {"q":"Nghĩa của \"hand in\" trong bài này là gì?","options":["nộp bài tập, nộp tài liệu cho thầy cô","chung sách, đọc chung sách với bạn","tẩy xóa đi vết phấn hoặc bút chì","phát phiếu học tập, phát đề thi"],"a":"nộp bài tập, nộp tài liệu cho thầy cô"},
+      {"q":"Nghĩa của \"distribute sheets\" trong bài này là gì?","options":["phát phiếu học tập, phát đề thi","đổi chỗ ngồi cho nhau trong lớp","tẩy xóa đi vết phấn hoặc bút chì","làm bài tập luyện tập củng cố"],"a":"phát phiếu học tập, phát đề thi"}
     ],
     "typingGame": [
       {
@@ -4588,46 +4372,10 @@ export const courseData = [
         ],
         "a": "dislike"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"unhappy\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"informal\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"impossible\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"disagree\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      }
+      {"q":"Nghĩa của \"unhappy\" trong bài này là gì?","options":["không hạnh phúc, buồn rầu","thiếu kiên nhẫn, nôn nóng","ghét, không thích điều gì","kỳ lạ, không bình thường"],"a":"không hạnh phúc, buồn rầu"},
+      {"q":"Nghĩa của \"informal\" trong bài này là gì?","options":["thân mật, không trang trọng","không thể nào thực hiện được","không hạnh phúc, buồn rầu","thiếu kiên nhẫn, nôn nóng"],"a":"thân mật, không trang trọng"},
+      {"q":"Nghĩa của \"impossible\" trong bài này là gì?","options":["không thể nào thực hiện được","thân mật, không trang trọng","tàng hình, không thể nhìn thấy","không hạnh phúc, buồn rầu"],"a":"không thể nào thực hiện được"},
+      {"q":"Nghĩa của \"disagree\" trong bài này là gì?","options":["không đồng ý, bất đồng quan điểm","tàng hình, không thể nhìn thấy","không thể nào thực hiện được","thân mật, không trang trọng"],"a":"không đồng ý, bất đồng quan điểm"}
     ],
     "typingGame": [
       {
@@ -5273,46 +5021,10 @@ export const courseData = [
         ],
         "a": "suggestion"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"improvement\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"happiness\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"development\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"sadness\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Nghĩa của \"improvement\" trong bài này là gì?","options":["sự tiến bộ, sự cải thiện tốt hơn","khả năng, năng lực làm việc gì đó","thông tin hữu ích thu thập được","lời đề nghị, ý kiến đóng góp"],"a":"sự tiến bộ, sự cải thiện tốt hơn"},
+      {"q":"Nghĩa của \"happiness\" trong bài này là gì?","options":["niềm hạnh phúc, sự vui vẻ","thực tế thực tiễn cuộc sống","sự phát triển vượt bậc","lời đề nghị, ý kiến đóng góp"],"a":"niềm hạnh phúc, sự vui vẻ"},
+      {"q":"Nghĩa của \"development\" trong bài này là gì?","options":["sự phát triển vượt bậc","nỗi buồn bã, sự u sầu","niềm hạnh phúc, sự vui vẻ","thực tế thực tiễn cuộc sống"],"a":"sự phát triển vượt bậc"},
+      {"q":"Nghĩa của \"sadness\" trong bài này là gì?","options":["nỗi buồn bã, sự u sầu","sự phát triển vượt bậc","niềm hạnh phúc, sự vui vẻ","thực tế thực tiễn cuộc sống"],"a":"nỗi buồn bã, sự u sầu"}
     ],
     "typingGame": [
       {
@@ -5958,46 +5670,10 @@ export const courseData = [
         ],
         "a": "traditional"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"suitable\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"sunny\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"fashionable\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"cloudy\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      }
+      {"q":"Nghĩa của \"suitable\" trong bài này là gì?","options":["thích hợp, phù hợp cho mục đích nào đó","hợp thời trang, sành điệu hợp mốt","thuộc về cấp quốc gia, đất nước","mang tính truyền thống văn hóa"],"a":"thích hợp, phù hợp cho mục đích nào đó"},
+      {"q":"Nghĩa của \"sunny\" trong bài này là gì?","options":["nhiều nắng ấm áp rực rỡ","thu hút quyến rũ ưa nhìn","nhiều mây âm u sắp có mưa","năng động, chủ động tham gia"],"a":"nhiều nắng ấm áp rực rỡ"},
+      {"q":"Nghĩa của \"fashionable\" trong bài này là gì?","options":["hợp thời trang, sành điệu hợp mốt","thuộc về cấp quốc gia, đất nước","mang tính truyền thống văn hóa","thích hợp, phù hợp cho mục đích nào đó"],"a":"hợp thời trang, sành điệu hợp mốt"},
+      {"q":"Nghĩa của \"cloudy\" trong bài này là gì?","options":["nhiều mây âm u sắp có mưa","thu hút quyến rũ ưa nhìn","nhiều nắng ấm áp rực rỡ","năng động, chủ động tham gia"],"a":"nhiều mây âm u sắp có mưa"}
     ],
     "typingGame": [
       {
@@ -6643,46 +6319,10 @@ export const courseData = [
         ],
         "a": "to dirty"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"a stay\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"a look\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"a run\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"a walk\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Nghĩa của \"a stay\" trong bài này là gì?","options":["một khoảng thời gian lưu trú tạm thời","một buổi chạy bộ rèn luyện sức khỏe","hâm nóng thức ăn, làm ấm người lên","một chuyến đi bộ thư giãn dạo mát"],"a":"một khoảng thời gian lưu trú tạm thời"},
+      {"q":"Nghĩa của \"a look\" trong bài này là gì?","options":["một cái nhìn, sự quan sát nhanh","làm vấy bẩn, làm lấm lem bùn đất","một chuyến đi bộ thư giãn dạo mát","mơ ước, ước mong về tương lai"],"a":"một cái nhìn, sự quan sát nhanh"},
+      {"q":"Nghĩa của \"a run\" trong bài này là gì?","options":["một buổi chạy bộ rèn luyện sức khỏe","hâm nóng thức ăn, làm ấm người lên","một khoảng thời gian lưu trú tạm thời","một chuyến đi bộ thư giãn dạo mát"],"a":"một buổi chạy bộ rèn luyện sức khỏe"},
+      {"q":"Nghĩa của \"a walk\" trong bài này là gì?","options":["một chuyến đi bộ thư giãn dạo mát","hâm nóng thức ăn, làm ấm người lên","làm vấy bẩn, làm lấm lem bùn đất","một cái nhìn, sự quan sát nhanh"],"a":"một chuyến đi bộ thư giãn dạo mát"}
     ],
     "typingGame": [
       {
@@ -7328,46 +6968,10 @@ export const courseData = [
         ],
         "a": "window shopping"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"alarm clock\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"credit card\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"tin opener\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"first aid\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Nghĩa của \"alarm clock\" trong bài này là gì?","options":["đồng hồ báo thức buổi sáng","tiền tiêu vặt của trẻ nhỏ","hệ thống đèn giao thông ngã tư","đi ngắm đồ trưng bày không mua"],"a":"đồng hồ báo thức buổi sáng"},
+      {"q":"Nghĩa của \"credit card\" trong bài này là gì?","options":["thẻ tín dụng thanh toán ngân hàng","dụng cụ khui hộp thiếc tiện lợi","người giữ trẻ, bảo mẫu trông em","sự sơ cứu ban đầu khi xảy ra tai nạn"],"a":"thẻ tín dụng thanh toán ngân hàng"},
+      {"q":"Nghĩa của \"tin opener\" trong bài này là gì?","options":["dụng cụ khui hộp thiếc tiện lợi","người giữ trẻ, bảo mẫu trông em","hệ thống đèn giao thông ngã tư","đi ngắm đồ trưng bày không mua"],"a":"dụng cụ khui hộp thiếc tiện lợi"},
+      {"q":"Nghĩa của \"first aid\" trong bài này là gì?","options":["sự sơ cứu ban đầu khi xảy ra tai nạn","thẻ tín dụng thanh toán ngân hàng","dụng cụ khui hộp thiếc tiện lợi","người giữ trẻ, bảo mẫu trông em"],"a":"sự sơ cứu ban đầu khi xảy ra tai nạn"}
     ],
     "typingGame": [
       {
@@ -8013,46 +7617,10 @@ export const courseData = [
         ],
         "a": "well-behaved"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"good-looking\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"brand-new\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"second-hand\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"part-time\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      }
+      {"q":"Nghĩa của \"good-looking\" trong bài này là gì?","options":["ngoại hình ưa nhìn đẹp trai xinh gái","nổi tiếng được nhiều người biết","nóng tính hay giận dữ gắt gỏng","bán thời gian không cố định"],"a":"ngoại hình ưa nhìn đẹp trai xinh gái"},
+      {"q":"Nghĩa của \"brand-new\" trong bài này là gì?","options":["mới toanh chưa qua sử dụng","ngoan ngoãn cư xử đúng mực","bán thời gian không cố định","đồ cũ đã qua tay sử dụng"],"a":"mới toanh chưa qua sử dụng"},
+      {"q":"Nghĩa của \"second-hand\" trong bài này là gì?","options":["đồ cũ đã qua tay sử dụng","dễ tính ôn hòa thoải mái","mới toanh chưa qua sử dụng","ngoan ngoãn cư xử đúng mực"],"a":"đồ cũ đã qua tay sử dụng"},
+      {"q":"Nghĩa của \"part-time\" trong bài này là gì?","options":["bán thời gian không cố định","mới toanh chưa qua sử dụng","ngoan ngoãn cư xử đúng mực","đồ cũ đã qua tay sử dụng"],"a":"bán thời gian không cố định"}
     ],
     "typingGame": [
       {
@@ -8702,46 +8270,10 @@ export const courseData = [
         ],
         "a": "fast food"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"miss the bus\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"make a decision\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"do homework\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"tell a lie\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Nghĩa của \"miss the bus\" trong bài này là gì?","options":["bỏ lỡ mất chuyến xe buýt công cộng","sai lầm ngớ ngẩn do thiếu cẩn thận","đồ ăn nhanh chế biến ăn liền","đưa ra quyết định cuối cùng"],"a":"bỏ lỡ mất chuyến xe buýt công cộng"},
+      {"q":"Nghĩa của \"make a decision\" trong bài này là gì?","options":["đưa ra quyết định cuối cùng","giọng nói đặc sệt vùng miền","đồ ăn nhanh chế biến ăn liền","làm bài tập tự học ở nhà"],"a":"đưa ra quyết định cuối cùng"},
+      {"q":"Nghĩa của \"do homework\" trong bài này là gì?","options":["làm bài tập tự học ở nhà","cơn mưa to như trút nước","đưa ra quyết định cuối cùng","giọng nói đặc sệt vùng miền"],"a":"làm bài tập tự học ở nhà"},
+      {"q":"Nghĩa của \"tell a lie\" trong bài này là gì?","options":["nói dối, không trung thực nói sai sự thật","bỏ lỡ mất chuyến xe buýt công cộng","sai lầm ngớ ngẩn do thiếu cẩn thận","đồ ăn nhanh chế biến ăn liền"],"a":"nói dối, không trung thực nói sai sự thật"}
     ],
     "typingGame": [
       {
@@ -9378,46 +8910,10 @@ export const courseData = [
         ],
         "a": "proud of"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"listen to\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"talk about\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"wait for\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"belong to\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Nghĩa của \"listen to\" trong bài này là gì?","options":["lắng nghe ai đó nói/nghe nhạc","trò chuyện nói về chủ đề gì đó","đam mê thích thú say mê điều gì","đứng chờ đợi ai đó/xe buýt"],"a":"lắng nghe ai đó nói/nghe nhạc"},
+      {"q":"Nghĩa của \"talk about\" trong bài này là gì?","options":["trò chuyện nói về chủ đề gì đó","lắng nghe ai đó nói/nghe nhạc","đam mê thích thú say mê điều gì","tự hào kiêu hãnh về thành tựu gì"],"a":"trò chuyện nói về chủ đề gì đó"},
+      {"q":"Nghĩa của \"wait for\" trong bài này là gì?","options":["đứng chờ đợi ai đó/xe buýt","thuộc về sở hữu của ai đó","lắng nghe ai đó nói/nghe nhạc","trò chuyện nói về chủ đề gì đó"],"a":"đứng chờ đợi ai đó/xe buýt"},
+      {"q":"Nghĩa của \"belong to\" trong bài này là gì?","options":["thuộc về sở hữu của ai đó","đứng chờ đợi ai đó/xe buýt","lắng nghe ai đó nói/nghe nhạc","trò chuyện nói về chủ đề gì đó"],"a":"thuộc về sở hữu của ai đó"}
     ],
     "typingGame": [
       {
@@ -10063,46 +9559,10 @@ export const courseData = [
         ],
         "a": "at school"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"on holiday\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"by mistake\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"on television\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"by car\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      }
+      {"q":"Nghĩa của \"on holiday\" trong bài này là gì?","options":["đang đi du lịch nghỉ mát thư giãn","đang làm việc tại cơ quan/công sở","đang vội vàng, gấp rút chạy đi đâu","sơ ý nhầm lẫn, vô tình phạm lỗi"],"a":"đang đi du lịch nghỉ mát thư giãn"},
+      {"q":"Nghĩa của \"by mistake\" trong bài này là gì?","options":["sơ ý nhầm lẫn, vô tình phạm lỗi","đang yêu đương say đắm sâu sắc","đang đi du lịch nghỉ mát thư giãn","đang làm việc tại cơ quan/công sở"],"a":"sơ ý nhầm lẫn, vô tình phạm lỗi"},
+      {"q":"Nghĩa của \"on television\" trong bài này là gì?","options":["đang được phát sóng trực tiếp trên tivi","đang đi học học tập tại trường phổ thông","di chuyển đi lại bằng xe ô tô riêng","đang vội vàng, gấp rút chạy đi đâu"],"a":"đang được phát sóng trực tiếp trên tivi"},
+      {"q":"Nghĩa của \"by car\" trong bài này là gì?","options":["di chuyển đi lại bằng xe ô tô riêng","đang vội vàng, gấp rút chạy đi đâu","đang đi du lịch nghỉ mát thư giãn","đang làm việc tại cơ quan/công sở"],"a":"di chuyển đi lại bằng xe ô tô riêng"}
     ],
     "typingGame": [
       {
@@ -10752,46 +10212,10 @@ export const courseData = [
         ],
         "a": "go on"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"lie down\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"get over\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"take off\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"turn on\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Nghĩa của \"lie down\" trong bài này là gì?","options":["nằm xuống nghỉ ngơi trên giường/sofa","bật công tắc các thiết bị điện/tivi","từ bỏ một thói quen hoặc nỗ lực làm gì","đang tìm kiếm đồ dùng bị thất lạc"],"a":"nằm xuống nghỉ ngơi trên giường/sofa"},
+      {"q":"Nghĩa của \"get over\" trong bài này là gì?","options":["hồi phục sức khỏe sau cơn bạo bệnh/nỗi buồn","cất cánh (máy bay) / cởi quần áo, giày dép","tiếp diễn, tiếp tục thực hiện hành động","từ bỏ một thói quen hoặc nỗ lực làm gì"],"a":"hồi phục sức khỏe sau cơn bạo bệnh/nỗi buồn"},
+      {"q":"Nghĩa của \"take off\" trong bài này là gì?","options":["cất cánh (máy bay) / cởi quần áo, giày dép","hồi phục sức khỏe sau cơn bạo bệnh/nỗi buồn","tiếp diễn, tiếp tục thực hiện hành động","từ bỏ một thói quen hoặc nỗ lực làm gì"],"a":"cất cánh (máy bay) / cởi quần áo, giày dép"},
+      {"q":"Nghĩa của \"turn on\" trong bài này là gì?","options":["bật công tắc các thiết bị điện/tivi","nằm xuống nghỉ ngơi trên giường/sofa","đang tìm kiếm đồ dùng bị thất lạc","từ bỏ một thói quen hoặc nỗ lực làm gì"],"a":"bật công tắc các thiết bị điện/tivi"}
     ],
     "typingGame": [
       {
@@ -11441,46 +10865,10 @@ export const courseData = [
         ],
         "a": "ask for"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"put on\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"get by\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"make up\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"take back\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Nghĩa của \"put on\" trong bài này là gì?","options":["mặc quần áo, quàng khăn, đi giày vào","chăm sóc, trông nom người/vật nuôi","xoay xở sống qua ngày bằng số tiền ít ỏi","phát hiện ra sự thật, tìm hiểu thông tin"],"a":"mặc quần áo, quàng khăn, đi giày vào"},
+      {"q":"Nghĩa của \"get by\" trong bài này là gì?","options":["xoay xở sống qua ngày bằng số tiền ít ỏi","phát hiện ra sự thật, tìm hiểu thông tin","bịa đặt câu chuyện / trang điểm khuôn mặt","vô tình chạm trán, gặp lại ai đó trên phố"],"a":"xoay xở sống qua ngày bằng số tiền ít ỏi"},
+      {"q":"Nghĩa của \"make up\" trong bài này là gì?","options":["bịa đặt câu chuyện / trang điểm khuôn mặt","vô tình chạm trán, gặp lại ai đó trên phố","xoay xở sống qua ngày bằng số tiền ít ỏi","rút lại lời nói / trả lại đồ dùng cửa hàng"],"a":"bịa đặt câu chuyện / trang điểm khuôn mặt"},
+      {"q":"Nghĩa của \"take back\" trong bài này là gì?","options":["rút lại lời nói / trả lại đồ dùng cửa hàng","bịa đặt câu chuyện / trang điểm khuôn mặt","vô tình chạm trán, gặp lại ai đó trên phố","xoay xở sống qua ngày bằng số tiền ít ỏi"],"a":"rút lại lời nói / trả lại đồ dùng cửa hàng"}
     ],
     "typingGame": [
       {
@@ -12126,46 +11514,10 @@ export const courseData = [
         ],
         "a": "a piece of cake"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"never mind\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"take a short cut\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"what's up\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"make up your mind\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      }
+      {"q":"Nghĩa của \"never mind\" trong bài này là gì?","options":["đừng bận tâm, không sao đâu, bỏ qua đi","để mắt trông chừng, canh giữ trông nom","nhân tiện nói luôn, tiện thể nhắc đến","hiếm khi, năm thì mười họa mới xảy ra"],"a":"đừng bận tâm, không sao đâu, bỏ qua đi"},
+      {"q":"Nghĩa của \"take a short cut\" trong bài này là gì?","options":["đi đường tắt cho nhanh, rút ngắn hành trình","có chuyện gì thế, dạo này sao rồi (thân mật)","đừng bận tâm, không sao đâu, bỏ qua đi","để mắt trông chừng, canh giữ trông nom"],"a":"đi đường tắt cho nhanh, rút ngắn hành trình"},
+      {"q":"Nghĩa của \"what's up\" trong bài này là gì?","options":["có chuyện gì thế, dạo này sao rồi (thân mật)","đi đường tắt cho nhanh, rút ngắn hành trình","đừng bận tâm, không sao đâu, bỏ qua đi","để mắt trông chừng, canh giữ trông nom"],"a":"có chuyện gì thế, dạo này sao rồi (thân mật)"},
+      {"q":"Nghĩa của \"make up your mind\" trong bài này là gì?","options":["hãy đưa ra quyết định dứt khoát đi","nhân tiện nói luôn, tiện thể nhắc đến","hiếm khi, năm thì mười họa mới xảy ra","dễ như ăn kẹo, cực kỳ đơn giản dễ làm"],"a":"hãy đưa ra quyết định dứt khoát đi"}
     ],
     "typingGame": [
       {
@@ -12842,46 +12194,10 @@ export const courseData = [
         ],
         "a": "take a photo"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"make a decision\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"make progress\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"do homework\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"do business\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Nghĩa của \"make a decision\" trong bài này là gì?","options":["đưa ra quyết định cuối cùng","nghỉ tay nằm nghỉ xả stress","làm bài tập tự luyện ở nhà","chụp một bức ảnh ghi kỷ niệm"],"a":"đưa ra quyết định cuối cùng"},
+      {"q":"Nghĩa của \"make progress\" trong bài này là gì?","options":["đạt tiến bộ tiến triển học tập","bắt xe buýt công cộng di chuyển","chụp một bức ảnh ghi kỷ niệm","đưa ra quyết định cuối cùng"],"a":"đạt tiến bộ tiến triển học tập"},
+      {"q":"Nghĩa của \"do homework\" trong bài này là gì?","options":["làm bài tập tự luyện ở nhà","đưa ra quyết định cuối cùng","nghỉ tay nằm nghỉ xả stress","chụp một bức ảnh ghi kỷ niệm"],"a":"làm bài tập tự luyện ở nhà"},
+      {"q":"Nghĩa của \"do business\" trong bài này là gì?","options":["kinh doanh, làm ăn hợp tác thương mại","bắt xe buýt công cộng di chuyển","đạt tiến bộ tiến triển học tập","chụp một bức ảnh ghi kỷ niệm"],"a":"kinh doanh, làm ăn hợp tác thương mại"}
     ],
     "typingGame": [
       {
@@ -13541,46 +12857,10 @@ export const courseData = [
         ],
         "a": "see a doctor"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"give a hand\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"give a ring\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"keep a secret\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"keep in touch\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      }
+      {"q":"Nghĩa của \"give a hand\" trong bài này là gì?","options":["giúp một tay hỗ trợ nhiệt tình","bị cảm lạnh sụt sịt sổ mũi ho","giữ bí mật kín đáo không tiết lộ","vi phạm luật pháp bị xử phạt"],"a":"giúp một tay hỗ trợ nhiệt tình"},
+      {"q":"Nghĩa của \"give a ring\" trong bài này là gì?","options":["gọi điện thoại liên lạc cho ai đó","giữ bí mật kín đáo không tiết lộ","thất hứa không thực hiện lời thề","giúp một tay hỗ trợ nhiệt tình"],"a":"gọi điện thoại liên lạc cho ai đó"},
+      {"q":"Nghĩa của \"keep a secret\" trong bài này là gì?","options":["giữ bí mật kín đáo không tiết lộ","thất hứa không thực hiện lời thề","gọi điện thoại liên lạc cho ai đó","giúp một tay hỗ trợ nhiệt tình"],"a":"giữ bí mật kín đáo không tiết lộ"},
+      {"q":"Nghĩa của \"keep in touch\" trong bài này là gì?","options":["giữ liên lạc nói chuyện thường xuyên","đi khám sức khỏe gặp bác sĩ điều trị","gọi điện thoại liên lạc cho ai đó","giữ bí mật kín đáo không tiết lộ"],"a":"giữ liên lạc nói chuyện thường xuyên"}
     ],
     "typingGame": [
       {
@@ -14230,46 +13510,10 @@ export const courseData = [
         ],
         "a": "get to work"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"get married\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"get lost\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"get tired\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"get better\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Nghĩa của \"get married\" trong bài này là gì?","options":["kết hôn kết đôi nên duyên đám cưới","đi đến được nơi làm việc hằng ngày","trở nên tốt hơn hồi phục sức khỏe","hòa hợp nói chuyện ăn ý với ai đó"],"a":"kết hôn kết đôi nên duyên đám cưới"},
+      {"q":"Nghĩa của \"get lost\" trong bài này là gì?","options":["bị lạc đường lạc lối không thấy hướng","tìm được và bắt đầu làm công việc mới","thức dậy bước ra khỏi giường buổi sáng","kết hôn kết đôi nên duyên đám cưới"],"a":"bị lạc đường lạc lối không thấy hướng"},
+      {"q":"Nghĩa của \"get tired\" trong bài này là gì?","options":["trở nên mệt mỏi uể oải kiệt sức","trở nên tốt hơn hồi phục sức khỏe","hòa hợp nói chuyện ăn ý với ai đó","kết hôn kết đôi nên duyên đám cưới"],"a":"trở nên mệt mỏi uể oải kiệt sức"},
+      {"q":"Nghĩa của \"get better\" trong bài này là gì?","options":["trở nên tốt hơn hồi phục sức khỏe","hòa hợp nói chuyện ăn ý với ai đó","kết hôn kết đôi nên duyên đám cưới","đi đến được nơi làm việc hằng ngày"],"a":"trở nên tốt hơn hồi phục sức khỏe"}
     ],
     "typingGame": [
       {
@@ -14915,46 +14159,10 @@ export const courseData = [
         ],
         "a": "go on holiday"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"go shopping\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"go for a walk\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"go wrong\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"go mad\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Nghĩa của \"go shopping\" trong bài này là gì?","options":["đi mua sắm siêu thị trung tâm","di chuyển đi lại bằng xe buýt","trở về nhà của mình sau ngày dài","đi nghỉ mát nghỉ mát xa thư giãn"],"a":"đi mua sắm siêu thị trung tâm"},
+      {"q":"Nghĩa của \"go for a walk\" trong bài này là gì?","options":["đi bộ thư dạo tận hưởng thiên nhiên","bị hỏng xảy ra lỗi lầm trệch hướng","nổi giận đùng đùng điên tiết mất trí","trở về nhà của mình sau ngày dài"],"a":"đi bộ thư dạo tận hưởng thiên nhiên"},
+      {"q":"Nghĩa của \"go wrong\" trong bài này là gì?","options":["bị hỏng xảy ra lỗi lầm trệch hướng","đi bộ thư dạo tận hưởng thiên nhiên","nổi giận đùng đùng điên tiết mất trí","trở về nhà của mình sau ngày dài"],"a":"bị hỏng xảy ra lỗi lầm trệch hướng"},
+      {"q":"Nghĩa của \"go mad\" trong bài này là gì?","options":["nổi giận đùng đùng điên tiết mất trí","đi bộ thư dạo tận hưởng thiên nhiên","bị hỏng xảy ra lỗi lầm trệch hướng","trở về nhà của mình sau ngày dài"],"a":"nổi giận đùng đùng điên tiết mất trí"}
     ],
     "typingGame": [
       {
@@ -15600,46 +14808,10 @@ export const courseData = [
         ],
         "a": "sincere thanks"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"apologise\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"make an excuse\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"accept an apology\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"forgive\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      }
+      {"q":"Nghĩa của \"apologise\" trong bài này là gì?","options":["chủ động xin lỗi nhận sai sót lỗi lầm","kiếm lý do thanh minh biện hộ cho lỗi","chấp nhận tha thứ lời xin lỗi của ai","ơn trời, may mắn thay nhẹ nhõm người"],"a":"chủ động xin lỗi nhận sai sót lỗi lầm"},
+      {"q":"Nghĩa của \"make an excuse\" trong bài này là gì?","options":["kiếm lý do thanh minh biện hộ cho lỗi","chủ động xin lỗi nhận sai sót lỗi lầm","chấp nhận tha thứ lời xin lỗi của ai","ơn trời, may mắn thay nhẹ nhõm người"],"a":"kiếm lý do thanh minh biện hộ cho lỗi"},
+      {"q":"Nghĩa của \"accept an apology\" trong bài này là gì?","options":["chấp nhận tha thứ lời xin lỗi của ai","ơn trời, may mắn thay nhẹ nhõm người","được đánh giá cao trân trọng vô cùng","chủ động xin lỗi nhận sai sót lỗi lầm"],"a":"chấp nhận tha thứ lời xin lỗi của ai"},
+      {"q":"Nghĩa của \"forgive\" trong bài này là gì?","options":["tha thứ bỏ qua hoàn toàn lỗi lầm","lời cảm ơn chân thành từ đáy lòng","biết ơn chân thành biết ơn sâu sắc","chấp nhận tha thứ lời xin lỗi của ai"],"a":"tha thứ bỏ qua hoàn toàn lỗi lầm"}
     ],
     "typingGame": [
       {
@@ -16276,46 +15448,10 @@ export const courseData = [
         ],
         "a": "refuse politely"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"invite\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"suggest\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"accept an invitation\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"make a suggestion\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"He _____ed going for a walk in the countryside.\"","options":["suggest","invite","borrow","recommend"],"a":"suggest"},
+      {"q":"Nghĩa của \"invite\" trong bài này là gì?","options":["gửi lời mời mọc ai đến sự kiện","chấp nhận nhận lời mời tham gia","đưa ra một gợi ý ý kiến đóng góp","gợi ý, đề xuất giải pháp phương án"],"a":"gửi lời mời mọc ai đến sự kiện"},
+      {"q":"Nghĩa của \"suggest\" trong bài này là gì?","options":["gợi ý, đề xuất giải pháp phương án","đưa ra một gợi ý ý kiến đóng góp","chấp nhận nhận lời mời tham gia","mượn đồ dùng, vay tiền tạm thời từ ai"],"a":"gợi ý, đề xuất giải pháp phương án"},
+      {"q":"Nghĩa của \"accept an invitation\" trong bài này là gì?","options":["chấp nhận nhận lời mời tham gia","gửi lời mời mọc ai đến sự kiện","đưa ra một gợi ý ý kiến đóng góp","gợi ý, đề xuất giải pháp phương án"],"a":"chấp nhận nhận lời mời tham gia"}
     ],
     "typingGame": [
       {
@@ -16961,46 +16097,10 @@ export const courseData = [
         ],
         "a": "totally disagree"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"in my opinion\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"agree with\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"think so\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"share the same view\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      }
+      {"q":"Nghĩa của \"in my opinion\" trong bài này là gì?","options":["theo quan điểm cá nhân tôi cho là","hoàn toàn không tán thành chút nào","bất đồng không đồng ý quan điểm","đồng ý tán thành quan điểm của ai đó"],"a":"theo quan điểm cá nhân tôi cho là"},
+      {"q":"Nghĩa của \"agree with\" trong bài này là gì?","options":["đồng ý tán thành quan điểm của ai đó","chia sẻ cùng chung tầm nhìn quan điểm","hoàn toàn không tán thành chút nào","theo quan điểm cá nhân tôi cho là"],"a":"đồng ý tán thành quan điểm của ai đó"},
+      {"q":"Nghĩa của \"think so\" trong bài này là gì?","options":["nghĩ như vậy tin là như vậy","đối với cá nhân tôi mà nói","đưa lập luận có lý thuyết phục","bất đồng không đồng ý quan điểm"],"a":"nghĩ như vậy tin là như vậy"},
+      {"q":"Nghĩa của \"share the same view\" trong bài này là gì?","options":["chia sẻ cùng chung tầm nhìn quan điểm","đồng ý tán thành quan điểm của ai đó","hoàn toàn không tán thành chút nào","theo quan điểm cá nhân tôi cho là"],"a":"chia sẻ cùng chung tầm nhìn quan điểm"}
     ],
     "typingGame": [
       {
@@ -17646,46 +16746,10 @@ export const courseData = [
         ],
         "a": "welcome"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"congratulations\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"happy birthday\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"cheers\"?",
-        "options": [
-          "Từ cảm thán",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Từ cảm thán"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"happy new year\"?",
-        "options": [
-          "Cụm từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ"
-      }
+      {"q":"Nghĩa của \"congratulations\" trong bài này là gì?","options":["xin chúc mừng thành tích đạt được","chúc mừng ngày sinh nhật vui vẻ","nâng ly cụng ly / lời cảm ơn thân mật","chúc bạn gặp nhiều may mắn thành công"],"a":"xin chúc mừng thành tích đạt được"},
+      {"q":"Nghĩa của \"happy birthday\" trong bài này là gì?","options":["chúc mừng ngày sinh nhật vui vẻ","xin chúc mừng thành tích đạt được","yên nghỉ nơi vĩnh hằng (RIP)","nâng ly cụng ly / lời cảm ơn thân mật"],"a":"chúc mừng ngày sinh nhật vui vẻ"},
+      {"q":"Nghĩa của \"cheers\" trong bài này là gì?","options":["nâng ly cụng ly / lời cảm ơn thân mật","chúc bạn gặp nhiều may mắn thành công","chúc mừng năm mới an khang thịnh vượng","nhiệt liệt chào mừng tiếp đón nồng hậu"],"a":"nâng ly cụng ly / lời cảm ơn thân mật"},
+      {"q":"Nghĩa của \"happy new year\" trong bài này là gì?","options":["chúc mừng năm mới an khang thịnh vượng","nhiệt liệt chào mừng tiếp đón nồng hậu","nâng ly cụng ly / lời cảm ơn thân mật","chúc bạn gặp nhiều may mắn thành công"],"a":"chúc mừng năm mới an khang thịnh vượng"}
     ],
     "typingGame": [
       {
@@ -18335,46 +17399,10 @@ export const courseData = [
         ],
         "a": "shorts"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"information\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"trousers\"?",
-        "options": [
-          "Danh từ số nhiều",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Danh từ số nhiều"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"furniture\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"jeans\"?",
-        "options": [
-          "Danh từ số nhiều",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Danh từ số nhiều"
-      }
+      {"q":"Nghĩa của \"information\" trong bài này là gì?","options":["thông tin hữu ích (không đếm được)","quần dài hai ống chỉnh tề (luôn số nhiều)","quần bò, quần bằng vải bò (luôn số nhiều)","cái kéo cắt giấy, cắt vải (luôn số nhiều)"],"a":"thông tin hữu ích (không đếm được)"},
+      {"q":"Nghĩa của \"trousers\" trong bài này là gì?","options":["quần dài hai ống chỉnh tề (luôn số nhiều)","quần bò, quần bằng vải bò (luôn số nhiều)","cái kéo cắt giấy, cắt vải (luôn số nhiều)","đồ đạc nội thất nói chung (không đếm được)"],"a":"quần dài hai ống chỉnh tề (luôn số nhiều)"},
+      {"q":"Nghĩa của \"furniture\" trong bài này là gì?","options":["đồ đạc nội thất nói chung (không đếm được)","tin tức thời sự hằng ngày (không đếm được)","quần dài hai ống chỉnh tề (luôn số nhiều)","quần bò, quần bằng vải bò (luôn số nhiều)"],"a":"đồ đạc nội thất nói chung (không đếm được)"},
+      {"q":"Nghĩa của \"jeans\" trong bài này là gì?","options":["quần bò, quần bằng vải bò (luôn số nhiều)","quần dài hai ống chỉnh tề (luôn số nhiều)","cái kéo cắt giấy, cắt vải (luôn số nhiều)","đồ đạc nội thất nói chung (không đếm được)"],"a":"quần bò, quần bằng vải bò (luôn số nhiều)"}
     ],
     "typingGame": [
       {
@@ -19020,46 +18048,10 @@ export const courseData = [
         ],
         "a": "promise"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"enjoy\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"can't stand\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"refuse\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"decide\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"He _____d to get a job in a well-known store.\"","options":["decide","refuse","enjoy","avoid"],"a":"decide"},
+      {"q":"Điền từ thích hợp vào chỗ trống: \"He _____d to keep the secret carefully.\"","options":["promise","refuse","decide","enjoy"],"a":"promise"},
+      {"q":"Nghĩa của \"enjoy\" trong bài này là gì?","options":["thích thú tận hưởng làm việc gì đó (V-ing)","ngại, phiền lòng khi làm việc gì đó (V-ing)","không thể chịu đựng nổi việc gì (V-ing)","từ chối cương quyết không làm gì (to-V)"],"a":"thích thú tận hưởng làm việc gì đó (V-ing)"},
+      {"q":"Nghĩa của \"can't stand\" trong bài này là gì?","options":["không thể chịu đựng nổi việc gì (V-ing)","từ chối cương quyết không làm gì (to-V)","hứa hẹn thực hiện một việc gì đó (to-V)","chủ động tránh làm việc gì đó (V-ing)"],"a":"không thể chịu đựng nổi việc gì (V-ing)"}
     ],
     "typingGame": [
       {
@@ -19705,46 +18697,10 @@ export const courseData = [
         ],
         "a": "explain that"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"want someone to\"?",
-        "options": [
-          "Cấu trúc câu",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cấu trúc câu"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"ask someone to\"?",
-        "options": [
-          "Cấu trúc câu",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cấu trúc câu"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"tell someone to\"?",
-        "options": [
-          "Cấu trúc câu",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cấu trúc câu"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"advise someone to\"?",
-        "options": [
-          "Cấu trúc câu",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cấu trúc câu"
-      }
+      {"q":"Nghĩa của \"want someone to\" trong bài này là gì?","options":["muốn ai đó thực hiện việc gì","yêu cầu, đề nghị ai đó làm gì","nói rằng là, truyền đạt ý kiến","nghĩ rằng là, tin tưởng điều gì"],"a":"muốn ai đó thực hiện việc gì"},
+      {"q":"Nghĩa của \"ask someone to\" trong bài này là gì?","options":["yêu cầu, đề nghị ai đó làm gì","muốn ai đó thực hiện việc gì","nói rằng là, truyền đạt ý kiến","nghĩ rằng là, tin tưởng điều gì"],"a":"yêu cầu, đề nghị ai đó làm gì"},
+      {"q":"Nghĩa của \"tell someone to\" trong bài này là gì?","options":["bảo ai đó làm việc gì","giải thích làm rõ rằng là","muốn ai đó thực hiện việc gì","yêu cầu, đề nghị ai đó làm gì"],"a":"bảo ai đó làm việc gì"},
+      {"q":"Nghĩa của \"advise someone to\" trong bài này là gì?","options":["khuyên răn ai đó thực hiện điều gì","hy vọng rằng là điều gì tốt sẽ đến","nghĩ rằng là, tin tưởng điều gì","nói rằng là, truyền đạt ý kiến"],"a":"khuyên răn ai đó thực hiện điều gì"}
     ],
     "typingGame": [
       {
@@ -20390,46 +19346,10 @@ export const courseData = [
         ],
         "a": "boiling"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"bored\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"boring\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"excited\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"exciting\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      }
+      {"q":"Nghĩa của \"bored\" trong bài này là gì?","options":["cảm thấy buồn chán, tẻ nhạt (chủ thể)","cảm thấy hào hứng, phấn khích đón chờ","băng giá, cực kỳ lạnh lẽo (very cold)","tẻ nhạt, gây nhàm chán (tính chất vật)"],"a":"cảm thấy buồn chán, tẻ nhạt (chủ thể)"},
+      {"q":"Nghĩa của \"boring\" trong bài này là gì?","options":["tẻ nhạt, gây nhàm chán (tính chất vật)","cảm thấy buồn chán, tẻ nhạt (chủ thể)","cảm thấy hào hứng, phấn khích đón chờ","băng giá, cực kỳ lạnh lẽo (very cold)"],"a":"tẻ nhạt, gây nhàm chán (tính chất vật)"},
+      {"q":"Nghĩa của \"excited\" trong bài này là gì?","options":["cảm thấy hào hứng, phấn khích đón chờ","cảm thấy buồn chán, tẻ nhạt (chủ thể)","băng giá, cực kỳ lạnh lẽo (very cold)","tẻ nhạt, gây nhàm chán (tính chất vật)"],"a":"cảm thấy hào hứng, phấn khích đón chờ"},
+      {"q":"Nghĩa của \"exciting\" trong bài này là gì?","options":["thú vị, hấp dẫn, gây phấn khích","tí hon, cực kỳ nhỏ bé (very small)","khổng lồ, vô cùng to lớn (very big)","nóng bỏng, nóng như thiêu (very hot)"],"a":"thú vị, hấp dẫn, gây phấn khích"}
     ],
     "typingGame": [
       {
@@ -21075,46 +19995,10 @@ export const courseData = [
         ],
         "a": "above the clouds"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"on the table\"?",
-        "options": [
-          "Cụm giới từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm giới từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"next to the church\"?",
-        "options": [
-          "Cụm giới từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm giới từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"in front of\"?",
-        "options": [
-          "Cụm giới từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm giới từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"behind the house\"?",
-        "options": [
-          "Cụm giới từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm giới từ"
-      }
+      {"q":"Nghĩa của \"on the table\" trong bài này là gì?","options":["đặt ở trên mặt bàn viết học","ở bên cạnh nhà thờ vùng quê","ở khuất phía đằng sau ngôi nhà","ở ngay phía trước mặt của vật gì"],"a":"đặt ở trên mặt bàn viết học"},
+      {"q":"Nghĩa của \"next to the church\" trong bài này là gì?","options":["ở bên cạnh nhà thờ vùng quê","đặt ở trên mặt bàn viết học","ở khuất phía đằng sau ngôi nhà","ở ngay phía trước mặt của vật gì"],"a":"ở bên cạnh nhà thờ vùng quê"},
+      {"q":"Nghĩa của \"in front of\" trong bài này là gì?","options":["ở ngay phía trước mặt của vật gì","ở vị trí chính giữa hai cửa hàng","ở tít phía bên trên những đám mây","ở khuất phía đằng sau ngôi nhà"],"a":"ở ngay phía trước mặt của vật gì"},
+      {"q":"Nghĩa của \"behind the house\" trong bài này là gì?","options":["ở khuất phía đằng sau ngôi nhà","ở ngay phía trước mặt của vật gì","ở vị trí chính giữa hai cửa hàng","đặt ở trên mặt bàn viết học"],"a":"ở khuất phía đằng sau ngôi nhà"}
     ],
     "typingGame": [
       {
@@ -21760,46 +20644,10 @@ export const courseData = [
         ],
         "a": "absolutely"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"hardly ever\"?",
-        "options": [
-          "Trạng từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Trạng từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"almost\"?",
-        "options": [
-          "Trạng từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Trạng từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"quite\"?",
-        "options": [
-          "Trạng từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Trạng từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"extremely\"?",
-        "options": [
-          "Trạng từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Trạng từ"
-      }
+      {"q":"Nghĩa của \"hardly ever\" trong bài này là gì?","options":["hầu như không bao giờ, cực kỳ hiếm khi","thường xuyên xảy ra liên tục hằng ngày","hơi hơi, một chút xíu không đáng kể","chắc chắn 100%, hoàn toàn tán thành"],"a":"hầu như không bao giờ, cực kỳ hiếm khi"},
+      {"q":"Nghĩa của \"almost\" trong bài này là gì?","options":["gần như, suýt nữa, hầu như đã xong","khá là, tương đối, vừa phải mức độ","hơi hơi, một chút xíu không đáng kể","chắc chắn 100%, hoàn toàn tán thành"],"a":"gần như, suýt nữa, hầu như đã xong"},
+      {"q":"Nghĩa của \"quite\" trong bài này là gì?","options":["khá là, tương đối, vừa phải mức độ","gần như, suýt nữa, hầu như đã xong","hơi hơi, một chút xíu không đáng kể","chắc chắn 100%, hoàn toàn tán thành"],"a":"khá là, tương đối, vừa phải mức độ"},
+      {"q":"Nghĩa của \"extremely\" trong bài này là gì?","options":["cực kỳ, vô cùng (mức độ rất cao)","hiếm khi, ít khi lặp lại làm gì","gần như, suýt nữa, hầu như đã xong","khá là, tương đối, vừa phải mức độ"],"a":"cực kỳ, vô cùng (mức độ rất cao)"}
     ],
     "typingGame": [
       {
@@ -22445,46 +21293,10 @@ export const courseData = [
         ],
         "a": "finally"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"when\"?",
-        "options": [
-          "Liên từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Liên từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"while\"?",
-        "options": [
-          "Liên từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Liên từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"as soon as\"?",
-        "options": [
-          "Liên từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Liên từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"until\"?",
-        "options": [
-          "Liên từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Liên từ"
-      }
+      {"q":"Nghĩa của \"when\" trong bài này là gì?","options":["khi mà, vào thời điểm hành động xảy ra","cho đến tận khi hành động khác xen vào","sau đó, tiếp theo là hành động kế tiếp","trong khi, song song cùng lúc diễn ra"],"a":"khi mà, vào thời điểm hành động xảy ra"},
+      {"q":"Nghĩa của \"while\" trong bài này là gì?","options":["trong khi, song song cùng lúc diễn ra","cuối cùng là, sau cùng chốt lại chuỗi","khi mà, vào thời điểm hành động xảy ra","cho đến tận khi hành động khác xen vào"],"a":"trong khi, song song cùng lúc diễn ra"},
+      {"q":"Nghĩa của \"as soon as\" trong bài này là gì?","options":["ngay sau khi, liền ngay lập tức","trước tiên, đầu tiên là việc mở đầu","sau đó nữa, kế sau hành động vừa rồi","trong khi, song song cùng lúc diễn ra"],"a":"ngay sau khi, liền ngay lập tức"},
+      {"q":"Nghĩa của \"until\" trong bài này là gì?","options":["cho đến tận khi hành động khác xen vào","khi mà, vào thời điểm hành động xảy ra","sau đó, tiếp theo là hành động kế tiếp","trong khi, song song cùng lúc diễn ra"],"a":"cho đến tận khi hành động khác xen vào"}
     ],
     "typingGame": [
       {
@@ -23130,46 +21942,10 @@ export const courseData = [
         ],
         "a": "but"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"in addition\"?",
-        "options": [
-          "Cụm liên từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm liên từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"also\"?",
-        "options": [
-          "Trạng từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Trạng từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"furthermore\"?",
-        "options": [
-          "Trạng từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Trạng từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"although\"?",
-        "options": [
-          "Liên từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Liên từ"
-      }
+      {"q":"Nghĩa của \"in addition\" trong bài này là gì?","options":["thêm vào đó, ngoài ra, vả lại","nhưng mà, nối vế câu trái ngược","mặc dù, dẫu cho hành động đối lập","cũng, cũng như thế bổ nghĩa vế câu"],"a":"thêm vào đó, ngoài ra, vả lại"},
+      {"q":"Nghĩa của \"also\" trong bài này là gì?","options":["cũng, cũng như thế bổ nghĩa vế câu","mặc dù, dẫu cho hành động đối lập","trong khi đó, ngược lại với thực tế","hơn thế nữa, vả lại, mặt khác sâu sắc"],"a":"cũng, cũng như thế bổ nghĩa vế câu"},
+      {"q":"Nghĩa của \"furthermore\" trong bài này là gì?","options":["hơn thế nữa, vả lại, mặt khác sâu sắc","trong khi đó, ngược lại với thực tế","cũng, cũng như thế bổ nghĩa vế câu","tuy nhiên, thế nhưng (đứng sau dấu phẩy)"],"a":"hơn thế nữa, vả lại, mặt khác sâu sắc"},
+      {"q":"Nghĩa của \"although\" trong bài này là gì?","options":["mặc dù, dẫu cho hành động đối lập","cũng, cũng như thế bổ nghĩa vế câu","trong khi đó, ngược lại với thực tế","nhưng mà, nối vế câu trái ngược"],"a":"mặc dù, dẫu cho hành động đối lập"}
     ],
     "typingGame": [
       {
@@ -23815,46 +22591,10 @@ export const courseData = [
         ],
         "a": "otherwise"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"similar to\"?",
-        "options": [
-          "Cụm giới từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm giới từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"compared with\"?",
-        "options": [
-          "Cụm từ nối",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ nối"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"different from\"?",
-        "options": [
-          "Cụm tính từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"the same as\"?",
-        "options": [
-          "Cụm giới từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm giới từ"
-      }
+      {"q":"Nghĩa của \"similar to\" trong bài này là gì?","options":["tương tự như, gần giống với tính chất","được so sánh đối chiếu cùng với cái gì","trừ khi, nếu như không xảy ra (if not)","hoàn toàn giống hệt với, trùng khớp"],"a":"tương tự như, gần giống với tính chất"},
+      {"q":"Nghĩa của \"compared with\" trong bài này là gì?","options":["được so sánh đối chiếu cùng với cái gì","trừ khi, nếu như không xảy ra (if not)","tương tự như, gần giống với tính chất","khác biệt hoàn toàn về bản chất/hình thức"],"a":"được so sánh đối chiếu cùng với cái gì"},
+      {"q":"Nghĩa của \"different from\" trong bài này là gì?","options":["khác biệt hoàn toàn về bản chất/hình thức","được so sánh đối chiếu cùng với cái gì","trừ khi, nếu như không xảy ra (if not)","tương tự như, gần giống với tính chất"],"a":"khác biệt hoàn toàn về bản chất/hình thức"},
+      {"q":"Nghĩa của \"the same as\" trong bài này là gì?","options":["hoàn toàn giống hệt với, trùng khớp","phòng khi, nhỡ đâu có chuyện xảy ra","nếu không thì, kẻo không sẽ dẫn đến","miễn là, chỉ cần điều kiện đáp ứng"],"a":"hoàn toàn giống hệt với, trùng khớp"}
     ],
     "typingGame": [
       {
@@ -24500,46 +23240,10 @@ export const courseData = [
         ],
         "a": "so"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"because of\"?",
-        "options": [
-          "Cụm giới từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm giới từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"so that\"?",
-        "options": [
-          "Liên từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Liên từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"in order to\"?",
-        "options": [
-          "Cụm giới từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm giới từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"as a result\"?",
-        "options": [
-          "Cụm từ nối",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm từ nối"
-      }
+      {"q":"Nghĩa của \"because of\" trong bài này là gì?","options":["bởi vì, do nguyên nhân từ (cộng danh từ)","để mà, cốt để (cộng mệnh đề chỉ mục đích)","để làm gì, nhằm mục tiêu (cộng động từ)","do đó, vì thế nên (đứng sau dấu chấm phẩy)"],"a":"bởi vì, do nguyên nhân từ (cộng danh từ)"},
+      {"q":"Nghĩa của \"so that\" trong bài này là gì?","options":["để mà, cốt để (cộng mệnh đề chỉ mục đích)","bởi vì, do nguyên nhân từ (cộng danh từ)","do đó, vì thế nên (đứng sau dấu chấm phẩy)","để làm gì, nhằm mục tiêu (cộng động từ)"],"a":"để mà, cốt để (cộng mệnh đề chỉ mục đích)"},
+      {"q":"Nghĩa của \"in order to\" trong bài này là gì?","options":["để làm gì, nhằm mục tiêu (cộng động từ)","bởi vì, do nguyên nhân từ (cộng danh từ)","để mà, cốt để (cộng mệnh đề chỉ mục đích)","do đó, vì thế nên (đứng sau dấu chấm phẩy)"],"a":"để làm gì, nhằm mục tiêu (cộng động từ)"},
+      {"q":"Nghĩa của \"as a result\" trong bài này là gì?","options":["kết quả là, hệ quả kéo theo sau đó","tại vì, có nguyên cớ bắt nguồn từ","cho nên, vì vậy, nối vế kết quả câu","hệ quả là, kéo theo kết cục là"],"a":"kết quả là, hệ quả kéo theo sau đó"}
     ],
     "typingGame": [
       {
@@ -25185,46 +23889,10 @@ export const courseData = [
         ],
         "a": "flood"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"ocean\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"mountain\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"desert\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"hurricane\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Nghĩa của \"ocean\" trong bài này là gì?","options":["đại dương bao la sâu thẳm ngăn cách lục địa","trận bão lớn cuồng phong sức gió hủy diệt","thung lũng xanh mướt nằm giữa hai dãy núi","trận động đất rung chuyển mặt đất nứt nẻ"],"a":"đại dương bao la sâu thẳm ngăn cách lục địa"},
+      {"q":"Nghĩa của \"mountain\" trong bài này là gì?","options":["ngọn núi cao hùng vĩ đá dốc đứng","trận lũ lụt dâng cao ngập úng nước","hoang mạc, sa mạc khô cằn toàn cát cát","trận động đất rung chuyển mặt đất nứt nẻ"],"a":"ngọn núi cao hùng vĩ đá dốc đứng"},
+      {"q":"Nghĩa của \"desert\" trong bài này là gì?","options":["hoang mạc, sa mạc khô cằn toàn cát cát","trận động đất rung chuyển mặt đất nứt nẻ","hòn đảo ngoài khơi xa bao quanh bởi biển","trận bão lớn cuồng phong sức gió hủy diệt"],"a":"hoang mạc, sa mạc khô cằn toàn cát cát"},
+      {"q":"Nghĩa của \"hurricane\" trong bài này là gì?","options":["trận bão lớn cuồng phong sức gió hủy diệt","thung lũng xanh mướt nằm giữa hai dãy núi","trận động đất rung chuyển mặt đất nứt nẻ","hòn đảo ngoài khơi xa bao quanh bởi biển"],"a":"trận bão lớn cuồng phong sức gió hủy diệt"}
     ],
     "typingGame": [
       {
@@ -25870,46 +24538,10 @@ export const courseData = [
         ],
         "a": "humid"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"shower\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"cloudy\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"fog\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"pour with rain\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"Weather forecast predicts quick _____s in sunny day.\"","options":["shower","cloudy","breeze","sunny"],"a":"shower"},
+      {"q":"Nghĩa của \"shower\" trong bài này là gì?","options":["cơn mưa rào bất chợt rồi tạnh nhanh","trời đầy nắng ấm áp lung linh vàng","nhiều mây âm u che khuất mặt trời","tiếng sấm sét vang rền trời giông bão"],"a":"cơn mưa rào bất chợt rồi tạnh nhanh"},
+      {"q":"Nghĩa của \"cloudy\" trong bài này là gì?","options":["nhiều mây âm u che khuất mặt trời","thời tiết ẩm ướt oi bước khó chịu","trời đầy nắng ấm áp lung linh vàng","cơn mưa rào bất chợt rồi tạnh nhanh"],"a":"nhiều mây âm u che khuất mặt trời"},
+      {"q":"Nghĩa của \"fog\" trong bài này là gì?","options":["sương mù dày đặc che khuất tầm nhìn xa","mưa như trút nước, mưa xối xả liên tục","tiếng sấm sét vang rền trời giông bão","cơn mưa rào bất chợt rồi tạnh nhanh"],"a":"sương mù dày đặc che khuất tầm nhìn xa"}
     ],
     "typingGame": [
       {
@@ -26559,46 +25191,10 @@ export const courseData = [
         ],
         "a": "iron"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"plant\"?",
-        "options": [
-          "Danh từ / Động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Danh từ / Động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"agriculture\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"mining\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"gold\"?",
-        "options": [
-          "Danh từ / Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Danh từ / Tính từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"Farmer _____s crops in agricultural valleys.\"","options":["plant","mining","gold","crop"],"a":"plant"},
+      {"q":"Điền từ thích hợp vào chỗ trống: \"The heavy rain damaged the farmer's tomato _____s.\"","options":["crop","gold","coal","iron"],"a":"crop"},
+      {"q":"Nghĩa của \"plant\" trong bài này là gì?","options":["thực vật, cây xanh / gieo hạt trồng cây","kim loại vàng quý hiếm đắt đỏ lấp lánh","than đá dùng làm chất đốt tạo năng lượng","quặng sắt, kim loại sắt thô ráp đen cứng"],"a":"thực vật, cây xanh / gieo hạt trồng cây"},
+      {"q":"Nghĩa của \"agriculture\" trong bài này là gì?","options":["ngành nông nghiệp canh tác trồng trọt nuôi","ngành khai thác khoáng sản sâu dưới đất mỏ","người nông dân chăm chỉ trồng trọt cày cấy","than đá dùng làm chất đốt tạo năng lượng"],"a":"ngành nông nghiệp canh tác trồng trọt nuôi"}
     ],
     "typingGame": [
       {
@@ -27244,46 +25840,10 @@ export const courseData = [
         ],
         "a": "monkey"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"lion\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"rabbit\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"spider\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"wild\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"Bacteria are tiny, but some _____s are huge.\"","options":["spider","rabbit","monkey","tiger"],"a":"spider"},
+      {"q":"Điền từ thích hợp vào chỗ trống: \"_____s get excited when visitors throw bananas.\"","options":["monkey","rabbit","spider","tiger"],"a":"monkey"},
+      {"q":"Nghĩa của \"lion\" trong bài này là gì?","options":["sư tử dũng mãnh được coi là chúa tể rừng","hoang dã, sống trong thiên nhiên rừng rú","chú khỉ tinh nghịch hay leo trèo hái quả","chú thỏ nhỏ xinh tai dài chạy cực nhanh"],"a":"sư tử dũng mãnh được coi là chúa tể rừng"},
+      {"q":"Nghĩa của \"rabbit\" trong bài này là gì?","options":["chú thỏ nhỏ xinh tai dài chạy cực nhanh","sư tử dũng mãnh được coi là chúa tể rừng","hoang dã, sống trong thiên nhiên rừng rú","chú hổ vằn oai phong dũng mãnh ăn thịt"],"a":"chú thỏ nhỏ xinh tai dài chạy cực nhanh"}
     ],
     "typingGame": [
       {
@@ -27929,46 +26489,10 @@ export const courseData = [
         ],
         "a": "French"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"Sweden\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"Swiss\"?",
-        "options": [
-          "Tính từ / Danh từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Tính từ / Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"Arabic\"?",
-        "options": [
-          "Danh từ / Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Danh từ / Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"Japan\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"Tokyo is a huge _____ese city in Japan.\"","options":["Japan","Swiss","Spain","Sweden"],"a":"Japan"},
+      {"q":"Nghĩa của \"Sweden\" trong bài này là gì?","options":["đất nước Thụy Điển thanh bình ở Bắc Âu","đất nước Tây Ban Nha rực rỡ đấu bò tót","đất nước Nhật Bản nổi tiếng hoa anh đào","người Thụy Sĩ / thuộc về quốc gia Thụy Sĩ"],"a":"đất nước Thụy Điển thanh bình ở Bắc Âu"},
+      {"q":"Nghĩa của \"Swiss\" trong bài này là gì?","options":["người Thụy Sĩ / thuộc về quốc gia Thụy Sĩ","tiếng Đức / người nước Đức / thuộc về Đức","đất nước Nhật Bản nổi tiếng hoa anh đào","đất nước Thụy Điển thanh bình ở Bắc Âu"],"a":"người Thụy Sĩ / thuộc về quốc gia Thụy Sĩ"},
+      {"q":"Nghĩa của \"Arabic\" trong bài này là gì?","options":["tiếng Ả Rập / thuộc về văn hóa Ả Rập trung đông","tiếng Trung Quốc / người Trung / thuộc về Trung","tiếng Pháp / người Pháp / thuộc về nước Pháp","người Thụy Sĩ / thuộc về quốc gia Thụy Sĩ"],"a":"tiếng Ả Rập / thuộc về văn hóa Ả Rập trung đông"}
     ],
     "typingGame": [
       {
@@ -28614,46 +27138,10 @@ export const courseData = [
         ],
         "a": "shake hands"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"knee\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"nail\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"bend your knees\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"bite your nails\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"Use scissors to cut your finger_____s tidy.\"","options":["nail","knee","elbow","shoulder"],"a":"nail"},
+      {"q":"Nghĩa của \"knee\" trong bài này là gì?","options":["đầu gối khớp nối chân đi lại (chữ k câm)","gập đầu gối xuống, khụy gối thấp người","cắn móng tay (thói quen khi lo lắng/hồi hộp)","khuỷu tay, cùi chỏ khớp nối cánh tay"],"a":"đầu gối khớp nối chân đi lại (chữ k câm)"},
+      {"q":"Nghĩa của \"nail\" trong bài này là gì?","options":["móng tay, móng chân bảo vệ đầu ngón","bắt tay xã giao làm quen lịch thiệp","khuỷu tay, cùi chỏ khớp nối cánh tay","gật đầu đồng ý, gật đầu chào lịch sự"],"a":"móng tay, móng chân bảo vệ đầu ngón"},
+      {"q":"Nghĩa của \"bend your knees\" trong bài này là gì?","options":["gập đầu gối xuống, khụy gối thấp người","đầu gối khớp nối chân đi lại (chữ k câm)","khuỷu tay, cùi chỏ khớp nối cánh tay","gật đầu đồng ý, gật đầu chào lịch sự"],"a":"gập đầu gối xuống, khụy gối thấp người"}
     ],
     "typingGame": [
       {
@@ -29294,46 +27782,10 @@ export const courseData = [
         ],
         "a": "dark-skinned"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"tall\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"blond\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"broad shoulders\"?",
-        "options": [
-          "Cụm danh từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"slim\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      }
+      {"q":"Nghĩa của \"tall\" trong bài này là gì?","options":["dáng người cao ráo mảnh khảnh","bờ vai rộng vạm vỡ khỏe khoắn","mái tóc có màu vàng hoe tự nhiên","mái tóc xoăn tít bồng bềnh cá tính"],"a":"dáng người cao ráo mảnh khảnh"},
+      {"q":"Nghĩa của \"blond\" trong bài này là gì?","options":["mái tóc có màu vàng hoe tự nhiên","mái tóc xoăn tít bồng bềnh cá tính","dáng người cao ráo mảnh khảnh","bờ vai rộng vạm vỡ khỏe khoắn"],"a":"mái tóc có màu vàng hoe tự nhiên"},
+      {"q":"Nghĩa của \"broad shoulders\" trong bài này là gì?","options":["bờ vai rộng vạm vỡ khỏe khoắn","dáng người cao ráo mảnh khảnh","mái tóc có màu vàng hoe tự nhiên","mái tóc xoăn tít bồng bềnh cá tính"],"a":"bờ vai rộng vạm vỡ khỏe khoắn"},
+      {"q":"Nghĩa của \"slim\" trong bài này là gì?","options":["vóc dáng mảnh mai, thon thả cân đối ưa nhìn","chòm râu quai nón mọc dưới cằm/má nam giới","có làn da ngăm đen khỏe khoắn rám nắng","thấp bé, lùn, có chiều cao khiêm tốn"],"a":"vóc dáng mảnh mai, thon thả cân đối ưa nhìn"}
     ],
     "typingGame": [
       {
@@ -29979,46 +28431,10 @@ export const courseData = [
         ],
         "a": "honest"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"friendly\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"shy\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"unpleasant\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"kind\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      }
+      {"q":"Nghĩa của \"friendly\" trong bài này là gì?","options":["thân thiện, cởi mở, dễ gần hay cười","khó ưa, thô lỗ, đáng ghét gây khó chịu","ích kỷ chỉ nghĩ cho lợi ích cá nhân mình","tốt bụng, nhân hậu, hay giúp đỡ mọi người"],"a":"thân thiện, cởi mở, dễ gần hay cười"},
+      {"q":"Nghĩa của \"shy\" trong bài này là gì?","options":["nhút nhát, e thẹn rụt rè trước người lạ (chữ s câm)","trung thực, thật thà không gian dối nói sai (h câm)","hào phóng, rộng lượng, sẵn lòng sẻ chia tiền","tốt bụng, nhân hậu, hay giúp đỡ mọi người"],"a":"nhút nhát, e thẹn rụt rè trước người lạ (chữ s câm)"},
+      {"q":"Nghĩa của \"unpleasant\" trong bài này là gì?","options":["khó ưa, thô lỗ, đáng ghét gây khó chịu","ích kỷ chỉ nghĩ cho lợi ích cá nhân mình","thân thiện, cởi mở, dễ gần hay cười","tốt bụng, nhân hậu, hay giúp đỡ mọi người"],"a":"khó ưa, thô lỗ, đáng ghét gây khó chịu"},
+      {"q":"Nghĩa của \"kind\" trong bài này là gì?","options":["tốt bụng, nhân hậu, hay giúp đỡ mọi người","lười biếng, hay trì hoãn làm việc nhà/học","ích kỷ chỉ nghĩ cho lợi ích cá nhân mình","khó ưa, thô lỗ, đáng ghét gây khó chịu"],"a":"tốt bụng, nhân hậu, hay giúp đỡ mọi người"}
     ],
     "typingGame": [
       {
@@ -30664,46 +29080,10 @@ export const courseData = [
         ],
         "a": "sigh"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"pride\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"jealous of\"?",
-        "options": [
-          "Cụm tính từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm tính từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"stare\"?",
-        "options": [
-          "Động từ",
-          "Danh từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"whisper\"?",
-        "options": [
-          "Động từ / Danh từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Động từ / Danh từ"
-      }
+      {"q":"Nghĩa của \"pride\" trong bài này là gì?","options":["niềm kiêu hãnh, sự tự hào, lòng tự tôn","ghen tị, đố kỵ với thành tích của ai đó","hoảng sợ, khiếp hãi trước mối nguy hiểm","nói thầm thì nhỏ nhẹ vào tai kín đáo"],"a":"niềm kiêu hãnh, sự tự hào, lòng tự tôn"},
+      {"q":"Nghĩa của \"jealous of\" trong bài này là gì?","options":["ghen tị, đố kỵ với thành tích của ai đó","hoảng sợ, khiếp hãi trước mối nguy hiểm","niềm kiêu hãnh, sự tự hào, lòng tự tôn","hét to, la hét lớn tiếng khi giận dữ/ở xa"],"a":"ghen tị, đố kỵ với thành tích của ai đó"},
+      {"q":"Nghĩa của \"stare\" trong bài này là gì?","options":["nhìn chằm chằm, stare chăm chú vào ai thô lỗ","thở dài thườn thượt chán nản thất vọng (h câm)","hét to, la hét lớn tiếng khi giận dữ/ở xa","ghen tị, đố kỵ với thành tích của ai đó"],"a":"nhìn chằm chằm, stare chăm chú vào ai thô lỗ"},
+      {"q":"Nghĩa của \"whisper\" trong bài này là gì?","options":["nói thầm thì nhỏ nhẹ vào tai kín đáo","tức giận, phẫn nộ, nổi đóa bực mình","niềm kiêu hãnh, sự tự hào, lòng tự tôn","ghen tị, đố kỵ với thành tích của ai đó"],"a":"nói thầm thì nhỏ nhẹ vào tai kín đáo"}
     ],
     "typingGame": [
       {
@@ -31349,46 +29729,10 @@ export const courseData = [
         ],
         "a": "partner"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"niece\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"relatives\"?",
-        "options": [
-          "Danh từ số nhiều",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Danh từ số nhiều"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"surname\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"best friend\"?",
-        "options": [
-          "Cụm danh từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm danh từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"We promise to remain _____s forever.\"","options":["best friend","relatives","colleague","surname"],"a":"best friend"},
+      {"q":"Điền từ thích hợp vào chỗ trống: \"They have been business _____s for a decade.\"","options":["partner","surname","nephew","cousin"],"a":"partner"},
+      {"q":"Nghĩa của \"niece\" trong bài này là gì?","options":["cháu gái con ruột của anh/chị/em (của bạn)","cháu trai con ruột của anh/chị/em (của bạn)","đối tác làm ăn / người bạn đời thân thiết","người thân, họ hàng thân thích trong tộc"],"a":"cháu gái con ruột của anh/chị/em (của bạn)"},
+      {"q":"Nghĩa của \"relatives\" trong bài này là gì?","options":["người thân, họ hàng thân thích trong tộc","anh chị em họ con của cô dì chú bác ruột","đối tác làm ăn / người bạn đời thân thiết","cháu gái con ruột của anh/chị/em (của bạn)"],"a":"người thân, họ hàng thân thích trong tộc"}
     ],
     "typingGame": [
       {
@@ -32034,46 +30378,10 @@ export const courseData = [
         ],
         "a": "retired"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"teenager\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"grow up\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"adult\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"pregnant\"?",
-        "options": [
-          "Tính từ",
-          "Động từ",
-          "Danh từ",
-          "Trạng từ"
-        ],
-        "a": "Tính từ"
-      }
+      {"q":"Điền từ thích hợp vào chỗ trống: \"_____s frequently hang out at shopping malls.\"","options":["teenager","pregnant","grow up","toddler"],"a":"teenager"},
+      {"q":"Điền từ thích hợp vào chỗ trống: \"_____s pay a higher subway fare than pupils.\"","options":["adult","baby","grow up","toddler"],"a":"adult"},
+      {"q":"Nghĩa của \"teenager\" trong bài này là gì?","options":["tuổi thanh thiếu niên ẩm ương từ 13-19 tuổi","người lớn đã hoàn toàn trưởng thành đứng đắn","đã nghỉ hưu trí an hưởng tuổi già thư thái","lớn lên, phát triển trưởng thành dần theo năm"],"a":"tuổi thanh thiếu niên ẩm ương từ 13-19 tuổi"},
+      {"q":"Nghĩa của \"grow up\" trong bài này là gì?","options":["lớn lên, phát triển trưởng thành dần theo năm","người lớn đã hoàn toàn trưởng thành đứng đắn","tuổi thanh thiếu niên ẩm ương từ 13-19 tuổi","đã nghỉ hưu trí an hưởng tuổi già thư thái"],"a":"lớn lên, phát triển trưởng thành dần theo năm"}
     ],
     "typingGame": [
       {
@@ -32719,46 +31027,10 @@ export const courseData = [
         ],
         "a": "go to bed"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"get up\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"leave home\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"go to sleep\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"have a shower\"?",
-        "options": [
-          "Cụm động từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm động từ"
-      }
+      {"q":"Nghĩa của \"get up\" trong bài này là gì?","options":["thức dậy bước hẳn ra khỏi giường buổi sáng","ăn bữa cơm trưa tiếp năng lượng hằng ngày","chìm sâu vào giấc ngủ ban đêm ngon giấc","bắt xe buýt công cộng kịp giờ di chuyển"],"a":"thức dậy bước hẳn ra khỏi giường buổi sáng"},
+      {"q":"Nghĩa của \"leave home\" trong bài này là gì?","options":["rời khỏi nhà đi làm, đi học hằng ngày","lên giường đắp chăn chuẩn bị ngủ nghỉ","chìm sâu vào giấc ngủ ban đêm ngon giấc","tắm vòi hoa sen sảng khoái mát lành"],"a":"rời khỏi nhà đi làm, đi học hằng ngày"},
+      {"q":"Nghĩa của \"go to sleep\" trong bài này là gì?","options":["chìm sâu vào giấc ngủ ban đêm ngon giấc","bắt xe buýt công cộng kịp giờ di chuyển","rời khỏi nhà đi làm, đi học hằng ngày","ăn bữa cơm trưa tiếp năng lượng hằng ngày"],"a":"chìm sâu vào giấc ngủ ban đêm ngon giấc"},
+      {"q":"Nghĩa của \"have a shower\" trong bài này là gì?","options":["tắm vòi hoa sen sảng khoái mát lành","rời khỏi nhà đi làm, đi học hằng ngày","lên giường đắp chăn chuẩn bị ngủ nghỉ","về đến ngôi nhà tổ ấm yêu thương"],"a":"tắm vòi hoa sen sảng khoái mát lành"}
     ],
     "typingGame": [
       {
@@ -33404,46 +31676,10 @@ export const courseData = [
         ],
         "a": "ceiling"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"flat\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"ground floor\"?",
-        "options": [
-          "Cụm danh từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"roof\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"cottage\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Nghĩa của \"flat\" trong bài này là gì?","options":["căn hộ chung cư khép kín tiện nghi","mái nhà che chắn nắng mưa trên cùng","trần nhà phía bên trong căn phòng","sân thượng đón gió / dãy nhà liền kề"],"a":"căn hộ chung cư khép kín tiện nghi"},
+      {"q":"Nghĩa của \"ground floor\" trong bài này là gì?","options":["tầng trệt, tầng sát mặt đất của tòa nhà","ban công nhỏ nhô ra ngoài lộng gió phòng","ngôi nhà gỗ nhỏ bình yên nơi miền quê","các bậc thềm, bậc cầu thang bộ đi lên"],"a":"tầng trệt, tầng sát mặt đất của tòa nhà"},
+      {"q":"Nghĩa của \"roof\" trong bài này là gì?","options":["mái nhà che chắn nắng mưa trên cùng","căn hộ chung cư khép kín tiện nghi","sân thượng đón gió / dãy nhà liền kề","ngôi nhà gỗ nhỏ bình yên nơi miền quê"],"a":"mái nhà che chắn nắng mưa trên cùng"},
+      {"q":"Nghĩa của \"cottage\" trong bài này là gì?","options":["ngôi nhà gỗ nhỏ bình yên nơi miền quê","các bậc thềm, bậc cầu thang bộ đi lên","sân thượng đón gió / dãy nhà liền kề","tầng trệt, tầng sát mặt đất của tòa nhà"],"a":"ngôi nhà gỗ nhỏ bình yên nơi miền quê"}
     ],
     "typingGame": [
       {
@@ -34093,46 +32329,10 @@ export const courseData = [
         ],
         "a": "dishwasher"
       },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"lounge\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"sofa\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"food mixer\"?",
-        "options": [
-          "Cụm danh từ",
-          "Động từ",
-          "Danh từ",
-          "Tính từ"
-        ],
-        "a": "Cụm danh từ"
-      },
-      {
-        "q": "Đâu là loại từ (Part of Speech) chính xác của từ \"armchair\"?",
-        "options": [
-          "Danh từ",
-          "Động từ",
-          "Tính từ",
-          "Trạng từ"
-        ],
-        "a": "Danh từ"
-      }
+      {"q":"Nghĩa của \"lounge\" trong bài này là gì?","options":["phòng sinh hoạt chung lớn, phòng khách thư giãn","bàn trà tiếp khách nhỏ chân thấp phòng khách","máy trộn thức ăn, máy xay nhuyễn thực phẩm","tủ lạnh lưu giữ lạnh tươi sạch thực phẩm"],"a":"phòng sinh hoạt chung lớn, phòng khách thư giãn"},
+      {"q":"Nghĩa của \"sofa\" trong bài này là gì?","options":["ghế sô-pha dài bọc đệm êm ái thư giãn","ghế bành êm ái có tay tì đỡ thư giãn","bếp lò nấu thức ăn bếp điện/bếp ga bếp","tủ lạnh lưu giữ lạnh tươi sạch thực phẩm"],"a":"ghế sô-pha dài bọc đệm êm ái thư giãn"},
+      {"q":"Nghĩa của \"food mixer\" trong bài này là gì?","options":["máy trộn thức ăn, máy xay nhuyễn thực phẩm","bàn trà tiếp khách nhỏ chân thấp phòng khách","tủ lạnh lưu giữ lạnh tươi sạch thực phẩm","bếp lò nấu thức ăn bếp điện/bếp ga bếp"],"a":"máy trộn thức ăn, máy xay nhuyễn thực phẩm"},
+      {"q":"Nghĩa của \"armchair\" trong bài này là gì?","options":["ghế bành êm ái có tay tì đỡ thư giãn","ghế sô-pha dài bọc đệm êm ái thư giãn","bếp lò nấu thức ăn bếp điện/bếp ga bếp","tủ lạnh lưu giữ lạnh tươi sạch thực phẩm"],"a":"ghế bành êm ái có tay tì đỡ thư giãn"}
     ],
     "typingGame": [
       {
