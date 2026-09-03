@@ -100,9 +100,16 @@ test('không bài đọc nào trùng bài trong kho bài nghe', async () => {
   }
 });
 
+// ⚠️ PHÉP CANH NÀY ĐÃ DỜI, KHÔNG PHẢI ĐƯỢC NỚI (02/09).
+// Bản cũ đòi ĐÚNG chuỗi `lazy(() => import('../components/reading/ReadingLongPanel'))`.
+// Nay mọi `import()` được bọc thêm `nhapLai` để mạng chập chờn thì tự thử lại
+// (xem src/utils/taiChunk.js), nên chuỗi cũ không còn tồn tại. Điều phép canh
+// này BẢO VỆ vẫn y nguyên — panel phải nạp LƯỜI, không kéo ~200 KB kho bài đọc
+// vào gói tải đầu — và nay canh CHẶT HƠN: đòi luôn phải có lớp thử lại.
 test('WelcomePage nạp panel bài đọc bằng lazy import, không kéo kho vào chunk trang chủ', () => {
   const s = readFileSync(path.join(ROOT, 'src/pages/WelcomePage.jsx'), 'utf8');
-  assert.match(s, /lazy\(\(\) => import\('\.\.\/components\/reading\/ReadingLongPanel'\)\)/);
+  assert.match(s, /lazy\(nhapLai\(\(\) => import\('\.\.\/components\/reading\/ReadingLongPanel'\)\)\)/,
+    'panel bài đọc phải nạp lười VÀ đi qua lớp thử lại');
   assert.doesNotMatch(s, /from '\.\.\/data\/readingTexts'/, 'trang chủ import thẳng kho bài đọc — ~200 KB vào gói tải đầu');
   assert.match(s, /SO_BAI_DOC/, 'trang chủ không còn hiện số bài đọc thật');
 });

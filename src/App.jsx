@@ -96,16 +96,21 @@ import { goMotLan, canBao, daBaoRoi } from './utils/tinCayXacMinh';
 import { ghiMocReset } from './utils/bandExam';
 import { roadmapData } from './data/roadmapData';
 import XacMinhGoNotice from './components/progress/XacMinhGoNotice';
+import ChunkBoundary from './components/common/ChunkBoundary';
+import { nhapLai } from './utils/taiChunk';
 
 // Page/Route layer — lazy-loaded so each route ships as its own chunk and the
 // initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
-const WelcomePage = lazy(() => import('./pages/WelcomePage'));
-const GrammarPage = lazy(() => import('./pages/GrammarPage'));
-const VocabVstepPage = lazy(() => import('./pages/VocabVstepPage'));
-const VocabOxfordPage = lazy(() => import('./pages/VocabOxfordPage'));
-const ScannerPage = lazy(() => import('./pages/ScannerPage'));
-const GamesPage = lazy(() => import('./pages/GamesPage'));
-const IeltsFoundationPage = lazy(() => import('./pages/IeltsFoundationPage'));
+//
+// `nhapLai` wraps every `import()` so a flaky network retries instead of taking
+// the whole app down with it — full reasoning at the top of src/utils/taiChunk.js.
+const WelcomePage = lazy(nhapLai(() => import('./pages/WelcomePage')));
+const GrammarPage = lazy(nhapLai(() => import('./pages/GrammarPage')));
+const VocabVstepPage = lazy(nhapLai(() => import('./pages/VocabVstepPage')));
+const VocabOxfordPage = lazy(nhapLai(() => import('./pages/VocabOxfordPage')));
+const ScannerPage = lazy(nhapLai(() => import('./pages/ScannerPage')));
+const GamesPage = lazy(nhapLai(() => import('./pages/GamesPage')));
+const IeltsFoundationPage = lazy(nhapLai(() => import('./pages/IeltsFoundationPage')));
 
 // Fallback shown briefly while a route chunk loads.
 const RouteLoader = () => (
@@ -847,9 +852,12 @@ export default function App() {
       setTheme={setTheme}
       streak={streak}
     >
-      <Suspense fallback={<RouteLoader />}>
-        {renderContent()}
-      </Suspense>
+      {/* `tuTaiLai`: chỉ tuyến chính được tự tải lại trang — lý do ở MoPanel. */}
+      <ChunkBoundary tuTaiLai>
+        <Suspense fallback={<RouteLoader />}>
+          {renderContent()}
+        </Suspense>
+      </ChunkBoundary>
     </MainLayout>
     </>
   );

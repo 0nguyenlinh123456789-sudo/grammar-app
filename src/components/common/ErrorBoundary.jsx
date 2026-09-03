@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { soLuotTaiLai } from '../../utils/taiChunk';
 
 // Global crash shield: any unhandled render error lands here instead of a
 // blank white page. Shows a friendly recovery screen plus a copyable error
@@ -24,6 +25,12 @@ export default class ErrorBoundary extends Component {
       `Lỗi: ${error?.message || String(error)}`,
       `Stack: ${(error?.stack || '').slice(0, 1500)}`,
       `Component stack: ${(info?.componentStack || '').slice(0, 800)}`,
+      // Số lượt phải tải lại một mảnh mã. Bình thường là 0/0/0; khác 0 nghĩa là
+      // máy người học đang chật vật lấy tệp về, và lỗi bên trên rất có thể là
+      // HẬU QUẢ chứ không phải nguyên nhân. Không có dòng này thì cái đếm trong
+      // taiChunk.js chỉ là trạng thái chết — đúng họ với chốt "MẤT BƯỚC" từng
+      // in ra một dòng ❌ rồi tự xoá chính mình.
+      `Tải lại mảnh mã: thử ${soLuotTaiLai().thuLai} · cứu được ${soLuotTaiLai().cuuDuoc} · hỏng hẳn ${soLuotTaiLai().hong}`,
     ].join('\n');
   }
 

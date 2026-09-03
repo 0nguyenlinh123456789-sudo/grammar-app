@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { lazy, useEffect, useRef, useState } from 'react';
 import { roadmapData, BAND_TAB_LABEL, bandMinutes, bandChangTheoLoai, minutesThroughBand, roadmapTotalMinutes } from '../data/roadmapData';
 import { deThiCuaBac } from '../data/bandExamIndex';
 import { luotDatGanNhat } from '../utils/bandExam';
@@ -13,7 +13,8 @@ import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
 import PetZoo from '../components/common/PetZoo';
 import PracticeCard, { PracticeGroup } from '../components/home/PracticeCard';
-import DangMo from '../components/common/DangMo';
+import { MoPanel } from '../components/common/ChunkBoundary';
+import { nhapLai } from '../utils/taiChunk';
 
 import { writingPrompts } from '../data/writingPrompts';
 import { SO_DE_THEO_CHANG } from '../data/writingCounts';
@@ -30,21 +31,28 @@ import { COD_DE_VIET, COD_DE_NOI } from '../utils/bandCoDe';
 // nút. Cùng loại lỗi đã tách ra cho panel viết/nghe/đọc, chỉ nhỏ hơn — và lý do
 // nó sót lại là vì bốn cái này KHÔNG kéo theo kho dữ liệu lớn nên không ai để ý.
 // ĐO ĐƯỢC sau khi tách: chunk trang chủ 328,1 KB -> 290,4 KB (gzip 82,4 -> 73,1).
-const SrsReview = lazy(() => import('../components/vocab/SrsReview'));
-const WordNotebook = lazy(() => import('../components/vocab/WordNotebook'));
-const ErrorReview = lazy(() => import('../components/progress/ErrorReview'));
-const MockTest = lazy(() => import('../components/progress/MockTest'));
-const WritingPromptPanel = lazy(() => import('../components/writing/WritingPromptPanel'));
-const SpeakingPromptPanel = lazy(() => import('../components/speaking/SpeakingPromptPanel'));
-const BandExamPanel = lazy(() => import('../components/exam/BandExamPanel'));
+//
+// ══ 02/09 — TÁCH CHUNK CÒN CÓ MẶT TRÁI, VÀ ĐÂY LÀ CHỖ VÁ NÓ ══
+// Mỗi panel tách ra là thêm một tệp .js phải tải về đúng lúc người học bấm. Tệp
+// đó không về (mạng chập chờn, hoặc web vừa đẩy bản mới nên tên băm cũ trả 404)
+// thì trước đợt này CẢ TRANG CHỦ bị thay bằng màn lỗi. `nhapLai` bọc mọi
+// `import()` để tự thử lại; `MoPanel` là Suspense + lưới đỡ riêng, để một panel
+// hỏng chỉ làm hỏng đúng panel đó. Xem đầu src/utils/taiChunk.js.
+const SrsReview = lazy(nhapLai(() => import('../components/vocab/SrsReview')));
+const WordNotebook = lazy(nhapLai(() => import('../components/vocab/WordNotebook')));
+const ErrorReview = lazy(nhapLai(() => import('../components/progress/ErrorReview')));
+const MockTest = lazy(nhapLai(() => import('../components/progress/MockTest')));
+const WritingPromptPanel = lazy(nhapLai(() => import('../components/writing/WritingPromptPanel')));
+const SpeakingPromptPanel = lazy(nhapLai(() => import('../components/speaking/SpeakingPromptPanel')));
+const BandExamPanel = lazy(nhapLai(() => import('../components/exam/BandExamPanel')));
 // (4.2, đo được lúc tách chunk) Hai panel nghe này trước nhập TĨNH, nên kho bài
 // nghe (~398 KB) và bảng bản thu nằm thẳng trong chunk trang chủ — ai mở app
 // cũng tải, kể cả người không bao giờ mở mục nghe. Cùng loại lỗi đã đo và đã
 // tách ra cho panel luyện viết ở việc 3.3.
-const DictationPanel = lazy(() => import('../components/listening/DictationPanel'));
-const ListeningPassagePanel = lazy(() => import('../components/listening/ListeningPassagePanel'));
+const DictationPanel = lazy(nhapLai(() => import('../components/listening/DictationPanel')));
+const ListeningPassagePanel = lazy(nhapLai(() => import('../components/listening/ListeningPassagePanel')));
 // (5.3) Bài đọc dài — cùng lý do tách chunk với hai panel nghe.
-const ReadingLongPanel = lazy(() => import('../components/reading/ReadingLongPanel'));
+const ReadingLongPanel = lazy(nhapLai(() => import('../components/reading/ReadingLongPanel')));
 // CHỈ con số — nạp cả kho bài nghe vào trang chủ là kéo ~398 KB vào thứ ai mở
 // app cũng phải tải, đúng cái đã tách ra cho kho đề viết ở việc 3.3.
 import { SO_BAI_NGHE } from '../data/listeningCounts';
@@ -398,39 +406,39 @@ const WelcomePage = ({
   return (
     <div className="max-w-5xl mx-auto pb-24 font-sans text-slate-800 dark:text-slate-100 selection:bg-yellow-300 transition-colors duration-300">
 
-      {showReview && <Suspense fallback={<DangMo />}><SrsReview onClose={() => setShowReview(false)} playAudio={playAudio} /></Suspense>}
-      {showNotebook && <Suspense fallback={<DangMo />}><WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} /></Suspense>}
-      {showErrorReview && <Suspense fallback={<DangMo />}><ErrorReview onClose={() => setShowErrorReview(false)} /></Suspense>}
-      {showMockTest && <Suspense fallback={<DangMo />}><MockTest onClose={() => setShowMockTest(false)} /></Suspense>}
-      {showDictation && <Suspense fallback={<DangMo />}><DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} /></Suspense>}
-      {showPassage && <Suspense fallback={<DangMo />}><ListeningPassagePanel onClose={() => setShowPassage(false)} /></Suspense>}
-      {showReading && <Suspense fallback={<DangMo />}><ReadingLongPanel onClose={() => setShowReading(false)} /></Suspense>}
-      {showWriting && <Suspense fallback={<DangMo />}><WritingPromptPanel onClose={() => setShowWriting(false)} /></Suspense>}
-      {showSpeaking && <Suspense fallback={<DangMo />}><SpeakingPromptPanel onClose={() => setShowSpeaking(false)} /></Suspense>}
-      {changViet && <Suspense fallback={<DangMo />}><WritingPromptPanel chang={changViet} onClose={() => setChangViet(null)} /></Suspense>}
-      {changNoi && <Suspense fallback={<DangMo />}><SpeakingPromptPanel chang={changNoi} onClose={() => setChangNoi(null)} /></Suspense>}
-      {changNghe && <Suspense fallback={<DangMo />}>
+      {showReview && <MoPanel><SrsReview onClose={() => setShowReview(false)} playAudio={playAudio} /></MoPanel>}
+      {showNotebook && <MoPanel><WordNotebook onClose={() => setShowNotebook(false)} playAudio={playAudio} /></MoPanel>}
+      {showErrorReview && <MoPanel><ErrorReview onClose={() => setShowErrorReview(false)} /></MoPanel>}
+      {showMockTest && <MoPanel><MockTest onClose={() => setShowMockTest(false)} /></MoPanel>}
+      {showDictation && <MoPanel><DictationPanel onClose={() => setShowDictation(false)} currentBand={currentBand} /></MoPanel>}
+      {showPassage && <MoPanel><ListeningPassagePanel onClose={() => setShowPassage(false)} /></MoPanel>}
+      {showReading && <MoPanel><ReadingLongPanel onClose={() => setShowReading(false)} /></MoPanel>}
+      {showWriting && <MoPanel><WritingPromptPanel onClose={() => setShowWriting(false)} /></MoPanel>}
+      {showSpeaking && <MoPanel><SpeakingPromptPanel onClose={() => setShowSpeaking(false)} /></MoPanel>}
+      {changViet && <MoPanel><WritingPromptPanel chang={changViet} onClose={() => setChangViet(null)} /></MoPanel>}
+      {changNoi && <MoPanel><SpeakingPromptPanel chang={changNoi} onClose={() => setChangNoi(null)} /></MoPanel>}
+      {changNghe && <MoPanel>
         <ListeningPassagePanel
           moBaiId={changNghe.targetId}
           onClose={() => setChangNghe(null)}
           onXong={({ correct, total, loaiCau }) => xongChangCoDiem(changNghe, correct, total, loaiCau)}
         />
-      </Suspense>}
-      {changDoc && <Suspense fallback={<DangMo />}>
+      </MoPanel>}
+      {changDoc && <MoPanel>
         <ReadingLongPanel
           moBaiId={changDoc.targetId}
           onClose={() => setChangDoc(null)}
           onXong={({ correct, total, loaiCau }) => xongChangCoDiem(changDoc, correct, total, loaiCau)}
         />
-      </Suspense>}
-      {changChinhTa && <Suspense fallback={<DangMo />}>
+      </MoPanel>}
+      {changChinhTa && <MoPanel>
         <DictationPanel
           currentBand={changChinhTa.bandId}
           onClose={() => setChangChinhTa(null)}
           onFinish={({ correct, total }) => xongChangCoDiem(changChinhTa, correct, total, [])}
         />
-      </Suspense>}
-      {showBandExam && <Suspense fallback={<DangMo />}><BandExamPanel examIdBanDau={typeof showBandExam === 'string' ? showBandExam : null} onClose={() => setShowBandExam(false)} /></Suspense>}
+      </MoPanel>}
+      {showBandExam && <MoPanel><BandExamPanel examIdBanDau={typeof showBandExam === 'string' ? showBandExam : null} onClose={() => setShowBandExam(false)} /></MoPanel>}
       {loTrinhTang && (
         <RoadmapGrowthNotice
           cu={loTrinhTang.cu}
