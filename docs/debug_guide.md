@@ -46,3 +46,4 @@ npm run build     # dựng bản production — lỗi build là lỗi chặn dep
 - Mục chỉ chạy local (IELTS Nền Tảng): `src/utils/localOnly.js`
 - Chính sách hiển thị cho khách: `src/components/common/PolicyDialog.jsx`
 - Font chữ tự host: `public/fonts/` + `src/fonts.css`
+- Luật đệm (Cache-Control) của máy chủ: `vercel.json` — **lý do và mọi cái bẫy nằm ở đầu `tests/vercel_headers.test.js`**, vì JSON không chứa được chú thích. Ba điều nhớ trước khi sửa: (1) `index.html`, `sw.js`, `manifest.webmanifest` phải giữ `max-age=0` — đệm chúng là đóng băng người học ở bản cũ; (2) chỉ `/assets/*` được `immutable`, vì chỉ ở đó Vite bảo đảm tên đổi khi ruột đổi; (3) **đừng thêm rewrite bắt tất về `index.html`** để chữa trang 404 — nó trả HTML cho một mảnh mã `.js` đã biến mất, dựng lại đúng lỗi MIME mà `fc1b31b` vừa vá.
