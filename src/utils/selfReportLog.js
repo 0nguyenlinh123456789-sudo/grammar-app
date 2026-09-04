@@ -20,6 +20,7 @@
 // trong một dòng chú thích. MỘT LUẬT CHÉP VÀO HAI CHỖ THÌ SỚM MUỘN CŨNG LỆCH.
 // Nên: một module, kỹ năng là THAM SỐ, và mỗi kỹ năng một khoá lưu riêng.
 
+import { docJson, ghiJson, xoaKho } from './kho.js';
 export const KY_NANG = { viet: 'writing', noi: 'speaking' };
 
 const KHOA = {
@@ -39,12 +40,15 @@ function khoaCua(kyNang) {
   return k;
 }
 
-const coStorage = () => typeof localStorage !== 'undefined';
+// ⚠️ `typeof localStorage !== 'undefined'` KHÔNG phải một cái chốt an toàn.
+// `localStorage` là thuộc tính CÓ KHAI BÁO của `window`, nên `typeof` vẫn GỌI
+// getter của nó — và ở iOS Safari bật "Chặn tất cả cookie" getter đó NÉM, ngay
+// tại dòng lẽ ra để phòng thân. Cả họ chốt này đã được thay bằng utils/kho.js,
+// nơi mọi lượt chạm nằm gọn trong try. Lý do đầy đủ ở đầu src/utils/kho.js.
 
 function load(kyNang) {
-  if (!coStorage()) return [];
   try {
-    const parsed = JSON.parse(localStorage.getItem(khoaCua(kyNang)) || '[]');
+    const parsed = docJson(khoaCua(kyNang), []);
     if (!Array.isArray(parsed)) return [];
     // Bản ghi CŨ (trước khi tách hai kỹ năng) không có trường `kyNang`. Chúng
     // nằm trong `writingLogV1` nên chắc chắn là bài viết — gán nhãn khi đọc chứ
@@ -64,8 +68,7 @@ function load(kyNang) {
 }
 
 function save(kyNang, list) {
-  if (!coStorage()) return;
-  try { localStorage.setItem(khoaCua(kyNang), JSON.stringify(list.slice(-TOI_DA))); } catch { /* ignore */ }
+  ghiJson(khoaCua(kyNang), list.slice(-TOI_DA));
 }
 
 // `tuDanhGia`: mảng boolean khớp thứ tự checklist của đề — người học tự tick.
@@ -138,7 +141,7 @@ export function thongKeTuBaoCao(kyNang = 'writing') {
 }
 
 export function xoaSo(kyNang = 'writing') {
-  if (coStorage()) { try { localStorage.removeItem(khoaCua(kyNang)); } catch { /* ignore */ } }
+  xoaKho(khoaCua(kyNang));
 }
 
 export const LOG_KEYS = Object.values(KHOA);

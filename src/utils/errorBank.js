@@ -5,6 +5,8 @@
 // Persisted in localStorage; the key is listed in backup.js so it also rides
 // the server sync.
 
+import { docJson, ghiJson } from './kho.js';
+
 const KEY = 'errorBankV1';
 const STAGES = [3, 7, 14];
 const MAX_ENTRIES = 300;
@@ -14,21 +16,28 @@ function todayNum() {
   return Math.floor(new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime() / 86400000);
 }
 
-// localStorage may not exist (node tests import writingScorer → errorBank);
-// in that case the bank silently no-ops.
-const storageAvailable = typeof localStorage !== 'undefined';
-
+// ⚠️ DÒNG NÀY TỪNG LÀM TRẮNG CẢ APP, VÀ NÓ ĐƯỢC VIẾT RA CHÍNH ĐỂ AN TOÀN:
+//
+//     const storageAvailable = typeof localStorage !== 'undefined';
+//
+// `typeof` chỉ tránh được ReferenceError cho một cái tên CHƯA KHAI BÁO. Ở đây
+// `localStorage` LÀ một thuộc tính có khai báo của `window`, nên `typeof` vẫn
+// GỌI getter của nó — và ở iOS Safari bật "Chặn tất cả cookie" thì getter đó
+// NÉM. Tệ hơn nữa: dòng này nằm ở cấp module, nên chỉ riêng việc *nhập* file
+// này đã ném, cả mảnh mã hỏng theo, và người học nhận màn lỗi ở mọi lần mở.
+//
+// Đã đo được bằng `npm run ra:chankho`: sau khi vá 30 chỗ trong App.jsx và 6
+// tham số mặc định trong utils, nhánh "chặn lúc ĐỌC" VẪN 0/3, và vết ngăn xếp
+// chỉ thẳng vào `errorBank-*.js:1` — tức cấp module của đúng file này.
+//
+// Nay đi qua `utils/kho.js`: mọi lượt chạm nằm trong try, và cũng chạy được ở
+// Node (các phép kiểm nhập writingScorer → errorBank), nơi không có localStorage.
 function load() {
-  if (!storageAvailable) return {};
-  try {
-    const parsed = JSON.parse(localStorage.getItem(KEY) || '{}');
-    return parsed && typeof parsed === 'object' ? parsed : {};
-  } catch { return {}; }
+  return docJson(KEY, {}) || {};
 }
 
 function save(store) {
-  if (!storageAvailable) return;
-  try { localStorage.setItem(KEY, JSON.stringify(store)); } catch { /* ignore */ }
+  ghiJson(KEY, store);
 }
 
 // Stable id from the prompt text so the same mistake maps to the same card.

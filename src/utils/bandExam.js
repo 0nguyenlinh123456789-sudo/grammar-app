@@ -21,6 +21,7 @@
 
 import { MOC_TRON_PHUONG_AN } from './tinCayXacMinh.js';
 import { NHAN_THEO_CEFR, GHI_CHU_THEO_CEFR } from '../data/bandExamIndex.js';
+import { khoAnToan, docJson, ghiJson } from './kho.js';
 
 const KEY = 'bandExamHistoryV1';
 const TOI_DA = 30;
@@ -28,7 +29,11 @@ const TOI_DA = 30;
 /** Ngưỡng đạt của MỖI phần chấm được. */
 export const NGUONG_DAT = 0.7;
 
-const coStorage = () => typeof localStorage !== 'undefined';
+// ⚠️ `typeof localStorage !== 'undefined'` KHÔNG phải một cái chốt an toàn.
+// `localStorage` là thuộc tính CÓ KHAI BÁO của `window`, nên `typeof` vẫn GỌI
+// getter của nó — và ở iOS Safari bật "Chặn tất cả cookie" getter đó NÉM, ngay
+// tại dòng lẽ ra để phòng thân. Cả họ chốt này đã được thay bằng utils/kho.js,
+// nơi mọi lượt chạm nằm gọn trong try. Lý do đầy đủ ở đầu src/utils/kho.js.
 
 /** Các phần chấm được của một đề. */
 export function phanChamDuoc(exam) {
@@ -91,9 +96,8 @@ export function chamBaiThi(exam, traLoi = {}) {
 // ── SỔ KẾT QUẢ ───────────────────────────────────────────────────────────────
 
 function load() {
-  if (!coStorage()) return [];
   try {
-    const p = JSON.parse(localStorage.getItem(KEY) || '[]');
+    const p = docJson(KEY, []);
     return Array.isArray(p) ? p : [];
   } catch { return []; }
 }
@@ -102,9 +106,7 @@ export function luuKetQua(kq) {
   if (!kq?.examId) return null;
   const ds = load();
   ds.push(kq);
-  if (coStorage()) {
-    try { localStorage.setItem(KEY, JSON.stringify(ds.slice(-TOI_DA))); } catch { /* ignore */ }
-  }
+  ghiJson(KEY, ds.slice(-TOI_DA));
   return kq;
 }
 
@@ -165,12 +167,12 @@ function chuanHoa(k) {
 // người học đã thật sự làm, và hộp xác nhận cũng không hứa xoá nó.
 const KHOA_MOC_RESET = 'resetMocV1';
 
-function mocReset(kho = globalThis.localStorage) {
+function mocReset(kho = khoAnToan()) {
   try { return String(kho?.getItem(KHOA_MOC_RESET) || ''); } catch { return ''; }
 }
 
 /** Ghi mốc reset. Gọi từ `resetRoadmap`. */
-export function ghiMocReset(lucNao = new Date().toISOString(), kho = globalThis.localStorage) {
+export function ghiMocReset(lucNao = new Date().toISOString(), kho = khoAnToan()) {
   try { kho?.setItem(KHOA_MOC_RESET, String(lucNao)); } catch { /* không ghi được thì thôi */ }
 }
 

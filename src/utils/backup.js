@@ -1,3 +1,4 @@
+import { khoAnToan } from './kho.js';
 const BACKUP_VERSION = 1;
 
 export const LEARNING_STORAGE_KEYS = [
@@ -34,7 +35,7 @@ export const LEARNING_STORAGE_KEYS = [
   'resetMocV1',
 ];
 
-export function createLearningBackup(storage = localStorage) {
+export function createLearningBackup(storage = khoAnToan()) {
   const data = {};
   for (const key of LEARNING_STORAGE_KEYS) {
     const value = storage.getItem(key);
@@ -43,7 +44,7 @@ export function createLearningBackup(storage = localStorage) {
   return { app: 'grammar-pro', version: BACKUP_VERSION, createdAt: new Date().toISOString(), data };
 }
 
-export function restoreLearningBackup(input, storage = localStorage) {
+export function restoreLearningBackup(input, storage = khoAnToan()) {
   const backup = typeof input === 'string' ? JSON.parse(input) : input;
   if (!backup || backup.app !== 'grammar-pro' || backup.version !== BACKUP_VERSION) {
     throw new Error('invalid-backup');

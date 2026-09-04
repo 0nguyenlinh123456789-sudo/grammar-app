@@ -96,8 +96,13 @@ import { goMotLan, canBao, daBaoRoi } from './utils/tinCayXacMinh';
 import { ghiMocReset } from './utils/bandExam';
 import { roadmapData } from './data/roadmapData';
 import XacMinhGoNotice from './components/progress/XacMinhGoNotice';
+import KhoBiChanBanner from './components/common/KhoBiChanBanner';
 import ChunkBoundary from './components/common/ChunkBoundary';
 import { nhapLai } from './utils/taiChunk';
+// Moi luot cham localStorage deu di qua day. Ly do: cham thang vao no o iOS
+// (Chan tat ca cookie) hoac Safari rieng tu la NEM, va App.jsx la goc cay nen
+// nem o day = trang man hinh o MOI lan mo. Xem dau src/utils/kho.js.
+import { docKho, docJson, ghiKho, ghiJson, xoaKho, khoAnToan } from './utils/kho';
 
 // Page/Route layer — lazy-loaded so each route ships as its own chunk and the
 // initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
@@ -143,7 +148,7 @@ export default function App() {
   // Topic/Unit states
   const [topicId, setTopicId] = useState(null); // Active grammar topic ID
   const [oxfordUnitId, setOxfordUnitId] = useState(() => {
-    const savedUnitId = localStorage.getItem('oxfordUnitId');
+    const savedUnitId = docKho('oxfordUnitId');
     if (savedUnitId && savedUnitId !== 'null') {
       return isNaN(savedUnitId) ? savedUnitId : parseInt(savedUnitId, 10);
     }
@@ -162,26 +167,26 @@ export default function App() {
   
   // Oxford Book State
   const [activeOxfordBookId, setActiveOxfordBookId] = useState(() => {
-    const savedBook = localStorage.getItem('activeOxfordBookId');
+    const savedBook = docKho('activeOxfordBookId');
     return OXFORD_BOOKS.some((book) => book.id === savedBook) ? savedBook : 'elementary';
   });
   const oxfordLoaded = loadedOxfordBookIds.includes(activeOxfordBookId);
 
   // Theme mode state
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = docKho('theme');
     return savedTheme ? savedTheme : 'light';
   });
 
   // Global user progress state
   const [xp, setXp] = useState(() => {
-    const savedXp = localStorage.getItem('xp');
+    const savedXp = docKho('xp');
     return savedXp ? parseInt(savedXp, 10) : 0;
   });
 
   const [completedMilestones, setCompletedMilestones] = useState(() => {
     try {
-      const saved = localStorage.getItem('completedMilestones');
+      const saved = docKho('completedMilestones');
       const parsed = saved ? JSON.parse(saved) : [];
       return Array.isArray(parsed) ? parsed : [];
     } catch {
@@ -197,11 +202,11 @@ export default function App() {
   // có một nhịp mà lộ trình đã vẽ xong với nhãn "đã xác minh" cũ, và người học
   // kịp nhìn thấy một tuyên bố đang bị gỡ. Xem src/utils/tinCayXacMinh.js.
   const [milestoneScores, setMilestoneScores] = useState(() => {
-    const kq = goMotLan(localStorage, roadmapData);
-    return kq.scores || loadScores(localStorage);
+    const kq = goMotLan(khoAnToan(), roadmapData);
+    return kq.scores || loadScores(khoAnToan());
   });
-  const [soChangDaGo, setSoChangDaGo] = useState(() => canBao(localStorage));
-  const dongBaoXacMinhGo = () => { daBaoRoi(localStorage); setSoChangDaGo(0); };
+  const [soChangDaGo, setSoChangDaGo] = useState(() => canBao(khoAnToan()));
+  const dongBaoXacMinhGo = () => { daBaoRoi(khoAnToan()); setSoChangDaGo(0); };
 
   // Keep milestone awarding atomic across rapid clicks and child callbacks.
   // A state closure can lag behind when several exercises finish in one tick.
@@ -212,12 +217,12 @@ export default function App() {
 
   // Daily Streak States
   const [streak, setStreak] = useState(() => {
-    const saved = localStorage.getItem('streak');
+    const saved = docKho('streak');
     return saved ? parseInt(saved, 10) : 0;
   });
 
   const [lastActiveDate, setLastActiveDate] = useState(() => {
-    return localStorage.getItem('lastActiveDate') || '';
+    return docKho('lastActiveDate', '');
   });
   const lastActiveDateRef = useRef(lastActiveDate);
   useEffect(() => {
@@ -226,25 +231,25 @@ export default function App() {
 
   // Best (longest) streak ever achieved
   const [bestStreak, setBestStreak] = useState(() => {
-    const saved = localStorage.getItem('bestStreak');
+    const saved = docKho('bestStreak');
     return saved ? parseInt(saved, 10) : 0;
   });
 
   // Daily goal tracking: how many lessons + XP earned today
   const [dailyStats, setDailyStats] = useState(() => {
     try {
-      const saved = JSON.parse(localStorage.getItem('dailyStats') || 'null');
+      const saved = docJson('dailyStats', null);
       const todayStr = new Date().toDateString();
       if (saved && saved.date === todayStr) return saved;
     } catch { /* ignore */ }
     return { date: new Date().toDateString(), lessons: 0, xp: 0 };
   });
   const [dailyGoal, setDailyGoal] = useState(() => (
-    normalizeDailyGoal(localStorage.getItem('dailyGoalV1'))
+    normalizeDailyGoal(docKho('dailyGoalV1'))
   ));
   const [placementResult, setPlacementResult] = useState(() => {
     try {
-      const saved = JSON.parse(localStorage.getItem('placementResultV1') || 'null');
+      const saved = docJson('placementResultV1', null);
       return saved && typeof saved === 'object' ? saved : null;
     } catch { return null; }
   });
@@ -286,7 +291,7 @@ export default function App() {
   }, []);
   const [activityHistory, setActivityHistory] = useState(() => {
     try {
-      return normalizeActivityHistory(JSON.parse(localStorage.getItem('learningActivityV1') || '[]'));
+      return normalizeActivityHistory(docJson('learningActivityV1', []));
     } catch {
       return [];
     }
@@ -294,45 +299,45 @@ export default function App() {
 
   // Persist XP and completed milestones to localStorage
   useEffect(() => {
-    localStorage.setItem('xp', xp.toString());
+    ghiKho('xp', xp.toString());
   }, [xp]);
 
   useEffect(() => {
-    localStorage.setItem('completedMilestones', JSON.stringify(completedMilestones));
+    ghiJson('completedMilestones', completedMilestones);
   }, [completedMilestones]);
 
   // Persist streak and last active date to localStorage
   useEffect(() => {
-    localStorage.setItem('streak', streak.toString());
+    ghiKho('streak', streak.toString());
   }, [streak]);
 
   useEffect(() => {
-    localStorage.setItem('lastActiveDate', lastActiveDate);
+    ghiKho('lastActiveDate', lastActiveDate);
   }, [lastActiveDate]);
 
   useEffect(() => {
-    localStorage.setItem('bestStreak', bestStreak.toString());
+    ghiKho('bestStreak', bestStreak.toString());
   }, [bestStreak]);
 
   useEffect(() => {
-    localStorage.setItem('dailyStats', JSON.stringify(dailyStats));
+    ghiJson('dailyStats', dailyStats);
   }, [dailyStats]);
 
   useEffect(() => {
-    localStorage.setItem('learningActivityV1', JSON.stringify(activityHistory));
+    ghiJson('learningActivityV1', activityHistory);
   }, [activityHistory]);
 
   useEffect(() => {
-    localStorage.setItem('dailyGoalV1', dailyGoal.toString());
+    ghiKho('dailyGoalV1', dailyGoal.toString());
   }, [dailyGoal]);
 
   useEffect(() => {
-    if (placementResult) localStorage.setItem('placementResultV1', JSON.stringify(placementResult));
-    else localStorage.removeItem('placementResultV1');
+    if (placementResult) ghiJson('placementResultV1', placementResult);
+    else xoaKho('placementResultV1');
   }, [placementResult]);
 
   useEffect(() => {
-    localStorage.setItem('learningSyncUpdatedAtV1', String(Date.now()));
+    ghiKho('learningSyncUpdatedAtV1', String(Date.now()));
   }, [xp, completedMilestones, streak, lastActiveDate, bestStreak, dailyStats, activityHistory, dailyGoal, placementResult, milestoneScores]);
 
   // Keep bestStreak in sync whenever the current streak sets a new record
@@ -367,7 +372,7 @@ export default function App() {
 
   // Persist Oxford Book choice
   useEffect(() => {
-    localStorage.setItem('activeOxfordBookId', activeOxfordBookId);
+    ghiKho('activeOxfordBookId', activeOxfordBookId);
   }, [activeOxfordBookId]);
 
   useEffect(() => {
@@ -376,7 +381,7 @@ export default function App() {
 
   // Persist Oxford Unit ID choice
   useEffect(() => {
-    localStorage.setItem('oxfordUnitId', oxfordUnitId);
+    ghiKho('oxfordUnitId', oxfordUnitId);
   }, [oxfordUnitId]);
 
   // Load only the selected Oxford book. Other books stay out of the network
@@ -442,7 +447,7 @@ export default function App() {
 
   // Persist and Apply Theme
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    ghiKho('theme', theme);
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
@@ -486,17 +491,17 @@ export default function App() {
     const freshDaily = { date: new Date().toDateString(), lessons: 0, xp: 0 };
     setDailyStats(freshDaily);
     setActivityHistory([]);
-    localStorage.setItem('xp', '0');
-    localStorage.setItem('completedMilestones', JSON.stringify([]));
-    localStorage.setItem('streak', '0');
-    localStorage.setItem('lastActiveDate', '');
-    localStorage.setItem('dailyStats', JSON.stringify(freshDaily));
-    localStorage.setItem('learningActivityV1', JSON.stringify([]));
+    ghiKho('xp', '0');
+    ghiJson('completedMilestones', []);
+    ghiKho('streak', '0');
+    ghiKho('lastActiveDate', '');
+    ghiJson('dailyStats', freshDaily);
+    ghiJson('learningActivityV1', []);
     // Xoá luôn điểm đã xác minh. Nếu giữ lại, người học reset xong làm lại một
     // chặng sẽ thấy nó hiện "đã xác minh" ngay nhờ bản ghi CŨ — tức là một
     // tuyên bố năng lực không có bằng chứng trong lượt học này.
     setMilestoneScores({});
-    localStorage.removeItem(MASTERY_STORAGE_KEY);
+    xoaKho(MASTERY_STORAGE_KEY);
     clearVocabProgress();
 
     // ══ ĐO 19/08: RESET ĐỂ SÓT 10 KHOÁ, VÀ MỘT TRONG SỐ ĐÓ LÀM NÚT NÀY
@@ -516,7 +521,7 @@ export default function App() {
       'mockTestHistoryV1',    // lịch sử thi thử
       'onboardingDoneV1',     // cho chạy lại hướng dẫn — nó mời làm test đầu vào,
       'learningGoalV1',       //   đúng thứ cần ngay sau khi xoá cấp độ cũ
-    ]) localStorage.removeItem(khoa);
+    ]) xoaKho(khoa);
 
     // ══ ĐO 27/08: XOÁ KHỎI KHO LÀ CHƯA ĐỦ — PHẢI ĐẶT LẠI CẢ STATE ══
     // `placementResult` sống ở HAI nơi: `localStorage` và một `useState` của
@@ -641,7 +646,7 @@ export default function App() {
       return;
     }
 
-    if (hasEvidence) setMilestoneScores(saveScore(localStorage, id, evidence));
+    if (hasEvidence) setMilestoneScores(saveScore(khoAnToan(), id, evidence));
     completedMilestonesRef.current = [...completedMilestonesRef.current, id];
     setCompletedMilestones(prev => prev.includes(id) ? prev : [...prev, id]);
     setXp(prev => prev + xpBonus);
@@ -656,9 +661,9 @@ export default function App() {
   // Không cộng XP: chặng đã được thưởng rồi. Vẫn tính là một phiên học (QĐ2).
   const verifyMilestone = (id, evidence) => {
     if (!id || !evidence) return;
-    const alreadyVerified = isVerified(loadScores(localStorage), id);
+    const alreadyVerified = isVerified(loadScores(khoAnToan()), id);
     if (!isPassing(evidence)) return;
-    setMilestoneScores(saveScore(localStorage, id, evidence));
+    setMilestoneScores(saveScore(khoAnToan(), id, evidence));
     // Chỉ tính là một phiên học khi bài xác minh THỰC SỰ chuyển chặng sang đã
     // xác minh. Bài này chỉ 5 câu: tính mọi lần bấm thì di trú 44 chặng sẽ bơm
     // 44 "buổi học" vào mục tiêu ngày và chuỗi ngày trong mươi phút — đúng kiểu
@@ -852,6 +857,9 @@ export default function App() {
       setTheme={setTheme}
       streak={streak}
     >
+      {/* Đứng NGOÀI ChunkBoundary và trên mọi tuyến: người học phải thấy câu này
+          ở mọi màn, không chỉ ở trang chủ. Tự ẩn khi kho lưu dùng được. */}
+      <KhoBiChanBanner />
       {/* `tuTaiLai`: chỉ tuyến chính được tự tải lại trang — lý do ở MoPanel. */}
       <ChunkBoundary tuTaiLai>
         <Suspense fallback={<RouteLoader />}>

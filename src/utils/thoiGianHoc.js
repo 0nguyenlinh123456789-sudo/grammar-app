@@ -21,6 +21,7 @@
 // Con số đó sẽ đi thẳng vào báo cáo phụ huynh. Nên có hai cửa: tab phải HIỆN,
 // và phải có tương tác gần đây.
 
+import { docJson, ghiJson, xoaKho } from './kho.js';
 const KEY = 'thoiGianHocV1';
 
 /** Nhịp ghi. Ngắn thì tốn ghi đĩa, dài thì mất mát khi đóng tab đột ngột. */
@@ -32,7 +33,11 @@ export const IM_LANG_TOI_DA_GIAY = 90;
 /** Trần mỗi ngày. Quá mức này gần như chắc chắn là đồng hồ chạy hoang. */
 export const TRAN_MOI_NGAY_GIAY = 10 * 3600;
 
-const coStorage = () => typeof localStorage !== 'undefined';
+// ⚠️ `typeof localStorage !== 'undefined'` KHÔNG phải một cái chốt an toàn.
+// `localStorage` là thuộc tính CÓ KHAI BÁO của `window`, nên `typeof` vẫn GỌI
+// getter của nó — và ở iOS Safari bật "Chặn tất cả cookie" getter đó NÉM, ngay
+// tại dòng lẽ ra để phòng thân. Cả họ chốt này đã được thay bằng utils/kho.js,
+// nơi mọi lượt chạm nằm gọn trong try. Lý do đầy đủ ở đầu src/utils/kho.js.
 
 export const ngayHomNay = (d = new Date()) => {
   const p = (n) => String(n).padStart(2, '0');
@@ -40,16 +45,14 @@ export const ngayHomNay = (d = new Date()) => {
 };
 
 function doc() {
-  if (!coStorage()) return {};
   try {
-    const o = JSON.parse(localStorage.getItem(KEY) || '{}');
+    const o = docJson(KEY, {});
     return o && typeof o === 'object' && !Array.isArray(o) ? o : {};
   } catch { return {}; }
 }
 
 function ghi(o) {
-  if (!coStorage()) return;
-  try { localStorage.setItem(KEY, JSON.stringify(o)); } catch { /* private mode */ }
+  ghiJson(KEY, o);
 }
 
 /**
@@ -119,7 +122,7 @@ export function doVoiUocLuong(phutUocLuong, giayDoDuoc = tongGiay(), toiThieuGia
 }
 
 export function xoaHet() {
-  if (coStorage()) { try { localStorage.removeItem(KEY); } catch { /* ignore */ } }
+  xoaKho(KEY);
 }
 
 export const THOI_GIAN_HOC_KEY = KEY;

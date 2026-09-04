@@ -57,6 +57,17 @@ function moiKhoa() {
     for (const m of src.matchAll(/localStorage\.(?:get|set|remove)Item\(\s*'([^']+)'/g)) {
       if (!thay.has(m[1])) thay.set(m[1], f);
     }
+    // ⚠️ QUA utils/kho.js: docKho('xp'), ghiJson('dailyStats', …)
+    //
+    // Nhánh này được thêm vì chính bộ tự-kiểm ngay bên dưới đã BẮT ĐƯỢC một lỗ
+    // thật: đợt vá "trình duyệt chặn lưu" đổi 30 chỗ trong App.jsx từ
+    // `localStorage.getItem('xp')` sang `docKho('xp')`. Bộ quét chỉ biết khuôn
+    // cũ, nên nó lập tức không còn thấy khoá nào của App.jsx — và cái ràng buộc
+    // "mọi khoá phải nằm trong sao lưu" âm thầm ngừng che tệp quan trọng nhất.
+    // Không có bước tự kiểm thước, cả file này sẽ xanh rực trong khi đã mù.
+    for (const m of src.matchAll(/\b(?:docKho|docJson|ghiKho|ghiJson|xoaKho)\(\s*'([^']+)'/g)) {
+      if (!thay.has(m[1])) thay.set(m[1], f);
+    }
     // Qua hằng số: const KEY = 'bandExamHistoryV1'
     for (const m of src.matchAll(/(?:const|let)\s+[A-Za-z0-9_$]*(?:KEY|Key)[A-Za-z0-9_$]*\s*=\s*'([^']+)'/g)) {
       const k = m[1];

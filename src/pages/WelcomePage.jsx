@@ -15,6 +15,7 @@ import PetZoo from '../components/common/PetZoo';
 import PracticeCard, { PracticeGroup } from '../components/home/PracticeCard';
 import { MoPanel } from '../components/common/ChunkBoundary';
 import { nhapLai } from '../utils/taiChunk';
+import { khoAnToan } from '../utils/kho';
 
 import { writingPrompts } from '../data/writingPrompts';
 import { SO_DE_THEO_CHANG } from '../data/writingCounts';
@@ -194,22 +195,22 @@ const WelcomePage = ({
   // Thông báo di trú chỉ hiện KHI THẬT SỰ có chặng cũ chưa xác minh, và chỉ một
   // lần. Người mới cài app không bao giờ thấy nó.
   useEffect(() => {
-    if (shouldShowMigrationNotice(localStorage, unverifiedMilestones.length)) setShowMigration(true);
+    if (shouldShowMigrationNotice(khoAnToan(), unverifiedMilestones.length)) setShowMigration(true);
   }, [unverifiedMilestones.length]);
-  const closeMigration = () => { dismissMigrationNotice(localStorage); setShowMigration(false); };
+  const closeMigration = () => { dismissMigrationNotice(khoAnToan()); setShowMigration(false); };
 
   // (N4 b′) Lộ trình vừa dài ra → mẫu số tiến độ tăng → tỉ lệ của người đang học
   // tụt xuống dù họ không mất chặng nào. Báo một lần, không đổi lặng lẽ.
   const [loTrinhTang, setLoTrinhTang] = useState(null);
   useEffect(() => {
     setLoTrinhTang(thongBaoLoTrinhTang({
-      storage: localStorage,
+      storage: khoAnToan(),
       tongHienTai: totalMilestonesCount,
       tongTruoc: TONG_CHANG_TRUOC,
       soChangDaXong: completedCount,
     }));
   }, [totalMilestonesCount, completedCount]);
-  const dongLoTrinhTang = () => { daXemLoTrinhTang(localStorage, totalMilestonesCount); setLoTrinhTang(null); };
+  const dongLoTrinhTang = () => { daXemLoTrinhTang(khoAnToan(), totalMilestonesCount); setLoTrinhTang(null); };
 
   // Chặng tiếp theo: chặng chưa xong đầu tiên TỪ cấp độ mà bài test đầu vào
   // đề xuất trở lên (chưa làm test → hành vi cũ). Xem src/utils/roadmapNav.js.

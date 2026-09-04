@@ -2,6 +2,7 @@
 // Chấm điểm đề thi thử + quy đổi sang thang VSTEP (/10) hoặc IELTS band.
 // Hàm chấm là hàm thuần (không đụng localStorage) để test được bằng node.
 
+import { docJson, ghiJson } from './kho.js';
 const HISTORY_KEY = 'mockTestHistoryV1';
 const MAX_HISTORY = 20;
 
@@ -78,15 +79,11 @@ export function weakestSection(sections = {}) {
 // ---- Lịch sử làm bài (localStorage; key nằm trong LEARNING_STORAGE_KEYS) ----
 
 export function loadMockHistory() {
-  if (typeof localStorage === 'undefined') return [];
-  try {
-    const parsed = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
-    return Array.isArray(parsed) ? parsed : [];
-  } catch { return []; }
+  const parsed = docJson(HISTORY_KEY, []);
+  return Array.isArray(parsed) ? parsed : [];
 }
 
 export function saveMockAttempt(result) {
-  if (typeof localStorage === 'undefined') return;
   // Lưu bản gọn (không kèm danh sách câu sai) để không phình localStorage.
   const entry = {
     testId: result.testId,
@@ -98,7 +95,7 @@ export function saveMockAttempt(result) {
     completedAt: result.completedAt,
   };
   const history = [entry, ...loadMockHistory()].slice(0, MAX_HISTORY);
-  try { localStorage.setItem(HISTORY_KEY, JSON.stringify(history)); } catch { /* ignore */ }
+  ghiJson(HISTORY_KEY, history);
 }
 
 // Lần làm gần nhất của cùng một đề — để hiện "tăng/giảm bao nhiêu".

@@ -32,6 +32,7 @@
 // ở đó. Nên luật ở đây giống luật bên đó — **mọi nhánh phải chỉ được đường đi
 // tiếp**, và không nhánh nào được khai một việc chưa xảy ra.
 
+import { khoAnToan } from './kho.js';
 /** Các kênh đặt mua, đọc từ biến môi trường lúc dựng. */
 export const KENH = [
   { khoa: 'VITE_SALES_URL', loai: 'trang', nhan: 'Mở trang đặt mua', duaVao: (v) => v },
@@ -207,7 +208,7 @@ export function maDonHang(nguon = globalThis.crypto) {
  * Cùng cách `getDeviceId()` trong AccessGate giữ mã thiết bị. Bọc try/catch vì
  * Safari chế độ riêng tư NÉM khi chạm localStorage chứ không trả null.
  */
-export function maDonGiuLai(kho = globalThis.localStorage) {
+export function maDonGiuLai(kho = khoAnToan()) {
   try {
     const cu = String(kho?.getItem(KHOA_MA_DON) ?? '').trim();
     if (MAU_MA_DON.test(cu)) return cu;

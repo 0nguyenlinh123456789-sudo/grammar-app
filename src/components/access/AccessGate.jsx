@@ -9,14 +9,19 @@ import ChuyenKhoan from './ChuyenKhoan';
 // Chỉ một con số — KHÔNG import roadmapData ở màn hình kích hoạt (xem
 // scripts/build_roadmap.mjs, phần sinh roadmapCounts.js).
 import { TONG_CHANG } from '../../data/roadmapCounts';
+import { docKho, ghiKho } from '../../utils/kho';
 
 const DEVICE_KEY = 'grammarDeviceIdV1';
 
 function getDeviceId() {
-  let value = localStorage.getItem(DEVICE_KEY);
+  // Qua `docKho`/`ghiKho` chứ không chạm thẳng: ở iOS bật "Chặn tất cả cookie"
+  // thì chỉ riêng việc viết ra cái tên `localStorage` đã ném, và hàm này chạy ở
+  // cổng kích hoạt — tức trước cả khi người học nhìn thấy bất cứ thứ gì.
+  // Không lưu được thì vẫn trả về một mã dùng cho phiên này, chứ không ném.
+  let value = docKho(DEVICE_KEY);
   if (!value) {
     value = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`;
-    localStorage.setItem(DEVICE_KEY, value);
+    ghiKho(DEVICE_KEY, value);
   }
   return value;
 }

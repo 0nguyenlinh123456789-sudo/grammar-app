@@ -1,5 +1,6 @@
 import { LEARNING_STORAGE_KEYS } from './backup.js';
 import { datHoacGop } from './gopKhoDongBo.js';
+import { khoAnToan } from './kho.js';
 
 // ĐỒNG BỘ Ở ĐÂY LÀ **ĐÈ NGUYÊN KHỐI, AI GHI SAU THẮNG**, chặn bằng đúng MỘT
 // mốc `updatedAt` ở cấp trên cùng (xem `src/server/routes/progress.js`). Với
@@ -12,7 +13,7 @@ import { datHoacGop } from './gopKhoDongBo.js';
 
 const SYNC_TIMESTAMP_KEY = 'learningSyncUpdatedAtV1';
 
-export function createProgressSnapshot(storage = localStorage) {
+export function createProgressSnapshot(storage = khoAnToan()) {
   const data = {};
   for (const key of LEARNING_STORAGE_KEYS) {
     const value = storage.getItem(key);
@@ -21,7 +22,7 @@ export function createProgressSnapshot(storage = localStorage) {
   return data;
 }
 
-export async function syncLearningProgress(storage = localStorage) {
+export async function syncLearningProgress(storage = khoAnToan()) {
   const localUpdatedAt = Number(storage.getItem(SYNC_TIMESTAMP_KEY)) || 0;
   const read = await fetch('/api/progress', { credentials: 'same-origin' });
   if (!read.ok) return { status: 'unavailable' };
