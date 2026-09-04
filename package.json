@@ -32,7 +32,8 @@
     "ra:quetanh": "node scripts/ra_quet_anh.mjs",
     "ra:nentoi": "node scripts/ra_nen_toi.mjs",
     "ra:phatam": "node scripts/ra_phat_am.mjs",
-    "ra:chunkhong": "node scripts/ra_chunk_hong.mjs"
+    "ra:chunkhong": "node scripts/ra_chunk_hong.mjs",
+    "ra:khosw": "node scripts/ra_kho_sw.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",

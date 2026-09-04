@@ -36,7 +36,8 @@ npm run build     # dựng bản production — lỗi build là lỗi chặn dep
 - Push lên nhánh `main` của GitHub → **Vercel tự build và deploy** (không cần thao tác thêm).
 - Kiểm tra deploy thành công: Vercel Dashboard → Deployments, hoặc
   `curl -s https://api.github.com/repos/0nguyenlinh123456789-sudo/grammar-app/commits/<sha>/status`.
-- Sau khi deploy, người dùng cần tải lại trang 1 lần (service worker `public/sw.js` đổi tên cache mỗi khi shell thay đổi lớn — nếu sửa `index.html`/logo, tăng số version trong `CACHE_NAME`).
+- Sau khi deploy, người dùng cần tải lại trang 1 lần. Service worker `public/sw.js` chạy **mạng trước, kho sau**, nên không ai bị kẹt ở bản cũ. **Tăng số trong `CACHE_NAME` (`bunny-english-shell-vN`) khi đổi shell HOẶC khi đổi CÁI GÌ ĐƯỢC CẤT** — nhánh `activate` chỉ xoá kho *khác tên*, nên giữ nguyên tên thì thứ kho cũ đã nuốt vẫn nằm nguyên ở máy người học và bản vá không tới được họ.
+- Kho của service worker **cố ý không cất tệp media** (`.mp3/.m4a/.ogg/.wav/.mp4`), không cất phản hồi **206** và không cất yêu cầu có tiêu đề **Range**. Lý do đo được: `cache.put()` ném `Partial response (status code 206) is unsupported`, và app có 7 thẻ `<audio>` trỏ vào 239 tệp thu. Chi tiết + cách đo lại: `tests/kho_sw.test.js` và `npm run ra:khosw`.
 
 ## Các file "một tính năng — một chỗ" đáng nhớ
 
