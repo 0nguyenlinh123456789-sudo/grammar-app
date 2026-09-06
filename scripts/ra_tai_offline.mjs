@@ -138,6 +138,59 @@ try {
   ghi('ĐÚNG bản thì KHÔNG giục tải lại', dungBan === false,
     dungBan ? 'đang báo cũ trong khi mã bản dựng khớp — mỗi lần mở app là một lời giục vô ích' : `mã ${manifestThat}`);
 
+  // ── 2c. TẢI LẠI SAU MỘT LẦN ĐẨY BẢN MỚI TỐN BAO NHIÊU ─────────────────────
+  // Vite chỉ băm nội dung vào tên của `assets/*`; `audio/*` và `fonts/*` được
+  // chép nguyên tên. Nên một lần đẩy CHỈ SỬA JS vẫn đổi mã bản dựng, và bản
+  // trước (xoá sạch kho rồi tải lại) bắt người học tải lại 5,6 MB bản thu KHÔNG
+  // đổi một byte — bằng 4G, mỗi lần chủ web đẩy bản mới.
+  //
+  // Đo bằng cách gửi lại ĐÚNG danh sách cũ: mọi tệp đã có sẵn, nên số tệp phải
+  // tải thật sự phải là 0 và `boQua` phải bằng toàn bộ.
+  const taiLai = await t.danhGia(`(async () => {
+    const m = await (await fetch('/offline-manifest.json')).json();
+    const ds = Object.values(m.nhom).flatMap((n) => n.tep.map((t) => t.d));
+    return await new Promise((xong) => {
+      const nghe = (ev) => {
+        const d = ev.data || {};
+        if (d.loai === 'XONG_OFFLINE') {
+          navigator.serviceWorker.removeEventListener('message', nghe);
+          xong({ xong: d.xong, tong: d.tong, hong: d.hong, boQua: d.boQua });
+        }
+      };
+      navigator.serviceWorker.addEventListener('message', nghe);
+      navigator.serviceWorker.controller.postMessage({
+        loai: 'TAI_OFFLINE', danhSach: ds, banDung: m.banDung, nhom: Object.keys(m.nhom), giuLai: ds,
+      });
+      setTimeout(() => xong({ hetGio: true }), 120000);
+    });
+  })()`);
+  ghi('tải lại khi KHÔNG có gì đổi: bỏ qua toàn bộ, không tốn thêm byte nào',
+    taiLai && taiLai.boQua === taiLai.tong && taiLai.hong === 0,
+    JSON.stringify(taiLai));
+
+  // Chiều ngược: một tệp KHÔNG còn trong bản đang chạy thì phải bị dọn đi.
+  const donRac = await t.danhGia(`(async () => {
+    const kho = await caches.open('bunny-english-offline-v1');
+    await kho.put('/assets/manh-ma-doi-cu-KHONG-CON.js', new Response('x', { headers: { 'Content-Type': 'application/javascript' } }));
+    const truoc = (await kho.keys()).length;
+    const m = await (await fetch('/offline-manifest.json')).json();
+    const ds = Object.values(m.nhom).flatMap((n) => n.tep.map((t) => t.d));
+    await new Promise((xong) => {
+      const nghe = (ev) => {
+        if ((ev.data || {}).loai === 'XONG_OFFLINE') { navigator.serviceWorker.removeEventListener('message', nghe); xong(); }
+      };
+      navigator.serviceWorker.addEventListener('message', nghe);
+      navigator.serviceWorker.controller.postMessage({
+        loai: 'TAI_OFFLINE', danhSach: ds, banDung: m.banDung, nhom: Object.keys(m.nhom), giuLai: ds,
+      });
+      setTimeout(xong, 120000);
+    });
+    const con = await kho.match('/assets/manh-ma-doi-cu-KHONG-CON.js');
+    return { truoc, conRac: !!con, sau: (await kho.keys()).length };
+  })()`);
+  ghi('mảnh mã đời cũ bị DỌN đi, không nằm lại chiếm chỗ', donRac && donRac.conRac === false,
+    JSON.stringify(donRac));
+
   // ── 3. NGẮT THẬT: DỌN KHO HTTP RỒI TẮT HẲN MÁY CHỦ ────────────────────────
   await t.goi('Network.clearBrowserCache');
   tatMayChu();

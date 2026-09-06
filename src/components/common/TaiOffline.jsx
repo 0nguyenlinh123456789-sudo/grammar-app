@@ -33,8 +33,8 @@ export default function TaiOffline() {
   const [tienDo, setTienDo] = useState({ xong: 0, tong: 0, hong: 0 });
   const [daTai, setDaTai] = useState(0);
   const [ghiBen, setGhiBen] = useState(null);           // navigator.storage.persist()
-  const [goiDaTai, setGoiDaTai] = useState(null);
-  const [cuTheoKho, setCuTheoKho] = useState(false);  // ket luan tu chinh kho, khong tu ma       // { banDung, nhom } cua goi trong may
+  const [goiDaTai, setGoiDaTai] = useState(null);     // { banDung, nhom } của gói trong máy
+  const [cuTheoKho, setCuTheoKho] = useState(false);  // kết luận từ chính kho, không từ mã
 
   // ⚠️ THU GỌN SẴN Ở BỀ NGANG ĐIỆN THOẠI — ĐÂY LÀ MỘT LỖI ĐÃ ĐO ĐƯỢC, KHÔNG PHẢI
   // TRANG TRÍ. Trên máy tính thanh bên luôn hiện nên panel này chắc chắn thấy
@@ -94,17 +94,26 @@ export default function TaiOffline() {
   // trên cố tình im — thà im còn hơn giục người ta tải lại 17,5 MB vì mình đoán.
   // Nhưng im mãi cũng là một kiểu im lặng: họ giữ một gói đã chết mà không biết.
   //
-  // Không cần đoán: HỎI THẲNG KHO. Lấy một tệp bất kỳ của bản ĐANG chạy và xem
-  // kho tải có nó không. Không có ⇒ gói thuộc bản khác, chắc chắn, không suy
-  // diễn. Đây là bằng chứng, không phải phỏng đoán.
+  // Không cần đoán: HỎI THẲNG KHO. Gói thuộc bản khác khi và chỉ khi nó có tệp,
+  // mà KHÔNG tệp nào của bản đang chạy nằm trong đó.
+  //
+  // ⚠️ BẢN ĐẦU CHỈ SOI MỘT TỆP `.js` CỦA NHÓM VỎ, VÀ ĐÓ LÀ MỘT LỖ HỔNG THẬT:
+  // một gói cũ chỉ gồm nhóm "bản thu" không hề chứa `index-*.js` nào, nên nó bị
+  // kết luận là CŨ dù hoàn toàn còn dùng được — rồi bị dọn và tải lại. Tức là
+  // đúng cái hại mà ràng buộc "không đoán" ở trên sinh ra để tránh, chỉ khác
+  // đường vào. Phép đúng là "giao của hai tập rỗng", không phải "thiếu một tệp".
   useEffect(() => {
     if (!danhSach || !daTai || (goiDaTai && goiDaTai.banDung)) { setCuTheoKho(false); return undefined; }
-    const moc = (danhSach.nhom.voApp?.tep || []).map((t) => t.d).find((d) => d.endsWith('.js'));
-    if (!moc || typeof caches === 'undefined') return undefined;
+    if (typeof caches === 'undefined') return undefined;
+    const hienTai = new Set(Object.values(danhSach.nhom).flatMap((n) => n.tep.map((t) => t.d)));
     let con = true;
     caches.open('bunny-english-offline-v1')
-      .then((k) => k.match(moc))
-      .then((r) => { if (con) setCuTheoKho(!r); })
+      .then((k) => k.keys())
+      .then((ds) => {
+        if (!con) return;
+        const trongKho = ds.map((r) => new URL(r.url).pathname).filter((d) => !d.startsWith('/__'));
+        setCuTheoKho(trongKho.length > 0 && !trongKho.some((d) => hienTai.has(d)));
+      })
       .catch(() => { if (con) setCuTheoKho(false); });
     return () => { con = false; };
   }, [danhSach, daTai, goiDaTai]);
@@ -160,7 +169,10 @@ export default function TaiOffline() {
       danhSach: ds,
       banDung: danhSach.banDung,
       nhom: nhomDaChon,
-      xoaCu: daCu,   // ban dung doi thi don goi cu, dung de 17,5 MB chet nam lai
+      // MỌI đường dẫn của bản ĐANG chạy. Service worker dọn đúng những gì
+      // không có trong đây, và BỎ QUA khi tải những gì đã có sẵn — nên tải lại
+      // sau một lần đẩy bản mới chỉ tốn đúng phần đã đổi, không phải cả 17,5 MB.
+      giuLai: Object.values(danhSach.nhom).flatMap((n) => n.tep.map((t) => t.d)),
     });
   };
 

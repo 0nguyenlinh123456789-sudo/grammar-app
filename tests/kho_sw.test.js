@@ -294,14 +294,44 @@ test('CHỈ ghi mã bản dựng khi tải KHÔNG hỏng tệp nào', () => {
     'đang đóng dấu bản dựng lên một gói tải THIẾU — lần sau người học sẽ được báo "đang dùng bản mới nhất" trong khi gói của họ khuyết');
 });
 
-test('bản dựng đổi thì DỌN gói cũ, không để 17,5 MB chết nằm lại', () => {
+// ══ MỐC DỊCH 06/09 (lần 2): XOÁ SẠCH → DỌN CÓ CHỌN LỌC ══
+// Mốc CŨ: "bản dựng đổi thì xoá NGUYÊN kho tải rồi tải lại từ đầu."
+// Mốc MỚI: "bản dựng đổi thì bỏ đúng những gì KHÔNG còn trong bản đang chạy, và
+// BỎ QUA khi tải những gì đã có sẵn."
+//
+// Vì sao phải dịch: Vite chỉ băm nội dung vào tên của assets/*; audio/* và
+// fonts/* được chép nguyên tên. Nên một lần đẩy bản mới CHỈ SỬA JS vẫn đổi mã
+// bản dựng, và bản cũ bắt người học tải lại 5,6 MB bản thu KHÔNG đổi một byte —
+// bằng 4G, mỗi lần chủ web đẩy bản mới. Mốc cũ bảo vệ đúng một điều (đừng để rác
+// nằm lại) nhưng trả giá bằng tiền của người học; mốc mới giữ nguyên điều đó và
+// bỏ cái giá đi.
+test('bản dựng đổi thì DỌN CÓ CHỌN LỌC, không xoá sạch rồi tải lại từ đầu', () => {
   const s = bocChuThich(NGUON);
+  assert.match(s, /function donRac/, 'không có đường dọn rác — mảnh mã đời cũ sẽ nằm lại chiếm chỗ');
   const i = s.indexOf("tin.loai === 'TAI_OFFLINE'");
   assert.ok(i > 0);
-  const than = s.slice(i, i + 300);
-  assert.match(than, /xoaCu/,
-    'không có đường dọn gói cũ: tải lại sau khi đổi bản dựng sẽ cộng dồn thành ~35 MB trên máy người học');
-  assert.match(than, /caches\.delete\(KHO_TAI\)/, 'cờ xoaCu có mà không thực sự xoá gì');
+  // Chỉ xét ĐÚNG nhánh TAI_OFFLINE. Cửa sổ rộng sẽ vớ luôn nhánh XOA_OFFLINE
+  // ngay dưới, nơi `caches.delete(KHO_TAI)` là ĐÚNG — đó là nút "Xoá khỏi máy"
+  // do người học tự bấm.
+  const than = s.slice(i, i + s.slice(i).indexOf("} else if"));
+  assert.match(than, /giuLai/, 'không truyền danh sách cần giữ thì dọn rác không biết bỏ gì');
+  assert.doesNotMatch(than, /caches\.delete\(KHO_TAI\)/,
+    'vẫn xoá sạch kho: mỗi lần đẩy bản mới là người học tải lại 5,6 MB bản thu không đổi một byte');
+});
+
+test('tệp ĐÃ CÓ thì không tải lại — đây là tiền thật của người học', () => {
+  const s = bocChuThich(NGUON);
+  const i = s.indexOf('function taiMotTep');
+  assert.ok(i > 0);
+  assert.match(s.slice(i, i + 900), /daCo && daCo\.has\(duong\)/,
+    'đang tải lại cả những tệp đã nằm sẵn trong kho');
+});
+
+test('dọn rác KHÔNG được xoá mất mẩu ghi chú bản dựng', () => {
+  const s = bocChuThich(NGUON);
+  const i = s.indexOf('function donRac');
+  assert.match(s.slice(i, i + 400), /concat\(\[KHOA_GHI_CHU\]\)/,
+    'dọn rác cuốn luôn mẩu ghi chú — lần sau không so được bản dựng, và lời báo "gói đã cũ" im lặng biến mất');
 });
 
 // ══ BÁO GÓI ĐÃ CŨ — NẾU KHÔNG THÌ CẢ ĐƯỜNG TẢI LÀ MỘT LỜI HỨA HẾT HẠN ══
@@ -326,10 +356,17 @@ test('KHÔNG báo động khi không biết chắc — gói cũ từ trước kh
     'thiếu chốt "có mã thì mới so": gói tải từ trước khi có ghi chú sẽ bị báo là CŨ, và người học phải tải lại 17,5 MB chỉ vì mình đoán');
 });
 
-test('gói cũ thì phải DỌN trước khi tải lại', () => {
+// MỐC DỊCH: trang từng gửi cờ `xoaCu` để service worker XOÁ SẠCH kho rồi tải
+// lại từ đầu. Vì `audio/*` và `fonts/*` KHÔNG mang băm nội dung, cách đó bắt
+// người học tải lại 5,6 MB bản thu không đổi một byte sau mỗi lần đẩy bản mới.
+// Nay trang gửi DANH SÁCH CẦN GIỮ; service worker dọn đúng phần không còn dùng
+// được và bỏ qua phần đã có.
+test('trang gửi DANH SÁCH CẦN GIỮ, không gửi lệnh xoá sạch', () => {
   const s = bocChuThich(TAI);
-  assert.match(s, /xoaCu: daCu/,
-    'tải lại mà không dọn gói cũ: hai gói cộng dồn ~35 MB trên máy người học');
+  assert.match(s, /giuLai: Object\.values\(danhSach\.nhom\)/,
+    'không gửi danh sách cần giữ thì service worker không biết dọn gì');
+  assert.doesNotMatch(s, /xoaCu/,
+    'vẫn gửi lệnh xoá sạch: mỗi lần đẩy bản mới là người học tải lại 5,6 MB bản thu không đổi một byte');
 });
 
 // Gói tải từ TRƯỚC khi có ghi chú bản dựng thì `banDung == null`, và phép so mã
@@ -339,8 +376,14 @@ test('gói cũ thì phải DỌN trước khi tải lại', () => {
 test('gói không có mã bản dựng thì ĐỐI CHIẾU VỚI KHO, không đoán và cũng không im mãi', () => {
   const s = bocChuThich(TAI);
   assert.match(s, /cuTheoKho/, 'không có đường kết luận từ chính kho');
-  assert.match(s, /k\.match\(moc\)/,
-    'không hỏi kho xem có tệp của bản đang chạy không — đó là bằng chứng duy nhất không cần đoán');
+  assert.match(s, /trongKho\.some\(/,
+    'không hỏi kho xem có tệp nào của bản đang chạy không — đó là bằng chứng duy nhất không cần đoán');
+  // Phép đúng là GIAO CỦA HAI TẬP RỖNG, không phải THIẾU MỘT TỆP. Bản đầu chỉ
+  // soi một tệp .js của nhóm vỏ, nên một gói cũ chỉ gồm nhóm "bản thu" — vốn
+  // không chứa index-*.js nào — bị kết luận là CŨ dù còn dùng được, rồi bị dọn
+  // và tải lại oan. Đúng cái hại mà ràng buộc "không đoán" sinh ra để tránh.
+  assert.match(s, /trongKho\.length > 0 &&/,
+    'kho rỗng cũng bị kết luận là CŨ — đó là báo động cho một gói không tồn tại');
   const i = s.indexOf('const daCu = ');
   assert.match(s.slice(i, i + 220), /\|\| cuTheoKho/,
     'kết luận từ kho không được nối vào cờ "đã cũ", nên nó không dẫn tới lời báo nào');

@@ -202,10 +202,33 @@ function baoTien(client, tin) {
   if (client && client.postMessage) client.postMessage(tin);
 }
 
-function taiMotTep(kho, duong) {
+function taiMotTep(kho, duong, daCo) {
+  // ⚠️ ĐÃ CÓ SẴN THÌ ĐỪNG TẢI LẠI — ĐÂY LÀ TIỀN THẬT CỦA NGƯỜI HỌC.
+  // Vite chỉ băm nội dung vào tên của `assets/*`; `audio/*` và `fonts/*` được
+  // chép nguyên tên. Nên một lần đẩy bản mới chỉ-sửa-JS vẫn đổi mã bản dựng,
+  // và bản cũ (xoá sạch kho rồi tải lại) bắt người học tải lại 5,6 MB bản thu
+  // KHÔNG đổi một byte nào — bằng 4G, mỗi lần chủ web đẩy bản mới.
+  //
+  // Đường dẫn là khoá: `assets/*` đổi nội dung thì đổi tên, nên trùng tên là
+  // trùng nội dung. Tệp thu bị sửa ĐÈ mà giữ nguyên tên là trường hợp duy nhất
+  // lọt lưới — và nút "Xoá khỏi máy" là đường thoát cho nó.
+  if (daCo && daCo.has(duong)) return Promise.resolve('daCo');
   return fetch(duong, { cache: 'no-store' }).then((r) => {
     if (!r.ok || r.status !== 200) throw new Error(`${duong} → ${r.status}`);
     return kho.put(duong, r);
+  });
+}
+
+// ══ DỌN CÓ CHỌN LỌC, KHÔNG XOÁ SẠCH ══
+// Bản trước xoá NGUYÊN kho khi bản dựng đổi. Làm thế là vứt luôn phần không hề
+// đổi. Nay chỉ bỏ những gì KHÔNG còn nằm trong bản đang chạy — tức đúng các
+// mảnh mã đời cũ, và không đụng tới thứ vẫn còn dùng được.
+function donRac(kho, giuLai) {
+  if (!Array.isArray(giuLai) || !giuLai.length) return Promise.resolve(0);
+  const giu = new Set(giuLai.concat([KHOA_GHI_CHU]));
+  return kho.keys().then((ds) => {
+    const bo = ds.filter((r) => !giu.has(new URL(r.url).pathname));
+    return Promise.all(bo.map((r) => kho.delete(r))).then(() => bo.length);
   });
 }
 
@@ -232,32 +255,39 @@ function docGhiChu(kho) {
     .catch(() => null);
 }
 
-function taiGoi(danhSach, client, banDung, nhom) {
+function taiGoi(danhSach, client, banDung, nhom, giuLai) {
   const ds = (danhSach || []).filter((d) => typeof d === 'string' && !/ielts/i.test(d));
   let xong = 0;
   let hong = 0;
+  let boQua = 0;
   const hongDau = [];
 
-  return caches.open(KHO_TAI).then((kho) => {
-    let i = 0;
-    const chay = () => {
-      if (i >= ds.length) return Promise.resolve();
-      const duong = ds[i++];
-      return taiMotTep(kho, duong)
-        .catch((e) => { hong += 1; if (hongDau.length < 5) hongDau.push(String(e && e.message)); })
-        .then(() => {
-          xong += 1;
-          baoTien(client, { loai: 'TIEN_DO_OFFLINE', xong, tong: ds.length, hong });
-          return chay();
-        });
-    };
-    return Promise.all(Array.from({ length: Math.min(SONG_SONG, ds.length) }, chay))
-      // Chỉ ghi chú khi tải KHÔNG hỏng tệp nào. Ghi một mã bản dựng lên một gói
-      // tải thiếu là nói dối chính mình ở lần so sau: người học sẽ được bảo
-      // "đang dùng bản mới nhất" trong khi gói của họ khuyết.
-      .then(() => (hong === 0 ? ghiChuGoi(kho, banDung, nhom) : null));
-  }).then(() => {
-    baoTien(client, { loai: 'XONG_OFFLINE', xong, tong: ds.length, hong, hongDau });
+  return caches.open(KHO_TAI).then((kho) => (
+    // Dọn TRƯỚC khi tải: mảnh mã đời cũ đi ngay, phần còn dùng được ở lại và sẽ
+    // được `taiMotTep` bỏ qua thay vì tải lại.
+    donRac(kho, giuLai).then(() => kho.keys()).then((cu) => {
+      const daCo = new Set(cu.map((r) => new URL(r.url).pathname));
+      let i = 0;
+      const chay = () => {
+        if (i >= ds.length) return Promise.resolve();
+        const duong = ds[i++];
+        return taiMotTep(kho, duong, daCo)
+          .then((kq) => { if (kq === 'daCo') boQua += 1; })
+          .catch((e) => { hong += 1; if (hongDau.length < 5) hongDau.push(String(e && e.message)); })
+          .then(() => {
+            xong += 1;
+            baoTien(client, { loai: 'TIEN_DO_OFFLINE', xong, tong: ds.length, hong, boQua });
+            return chay();
+          });
+      };
+      return Promise.all(Array.from({ length: Math.min(SONG_SONG, ds.length) }, chay))
+        // Chỉ ghi chú khi tải KHÔNG hỏng tệp nào. Ghi một mã bản dựng lên một gói
+        // tải thiếu là nói dối chính mình ở lần so sau: người học sẽ được bảo
+        // "đang dùng bản mới nhất" trong khi gói của họ khuyết.
+        .then(() => (hong === 0 ? ghiChuGoi(kho, banDung, nhom) : null));
+    })
+  )).then(() => {
+    baoTien(client, { loai: 'XONG_OFFLINE', xong, tong: ds.length, hong, boQua, hongDau });
   }).catch((e) => {
     baoTien(client, { loai: 'LOI_OFFLINE', loi: String(e && e.message) });
   });
@@ -281,10 +311,12 @@ self.addEventListener('message', (event) => {
   const tin = event.data || {};
   const client = event.source;
   if (tin.loai === 'TAI_OFFLINE') {
-    // `xoaCu` khi bản dựng đã đổi: giữ lại gói cũ là giữ 17,5 MB không đường dẫn
-    // nào còn khớp — chiếm chỗ trên máy người học mà không phục vụ gì.
-    const batDau = tin.xoaCu ? caches.delete(KHO_TAI) : Promise.resolve();
-    event.waitUntil(batDau.then(() => taiGoi(tin.danhSach, client, tin.banDung, tin.nhom)));
+    // ⚠️ KHÔNG xoá sạch kho nữa. Bản trước xoá nguyên `KHO_TAI` khi bản dựng
+    // đổi, và vì `audio/*` + `fonts/*` KHÔNG mang băm nội dung nên một lần đẩy
+    // chỉ-sửa-JS vẫn bắt người học tải lại 5,6 MB bản thu không đổi một byte.
+    // Nay `taiGoi` tự dọn những gì không còn trong bản đang chạy (`giuLai`) rồi
+    // BỎ QUA những gì đã có — tải lại chỉ tốn đúng phần đã đổi.
+    event.waitUntil(taiGoi(tin.danhSach, client, tin.banDung, tin.nhom, tin.giuLai));
   } else if (tin.loai === 'XOA_OFFLINE') {
     event.waitUntil(caches.delete(KHO_TAI)
       .then(() => baoTien(client, { loai: 'DA_XOA_OFFLINE' })));
