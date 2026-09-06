@@ -2,13 +2,35 @@
   "name": "Bunny English - Học tiếng Anh",
   "short_name": "Bunny English",
   "description": "Cùng thỏ Bunny học ngữ pháp, từ vựng, IELTS và luyện tập tiếng Anh cá nhân hóa.",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#fff9e8",
   "theme_color": "#facc15",
   "lang": "vi",
+  "categories": [
+    "education"
+  ],
   "icons": [
-    { "src": "/bunny_logo.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
-    { "src": "/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

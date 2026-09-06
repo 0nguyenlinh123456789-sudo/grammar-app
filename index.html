@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/bunny_logo.png" />
     <link rel="apple-touch-icon" href="/bunny_logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ⚠️ `viewport-fit=cover` KHÔNG PHẢI TRANG TRÍ: thiếu nó thì MỌI
+         `env(safe-area-inset-*)` trong CSS đều trả về 0 trên iPhone. Nghĩa là
+         `pb-[env(safe-area-inset-bottom)]` của BottomTabBar và phần đệm của
+         huy hiệu quyền truy cập đều là mơ — thanh điều hướng nằm dưới vạch
+         Home của iPhone, bấm không trúng. Lỗi này im lặng tuyệt đối trên máy
+         tính bàn, nên có một phép kiểm ghim đúng dòng dưới đây. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#facc15" />
     <!-- Dark mode is class-based (.dark on <html>, toggled in App.jsx), so the
          document must declare "light" here. Advertising "light dark" made the

@@ -4,6 +4,7 @@ import { BookOpen, Flame, ChevronDown, Menu, Book, BookMarked, Camera, Home, Sea
 import AiKeyDialog from '../components/common/AiKeyDialog';
 import PolicyDialog from '../components/common/PolicyDialog';
 import BottomTabBar from '../components/common/BottomTabBar';
+import TaiOffline from '../components/common/TaiOffline';
 import BunnyChat from '../components/common/BunnyChat';
 import { hasGeminiKey, subscribeGeminiKey, subscribeOpenAiKeySettings } from '../utils/aiKey';
 import { SHOW_IELTS_FOUNDATION } from '../utils/localOnly';
@@ -501,6 +502,7 @@ const MainLayout = ({
 
          </div>
 
+         <TaiOffline />
 
        </aside>
 

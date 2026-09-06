@@ -36,7 +36,9 @@
     "ra:khosw": "node scripts/ra_kho_sw.mjs",
     "ra:chankho": "node scripts/ra_chan_kho.mjs",
     "ra:matmang": "node scripts/ra_mat_mang.mjs",
-    "ra:taioffline": "node scripts/ra_tai_offline.mjs"
+    "ra:taioffline": "node scripts/ra_tai_offline.mjs",
+    "ra:caidat": "node scripts/ra_cai_dat.mjs",
+    "tao:icon": "node scripts/tao_icon_pwa.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",

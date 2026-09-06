@@ -92,9 +92,26 @@ const BAM_NOI_DUNG = (locChu = '') => `(() => {
   // báo "đã mở bài ngữ pháp". So với bản viết hoa của chính nó thì đúng ở mọi
   // bảng chữ cái, không phải nhớ dải mã nào.
   const laDieuKhien = (s) => s === s.toUpperCase() && s.length < 40;
+  // ⚠️ BỎ QUA MỌI THỨ ĐƯỢC ĐÁNH DẤU LÀ CÔNG CỤ (data-cong-cu).
+  //
+  // Luật "viết hoa = điều khiển" ở trên KHÔNG đủ: panel "Học khi không có mạng"
+  // có nút ghi "Tải 11.9 MB về máy" — chữ thường, dài hơn 8 ký tự, nên lọt lưới,
+  // VÀ nó đứng trước nội dung trong DOM. Bước "GAMES: vào một trò" vì thế bấm
+  // trúng nút tải rồi VẪN BÁO ĐẠT: phép đo mất sạch ý nghĩa mà không đỏ lần nào.
+  //
+  // ⚠️ BẢN VÁ ĐẦU TIÊN CHO CHỖ NÀY SAI, VÀ SAI THEO KIỂU ĐẮT: nó loại mọi nút
+  // trong #main-navigation. Nhưng thanh bên của app này CHÍNH LÀ danh sách bài
+  // học — loại nó là loại luôn nội dung thật, và bốn bước (NGỮ PHÁP, TỪ VỰNG,
+  // OXFORD, A0) đỏ ngay. Sweep 22/22 → 17/22.
+  //
+  // Ranh giới đúng không phải VỊ TRÍ mà là VAI TRÒ, và vai trò thì phải được
+  // KHAI RA chứ không đoán: một panel công cụ tự gắn data-cong-cu. Đây là một
+  // LUẬT (thứ tự khai báo mở rộng được), không phải danh sách cấm viết tay —
+  // công cụ mới chỉ cần gắn thuộc tính, không phải sửa lại bộ rà.
+  const laCongCu = (e) => !!e.closest('[data-cong-cu]');
   const ds = [...document.querySelectorAll('button')].filter((e) => {
     const s = (e.innerText || '').trim();
-    if (!s || !hien(e) || laDieuKhien(s)) return false;
+    if (!s || !hien(e) || laDieuKhien(s) || laCongCu(e)) return false;
     return ${JSON.stringify(locChu)} ? new RegExp(${JSON.stringify(locChu)}).test(s) : s.length > 8;
   });
   if (!ds.length) return false;
