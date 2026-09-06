@@ -55,7 +55,7 @@ const doiCong = async (cong, giay = 20) => {
  * Mất phép kiểm mà vẫn xanh là kiểu hỏng tệ nhất của một bộ rà. Nên môi trường
  * chỉ được đổi ở đúng bộ CẦN đổi.
  */
-export async function moTrinhDuyet({ cong = 9333, microGia = false } = {}) {
+export async function moTrinhDuyet({ cong = 9333, microGia = false, choPhatTuDong = false } = {}) {
   const tienTrinh = spawn(timChrome(), [
     '--headless=new', `--remote-debugging-port=${cong}`,
     '--no-first-run', '--no-default-browser-check', '--disable-gpu',
@@ -70,6 +70,15 @@ export async function moTrinhDuyet({ cong = 9333, microGia = false } = {}) {
     // KHÔNG kiểm được: chất lượng thu, và Web Speech có nghe ra chữ không —
     // nhận dạng giọng nói cần dịch vụ đám mây của Google, headless không có.
     ...(microGia ? ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream'] : []),
+    // CHO PHÁT KHÔNG CẦN THAO TÁC NGƯỜI DÙNG — chỉ khi bộ rà XIN, cùng lý do
+    // với micro giả ở trên. Chrome chặn `audio.play()` không có thao tác người
+    // dùng bằng `NotAllowedError`, và `muted = true` KHÔNG miễn cho phần tử chỉ
+    // có tiếng (miễn đó dành cho video). Bộ rà nào muốn đo "tệp thu có phát
+    // được khi mất mạng không" mà thiếu cờ này sẽ đọc nhầm một lệnh chặn của
+    // trình duyệt thành "kho ngoại tuyến hỏng".
+    //
+    // Ngoài đời KHÔNG cần cờ này: người học BẤM nút nghe, tức đã có thao tác.
+    ...(choPhatTuDong ? ['--autoplay-policy=no-user-gesture-required'] : []),
     'about:blank',
   ], { stdio: 'ignore' });
   const ver = await doiCong(cong);

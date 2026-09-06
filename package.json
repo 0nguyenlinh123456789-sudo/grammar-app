@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/tao_manifest_offline.mjs",
     "lint": "eslint src vite.config.js functions api",
     "test": "node scripts/validate_content.mjs && node --test tests/*.test.js",
     "validate:content": "node scripts/validate_content.mjs",
@@ -35,7 +35,8 @@
     "ra:chunkhong": "node scripts/ra_chunk_hong.mjs",
     "ra:khosw": "node scripts/ra_kho_sw.mjs",
     "ra:chankho": "node scripts/ra_chan_kho.mjs",
-    "ra:matmang": "node scripts/ra_mat_mang.mjs"
+    "ra:matmang": "node scripts/ra_mat_mang.mjs",
+    "ra:taioffline": "node scripts/ra_tai_offline.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",

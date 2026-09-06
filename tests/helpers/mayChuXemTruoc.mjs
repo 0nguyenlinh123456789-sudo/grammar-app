@@ -21,6 +21,15 @@ export async function moMayChuXemTruoc({ cong = 4319, dungLai = true } = {}) {
     const dung = spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'build'], { stdio: 'ignore' });
     const ma = await new Promise((r) => dung.on('exit', r));
     if (ma !== 0) throw new Error(`vite build thoát mã ${ma} — không rà tiếp trên bản dựng hỏng.`);
+
+    // ⚠️ `npm run build` chạy `vite build && node scripts/tao_manifest_offline.mjs`,
+    // nhưng ở đây ta gọi THẲNG vite (xem chú thích đầu file: `spawn('npm.cmd')`
+    // ném EINVAL trên Node 24/Windows). Không gọi bước dưới thì `dist/` thiếu
+    // `offline-manifest.json`, và mọi bộ rà tải-ngoại-tuyến sẽ đỏ vì một lý do
+    // không liên quan gì tới thứ nó định đo.
+    const mf = spawn(process.execPath, ['scripts/tao_manifest_offline.mjs'], { stdio: 'ignore' });
+    const maMf = await new Promise((r) => mf.on('exit', r));
+    if (maMf !== 0) throw new Error(`tao_manifest_offline thoát mã ${maMf} — dist thiếu danh sách tải ngoại tuyến.`);
   }
 
   const sv = spawn(process.execPath, [
