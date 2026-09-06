@@ -5,6 +5,7 @@ import AiKeyDialog from '../components/common/AiKeyDialog';
 import PolicyDialog from '../components/common/PolicyDialog';
 import BottomTabBar from '../components/common/BottomTabBar';
 import TaiOffline from '../components/common/TaiOffline';
+import NutCaiApp from '../components/common/NutCaiApp';
 import BunnyChat from '../components/common/BunnyChat';
 import { hasGeminiKey, subscribeGeminiKey, subscribeOpenAiKeySettings } from '../utils/aiKey';
 import { SHOW_IELTS_FOUNDATION } from '../utils/localOnly';
@@ -502,6 +503,7 @@ const MainLayout = ({
 
          </div>
 
+         <NutCaiApp />
          <TaiOffline />
 
        </aside>

@@ -106,3 +106,70 @@ test('bản maskable phải KÍN nền, không trong suốt ở góc', () => {
     'bộ sinh icon không tô nền trước khi vẽ — cắt tròn một ảnh góc trong suốt sẽ ra bốn khoảng khuyết');
   assert.ok(b.length > 1000, 'tệp maskable quá nhỏ, khả năng sinh hỏng');
 });
+
+// ══ ICON CHO iOS LÀ MỘT ĐƯỜNG HOÀN TOÀN KHÁC ══
+// iOS bỏ qua `icons` trong manifest khi "Thêm vào MH chính" — nó CHỈ đọc thẻ
+// `<link rel="apple-touch-icon">`. Nên mọi công sức sinh icon 192/512/maskable ở
+// trên KHÔNG áp dụng một chút nào trên iPhone nếu thẻ này còn trỏ vào ảnh cũ.
+test('apple-touch-icon trỏ vào tệp CÓ THẬT và đúng 180×180', () => {
+  const m = /<link\s+rel="apple-touch-icon"[^>]*href="([^"]+)"/.exec(HTML);
+  assert.ok(m, 'không có thẻ apple-touch-icon — iPhone sẽ tự chụp màn hình làm icon');
+  const duong = path.join(ROOT, 'public', m[1].replace(/^\//, ''));
+  assert.ok(existsSync(duong), `${m[1]} khai trong index.html nhưng không có tệp`);
+  const { rong, cao } = coPng(duong);
+  assert.equal(`${rong}x${cao}`, '180x180',
+    `apple-touch-icon thật ra là ${rong}x${cao} — iOS cần 180×180, cỡ khác sẽ bị thu phóng nhoè`);
+});
+
+// ══ NÚT CÀI: HAI NHÁNH TÁCH HẲN, VÌ MỘT NÚT KHÔNG PHỦ ĐƯỢC CẢ HAI ══
+// iOS Safari KHÔNG BAO GIỜ bắn `beforeinstallprompt`. Một nút kiểu Chromium sẽ
+// hoặc không hiện, hoặc hiện mà bấm không ra gì — đúng trên chiếc máy chủ web
+// sẽ thử đầu tiên. "Nút không làm gì cả" là họ lỗi đã vá ở fc1b31b.
+const NUT = readFileSync(path.join(ROOT, 'src/components/common/NutCaiApp.jsx'), 'utf8');
+const bocChuThich = (s) => s
+  .replace(/\/\*[\s\S]*?\*\//g, '')
+  .split(/\r?\n/)
+  .filter((d) => !d.trim().startsWith('//'))
+  .join('\n');
+
+test('nút cài có nhánh iOS RIÊNG, chỉ dẫn bằng chữ chứ không phải nút giả', () => {
+  const s = bocChuThich(NUT);
+  assert.match(s, /Thêm vào MH chính/,
+    'thiếu chỉ dẫn cho iOS — trên iPhone người dùng sẽ không có cách nào cài');
+  const iOs = s.indexOf('if (laIOS())');
+  const iPrompt = s.indexOf('loiMoi.prompt()');
+  assert.ok(iOs > 0, 'không có nhánh iOS');
+  assert.ok(iPrompt > iOs,
+    'nhánh iOS phải trả về TRƯỚC khi tới đường prompt() — iOS không có prompt, gọi vào đó là nút chết');
+});
+
+test('KHÔNG vẽ nút khi chưa bắt được lời mời cài — không có nút bấm-không-ra-gì', () => {
+  const s = bocChuThich(NUT);
+  assert.match(s, /if \(!loiMoi\) return null;/,
+    'đang vẽ nút cài khi chưa có beforeinstallprompt: bấm vào sẽ không xảy ra gì cả');
+});
+
+test('cài rồi thì panel BIẾN MẤT, không mời cài một app đang chạy như app', () => {
+  const s = bocChuThich(NUT);
+  assert.match(s, /display-mode: standalone/, 'không kiểm trạng thái đã cài');
+  assert.match(s, /if \(daCai\) return null;/, 'đã cài mà vẫn mời cài là nói sai với người dùng');
+});
+
+test('lời mời cài chỉ dùng được MỘT lần, nên phải bỏ đi sau khi dùng', () => {
+  const s = bocChuThich(NUT);
+  const i = s.indexOf('loiMoi.prompt()');
+  assert.match(s.slice(i, i + 400), /setLoiMoi\(null\)/,
+    'giữ lại sự kiện đã dùng là giữ một nút từ đây trở đi bấm không ra gì');
+});
+
+test('cả hai panel công cụ đều tự khai `data-cong-cu`', () => {
+  // Bộ rà `khach:het` phân biệt "nội dung học" với "công cụ" bằng thuộc tính
+  // này. Quên gắn thì nút công cụ bị đếm là nội dung, và một bước rà sẽ bấm
+  // trúng nó rồi báo ĐẠT — đã xảy ra thật với nút tải, sweep 22/22 mà bước
+  // GAMES không còn đo gì.
+  assert.match(NUT, /data-cong-cu=/, 'NutCaiApp chưa khai là công cụ');
+  const tai = readFileSync(path.join(ROOT, 'src/components/common/TaiOffline.jsx'), 'utf8');
+  assert.match(tai, /data-cong-cu=/, 'TaiOffline chưa khai là công cụ');
+  const ra = readFileSync(path.join(ROOT, 'scripts/khach_dung_het.mjs'), 'utf8');
+  assert.match(ra, /\[data-cong-cu\]/, 'bộ rà không còn bỏ qua công cụ — nó sẽ bấm trúng nút công cụ và báo ĐẠT nhầm');
+});

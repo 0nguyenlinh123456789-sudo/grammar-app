@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/bunny_logo.png" />
-    <link rel="apple-touch-icon" href="/bunny_logo.png" />
+    <!-- ⚠️ iOS BỎ QUA HOÀN TOÀN `icons` trong manifest khi "Thêm vào MH chính"
+         — nó CHỈ đọc thẻ này. Trỏ vào ảnh 256px cũ nghĩa là mọi icon PWA khai
+         trong manifest KHÔNG áp dụng trên iPhone, đúng chiếc máy mà chủ web sẽ
+         thử đầu tiên. 180×180 là cỡ iOS dùng; sinh bằng `npm run tao:icon`. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <!-- ⚠️ `viewport-fit=cover` KHÔNG PHẢI TRANG TRÍ: thiếu nó thì MỌI
          `env(safe-area-inset-*)` trong CSS đều trả về 0 trên iPhone. Nghĩa là
          `pb-[env(safe-area-inset-bottom)]` của BottomTabBar và phần đệm của

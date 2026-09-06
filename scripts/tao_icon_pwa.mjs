@@ -55,6 +55,12 @@ const CAN_TAO = [
   { ten: 'icon-192.png', canh: 192, maskable: false },
   { ten: 'icon-512.png', canh: 512, maskable: false },
   { ten: 'icon-maskable-512.png', canh: 512, maskable: true },
+  // iOS BO QUA HOAN TOAN `icons` trong manifest khi Them vao MH chinh — no chi
+  // doc the `<link rel="apple-touch-icon">`. Nen thieu tep nay thi moi icon o
+  // tren KHONG AP DUNG tren iPhone, dung chiec may ma chu web se thu dau tien.
+  // iOS cung KHONG cat icon, nen ban nay ve tran vien (nhu ban 'any'), khong
+  // thut vao 0,65 nhu ban maskable.
+  { ten: 'apple-touch-icon.png', canh: 180, maskable: false },
 ];
 
 const { tienTrinh, cong } = await moTrinhDuyet({ cong: 9371 });
