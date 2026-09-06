@@ -28,10 +28,18 @@ const DATA = path.join(ROOT, 'src', 'data');
 
 const GIO_TOI_THIEU_DEN_B2 = 450;
 
+let soLuot = 0;
+
 async function importAggregate(file, pick) {
   const src = fs.readFileSync(path.join(DATA, file), 'utf8')
     .replace(/from '\.\/([A-Za-z0-9_]+)'/g, "from './$1.js'");
-  const tmp = path.join(DATA, `__tmp_cov_${file.replace(/\W/g, '_')}.mjs`);
+  // ⚠️ TÊN PHẢI DUY NHẤT TỪNG LƯỢT GỌI, KHÔNG CHỈ THEO TÊN TỆP NGUỒN.
+  // Bản cũ đặt tên chỉ theo `file`, nên hai lượt gọi cùng một tệp có thể trùng
+  // đường dẫn: `finally { rmSync }` của lượt này xoá đúng tệp lượt kia đang nạp,
+  // và cả bộ kiểm đỏ bằng `ENOENT ... __tmp_cov_grammarData_js.mjs`. Đỏ chập
+  // chờn kiểu đó tệ hơn đỏ hẳn — nó dạy người ta "chạy lại là xanh", đúng thói
+  // quen mà dự án này cấm ở mọi chỗ khác.
+  const tmp = path.join(DATA, `__tmp_cov_${file.replace(/\W/g, '_')}_${process.pid}_${soLuot += 1}.mjs`);
   fs.writeFileSync(tmp, src);
   try { return pick(await import(pathToFileURL(tmp).href)); } finally { fs.rmSync(tmp, { force: true }); }
 }

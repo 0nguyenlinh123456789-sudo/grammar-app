@@ -99,6 +99,13 @@ try {
     userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1',
     platform: 'iPhone',
   });
+  // ⚠️ THU MÀN HÌNH TRƯỚC KHI TẢI LẠI, KHÔNG PHẢI SAU.
+  // Panel tải tự thu gọn ở bề ngang điện thoại, và nó quyết định điều đó LÚC
+  // GẮN. Thu màn hình sau khi trang đã gắn xong thì component vẫn giữ trạng thái
+  // của màn 1440 — bộ rà sẽ đo một bố cục không người dùng nào gặp.
+  await t.goi('Emulation.setDeviceMetricsOverride', {
+    width: 390, height: 844, deviceScaleFactor: 3, mobile: true,
+  });
   await t.goi('Page.reload');
   await nghi(4000);
   const ios = await t.danhGia(`(() => {
@@ -128,9 +135,6 @@ try {
   // Phép đo vẫn có giá trị — bề ngang điện thoại là thứ đáng canh — nên giữ lại
   // và GỌI ĐÚNG TÊN nó. Chế độ standalone thật sự thì đo ở bước dưới, bằng
   // `navigator.standalone` (đường iOS), thứ giả lập được thật.
-  await t.goi('Emulation.setDeviceMetricsOverride', {
-    width: 390, height: 844, deviceScaleFactor: 3, mobile: true,
-  });
   await nghi(1200);
   const dung = await t.danhGia(`(() => {
     const nav = document.querySelector('nav[aria-label="Điều hướng nhanh"]');
@@ -147,6 +151,64 @@ try {
   ghi('thanh điều hướng bám đúng đáy màn', dung && dung.chamDay === true,
     dung ? `cao ${dung.cao}px` : '');
   ghi('không có gì tràn ngang ở bề ngang điện thoại', dung && dung.tranRa === false);
+
+  // ── 4b. TRÊN ĐIỆN THOẠI, HAI PANEL MỚI CÓ VỚI TỚI ĐƯỢC KHÔNG ──────────────
+  // Cả hai panel nằm ở ĐÁY thanh bên. Trên máy tính thanh bên luôn hiện nên
+  // chúng chắc chắn thấy được — và đó đúng là điểm mù đã giấu lỗi `viewport-fit`
+  // suốt một thời gian. Trên điện thoại thanh bên là NGĂN KÉO cao bằng màn hình,
+  // và hai panel `shrink-0` ăn chỗ của danh sách bài học đang `flex-1`. Hai câu
+  // hỏi phải ĐO, không suy luận: panel có nằm trong màn không, và danh sách bài
+  // học còn đủ cao để dùng không.
+  const moNgan = await t.danhGia(`(() => {
+    const nut = document.querySelector('[aria-label="Mở menu điều hướng"]');
+    if (!nut) return false;
+    nut.click();
+    return true;
+  })()`);
+  ghi('điện thoại: mở được ngăn kéo', moNgan === true);
+  await nghi(1200);
+
+  // ⚠️ MỘT KHẲNG ĐỊNH SAI ĐÃ BỊ THAY Ở ĐÂY — GHI LẠI VÌ NÓ SUÝT DẪN ĐI SỬA NHẦM.
+  // Bản đầu đòi "danh sách bài học phải cao hơn 200px", thấy 112px và kết luận
+  // hai panel công cụ đang bóp chết nó. Thu gọn panel tải (227px → 53px) rồi đo
+  // lại: danh sách VẪN ĐÚNG 112px, không đổi một pixel. Đo thẳng cấu trúc mới ra
+  // sự thật: chỗ bị chiếm là khối tìm kiếm/bộ lọc phía trên (578px trong 844px),
+  // và `scrollHeight === clientHeight === 112` nghĩa là danh sách KHÔNG hề bị cắt
+  // cụt — ở màn hình chủ, khi chưa chọn bậc nào, nó chỉ có đúng chừng ấy nội dung.
+  //
+  // Nói cách khác: một con số ngưỡng đặt bừa lên một thứ vốn co giãn theo nội
+  // dung thì không đo gì cả. Cái ĐÁNG canh là "có gì bị đẩy ra ngoài màn hay bị
+  // cắt mà không cuộn tới được không" — và đó là những gì dưới đây đo.
+  const ngan = await t.danhGia(`(() => {
+    const aside = document.querySelector('#main-navigation');
+    const tai = document.querySelector('section[aria-label="Tải bài về máy"]');
+    if (!aside || !tai) return { co: false };
+    const a = aside.getBoundingClientRect();
+    const r = tai.getBoundingClientRect();
+    const ds = aside.querySelector('.flex-1.overflow-y-auto');
+    const con = [...aside.children].map((e) => e.getBoundingClientRect());
+    return {
+      co: true,
+      nganDaTruot: a.left > -1,
+      trongMan: r.top >= -1 && r.bottom <= innerHeight + 1,
+      caoPanel: Math.round(r.height),
+      // Không phần tử con nào của ngăn kéo được nằm ngoài màn.
+      loiRaNgoai: con.filter((b) => b.height > 0 && (b.bottom > innerHeight + 1 || b.top < -1)).length,
+      // Danh sách phải còn CUỘN được tới hết, dù cao bao nhiêu.
+      dsCao: ds ? Math.round(ds.clientHeight) : -1,
+      dsCuon: ds ? Math.round(ds.scrollHeight) : -1,
+      dsCuonDuoc: ds ? getComputedStyle(ds).overflowY : '',
+    };
+  })()`);
+  ghi('điện thoại: ngăn kéo thật sự trượt ra', ngan && ngan.nganDaTruot === true,
+    ngan && ngan.co ? '' : 'không thấy ngăn kéo hoặc panel');
+  ghi('điện thoại: panel tải NẰM TRỌN trong màn, với tới được', ngan && ngan.trongMan === true,
+    ngan ? `panel cao ${ngan.caoPanel}px` : '');
+  ghi('điện thoại: không phần tử nào của ngăn kéo bị đẩy ra ngoài màn',
+    ngan && ngan.loiRaNgoai === 0, ngan ? `${ngan.loiRaNgoai} phần tử lọt ra ngoài` : '');
+  ghi('điện thoại: danh sách bài học cuộn được tới hết, không bị cắt cụt',
+    ngan && ngan.dsCao > 0 && ngan.dsCuonDuoc === 'auto',
+    ngan ? `cao ${ngan.dsCao}px · nội dung ${ngan.dsCuon}px · overflow-y ${ngan.dsCuonDuoc}` : '');
 
   // ── 5. ĐÃ CÀI RỒI THÌ KHÔNG MỜI CÀI NỮA ───────────────────────────────────
   // Mời cài một app đang chạy dưới dạng app là nói sai với người dùng.

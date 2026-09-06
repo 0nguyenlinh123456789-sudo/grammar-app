@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Download, Trash2, CheckCircle2, Loader2, HardDrive, AlertTriangle } from 'lucide-react';
+import { Download, Trash2, CheckCircle2, Loader2, HardDrive, AlertTriangle, ChevronDown } from 'lucide-react';
 
 // File: src/components/common/TaiOffline.jsx
 //
@@ -33,6 +33,18 @@ export default function TaiOffline() {
   const [tienDo, setTienDo] = useState({ xong: 0, tong: 0, hong: 0 });
   const [daTai, setDaTai] = useState(0);
   const [ghiBen, setGhiBen] = useState(null);           // navigator.storage.persist()
+
+  // ⚠️ THU GỌN SẴN Ở BỀ NGANG ĐIỆN THOẠI — ĐÂY LÀ MỘT LỖI ĐÃ ĐO ĐƯỢC, KHÔNG PHẢI
+  // TRANG TRÍ. Trên máy tính thanh bên luôn hiện nên panel này chắc chắn thấy
+  // được; trên điện thoại nó là NGĂN KÉO cao bằng màn hình, và panel `shrink-0`
+  // cao 227px ăn thẳng vào phần `flex-1` của danh sách bài học. Đo ở 390×844:
+  // danh sách chỉ còn **112px**, tức vài dòng — hai panel công cụ nuốt mất đúng
+  // thứ người ta mở ngăn kéo ra để dùng. Xem bước "danh sách bài học vẫn còn đủ
+  // chỗ" trong scripts/ra_cai_dat.mjs.
+  const [moRong, setMoRong] = useState(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return true;
+    return window.matchMedia('(min-width: 1024px)').matches;
+  });
 
   const coSw = typeof navigator !== 'undefined' && 'serviceWorker' in navigator;
 
@@ -116,10 +128,25 @@ export default function TaiOffline() {
 
   return (
     <section aria-label="Tải bài về máy" data-cong-cu="tai-offline" className="px-4 py-3 border-t-[4px] border-slate-800 dark:border-slate-700 shrink-0">
-      <div className="flex items-center gap-2 mb-2">
+      <button
+        type="button"
+        onClick={() => setMoRong((v) => !v)}
+        aria-expanded={moRong}
+        className="w-full flex items-center gap-2 mb-2 text-left"
+      >
         <HardDrive size={15} className="text-slate-700 dark:text-slate-300 shrink-0" />
-        <p className="font-black text-[11px] uppercase tracking-wider text-slate-700 dark:text-slate-300">Học khi không có mạng</p>
-      </div>
+        <p className="flex-1 font-black text-[11px] uppercase tracking-wider text-slate-700 dark:text-slate-300">Học khi không có mạng</p>
+        {/* Thu gọn mà câm thì người học không biết trong đó có gì. Dòng tóm tắt
+            này là thứ duy nhất họ thấy trên điện thoại trước khi mở ra. */}
+        {!moRong && (
+          <span className="text-[10px] font-black text-slate-400 shrink-0">
+            {daTai > 0 ? `đã tải ${daTai} tệp` : (danhSach ? `${MB(danhSach.tongByte)} MB` : '')}
+          </span>
+        )}
+        <ChevronDown size={14} className={`shrink-0 text-slate-400 transition-transform ${moRong ? 'rotate-180' : ''}`} />
+      </button>
+
+      {!moRong ? null : (<>
 
       {loi && (
         <p role="alert" className="flex items-start gap-1.5 text-[11px] font-bold text-rose-600 dark:text-rose-400 mb-2">
@@ -206,6 +233,8 @@ export default function TaiOffline() {
           )}
         </>
       )}
+
+      </>)}
     </section>
   );
 }
