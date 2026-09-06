@@ -267,3 +267,67 @@ test('đường tải gói LOẠI mọi mục IELTS, kể cả khi trang gửi n
   assert.match(s.slice(i, i + 300), /ielts/i,
     'cụm IELTS Nền Tảng nằm trong luật KHÔNG ĐỘNG TỚI và dist/ielts-foundation nặng 30 GB — đường tải phải tự loại, không tin danh sách trang gửi xuống');
 });
+
+// ══ NHỚ GÓI ĐÃ TẢI LÀ BẢN NÀO ══
+// Không có mẩu ghi chú này thì bản vá "báo gói đã cũ" là im lặng: trang không có
+// cách nào biết gói trong máy thuộc bản dựng nào.
+test('kho tải giữ một mẩu ghi chú về chính nó, và mẩu đó KHÔNG bị đếm là bài học', () => {
+  const s = bocChuThich(NGUON);
+  assert.match(s, /KHOA_GHI_CHU/, 'không có chỗ ghi lại gói đã tải thuộc bản dựng nào');
+  const i = s.indexOf('function demDaTai');
+  assert.ok(i > 0);
+  const than = s.slice(i, i + 500);
+  assert.match(than, /banDung/, 'trả tình trạng mà không kèm mã bản dựng thì trang không so được');
+  assert.match(than, /endsWith\(KHOA_GHI_CHU\)/,
+    'mẩu ghi chú đang bị đếm vào số tệp — người học sẽ thấy số tệp lệch 1 so với thứ họ tải');
+});
+
+test('CHỈ ghi mã bản dựng khi tải KHÔNG hỏng tệp nào', () => {
+  const s = bocChuThich(NGUON);
+  // ⚠️ lastIndexOf, KHÔNG phải indexOf: indexOf bắt trúng ĐỊNH NGHĨA hàm
+  // `function ghiChuGoi(kho, banDung, nhom)` nằm phía trên, chứ không phải chỗ
+  // GỌI nó — và phép kiểm đỏ vì một lý do không liên quan gì tới thứ nó đo.
+  const i = s.lastIndexOf('ghiChuGoi(kho, banDung');
+  assert.ok(i > 0, 'không thấy chỗ ghi mã bản dựng sau khi tải');
+  const truoc = s.slice(Math.max(0, i - 200), i);
+  assert.match(truoc, /hong === 0/,
+    'đang đóng dấu bản dựng lên một gói tải THIẾU — lần sau người học sẽ được báo "đang dùng bản mới nhất" trong khi gói của họ khuyết');
+});
+
+test('bản dựng đổi thì DỌN gói cũ, không để 17,5 MB chết nằm lại', () => {
+  const s = bocChuThich(NGUON);
+  const i = s.indexOf("tin.loai === 'TAI_OFFLINE'");
+  assert.ok(i > 0);
+  const than = s.slice(i, i + 300);
+  assert.match(than, /xoaCu/,
+    'không có đường dọn gói cũ: tải lại sau khi đổi bản dựng sẽ cộng dồn thành ~35 MB trên máy người học');
+  assert.match(than, /caches\.delete\(KHO_TAI\)/, 'cờ xoaCu có mà không thực sự xoá gì');
+});
+
+// ══ BÁO GÓI ĐÃ CŨ — NẾU KHÔNG THÌ CẢ ĐƯỜNG TẢI LÀ MỘT LỜI HỨA HẾT HẠN ══
+// Tên mảnh mã mang băm nội dung, nên mỗi lần deploy là gói 17,5 MB người học đã
+// tải bằng 4G không còn đường dẫn nào khớp. Im lặng ở đây nghĩa là họ tưởng mình
+// còn học offline được, tới lúc mất mạng mới biết là không.
+const TAI = readFileSync(path.join(ROOT, 'src/components/common/TaiOffline.jsx'), 'utf8');
+
+test('panel tải NÓI RA khi gói trong máy đã cũ', () => {
+  const s = bocChuThich(TAI);
+  assert.match(s, /const daCu = /, 'không có phép so bản dựng');
+  assert.match(s, /không dùng được nữa/,
+    'không nói ra gói đã cũ — người học tưởng còn học offline được, tới lúc mất mạng mới biết là không');
+  assert.match(s, /banDung: danhSach\.banDung/, 'tải xong mà không gửi mã bản dựng thì lần sau không so được');
+});
+
+test('KHÔNG báo động khi không biết chắc — gói cũ từ trước khi có mã bản dựng', () => {
+  const s = bocChuThich(TAI);
+  const i = s.indexOf('const daCu = ');
+  const than = s.slice(i, i + 200);
+  assert.match(than, /goiDaTai\.banDung &&/,
+    'thiếu chốt "có mã thì mới so": gói tải từ trước khi có ghi chú sẽ bị báo là CŨ, và người học phải tải lại 17,5 MB chỉ vì mình đoán');
+});
+
+test('gói cũ thì phải DỌN trước khi tải lại', () => {
+  const s = bocChuThich(TAI);
+  assert.match(s, /xoaCu: daCu/,
+    'tải lại mà không dọn gói cũ: hai gói cộng dồn ~35 MB trên máy người học');
+});

@@ -25,6 +25,7 @@
 // `audio/` và `fonts/`; chỉ `assets/` mới có `IeltsFoundationPage-*.js`).
 
 import { readdirSync, statSync, writeFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -85,6 +86,18 @@ export function taoManifest(DIST = DIST_MAC_DINH) {
     },
   };
   manifest.tongByte = Object.values(manifest.nhom).reduce((s, n) => s + n.byte, 0);
+
+  // ══ MÃ BẢN DỰNG — TÍNH TỪ DANH SÁCH TỆP, TUYỆT ĐỐI KHÔNG TỪ THỜI ĐIỂM DỰNG ══
+  // Đây là thứ cho phép nói với người học "gói bạn đã tải không còn dùng được,
+  // cần tải lại". Nếu lấy `taoLuc` làm mã thì MỖI lần dựng lại đều ra mã mới —
+  // kể cả khi không đổi một dòng nào — và người học bị bảo tải lại 17,5 MB bằng
+  // 4G một cách vô ích. Tên mảnh mã đã mang băm nội dung, nên băm chính DANH
+  // SÁCH ĐƯỜNG DẪN là phép so đúng: nội dung đổi ⇒ tên đổi ⇒ mã đổi; nội dung y
+  // hệt ⇒ mã y hệt, dù dựng lại bao nhiêu lần.
+  const moiDuong = Object.values(manifest.nhom)
+    .flatMap((n) => n.tep.map((t) => t.d))
+    .sort();
+  manifest.banDung = createHash('sha1').update(moiDuong.join('\n')).digest('hex').slice(0, 12);
 
   writeFileSync(path.join(DIST, 'offline-manifest.json'), JSON.stringify(manifest), 'utf8');
   return manifest;

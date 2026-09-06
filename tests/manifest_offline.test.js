@@ -19,10 +19,13 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
+import fs, { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { taoManifest } from '../scripts/tao_manifest_offline.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Dựng một `dist` giả có đủ bẫy: mảnh IELTS, thư mục 30 GB, tệp lạ. */
 function distGia() {
@@ -110,4 +113,42 @@ test('manifest ghi ra đĩa GIỐNG HỆT thứ hàm trả về', () => {
   const { m, tuDia } = chay();
   assert.deepEqual(tuDia, JSON.parse(JSON.stringify(m)),
     'thứ ghi ra đĩa khác thứ hàm trả về — mọi phép kiểm trên đo một bản không ai dùng');
+});
+
+// ══ MÃ BẢN DỰNG — THỨ CHO PHÉP NÓI "GÓI CỦA BẠN ĐÃ CŨ" ══
+// Tên mảnh mã mang băm nội dung, nên MỖI lần đẩy bản mới là mọi tên đổi và gói
+// 17,5 MB người học đã tải bằng 4G không còn đường dẫn nào khớp. Trước bản vá
+// này KHÔNG có gì báo cho họ biết — đúng kiểu im lặng dự án cấm.
+
+test('mã bản dựng ỔN ĐỊNH khi nội dung không đổi — không giục tải lại vô ích', () => {
+  const a = chay().m.banDung;
+  const b = chay().m.banDung;
+  assert.equal(a, b,
+    'hai lần dựng trên cùng nội dung ra hai mã khác nhau — mỗi lần deploy sẽ bảo người học tải lại 17,5 MB dù chẳng có gì đổi');
+  assert.match(a, /^[0-9a-f]{12}$/);
+});
+
+test('mã bản dựng ĐỔI khi một mảnh mã đổi tên (tức nội dung đổi)', () => {
+  const goc = distGia();
+  const khac = distGia();
+  try {
+    const m1 = taoManifest(goc);
+    // Vite đổi tên theo băm nội dung; giả lập đúng điều đó.
+    fs.renameSync(path.join(khac, 'assets/grammarData-xyz.js'), path.join(khac, 'assets/grammarData-ZZZ999.js'));
+    const m2 = taoManifest(khac);
+    assert.notEqual(m1.banDung, m2.banDung,
+      'nội dung đổi mà mã bản dựng không đổi — người học sẽ giữ mãi một gói đã chết mà tưởng còn dùng được');
+  } finally {
+    rmSync(goc, { recursive: true, force: true });
+    rmSync(khac, { recursive: true, force: true });
+  }
+});
+
+test('mã bản dựng KHÔNG lấy từ thời điểm dựng', () => {
+  const s = readFileSync(path.join(ROOT, 'scripts/tao_manifest_offline.mjs'), 'utf8');
+  const i = s.indexOf('manifest.banDung');
+  assert.ok(i > 0, 'không thấy chỗ tính mã bản dựng');
+  const than = s.slice(i, i + 200);
+  assert.doesNotMatch(than, /taoLuc|Date\.now|new Date/,
+    'mã bản dựng đang lấy từ thời điểm — mỗi lần dựng lại là một mã mới, và người học bị giục tải lại 17,5 MB dù không có gì đổi');
 });

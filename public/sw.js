@@ -209,7 +209,30 @@ function taiMotTep(kho, duong) {
   });
 }
 
-function taiGoi(danhSach, client) {
+// ══ NHỚ GÓI ĐÃ TẢI LÀ BẢN NÀO — KHÔNG CÓ CÁI NÀY THÌ BẢN VÁ TRÊN LÀ IM LẶNG ══
+// Tên mảnh mã mang băm nội dung, nên MỖI lần đẩy bản mới là mọi tên đổi và gói
+// người học đã tải thành vô dụng: không đường dẫn nào còn khớp. Họ vẫn học
+// ngoại tuyến được bằng vỏ app cũ đã cache, nhưng gói 17,5 MB tải bằng 4G thì
+// chết lặng, và KHÔNG CÓ GÌ BÁO. Nên kho tải giữ thêm một mẩu ghi chú về chính
+// nó, và trang đọc mẩu đó để so với bản đang chạy.
+//
+// Khoá bắt đầu bằng `__` nên không đụng đường dẫn thật nào của app.
+const KHOA_GHI_CHU = '/__goi-offline';
+
+function ghiChuGoi(kho, banDung, nhom) {
+  return kho.put(KHOA_GHI_CHU, new Response(
+    JSON.stringify({ banDung: banDung || null, nhom: nhom || [], luc: Date.now() }),
+    { headers: { 'Content-Type': 'application/json' } },
+  ));
+}
+
+function docGhiChu(kho) {
+  return kho.match(KHOA_GHI_CHU)
+    .then((r) => (r ? r.json() : null))
+    .catch(() => null);
+}
+
+function taiGoi(danhSach, client, banDung, nhom) {
   const ds = (danhSach || []).filter((d) => typeof d === 'string' && !/ielts/i.test(d));
   let xong = 0;
   let hong = 0;
@@ -228,7 +251,11 @@ function taiGoi(danhSach, client) {
           return chay();
         });
     };
-    return Promise.all(Array.from({ length: Math.min(SONG_SONG, ds.length) }, chay));
+    return Promise.all(Array.from({ length: Math.min(SONG_SONG, ds.length) }, chay))
+      // Chỉ ghi chú khi tải KHÔNG hỏng tệp nào. Ghi một mã bản dựng lên một gói
+      // tải thiếu là nói dối chính mình ở lần so sau: người học sẽ được bảo
+      // "đang dùng bản mới nhất" trong khi gói của họ khuyết.
+      .then(() => (hong === 0 ? ghiChuGoi(kho, banDung, nhom) : null));
   }).then(() => {
     baoTien(client, { loai: 'XONG_OFFLINE', xong, tong: ds.length, hong, hongDau });
   }).catch((e) => {
@@ -238,16 +265,26 @@ function taiGoi(danhSach, client) {
 
 function demDaTai(client) {
   return caches.open(KHO_TAI)
-    .then((kho) => kho.keys())
-    .then((ds) => baoTien(client, { loai: 'TINH_TRANG_OFFLINE', soTep: ds.length }))
-    .catch(() => baoTien(client, { loai: 'TINH_TRANG_OFFLINE', soTep: 0 }));
+    .then((kho) => Promise.all([kho.keys(), docGhiChu(kho)]))
+    .then(([ds, ghiChu]) => baoTien(client, {
+      loai: 'TINH_TRANG_OFFLINE',
+      // Mẩu ghi chú KHÔNG phải một tệp bài học, nên không được đếm vào số tệp
+      // khoe với người học.
+      soTep: ds.filter((r) => !r.url.endsWith(KHOA_GHI_CHU)).length,
+      banDung: ghiChu ? ghiChu.banDung : null,
+      nhom: ghiChu ? ghiChu.nhom : [],
+    }))
+    .catch(() => baoTien(client, { loai: 'TINH_TRANG_OFFLINE', soTep: 0, banDung: null, nhom: [] }));
 }
 
 self.addEventListener('message', (event) => {
   const tin = event.data || {};
   const client = event.source;
   if (tin.loai === 'TAI_OFFLINE') {
-    event.waitUntil(taiGoi(tin.danhSach, client));
+    // `xoaCu` khi bản dựng đã đổi: giữ lại gói cũ là giữ 17,5 MB không đường dẫn
+    // nào còn khớp — chiếm chỗ trên máy người học mà không phục vụ gì.
+    const batDau = tin.xoaCu ? caches.delete(KHO_TAI) : Promise.resolve();
+    event.waitUntil(batDau.then(() => taiGoi(tin.danhSach, client, tin.banDung, tin.nhom)));
   } else if (tin.loai === 'XOA_OFFLINE') {
     event.waitUntil(caches.delete(KHO_TAI)
       .then(() => baoTien(client, { loai: 'DA_XOA_OFFLINE' })));

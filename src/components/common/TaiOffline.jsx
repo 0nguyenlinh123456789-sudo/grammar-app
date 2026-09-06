@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Download, Trash2, CheckCircle2, Loader2, HardDrive, AlertTriangle, ChevronDown } from 'lucide-react';
+import { Download, Trash2, CheckCircle2, Loader2, HardDrive, AlertTriangle, ChevronDown, RefreshCw } from 'lucide-react';
 
 // File: src/components/common/TaiOffline.jsx
 //
@@ -33,6 +33,7 @@ export default function TaiOffline() {
   const [tienDo, setTienDo] = useState({ xong: 0, tong: 0, hong: 0 });
   const [daTai, setDaTai] = useState(0);
   const [ghiBen, setGhiBen] = useState(null);           // navigator.storage.persist()
+  const [goiDaTai, setGoiDaTai] = useState(null);       // { banDung, nhom } cua goi trong may
 
   // ⚠️ THU GỌN SẴN Ở BỀ NGANG ĐIỆN THOẠI — ĐÂY LÀ MỘT LỖI ĐÃ ĐO ĐƯỢC, KHÔNG PHẢI
   // TRANG TRÍ. Trên máy tính thanh bên luôn hiện nên panel này chắc chắn thấy
@@ -74,8 +75,10 @@ export default function TaiOffline() {
         setTrangThai('hong');
       } else if (d.loai === 'TINH_TRANG_OFFLINE') {
         setDaTai(d.soTep);
+        setGoiDaTai({ banDung: d.banDung || null, nhom: d.nhom || [] });
       } else if (d.loai === 'DA_XOA_OFFLINE') {
         setDaTai(0);
+        setGoiDaTai(null);
         setTrangThai('nghi');
         setTienDo({ xong: 0, tong: 0, hong: 0 });
       }
@@ -99,6 +102,20 @@ export default function TaiOffline() {
   const soByte = danhSach ? nhomDaChon.reduce((s, k) => s + danhSach.nhom[k].byte, 0) : 0;
   const soTep = danhSach ? nhomDaChon.reduce((s, k) => s + danhSach.nhom[k].soTep, 0) : 0;
 
+  // ══ GÓI ĐÃ TẢI CÓ CÒN DÙNG ĐƯỢC KHÔNG ══
+  // Tên mảnh mã mang băm nội dung, nên mỗi lần đẩy bản mới là mọi tên đổi và gói
+  // đã tải KHÔNG còn đường dẫn nào khớp. Người học vẫn học ngoại tuyến được bằng
+  // vỏ app cũ, nhưng gói 17,5 MB họ tải bằng 4G thì chết lặng — và trước bản vá
+  // này không có gì báo cho họ biết.
+  //
+  // So bằng MÃ BẢN DỰNG (băm danh sách đường dẫn), không bằng thời điểm: dựng
+  // lại mà nội dung y hệt thì mã y hệt, nên không ai bị giục tải lại vô ích.
+  //
+  // `banDung == null` nghĩa là gói tải từ TRƯỚC khi có ghi chú này — không kết
+  // luận được nó cũ hay mới, nên KHÔNG báo động. Thà im ở một trường hợp không
+  // biết còn hơn giục người ta tải lại 17,5 MB vì mình đoán.
+  const daCu = !!(danhSach && goiDaTai && goiDaTai.banDung && goiDaTai.banDung !== danhSach.banDung);
+
   const bamTai = async () => {
     if (!danhSach || !navigator.serviceWorker.controller || soTep === 0) return;
     setLoi('');
@@ -116,7 +133,13 @@ export default function TaiOffline() {
     } catch { setGhiBen(false); }
 
     const ds = nhomDaChon.flatMap((k) => danhSach.nhom[k].tep.map((t) => t.d));
-    navigator.serviceWorker.controller.postMessage({ loai: 'TAI_OFFLINE', danhSach: ds });
+    navigator.serviceWorker.controller.postMessage({
+      loai: 'TAI_OFFLINE',
+      danhSach: ds,
+      banDung: danhSach.banDung,
+      nhom: nhomDaChon,
+      xoaCu: daCu,   // ban dung doi thi don goi cu, dung de 17,5 MB chet nam lai
+    });
   };
 
   const bamXoa = () => {
@@ -125,6 +148,7 @@ export default function TaiOffline() {
   };
 
   const phanTram = tienDo.tong ? Math.round((tienDo.xong / tienDo.tong) * 100) : 0;
+
 
   return (
     <section aria-label="Tải bài về máy" data-cong-cu="tai-offline" className="px-4 py-3 border-t-[4px] border-slate-800 dark:border-slate-700 shrink-0">
@@ -139,8 +163,8 @@ export default function TaiOffline() {
         {/* Thu gọn mà câm thì người học không biết trong đó có gì. Dòng tóm tắt
             này là thứ duy nhất họ thấy trên điện thoại trước khi mở ra. */}
         {!moRong && (
-          <span className="text-[10px] font-black text-slate-400 shrink-0">
-            {daTai > 0 ? `đã tải ${daTai} tệp` : (danhSach ? `${MB(danhSach.tongByte)} MB` : '')}
+          <span className={`text-[10px] font-black shrink-0 ${daCu ? 'text-amber-600' : 'text-slate-400'}`}>
+            {daCu ? 'có bản mới' : (daTai > 0 ? `đã tải ${daTai} tệp` : (danhSach ? `${MB(danhSach.tongByte)} MB` : ''))}
           </span>
         )}
         <ChevronDown size={14} className={`shrink-0 text-slate-400 transition-transform ${moRong ? 'rotate-180' : ''}`} />
@@ -163,6 +187,13 @@ export default function TaiOffline() {
           {daTai > 0 && trangThai !== 'dangTai' && (
             <p className="flex items-center gap-1.5 text-[11px] font-black text-emerald-600 dark:text-emerald-400 mb-2">
               <CheckCircle2 size={13} className="shrink-0" />Đã có {daTai} tệp trong máy
+            </p>
+          )}
+
+          {daCu && (
+            <p role="alert" className="flex items-start gap-1.5 text-[11px] font-bold text-amber-700 dark:text-amber-400 mb-2 leading-snug">
+              <RefreshCw size={13} className="shrink-0 mt-0.5" />
+              <span>Web đã có bản mới. Gói đã tải <strong>không dùng được nữa</strong> — hãy tải lại khi có Wi-Fi.</span>
             </p>
           )}
 
@@ -202,7 +233,7 @@ export default function TaiOffline() {
               className="w-full h-10 rounded-xl bg-yellow-300 text-slate-950 border-[3px] border-slate-900 font-black text-[11px] shadow-[3px_3px_0_0_#1e293b] flex items-center justify-center gap-1.5 disabled:opacity-40 disabled:shadow-none"
             >
               <Download size={14} />
-              {soTep === 0 ? 'Chọn ít nhất một phần' : `Tải ${MB(soByte)} MB về máy`}
+              {soTep === 0 ? 'Chọn ít nhất một phần' : `${daCu ? 'Tải lại' : 'Tải'} ${MB(soByte)} MB về máy`}
             </button>
           )}
 

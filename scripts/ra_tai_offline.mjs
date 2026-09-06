@@ -91,6 +91,53 @@ try {
   ghi('có BÁO TIẾN ĐỘ chứ không im lặng quay vòng', tai && tai.soMoc > 10,
     tai && tai.soMoc > 10 ? `${tai.soMoc} lần báo` : 'người học sẽ nhìn một vòng xoay câm trong 17,5 MB');
 
+  // ── 2b. ĐẨY BẢN MỚI THÌ GÓI ĐÃ TẢI PHẢI ĐƯỢC BÁO LÀ CŨ ────────────────────
+  // Tên mảnh mã mang băm nội dung, nên MỖI lần đẩy bản mới là mọi tên đổi và gói
+  // 17,5 MB người học tải bằng 4G không còn đường dẫn nào khớp. Im lặng ở đây
+  // nghĩa là họ tưởng còn học ngoại tuyến được, tới lúc mất sóng mới biết là
+  // không.
+  //
+  // Giả lập một lượt deploy bằng cách sửa THẲNG mẩu ghi chú trong kho tải thành
+  // một mã bản dựng khác — đúng trạng thái "gói trong máy thuộc bản cũ".
+  await t.danhGia(`(async () => {
+    const kho = await caches.open('bunny-english-offline-v1');
+    await kho.put('/__goi-offline', new Response(
+      JSON.stringify({ banDung: 'ban-cu-gia', nhom: ['voApp'], luc: Date.now() }),
+      { headers: { 'Content-Type': 'application/json' } },
+    ));
+    return true;
+  })()`);
+  await t.goi('Page.reload');
+  await nghi(4500);
+  const baoCu = await t.danhGia(`(() => {
+    const el = document.querySelector('section[aria-label="Tải bài về máy"]');
+    const chu = el ? (el.innerText || '') : '';
+    return { coEl: !!el, noiCu: chu.includes('không dùng được nữa'), coTaiLai: chu.includes('Tải lại') };
+  })()`);
+  ghi('đẩy bản mới: panel NÓI RA gói đã tải không dùng được nữa', baoCu && baoCu.noiCu === true,
+    baoCu && baoCu.coEl ? '' : 'không thấy panel');
+  ghi('đẩy bản mới: nút đổi thành "Tải lại"', baoCu && baoCu.coTaiLai === true);
+
+  // Chiều ngược của chính phép trên: mã bản dựng ĐÚNG thì KHÔNG được báo động,
+  // nếu không mỗi lần mở app là một lời giục tải lại 17,5 MB vô ích.
+  const manifestThat = await t.danhGia(`(async () => (await (await fetch('/offline-manifest.json')).json()).banDung)()`);
+  await t.danhGia(`(async () => {
+    const kho = await caches.open('bunny-english-offline-v1');
+    await kho.put('/__goi-offline', new Response(
+      JSON.stringify({ banDung: ${JSON.stringify(manifestThat)}, nhom: ['voApp'], luc: Date.now() }),
+      { headers: { 'Content-Type': 'application/json' } },
+    ));
+    return true;
+  })()`);
+  await t.goi('Page.reload');
+  await nghi(4500);
+  const dungBan = await t.danhGia(`(() => {
+    const el = document.querySelector('section[aria-label="Tải bài về máy"]');
+    return (el ? (el.innerText || '') : '').includes('không dùng được nữa');
+  })()`);
+  ghi('ĐÚNG bản thì KHÔNG giục tải lại', dungBan === false,
+    dungBan ? 'đang báo cũ trong khi mã bản dựng khớp — mỗi lần mở app là một lời giục vô ích' : `mã ${manifestThat}`);
+
   // ── 3. NGẮT THẬT: DỌN KHO HTTP RỒI TẮT HẲN MÁY CHỦ ────────────────────────
   await t.goi('Network.clearBrowserCache');
   tatMayChu();
@@ -124,7 +171,8 @@ try {
     a.addEventListener('error', () => loi.push('error:' + (a.error && a.error.code)));
     try { await a.play(); } catch (e) { loi.push('play-nem:' + e.name); }
     await new Promise((r) => setTimeout(r, 2500));
-    return { mp3, thoiLuong: a.duration, viTri: a.currentTime, sanSang: a.readyState, loi };
+    const chuaCham = m.map((r) => new URL(r.url).pathname).filter((p) => p.endsWith('.mp3') && p !== mp3)[0] || null;
+    return { mp3, chuaCham, thoiLuong: a.duration, viTri: a.currentTime, sanSang: a.readyState, loi };
   })()`);
   ghi('MẤT MẠNG: nghe được bản thu đã tải', nghe && Number(nghe.viTri) > 0.05,
     JSON.stringify(nghe));
@@ -156,16 +204,23 @@ try {
   await t.goi('Network.clearBrowserCache');
   await nghi(500);
 
+  // ⚠️ PHẢI DÙNG MỘT TỆP CHƯA HỀ CHẠM TỚI TRONG LƯỢT CHẠY NÀY.
+  // Bản trước gõ cứng '/audio/tat-1512.mp3'. Bước 5 chọn mp3 ĐẦU TIÊN trong kho,
+  // nên CÓ LÚC nó trúng đúng tệp đó — và một tệp đã phát một lần thì trình duyệt
+  // còn giữ trong kho media, phát lại được dù kho tải đã bị xoá. Bước rà vì thế
+  // đỏ/xanh CHẬP CHỜN theo việc keys()[0] trả về tệp nào, chứ không theo mã.
+  const tepChuaCham = (nghe && nghe.chuaCham) || '/audio/tat-1512.mp3';
+
   // Và khẳng định bằng chứng, không suy luận: KHÔNG kho nào còn giữ tệp này.
   const conKhoNao = await t.danhGia(`(async () => {
-    const r = await caches.match('/audio/tat-1512.mp3');
+    const r = await caches.match(${JSON.stringify(tepChuaCham)});
     return { conTrongKho: !!r, cacKho: await caches.keys() };
   })()`);
   ghi('sau khi xoá, KHÔNG kho nào còn giữ bản thu', conKhoNao && conKhoNao.conTrongKho === false,
     JSON.stringify(conKhoNao));
 
   const ngheSauXoa = await t.danhGia(`(async () => {
-    const a = new Audio('/audio/tat-1512.mp3');
+    const a = new Audio(${JSON.stringify(tepChuaCham)});
     a.preload = 'auto';
     try { await a.play(); } catch { /* mong đợi hỏng */ }
     await new Promise((r) => setTimeout(r, 2000));
