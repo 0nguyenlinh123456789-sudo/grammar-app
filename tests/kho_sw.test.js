@@ -331,3 +331,25 @@ test('gói cũ thì phải DỌN trước khi tải lại', () => {
   assert.match(s, /xoaCu: daCu/,
     'tải lại mà không dọn gói cũ: hai gói cộng dồn ~35 MB trên máy người học');
 });
+
+// Gói tải từ TRƯỚC khi có ghi chú bản dựng thì `banDung == null`, và phép so mã
+// cố tình im (thà im còn hơn giục tải lại 17,5 MB vì đoán). Nhưng im mãi cũng là
+// im lặng — họ giữ một gói đã chết mà không biết. Đường dưới đây KHÔNG đoán: nó
+// hỏi thẳng kho xem có tệp của bản ĐANG chạy không.
+test('gói không có mã bản dựng thì ĐỐI CHIẾU VỚI KHO, không đoán và cũng không im mãi', () => {
+  const s = bocChuThich(TAI);
+  assert.match(s, /cuTheoKho/, 'không có đường kết luận từ chính kho');
+  assert.match(s, /k\.match\(moc\)/,
+    'không hỏi kho xem có tệp của bản đang chạy không — đó là bằng chứng duy nhất không cần đoán');
+  const i = s.indexOf('const daCu = ');
+  assert.match(s.slice(i, i + 220), /\|\| cuTheoKho/,
+    'kết luận từ kho không được nối vào cờ "đã cũ", nên nó không dẫn tới lời báo nào');
+});
+
+test('chỉ đối chiếu kho khi KHÔNG có mã — có mã rồi thì so mã, đừng làm hai lần', () => {
+  const s = bocChuThich(TAI);
+  const i = s.indexOf('setCuTheoKho(false); return undefined;');
+  assert.ok(i > 0, 'không thấy chốt thoát sớm của nhánh đối chiếu kho');
+  assert.match(s.slice(Math.max(0, i - 200), i), /goiDaTai && goiDaTai\.banDung/,
+    'đang đối chiếu kho cả khi đã có mã bản dựng — thừa, và hai nguồn kết luận dễ nói ngược nhau');
+});

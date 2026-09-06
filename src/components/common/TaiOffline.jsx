@@ -33,7 +33,8 @@ export default function TaiOffline() {
   const [tienDo, setTienDo] = useState({ xong: 0, tong: 0, hong: 0 });
   const [daTai, setDaTai] = useState(0);
   const [ghiBen, setGhiBen] = useState(null);           // navigator.storage.persist()
-  const [goiDaTai, setGoiDaTai] = useState(null);       // { banDung, nhom } cua goi trong may
+  const [goiDaTai, setGoiDaTai] = useState(null);
+  const [cuTheoKho, setCuTheoKho] = useState(false);  // ket luan tu chinh kho, khong tu ma       // { banDung, nhom } cua goi trong may
 
   // ⚠️ THU GỌN SẴN Ở BỀ NGANG ĐIỆN THOẠI — ĐÂY LÀ MỘT LỖI ĐÃ ĐO ĐƯỢC, KHÔNG PHẢI
   // TRANG TRÍ. Trên máy tính thanh bên luôn hiện nên panel này chắc chắn thấy
@@ -88,6 +89,26 @@ export default function TaiOffline() {
     return () => { con = false; navigator.serviceWorker.removeEventListener('message', nghe); };
   }, [coSw, hoiTinhTrang]);
 
+  // ══ KHOẢNG MÙ CỦA PHÉP SO MÃ, VÀ CÁCH ĐÓNG NÓ BẰNG BẰNG CHỨNG ══
+  // Gói tải từ TRƯỚC khi có ghi chú bản dựng thì `banDung == null`, và phép so ở
+  // trên cố tình im — thà im còn hơn giục người ta tải lại 17,5 MB vì mình đoán.
+  // Nhưng im mãi cũng là một kiểu im lặng: họ giữ một gói đã chết mà không biết.
+  //
+  // Không cần đoán: HỎI THẲNG KHO. Lấy một tệp bất kỳ của bản ĐANG chạy và xem
+  // kho tải có nó không. Không có ⇒ gói thuộc bản khác, chắc chắn, không suy
+  // diễn. Đây là bằng chứng, không phải phỏng đoán.
+  useEffect(() => {
+    if (!danhSach || !daTai || (goiDaTai && goiDaTai.banDung)) { setCuTheoKho(false); return undefined; }
+    const moc = (danhSach.nhom.voApp?.tep || []).map((t) => t.d).find((d) => d.endsWith('.js'));
+    if (!moc || typeof caches === 'undefined') return undefined;
+    let con = true;
+    caches.open('bunny-english-offline-v1')
+      .then((k) => k.match(moc))
+      .then((r) => { if (con) setCuTheoKho(!r); })
+      .catch(() => { if (con) setCuTheoKho(false); });
+    return () => { con = false; };
+  }, [danhSach, daTai, goiDaTai]);
+
   if (!import.meta.env.PROD) return null;
 
   if (!coSw) {
@@ -114,7 +135,8 @@ export default function TaiOffline() {
   // `banDung == null` nghĩa là gói tải từ TRƯỚC khi có ghi chú này — không kết
   // luận được nó cũ hay mới, nên KHÔNG báo động. Thà im ở một trường hợp không
   // biết còn hơn giục người ta tải lại 17,5 MB vì mình đoán.
-  const daCu = !!(danhSach && goiDaTai && goiDaTai.banDung && goiDaTai.banDung !== danhSach.banDung);
+  const daCu = !!(danhSach && goiDaTai && goiDaTai.banDung && goiDaTai.banDung !== danhSach.banDung)
+    || cuTheoKho;
 
   const bamTai = async () => {
     if (!danhSach || !navigator.serviceWorker.controller || soTep === 0) return;
