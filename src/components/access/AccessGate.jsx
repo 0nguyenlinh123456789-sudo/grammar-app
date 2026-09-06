@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ArrowRight, CheckCircle2, Clock3, KeyRound, Laptop, LogOut, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Clock3, CloudOff, KeyRound, Laptop, LogOut, ShieldCheck, Sparkles } from 'lucide-react';
 import AdminAccessPanel from './AdminAccessPanel';
 import PolicyDialog from '../common/PolicyDialog';
 import { readAccessResponse } from '../../utils/apiResponse';
@@ -10,6 +10,9 @@ import ChuyenKhoan from './ChuyenKhoan';
 // scripts/build_roadmap.mjs, phần sinh roadmapCounts.js).
 import { TONG_CHANG } from '../../data/roadmapCounts';
 import { docKho, ghiKho } from '../../utils/kho';
+// Vé đã soát, giữ lại để MẤT MẠNG KHÔNG BỊ ĐUỔI RA. Ba ràng buộc an toàn và
+// lời thú nhận "đây là tiện nghi, không phải chốt bảo mật" nằm ở đầu file đó.
+import { boVe, catVe, docVe, laLoiMang, ngayConLai } from '../../utils/veOffline';
 
 const DEVICE_KEY = 'grammarDeviceIdV1';
 
@@ -76,8 +79,30 @@ function ProtectedApp({ children }) {
   const verify = useCallback(async (silent = false) => {
     try {
       const data = await requestAccess();
-      setState({ status: 'active', access: data.access, message: '' });
+      // Soát vé THÀNH CÔNG là lúc duy nhất được cất vé (ràng buộc 1 ở đầu
+      // src/utils/veOffline.js).
+      catVe(data.access);
+      setState({ status: 'active', access: data.access, message: '', offline: false });
     } catch (error) {
+      // ⚠️ NHÁNH NÀY TỪNG ĐUỔI NGƯỜI ĐANG HỌC RA KHỎI APP.
+      // Bản cũ: `if (silent && error.status >= 500) return;`. Mất mạng thì
+      // `requestAccess` gán `status = 0`, và `0 >= 500` là SAI — nên cái chốt
+      // "im lặng bỏ qua" KHÔNG che đúng trường hợp thường gặp nhất. Vòng tự
+      // kiểm 15 phút chạy đúng lúc xe chui vào hầm là người học bị ném về màn
+      // NHẬP MÃ TRUY CẬP, giữa bài đang làm dở, sau khi đã trả 99k–599k.
+      if (laLoiMang(error)) {
+        const ve = docVe();
+        if (ve) {
+          setState({ status: 'active', access: ve.access, message: '', offline: true, conLai: ngayConLai(ve.conLaiMs) });
+          return;
+        }
+        // Không có vé (máy này chưa từng soát thành công) thì VẪN KHOÁ: người
+        // chưa mua không được vào chỉ nhờ rút dây mạng.
+      } else {
+        // Máy chủ TỪ CHỐI thật — mã bị thu hồi, hết hạn, hoặc vượt số thiết bị.
+        // Bỏ vé ngay, không để nó che một lượt từ chối thật ở lần mất mạng sau.
+        boVe();
+      }
       if (silent && error.status >= 500) return;
       setState({ status: error.code === 'not-configured' ? 'config' : 'locked', access: null, message: error.message });
     }
@@ -117,6 +142,7 @@ function ProtectedApp({ children }) {
     event.preventDefault(); setBusy(true);
     try {
       const data = await requestAccess({ method: 'POST', body: JSON.stringify({ action: 'activate', code, deviceId: getDeviceId() }) });
+      catVe(data.access);
       setState({ status: 'active', access: data.access, message: '' });
       setCode('');
     } catch (error) { setState({ status: error.code === 'not-configured' ? 'config' : 'locked', access: null, message: error.message }); }
@@ -125,11 +151,13 @@ function ProtectedApp({ children }) {
 
   const logout = async () => {
     await requestAccess({ method: 'POST', body: JSON.stringify({ action: 'logout' }) }, { requireAuth: false }).catch(() => {});
+    // Bỏ vé: đăng xuất rồi mà vé cũ vẫn mở được app thì nút đăng xuất là nút giả.
+    boVe();
     setState({ status: 'locked', access: null, message: '' });
   };
 
   if (state.status === 'checking') return <div className="min-h-screen bg-[#fff9e8] dark:bg-slate-950 flex items-center justify-center"><div className="w-12 h-12 rounded-full border-4 border-slate-300 border-t-blue-500 animate-spin" aria-label="Đang kiểm tra quyền truy cập" /></div>;
-  if (state.status === 'active') return <>{children}<AccessBadge access={state.access} onLogout={logout} /></>;
+  if (state.status === 'active') return <>{children}<AccessBadge access={state.access} onLogout={logout} offline={state.offline} conLai={state.conLai} /></>;
 
   return <main className="min-h-screen bg-[#fff9e8] dark:bg-slate-950 text-slate-900 dark:text-white p-5 flex flex-col items-center justify-center gap-10 relative overflow-hidden">
     <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-yellow-300/40 blur-3xl" /><div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-blue-300/30 blur-3xl" />
@@ -347,7 +375,24 @@ function PricingModal({ onClose, onMaTuDong }) {
     </div>
   </div>;
 }
-function AccessBadge({ access, onLogout }) {
+// ⚠️ CHẠY BẰNG VÉ OFFLINE PHẢI NÓI RA, KHÔNG ĐƯỢC IM.
+// Nếu huy hiệu trông y hệt lúc online thì người học không biết mình đang tiêu
+// ân hạn, và tới ngày thứ 8 họ bị khoá mà không hiểu vì sao. Cùng luật với băng
+// báo "trình duyệt chặn lưu": lưới đỡ nào cũng phải tự nói nó đang đỡ.
+function AccessBadge({ access, onLogout, offline = false, conLai = 0 }) {
   const expires = access?.expiresAt ? new Intl.DateTimeFormat('vi-VN').format(new Date(access.expiresAt)) : 'Trọn đời';
-  return <aside className="fixed bottom-20 lg:bottom-3 right-3 z-[100] group"><div className="flex items-center gap-2 bg-slate-900 text-white border-2 border-slate-700 rounded-2xl px-3 py-2 shadow-lg"><ShieldCheck size={17} className="text-emerald-400" /><div><p className="text-[10px] font-black uppercase text-emerald-300">{access?.plan || 'premium'}</p><p className="text-[10px] font-bold text-slate-300 flex items-center gap-1"><Clock3 size={10} /> {expires}</p></div><button onClick={onLogout} title="Đăng xuất mã truy cập" className="ml-1 w-8 h-8 rounded-lg bg-slate-800 hover:bg-rose-600 flex items-center justify-center"><LogOut size={14} /></button></div></aside>;
+  return <aside className="fixed bottom-20 lg:bottom-3 right-3 z-[100] group" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+    <div className={`flex items-center gap-2 text-white border-2 rounded-2xl px-3 py-2 shadow-lg ${offline ? 'bg-amber-700 border-amber-400' : 'bg-slate-900 border-slate-700'}`}>
+      {offline ? <CloudOff size={17} className="text-amber-200" /> : <ShieldCheck size={17} className="text-emerald-400" />}
+      <div>
+        <p className={`text-[10px] font-black uppercase ${offline ? 'text-amber-100' : 'text-emerald-300'}`}>
+          {offline ? 'Ngoại tuyến' : (access?.plan || 'premium')}
+        </p>
+        <p className="text-[10px] font-bold text-slate-200 flex items-center gap-1">
+          <Clock3 size={10} /> {offline ? `còn ${conLai} ngày rồi cần vào mạng` : expires}
+        </p>
+      </div>
+      <button onClick={onLogout} title="Đăng xuất mã truy cập" className="ml-1 w-8 h-8 rounded-lg bg-slate-800 hover:bg-rose-600 flex items-center justify-center"><LogOut size={14} /></button>
+    </div>
+  </aside>;
 }

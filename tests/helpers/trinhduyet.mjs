@@ -95,6 +95,16 @@ export async function moTrinhDuyet({ cong = 9333, microGia = false } = {}) {
 /**
  * @param {object} [tuyChon]
  * @param {boolean} [tuyChon.chanApi]
+ * @param {{bat: boolean, dem?: number}} [tuyChon.matMang]
+ *   Công tắc NGẮT MẠNG cho `/api/*`, bật/tắt được giữa chừng. Bật thì mọi
+ *   request `/api/*` bị `Fetch.failRequest` (`ConnectionFailed`), tức `fetch`
+ *   NÉM đúng như khi rớt sóng; `dem` tăng theo từng lượt bị ngắt để bộ rà
+ *   khẳng định được cú mất mạng có thật xảy ra.
+ *
+ *   ⚠️ PHẢI DÙNG CÁI NÀY, KHÔNG DÙNG `Network.emulateNetworkConditions` MỘT
+ *   MÌNH: lệnh đó ngắt ở tầng mạng, còn `Fetch.enable` chặn TRƯỚC tầng mạng,
+ *   nên `/api/access` vẫn được trả lời "đã kích hoạt" trong khi bộ rà tưởng
+ *   mình đang offline.
  * @param {{data: object|null, updatedAt: number|null}} [tuyChon.khoTienDo]
  *   Kho tiến độ giả cho `/api/progress`. Truyền vào thì tab này có một "máy
  *   chủ đồng bộ" cư xử ĐÚNG như api/progress.js thật: GET trả bản đang giữ,
@@ -118,7 +128,7 @@ export async function moTrinhDuyet({ cong = 9333, microGia = false } = {}) {
  *   này chỉ cần xác nhận REACT có thật sự đăng ký đơn, hỏi lặp lại, và vẽ đúng
  *   khi trạng thái đổi — đúng lớp mà `node --test` không nhìn thấy được.
  */
-export async function moTab(cong, { chanApi = true, khoTienDo = null, banHangGia = null, donHangGia = null } = {}) {
+export async function moTab(cong, { chanApi = true, khoTienDo = null, banHangGia = null, donHangGia = null, matMang = null } = {}) {
   const tab = await (await fetch(`http://127.0.0.1:${cong}/json/new?about:blank`, { method: 'PUT' })).json();
   const ws = new WebSocket(tab.webSocketDebuggerUrl);
   await new Promise((r, j) => { ws.onopen = r; ws.onerror = () => j(new Error('không nối được tab')); });
@@ -144,6 +154,29 @@ export async function moTab(cong, { chanApi = true, khoTienDo = null, banHangGia
       body: Buffer.from(JSON.stringify(obj)).toString('base64'),
     });
     try {
+      // ── NGẮT MẠNG THẬT SỰ TỚI ĐƯỢC /api/* ────────────────────────────────
+      // `Network.emulateNetworkConditions { offline: true }` KHÔNG ngắt được
+      // các request đã bị `Fetch.enable` chặn: chặn xảy ra ở `requestStage:
+      // Request`, tức TRƯỚC tầng mạng, nên bộ giả lập dưới đây vẫn thản nhiên
+      // trả "đã kích hoạt" trong khi bộ rà tưởng mình đang offline. Bộ rà
+      // ra_mat_mang.mjs đã dính đúng cái đó và cho ra hai bước "hỏng" giả:
+      // cổng chưa từng thất bại lần nào, nên không có vé nào được dùng, và
+      // cũng không có huy hiệu ngoại tuyến nào để mà thấy.
+      //
+      // `Fetch.failRequest` + `ConnectionFailed` mới là thứ làm `fetch` NÉM
+      // đúng như ngoài đời. `dem` đếm số lượt bị ngắt để bộ rà khẳng định
+      // được rằng cú mất mạng CÓ THẬT XẢY RA — không có phép đếm ấy thì một
+      // bước rà xanh vì "không ai gọi API cả" trông y hệt một bước rà xanh
+      // vì bản vá chạy đúng.
+      if (matMang && matMang.bat) {
+        matMang.dem = (matMang.dem || 0) + 1;
+        // Ghi luôn ĐƯỜNG bị ngắt: `dem` không thôi thì một lượt `/api/progress`
+        // bị ngắt trông y hệt một lượt `/api/access` bị ngắt, và bộ rà sẽ tin
+        // là cổng đã thất bại trong khi cổng chưa hề được gọi.
+        (matMang.duong = matMang.duong || []).push(String(p.request.url));
+        await goi('Fetch.failRequest', { requestId: p.requestId, errorReason: 'ConnectionFailed' });
+        return;
+      }
       if (khoTienDo && String(p.request.url).includes('/api/progress')) {
         if (p.request.method === 'GET') {
           await traJson(p.requestId, { data: khoTienDo.data, updatedAt: khoTienDo.updatedAt });
