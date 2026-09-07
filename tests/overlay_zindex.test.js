@@ -118,3 +118,58 @@ test('DangMo nằm trên mọi panel nó đứng thế chỗ', () => {
   assert.deepEqual(thap.map(([n, z]) => `${n} z-${z}`), [],
     `DangMo ở z-${zDangMo} nhưng có panel cao hơn nó`);
 });
+
+// ── TIỆN ÍCH NỔI KHÔNG ĐƯỢC ĐÈ LÊN THANH BÊN (07/09) ────────────────────────
+// Đợt thêm panel "Tải bài về máy" / "Cài app vào máy" vào CHÂN thanh bên đã
+// tạo ra một lỗi thấy bằng mắt: nút thỏ `fixed left-3 ... z-[110]` nằm gọn
+// trong panel tải. Đo ở 1424×805 trước khi sửa:
+//     nút thỏ  [12, 733, 56, 56]
+//     panel tải [0, 643, 380, 163]
+// → 1/15 điểm rải trên panel trả về con thỏ, đúng ô chọn "Bản thu người thật".
+// Mốc z-index ở trên KHÔNG bắt được lỗi này: cả hai đều hợp luật, chúng chỉ
+// nằm chồng chỗ. Nên phải ghim riêng bằng phép đo vị trí.
+const RONG_THANH_BEN = { lg: 20, xl: 24 }; // lg:w-80 = 20rem, xl:w-96 = 24rem
+
+test('nút thỏ trôi lùi qua khỏi thanh bên từ lg trở lên', () => {
+  const s = fs.readFileSync(path.join(ROOT, 'src/components/common/BunnyChat.jsx'), 'utf8');
+  for (const [khoi, rem] of Object.entries(RONG_THANH_BEN)) {
+    const re = new RegExp(String.raw`${khoi}:left-\[(\d+(?:\.\d+)?)rem\]`, 'g');
+    const moc = [...s.matchAll(re)];
+    assert.ok(moc.length >= 2,
+      `BunnyChat thiếu ${khoi}:left — cả NÚT lẫn KHUNG CHAT đều phải lùi, tìm được ${moc.length}/2`);
+    for (const m of moc) {
+      assert.ok(Number(m[1]) >= rem,
+        `${khoi}:left-[${m[1]}rem] còn nằm trong thanh bên rộng ${rem}rem — con thỏ đè lên panel ở chân thanh bên`);
+    }
+  }
+});
+
+test('thanh bên vẫn đúng bề rộng đã dùng để đặt mốc lùi', () => {
+  // Cùng loại bánh cóc với "nút chat trôi vẫn ở đúng z": số lùi 21/25rem chỉ
+  // đúng khi thanh bên còn là w-80/w-96. Đổi bề rộng mà quên số lùi thì con thỏ
+  // lại chui vào trong, và không test nào kêu.
+  const s = fs.readFileSync(path.join(ROOT, 'src/layouts/MainLayout.jsx'), 'utf8');
+  const d = s.split('\n').find((x) => x.includes('id="main-navigation"'));
+  assert.match(d, /lg:w-80/, 'thanh bên không còn lg:w-80 — sửa RONG_THANH_BEN và số lg:left trong BunnyChat');
+  assert.match(d, /xl:w-96/, 'thanh bên không còn xl:w-96 — sửa RONG_THANH_BEN và số xl:left trong BunnyChat');
+});
+
+test('mọi tiện ích nổi đều nhường chỗ khi ngăn kéo mở', () => {
+  // Bản cũ chỉ bọc riêng BunnyChat trong MainLayout, nên huy hiệu gói do
+  // AccessGate dựng ở TẦNG TRÊN vẫn đè lên ngăn kéo: đo ở 390×844 thấy huy
+  // hiệu chiếm x 228–378 còn ngăn kéo chiếm 0–288.
+  const css = fs.readFileSync(path.join(ROOT, 'src/index.css'), 'utf8');
+  assert.match(css, /html\[data-ngan-keo='mo'\] \[data-nhuong-ngan-keo\]/,
+    'thiếu luật nhường chỗ — mỗi tiện ích nổi lại phải tự bọc tay và sẽ có cái bị quên');
+  assert.match(css, /max-width: 1023px/,
+    'luật nhường chỗ không giới hạn dưới lg — máy tính bàn không có ngăn kéo, ẩn đi là mất luôn tiện ích');
+
+  const layout = fs.readFileSync(path.join(ROOT, 'src/layouts/MainLayout.jsx'), 'utf8');
+  assert.match(layout, /setAttribute\('data-ngan-keo', 'mo'\)/,
+    'không ai bật cờ trên <html> thì luật CSS kia không bao giờ chạy');
+
+  for (const f of ['src/components/common/BunnyChat.jsx', 'src/components/access/AccessGate.jsx']) {
+    assert.match(fs.readFileSync(path.join(ROOT, f), 'utf8'), /data-nhuong-ngan-keo/,
+      `${f} có phần tử fixed nổi trên ngăn kéo nhưng không gắn data-nhuong-ngan-keo`);
+  }
+});

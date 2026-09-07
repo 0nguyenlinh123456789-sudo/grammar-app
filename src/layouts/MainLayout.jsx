@@ -32,6 +32,16 @@ const MainLayout = ({
   children
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Đánh dấu ngăn kéo đang mở lên <html>. Cần ở đây vì huy hiệu gói và các
+  // tiện ích nổi khác KHÔNG phải con của MainLayout — không có props nào với
+  // tới chúng, chỉ còn CSS ở tầng tài liệu.
+  useEffect(() => {
+    const g = document.documentElement;
+    if (menuOpen) g.setAttribute('data-ngan-keo', 'mo');
+    else g.removeAttribute('data-ngan-keo');
+    return () => g.removeAttribute('data-ngan-keo');
+  }, [menuOpen]);
   const [isVocabMenuOpen, setIsVocabMenuOpen] = useState(true); // Default open to make experience smoother
   const [vstepSearch, setVstepSearch] = useState('');
   const [activeGrammarLevel, setActiveGrammarLevel] = useState('B1');
@@ -527,12 +537,14 @@ const MainLayout = ({
       />
       {/* Nút thỏ nổi ở `z-[110]`, ngăn kéo ở `z-40` — nên khi ngăn kéo MỞ trên
           màn hẹp, nút thỏ nằm đè lên mục "KHÓA AI (API KEY)" (đo được ở
-          360×640: `elementFromPoint` giữa nút trả về chính nút thỏ). Ẩn nút khi
-          ngăn kéo đang mở thay vì nâng z-index của ngăn kéo: ngăn kéo không
+          360×640: `elementFromPoint` giữa nút trả về chính nút thỏ). Nó nhường
+          chỗ qua `data-nhuong-ngan-keo` + `html[data-ngan-keo]` (luật ở
+          `src/index.css`) thay vì nâng z-index của ngăn kéo: ngăn kéo không
           phải lớp phủ toàn màn, nâng nó lên ≥120 là phá luật xếp lớp mà dự án
-          đã ghim bằng `tests/overlay_zindex.test.js`. Từ `lg` trở lên thanh bên
-          luôn hiện và không có `menuOpen`, nên máy tính bàn không đổi gì. */}
-      <div className={menuOpen ? 'hidden lg:block' : ''}><BunnyChat /></div>
+          đã ghim bằng `tests/overlay_zindex.test.js`. Bản cũ bọc riêng chỗ này
+          bằng `menuOpen ? 'hidden lg:block'`, nên nó KHÔNG với tới huy hiệu gói
+          do AccessGate dựng ở tầng trên — cái đó vẫn đè lên ngăn kéo. */}
+      <BunnyChat />
 
       {/* --- BRING-YOUR-OWN GEMINI KEY --- */}
       {isAiKeyOpen && <AiKeyDialog onClose={() => setIsAiKeyOpen(false)} />}

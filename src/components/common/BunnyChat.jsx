@@ -55,11 +55,18 @@ const BunnyChat = () => {
 
   return (
     <>
-      {/* Floating bunny button (left side; access badge owns bottom-right) */}
+      {/* Nút thỏ trôi ở mép trái; huy hiệu gói giữ góc dưới phải.
+          ⚠️ TỪ `lg` TRỞ LÊN PHẢI LÙI QUA KHỎI THANH BÊN. Thanh bên `lg:w-80`
+          (20rem) / `xl:w-96` (24rem) LUÔN hiện ở khổ này, nên `left-3` đặt con
+          thỏ đè thẳng lên chân thanh bên — đúng chỗ panel "Tải bài về máy" và
+          "Cài app vào máy" đứng. Đo thực tế 1424px: nút ở [12,733,56,56], panel
+          tải ở [0,643,380,163] → nút nằm gọn trong panel, che ô chọn "Bản thu
+          người thật". Số lùi = bề rộng thanh bên + 1rem. */}
       <button
+        data-nhuong-ngan-keo
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? 'Đóng Bunny AI' : 'Hỏi Bunny AI'}
-        className="fixed left-3 bottom-20 lg:bottom-4 z-[110] w-14 h-14 rounded-full bg-white dark:bg-slate-800 border-3 border-slate-800 dark:border-slate-600 shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#000] flex items-center justify-center hover:scale-105 active:scale-95 transition-transform cursor-pointer"
+        className="fixed left-3 lg:left-[21rem] xl:left-[25rem] bottom-20 lg:bottom-4 z-[110] w-14 h-14 rounded-full bg-white dark:bg-slate-800 border-3 border-slate-800 dark:border-slate-600 shadow-[3px_3px_0_0_#1e293b] dark:shadow-[3px_3px_0_0_#000] flex items-center justify-center hover:scale-105 active:scale-95 transition-transform cursor-pointer"
       >
         {open
           ? <X size={22} className="text-slate-700 dark:text-slate-200" />
@@ -67,7 +74,7 @@ const BunnyChat = () => {
       </button>
 
       {open && (
-        <div className="fixed left-3 right-3 sm:right-auto sm:w-[360px] bottom-36 lg:bottom-20 z-[110] bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl shadow-[6px_6px_0_0_#1e293b] dark:shadow-[6px_6px_0_0_#000] flex flex-col overflow-hidden" role="dialog" aria-label="Bunny AI chat">
+        <div data-nhuong-ngan-keo className="fixed left-3 lg:left-[21rem] xl:left-[25rem] right-3 sm:right-auto sm:w-[360px] bottom-36 lg:bottom-20 z-[110] bg-white dark:bg-slate-900 border-4 border-slate-800 dark:border-slate-700 rounded-3xl shadow-[6px_6px_0_0_#1e293b] dark:shadow-[6px_6px_0_0_#000] flex flex-col overflow-hidden" role="dialog" aria-label="Bunny AI chat">
           <div className="px-4 py-3 bg-gradient-to-r from-pink-100 to-yellow-100 dark:from-slate-800 dark:to-slate-800 border-b-3 border-slate-800 dark:border-slate-700 flex items-center gap-2.5">
             <img src="/bunny_logo.png" alt="" className="w-8 h-8 object-contain" draggable={false} />
             <div>

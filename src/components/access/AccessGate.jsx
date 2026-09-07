@@ -381,7 +381,7 @@ function PricingModal({ onClose, onMaTuDong }) {
 // báo "trình duyệt chặn lưu": lưới đỡ nào cũng phải tự nói nó đang đỡ.
 function AccessBadge({ access, onLogout, offline = false, conLai = 0 }) {
   const expires = access?.expiresAt ? new Intl.DateTimeFormat('vi-VN').format(new Date(access.expiresAt)) : 'Trọn đời';
-  return <aside className="fixed bottom-20 lg:bottom-3 right-3 z-[100] group" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+  return <aside data-nhuong-ngan-keo className="fixed bottom-20 lg:bottom-3 right-3 z-[100] group" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
     <div className={`flex items-center gap-2 text-white border-2 rounded-2xl px-3 py-2 shadow-lg ${offline ? 'bg-amber-700 border-amber-400' : 'bg-slate-900 border-slate-700'}`}>
       {offline ? <CloudOff size={17} className="text-amber-200" /> : <ShieldCheck size={17} className="text-emerald-400" />}
       <div>

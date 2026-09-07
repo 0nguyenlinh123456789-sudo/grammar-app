@@ -493,3 +493,22 @@ html, body {
 }
 .bunny-bounce { animation: bunny-bounce 0.8s ease-in-out infinite; }
 .bunny-wiggle { animation: bunny-wiggle 0.4s ease-in-out infinite; }
+
+/* ==========================================================================
+   TIỆN ÍCH NỔI NHƯỜNG CHỖ CHO NGĂN KÉO ĐIỀU HƯỚNG
+   --------------------------------------------------------------------------
+   Trên điện thoại/máy tính bảng, ngăn kéo trượt ra ĐÈ LÊN trang chứ không đẩy
+   nó, còn nút thỏ (z-110) và huy hiệu gói (z-100) đều nổi CAO HƠN ngăn kéo
+   (z-40). Đo thực tế ở 390×844: huy hiệu chiếm x 228–378 trong khi ngăn kéo
+   chiếm 0–288 → nó che mất chữ trong danh sách bài.
+
+   Luật này thay cho cách bọc từng cái bằng `menuOpen ? 'hidden lg:block' : ''`
+   ở MainLayout: cách cũ chỉ với tới thứ MainLayout tự dựng, không với tới huy
+   hiệu do AccessGate dựng ở tầng trên. Tiện ích nổi nào thêm sau chỉ cần gắn
+   `data-nhuong-ngan-keo` là tự theo luật.
+
+   Chỉ áp dưới `lg`: từ `lg` trở lên thanh bên nằm trong dòng chảy, không có
+   ngăn kéo để nhường. */
+@media (max-width: 1023px) {
+  html[data-ngan-keo='mo'] [data-nhuong-ngan-keo] { display: none !important; }
+}
