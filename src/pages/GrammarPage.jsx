@@ -1,6 +1,7 @@
 // File: src/pages/GrammarPage.jsx
 import { useState, useEffect, useMemo } from 'react';
 import SketchnoteTheory from '../components/grammar/SketchnoteTheory';
+import NghePhatAm from '../components/grammar/NghePhatAm';
 import SentenceBuilder from '../components/grammar/SentenceBuilder';
 import AiAssistant from '../components/grammar/AiAssistant';
 import QuizEngine from '../components/grammar/QuizEngine';
@@ -9,7 +10,7 @@ import ErrorCorrectionExercise from '../components/grammar/ErrorCorrectionExerci
 import TransformationExercise from '../components/grammar/TransformationExercise';
 import MatchingExercise from '../components/grammar/MatchingExercise';
 import TrueFalseExercise from '../components/grammar/TrueFalseExercise';
-import { BookOpen, Puzzle, Bot, PenTool, PenLine, AlertTriangle, Repeat, Link2, HelpCircle } from 'lucide-react';
+import { BookOpen, Puzzle, Bot, PenTool, PenLine, AlertTriangle, Repeat, Link2, HelpCircle, Volume2 } from 'lucide-react';
 import { nhanCapDo, LA_NHAN_GOP, GHI_CHU_C1_CONG } from '../utils/nhanCapDo';
 import { locBaiHong } from '../utils/grammarClean';
 
@@ -48,6 +49,11 @@ const GrammarPage = ({ topic: topicGoc, setXp, completeMilestone }) => {
 
   const tabs = [
     { id: 'theory', label: 'Lý Thuyết', icon: BookOpen, color: 'bg-cyan-500' },
+    // `data` trỏ THẲNG vào mảng mục đọc được, không vào `topic.nghe`. Bộ lọc
+    // dưới đây chỉ biết đếm mảng, nên nếu trỏ vào cái bọc thì một chủ đề có
+    // `nghe: { muc: [] }` vẫn hiện tab rồi dẫn tới panel rỗng — đúng lỗi mà chú
+    // thích dài phía dưới ghi lại (12/12 bài A0 hiện tab "Xếp Câu" trống).
+    { id: 'phatam', label: 'Nghe & Đọc', icon: Volume2, color: 'bg-sky-500', data: topic.nghe?.muc },
     { id: 'sentence', label: 'Xếp Câu', icon: Puzzle, color: 'bg-amber-500', data: topic.sentenceGame },
     { id: 'exercise', label: 'Trắc Nghiệm', icon: PenTool, color: 'bg-emerald-500', data: topic.exercises },
     { id: 'fillblanks', label: 'Điền Từ', icon: PenLine, color: 'bg-blue-500', data: topic.fillBlanks },
@@ -131,6 +137,9 @@ const GrammarPage = ({ topic: topicGoc, setXp, completeMilestone }) => {
       )}
       {tab === 'ai' && (
         <AiAssistant topic={topic} sentences={topic.sentenceGame} />
+      )}
+      {tab === 'phatam' && (
+        <NghePhatAm nghe={topic.nghe} topicTitle={topic.title} />
       )}
       {tab === 'exercise' && (
         <QuizEngine 

@@ -38,6 +38,7 @@
     "ra:matmang": "node scripts/ra_mat_mang.mjs",
     "ra:taioffline": "node scripts/ra_tai_offline.mjs",
     "ra:caidat": "node scripts/ra_cai_dat.mjs",
+    "ra:nghephatam": "node scripts/ra_nghe_phat_am.mjs",
     "tao:icon": "node scripts/tao_icon_pwa.mjs"
   },
   "dependencies": {

@@ -40,6 +40,50 @@ export const foundationData = [
         c: '✅ Chữ đầu câu: The book is new.\n✅ Tên riêng: Hanoi, Mary, Vietnam.\n✅ Đại từ "I" — LUÔN viết hoa dù đứng giữa câu: My friend and I went home.\n✅ Thứ, tháng, quốc tịch, ngôn ngữ: Monday, July, Vietnamese, English.\n❌ KHÁC tiếng Việt: tên môn học thường, mùa trong năm KHÔNG viết hoa: math, summer.'
       },
     ],
+    // ══ NGHE ĐỌC TỪNG CHỮ ══
+    // Mục II liệt kê đủ 26 tên chữ bằng IPA, nhưng CHỈ LÀ CHỮ. Người mất gốc
+    // chưa đọc được IPA — đó chính là bài KẾ TIẾP (a0_02) — nên bảng đó với họ
+    // là 26 dòng ký hiệu vô nghĩa. Bài ĐẦU TIÊN của người mất gốc phải nghe
+    // được, nếu không thì cả cụm A0 mở đầu bằng một trang chữ câm.
+    //
+    // `doc` là thứ đưa cho bộ đọc, `hien` là thứ vẽ lên màn hình. Ở bài này hai
+    // cái trùng nhau vì bộ đọc phát TÊN CHỮ khi nhận một chữ Latin đơn lẻ; ở
+    // bài IPA (a0_02) chúng KHÁC nhau, vì không bộ đọc nào phát ra được /θ/.
+    //
+    // ⚠️ CHƯA KIỂM ĐƯỢC BẰNG MÁY: bộ rà tự động không nghe được tiếng, nên việc
+    // giọng máy đọc "A" ra tên chữ /eɪ/ (chứ không ra âm /ə/) chỉ xác nhận được
+    // bằng tai người trên máy thật. Cùng loại với `beforeinstallprompt`.
+    nghe: {
+      giong: 'en-GB', // khớp IPA ở mục II, vốn viết theo Anh-Anh
+      muc: [
+      { hien: 'A', doc: 'A', ipa: '/eɪ/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'B', doc: 'B', ipa: '/biː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'C', doc: 'C', ipa: '/siː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'D', doc: 'D', ipa: '/diː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'E', doc: 'E', ipa: '/iː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'F', doc: 'F', ipa: '/ef/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'G', doc: 'G', ipa: '/dʒiː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'H', doc: 'H', ipa: '/eɪtʃ/', nhom: 'Tên gọi 26 chữ cái', ghi: 'Tên chữ có âm /h/ ở đầu — người Việt hay bỏ mất.' },
+      { hien: 'I', doc: 'I', ipa: '/aɪ/', nhom: 'Tên gọi 26 chữ cái', ghi: 'Tên chữ là /aɪ/, KHÁC âm /ɪ/ nó tạo trong từ "sit".' },
+      { hien: 'J', doc: 'J', ipa: '/dʒeɪ/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'K', doc: 'K', ipa: '/keɪ/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'L', doc: 'L', ipa: '/el/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'M', doc: 'M', ipa: '/em/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'N', doc: 'N', ipa: '/en/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'O', doc: 'O', ipa: '/əʊ/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'P', doc: 'P', ipa: '/piː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'Q', doc: 'Q', ipa: '/kjuː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'R', doc: 'R', ipa: '/ɑː/', nhom: 'Tên gọi 26 chữ cái', ghi: 'Anh-Anh /ɑː/ không cong lưỡi; Anh-Mỹ là /ɑːr/.' },
+      { hien: 'S', doc: 'S', ipa: '/es/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'T', doc: 'T', ipa: '/tiː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'U', doc: 'U', ipa: '/juː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'V', doc: 'V', ipa: '/viː/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'W', doc: 'W', ipa: '/ˈdʌbəl.juː/', nhom: 'Tên gọi 26 chữ cái', ghi: 'Chữ có tên dài nhất — ba âm tiết.' },
+      { hien: 'X', doc: 'X', ipa: '/eks/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'Y', doc: 'Y', ipa: '/waɪ/', nhom: 'Tên gọi 26 chữ cái' },
+      { hien: 'Z', doc: 'Z', ipa: '/zed/', nhom: 'Tên gọi 26 chữ cái', ghi: 'Anh-Anh đọc /zed/, Anh-Mỹ đọc /ziː/. Máy chỉ đọc được một kiểu — xem nhãn accent phía trên.' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Chữ "G" đọc tên là gì?', opts: ['/dʒiː/', '/ɡiː/', '/ʒiː/', '/dʒeɪ/'], a: '/dʒiː/' },
       { id: 2, q: 'Chữ "J" đọc tên là gì?', opts: ['/dʒeɪ/', '/jeɪ/', '/dʒiː/', '/aɪ/'], a: '/dʒeɪ/' },
