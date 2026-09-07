@@ -153,6 +153,8 @@ export default function NghePhatAm({ nghe, topicTitle = '' }) {
     </div>;
   }
 
+  // Dạng trình bày do DỮ LIỆU khai, không do giao diện đoán theo độ dài chuỗi.
+  const laCum = nghe?.dang === 'cum';
   const coKey = hasGeminiKey();
   const nhanGiong = coGiong ? nhanAccent(coGiong) : '';
 
@@ -184,23 +186,35 @@ export default function NghePhatAm({ nghe, topicTitle = '' }) {
           {theoNhom.length > 1 && n.ten && (
             <p className="text-xs font-black uppercase tracking-wide text-slate-500 dark:text-slate-400">{n.ten}</p>
           )}
-          <div className="mt-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5">
+          <div className={laCum
+            ? 'mt-2 flex flex-col gap-2.5'
+            : 'mt-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5'}>
             {n.ds.map((m) => (
               <button
                 key={m.hien}
+                data-hien={m.hien}
                 onClick={() => nghi(m)}
                 disabled={coGiong === false}
                 title={m.ghi || undefined}
-                className={`rounded-2xl border-[3px] border-slate-800 dark:border-slate-600 px-2 py-3 text-center transition-transform cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
-                  dangDoc === m.hien ? 'bg-yellow-300 dark:bg-yellow-600 scale-105' : 'bg-slate-50 dark:bg-slate-800 hover:-translate-y-0.5'
+                className={`rounded-2xl border-[3px] border-slate-800 dark:border-slate-600 transition-transform cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
+                  laCum ? 'w-full px-4 py-3 text-left flex items-center gap-3' : 'px-2 py-3 text-center'
+                } ${
+                  dangDoc === m.hien ? 'bg-yellow-300 dark:bg-yellow-600' : 'bg-slate-50 dark:bg-slate-800 hover:-translate-y-0.5'
                 }`}
               >
-                <span className="block text-xl font-black text-slate-900 dark:text-white leading-none break-words">{m.hien}</span>
-                <span className="block mt-1 text-[11px] font-bold text-slate-500 dark:text-slate-400 break-words">{m.ipa}</span>
+                {laCum && <Volume2 size={19} className="shrink-0 text-slate-500 dark:text-slate-400" />}
+                <span className={laCum
+                  ? 'min-w-0 flex-1'
+                  : 'block text-xl font-black text-slate-900 dark:text-white leading-none break-words'}>
+                <span className={laCum
+                  ? 'block text-base font-black text-slate-900 dark:text-white leading-snug'
+                  : 'contents'}>{m.hien}</span>
+                {m.ipa && <span className="block mt-1 text-[11px] font-bold text-slate-500 dark:text-slate-400 break-words">{m.ipa}</span>}
                 {/* Ở bài IPA `doc` khác `hien`: ký hiệu /θ/ không đọc được, chỉ
                     nghe được nó NẰM TRONG một từ. Phải hiện từ đó ra, nếu không
                     người học nghe "think" mà tưởng đó là cách đọc chữ "θ". */}
                 {m.doc !== m.hien && <span className="block text-[11px] font-black text-indigo-600 dark:text-indigo-300 break-words">nghe trong: {m.doc}</span>}
+                </span>
               </button>
             ))}
           </div>
@@ -227,7 +241,7 @@ export default function NghePhatAm({ nghe, topicTitle = '' }) {
           <div className="mt-2 flex flex-wrap gap-2">
             {goi.map((g, i) => (
               <button key={i} onClick={() => doiGoi(i)}
-                className={`px-3 py-1.5 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 text-xs font-black cursor-pointer ${
+                className={`min-h-11 px-4 py-2 rounded-xl border-[3px] border-slate-800 dark:border-slate-600 text-xs font-black cursor-pointer ${
                   i === nhom ? 'bg-slate-900 text-white' : 'bg-white dark:bg-slate-800 dark:text-slate-200'
                 }`}>
                 {g[0].hien}–{g[g.length - 1].hien}

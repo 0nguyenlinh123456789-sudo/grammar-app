@@ -392,7 +392,7 @@ function AccessBadge({ access, onLogout, offline = false, conLai = 0 }) {
           <Clock3 size={10} /> {offline ? `còn ${conLai} ngày rồi cần vào mạng` : expires}
         </p>
       </div>
-      <button onClick={onLogout} title="Đăng xuất mã truy cập" className="ml-1 w-8 h-8 rounded-lg bg-slate-800 hover:bg-rose-600 flex items-center justify-center"><LogOut size={14} /></button>
+      <button onClick={onLogout} title="Đăng xuất mã truy cập" className="ml-1 w-11 h-11 rounded-lg bg-slate-800 hover:bg-rose-600 flex items-center justify-center shrink-0"><LogOut size={14} /></button>
     </div>
   </aside>;
 }

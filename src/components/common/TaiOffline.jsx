@@ -190,7 +190,7 @@ export default function TaiOffline() {
         type="button"
         onClick={() => setMoRong((v) => !v)}
         aria-expanded={moRong}
-        className="w-full flex items-center gap-2 mb-2 text-left"
+        className="w-full min-h-11 flex items-center gap-2 mb-1 text-left"
       >
         <HardDrive size={15} className="text-slate-700 dark:text-slate-300 shrink-0" />
         <p className="flex-1 font-black text-[11px] uppercase tracking-wider text-slate-700 dark:text-slate-300">Học khi không có mạng</p>

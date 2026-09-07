@@ -698,6 +698,11 @@ export const foundationData = [
     // đọc" ở đầu panel đã nói ra điều đó và không được gỡ.
     nghe: {
       giong: 'en-GB',
+      // Mỗi mục ở đây là một CỤM hoặc CẢ CÂU, không phải ký hiệu hay từ đơn.
+      // Vẽ bằng lưới 3 cột thì trên điện thoại mỗi ô rộng 97px và câu bị bẻ
+      // vụn thành mảnh dọc cao 174px (đo ở 390×844). `dang` khai ra điều đó
+      // thay vì để giao diện đoán theo độ dài chuỗi.
+      dang: 'cum',
       muc: [
       { hien: 'I WANT to BUY a BOOK for my BROther.', doc: 'I WANT to BUY a BOOK for my BROther.', nhom: 'Câu có bốn chỗ nhấn — phần còn lại lướt qua', ghi: 'Bốn chỗ viết hoa là bốn nhịp nhấn; a · to · for · my lướt qua.' },
       { hien: 'Fish and chips', doc: 'Fish and chips', nhom: 'Dạng yếu — từ chức năng đổi cách đọc khi không nhấn', ghi: 'Nghe như "fish ən chips". Chờ nghe /ænd/ thì nghe mãi không ra.' },
@@ -756,6 +761,11 @@ export const foundationData = [
     // vì bài viết cách nghe bằng chữ Việt hoá ("pi-ki-tup"), không bằng phiên âm.
     nghe: {
       giong: 'en-GB',
+      // Mỗi mục ở đây là một CỤM hoặc CẢ CÂU, không phải ký hiệu hay từ đơn.
+      // Vẽ bằng lưới 3 cột thì trên điện thoại mỗi ô rộng 97px và câu bị bẻ
+      // vụn thành mảnh dọc cao 174px (đo ở 390×844). `dang` khai ra điều đó
+      // thay vì để giao diện đoán theo độ dài chuỗi.
+      dang: 'cum',
       muc: [
       { hien: 'pick it up', doc: 'pick it up', nhom: 'Phụ âm + nguyên âm — kiểu nối phổ biến nhất', ghi: 'Nghe như "pi-ki-tup".' },
       { hien: 'look at it', doc: 'look at it', nhom: 'Phụ âm + nguyên âm — kiểu nối phổ biến nhất', ghi: 'Nghe như "loo-ka-tit".' },

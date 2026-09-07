@@ -7,7 +7,7 @@ import { SHOW_IELTS_FOUNDATION } from '../utils/localOnly';
 import {
   Trophy, CheckCircle2, Play, Compass, Award,
   Zap, BookOpen, Flame, Sparkles, ArrowRight, RotateCcw, AlertTriangle, Moon, Sun,
-  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal, GraduationCap, Headphones, PenLine, BookOpenText
+  Brain, Target, Volume2, VolumeX, Download, Upload, BarChart3, SlidersHorizontal, GraduationCap, Headphones, PenLine, BookOpenText, Settings, ChevronDown
 } from 'lucide-react';
 import Btn3D from '../components/common/Btn3D';
 import ScholarBunny from '../components/common/ScholarBunny';
@@ -117,6 +117,16 @@ const WelcomePage = ({
   // trang — đây là một mục nghiệm thu của hạng mục #2.
   const [manualTab, setManualTab] = useState(null); // 'all' | id cấp độ lộ trình
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+
+  // CÀI ĐẶT KHÔNG ĐƯỢC ĐỨNG TRÊN NÚT HỌC TRÊN ĐIỆN THOẠI.
+  // Đo ở 390×844: cột này chiếm y=496–696, đẩy "HỌC 15 PHÚT HÔM NAY" xuống
+  // y=720 trong khi thanh tab dưới cắt ở 786 — nút chính chỉ hiện một phần.
+  // Từ `lg` trở lên hai cột nằm CẠNH nhau nên không có vấn đề gì, vì thế mặc
+  // định mở sẵn ở khổ đó. Cùng khuôn với `TaiOffline`.
+  const [moCaiDat, setMoCaiDat] = useState(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return true;
+    return window.matchMedia('(min-width: 1024px)').matches;
+  });
   const [showReview, setShowReview] = useState(false);
   const [showPlacement, setShowPlacement] = useState(false);
   const [muted, setMutedState] = useState(isMuted());
@@ -538,8 +548,21 @@ const WelcomePage = ({
                </div>
             </div>
 
-            {/* Actions Column */}
-           <div className="flex flex-col gap-3 flex-1 min-w-0 justify-between">
+            {/* Actions Column — CÀI ĐẶT, không phải việc học hằng ngày */}
+           <div className="flex flex-col gap-3 flex-1 min-w-0 justify-between w-full">
+               <button
+                 type="button"
+                 onClick={() => setMoCaiDat((v) => !v)}
+                 aria-expanded={moCaiDat}
+                 aria-controls="cai-dat-trang-chu"
+                 className="lg:hidden w-full min-h-12 px-4 rounded-2xl border-[3px] border-slate-800 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-black text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300 flex items-center gap-2 cursor-pointer"
+               >
+                 <Settings size={16} className="shrink-0" />
+                 <span className="flex-1 text-left">Cài đặt · sao lưu · reset</span>
+                 <ChevronDown size={16} className={`shrink-0 transition-transform ${moCaiDat ? 'rotate-180' : ''}`} />
+               </button>
+
+               <div id="cai-dat-trang-chu" className={`${moCaiDat ? 'flex' : 'hidden'} lg:flex flex-col gap-3 flex-1 justify-between`}>
                <button
                  onClick={() => setTheme && setTheme(theme === 'light' ? 'dark' : 'light')}
                  className="flex-1 min-h-[64px] px-6 font-black border-4 border-slate-800 dark:border-slate-700 rounded-3xl bg-indigo-50 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-800 dark:text-indigo-300 text-sm flex justify-center items-center gap-2 shadow-[4px_4px_0_0_#1e293b] dark:shadow-[4px_4px_0_0_#020617] cursor-pointer transition-all"
@@ -565,6 +588,7 @@ const WelcomePage = ({
                  <input ref={backupInputRef} type="file" accept="application/json,.json" onChange={importBackup} className="hidden" />
                </div>
                {backupMessage && <p role="status" className="text-xs font-bold text-center text-slate-600 dark:text-slate-300">{backupMessage}</p>}
+               </div>
             </div>
           </div>
         </div>

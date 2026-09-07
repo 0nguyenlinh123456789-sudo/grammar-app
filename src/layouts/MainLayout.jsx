@@ -278,7 +278,16 @@ const MainLayout = ({
 
            <button
              onClick={() => { setIsPolicyOpen(true); setMenuOpen(false); }}
-             className="text-[11px] font-bold text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer text-center pt-1"
+             /* data-cong-cu: đây là ĐIỀU KHIỂN (chính sách), không phải nội dung
+                học. Luật "viết hoa = điều khiển" của scripts/khach_dung_het.mjs
+                không bắt được nó vì nhãn có chữ thường; trước đây nó lọt lưới
+                nhờ bộ lọc `height > 24` — nút chỉ cao 21px. Nới ô bấm lên 44px
+                cho dễ chạm đã VÔ TÌNH đưa nó vào tầm ngắm, và bước "GAMES: vào
+                một trò" bấm trúng nó rồi VẪN BÁO ĐẠT. Đúng họ với lỗi nút tải
+                cướp bước GAMES trước đây: ranh giới là VAI TRÒ, và vai trò phải
+                được KHAI RA. */
+             data-cong-cu="chinh-sach"
+             className="min-h-11 flex items-center justify-center text-[11px] font-bold text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer text-center pt-1"
            >
              Điều khoản · Bảo mật · Hoàn tiền
            </button>

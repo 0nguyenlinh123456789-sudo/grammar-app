@@ -43,10 +43,16 @@ const TIEM = [
 const DOC_PANEL = `(() => {
   const p = document.querySelector('#grammar-panel-phatam');
   if (!p) return JSON.stringify({ co: false });
-  const nut = [...p.querySelectorAll('button')].filter((b) => b.querySelector('span'));
+  // Đọc thuộc tính data-hien — thứ nút TỰ KHAI — chứ không dò cấu trúc thẻ bên
+  // trong. Bản đầu lấy textContent của thẻ span đầu tiên, và khi panel đổi cách
+  // vẽ (thêm một thẻ bọc cho nhánh cụm) thì nhãn gộp luôn cả IPA: bộ rà tụt
+  // 87/87 xuống 62/87 dù tính năng vẫn đúng. Phép đo không được vỡ vì cách vẽ.
+  // (KHÔNG dùng dấu backtick trong chú thích ở đây: cả khối này nằm TRONG một
+  //  template literal, một dấu backtick là đóng chuỗi và cả tệp không chạy.)
+  const nut = [...p.querySelectorAll('button[data-hien]')];
   return JSON.stringify({
     co: true,
-    nhan: nut.map((b) => b.querySelector('span').textContent),
+    nhan: nut.map((b) => b.getAttribute('data-hien')),
     coNhanMay: /Giọng máy đọc/.test(p.textContent),
     coCham: /AI NGHE bản thu/.test(p.textContent),
     coRanhGioi: /nhận xét của một mô hình/.test(p.textContent),
@@ -58,10 +64,7 @@ const DOC_PANEL = `(() => {
 const bam = (chu) => `(() => {
   const p = document.querySelector('#grammar-panel-phatam');
   if (!p) return false;
-  const n = [...p.querySelectorAll('button')].find((b) => {
-    const s = b.querySelector('span');
-    return s && s.textContent === ${JSON.stringify(chu)};
-  });
+  const n = p.querySelector('button[data-hien=' + JSON.stringify(${JSON.stringify(chu)}) + ']');
   if (n) n.click();
   return !!n;
 })()`;
