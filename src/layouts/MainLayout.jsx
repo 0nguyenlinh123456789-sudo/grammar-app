@@ -9,6 +9,8 @@ import NutCaiApp from '../components/common/NutCaiApp';
 import BunnyChat from '../components/common/BunnyChat';
 import { hasGeminiKey, subscribeGeminiKey, subscribeOpenAiKeySettings } from '../utils/aiKey';
 import { SHOW_IELTS_FOUNDATION } from '../utils/localOnly';
+import { timTrongKhoaHoc } from '../utils/timKiem';
+import { yeuCauMoChang } from '../utils/moChang';
 
 const MainLayout = ({
   appMode,
@@ -79,18 +81,22 @@ const MainLayout = ({
     t.description.toLowerCase().includes(vstepSearch.toLowerCase())
   );
 
-  const searchTerm = globalSearch.trim().toLowerCase();
-  const globalResults = searchTerm ? [
-    ...(parsedGrammarData || []).filter((item) => `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'grammar', resultLabel: 'Ngữ pháp' })),
-    ...vstepTopics.filter((item) => `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'vocab', resultLabel: 'Từ vựng' })),
-    ...(courseData || []).filter((item) => !item.contentUpdating && `${item.title} ${item.description || ''}`.toLowerCase().includes(searchTerm)).slice(0, 8).map((item) => ({ ...item, resultType: 'oxford', resultLabel: 'Oxford' })),
-  ].slice(0, 12) : [];
+  // CHỈ MỤC LẤY TỪ LỘ TRÌNH, không lấy từ ba prop `parsedGrammarData` /
+  // `vstepTopics` / `courseData`. Ba prop đó khởi tạo RỖNG và chỉ đầy sau khi
+  // người học ĐÃ VÀO đúng khu — mà chỗ người ta gõ tìm kiếm là màn hình ĐẦU
+  // TIÊN, đúng lúc cả ba còn rỗng. Hậu quả đo được: mọi từ khoá đều ra
+  // "Không tìm thấy bài phù hợp." kể cả với bài có thật. Xem src/utils/timKiem.js.
+  const searchTerm = globalSearch.trim();
+  const globalResults = timTrongKhoaHoc(searchTerm);
 
   const selectSearchResult = (result) => {
-    if (result.resultType === 'grammar') { setTopicId(result.id); selectMode('grammar'); }
-    if (result.resultType === 'vocab') { setVstepTopicId(result.id); setActiveVocabCategory('TOPIC'); selectMode('vocab'); }
-    if (result.resultType === 'oxford') { setOxfordUnitId(result.id); setActiveVocabCategory('OXFORD'); selectMode('vocab'); }
-    setGlobalSearch(''); setIsGlobalSearchOpen(false);
+    setGlobalSearch(''); setIsGlobalSearchOpen(false); setMenuOpen(false);
+    // Không tự mở chặng ở đây. `WelcomePage.launchMilestone` là nơi DUY NHẤT
+    // mở được cả sáu loại — ba loại đầu đổi màn, còn nghe/đọc/chép chính tả
+    // mở panel ngay trong trang chủ. Chép logic đó sang đây thì ba loại sau
+    // bấm vào sẽ không đi tới đâu. Xem src/utils/moChang.js.
+    setAppMode('home');
+    yeuCauMoChang(result.chang);
   };
 
 
@@ -169,8 +175,11 @@ const MainLayout = ({
             {isGlobalSearchOpen && <div className="relative">
               <Search size={17} className="absolute left-3 top-3.5 text-slate-400" />
               <input autoFocus value={globalSearch} onChange={(event) => setGlobalSearch(event.target.value)} onKeyDown={(event) => { if (event.key === 'Escape') setIsGlobalSearchOpen(false); }} placeholder="Ví dụ: thì hiện tại, travel..." className="w-full h-11 pl-9 pr-3 rounded-xl border-3 border-slate-800 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 font-bold text-sm outline-none focus:ring-3 focus:ring-blue-200" />
-              {searchTerm && <div className="absolute z-50 left-0 right-0 top-12 bg-white dark:bg-slate-900 border-3 border-slate-800 dark:border-slate-600 rounded-xl shadow-[4px_4px_0_0_#1e293b] max-h-72 overflow-y-auto p-1">
-                {globalResults.length ? globalResults.map((result) => <button key={`${result.resultType}-${result.id}`} onClick={() => selectSearchResult(result)} className="w-full text-left p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-800 cursor-pointer"><span className="block text-sm font-black truncate">{result.title}</span><span className="text-[10px] font-black uppercase text-blue-600">{result.resultLabel}</span></button>) : <p className="p-3 text-xs font-bold text-slate-500">Không tìm thấy bài phù hợp.</p>}
+              {searchTerm && <div data-cong-cu="ket-qua-tim" className="absolute z-50 left-0 right-0 top-12 bg-white dark:bg-slate-900 border-3 border-slate-800 dark:border-slate-600 rounded-xl shadow-[4px_4px_0_0_#1e293b] max-h-72 overflow-y-auto p-1">
+                {globalResults.length ? globalResults.map((result) => <button key={result.khoa} data-loai-ket-qua={result.loai} onClick={() => selectSearchResult(result)} className="w-full text-left p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-800 cursor-pointer min-h-11">
+                  <span className="block text-sm font-black truncate">{result.tieuDe}</span>
+                  <span className="text-[10px] font-black uppercase text-blue-600">{result.nhan}{result.cefr ? ` · ${result.cefr}` : ''}</span>
+                </button>) : <p className="p-3 text-xs font-bold text-slate-500">Không tìm thấy bài phù hợp.</p>}
               </div>}
             </div>}
 

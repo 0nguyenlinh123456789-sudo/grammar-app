@@ -40,7 +40,8 @@
     "ra:caidat": "node scripts/ra_cai_dat.mjs",
     "ra:nghephatam": "node scripts/ra_nghe_phat_am.mjs",
     "ra:chama0": "node scripts/ra_cham_a0.mjs",
-    "tao:icon": "node scripts/tao_icon_pwa.mjs"
+    "tao:icon": "node scripts/tao_icon_pwa.mjs",
+    "ra:timkiem": "node scripts/ra_tim_kiem.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",

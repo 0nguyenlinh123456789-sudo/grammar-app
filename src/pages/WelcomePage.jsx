@@ -78,6 +78,7 @@ import QuickVerifyModal from '../components/progress/QuickVerifyModal';
 import MasteryMigrationNotice from '../components/progress/MasteryMigrationNotice';
 import { shouldShowMigrationNotice, dismissMigrationNotice } from '../utils/masteryMigration';
 import { thongBaoLoTrinhTang, daXemLoTrinhTang } from '../utils/roadmapGrowth';
+import { dangKyMoChang, nhanChangChoMo } from '../utils/moChang';
 // Chỉ lấy MỘT CON SỐ từ file đếm — không import cả lộ trình lần thứ hai.
 import { TONG_CHANG_TRUOC, CONG_THUC_GIO } from '../data/roadmapCounts';
 import RoadmapGrowthNotice from '../components/progress/RoadmapGrowthNotice';
@@ -273,6 +274,24 @@ const WelcomePage = ({
       setChangChinhTa(milestone);
     }
   };
+
+  // Ô tìm kiếm ở MainLayout xin mở chặng qua đây. Hai thời điểm lấy ra, vì
+  // trang chủ là chunk lazy: LÚC ĐƯỢC BÁO (đang mở sẵn) và LÚC VỪA GẮN (vừa
+  // tải xong sau khi người học bấm từ màn khác). Không đoán mốc thời gian —
+  // xem lý do đầy đủ ở src/utils/moChang.js.
+  const moChangRef = useRef(launchMilestone);
+  // Gán trong effect KHÔNG có mảng phụ thuộc (chạy sau MỌI lần vẽ), không gán
+  // thẳng trong thân hàm: React cấm chạm `.current` lúc đang vẽ, và eslint
+  // chặn đúng dòng đó.
+  useEffect(() => { moChangRef.current = launchMilestone; });
+  useEffect(() => {
+    const rut = () => {
+      const c = nhanChangChoMo();
+      if (c) moChangRef.current(c);
+    };
+    rut();
+    return dangKyMoChang(rut);
+  }, []);
 
   // (N4 b′) Ghi điểm cho chặng nghe/đọc/chép chính tả. Đi qua buildEvidence như
   // mọi màn hình khác để chặng mới KHÔNG mở được cửa mà hạng mục #1 đã đóng:
