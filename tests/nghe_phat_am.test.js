@@ -74,19 +74,40 @@ test('bảng chữ cái đủ 26 chữ và khớp IPA đã dạy ở phần lý 
 // Mốc cố ý viết ở dạng "có mặt nguyên văn trong lý thuyết" chứ không phải một
 // danh sách riêng: danh sách riêng thì hai bên trôi độc lập, còn thế này thì
 // sửa lý thuyết mà quên phần nghe là ĐỎ ngay.
+// Dấu nhấn ˈ và ˌ: là KÝ HIỆU SƯ PHẠM khi nằm trong chính tả (`eduˈcation`),
+// nhưng là NỘI DUNG khi nằm trong phiên âm (`/ˈdʌbəl.juː/`). Hai vế dưới đây vì
+// thế dò trên hai bản khác nhau — dùng chung một bản đã chuẩn hoá là mất phép
+// kiểm dấu nhấn của IPA.
+const BO_DAU_NHAN = (x) => String(x).replace(/[\u02C8\u02CC]/g, '');
+
 test('mọi thứ máy đọc đều có mặt nguyên văn trong phần lý thuyết của chính bài đó', () => {
   for (const t of coNghe) {
-    const lyThuyet = t.theory.map((s) => s.c).join('\n');
+    const gocLyThuyet = t.theory.map((s) => s.c).join('\n');
+    const khongDauNhan = BO_DAU_NHAN(gocLyThuyet);
     for (const m of t.nghe.muc) {
-      assert.ok(lyThuyet.includes(m.doc),
+      assert.ok(khongDauNhan.includes(m.doc),
         `${t.id}: máy sẽ đọc "${m.doc}" nhưng bài không hề dạy chuỗi đó`);
       // `ipa` không bắt buộc — bài Nhịp Câu và Nối Âm nói cả CỤM và CẢ CÂU,
-      // không có phiên âm đi kèm. Nhưng đã ghi thì phải khớp chỗ lý thuyết ghi.
+      // không có phiên âm đi kèm. Nhưng đã ghi thì phải khớp NGUYÊN VĂN.
       if (m.ipa) {
-        assert.ok(lyThuyet.includes(`${m.doc} ${m.ipa}`) || lyThuyet.includes(`${m.hien} ${m.ipa}`),
+        assert.ok(gocLyThuyet.includes(`${m.doc} ${m.ipa}`) || gocLyThuyet.includes(`${m.hien} ${m.ipa}`),
           `${t.id}: cặp "${m.doc} ${m.ipa}" không có trong lý thuyết — một trong hai bên đã trôi`);
       }
     }
+  }
+});
+
+test('bài Trọng Âm KHÔNG đưa cặp đổi-trọng-âm cho bộ đọc', () => {
+  // `speechSynthesis` không có mô hình cú pháp bảo đảm đặt trọng âm theo từ
+  // loại: cùng chuỗi "record", mỗi bộ máy đọc một kiểu, và đặt vào câu để ép
+  // ngữ cảnh cũng không bảo đảm được. Mà đây đúng là thứ người học bấm thử ĐẦU
+  // TIÊN — đọc sai một lần là dạy sai chính cái bài đang cấm.
+  // Luật "ẨN hoặc BÁO" áp lên chính tính năng này: không phát thứ mình không
+  // chắc phát đúng. Bốn cặp đó ở lại phần chữ.
+  const t = foundationData.find((x) => x.id === 'a0_09');
+  for (const cam of ['record', 'present', 'object', 'increase']) {
+    assert.ok(!t.nghe.muc.some((m) => m.doc.toLowerCase() === cam),
+      `a0_09 đưa "${cam}" cho bộ đọc — trọng âm của nó phụ thuộc từ loại, máy đọc kiểu nào là ngẫu nhiên`);
   }
 });
 

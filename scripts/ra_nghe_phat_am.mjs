@@ -135,6 +135,27 @@ try {
     }
   }
 
+  // ── CẶP -TEEN / -TY PHẢI ĐỌC RA HAI TỪ KHÁC NHAU ──
+  // Bài a0_12 nói người bản ngữ phân biệt 13 với 30 CHÍNH BẰNG TRỌNG ÂM. Ở
+  // a0_09 tôi đã LOẠI bốn cặp đổi-trọng-âm vì bộ đọc không chắc đọc đúng; cặp
+  // này giữ lại vì "thirteen" và "thirty" là hai TỪ khác nhau. Khẳng định điều
+  // đó thay vì tin — nếu một trong hai im lặng thì cả nhóm mất nghĩa.
+  // (Bộ rà vẫn không NGHE được: nó chứng minh hai lượt đọc khác chuỗi, không
+  //  chứng minh trọng âm đặt đúng chỗ. Phần đó cần tai người.)
+  console.log('\n── cặp 13 ≠ 30 ──');
+  await t.danhGia('window.__daDoc = [];');
+  await t.danhGia(bam('thirteen'));
+  await nghi(500);
+  await t.danhGia(bam('thirty'));
+  await nghi(500);
+  const cap = JSON.parse(await t.danhGia('JSON.stringify(window.__daDoc || [])'));
+  if (thieuGiong) {
+    ok(cap.length === 0, 'máy thiếu giọng Anh thì không đọc cặp này');
+  } else {
+    ok(cap.length === 2 && cap[0].chu === 'thirteen' && cap[1].chu === 'thirty',
+      'cả hai đều thật sự được đọc, không cái nào im: ' + JSON.stringify(cap.map((x) => x.chu)));
+  }
+
   console.log('');
   ok(loi.length === 0, 'không lỗi console (' + loi.length + ') ' + loi.slice(0, 2).join(' | '));
   t.dong();

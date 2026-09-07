@@ -470,6 +470,36 @@ export const foundationData = [
         c: '👉 Sau mọi âm còn lại — kể cả nguyên âm → đọc /z/.\n→ dogs /dɒɡz/ · beds /bedz/ · pens /penz/\n→ boys /bɔɪz/ · trees /triːz/ · cars /kɑːz/\n📌 Đây là trường hợp PHỔ BIẾN NHẤT. Không rơi vào nhóm /ɪz/ hay /s/ thì là /z/.\n⚠️ Cẩn thận: chữ "s" nhưng đọc /z/ — "dogs" không đọc "đốc-sờ" mà là /dɒɡz/.'
       },
     ],
+    // ══ NGHE BA NHÁNH CỦA QUY TẮC ĐUÔI -S/-ES ══
+    // Bài này KHÔNG dạy nhớ mặt ký hiệu, nó dạy MỘT QUY TẮC: âm cuối của từ gốc
+    // quyết định đuôi đọc /ɪz/, /s/ hay /z/. Nên `hien` ở đây là chính TỪ ĐÃ
+    // CHIA, và ba nhóm là ba nhánh của quy tắc — nghe liền một nhóm là nghe ra
+    // cái đuôi chung, thứ mà đọc bảng quy tắc bằng mắt không cho được.
+    //
+    // Nhánh /ɪz/ để đầu vì nó là nhánh DUY NHẤT thêm một âm tiết mới; nghe ra
+    // chỗ đó rồi thì hai nhánh còn lại chỉ là rung hay không rung.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: 'buses', doc: 'buses', ipa: '/ˈbʌsɪz/', nhom: 'Đọc /ɪz/ — thêm hẳn một âm tiết' },
+      { hien: 'boxes', doc: 'boxes', ipa: '/ˈbɒksɪz/', nhom: 'Đọc /ɪz/ — thêm hẳn một âm tiết' },
+      { hien: 'watches', doc: 'watches', ipa: '/ˈwɒtʃɪz/', nhom: 'Đọc /ɪz/ — thêm hẳn một âm tiết' },
+      { hien: 'washes', doc: 'washes', ipa: '/ˈwɒʃɪz/', nhom: 'Đọc /ɪz/ — thêm hẳn một âm tiết' },
+      { hien: 'bridges', doc: 'bridges', ipa: '/ˈbrɪdʒɪz/', nhom: 'Đọc /ɪz/ — thêm hẳn một âm tiết' },
+      { hien: 'roses', doc: 'roses', ipa: '/ˈrəʊzɪz/', nhom: 'Đọc /ɪz/ — thêm hẳn một âm tiết' },
+      { hien: 'books', doc: 'books', ipa: '/bʊks/', nhom: 'Đọc /s/ — sau âm vô thanh, không thêm âm tiết' },
+      { hien: 'cats', doc: 'cats', ipa: '/kæts/', nhom: 'Đọc /s/ — sau âm vô thanh, không thêm âm tiết' },
+      { hien: 'maps', doc: 'maps', ipa: '/mæps/', nhom: 'Đọc /s/ — sau âm vô thanh, không thêm âm tiết' },
+      { hien: 'laughs', doc: 'laughs', ipa: '/lɑːfs/', nhom: 'Đọc /s/ — sau âm vô thanh, không thêm âm tiết' },
+      { hien: 'months', doc: 'months', ipa: '/mʌnθs/', nhom: 'Đọc /s/ — sau âm vô thanh, không thêm âm tiết' },
+      { hien: 'dogs', doc: 'dogs', ipa: '/dɒɡz/', nhom: 'Đọc /z/ — sau âm hữu thanh, phổ biến nhất', ghi: 'Không đọc "đốc-sờ" — chữ "s" nhưng âm là /z/.' },
+      { hien: 'beds', doc: 'beds', ipa: '/bedz/', nhom: 'Đọc /z/ — sau âm hữu thanh, phổ biến nhất' },
+      { hien: 'pens', doc: 'pens', ipa: '/penz/', nhom: 'Đọc /z/ — sau âm hữu thanh, phổ biến nhất' },
+      { hien: 'boys', doc: 'boys', ipa: '/bɔɪz/', nhom: 'Đọc /z/ — sau âm hữu thanh, phổ biến nhất' },
+      { hien: 'trees', doc: 'trees', ipa: '/triːz/', nhom: 'Đọc /z/ — sau âm hữu thanh, phổ biến nhất' },
+      { hien: 'cars', doc: 'cars', ipa: '/kɑːz/', nhom: 'Đọc /z/ — sau âm hữu thanh, phổ biến nhất' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Đuôi -es trong "boxes" đọc là gì?', opts: ['/ɪz/', '/s/', '/z/', 'không đọc'], a: '/ɪz/' },
       { id: 2, q: 'Đuôi -s trong "books" đọc là gì?', opts: ['/s/', '/z/', '/ɪz/', '/ʃ/'], a: '/s/' },
@@ -510,6 +540,41 @@ export const foundationData = [
         c: '👉 Sau mọi âm còn lại, kể cả nguyên âm → đọc /d/, KHÔNG thêm âm tiết.\n→ played /pleɪd/ · loved /lʌvd/ · opened /ˈəʊpənd/\n→ called /kɔːld/ · used /juːzd/ · lived /lɪvd/\n📌 Đây là trường hợp phổ biến nhất.\n⚠️ Một số tính từ đuôi -ed lại luôn đọc /ɪd/ dù không sau /t/, /d/: aged /ˈeɪdʒɪd/, naked /ˈneɪkɪd/, wicked /ˈwɪkɪd/. Đây là ngoại lệ, học riêng.'
       },
     ],
+    // ══ NGHE BA NHÁNH CỦA QUY TẮC ĐUÔI -ED ══
+    // Cùng hình dạng với a0_07. Lỗi bài này nêu đích danh — đọc "walked" thành
+    // hai âm tiết "wo-ked" — là lỗi TAI, không phải lỗi hiểu: người học đọc sai
+    // vì chưa từng nghe nó đúng. Nhóm /t/ và /d/ cố ý gom liền để nghe ra rằng
+    // KHÔNG nhóm nào trong hai nhóm đó thêm âm tiết.
+    //
+    // Nhóm cuối là ba tính từ ngoại lệ bài ghi riêng (aged · naked · wicked) —
+    // chúng đọc /ɪd/ dù không đứng sau /t/ hay /d/. Ngoại lệ mà không nghe được
+    // thì chỉ là ba từ phải học thuộc.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: 'wanted', doc: 'wanted', ipa: '/ˈwɒntɪd/', nhom: 'Đọc /ɪd/ — nhánh DUY NHẤT thêm một âm tiết' },
+      { hien: 'needed', doc: 'needed', ipa: '/ˈniːdɪd/', nhom: 'Đọc /ɪd/ — nhánh DUY NHẤT thêm một âm tiết' },
+      { hien: 'started', doc: 'started', ipa: '/ˈstɑːtɪd/', nhom: 'Đọc /ɪd/ — nhánh DUY NHẤT thêm một âm tiết' },
+      { hien: 'decided', doc: 'decided', ipa: '/dɪˈsaɪdɪd/', nhom: 'Đọc /ɪd/ — nhánh DUY NHẤT thêm một âm tiết' },
+      { hien: 'visited', doc: 'visited', ipa: '/ˈvɪzɪtɪd/', nhom: 'Đọc /ɪd/ — nhánh DUY NHẤT thêm một âm tiết' },
+      { hien: 'ended', doc: 'ended', ipa: '/ˈendɪd/', nhom: 'Đọc /ɪd/ — nhánh DUY NHẤT thêm một âm tiết' },
+      { hien: 'walked', doc: 'walked', ipa: '/wɔːkt/', nhom: 'Đọc /t/ — sau âm vô thanh, KHÔNG thêm âm tiết', ghi: 'Một âm tiết thôi — đọc thành "wo-ked" là lỗi phổ biến nhất của bài này.' },
+      { hien: 'stopped', doc: 'stopped', ipa: '/stɒpt/', nhom: 'Đọc /t/ — sau âm vô thanh, KHÔNG thêm âm tiết' },
+      { hien: 'watched', doc: 'watched', ipa: '/wɒtʃt/', nhom: 'Đọc /t/ — sau âm vô thanh, KHÔNG thêm âm tiết' },
+      { hien: 'laughed', doc: 'laughed', ipa: '/lɑːft/', nhom: 'Đọc /t/ — sau âm vô thanh, KHÔNG thêm âm tiết' },
+      { hien: 'missed', doc: 'missed', ipa: '/mɪst/', nhom: 'Đọc /t/ — sau âm vô thanh, KHÔNG thêm âm tiết' },
+      { hien: 'washed', doc: 'washed', ipa: '/wɒʃt/', nhom: 'Đọc /t/ — sau âm vô thanh, KHÔNG thêm âm tiết' },
+      { hien: 'played', doc: 'played', ipa: '/pleɪd/', nhom: 'Đọc /d/ — sau âm hữu thanh, cũng KHÔNG thêm âm tiết' },
+      { hien: 'loved', doc: 'loved', ipa: '/lʌvd/', nhom: 'Đọc /d/ — sau âm hữu thanh, cũng KHÔNG thêm âm tiết' },
+      { hien: 'opened', doc: 'opened', ipa: '/ˈəʊpənd/', nhom: 'Đọc /d/ — sau âm hữu thanh, cũng KHÔNG thêm âm tiết' },
+      { hien: 'called', doc: 'called', ipa: '/kɔːld/', nhom: 'Đọc /d/ — sau âm hữu thanh, cũng KHÔNG thêm âm tiết' },
+      { hien: 'used', doc: 'used', ipa: '/juːzd/', nhom: 'Đọc /d/ — sau âm hữu thanh, cũng KHÔNG thêm âm tiết' },
+      { hien: 'lived', doc: 'lived', ipa: '/lɪvd/', nhom: 'Đọc /d/ — sau âm hữu thanh, cũng KHÔNG thêm âm tiết' },
+      { hien: 'aged', doc: 'aged', ipa: '/ˈeɪdʒɪd/', nhom: 'Ba tính từ ngoại lệ — vẫn đọc /ɪd/' },
+      { hien: 'naked', doc: 'naked', ipa: '/ˈneɪkɪd/', nhom: 'Ba tính từ ngoại lệ — vẫn đọc /ɪd/' },
+      { hien: 'wicked', doc: 'wicked', ipa: '/ˈwɪkɪd/', nhom: 'Ba tính từ ngoại lệ — vẫn đọc /ɪd/' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Đuôi -ed trong "wanted" đọc là gì?', opts: ['/ɪd/', '/t/', '/d/', 'không đọc'], a: '/ɪd/' },
       { id: 2, q: 'Đuôi -ed trong "walked" đọc là gì?', opts: ['/t/', '/d/', '/ɪd/', '/kt/'], a: '/t/' },
@@ -550,6 +615,37 @@ export const foundationData = [
         c: '👉 Đây là mặt còn lại của trọng âm, và là phần người Việt hay bỏ qua.\n→ computer /kəmˈpjuːtə/ — âm tiết 1 và 3 đều nhẹ thành /ə/.\n→ photograph /ˈfəʊtəɡrɑːf/ nhưng photography /fəˈtɒɡrəfi/ — trọng âm chuyển, các âm còn lại đổi theo.\n📌 Nói tiếng Anh mà đọc rõ đều mọi âm tiết thì nghe như đọc từng chữ rời — người nghe phải gắng sức mới hiểu.'
       },
     ],
+    // ══ NGHE TRỌNG ÂM TỪ ══
+    // ⚠️ BỐN CẶP ĐỔI TRỌNG ÂM ĐỔI TỪ LOẠI (ˈrecord ≠ reˈcord, ˈpresent ≠
+    // preˈsent, ˈobject ≠ obˈject, ˈincrease ≠ inˈcrease) CỐ Ý KHÔNG CÓ Ở ĐÂY.
+    // `speechSynthesis` không có mô hình cú pháp bảo đảm đặt trọng âm theo từ
+    // loại: cùng một chuỗi, mỗi bộ máy đọc một kiểu. Đặt vào câu để ép ngữ cảnh
+    // cũng không bảo đảm được. Mà đây đúng là thứ người học bấm thử ĐẦU TIÊN, và
+    // đọc sai một lần là dạy sai đúng cái bài đang cấm. Chúng ở lại phần chữ —
+    // luật "ẨN hoặc BÁO" áp lên chính tính năng này.
+    //
+    // Thứ CÓ ở đây là những từ bộ đọc phát đúng không mập mờ: từ nhiều âm tiết
+    // có một chỗ nhấn duy nhất, và các đuôi kéo trọng âm về một chỗ cố định.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: 'education', doc: 'education', nhom: 'Đuôi kéo trọng âm về ngay TRƯỚC nó', ghi: 'eduˈcation — nhấn ngay trước đuôi -tion.' },
+      { hien: 'decision', doc: 'decision', nhom: 'Đuôi kéo trọng âm về ngay TRƯỚC nó', ghi: 'deˈcision — cùng quy tắc với -sion.' },
+      { hien: 'musician', doc: 'musician', nhom: 'Đuôi kéo trọng âm về ngay TRƯỚC nó', ghi: 'muˈsician — cùng quy tắc với -cian.' },
+      { hien: 'ability', doc: 'ability', nhom: 'Đuôi kéo trọng âm về ngay TRƯỚC nó', ghi: 'aˈbility — đuôi -ity kéo trọng âm về trước nó.' },
+      { hien: 'logical', doc: 'logical', nhom: 'Đuôi kéo trọng âm về ngay TRƯỚC nó', ghi: 'ˈlogical — đuôi -ical.' },
+      { hien: 'classify', doc: 'classify', nhom: 'Đuôi kéo trọng âm về ngay TRƯỚC nó', ghi: 'ˈclassify — đuôi -ify.' },
+      { hien: 'employee', doc: 'employee', nhom: 'Đuôi -ee, -eer, -ese — nhấn CHÍNH cái đuôi', ghi: 'emploˈyee — nhấn vào đuôi, không nhấn âm đầu.' },
+      { hien: 'engineer', doc: 'engineer', nhom: 'Đuôi -ee, -eer, -ese — nhấn CHÍNH cái đuôi', ghi: 'engiˈneer' },
+      { hien: 'Vietnamese', doc: 'Vietnamese', nhom: 'Đuôi -ee, -eer, -ese — nhấn CHÍNH cái đuôi', ghi: 'Vietnaˈmese — người Việt hay nhấn sai chính tên nước mình.' },
+      { hien: 'bookshop', doc: 'bookshop', nhom: 'Từ ghép danh từ — nhấn phần ĐẦU' },
+      { hien: 'football', doc: 'football', nhom: 'Từ ghép danh từ — nhấn phần ĐẦU' },
+      { hien: 'classroom', doc: 'classroom', nhom: 'Từ ghép danh từ — nhấn phần ĐẦU' },
+      { hien: 'computer', doc: 'computer', ipa: '/kəmˈpjuːtə/', nhom: 'Âm tiết không nhấn bị nuốt thành /ə/', ghi: 'Âm tiết 1 và 3 đều nhẹ thành /ə/.' },
+      { hien: 'photograph', doc: 'photograph', ipa: '/ˈfəʊtəɡrɑːf/', nhom: 'Âm tiết không nhấn bị nuốt thành /ə/', ghi: 'Nghe liền với photography ngay bên cạnh.' },
+      { hien: 'photography', doc: 'photography', ipa: '/fəˈtɒɡrəfi/', nhom: 'Âm tiết không nhấn bị nuốt thành /ə/', ghi: 'Trọng âm chuyển, các âm còn lại đổi theo.' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Trong phiên âm, dấu ˈ đặt ở đâu?', opts: ['Ngay trước âm tiết mang trọng âm', 'Ngay sau âm tiết mang trọng âm', 'Đầu từ', 'Cuối từ'], a: 'Ngay trước âm tiết mang trọng âm' },
       { id: 2, q: '"ˈrecord" (nhấn âm đầu) là từ loại gì?', opts: ['Danh từ — bản ghi', 'Động từ — ghi âm', 'Tính từ', 'Trạng từ'], a: 'Danh từ — bản ghi' },
@@ -590,6 +686,27 @@ export const foundationData = [
         c: '↘️ XUỐNG giọng cuối câu: câu kể, câu hỏi có từ để hỏi (Wh-).\n→ I live in Hanoi. ↘  ·  Where do you live? ↘\n↗️ LÊN giọng cuối câu: câu hỏi Yes/No, câu hỏi đuôi để xác nhận, câu chưa nói hết.\n→ Do you like coffee? ↗  ·  You are Nam, aren\'t you? ↗\n📌 Cùng một câu, đổi ngữ điệu là đổi ý: "Really." ↘ (à ra vậy) khác "Really?" ↗ (thật á?).'
       },
     ],
+    // ══ NGHE NHỊP CÂU VÀ NGỮ ĐIỆU ══
+    // Bài này nói người Việt nghe tiếng Anh thấy "nói nhanh quá" là vì người ta
+    // NUỐT phần không nhấn, chứ không phải nói nhanh. Câu đó chỉ chứng minh được
+    // bằng tai — đọc mô tả bằng chữ thì vẫn không biết cái bị nuốt nghe ra sao.
+    //
+    // Đơn vị nói ở đây là CẢ CÂU, nên các mục không có `ipa`. Hai câu cuối là
+    // cặp ngữ điệu: cùng nội dung, xuống giọng là câu kể, lên giọng là câu hỏi.
+    // ⚠️ Giọng máy đọc ngữ điệu KÉM hơn nhiều so với đọc từ đơn — đây là chỗ
+    // người học nên nghe bản thu người thật ở phần Luyện Nghe. Nhãn "Giọng máy
+    // đọc" ở đầu panel đã nói ra điều đó và không được gỡ.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: 'I WANT to BUY a BOOK for my BROther.', doc: 'I WANT to BUY a BOOK for my BROther.', nhom: 'Câu có bốn chỗ nhấn — phần còn lại lướt qua', ghi: 'Bốn chỗ viết hoa là bốn nhịp nhấn; a · to · for · my lướt qua.' },
+      { hien: 'Fish and chips', doc: 'Fish and chips', nhom: 'Dạng yếu — từ chức năng đổi cách đọc khi không nhấn', ghi: 'Nghe như "fish ən chips". Chờ nghe /ænd/ thì nghe mãi không ra.' },
+      { hien: 'I live in Hanoi.', doc: 'I live in Hanoi.', nhom: 'Ngữ điệu XUỐNG — câu kể và câu hỏi Wh-' },
+      { hien: 'Where do you live?', doc: 'Where do you live?', nhom: 'Ngữ điệu XUỐNG — câu kể và câu hỏi Wh-' },
+      { hien: 'Do you like coffee?', doc: 'Do you like coffee?', nhom: 'Ngữ điệu LÊN — câu hỏi Yes/No và câu hỏi đuôi' },
+      { hien: 'You are Nam, aren\'t you?', doc: 'You are Nam, aren\'t you?', nhom: 'Ngữ điệu LÊN — câu hỏi Yes/No và câu hỏi đuôi' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Tiếng Anh tính nhịp theo cái gì?', opts: ['Theo trọng âm', 'Theo âm tiết', 'Theo số từ', 'Theo dấu câu'], a: 'Theo trọng âm' },
       { id: 2, q: 'Vì sao người Việt nghe tiếng Anh thấy "nói nhanh quá"?', opts: ['Vì phần không nhấn bị nuốt đi', 'Vì người bản ngữ nói nhanh thật', 'Vì thiếu từ vựng', 'Vì âm thanh nhỏ'], a: 'Vì phần không nhấn bị nuốt đi' },
@@ -630,6 +747,31 @@ export const foundationData = [
         c: '👉 Hai phụ âm giống nhau đứng cạnh → chỉ giữ một, kéo dài hơn chút.\n→ "bus stop" → "bu-stop" (một /s/ dài)\n→ "big girl" → "bi-girl"\n→ "good day" → "goo-day"\n⚠️ Đừng nhầm với việc NUỐT ÂM CUỐI (bài 6). Ở đây âm vẫn được phát ra, chỉ là không phát hai lần.'
       },
     ],
+    // ══ NGHE NỐI ÂM ══
+    // Bài ghi: đây là lý do lớn thứ hai (sau dạng yếu) khiến người học nghe
+    // không ra — "bạn đang tìm ranh giới giữa các từ, nhưng ranh giới đó không
+    // tồn tại trong lời nói". Một câu chỉ nghe mới hiểu được.
+    //
+    // Mỗi mục là một CỤM, đọc liền hơi như thể nó là một từ dài. Không có `ipa`
+    // vì bài viết cách nghe bằng chữ Việt hoá ("pi-ki-tup"), không bằng phiên âm.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: 'pick it up', doc: 'pick it up', nhom: 'Phụ âm + nguyên âm — kiểu nối phổ biến nhất', ghi: 'Nghe như "pi-ki-tup".' },
+      { hien: 'look at it', doc: 'look at it', nhom: 'Phụ âm + nguyên âm — kiểu nối phổ biến nhất', ghi: 'Nghe như "loo-ka-tit".' },
+      { hien: 'come in', doc: 'come in', nhom: 'Phụ âm + nguyên âm — kiểu nối phổ biến nhất', ghi: 'Nghe như "co-min".' },
+      { hien: 'far away', doc: 'far away', nhom: 'Phụ âm + nguyên âm — kiểu nối phổ biến nhất', ghi: 'Nghe như "fa-raway".' },
+      { hien: 'an apple', doc: 'an apple', nhom: 'Phụ âm + nguyên âm — kiểu nối phổ biến nhất', ghi: 'Nghe như "a-napple".' },
+      { hien: 'turn off', doc: 'turn off', nhom: 'Phụ âm + nguyên âm — kiểu nối phổ biến nhất', ghi: 'Nghe như "tur-noff".' },
+      { hien: 'I am', doc: 'I am', nhom: 'Nguyên âm + nguyên âm — chèn âm đệm /j/ hoặc /w/', ghi: 'Chèn /j/: "I-yam".' },
+      { hien: 'she is', doc: 'she is', nhom: 'Nguyên âm + nguyên âm — chèn âm đệm /j/ hoặc /w/', ghi: 'Chèn /j/: "she-yis".' },
+      { hien: 'go out', doc: 'go out', nhom: 'Nguyên âm + nguyên âm — chèn âm đệm /j/ hoặc /w/', ghi: 'Chèn /w/: "go-wout".' },
+      { hien: 'do it', doc: 'do it', nhom: 'Nguyên âm + nguyên âm — chèn âm đệm /j/ hoặc /w/', ghi: 'Chèn /w/: "do-wit".' },
+      { hien: 'bus stop', doc: 'bus stop', nhom: 'Phụ âm giống nhau gặp nhau — chỉ phát một lần', ghi: 'Một /s/ dài, không phải hai lần /s/.' },
+      { hien: 'big girl', doc: 'big girl', nhom: 'Phụ âm giống nhau gặp nhau — chỉ phát một lần' },
+      { hien: 'good day', doc: 'good day', nhom: 'Phụ âm giống nhau gặp nhau — chỉ phát một lần' },
+      ],
+    },
     exercises: [
       { id: 1, q: '"an apple" trong lời nói liền hơi nghe như thế nào?', opts: ['a-napple', 'an-apple tách rời', 'a-apple', 'ana-pple'], a: 'a-napple' },
       { id: 2, q: 'Kiểu nối âm phổ biến nhất là gì?', opts: ['Phụ âm cuối + nguyên âm đầu', 'Nguyên âm + nguyên âm', 'Phụ âm + phụ âm', 'Nguyên âm + phụ âm'], a: 'Phụ âm cuối + nguyên âm đầu' },
@@ -670,6 +812,37 @@ export const foundationData = [
         c: '🇬🇧 Anh-Anh: ngày trước tháng — 5/3/2026 = 5 March 2026, đọc "the fifth of March".\n🇺🇸 Anh-Mỹ: tháng trước ngày — 3/5/2026 = March 5, 2026, đọc "March fifth".\n⚠️ Cùng chuỗi "5/3" mà một bên hiểu là 5 tháng 3, bên kia hiểu là 3 tháng 5. Khi viết cho người lạ, ghi tên tháng bằng chữ để khỏi nhầm.\n📌 Năm: 1995 đọc "nineteen ninety-five"; 2026 đọc "twenty twenty-six" hoặc "two thousand and twenty-six".'
       },
     ],
+    // ══ NGHE SỐ ĐẾM VÀ CẶP -TEEN / -TY ══
+    // Nhóm -teen/-ty là lý do chính bài này cần tiếng. Bài ghi rõ: người bản ngữ
+    // phân biệt 13 với 30 CHÍNH BẰNG TRỌNG ÂM, không bằng âm cuối — mà trọng âm
+    // thì không mô tả bằng chữ cho ai nghe ra được.
+    //
+    // Khác với bốn cặp bị loại ở a0_09: "thirteen" và "thirty" là HAI TỪ KHÁC
+    // NHAU, khác cả chính tả lẫn âm, nên bộ đọc không có gì để chọn sai.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: 'thirteen', doc: 'thirteen', nhom: 'Bốn số viết không theo quy luật', ghi: 'Không phải "threeteen".' },
+      { hien: 'fifteen', doc: 'fifteen', nhom: 'Bốn số viết không theo quy luật', ghi: 'Không phải "fiveteen".' },
+      { hien: 'eighteen', doc: 'eighteen', nhom: 'Bốn số viết không theo quy luật', ghi: 'Chỉ một chữ t.' },
+      { hien: 'twenty', doc: 'twenty', nhom: 'Bốn số viết không theo quy luật' },
+      { hien: 'thirteen', doc: 'thirteen', nhom: '-TEEN ≠ -TY — bấm liền hai nút, khác nhau ở TRỌNG ÂM' },
+      { hien: 'thirty', doc: 'thirty', nhom: '-TEEN ≠ -TY — bấm liền hai nút, khác nhau ở TRỌNG ÂM' },
+      { hien: 'fourteen', doc: 'fourteen', nhom: '-TEEN ≠ -TY — bấm liền hai nút, khác nhau ở TRỌNG ÂM' },
+      { hien: 'forty', doc: 'forty', nhom: '-TEEN ≠ -TY — bấm liền hai nút, khác nhau ở TRỌNG ÂM', ghi: 'Chính tả không có chữ u như "four".' },
+      { hien: 'fifteen', doc: 'fifteen', nhom: '-TEEN ≠ -TY — bấm liền hai nút, khác nhau ở TRỌNG ÂM' },
+      { hien: 'fifty', doc: 'fifty', nhom: '-TEEN ≠ -TY — bấm liền hai nút, khác nhau ở TRỌNG ÂM' },
+      { hien: 'first', doc: 'first', nhom: 'Số thứ tự dễ đọc sai' },
+      { hien: 'second', doc: 'second', nhom: 'Số thứ tự dễ đọc sai' },
+      { hien: 'third', doc: 'third', nhom: 'Số thứ tự dễ đọc sai' },
+      { hien: 'fourth', doc: 'fourth', nhom: 'Số thứ tự dễ đọc sai' },
+      { hien: 'fifth', doc: 'fifth', nhom: 'Số thứ tự dễ đọc sai' },
+      { hien: 'eighth', doc: 'eighth', nhom: 'Số thứ tự dễ đọc sai' },
+      { hien: 'ninth', doc: 'ninth', nhom: 'Số thứ tự dễ đọc sai', ghi: 'Bỏ chữ e của "nine".' },
+      { hien: 'twelfth', doc: 'twelfth', nhom: 'Số thứ tự dễ đọc sai' },
+      { hien: 'twentieth', doc: 'twentieth', nhom: 'Số thứ tự dễ đọc sai' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Số 13 nhấn trọng âm ở đâu?', opts: ['Âm sau — thirˈteen', 'Âm đầu — ˈthirteen', 'Cả hai như nhau', 'Không có trọng âm'], a: 'Âm sau — thirˈteen' },
       { id: 2, q: 'Số 30 nhấn trọng âm ở đâu?', opts: ['Âm đầu — ˈthirty', 'Âm sau — thirˈty', 'Cả hai như nhau', 'Không có trọng âm'], a: 'Âm đầu — ˈthirty' },
