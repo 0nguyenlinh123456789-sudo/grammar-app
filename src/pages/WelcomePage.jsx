@@ -549,6 +549,14 @@ const WelcomePage = ({
                  <div>
                    <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Tiến Độ & XP</p>
                    <p className="text-2xl font-black text-slate-900 dark:text-slate-100 leading-none mt-1">{completedCount}/{totalMilestonesCount} <span className="text-sm text-yellow-600 dark:text-yellow-500">({xp} XP)</span></p>
+                   {/* Người học MỚI chỉ thấy "0/724 (0 XP)" và không gì khác. Không bịa
+                       số — con số 0 vẫn đúng và vẫn hiện — nhưng thêm một dòng nói được
+                       BƯỚC KẾ TIẾP dài bao lâu, thứ duy nhất có ích ở màn hình này. */}
+                   {completedCount === 0 && nextMilestone && (
+                     <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 mt-1">
+                       Chưa xong chặng nào · chặng đầu ~{nextMilestone.minutes || 15} phút
+                     </p>
+                   )}
                  </div>
                </div>
 
@@ -559,8 +567,15 @@ const WelcomePage = ({
                    <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Chuỗi Học Tập</p>
                    <p className="text-2xl font-black text-slate-900 dark:text-slate-100 leading-none mt-1">{streak} <span className="text-sm text-rose-500">Ngày</span></p>
                    <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 mt-0.5">
-                     {bestStreak > 0 && <>🏆 Kỷ lục: {bestStreak} ngày · </>}
-                     <span title="Nghỉ lỡ 1 ngày sẽ tự dùng 1 lần đóng băng để giữ chuỗi. Mỗi tháng có 2 lần.">🧊 Đóng băng: {freezesLeft()}/2</span>
+                     {/* "🧊 Đóng băng: 2/2" chỉ có nghĩa với người ĐANG có chuỗi. Người
+                         chưa học ngày nào đọc dòng đó không hiểu gì — mà đây lại là màn
+                         hình đầu tiên họ nhìn thấy. */}
+                     {streak === 0 && bestStreak === 0
+                       ? <>Học một chặng hôm nay là bắt đầu ngày 1 🔥</>
+                       : <>
+                           {bestStreak > 0 && <>🏆 Kỷ lục: {bestStreak} ngày · </>}
+                           <span title="Nghỉ lỡ 1 ngày sẽ tự dùng 1 lần đóng băng để giữ chuỗi. Mỗi tháng có 2 lần.">🧊 Đóng băng: {freezesLeft()}/2</span>
+                         </>}
                    </p>
                    {frozeToday() && <p className="text-[10px] font-black text-sky-600 dark:text-sky-400 mt-0.5">🧊 Chuỗi của bạn vừa được cứu hôm nay!</p>}
                  </div>
