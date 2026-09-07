@@ -31,9 +31,31 @@ export const LOI_DOC = {
 
 export const loiDocThanhChu = (ma) => LOI_DOC[ma] || LOI_DOC[KHONG_HO_TRO];
 
-/** Trình duyệt có bộ đọc không. Tách riêng để test và giao diện cùng hỏi một câu. */
+/**
+ * Trình duyệt có bộ đọc DÙNG ĐƯỢC không. Tách riêng để test và giao diện cùng
+ * hỏi một câu.
+ *
+ * ⚠️ PHẢI CHẠM THẬT VÀO THUỘC TÍNH, không được dừng ở toán tử `in`.
+ * `'speechSynthesis' in window` chỉ hỏi "có khai tên này không" và KHÔNG gọi
+ * getter — nên trên trình duyệt chặn bộ đọc bằng một getter ném, câu hỏi này
+ * trả về true trong khi bộ đọc không dùng được. Hậu quả không phải màn trắng
+ * (đã vá ở `theoDoiGiong`) mà là LỜI KHUYÊN SAI: `docTo` rơi tiếp xuống nhánh
+ * "máy chưa cài giọng tiếng Anh nào — vào Cài đặt tải giọng English", và người
+ * học đi làm một việc chẳng liên quan gì tới nguyên nhân thật.
+ *
+ * Cùng bài học với `typeof localStorage` hồi 09/2026: hỏi cho có thì câu trả
+ * lời cũng chỉ cho có.
+ */
 export function docDuoc() {
-  return typeof window !== 'undefined' && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance === 'function';
+  if (typeof window === 'undefined') return false;
+  try {
+    // CẢ HAI phép đọc phải nằm trong try. `typeof SpeechSynthesisUtterance`
+    // trông như một phép hỏi an toàn nhưng KHÔNG PHẢI: `typeof` chỉ tránh
+    // ReferenceError cho tên CHƯA TỪNG khai; tên này có trên `window`, nên
+    // `typeof` vẫn phân giải thuộc tính và vẫn CHẠY getter. Trên trình duyệt
+    // chặn bộ đọc bằng getter ném, chính dòng phòng thủ này là dòng nổ.
+    return typeof window.SpeechSynthesisUtterance === 'function' && !!window.speechSynthesis;
+  } catch { return false; }
 }
 
 /**
@@ -69,13 +91,25 @@ export function chonGiongAnh(uaThich = 'en-GB') {
  * @returns {() => void} hàm gỡ theo dõi
  */
 export function theoDoiGiong(bao) {
-  if (!docDuoc()) { bao(); return () => {}; }
-  const s = window.speechSynthesis;
   bao();
+  // ⚠️ `window.speechSynthesis` PHẢI nằm trong try, không được đứng ngoài.
+  //
+  // `docDuoc()` dùng toán tử `in`, mà `in` KHÔNG gọi getter — nên trên một
+  // trình duyệt chặn bộ đọc bằng cách cho getter ném, `docDuoc()` vẫn trả về
+  // true và dòng đọc thuộc tính ở đây mới là chỗ nổ. Hàm này chạy trong
+  // `useEffect` của NghePhatAm: ngoại lệ ở đó làm React gỡ cả nhánh, panel
+  // thành khoảng trắng — mất luôn phần nghe VÀ phần chấm phát âm.
+  //
+  // Đúng họ với lỗi `typeof localStorage` hồi 09/2026: cái chốt viết ra CHÍNH
+  // ĐỂ an toàn mà tự nó không an toàn. Xem tests/doc_tieng_anh.test.js.
+  let s;
+  try { s = window.speechSynthesis; } catch { return () => {}; }
+  if (!s) return () => {};
+
   const g = () => bao();
-  try { s.addEventListener('voiceschanged', g); } catch { s.onvoiceschanged = g; }
+  try { s.addEventListener('voiceschanged', g); } catch { try { s.onvoiceschanged = g; } catch { /* ignore */ } }
   return () => {
-    try { s.removeEventListener('voiceschanged', g); } catch { s.onvoiceschanged = null; }
+    try { s.removeEventListener('voiceschanged', g); } catch { try { s.onvoiceschanged = null; } catch { /* ignore */ } }
   };
 }
 
@@ -99,7 +133,7 @@ export function docTo(chu, { giong = 'en-GB', nhipDo = 0.85 } = {}) {
 
   try {
     window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(t);
+    const u = new window.SpeechSynthesisUtterance(t);
     u.voice = v;
     u.lang = v.lang;
     u.rate = nhipDo;
