@@ -16,7 +16,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 import {
-  boDau, chiMucKhoaHoc, timTrongKhoaHoc, NHAN_LOAI, SO_LOAI_TIM_DUOC,
+  boDau, chiMucKhoaHoc, timTrongKhoaHoc, timVaDem, NHAN_LOAI, SO_LOAI_TIM_DUOC,
 } from '../src/utils/timKiem.js';
 import { roadmapData } from '../src/data/roadmapData.js';
 
@@ -167,8 +167,55 @@ test('MainLayout KHÔNG còn dựng kết quả từ ba prop nạp trễ', () =>
   // dựng lại đúng lỗi cũ, và lỗi cũ thì im lặng — không test nào khác thấy.
   // (fs nhập ở đầu tệp — tệp này là ES module, không có `require`.)
   const src = fs.readFileSync(new URL('../src/layouts/MainLayout.jsx', import.meta.url), 'utf8');
-  assert.ok(src.includes('timTrongKhoaHoc('),
-    'MainLayout không còn gọi timTrongKhoaHoc — ô tìm kiếm vừa quay về đường cũ');
+  // DỜI MỐC SANG BIÊN MỚI, không phải nới: hàm được gọi đổi tên từ
+  // `timTrongKhoaHoc` sang `timVaDem` khi thêm phép đếm tổng. Ràng buộc thật
+  // vẫn y nguyên — MainLayout phải đi qua module chỉ mục, không được đọc prop.
+  // Dùng `includes` chứ KHÔNG dùng regex có ký tự thoát dấu-b: viết nó qua
+  // shell vào tệp thì thành BYTE 0x08 thật, regex không bao giờ khớp, mà
+  // sed/grep không hiện ký tự điều khiển nên nhìn mã vẫn thấy đúng. Lần thứ
+  // ba dính bẫy này trong dự án — chỉ `cat -A` mới lộ ra.
+  assert.ok(src.includes('timVaDem('),
+    'MainLayout không còn gọi vào module chỉ mục — ô tìm kiếm vừa quay về đường cũ');
   assert.ok(!/globalResults\s*=\s*searchTerm\s*\?\s*\[/.test(src),
     'MainLayout đang dựng lại globalResults từ prop — chính là lỗi đã sửa');
+});
+
+// ══════════════════════ CẮT BỚT THÌ PHẢI NÓI RA ══════════════════════
+
+test('đếm được TỔNG số bài khớp, không chỉ số dòng hiện ra', () => {
+  // Đo được trước khi sửa: gõ "unit" hiện 12 dòng trong khi có 260 bài khớp,
+  // và không có gì trên màn nói ra điều đó. Một danh sách bị cắt trông y hệt
+  // một danh sách đầy đủ — đúng vế "im lặng" mà luật của dự án cấm.
+  const { ds, tong } = timVaDem('unit');
+  assert.equal(ds.length, 12, `hiện ${ds.length} dòng, mốc là 12`);
+  assert.ok(tong > 200,
+    `tổng khớp chỉ ${tong} — phép đếm đang đếm số dòng hiện ra chứ không đếm số khớp thật`);
+});
+
+test('tổng và danh sách khớp nhau khi kết quả ÍT hơn trần', () => {
+  // Trường hợp biên dễ sai nhất: đếm thừa ở đây sẽ làm màn hình báo "còn 0
+  // bài nữa", một câu vô nghĩa hiện ra với người học.
+  const { ds, tong } = timVaDem('bảng chữ cái');
+  assert.ok(ds.length > 0);
+  assert.equal(tong, ds.length,
+    `ít hơn trần mà tổng (${tong}) vẫn khác số dòng (${ds.length})`);
+});
+
+test('từ khoá không có thật thì tổng bằng 0', () => {
+  assert.deepEqual(timVaDem('zzqqxxvv khong ton tai'), { ds: [], tong: 0 });
+  assert.deepEqual(timVaDem('a'), { ds: [], tong: 0 });
+});
+
+test('timTrongKhoaHoc vẫn trả về đúng mảng như cũ', () => {
+  // Hàm cũ còn được dùng chỗ khác và có bài kiểm riêng ở trên. Tách ra làm
+  // hai hàm mà đổi luôn hành vi của hàm cũ là sửa một chỗ hỏng hai chỗ.
+  assert.deepEqual(timTrongKhoaHoc('bảng chữ cái'), timVaDem('bảng chữ cái').ds);
+});
+
+test('MainLayout CÓ nói ra khi danh sách bị cắt', () => {
+  const src = fs.readFileSync(new URL('../src/layouts/MainLayout.jsx', import.meta.url), 'utf8');
+  assert.ok(/tongKetQua > globalResults\.length/.test(src),
+    'MainLayout không còn so tổng với số dòng — danh sách lại bị cắt trong im lặng');
+  assert.ok(/bài nữa khớp/.test(src),
+    'mất câu báo còn bao nhiêu bài nữa');
 });

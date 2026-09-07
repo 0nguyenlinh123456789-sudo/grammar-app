@@ -9,7 +9,7 @@ import NutCaiApp from '../components/common/NutCaiApp';
 import BunnyChat from '../components/common/BunnyChat';
 import { hasGeminiKey, subscribeGeminiKey, subscribeOpenAiKeySettings } from '../utils/aiKey';
 import { SHOW_IELTS_FOUNDATION } from '../utils/localOnly';
-import { timTrongKhoaHoc } from '../utils/timKiem';
+import { timVaDem } from '../utils/timKiem';
 import { yeuCauMoChang } from '../utils/moChang';
 
 const MainLayout = ({
@@ -87,7 +87,7 @@ const MainLayout = ({
   // TIÊN, đúng lúc cả ba còn rỗng. Hậu quả đo được: mọi từ khoá đều ra
   // "Không tìm thấy bài phù hợp." kể cả với bài có thật. Xem src/utils/timKiem.js.
   const searchTerm = globalSearch.trim();
-  const globalResults = timTrongKhoaHoc(searchTerm);
+  const { ds: globalResults, tong: tongKetQua } = timVaDem(searchTerm);
 
   const selectSearchResult = (result) => {
     setGlobalSearch(''); setIsGlobalSearchOpen(false); setMenuOpen(false);
@@ -180,6 +180,16 @@ const MainLayout = ({
                   <span className="block text-sm font-black truncate">{result.tieuDe}</span>
                   <span className="text-[10px] font-black uppercase text-blue-600">{result.nhan}{result.cefr ? ` · ${result.cefr}` : ''}</span>
                 </button>) : <p className="p-3 text-xs font-bold text-slate-500">Không tìm thấy bài phù hợp.</p>}
+                {/* CẮT BỚT THÌ PHẢI NÓI RA. Đo được: gõ "unit" ra 12 dòng
+                    trong khi có 260 bài khớp. Một danh sách bị cắt trông y hệt
+                    một danh sách đầy đủ — đúng vế "im lặng" mà luật của dự án
+                    cấm. Không nới trần lên (260 dòng trên điện thoại còn vô
+                    dụng hơn), mà nói ra kèm cách thu hẹp. */}
+                {tongKetQua > globalResults.length && (
+                  <p data-cong-cu="con-lai-tim" className="p-3 pt-1 text-[11px] font-bold text-slate-500 dark:text-slate-400 border-t-2 border-slate-200 dark:border-slate-700">
+                    Còn {tongKetQua - globalResults.length} bài nữa khớp — gõ thêm chữ cho hẹp lại.
+                  </p>
+                )}
               </div>}
             </div>}
 

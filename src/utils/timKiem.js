@@ -112,18 +112,26 @@ export function chiMucKhoaHoc() {
  * Từ khoá dưới 2 ký tự trả về rỗng: gõ một chữ "a" khớp gần như mọi bài, và
  * một danh sách 12 dòng ngẫu nhiên thì vô dụng hơn là không có gì.
  */
-export function timTrongKhoaHoc(tuKhoa, { toiDa = 12 } = {}) {
+export function timVaDem(tuKhoa, { toiDa = 12 } = {}) {
   const q = boDau(tuKhoa);
-  if (q.length < 2) return [];
+  if (q.length < 2) return { ds: [], tong: 0 };
   const hang = [[], [], []];
   for (const m of chiMucKhoaHoc()) {
     if (m.tieuDeKhong.startsWith(q)) hang[0].push(m);
     else if (m.tieuDeKhong.includes(q)) hang[1].push(m);
     else if (m.moTaKhong.includes(q)) hang[2].push(m);
     // Đủ hàng đầu rồi vẫn phải quét hết: cắt sớm sẽ bỏ mất bài khớp tiêu đề
-    // nằm ở cuối lộ trình, và người học không có cách nào biết mình bị cắt.
+    // nằm ở cuối lộ trình, VÀ làm `tong` bên dưới thành một con số dối.
   }
-  return [...hang[0], ...hang[1], ...hang[2]].slice(0, toiDa);
+  const tatCa = [...hang[0], ...hang[1], ...hang[2]];
+  // `tong` là số khớp THẬT, không phải số dòng hiện ra. Nó tồn tại để màn
+  // hình NÓI RA được rằng danh sách đang bị cắt.
+  return { ds: tatCa.slice(0, toiDa), tong: tatCa.length };
+}
+
+// Bản chỉ lấy danh sách, cho chỗ không cần biết tổng.
+export function timTrongKhoaHoc(tuKhoa, tuyChon) {
+  return timVaDem(tuKhoa, tuyChon).ds;
 }
 
 // Dùng cho bài kiểm: xoá bộ nhớ đệm để dựng lại chỉ mục.
