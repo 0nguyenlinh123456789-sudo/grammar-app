@@ -124,6 +124,36 @@ export const foundationData = [
         c: '👉 /ə/ là âm "ơ" rất nhẹ, luôn nằm ở âm tiết KHÔNG mang trọng âm.\n→ banana /bəˈnɑːnə/ — chữ "a" đầu và cuối đều thành /ə/.\n→ teacher /ˈtiːtʃə/ — đuôi "er" thành /ə/.\n⚠️ Lỗi phổ biến của người Việt: đọc rõ mọi âm tiết như nhau. Tiếng Anh thì ngược lại — âm tiết không mang trọng âm bị nuốt thành /ə/. Đọc rõ hết là nghe rất "cứng".'
       },
     ],
+    // ══ NGHE ĐỌC KÝ HIỆU IPA ══
+    // ⚠️ KHÁC HẲN a0_01: ở đây `doc` KHÔNG BAO GIỜ bằng `hien`.
+    // Không bộ đọc nào phát ra được ký hiệu /θ/ — đưa "θ" cho `speak()` thì nó
+    // đọc dấu câu hoặc im. Cách duy nhất nghe được một ÂM là nghe nó nằm trong
+    // một TỪ. Nên `hien` là ký hiệu (thứ bài đang dạy nhớ mặt), còn `doc` là từ
+    // ví dụ — đúng những từ mục III đã dùng, không đổi sang từ khác.
+    //
+    // Nhóm thứ hai lấy từ mục I: năm từ cùng chữ "ough" mà đọc năm kiểu. Đó là
+    // luận điểm chính của cả bài ("chính tả tiếng Anh không đáng tin"), và nó
+    // chỉ thuyết phục khi NGHE được năm kiểu đó khác nhau thật.
+    nghe: {
+      giong: 'en-GB', // mọi IPA trong bài viết theo Anh-Anh (/ɑː/, /əʊ/, /ɒ/)
+      muc: [
+      { hien: 'θ', doc: 'think', ipa: '/θɪŋk/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "th" thổi hơi, không rung' },
+      { hien: 'ð', doc: 'this', ipa: '/ðɪs/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "th" rung' },
+      { hien: 'ʃ', doc: 'she', ipa: '/ʃiː/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "s" tròn môi' },
+      { hien: 'ʒ', doc: 'vision', ipa: '/ˈvɪʒən/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "d" mềm' },
+      { hien: 'tʃ', doc: 'chair', ipa: '/tʃeə/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "ch"' },
+      { hien: 'dʒ', doc: 'job', ipa: '/dʒɒb/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "j"' },
+      { hien: 'ŋ', doc: 'sing', ipa: '/sɪŋ/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "ng" cuối' },
+      { hien: 'ə', doc: 'about', ipa: '/əˈbaʊt/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "ơ" nhẹ nhất (schwa)' },
+      { hien: 'ʌ', doc: 'cup', ipa: '/kʌp/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "â" ngắn' },
+      { hien: 'ɜː', doc: 'bird', ipa: '/bɜːd/', nhom: 'Ký hiệu không giống chữ cái', ghi: 'âm "ơ" dài' },
+      { hien: 'though', doc: 'though', ipa: '/ðəʊ/', nhom: 'Cùng chữ "ough", năm cách đọc' },
+      { hien: 'through', doc: 'through', ipa: '/θruː/', nhom: 'Cùng chữ "ough", năm cách đọc' },
+      { hien: 'tough', doc: 'tough', ipa: '/tʌf/', nhom: 'Cùng chữ "ough", năm cách đọc' },
+      { hien: 'cough', doc: 'cough', ipa: '/kɒf/', nhom: 'Cùng chữ "ough", năm cách đọc' },
+      { hien: 'thought', doc: 'thought', ipa: '/θɔːt/', nhom: 'Cùng chữ "ough", năm cách đọc' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Dấu ˈ trong phiên âm /ˈwɔːtə/ có nghĩa gì?', opts: ['Âm tiết ngay sau nó mang trọng âm', 'Âm tiết ngay trước nó mang trọng âm', 'Đọc to cả từ', 'Ngắt hơi ở đó'], a: 'Âm tiết ngay sau nó mang trọng âm' },
       { id: 2, q: 'Dấu ː trong /iː/ nghĩa là gì?', opts: ['Âm đó kéo dài', 'Âm đó đọc to', 'Âm đó bị câm', 'Ngắt câu'], a: 'Âm đó kéo dài' },

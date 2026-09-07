@@ -118,3 +118,43 @@ test('tab Nghe & Đọc chỉ hiện khi có mục đọc được', () => {
   const loc = s.slice(s.indexOf('const availableTabs'), s.indexOf('const availableTabs') + 260);
   assert.doesNotMatch(loc, /phatam/, "'phatam' bị đưa vào danh sách luôn-khả-dụng — 11 bài A0 khác sẽ hiện tab rỗng");
 });
+
+// ── BÀI IPA: `doc` KHÔNG BAO GIỜ ĐƯỢC BẰNG `hien` ──────────────────────────
+// Đây là khác biệt lớn nhất giữa hai bài, và là chỗ dễ hỏng nhất khi ai đó
+// "cho đồng bộ với a0_01". `speechSynthesis` KHÔNG phát ra được ký hiệu /θ/ —
+// đưa "θ" cho `speak()` thì nó đọc dấu câu hoặc im. Cách duy nhất nghe được một
+// ÂM là nghe nó nằm trong một TỪ.
+
+test('bài IPA nghe được, và nghe bằng TỪ VÍ DỤ chứ không phải ký hiệu', () => {
+  const t = foundationData.find((x) => x.id === 'a0_02');
+  assert.ok(t.nghe, 'bài dạy IPA vẫn là một trang chữ câm');
+  for (const m of t.nghe.muc) {
+    // Ký hiệu IPA thuần (không phải chữ Latin) thì `doc` phải là từ khác.
+    if (/^[a-z]+$/i.test(m.hien)) continue; // nhóm "ough" — từ đọc chính nó
+    assert.notEqual(m.doc, m.hien,
+      `${m.hien}: đưa thẳng ký hiệu cho bộ đọc thì nó đọc dấu câu hoặc im`);
+    assert.match(m.doc, /^[a-z]+$/i,
+      `${m.hien}: \`doc\` phải là một từ tiếng Anh đọc được, đang là "${m.doc}"`);
+  }
+});
+
+test('từ ví dụ và IPA của bài a0_02 lấy đúng từ phần lý thuyết', () => {
+  // Cùng mốc dịch như a0_01: đổi ví dụ ở một bên mà quên bên kia thì người học
+  // nghe một từ, đọc một từ khác.
+  const t = foundationData.find((x) => x.id === 'a0_02');
+  const lyThuyet = t.theory.map((s) => s.c).join('\n');
+  for (const m of t.nghe.muc) {
+    assert.ok(lyThuyet.includes(`${m.doc} ${m.ipa}`),
+      `"${m.doc} ${m.ipa}" ở phần nghe không có trong phần lý thuyết`);
+  }
+});
+
+test('lượt chấm không vắt qua hai nhóm khác nhau', () => {
+  const s = doc('src/components/grammar/NghePhatAm.jsx');
+  // Cắt phẳng theo số lượng thì một lượt có thể bảo người học đọc liền
+  // "bird, though, through" — ba thứ chẳng liên quan gì nhau.
+  assert.match(s, /for \(const n of theoNhom\)/,
+    'chia lượt chấm không theo nhóm — một lượt sẽ vắt qua hai nhóm dạy hai thứ khác nhau');
+  assert.match(s, /nghe trong:/,
+    'không hiện từ ví dụ thì người học nghe "think" mà tưởng đó là cách đọc chữ θ');
+});

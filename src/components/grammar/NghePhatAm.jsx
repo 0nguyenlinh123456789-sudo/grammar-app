@@ -37,6 +37,19 @@ export default function NghePhatAm({ nghe, topicTitle = '' }) {
   const muc = useMemo(() => (Array.isArray(nghe?.muc) ? nghe.muc.filter((m) => m && m.doc) : []), [nghe]);
   const giongUaThich = nghe?.giong || 'en-GB';
 
+  // Gom theo `nhom`, giữ nguyên thứ tự xuất hiện trong dữ liệu.
+  // Bài IPA có hai nhóm dạy hai thứ khác nhau (ký hiệu lạ mặt · năm cách đọc
+  // "ough"); trộn chúng vào một lưới thì mất luôn cái đối lập là nội dung chính.
+  const theoNhom = useMemo(() => {
+    const m = new Map();
+    for (const x of muc) {
+      const k = x.nhom || '';
+      if (!m.has(k)) m.set(k, []);
+      m.get(k).push(x);
+    }
+    return [...m.entries()].map(([ten, ds]) => ({ ten, ds }));
+  }, [muc]);
+
   const [coGiong, setCoGiong] = useState(null); // null = đang dò, chuỗi lang, hoặc false
   const [dangDoc, setDangDoc] = useState('');
   const [loiDoc, setLoiDoc] = useState('');
@@ -63,11 +76,16 @@ export default function NghePhatAm({ nghe, topicTitle = '' }) {
 
   // ── Phần chấm phát âm ────────────────────────────────────────────────────
   const [nhom, setNhom] = useState(0);
+  // Cắt theo NHÓM trước, rồi mới cắt nhỏ trong nhóm. Cắt phẳng theo số lượng
+  // thì một lượt chấm có thể vắt qua hai nhóm — bảo người học đọc liền "bird,
+  // though, through" là ba thứ chẳng liên quan gì nhau.
   const goi = useMemo(() => {
     const ra = [];
-    for (let i = 0; i < muc.length; i += TOI_DA_MOI_LUOT) ra.push(muc.slice(i, i + TOI_DA_MOI_LUOT));
+    for (const n of theoNhom) {
+      for (let i = 0; i < n.ds.length; i += TOI_DA_MOI_LUOT) ra.push(n.ds.slice(i, i + TOI_DA_MOI_LUOT));
+    }
     return ra;
-  }, [muc]);
+  }, [theoNhom]);
   const goiHienTai = goi[Math.min(nhom, Math.max(goi.length - 1, 0))] || [];
 
   const [dangThu, setDangThu] = useState(false);
@@ -161,31 +179,40 @@ export default function NghePhatAm({ nghe, topicTitle = '' }) {
       )}
       {coGiong === null && <p className="mt-3 text-xs font-bold text-slate-400">Đang tìm giọng tiếng Anh trên máy…</p>}
 
-      <div className="mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5">
-        {muc.map((m) => (
-          <button
-            key={m.hien}
-            onClick={() => nghi(m)}
-            disabled={coGiong === false}
-            title={m.ghi || undefined}
-            className={`rounded-2xl border-[3px] border-slate-800 dark:border-slate-600 px-2 py-3 text-center transition-transform cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
-              dangDoc === m.hien ? 'bg-yellow-300 dark:bg-yellow-600 scale-105' : 'bg-slate-50 dark:bg-slate-800 hover:-translate-y-0.5'
-            }`}
-          >
-            <span className="block text-xl font-black text-slate-900 dark:text-white leading-none">{m.hien}</span>
-            <span className="block mt-1 text-[11px] font-bold text-slate-500 dark:text-slate-400 break-words">{m.ipa}</span>
-            {m.doc !== m.hien && <span className="block text-[11px] font-black text-indigo-600 dark:text-indigo-300 break-words">{m.doc}</span>}
-          </button>
-        ))}
-      </div>
+      {theoNhom.map((n) => (
+        <div key={n.ten} className="mt-4">
+          {theoNhom.length > 1 && n.ten && (
+            <p className="text-xs font-black uppercase tracking-wide text-slate-500 dark:text-slate-400">{n.ten}</p>
+          )}
+          <div className="mt-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5">
+            {n.ds.map((m) => (
+              <button
+                key={m.hien}
+                onClick={() => nghi(m)}
+                disabled={coGiong === false}
+                title={m.ghi || undefined}
+                className={`rounded-2xl border-[3px] border-slate-800 dark:border-slate-600 px-2 py-3 text-center transition-transform cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
+                  dangDoc === m.hien ? 'bg-yellow-300 dark:bg-yellow-600 scale-105' : 'bg-slate-50 dark:bg-slate-800 hover:-translate-y-0.5'
+                }`}
+              >
+                <span className="block text-xl font-black text-slate-900 dark:text-white leading-none break-words">{m.hien}</span>
+                <span className="block mt-1 text-[11px] font-bold text-slate-500 dark:text-slate-400 break-words">{m.ipa}</span>
+                {/* Ở bài IPA `doc` khác `hien`: ký hiệu /θ/ không đọc được, chỉ
+                    nghe được nó NẰM TRONG một từ. Phải hiện từ đó ra, nếu không
+                    người học nghe "think" mà tưởng đó là cách đọc chữ "θ". */}
+                {m.doc !== m.hien && <span className="block text-[11px] font-black text-indigo-600 dark:text-indigo-300 break-words">nghe trong: {m.doc}</span>}
+              </button>
+            ))}
+          </div>
+          {n.ds.some((m) => m.ghi) && (
+            <ul className="mt-3 space-y-1.5 text-xs font-bold text-slate-600 dark:text-slate-300">
+              {n.ds.filter((m) => m.ghi).map((m) => <li key={m.hien}>📌 <b>{m.hien}</b> — {m.ghi}</li>)}
+            </ul>
+          )}
+        </div>
+      ))}
 
       {loiDoc && <p className="mt-3 text-xs font-bold text-rose-600 dark:text-rose-400">{loiDoc}</p>}
-
-      {muc.some((m) => m.ghi) && (
-        <ul className="mt-4 space-y-1.5 text-xs font-bold text-slate-600 dark:text-slate-300">
-          {muc.filter((m) => m.ghi).map((m) => <li key={m.hien}>📌 <b>{m.hien}</b> — {m.ghi}</li>)}
-        </ul>
-      )}
     </section>
 
     {/* ══ ĐỌC LẠI & NHỜ AI NGHE ══ */}

@@ -74,6 +74,39 @@ try {
     ok(daDoc.length === 1 && /^en/i.test(String(daDoc[0].lang || '')), 'đọc bằng giọng tiếng Anh: ' + (daDoc[0] || {}).lang);
   }
 
+  // ══ BÀI IPA (a0_02) — chỗ dễ hỏng nhất ══
+  // `speechSynthesis` KHÔNG phát ra được ký hiệu /θ/. Nếu ai đó "cho đồng bộ
+  // với a0_01" bằng cách đặt doc = hien, bấm nút θ sẽ im lặng hoặc đọc dấu câu,
+  // mà KHÔNG có lỗi nào nổ ra. Đây là phép đo duy nhất bắt được điều đó.
+  // Sang bài 2 QUA THANH BÊN, không tải lại trang: tải lại thì app khôi phục về
+  // màn LỘ TRÌNH và nút band A0 ở đó dẫn đi chỗ khác. Ở màn bài học, thanh bên
+  // đang chọn band B1, nên phải bấm band A0 trước rồi mới thấy 12 bài A0.
+  await t.danhGia('window.__daDoc = [];');
+  await t.danhGia("(() => { const n = [...document.querySelectorAll('button')].find(b => /A0 - Mất Gốc/.test(b.textContent)); if (n) n.click(); return !!n; })()");
+  await nghi(1000);
+  await t.danhGia("(() => { const n = [...document.querySelectorAll('button,a')].find(b => /Đọc Ký Hiệu Phiên Âm IPA/.test(b.textContent)); if (n) n.click(); return !!n; })()");
+  await nghi(1600);
+  await t.danhGia("(() => { const n = [...document.querySelectorAll('button')].find(b => /Nghe & Đọc/.test(b.textContent)); if (n) n.click(); return !!n; })()");
+  await nghi(1000);
+
+  const dangO = await t.danhGia("(document.querySelector('h2') || {}).textContent || '?'");
+  ok(/IPA/.test(dangO), 'đã chuyển sang bài IPA (đang ở: ' + dangO + ')');
+
+  const ipa = JSON.parse(await t.danhGia("(() => { const p = document.querySelector('#grammar-panel-phatam'); if (!p) return JSON.stringify({ co: false }); return JSON.stringify({ co: true, soNhom: [...p.querySelectorAll('p')].filter(x => /Ký hiệu không giống chữ cái|năm cách đọc/.test(x.textContent)).length, coNgheTrong: /nghe trong: think/.test(p.textContent) }); })()"));
+  ok(ipa.co, 'bài IPA cũng có tab Nghe & Đọc');
+  ok(ipa.soNhom === 2, 'hai nhóm vẽ riêng, không trộn (' + ipa.soNhom + ')');
+  ok(ipa.coNgheTrong, 'hiện rõ ký hiệu θ được nghe TRONG từ "think"');
+
+  await t.danhGia("(() => { const p = document.querySelector('#grammar-panel-phatam'); const n = [...p.querySelectorAll('button')].find(b => { const s = b.querySelector('span'); return s && s.textContent === '\u03b8'; }); if (n) n.click(); return !!n; })()");
+  await nghi(700);
+  const docIpa = JSON.parse(await t.danhGia('JSON.stringify(window.__daDoc || [])'));
+  if (d.baoThieuGiong) {
+    ok(docIpa.length === 0, 'thiếu giọng thì không gọi speak() ở bài IPA');
+  } else {
+    ok(docIpa.length === 1 && docIpa[0].chu === 'think',
+      'bấm θ thì đọc TỪ VÍ DỤ "think", không đưa ký hiệu cho bộ đọc: ' + JSON.stringify(docIpa));
+  }
+
   ok(loi.length === 0, 'không lỗi console (' + loi.length + ') ' + loi.slice(0, 2).join(' | '));
   t.dong();
 } finally {
