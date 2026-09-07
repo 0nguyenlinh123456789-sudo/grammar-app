@@ -6,6 +6,7 @@ import MasteryVerdict from '../common/MasteryVerdict';
 import { createSession, recordAnswer, sessionEvidence } from '../../utils/mastery';
 import KhongCoCau from './KhongCoCau';
 import { chuanHoaCauMau } from '../../utils/cauMau';
+import { docTo } from '../../utils/docTiengAnh';
 
 const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplete }) => {
   const [qIdx, setQIdx] = useState(0);
@@ -76,9 +77,10 @@ const SentenceBuilder = ({ sentences: rawSentences, setGlobalProgress, onComplet
     if (isRight) { 
       setCorrect(true); 
       setGlobalProgress(p => p + 2); 
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.speak(new SpeechSynthesisUtterance(curr.text)); 
-      }
+      // Qua `docTo`: nó CHỌN GIỌNG en-* thật. Bản cũ chỉ đặt `lang`, mà `lang` là
+      // LỜI ĐỀ NGHỊ — máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc từ
+      // tiếng Anh, không lỗi, không cảnh báo. `ThieuGiongAnhBanner` báo ở tầng gốc.
+      docTo(curr.text, { giong: 'en-US', nhipDo: 1 });
     } else {
       setCorrect(false);
     }

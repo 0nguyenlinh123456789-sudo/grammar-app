@@ -8,6 +8,7 @@ import { MOCK_TESTS, SECTION_LABELS } from '../../data/mockTestData';
 import { scoreMockTest, saveMockAttempt, previousAttempt, weakestSection } from '../../utils/mockTest';
 import { recordError } from '../../utils/errorBank';
 import MachineVoiceTag from '../common/MachineVoiceTag';
+import { docTo } from '../../utils/docTiengAnh';
 
 const fmtTime = (seconds) => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
 
@@ -53,13 +54,10 @@ export default function MockTest({ onClose }) {
   }, [test, result, secondsLeft, finish]);
 
   const speak = (text) => {
-    try {
-      speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'en-US';
-      utterance.rate = 0.92;
-      speechSynthesis.speak(utterance);
-    } catch { /* trình duyệt không hỗ trợ đọc */ }
+    // Qua `docTo`: nó CHỌN GIỌNG en-* thật. Bản cũ chỉ đặt `lang`, mà `lang` là
+    // LỜI ĐỀ NGHỊ — máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc từ
+    // tiếng Anh, không lỗi, không cảnh báo. `ThieuGiongAnhBanner` báo ở tầng gốc.
+    docTo(text, { giong: 'en-US', nhipDo: 0.92 });
   };
 
   const startTest = (item) => {

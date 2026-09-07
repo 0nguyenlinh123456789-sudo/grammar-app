@@ -149,7 +149,10 @@ try {
   const kq = await t.danhGia(CHU);
   ok(/72/.test(kq) && /100/.test(kq), 'vẽ mức dễ nghe nhận về');
   ok(/ay bee see/.test(kq), 'hiện AI nghe thành gì — người học đối chiếu được');
-  ok(/thiếu âm \/h\/ đầu|thieu am/.test(kq) || /H/.test(kq), 'hiện chỗ cần sửa');
+  // ⚠️ BƯỚC NÀY TỪNG RỖNG: nhánh dự phòng `/H/.test(kq)` đúng với MỌI lượt vì
+  // panel có sẵn một nút chữ "H". Nó ĐẠT dù `can[]` không vẽ ra gì. Nay dò
+  // `sua` — chuỗi chỉ tồn tại nếu đúng khối "chỗ cần sửa" được vẽ.
+  ok(/tho hoi ra truoc khi bat am/.test(kq), 'không vẽ khối chỗ cần sửa (can[])');
 
   // Ba ranh giới trung thực phải có mặt CÙNG LÚC với kết quả, không phải chỉ
   // lúc panel còn trống.

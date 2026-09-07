@@ -10,6 +10,7 @@ import { buildComprehension } from '../../utils/comprehension';
 import MasteryVerdict from '../common/MasteryVerdict';
 import MachineVoiceTag from '../common/MachineVoiceTag';
 import { buildEvidence } from '../../utils/mastery';
+import { docTo } from '../../utils/docTiengAnh';
 
 const ListeningComprehension = ({ activeTopic, playAudio, onFinish }) => {
   const [pool, setPool] = useState([]);
@@ -37,12 +38,12 @@ const ListeningComprehension = ({ activeTopic, playAudio, onFinish }) => {
 
   const speak = useCallback((rate = 0.85) => {
     if (!cur) return;
-    if (window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(cur.playText);
-      u.lang = 'en-US';
-      u.rate = rate;
-      window.speechSynthesis.speak(u);
+    // Qua `docTo`: nó CHỌN GIỌNG en-* thật. Bản cũ chỉ đặt `lang`, mà `lang` là
+    // LỜI ĐỀ NGHỊ — máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc từ
+    // tiếng Anh, không lỗi, không cảnh báo. `ThieuGiongAnhBanner` báo ở tầng gốc.
+    // Không đọc được thì vẫn rơi xuống nhánh dự phòng như cũ.
+    if (docTo(cur.playText, { giong: 'en-US', nhipDo: rate }).ok) {
+      /* đã đọc xong */
     } else if (playAudio) {
       playAudio(cur.playText);
     }

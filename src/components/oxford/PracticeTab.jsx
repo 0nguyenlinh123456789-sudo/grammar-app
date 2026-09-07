@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Edit3, Mic, Volume2, Shuffle, Snail } from 'lucide-react';
 import AiKeyBanner from '../common/AiKeyBanner';
 import { requestAi } from '../../utils/aiClient';
+import { docTo } from '../../utils/docTiengAnh';
 
 const PracticeTab = ({ unitData }) => {
     const [userText, setUserText] = useState("");
@@ -57,13 +58,11 @@ const PracticeTab = ({ unitData }) => {
     };
 
     const speakWord = (word, rate = 0.9) => {
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-            const u = new SpeechSynthesisUtterance(word);
-            u.lang = 'en-US';
-            u.rate = rate;
-            window.speechSynthesis.speak(u);
-        }
+        // Qua `docTo`: nó CHỌN GIỌNG en-* thật, và KHÔNG đọc khi máy không có
+        // giọng tiếng Anh nào. Bản cũ chỉ đặt `u.lang = 'en-US'`, mà `lang` là
+        // LỜI ĐỀ NGHỊ: máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc
+        // "book" thành "bốc", không lỗi, không cảnh báo.
+        docTo(word, { giong: 'en-US', nhipDo: rate });
     };
 
     if (!speakItem) return <div className="p-10 text-center font-bold">Chưa có dữ liệu luyện nói.</div>;

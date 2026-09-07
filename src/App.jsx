@@ -97,12 +97,14 @@ import { ghiMocReset } from './utils/bandExam';
 import { roadmapData } from './data/roadmapData';
 import XacMinhGoNotice from './components/progress/XacMinhGoNotice';
 import KhoBiChanBanner from './components/common/KhoBiChanBanner';
+import ThieuGiongAnhBanner from './components/common/ThieuGiongAnhBanner';
 import ChunkBoundary from './components/common/ChunkBoundary';
 import { nhapLai } from './utils/taiChunk';
 // Moi luot cham localStorage deu di qua day. Ly do: cham thang vao no o iOS
 // (Chan tat ca cookie) hoac Safari rieng tu la NEM, va App.jsx la goc cay nen
 // nem o day = trang man hinh o MOI lan mo. Xem dau src/utils/kho.js.
 import { docKho, docJson, ghiKho, ghiJson, xoaKho, khoAnToan } from './utils/kho';
+import { docTo } from './utils/docTiengAnh';
 
 // Page/Route layer — lazy-loaded so each route ships as its own chunk and the
 // initial bundle stays small (Games/Scanner/Oxford aren't downloaded until used).
@@ -580,17 +582,16 @@ export default function App() {
   const selectedVstepTopic = vstepTopics.find(t => t.id === vstepTopicId);
 
   // Global Speech Synthesis Helper
-  const playAudio = (text, lang = 'en-US') => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel(); // Clear any ongoing speech
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = lang;
-      utterance.rate = 0.85; 
-      window.speechSynthesis.speak(utterance);
-    } else {
-      alert("Trình duyệt của bạn không hỗ trợ phát âm.");
-    }
-  };
+  // Đường đọc dùng chung của cả app.
+  // Qua `docTo`: nó CHỌN GIỌNG en-* thật. Bản cũ chỉ đặt `lang`, mà `lang` là
+  // LỜI ĐỀ NGHỊ — máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc từ
+  // tiếng Anh, không lỗi, không cảnh báo. `ThieuGiongAnhBanner` báo ở tầng gốc.
+  //
+  // Bỏ `alert(...)` cũ: hộp thoại chặn cả trang cho một chuyện không sửa
+  // được tại chỗ, và nó nói "trình duyệt không hỗ trợ" trong khi nguyên
+  // nhân thường là THIẾU GIỌNG — hai chuyện khác nhau, hai cách sửa khác
+  // nhau. Băng báo nói đúng nguyên nhân.
+  const playAudio = (text, lang = 'en-US') => docTo(text, { giong: lang, nhipDo: 0.85 });
 
   // ĐƯỜNG 1 — ĐỀU ĐẶN (QĐ2): một phiên học đã làm xong thì tính vào chuỗi ngày
   // học và mục tiêu ngày, BẤT KỂ đúng sai. Đi học là được ghi nhận.
@@ -860,6 +861,7 @@ export default function App() {
       {/* Đứng NGOÀI ChunkBoundary và trên mọi tuyến: người học phải thấy câu này
           ở mọi màn, không chỉ ở trang chủ. Tự ẩn khi kho lưu dùng được. */}
       <KhoBiChanBanner />
+      <ThieuGiongAnhBanner />
       {/* `tuTaiLai`: chỉ tuyến chính được tự tải lại trang — lý do ở MoPanel. */}
       <ChunkBoundary tuTaiLai>
         <Suspense fallback={<RouteLoader />}>

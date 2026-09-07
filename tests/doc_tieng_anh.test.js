@@ -210,3 +210,75 @@ test('getter speechSynthesis NÉM thì mọi lối vẫn trả về êm', async 
   assert.doesNotThrow(() => go(), 'hàm gỡ theo dõi cũng ném');
   donDep();
 });
+
+// ── ĐẾM ĐƯỢC VIỆC CÒN LẠI: 11 TỆP VẪN TỰ GỌI BỘ ĐỌC ───────────────────────
+// Chú thích đầu `docTiengAnh.js` viết "VÌ SAO GOM VỀ MỘT CHỖ", nhưng đợt tạo ra
+// nó chỉ nối MỘT nơi gọi — panel A0. Mười một tệp còn lại vẫn dựng thẳng
+// `SpeechSynthesisUtterance`, và **không tệp nào gán `u.voice`** (đếm được:
+// 0/11). Chúng chỉ đặt `u.lang = 'en-US'`, mà `lang` là LỜI ĐỀ NGHỊ chứ không
+// phải lựa chọn: máy không có giọng `en-*` thì bộ máy tiếng Việt vẫn đọc, không
+// lỗi, không cảnh báo. Đó chính là ca mà tệp này sinh ra để chặn — và nó đang
+// xảy ra ở đúng những màn hình được dùng nhiều nhất (từ vựng, luyện nghe,
+// trò chơi), chứ không phải ở panel A0 mới.
+//
+// DANH SÁCH NÀY CHỈ ĐƯỢC PHÉP NGẮN ĐI. Nó là phép đếm việc còn lại, đúng luật
+// "lưới an toàn phải có phép đếm" — bản đầu chỉ ghi bằng chú thích, và chú
+// thích thì không bao giờ đỏ.
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const GOC = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// ĐÃ DỌN HẾT 21/09. Danh sách rỗng KHÔNG phải là chỗ trống chờ điền — nó là
+// phép đếm việc còn lại, và con số đó nay bằng 0. Thêm một nơi gọi mới ngoài
+// `docTiengAnh.js` là bài kiểm dưới ĐỎ ngay, kèm tên tệp.
+const CHUA_DON = [];
+
+// Bóc chú thích trước khi dò. `ThieuGiongAnhBanner.jsx` TRÍCH LẠI dòng mã cũ
+// trong phần giải thích của nó, và bản đầu của bài kiểm này kết luận nó là "nơi
+// gọi bộ đọc mới". Cùng bẫy đã ghi trong sổ: phép đo đọc trúng chú thích, và
+// bài kiểm đỏ trên chính bản đã vá.
+const bocChuThich = (s) => String(s)
+  .replace(/\/\*[\s\S]*?\*\//g, ' ')
+  .replace(/^[ 	]*\/\/.*$/gm, ' ');
+
+function quet(thuMuc, ds = []) {
+  for (const t of fs.readdirSync(path.join(GOC, thuMuc), { withFileTypes: true })) {
+    const p = `${thuMuc}/${t.name}`;
+    if (t.isDirectory()) quet(p, ds);
+    else if (/\.(jsx?|mjs)$/.test(t.name)) ds.push(p);
+  }
+  return ds;
+}
+
+test('chỉ docTiengAnh.js được dựng SpeechSynthesisUtterance — số còn lại chỉ được GIẢM', () => {
+  const con = quet('src').filter((f) => {
+    if (f === 'src/utils/docTiengAnh.js') return false;
+    return /new (?:window\.)?SpeechSynthesisUtterance/.test(bocChuThich(fs.readFileSync(path.join(GOC, f), 'utf8')));
+  });
+
+  const moi = con.filter((f) => !CHUA_DON.includes(f));
+  assert.deepEqual(moi, [],
+    'nơi gọi bộ đọc MỚI nằm ngoài docTiengAnh.js: nó sẽ đọc tiếng Anh bằng bộ máy tiếng Việt trên máy chỉ có giọng vi-VN:\n  ' + moi.join('\n  '));
+
+  assert.ok(con.length <= CHUA_DON.length,
+    `số nơi chưa dọn tăng từ ${CHUA_DON.length} lên ${con.length}`);
+  if (con.length < CHUA_DON.length) {
+    const daDon = CHUA_DON.filter((f) => !con.includes(f));
+    assert.fail(`ĐÃ DỌN ${daDon.length} tệp — hãy bỏ chúng khỏi CHUA_DON để phép đếm nói đúng việc còn lại:\n  ${daDon.join('\n  ')}`);
+  }
+});
+
+test('mọi nơi đọc tiếng Anh đều đi qua docTo — phép đếm còn lại bằng 0', () => {
+  // Bản đầu của bài kiểm này duyệt CHUA_DON để chắc rằng mỗi tệp trong đó
+  // THẬT SỰ dính lỗi (không tự gán `u.voice`). Danh sách nay rỗng nên nó không
+  // còn kiểm gì — thay bằng phép đếm ở chiều ngược lại: đếm số nơi gọi `docTo`.
+  //
+  // Vì sao cần: nếu ai đó gỡ `docTo` ở một màn hình và quay về đọc thẳng bằng
+  // API trình duyệt, bài kiểm trên bắt được. Nhưng nếu họ chỉ XOÁ lời gọi đi
+  // (nút nghe thành nút chết) thì không phép kiểm nào kêu.
+  const dung = quet('src').filter((f) => f !== 'src/utils/docTiengAnh.js'
+    && /docTo\(/.test(fs.readFileSync(path.join(GOC, f), 'utf8')));
+  assert.ok(dung.length >= 11,
+    `chỉ còn ${dung.length} màn hình gọi docTo (mốc 11) — có nút nghe vừa thành nút chết:\n  ` + dung.join('\n  '));
+});

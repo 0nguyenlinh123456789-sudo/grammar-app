@@ -5,6 +5,7 @@ import AiKeyBanner from '../common/AiKeyBanner';
 import Btn3D from '../common/Btn3D';
 import { scoreWriting, scoreWritingWithAI } from '../../utils/writingScorer';
 import { chuanHoaCauMau } from '../../utils/cauMau';
+import { docTo } from '../../utils/docTiengAnh';
 
 const AiAssistant = ({ topic, sentences }) => {
   // Trước đây dòng này tự lọc theo trường `text`, nên ba bài dùng khuôn
@@ -107,10 +108,7 @@ const AiAssistant = ({ topic, sentences }) => {
         </div>
         <div className="flex flex-wrap justify-center gap-4">
           <Btn3D onClick={() => {
-            if ('speechSynthesis' in window) {
-              window.speechSynthesis.cancel();
-              window.speechSynthesis.speak(new SpeechSynthesisUtterance(speakingSent.text));
-            }
+            docTo(speakingSent.text, { giong: 'en-US', nhipDo: 1 });
           }} color="bg-cyan-300 text-slate-900"><Volume2 className="mr-2"/> Nghe Mẫu</Btn3D>
           <Btn3D onClick={handleRecord} color={isRec ? 'bg-rose-500 text-white' : 'bg-rose-300 text-slate-900'}><Mic className={`mr-2 ${isRec ? 'animate-pulse' : ''}`}/> {isRec ? 'Đang thu...' : 'Bấm Đọc'}</Btn3D>
           <Btn3D onClick={() => setSpeakingSent(safeSentences[Math.floor(Math.random()*safeSentences.length)])} color="bg-slate-200 text-slate-900"><Shuffle className="mr-2"/> Đổi Câu</Btn3D>

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Volume2, Award, RotateCcw, HelpCircle, Check, X, Sparkles, ArrowRight } from 'lucide-react';
 import ScholarBunny from '../common/ScholarBunny';
 import { recordError } from '../../utils/errorBank';
+import { docTo } from '../../utils/docTiengAnh';
 
 export default function ExercisesTab({ unitData }) {
     const [activeExIdx, setActiveExIdx] = useState(0);
@@ -38,13 +39,11 @@ export default function ExercisesTab({ unitData }) {
     const exNumStr = currentEx.exNum || `${unitData.unitNum}.${activeExIdx + 1}`;
 
     const playWord = (word, rate = 0.9) => {
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-            const u = new SpeechSynthesisUtterance(word);
-            u.lang = 'en-US';
-            u.rate = rate;
-            window.speechSynthesis.speak(u);
-        }
+        // Qua `docTo`: nó CHỌN GIỌNG en-* thật, và KHÔNG đọc khi máy không có
+        // giọng tiếng Anh nào. Bản cũ chỉ đặt `u.lang = 'en-US'`, mà `lang` là
+        // LỜI ĐỀ NGHỊ: máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc
+        // "book" thành "bốc", không lỗi, không cảnh báo.
+        docTo(word, { giong: 'en-US', nhipDo: rate });
     };
 
     const handleAnswerChange = (qId, value) => {

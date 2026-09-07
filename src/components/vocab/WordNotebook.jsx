@@ -5,6 +5,7 @@
 import { useState } from 'react';
 import { BookMarked, Search, Trash2, Volume2 } from 'lucide-react';
 import { getAllCards, removeWord } from '../../utils/srs';
+import { docTo } from '../../utils/docTiengAnh';
 
 const BOX_LABELS = {
   1: { label: 'Mới', cls: 'bg-rose-100 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border-rose-400' },
@@ -33,11 +34,10 @@ const WordNotebook = ({ onClose, playAudio }) => {
 
   const speak = (text) => {
     if (playAudio) { playAudio(text); return; }
-    try {
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US';
-      speechSynthesis.speak(u);
-    } catch { /* no speech support */ }
+    // Qua `docTo`: nó CHỌN GIỌNG en-* thật. Bản cũ chỉ đặt `lang`, mà `lang` là
+    // LỜI ĐỀ NGHỊ — máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc từ
+    // tiếng Anh, không lỗi, không cảnh báo. `ThieuGiongAnhBanner` báo ở tầng gốc.
+    docTo(text, { giong: 'en-US', nhipDo: 1 });
   };
 
   return (

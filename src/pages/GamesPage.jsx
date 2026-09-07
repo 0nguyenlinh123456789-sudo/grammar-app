@@ -6,6 +6,7 @@ import { ChibiBadge } from '../components/common/ChibiAnimals';
 import { escapeRegExp, isSpeechMatch } from '../utils/textUtils';
 import { playCorrect, playWrong } from '../utils/sound';
 import { recordReview } from '../utils/srs';
+import { docTo } from '../utils/docTiengAnh';
 
 const cleanVi = (vi = '') => vi.replace(/\p{Extended_Pictographic}|\uFE0F/gu, '').trim();
 
@@ -319,25 +320,21 @@ function DictationGame({ words, playAudio, onScore }) {
 
   const speak = () => {
     if (!cur) return;
+    // Qua `docTo`: nó CHỌN GIỌNG en-* thật. Bản cũ chỉ đặt `lang`, mà `lang` là
+    // LỜI ĐỀ NGHỊ — máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc từ
+    // tiếng Anh, không lỗi, không cảnh báo. `ThieuGiongAnhBanner` báo ở tầng gốc.
     if (playAudio) playAudio(cur.en);
-    else if (window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(cur.en);
-      u.lang = 'en-US'; u.rate = 0.85;
-      window.speechSynthesis.speak(u);
-    }
+    else docTo(cur.en, { giong: 'en-US', nhipDo: 0.85 });
     setPlayed(true);
     inputRef.current?.focus();
   };
 
   const speakSlow = () => {
     if (!cur) return;
-    if (window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(cur.en);
-      u.lang = 'en-US'; u.rate = 0.55;
-      window.speechSynthesis.speak(u);
-    } else if (playAudio) playAudio(cur.en);
+    // Qua `docTo`: nó CHỌN GIỌNG en-* thật. Bản cũ chỉ đặt `lang`, mà `lang` là
+    // LỜI ĐỀ NGHỊ — máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc từ
+    // tiếng Anh, không lỗi, không cảnh báo. `ThieuGiongAnhBanner` báo ở tầng gốc.
+    if (!docTo(cur.en, { giong: 'en-US', nhipDo: 0.55 }).ok && playAudio) playAudio(cur.en);
     setPlayed(true);
     inputRef.current?.focus();
   };
@@ -450,12 +447,11 @@ function PronunciationGame({ words, playAudio, onScore }) {
   }
 
   const speak = () => {
-    if (window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(cur.en);
-      u.lang = 'en-US'; u.rate = 0.8;
-      window.speechSynthesis.speak(u);
-    } else if (playAudio) playAudio(cur.en);
+    // Qua `docTo`: nó CHỌN GIỌNG en-* thật. Bản cũ chỉ đặt `lang`, mà `lang` là
+    // LỜI ĐỀ NGHỊ — máy chỉ có giọng vi-VN thì bộ máy tiếng Việt vẫn đọc từ
+    // tiếng Anh, không lỗi, không cảnh báo. `ThieuGiongAnhBanner` báo ở tầng gốc.
+    // Không đọc được thì vẫn rơi xuống nhánh dự phòng như bản cũ.
+    if (!docTo(cur.en, { giong: 'en-US', nhipDo: 0.85 }).ok && playAudio) playAudio(cur.en);
   };
 
   const advance = (pts) => {
