@@ -3,26 +3,34 @@
 // BỘ RÀ TAB "NGHE & ĐỌC" CỦA CỤM NỀN TẢNG A0.
 //
 // ⚠️ THỨ BỘ RÀ NÀY KHÔNG KIỂM ĐƯỢC, VÀ ĐỪNG TƯỞNG NÓ KIỂM:
-// nó nghe được rằng `speak()` ĐƯỢC GỌI với đúng chữ và đúng giọng `en-*`, nhưng
+// nó thấy được rằng `speak()` ĐƯỢC GỌI với đúng chữ và đúng giọng `en-*`, nhưng
 // KHÔNG nghe được TIẾNG PHÁT RA. Việc giọng máy đọc chữ "A" thành TÊN CHỮ /eɪ/
 // (chứ không thành âm /ə/ như từ "a") chỉ xác nhận được bằng tai người trên máy
 // thật. Cùng loại với `beforeinstallprompt` và icon màn hình chính iOS.
 //
-// Vì sao vẫn đáng chạy: ba cách hỏng LẶNG LẼ đều bắt được ở đây — tab hiện mà
-// panel rỗng, panel quên nhãn "Giọng máy đọc", và máy không có giọng tiếng Anh
-// mà vẫn gọi `speak()` (đọc tiếng Anh bằng bộ máy tiếng Việt).
-
-// Tab "Nghe & Đọc" có thật sự mở được và gọi được bộ đọc không?
+// Vì sao vẫn đáng chạy: bốn cách hỏng LẶNG LẼ đều bắt được ở đây —
+//   · tab hiện mà panel rỗng;
+//   · panel quên nhãn "Giọng máy đọc";
+//   · máy không có giọng tiếng Anh mà vẫn gọi `speak()` (đọc tiếng Anh bằng bộ
+//     máy tiếng Việt);
+//   · đưa thẳng KÝ HIỆU IPA cho bộ đọc — nó im hoặc đọc dấu câu, và KHÔNG có
+//     lỗi nào nổ ra.
+//
+// Danh sách bài cần kiểm DẪN XUẤT TỪ DỮ LIỆU, không viết cứng: cụm A0 là 12 bài
+// dạy phát âm và số bài có phần nghe còn tăng. Viết cứng thì bài thêm sau không
+// ai kiểm, mà bộ rà vẫn báo ĐẠT.
 import { moTrinhDuyet, moTab } from '../tests/helpers/trinhduyet.mjs';
 import { moMayChuXemTruoc } from '../tests/helpers/mayChuXemTruoc.mjs';
+import { foundationData } from '../src/data/foundationData.js';
 
 const nghi = (ms) => new Promise((r) => setTimeout(r, ms));
-const may = await moMayChuXemTruoc({ cong: 4365, dungLai: false });
-const { tienTrinh, cong } = await moTrinhDuyet({ cong: 9383 });
-let dat = 0, tong = 0;
+const CAN_KIEM = foundationData.filter((t) => t.nghe && Array.isArray(t.nghe.muc) && t.nghe.muc.length);
+
+let dat = 0;
+let tong = 0;
 const ok = (b, s) => { tong += 1; if (b) dat += 1; console.log((b ? 'OK   ' : 'HONG ') + s); };
 
-// Ghi lại mọi lượt speak() để biết panel có gọi bộ đọc không, và gọi với gì.
+// Ghi lại mọi lượt speak() để biết panel gọi bộ đọc với cái gì.
 const TIEM = [
   "try { localStorage.setItem('onboardingDoneV1', JSON.stringify({ done: true, at: Date.now() })); } catch (e) {}",
   'window.__daDoc = [];',
@@ -32,6 +40,35 @@ const TIEM = [
   '} catch (e) {}',
 ].join('\n');
 
+const DOC_PANEL = `(() => {
+  const p = document.querySelector('#grammar-panel-phatam');
+  if (!p) return JSON.stringify({ co: false });
+  const nut = [...p.querySelectorAll('button')].filter((b) => b.querySelector('span'));
+  return JSON.stringify({
+    co: true,
+    nhan: nut.map((b) => b.querySelector('span').textContent),
+    coNhanMay: /Giọng máy đọc/.test(p.textContent),
+    coCham: /AI NGHE bản thu/.test(p.textContent),
+    coRanhGioi: /nhận xét của một mô hình/.test(p.textContent),
+    coAccent: /Anh-Anh|Anh-Mỹ|Anh-Úc|Anh-Ấn/.test(p.textContent),
+    baoThieuGiong: /chưa cài giọng tiếng Anh/.test(p.textContent),
+  });
+})()`;
+
+const bam = (chu) => `(() => {
+  const p = document.querySelector('#grammar-panel-phatam');
+  if (!p) return false;
+  const n = [...p.querySelectorAll('button')].find((b) => {
+    const s = b.querySelector('span');
+    return s && s.textContent === ${JSON.stringify(chu)};
+  });
+  if (n) n.click();
+  return !!n;
+})()`;
+
+const may = await moMayChuXemTruoc({ cong: 4365, dungLai: false });
+const { tienTrinh, cong } = await moTrinhDuyet({ cong: 9383 });
+
 try {
   const t = await moTab(cong);
   const loi = [];
@@ -40,77 +77,69 @@ try {
   await t.diToi(may.BASE + '/');
   await nghi(3500);
 
+  // Vào cụm A0 từ màn LỘ TRÌNH một lần duy nhất. Từ lượt sau chuyển bài QUA
+  // THANH BÊN, KHÔNG tải lại trang: tải lại thì app khôi phục về màn LỘ TRÌNH
+  // và nút band A0 ở đó dẫn đi chỗ khác.
   const vao = await t.danhGia("(() => { const n = [...document.querySelectorAll('button')].find(b => /A0/.test(b.textContent) && /Mất Gốc/i.test(b.textContent)); if (n) { n.click(); return 'band'; } return 'khong-thay'; })()");
-  await nghi(900);
-  await t.danhGia("(() => { const n = [...document.querySelectorAll('button,a')].find(b => /Bảng Chữ Cái/.test(b.textContent)); if (n) n.click(); return !!n; })()");
-  await nghi(1600);
+  await nghi(1200);
   ok(vao === 'band', 'mở được cụm A0 (' + vao + ')');
 
-  const tabs = await t.danhGia("JSON.stringify([...document.querySelectorAll('button')].map(b => b.textContent.trim()).filter(x => /Nghe & Đọc|Lý Thuyết|Gia Sư/.test(x)))");
-  ok(/Nghe & Đọc/.test(tabs), 'tab "Nghe & Đọc" có hiện: ' + tabs);
+  let thieuGiong = null;
 
-  await t.danhGia("(() => { const n = [...document.querySelectorAll('button')].find(b => /Nghe & Đọc/.test(b.textContent)); if (n) n.click(); return !!n; })()");
-  await nghi(1000);
+  for (const bai of CAN_KIEM) {
+    // Nhan đề bài trong danh sách bỏ số thứ tự ở đầu để khớp cả hai chỗ.
+    const ten = bai.title.replace(/^\d+\.\s*/, '');
+    console.log('\n── ' + bai.id + ' · ' + ten + ' ──');
 
-  const so = await t.danhGia("(() => { const p = document.querySelector('#grammar-panel-phatam'); if (!p) return JSON.stringify({ co: false }); const nut = [...p.querySelectorAll('button')].filter(b => { const s = b.querySelector('span'); return s && /^[A-Z]$/.test(s.textContent); }); return JSON.stringify({ co: true, soChu: nut.length, coNhanMay: /Giọng máy đọc/.test(p.textContent), coCham: /AI NGHE bản thu/.test(p.textContent), coRanhGioi: /nhận xét của một mô hình/.test(p.textContent), coCum: /Đọc từng cụm một/.test(p.textContent), coAccent: /Anh-Anh|Anh-Mỹ|Anh-Úc/.test(p.textContent), baoThieuGiong: /chưa cài giọng tiếng Anh/.test(p.textContent) }); })()");
-  const d = JSON.parse(so);
-  ok(d.co, 'panel phatam dựng được');
-  ok(d.soChu === 26, 'đủ 26 nút chữ (' + d.soChu + ')');
-  ok(d.coNhanMay, 'có nhãn "Giọng máy đọc"');
-  ok(d.coCham, 'có khối chấm phát âm');
-  ok(d.coRanhGioi, 'có ranh giới "nhận xét của một mô hình"');
-  ok(d.coCum, 'chia cụm để chấm từng phần');
-  // Một trong hai PHẢI đúng: hoặc báo có accent, hoặc báo máy thiếu giọng.
-  // Im lặng cả hai là đúng cái lỗi tệp docTiengAnh.js sinh ra để chặn.
-  ok(d.coAccent || d.baoThieuGiong, 'nói rõ accent hoặc báo thiếu giọng (accent=' + d.coAccent + ', bao=' + d.baoThieuGiong + ')');
+    await t.danhGia("(() => { const n = [...document.querySelectorAll('button')].find(b => /A0 - Mất Gốc/.test(b.textContent)); if (n) n.click(); return !!n; })()");
+    await nghi(800);
+    await t.danhGia(`(() => { const n = [...document.querySelectorAll('button,a')].find(b => b.textContent.includes(${JSON.stringify(ten)})); if (n) n.click(); return !!n; })()`);
+    await nghi(1500);
 
-  await t.danhGia("(() => { const p = document.querySelector('#grammar-panel-phatam'); const n = [...p.querySelectorAll('button')].find(b => { const s = b.querySelector('span'); return s && s.textContent === 'B'; }); if (n) n.click(); return !!n; })()");
-  await nghi(700);
-  const daDoc = JSON.parse(await t.danhGia('JSON.stringify(window.__daDoc || [])'));
-  if (d.baoThieuGiong) {
-    ok(daDoc.length === 0, 'máy không có giọng Anh thì KHÔNG gọi speak() (' + daDoc.length + ' lượt)');
-  } else {
-    ok(daDoc.length === 1 && daDoc[0].chu === 'B', 'bấm B thì gọi speak("B"): ' + JSON.stringify(daDoc));
-    ok(daDoc.length === 1 && /^en/i.test(String(daDoc[0].lang || '')), 'đọc bằng giọng tiếng Anh: ' + (daDoc[0] || {}).lang);
+    // ⚠️ KHẲNG ĐỊNH VỊ TRÍ TRƯỚC KHI ĐO. Lần trước cú click chuyển bài im lặng
+    // không tìm thấy nút, nên mọi phép đo vẫn chạy trên bài cũ — và kết quả
+    // trùng khít với một tính năng hỏng thật.
+    const dangO = await t.danhGia("(document.querySelector('h2') || {}).textContent || '?'");
+    ok(dangO.includes(ten), 'đang ở đúng bài (' + dangO.slice(0, 40) + ')');
+
+    await t.danhGia("(() => { const n = [...document.querySelectorAll('button')].find(b => /Nghe & Đọc/.test(b.textContent)); if (n) n.click(); return !!n; })()");
+    await nghi(900);
+    await t.danhGia('window.__daDoc = [];');
+
+    const d = JSON.parse(await t.danhGia(DOC_PANEL));
+    ok(d.co, 'panel dựng được');
+    if (!d.co) continue;
+
+    const mongDoi = bai.nghe.muc.map((m) => m.hien);
+    ok(JSON.stringify(d.nhan) === JSON.stringify(mongDoi),
+      'vẽ đủ và đúng thứ tự ' + mongDoi.length + ' nút' + (JSON.stringify(d.nhan) === JSON.stringify(mongDoi) ? '' : ' — thấy ' + JSON.stringify(d.nhan)));
+    ok(d.coNhanMay && d.coCham && d.coRanhGioi,
+      'đủ nhãn giọng máy · khối chấm · ranh giới trung thực');
+    ok(d.coAccent || d.baoThieuGiong,
+      'nói rõ accent hoặc báo thiếu giọng (accent=' + d.coAccent + ', báo=' + d.baoThieuGiong + ')');
+    if (thieuGiong === null) thieuGiong = d.baoThieuGiong;
+
+    // Bấm mục có `doc` KHÁC `hien` nếu bài có — đó là chỗ dễ hỏng nhất: đưa
+    // thẳng ký hiệu cho bộ đọc thì im lặng, không lỗi. Không có thì bấm mục đầu.
+    const thu = bai.nghe.muc.find((m) => m.doc !== m.hien) || bai.nghe.muc[0];
+    await t.danhGia(bam(thu.hien));
+    await nghi(600);
+    const daDoc = JSON.parse(await t.danhGia('JSON.stringify(window.__daDoc || [])'));
+    if (d.baoThieuGiong) {
+      ok(daDoc.length === 0, 'máy thiếu giọng Anh thì KHÔNG gọi speak() (' + daDoc.length + ' lượt)');
+    } else {
+      ok(daDoc.length === 1 && daDoc[0].chu === thu.doc,
+        'bấm "' + thu.hien + '" thì đọc "' + thu.doc + '": ' + JSON.stringify(daDoc));
+      ok(daDoc.length === 1 && /^en/i.test(String(daDoc[0].lang || '')),
+        'đọc bằng giọng tiếng Anh: ' + (daDoc[0] || {}).lang);
+    }
   }
 
-  // ══ BÀI IPA (a0_02) — chỗ dễ hỏng nhất ══
-  // `speechSynthesis` KHÔNG phát ra được ký hiệu /θ/. Nếu ai đó "cho đồng bộ
-  // với a0_01" bằng cách đặt doc = hien, bấm nút θ sẽ im lặng hoặc đọc dấu câu,
-  // mà KHÔNG có lỗi nào nổ ra. Đây là phép đo duy nhất bắt được điều đó.
-  // Sang bài 2 QUA THANH BÊN, không tải lại trang: tải lại thì app khôi phục về
-  // màn LỘ TRÌNH và nút band A0 ở đó dẫn đi chỗ khác. Ở màn bài học, thanh bên
-  // đang chọn band B1, nên phải bấm band A0 trước rồi mới thấy 12 bài A0.
-  await t.danhGia('window.__daDoc = [];');
-  await t.danhGia("(() => { const n = [...document.querySelectorAll('button')].find(b => /A0 - Mất Gốc/.test(b.textContent)); if (n) n.click(); return !!n; })()");
-  await nghi(1000);
-  await t.danhGia("(() => { const n = [...document.querySelectorAll('button,a')].find(b => /Đọc Ký Hiệu Phiên Âm IPA/.test(b.textContent)); if (n) n.click(); return !!n; })()");
-  await nghi(1600);
-  await t.danhGia("(() => { const n = [...document.querySelectorAll('button')].find(b => /Nghe & Đọc/.test(b.textContent)); if (n) n.click(); return !!n; })()");
-  await nghi(1000);
-
-  const dangO = await t.danhGia("(document.querySelector('h2') || {}).textContent || '?'");
-  ok(/IPA/.test(dangO), 'đã chuyển sang bài IPA (đang ở: ' + dangO + ')');
-
-  const ipa = JSON.parse(await t.danhGia("(() => { const p = document.querySelector('#grammar-panel-phatam'); if (!p) return JSON.stringify({ co: false }); return JSON.stringify({ co: true, soNhom: [...p.querySelectorAll('p')].filter(x => /Ký hiệu không giống chữ cái|năm cách đọc/.test(x.textContent)).length, coNgheTrong: /nghe trong: think/.test(p.textContent) }); })()"));
-  ok(ipa.co, 'bài IPA cũng có tab Nghe & Đọc');
-  ok(ipa.soNhom === 2, 'hai nhóm vẽ riêng, không trộn (' + ipa.soNhom + ')');
-  ok(ipa.coNgheTrong, 'hiện rõ ký hiệu θ được nghe TRONG từ "think"');
-
-  await t.danhGia("(() => { const p = document.querySelector('#grammar-panel-phatam'); const n = [...p.querySelectorAll('button')].find(b => { const s = b.querySelector('span'); return s && s.textContent === '\u03b8'; }); if (n) n.click(); return !!n; })()");
-  await nghi(700);
-  const docIpa = JSON.parse(await t.danhGia('JSON.stringify(window.__daDoc || [])'));
-  if (d.baoThieuGiong) {
-    ok(docIpa.length === 0, 'thiếu giọng thì không gọi speak() ở bài IPA');
-  } else {
-    ok(docIpa.length === 1 && docIpa[0].chu === 'think',
-      'bấm θ thì đọc TỪ VÍ DỤ "think", không đưa ký hiệu cho bộ đọc: ' + JSON.stringify(docIpa));
-  }
-
+  console.log('');
   ok(loi.length === 0, 'không lỗi console (' + loi.length + ') ' + loi.slice(0, 2).join(' | '));
   t.dong();
 } finally {
-  console.log('\n=== ' + dat + '/' + tong + ' ===');
+  console.log('\n=== ' + dat + '/' + tong + ' · ' + CAN_KIEM.length + ' bài có phần nghe ===');
   tienTrinh.kill();
   may.dong();
   process.exit(dat === tong ? 0 : 1);

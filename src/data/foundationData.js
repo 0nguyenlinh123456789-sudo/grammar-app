@@ -194,6 +194,38 @@ export const foundationData = [
         c: '👉 /ʌ/ giống "â" tiếng Việt trong "cân", ngắn và gọn: cup /kʌp/, sun /sʌn/, money /ˈmʌni/.\n👉 /ɒ/ giống "o" tiếng Việt nhưng tròn môi hơn và ngắn: hot /hɒt/, box /bɒks/.\n⚠️ Cặp dễ nhầm: cup /kʌp/ ≠ cop /kɒp/ · nut /nʌt/ ≠ not /nɒt/.\n📌 Chú ý: chữ "o" trong "love, money, come, some" lại đọc /ʌ/ chứ không phải /ɒ/ — phải tra từ điển, không đoán theo chữ.'
       },
     ],
+    // ══ NGHE SÁU NGUYÊN ÂM NGẮN VÀ CÁC CẶP DỄ NHẦM ══
+    // Bài này nói thẳng "ship /ʃɪp/ ≠ sheep /ʃiːp/" rồi giải thích bằng chữ.
+    // Cả lập luận đó chỉ đứng được khi NGHE ra hai âm khác nhau — đọc mô tả
+    // "môi kéo căng sang hai bên" mà không nghe thì không kiểm chứng được gì.
+    // Các cặp cố ý xếp LIỀN NHAU trong cùng một nhóm để bấm hai nút là so được.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: '/ɪ/', doc: 'sit', ipa: '/sɪt/', nhom: 'Sáu nguyên âm ngắn' },
+      { hien: '/e/', doc: 'ten', ipa: '/ten/', nhom: 'Sáu nguyên âm ngắn' },
+      { hien: '/æ/', doc: 'cat', ipa: '/kæt/', nhom: 'Sáu nguyên âm ngắn', ghi: 'Không phải "e" cũng không phải "a" — miệng mở rộng như đang cười.' },
+      { hien: '/ʌ/', doc: 'but', ipa: '/bʌt/', nhom: 'Sáu nguyên âm ngắn' },
+      { hien: '/ʊ/', doc: 'book', ipa: '/bʊk/', nhom: 'Sáu nguyên âm ngắn' },
+      { hien: '/ɒ/', doc: 'dog', ipa: '/dɒɡ/', nhom: 'Sáu nguyên âm ngắn' },
+      { hien: 'bad', doc: 'bad', ipa: '/bæd/', nhom: 'Cặp /æ/ và /e/ — bấm liền hai nút để so' },
+      { hien: 'bed', doc: 'bed', ipa: '/bed/', nhom: 'Cặp /æ/ và /e/ — bấm liền hai nút để so' },
+      { hien: 'man', doc: 'man', ipa: '/mæn/', nhom: 'Cặp /æ/ và /e/ — bấm liền hai nút để so' },
+      { hien: 'men', doc: 'men', ipa: '/men/', nhom: 'Cặp /æ/ và /e/ — bấm liền hai nút để so' },
+      { hien: 'sat', doc: 'sat', ipa: '/sæt/', nhom: 'Cặp /æ/ và /e/ — bấm liền hai nút để so' },
+      { hien: 'set', doc: 'set', ipa: '/set/', nhom: 'Cặp /æ/ và /e/ — bấm liền hai nút để so' },
+      { hien: 'ship', doc: 'ship', ipa: '/ʃɪp/', nhom: 'Cặp /ɪ/ ngắn và /iː/ dài' },
+      { hien: 'sheep', doc: 'sheep', ipa: '/ʃiːp/', nhom: 'Cặp /ɪ/ ngắn và /iː/ dài' },
+      { hien: 'live', doc: 'live', ipa: '/lɪv/', nhom: 'Cặp /ɪ/ ngắn và /iː/ dài', ghi: 'Nói "I want to live" mà đọc thành /liːv/ là "tôi muốn rời đi".' },
+      { hien: 'leave', doc: 'leave', ipa: '/liːv/', nhom: 'Cặp /ɪ/ ngắn và /iː/ dài' },
+      { hien: 'bit', doc: 'bit', ipa: '/bɪt/', nhom: 'Cặp /ɪ/ ngắn và /iː/ dài' },
+      { hien: 'beat', doc: 'beat', ipa: '/biːt/', nhom: 'Cặp /ɪ/ ngắn và /iː/ dài' },
+      { hien: 'cup', doc: 'cup', ipa: '/kʌp/', nhom: 'Cặp /ʌ/ và /ɒ/' },
+      { hien: 'cop', doc: 'cop', ipa: '/kɒp/', nhom: 'Cặp /ʌ/ và /ɒ/' },
+      { hien: 'nut', doc: 'nut', ipa: '/nʌt/', nhom: 'Cặp /ʌ/ và /ɒ/' },
+      { hien: 'not', doc: 'not', ipa: '/nɒt/', nhom: 'Cặp /ʌ/ và /ɒ/' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Từ nào chứa âm /æ/?', opts: ['cat', 'cut', 'cot', 'coat'], a: 'cat' },
       { id: 2, q: 'Từ nào chứa âm /ʌ/?', opts: ['cup', 'cap', 'cop', 'keep'], a: 'cup' },
@@ -234,6 +266,38 @@ export const foundationData = [
         c: '→ coat /kəʊt/ (áo khoác) ≠ caught /kɔːt/ (bắt được)\n→ so /səʊ/ ≠ saw /sɔː/\n→ boat /bəʊt/ ≠ bought /bɔːt/\n👉 /əʊ/ bắt đầu ở "ơ" rồi trượt sang "u" — môi tròn dần lại.\n👉 /ɔː/ giữ nguyên một khẩu hình tròn từ đầu đến cuối, kéo dài.'
       },
     ],
+    // ══ NGHE NĂM NGUYÊN ÂM DÀI VÀ TÁM NGUYÊN ÂM ĐÔI ══
+    // Nguyên âm đôi là HAI âm trượt vào nhau — thứ mô tả bằng chữ kém nhất và
+    // nghe ra ngay nhất. Nhóm cuối là cặp /əʊ/ với /ɔː/, cặp bài ghi là "cực
+    // dễ nhầm"; coat ≠ caught chỉ thuyết phục khi bấm liền hai nút.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: '/iː/', doc: 'see', ipa: '/siː/', nhom: 'Năm nguyên âm dài — nhận ra bằng dấu ː' },
+      { hien: '/ɑː/', doc: 'car', ipa: '/kɑː/', nhom: 'Năm nguyên âm dài — nhận ra bằng dấu ː' },
+      { hien: '/ɔː/', doc: 'door', ipa: '/dɔː/', nhom: 'Năm nguyên âm dài — nhận ra bằng dấu ː' },
+      { hien: '/uː/', doc: 'food', ipa: '/fuːd/', nhom: 'Năm nguyên âm dài — nhận ra bằng dấu ː' },
+      { hien: '/ɜː/', doc: 'bird', ipa: '/bɜːd/', nhom: 'Năm nguyên âm dài — nhận ra bằng dấu ː', ghi: 'Tiếng Việt không có âm này — không phải "ơ", không phải "â".' },
+      { hien: 'girl', doc: 'girl', ipa: '/ɡɜːl/', nhom: '/ɜː/ — âm tiếng Việt không có' },
+      { hien: 'nurse', doc: 'nurse', ipa: '/nɜːs/', nhom: '/ɜː/ — âm tiếng Việt không có' },
+      { hien: 'turn', doc: 'turn', ipa: '/tɜːn/', nhom: '/ɜː/ — âm tiếng Việt không có' },
+      { hien: 'world', doc: 'world', ipa: '/wɜːld/', nhom: '/ɜː/ — âm tiếng Việt không có' },
+      { hien: '/eɪ/', doc: 'day', ipa: '/deɪ/', nhom: 'Tám nguyên âm đôi' },
+      { hien: '/aɪ/', doc: 'my', ipa: '/maɪ/', nhom: 'Tám nguyên âm đôi' },
+      { hien: '/ɔɪ/', doc: 'boy', ipa: '/bɔɪ/', nhom: 'Tám nguyên âm đôi' },
+      { hien: '/əʊ/', doc: 'go', ipa: '/ɡəʊ/', nhom: 'Tám nguyên âm đôi' },
+      { hien: '/aʊ/', doc: 'now', ipa: '/naʊ/', nhom: 'Tám nguyên âm đôi' },
+      { hien: '/ɪə/', doc: 'here', ipa: '/hɪə/', nhom: 'Tám nguyên âm đôi' },
+      { hien: '/eə/', doc: 'hair', ipa: '/heə/', nhom: 'Tám nguyên âm đôi' },
+      { hien: '/ʊə/', doc: 'tour', ipa: '/tʊə/', nhom: 'Tám nguyên âm đôi' },
+      { hien: 'coat', doc: 'coat', ipa: '/kəʊt/', nhom: 'Cặp cực dễ nhầm: /əʊ/ và /ɔː/' },
+      { hien: 'caught', doc: 'caught', ipa: '/kɔːt/', nhom: 'Cặp cực dễ nhầm: /əʊ/ và /ɔː/' },
+      { hien: 'so', doc: 'so', ipa: '/səʊ/', nhom: 'Cặp cực dễ nhầm: /əʊ/ và /ɔː/' },
+      { hien: 'saw', doc: 'saw', ipa: '/sɔː/', nhom: 'Cặp cực dễ nhầm: /əʊ/ và /ɔː/' },
+      { hien: 'boat', doc: 'boat', ipa: '/bəʊt/', nhom: 'Cặp cực dễ nhầm: /əʊ/ và /ɔː/' },
+      { hien: 'bought', doc: 'bought', ipa: '/bɔːt/', nhom: 'Cặp cực dễ nhầm: /əʊ/ và /ɔː/' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Từ "bird" chứa nguyên âm nào?', opts: ['/ɜː/', '/ɑː/', '/ɔː/', '/e/'], a: '/ɜː/' },
       { id: 2, q: 'Từ nào chứa /uː/?', opts: ['food', 'foot', 'fought', 'fat'], a: 'food' },
@@ -274,6 +338,37 @@ export const foundationData = [
         c: '❌ Đọc /θ/ thành /t/: think → "tink", three → "tree"\n❌ Đọc /θ/ thành /s/: think → "sink", thing → "sing"\n❌ Đọc /ð/ thành /d/ hoặc /z/: this → "dis", they → "day"\n⚠️ Đây không phải chuyện "giọng chưa hay" — nó đổi nghĩa: think ≠ sink (chìm), three ≠ tree (cái cây), thing ≠ sing (hát).\n📌 Chịu khó thè đầu lưỡi ra một chút trong 2 tuần đầu, sau đó thành phản xạ.'
       },
     ],
+    // ══ NGHE HAI ÂM "TH" ══
+    // Bài dạy phân biệt /θ/ (không rung) với /ð/ (có rung) bằng cách bảo người
+    // học đặt tay lên cổ họng. Việc đó chỉ làm được khi có tiếng để đọc theo.
+    //
+    // Nhóm cuối là ba lỗi thay thế bài nêu đích danh — think→sink, three→tree,
+    // thing→sing. Ở đây `hien` là TỪ SAI để người học nghe cái mình đang đọc
+    // nhầm thành, rồi so với nhóm /θ/ ngay trên.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: 'think', doc: 'think', ipa: '/θɪŋk/', nhom: '/θ/ — không rung cổ họng' },
+      { hien: 'thank', doc: 'thank', ipa: '/θæŋk/', nhom: '/θ/ — không rung cổ họng' },
+      { hien: 'three', doc: 'three', ipa: '/θriː/', nhom: '/θ/ — không rung cổ họng' },
+      { hien: 'thin', doc: 'thin', ipa: '/θɪn/', nhom: '/θ/ — không rung cổ họng' },
+      { hien: 'mouth', doc: 'mouth', ipa: '/maʊθ/', nhom: '/θ/ — không rung cổ họng' },
+      { hien: 'month', doc: 'month', ipa: '/mʌnθ/', nhom: '/θ/ — không rung cổ họng' },
+      { hien: 'both', doc: 'both', ipa: '/bəʊθ/', nhom: '/θ/ — không rung cổ họng' },
+      { hien: 'health', doc: 'health', ipa: '/helθ/', nhom: '/θ/ — không rung cổ họng' },
+      { hien: 'this', doc: 'this', ipa: '/ðɪs/', nhom: '/ð/ — có rung cổ họng' },
+      { hien: 'that', doc: 'that', ipa: '/ðæt/', nhom: '/ð/ — có rung cổ họng' },
+      { hien: 'these', doc: 'these', ipa: '/ðiːz/', nhom: '/ð/ — có rung cổ họng' },
+      { hien: 'those', doc: 'those', ipa: '/ðəʊz/', nhom: '/ð/ — có rung cổ họng' },
+      { hien: 'they', doc: 'they', ipa: '/ðeɪ/', nhom: '/ð/ — có rung cổ họng' },
+      { hien: 'there', doc: 'there', ipa: '/ðeə/', nhom: '/ð/ — có rung cổ họng' },
+      { hien: 'mother', doc: 'mother', ipa: '/ˈmʌðə/', nhom: '/ð/ — có rung cổ họng' },
+      { hien: 'father', doc: 'father', ipa: '/ˈfɑːðə/', nhom: '/ð/ — có rung cổ họng' },
+      { hien: 'sink', doc: 'sink', nhom: 'Đọc sai thành từ khác — nghe rồi so với nhóm /θ/ ở trên', ghi: 'think đọc sai thành sink (chìm).' },
+      { hien: 'tree', doc: 'tree', nhom: 'Đọc sai thành từ khác — nghe rồi so với nhóm /θ/ ở trên', ghi: 'three đọc sai thành tree (cái cây).' },
+      { hien: 'sing', doc: 'sing', nhom: 'Đọc sai thành từ khác — nghe rồi so với nhóm /θ/ ở trên', ghi: 'thing đọc sai thành sing (hát).' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Vị trí lưỡi khi phát âm /θ/ và /ð/?', opts: ['Đầu lưỡi giữa hai hàm răng', 'Lưỡi cong lên vòm miệng', 'Lưỡi chạm răng dưới', 'Lưỡi thu về sau'], a: 'Đầu lưỡi giữa hai hàm răng' },
       { id: 2, q: '/θ/ và /ð/ khác nhau ở điểm nào?', opts: ['/θ/ không rung cổ họng, /ð/ có rung', '/θ/ có rung, /ð/ không rung', 'Khác vị trí lưỡi', 'Khác độ dài âm'], a: '/θ/ không rung cổ họng, /ð/ có rung' },
@@ -314,6 +409,27 @@ export const foundationData = [
         c: '1️⃣ Đọc chậm, cố ý kéo dài âm cuối quá mức trong giai đoạn đầu: "boookSSS".\n2️⃣ Đặt tay trước miệng — âm /t/, /k/, /p/ cuối phải thấy hơi bật ra.\n3️⃣ Ghi âm lại rồi nghe: nghe lại chính mình là cách phát hiện nuốt âm nhanh nhất.\n📌 Ứng dụng này có phần Luyện Nói và Nghe Chép Chính Tả — dùng đúng hai phần đó để tự kiểm.'
       },
     ],
+    // ══ NGHE ÂM CUỐI ══
+    // Bài này khó nghe ra nhất trong cả cụm: khác biệt nằm ở PHẦN CUỐI từ, chỗ
+    // người Việt quen khép miệng lại. Bốn từ /waɪ.../ và bốn từ /biː.../ giống
+    // hệt nhau tới âm cuối, nên xếp liền nhau là nghe ra ngay chỗ khác.
+    nghe: {
+      giong: 'en-GB',
+      muc: [
+      { hien: 'car', doc: 'car', ipa: '/kɑː/', nhom: 'car ≠ card — thêm một âm cuối là đổi từ' },
+      { hien: 'card', doc: 'card', ipa: '/kɑːd/', nhom: 'car ≠ card — thêm một âm cuối là đổi từ' },
+      { hien: 'why', doc: 'why', ipa: '/waɪ/', nhom: 'Bốn từ chỉ khác âm cuối' },
+      { hien: 'wife', doc: 'wife', ipa: '/waɪf/', nhom: 'Bốn từ chỉ khác âm cuối' },
+      { hien: 'wine', doc: 'wine', ipa: '/waɪn/', nhom: 'Bốn từ chỉ khác âm cuối' },
+      { hien: 'wide', doc: 'wide', ipa: '/waɪd/', nhom: 'Bốn từ chỉ khác âm cuối' },
+      { hien: 'bee', doc: 'bee', ipa: '/biː/', nhom: 'Bốn từ nữa, cùng kiểu' },
+      { hien: 'beat', doc: 'beat', ipa: '/biːt/', nhom: 'Bốn từ nữa, cùng kiểu' },
+      { hien: 'beach', doc: 'beach', ipa: '/biːtʃ/', nhom: 'Bốn từ nữa, cùng kiểu' },
+      { hien: 'bead', doc: 'bead', ipa: '/biːd/', nhom: 'Bốn từ nữa, cùng kiểu' },
+      { hien: 'they', doc: 'they', ipa: '/ðeɪ/', nhom: 'they ≠ their' },
+      { hien: 'their', doc: 'their', ipa: '/ðeə/', nhom: 'they ≠ their' },
+      ],
+    },
     exercises: [
       { id: 1, q: 'Vì sao người Việt hay nuốt âm cuối tiếng Anh?', opts: ['Vì tiếng Việt không bật hơi ở phụ âm cuối', 'Vì tiếng Anh nói quá nhanh', 'Vì âm cuối không quan trọng', 'Vì thiếu từ vựng'], a: 'Vì tiếng Việt không bật hơi ở phụ âm cuối' },
       { id: 2, q: '"He works here" mà bỏ âm /s/ cuối thì mất thông tin gì?', opts: ['Dấu hiệu ngôi thứ ba số ít', 'Dấu hiệu thì quá khứ', 'Dấu hiệu số nhiều của "here"', 'Không mất gì'], a: 'Dấu hiệu ngôi thứ ba số ít' },

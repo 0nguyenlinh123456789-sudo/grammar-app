@@ -39,8 +39,16 @@ test('mọi bài có `nghe` đều có mục đọc được — không bài nà
     for (const m of muc) {
       assert.ok(m.hien && String(m.hien).trim(), `${t.id}: có mục thiếu \`hien\` — không vẽ được nút`);
     }
-    const trung = muc.map((m) => m.hien);
-    assert.equal(new Set(trung).size, trung.length, `${t.id}: \`hien\` trùng nhau — React key đụng độ`);
+    const theoNhom = new Map();
+    for (const m of muc) {
+      const k = m.nhom || '';
+      if (!theoNhom.has(k)) theoNhom.set(k, []);
+      theoNhom.get(k).push(m.hien);
+    }
+    for (const [ten, ds] of theoNhom) {
+      assert.equal(new Set(ds).size, ds.length,
+        `${t.id} · nhóm "${ten}": \`hien\` trùng nhau — React key đụng độ giữa hai anh em`);
+    }
   }
 });
 
@@ -55,6 +63,30 @@ test('bảng chữ cái đủ 26 chữ và khớp IPA đã dạy ở phần lý 
   for (const m of t.nghe.muc) {
     assert.ok(lyThuyet.includes(`${m.hien} ${m.ipa}`),
       `chữ ${m.hien}: IPA "${m.ipa}" ở phần nghe không có trong bảng ở phần lý thuyết`);
+  }
+});
+
+// ── MỐC CHUNG: THỨ MÁY ĐỌC PHẢI LẤY TỪ CHÍNH BÀI ĐÓ ───────────────────────
+// Áp cho MỌI bài có `nghe`, không chỉ hai bài đầu. Cả cụm A0 là 12 bài dạy
+// phát âm, nên chỗ hỏng nguy hiểm nhất không phải code mà là DỮ LIỆU LỆCH:
+// người học nghe một từ, đọc một từ khác, và không phép kiểm nào kêu.
+//
+// Mốc cố ý viết ở dạng "có mặt nguyên văn trong lý thuyết" chứ không phải một
+// danh sách riêng: danh sách riêng thì hai bên trôi độc lập, còn thế này thì
+// sửa lý thuyết mà quên phần nghe là ĐỎ ngay.
+test('mọi thứ máy đọc đều có mặt nguyên văn trong phần lý thuyết của chính bài đó', () => {
+  for (const t of coNghe) {
+    const lyThuyet = t.theory.map((s) => s.c).join('\n');
+    for (const m of t.nghe.muc) {
+      assert.ok(lyThuyet.includes(m.doc),
+        `${t.id}: máy sẽ đọc "${m.doc}" nhưng bài không hề dạy chuỗi đó`);
+      // `ipa` không bắt buộc — bài Nhịp Câu và Nối Âm nói cả CỤM và CẢ CÂU,
+      // không có phiên âm đi kèm. Nhưng đã ghi thì phải khớp chỗ lý thuyết ghi.
+      if (m.ipa) {
+        assert.ok(lyThuyet.includes(`${m.doc} ${m.ipa}`) || lyThuyet.includes(`${m.hien} ${m.ipa}`),
+          `${t.id}: cặp "${m.doc} ${m.ipa}" không có trong lý thuyết — một trong hai bên đã trôi`);
+      }
+    }
   }
 });
 
